@@ -1,32 +1,132 @@
 Oportunidade de trabalho na Field Control
 ===========================================
 
-Venha trabalhar na área de tecnologia da Field Control. Utilizamos os princípios ágeis para criação de software e nosso clima é de extrema colaboração. 
+A empresa
+----------
 
-Se você tem interesse em fazer parte de uma equipe multidisciplinar e que adora criar software com qualidade, siga os seguintes passos:
+Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos. 
 
-Faça um fork desse projeto e faça um pull request com a resolução do seguinte problema:
+Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
 
-Exercício de programação: As principais palavras
--------------------------------------------------------
-
-Você deverá criar um programa para obter automaticamente o conteúdo dos dez últimos tópicos publicados no blog da Field Control. Abaixo segue um link para auxiliá-lo nesse trabalho:
-
-https://fieldcontrol.com.br/blog/feed/
-
-Caso tenha problemas em obter o feed, deixamos um arquivo feed.xml aqui no repositório.
-
-O seu programa deverá avaliar quais as dez principais palavras abordadas nesses tópicos e qual o número de vezes que elas aparecem. Também deverá exibir a quantidade de palavras por tópico. Além disso, deverão ser removidos os artigos e preposições nessa análise.
-
-A linguagem que mais utilizamos é node.Js. Porém, você poderá realizar o exercício na linguagem de programação de sua preferência.
+Nossa missão é melhorar a prestação de serviços no Brasil.
 
 Condições
 ----------
 - Regime de trabalho: CLT
 - Período: Integral
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom e possuímos um ambiente de trabalho muito agradável. A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd) e possuímos um ambiente de trabalho muito agradável. A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
 
 Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
 
 Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
+
+Oportunidade
+----------
+
+Estamos em busca de desenvolvedores apaixonados pelo que fazem para integrar nosso time de desenvolvimento.
+
+Utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
+
+Na Field o seu dia-a-dia será repleto de:
+
+- Github & Git <3
+- Muito, muito e muito JavaScript 
+- Serverless
+- Cloud Services
+- Testes de software (unitários, integração)
+- Práticas e princípios ágeis 
+- Desafios de escalabilidade
+- Aplicações com alta disponibilidade
+- Continuous Integration
+- Continuous Deployment
+- Amazon Web Services
+- Micro services e aplicações distribuídas
+- AngularJS, Angular5+
+- Material Design
+
+Nossa stack é praticamente toda em JavaScript, Node.js, SPA's e Hybrid Mobile Apps.
+
+Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada desafio, então para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também na nossa stack.
+
+Nossos servidores estão na AWS e usamos a núvem como plataforma, temos apps rodando no Elastic BeanStalk, Heroku e Serverless na AWS Lambda :)
+
+Os desafios de programação
+----------
+
+Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou os dois) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
+
+< challenge >Frontend Developer</ challenge >
+----------
+
+Crie um SPA que permitirá que um usuário pesquise repositórios pelo nome (os resultados devem ser paginados) e exiba informações relevantes de um repositório, como URL, descrição, contagem de watchers, de estrelas, issues, etc.
+
+Implemente o melhor design possível para a interface do usuário - resultados de pesquisa e pesquisa e seção de problemas.
+
+Você pode usar Twitter Bootstrap, Google Material ou qualquer outro framework de interfaces da sua preferência.
+
+SPA Framework? Aqui usamos bastante AngularJS e Angular5, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
+
+Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
+
+URLs úteis:
+
+|  URL  | Descrição      
+|--------|                                  --- |            
+| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
+| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
+
+Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
+
+A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste. 
+Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou alguma sobre Cats enfim.. 
+
+{ "challenge": "Backend Developer" }
+----------
+
+Desenvolver uma API JSON RESTful em JavaScript que utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) e que salve essas informações em algum lugar.
+
+Qual Web Framework? pode ser Express.js, Hapi, Restify, Koa, fastify.. o que você preferir :P
+Qual Banco de dados? Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+
+Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+
+Você terá que expor os seguintes endpoints para o recurso escolhido:
+
+| METHOD | URL  | Comportamento esperado                               | 
+|--------| ---  |                                                  --- |
+| GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso | 
+| GET    | /resources/:id | Recupera um recursos em especifico pelo id | 
+| POST   | /resources     | Insere um novo recurso                     | 
+| PUT    | /resources/:id | Altera um recurso existente                | 
+| PATCH  | /resources/:id | Altera parcialmente um recurso existente   | 
+| DELETE | /resources/:id | Exclui um recurso existente                | 
+
+ **Atenção:**
+ Você deve se preocupar com sanitização, validação e semântica. 
+
+Dúvidas?
+----------
+Abra um issue que nós responderemos :)
+
+Avaliação
+----------
+
+Entre os critérios de avaliação estão:
+
+- Código limpo e organização
+- Testes de software
+- Semântica
+- Documentação de código
+- Documentação do projeto (README)
+- Segurança
+
+Entrega
+----------
+
+Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, então quando for enviar seu pullrequest, por favor responda:
+
+- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+- Porque você optou pela tecnologia X e não a Y
+- Desafios e problemas que você enfrentou e como você resolveu
+- O que você entende que pode ser melhorado e como fazer isso
