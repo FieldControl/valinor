@@ -137,5 +137,5 @@ E ai? Let's code?
 ----------
 
 <p align="center">
-  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+  <img src="https://raw.githubusercontent.com/FieldControl/valinor/master/cat.gif">
 </p>
