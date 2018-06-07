@@ -124,9 +124,18 @@ Entre os critérios de avaliação estão:
 Entrega
 ----------
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, então quando for enviar seu pullrequest, por favor responda:
+Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
+
+Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, então quando for enviar seu pull request, por favor responda:
 
 - Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
 - Porque você optou pela tecnologia X e não a Y
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
+
+E ai? Let's code?
+----------
+
+<p align="center">
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+</p>
