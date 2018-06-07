@@ -24,11 +24,11 @@ Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: 
 Oportunidade
 ----------
 
-Estamos em busca de desenvolvedores apaixonados pelo que fazem para integrar nosso time de desenvolvimento.
+Estamos em busca de desenvolvedores apaixonados pelo que fazem para somar no nosso time de desenvolvimento.
 
-Utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
+Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
 
-Na Field o seu dia-a-dia será repleto de:
+Na Field, o seu dia-a-dia será repleto de:
 
 - Github & Git <3
 - Muito, muito e muito JavaScript 
@@ -45,18 +45,18 @@ Na Field o seu dia-a-dia será repleto de:
 - AngularJS, Angular5+
 - Material Design
 
-Nossa stack é praticamente toda em JavaScript, Node.js, SPA's e Hybrid Mobile Apps.
+Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada desafio, então para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também na nossa stack.
+Mas acreditamos que bons desenvolvedores usam a melhor ferramenta para cada desafio, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também na nossa stack.
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma, temos apps rodando no Elastic BeanStalk, Heroku e Serverless na AWS Lambda :)
+Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, Heroku e Serverless na AWS Lambda :)
 
 Os desafios de programação
 ----------
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou os dois) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-< challenge >Frontend Developer</ challenge >
+< challenge > Frontend Developer </ challenge >
 ----------
 
 Crie um SPA que permitirá que um usuário pesquise repositórios pelo nome (os resultados devem ser paginados) e exiba informações relevantes de um repositório, como URL, descrição, contagem de watchers, de estrelas, issues, etc.
