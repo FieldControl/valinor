@@ -79,7 +79,7 @@ URLs úteis:
 Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
 
 A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste. 
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou alguma sobre Cats enfim.. 
+Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
 
 { "challenge": "Backend Developer" }
 ----------
