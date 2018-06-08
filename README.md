@@ -56,7 +56,7 @@ Os desafios de programação
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou os dois) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-< challenge > Frontend Developer </ challenge >
+&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
 ----------
 
 Crie um SPA que permitirá que um usuário pesquise repositórios pelo nome (os resultados devem ser paginados) e exiba informações relevantes de um repositório, como URL, descrição, contagem de watchers, de estrelas, issues, etc.
