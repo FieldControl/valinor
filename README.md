@@ -33,18 +33,23 @@ Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para cria
 
 Na Field, o seu dia-a-dia será repleto de:
 
-- Github & Git <3
-- Muito, muito e muito JavaScript 
-- Serverless
-- Cloud Services
-- Testes de software (unitários, integração, e2e..)
-- Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)
-- Desafios de escalabilidade
-- Desafios de alta disponibilidade
-- Amazon Web Services
-- Micro services e aplicações distribuídas
-- AngularJS, Angular5+
-- Material Design
+```javascript
+[
+  'Github & Git <3',
+  'Muito, muito e muito JavaScript',
+  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
+  'Testes de software (unitários, integração, e2e..)'
+  'Desafios de escalabilidade',
+  'Desafios de alta disponibilidade',
+  'Micro services e aplicações distribuídas',
+  'Amazon Web Services',
+  'PAAS & Cloud Services',
+  'Serverless apps',
+  'AngularJS, Angular5+',
+  'Material Design',
+  'Open source software'
+]
+```
 
 Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
 
