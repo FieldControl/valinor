@@ -14,8 +14,11 @@ Condições
 ----------
 - Regime de trabalho: CLT
 - Período: Integral
+- Onde: São José do Rio Preto / SP 
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd) e possuímos um ambiente de trabalho muito agradável. A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
+
+Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho muito agradável. A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
 
 Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
 
@@ -34,12 +37,10 @@ Na Field, o seu dia-a-dia será repleto de:
 - Muito, muito e muito JavaScript 
 - Serverless
 - Cloud Services
-- Testes de software (unitários, integração)
-- Práticas e princípios ágeis 
+- Testes de software (unitários, integração, e2e..)
+- Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)
 - Desafios de escalabilidade
-- Aplicações com alta disponibilidade
-- Continuous Integration
-- Continuous Deployment
+- Desafios de alta disponibilidade
 - Amazon Web Services
 - Micro services e aplicações distribuídas
 - AngularJS, Angular5+
@@ -47,9 +48,9 @@ Na Field, o seu dia-a-dia será repleto de:
 
 Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
 
-Mas acreditamos que bons desenvolvedores usam a melhor ferramenta para cada desafio, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também na nossa stack.
+Mas acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP na nossa stack.
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, Heroku e Serverless na AWS Lambda :)
+Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3, Heroku e Serverless na AWS Lambda :)
 
 Os desafios de programação
 ----------
@@ -59,7 +60,7 @@ Se você **realmente ama** trabalhar com desenvolvimento de software e quer desa
 &lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
 ----------
 
-Crie um SPA que permitirá que um usuário pesquise repositórios pelo nome (os resultados devem ser paginados) e exiba informações relevantes de um repositório, como URL, descrição, contagem de watchers, de estrelas, issues, etc.
+Desenvolva um SPA que permitirá que um usuário pesquise repositórios pelo nome (os resultados devem ser paginados) e exiba informações relevantes de um repositório, como URL, descrição, contagem de watchers, de estrelas, issues, etc.
 
 Implemente o melhor design possível para a interface do usuário - resultados de pesquisa e pesquisa e seção de problemas.
 
