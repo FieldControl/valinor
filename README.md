@@ -35,7 +35,7 @@ Na Field, o seu dia-a-dia será repleto de:
 
 ```javascript
 [
-  'Github & Git <3',
+  'GitHub & Git <3',
   'Muito, muito e muito JavaScript',
   'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
   'Testes de software (unitários, integração, e2e..)',
