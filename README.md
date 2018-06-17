@@ -37,6 +37,7 @@ Na Field, o seu dia-a-dia será repleto de:
 [
   'GitHub & Git <3',
   'Muito, muito e muito JavaScript',
+  'Object-oriented programming, SOLID Principles & Design Patterns',
   'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
   'Testes de software (unitários, integração, e2e..)',
   'Desafios de escalabilidade',
