@@ -91,23 +91,36 @@ Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](h
 { "challenge": "Backend Developer" }
 ----------
 
-Desenvolver uma API JSON RESTful em JavaScript que utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) e que salve essas informações em algum lugar.
+Desenvolver uma API JSON RESTful ou GraphQL em JavaScript expondo operações de um CRUD.
 
-Qual Web Framework? pode ser Express.js, Hapi, Restify, Koa, fastify.. o que você preferir :P
-Qual Banco de dados? Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
-Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+Se optar pela API REST, utilize todos os métodos (GET, POST, PUT, PATCH, DELETE)
 
 Você terá que expor os seguintes endpoints para o recurso escolhido:
 
-| METHOD | URL  | Comportamento esperado                               | 
+| Método | URL  | Comportamento esperado                               | 
 |--------| ---  |                                                  --- |
 | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso | 
 | GET    | /resources/:id | Recupera um recursos em especifico pelo id | 
 | POST   | /resources     | Insere um novo recurso                     | 
 | PUT    | /resources/:id | Altera um recurso existente                | 
 | PATCH  | /resources/:id | Altera parcialmente um recurso existente   | 
-| DELETE | /resources/:id | Exclui um recurso existente                | 
+| DELETE | /resources/:id | Exclui um recurso existente                |
+
+Se optar pela GraphQL API:
+
+| Tipo      | O quê?  | Comportamento esperado                               | 
+|--------   | ---     |                                                  --- |
+| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
+| Query     | Recuperar um item | Recupera um item pelo id | 
+| Mutation  | Adicionar um item | Insere um novo item                     | 
+| Mutation  | Atualizar um item | Altera um item existente                | 
+| Mutation  | Excluir um item   | Remove um item existente                | 
+
+- **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, graphql-js, graphql-yoga.. o que você preferir :P
+
+- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+
+Pense em algum recurso/item (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
 
  **Atenção:**
  Você deve se preocupar com sanitização, validação e semântica. 
@@ -122,7 +135,7 @@ Avaliação
 Entre os critérios de avaliação estão:
 
 - Código limpo e organização
-- Testes de software
+- Testes de software (unitários e integrados)
 - Semântica
 - Documentação de código
 - Documentação do projeto (README)
