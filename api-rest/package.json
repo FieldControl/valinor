@@ -1,0 +1,34 @@
+{
+  "name": "api-rest-teste",
+  "version": "1.0.0",
+  "description": "Teste para Field Control",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon cluster.js",
+    "test": "cross-env NODE_ENV=test node node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "teste"
+  ],
+  "author": "Tadeu Tupinambá",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "consign": "^0.1.6",
+    "express": "^4.16.3",
+    "express-validator": "^5.3.0",
+    "http": "0.0.0",
+    "lodash": "^4.17.10",
+    "mocha": "^5.2.0",
+    "morgan": "^1.9.0",
+    "mysql": "^2.16.0",
+    "request": "^2.87.0",
+    "winston": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "supertest": "^3.1.0"
+  }
+}

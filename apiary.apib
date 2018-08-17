@@ -1,0 +1,166 @@
+FORMAT: 1A
+HOST: http://localhost:3000
+
+# API em NodeJS Desenvolvido por Tadeu Tupinambá
+
+API simples desenvolvida em NodeJS, afim de representar um CRUD em REST, 
+utilizando NodeJs, Express, Mocha, Supertest 
+
+## Resource Collection [/resources?page=1&limit=5]
+
+### Listar todos os Recursos com paginação [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 3,
+                "nome": "Luiz Frenenda",
+                "email": "freneda@gmail.com",
+                "status": "UPDATE",
+                "data": "2018-08-08T03:00:00.000Z"
+            },
+            {
+                "id": 4,
+                "nome": "JUREMA",
+                "email": "JUREMA@email.com",
+                "status": "UPDATE",
+                "data": "2018-08-08T03:00:00.000Z"
+            },
+            {
+                "id": 5,
+                "nome": "Tadeu",
+                "email": "tadeu@email.com",
+                "status": "UPDATE",
+                "data": "2010-09-21T03:00:00.000Z"
+            },
+            {
+                "id": 6,
+                "nome": "Maximillian",
+                "email": "lora00@example.net",
+                "status": "INICIAL",
+                "data": "2007-09-13T03:00:00.000Z"
+            },
+            {
+                "id": 7,
+                "nome": "Aliyah",
+                "email": "bkozey@example.com",
+                "status": "INICIAL",
+                "data": "1982-12-27T02:00:00.000Z"
+            }
+        ]
+
+## Get Resource [/resources/:id]
+
+### Receber recurso a partir do Id [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 10,
+                "nome": "Wilfred",
+                "email": "kassulke.margaret@example.org",
+                "status": "INICIAL",
+                "data": "1985-05-08T03:00:00.000Z"
+            }
+        ]
+
+## Resource Inserção [/resources]
+
+### Criar novo Recurso [POST]
+
+Caso queira cadastrar um novo recurso no Banco de dados você precisa enviar 
+um JSON contendo obrigatoriamente "nome" e "email".
+
++ Request (application/json)
+
+        {
+            "nome":"Tadeu",
+            "email":"tadeu.tupiz@gmail.com"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /resources/2
+
+    + Body
+
+            {
+                "status": "FOI CRIADO",
+                "data": {
+                    "nome": "Tadeu",
+                    "email": "tadeu.tupiz@gmail.com",
+                    "status": "CRIADO",
+                    "data": "2018-08-09T20:07:30.449Z",
+                    "id": 127
+                }
+            }
+        
+
+## Resource Update [/resources/id]
+
+### Atualizar Recurso [PUT]
+
+Caso queira atualizar um recurso no Banco de dados você precisa enviar 
+um JSON contendo obrigatoriamente "nome" e "email".
+
++ Request (application/json)
+
+        {
+            "nome":"Tadeu",
+            "email":"tadeu.tupiz@gmail.com"
+        }
+
++ Response 200 (application/json)
+
+
+    + Body
+
+            {
+                "status": "FOI ATUALIZADO",
+                "data": {
+                    "nome": "Tadeu Humberto",
+                    "email": "tadeu@email.com",
+                    "id": "10",
+                    "status": "UPDATE",
+                    "data": "2018-08-09T20:15:55.641Z"
+                }
+            }
+            
+## Resource partial Update [/resources/id]
+
+### Atualizar parte de Recurso [PATCH]
+
+Caso queira atualizar um recurso no Banco de dados você precisa enviar 
+um JSON com os dados que deseja atualizar no objeto de ID.
+
++ Request (application/json)
+
+        {
+            "nome":"Tadeu"
+        }
+
++ Response 200 (application/json)
+
+
+    + Body
+
+            {
+                "status": "FOI ATUALIZADO",
+                "data": {
+                    "nome": "Tadeu Humberto",
+                    "id": "10",
+                    "status": "UPDATE",
+                    "data": "2018-08-09T20:17:04.409Z"
+                }
+            }
+
+           
+## Delete Resource [/resources/id]
+
+### Deletar Recurso [DELETE]
+
++ Response 204 (application/json)
