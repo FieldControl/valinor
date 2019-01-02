@@ -1,14 +1,16 @@
 ## Envio de solução
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
-
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+O projeto foi desenvolvido em Node.js (V8.12) + Express como framework backend em conjunto com o MongoDB (V4.0). 
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
+A escolha de todas tecnologias apresentadas na resolução desse desafio tem como foco a aprendizagem. Como nunca havia trabalhado com essas tecnologias, pensei em tentar utiliza-las para realmente me desafiar e aprender.
+
+Em específico o Express foi escolhido por ser um dos frameworks backend mais populares javascript, o que torna fácil encontrar soluções para possíveis problemas que posso enfrentar ao longo do desafio.
+
+Já o MongoDB foi escolhido por ter uma maior compatibilidade com o Node.js uma vez que que sua estrutura de dados é muito semelhante ao JSON. Além disso, o MongoDB tem esquemas dinâmicos, possibilitando assim eu alterar a estrutura do banco sem muita dificuldade, o que não ocorre em bancos SQL.
 
 **Desafios e problemas**
 

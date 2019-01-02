@@ -1,0 +1,24 @@
+{
+  "name": "valinor",
+  "version": "1.0.0",
+  "description": "Oportunidade de trabalho na Field Control\r ===========================================",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/systane/valinor.git"
+  },
+  "author": "Luis Fernando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/systane/valinor/issues"
+  },
+  "homepage": "https://github.com/systane/valinor#readme",
+  "dependencies": {
+    "es6-promisify": "^6.0.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.1"
+  }
+}
