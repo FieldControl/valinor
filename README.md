@@ -3,7 +3,6 @@ DOCUMENTAÇÃO DO PROJETO
 
 
 ## **ESTRUTURA DO BANCO**
-----------
  
 Foram criados dois bancos no [mlab](https://mlab.com) sendo um para a aplicação e outro para rodar os testes de integração, com as seguintes URIs de conexão:
 
@@ -21,7 +20,6 @@ O resource escolhido para esse projeto foi estabelecimentos que aceitam o ticket
 <br/>
 
 ## **DESCRIÇÃO DA API**
-----------
 
 A porta 8888 está exposta, e a partir dela é possível acessar a API de resources:
 
@@ -73,7 +71,7 @@ A porta 8888 está exposta, e a partir dela é possível acessar a API de resour
 <br/>
 
 ## **EXECUTANDO O PROJETO**
-----
+
 Foi criado no **package.json** dois scripts para iniciar a aplicação e rodar os testes de integração, mas antes de executar qualquer um desses dois scripts é necessário seguir os seguintes passos:
   1. Baixar as dependencias da aplicação
         
