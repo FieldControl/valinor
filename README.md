@@ -7,9 +7,9 @@ DOCUMENTAÇÃO DO PROJETO
  
 Foram criados dois bancos no [mlab](https://mlab.com) sendo um para a aplicação e outro para rodar os testes de integração, com as seguintes URIs de conexão:
 
- **Banco principal:** mongodb://admin:admin123@ds133041.mlab.com:33041/ticketalimentacao
+ **Banco principal:** `mongodb://admin:admin123@ds133041.mlab.com:33041/ticketalimentacao`
 
-**Banco de teste:** mongodb://admin:admin123@ds159926.mlab.com:59926/ticketalimentacao-test
+**Banco de teste:** `mongodb://admin:admin123@ds159926.mlab.com:59926/ticketalimentacao-test`
 
 O resource escolhido para esse projeto foi estabelecimentos que aceitam o ticket refeição. Assim, a seguinte modelagem da entidade foi projetada:
 
@@ -89,17 +89,4 @@ Foi criado no **package.json** dois scripts para iniciar a aplicação e rodar o
 
   **Obs:** É necessário ter conexão com a internet para poder realizar a conexão com o banco da aplicação.
 
-
-
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, então quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
-
-E ai? Let's code?
 ----------
