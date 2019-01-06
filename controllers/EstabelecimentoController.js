@@ -58,11 +58,6 @@ exports.atualizaEstabelecimento = async (req, res) => {
 
     const novoEstabelecimento = await estabelecimentoService.atualizaEstabelecimento(estabelecimento);
     
-    if(!novoEstabelecimento){
-        res.status(404).json({status:`Resource com id: ${estabelecimento._id} não existe`});
-        return;
-    }
-
     res.status(200).json({data: novoEstabelecimento});
 }
 

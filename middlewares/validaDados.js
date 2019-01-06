@@ -11,16 +11,16 @@ exports.validaDados = (req, res, next) => {
 
     req.checkBody('est_nome', 'Deve ser fornecido um nome').notEmpty().isString().trim().escape();
     req.checkBody('est_endereco', 'Deve ser fornecido um endereço').notEmpty().trim().escape();
-    req.checkBody('est_telefone', 'Deve ser fornecido um telefone').notEmpty().trim().escape().isLength({ min: 10, max:11 });
+    req.checkBody('est_telefone', 'Deve ser fornecido um telefone').notEmpty().trim().escape().isLength({ min: 10, max: 11 });
 
-    if(req.body.est_descricao){
+    if (req.body.est_descricao) {
         req.sanitizeBody('est_descricao');
         req.checkBody('est_descricao').isString().trim().escape();
     }
 
     const error = req.validationErrors();
 
-    if(error){
+    if (error) {
         res.status(500).json(error);
         return;
     }
@@ -32,26 +32,34 @@ exports.validaDados = (req, res, next) => {
  * Pelo fato do PATCH ter apenas parte(s) do recurso, foi implementado um método de sanitização específico.
  */
 exports.validaDadosPatch = (req, res, next) => {
-    for(let propriedade in req.body){
+    for (let propriedade in req.body) {
         req.sanitizeBody(propriedade);
 
-        if(propriedade === descricao){
+        if (propriedade === descricao) {
             req.checkBody(propriedade, `${propriedade} deve ser informada`).isString().trim().escape();
         }
-        else if(propriedade === telefone){
-            req.checkBody(propriedade, `${propriedade} deve ser informada`).notEmpty().trim().escape().isLength({ min: 10, max:11 });
+        else if (propriedade === telefone) {
+            req.checkBody(propriedade, `${propriedade} deve ser informada`).notEmpty().trim().escape().isLength({ min: 10, max: 11 });
         }
-        else{
+        else {
             req.checkBody(propriedade, `${propriedade} deve ser informada`).notEmpty().trim().escape();
         }
     }
 
     const error = req.validationErrors();
 
-    if(error){
+    if (error) {
         res.status(500).json(error);
         return;
     }
 
+    next();
+};
+
+exports.validaPaginacao = (req, res, next) => {
+    if(req.query.page && req.query.page <= 0){
+        res.status(500).json({status: 'Informe um número maior que zero'})
+        return;
+    }
     next();
 }

@@ -1,6 +1,5 @@
 require('dotenv').config({path: './config/variables.env'});
 require('./config/connection');
-require('./models/Estabelecimento');
 
 const app = require('./config/app');
 app.set('port', process.env.PORT);
