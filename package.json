@@ -4,7 +4,7 @@
   "description": "Oportunidade de trabalho na Field Control\r ===========================================",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": " nodemon ./start.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,14 @@
   },
   "homepage": "https://github.com/systane/valinor#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "es6-promisify": "^6.0.1",
     "express": "^4.16.4",
+    "express-validator": "^5.3.1",
     "mongoose": "^5.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }
