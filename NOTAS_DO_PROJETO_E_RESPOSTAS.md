@@ -7,7 +7,7 @@ O projeto desenvolvido é uma API de restaurantes que aceitam o ticket Alimenta�
 
 ### **Framework, linguagem e ferramentas**
 
-Utilizei **Node.js (V8.12) + Express** como framework backend. Para o banco de dados utilizei o [mLab](mlab.com) uma plataforma DBaaS para o **MongoDB (V3.6.9)**. E para o desenvolvimento foi utilizado o Vs Code.
+Utilizei **Node.js (V8.12) + Express** como framework backend. Para o banco de dados utilizei o [mLab](https://mlab.com) uma plataforma DBaaS para o **MongoDB (V3.6.9)**. E para o desenvolvimento foi utilizado o Vs Code.
 
 ### **Técnologias X e Y**
 
