@@ -25,7 +25,6 @@ A porta 8888 está exposta, e a partir dela é possível acessar a API de resour
 
 - **GET**
   - **Listagem paginada:** Para consultar todos os recursos cadastrados no banco, basta acessar http://localhost:8888/resources, e caso deseje mudar de página só é preciso adicionar o parametro `page` na url, http://localhost:8888/resources?page=1. <br/>
-  - **Listagem paginada:** Para consultar todos os recursos cadastrados no banco, basta acessar http://localhost:8888/resources, e caso deseje mudar de página só é preciso adicionar o parametro `page` na url, http://localhost:8888/resources?page=1. <br/>
   Vale ressaltar que caso seja enviado como parametro um número menor que 0, um erro com status 500 será retornado da aplicação.
 
   - **Listagem de recurso específico:** Para buscar um recurso específico é necessário acessar http://localhost:8888/resources/:id, sendo o `id` o identificador do resource.
