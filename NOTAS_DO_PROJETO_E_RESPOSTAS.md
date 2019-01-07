@@ -1,9 +1,8 @@
 ## NOTAS DO PROJETO
----
 
 ### **O que foi desenvolvido**
 
-O projeto desenvolvido é uma API de restaurantes que aceitam o ticket Alimentação. Esse recurso escolhido foi visando futuramente desenvolver uma lista pessoal de estabelecimentos que aceitam esse tipo de ticket.
+O projeto desenvolvido é uma API de restaurantes que aceitam o ticket Alimentação. Esse recurso foi escolhido visando futuramente desenvolver uma lista pessoal de estabelecimentos que aceitam esse tipo de ticket.
 
 ### **Framework, linguagem e ferramentas**
 

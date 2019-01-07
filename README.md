@@ -24,7 +24,9 @@ O resource escolhido para esse projeto foi estabelecimentos que aceitam o ticket
 A porta 8888 está exposta, e a partir dela é possível acessar a API de resources:
 
 - **GET**
-  - **Listagem paginada:** Para consulta todos os recursos cadastrados no banco, basta acessar http://localhost:8888/resources, e caso deseje mudar de página só é preciso adicionar o parametro `page` na url, http://localhost:8888/resources?page=1. Vale ressaltar que caso seja enviado como parametro um número menor que 0, um erro com status 500 será retornado da aplicação.
+  - **Listagem paginada:** Para consultar todos os recursos cadastrados no banco, basta acessar http://localhost:8888/resources, e caso deseje mudar de página só é preciso adicionar o parametro `page` na url, http://localhost:8888/resources?page=1. <br/>
+  - **Listagem paginada:** Para consultar todos os recursos cadastrados no banco, basta acessar http://localhost:8888/resources, e caso deseje mudar de página só é preciso adicionar o parametro `page` na url, http://localhost:8888/resources?page=1. <br/>
+  Vale ressaltar que caso seja enviado como parametro um número menor que 0, um erro com status 500 será retornado da aplicação.
 
   - **Listagem de recurso específico:** Para buscar um recurso específico é necessário acessar http://localhost:8888/resources/:id, sendo o `id` o identificador do resource.
 
@@ -40,10 +42,11 @@ A porta 8888 está exposta, e a partir dela é possível acessar a API de resour
      Caso alguma das propriedades do objeto acima não estejam presente no corpo da request, um erro será retornado do servidor.
 
 - **PUT**
-  - **Atualização de um recurso:** Esse método HTTP é responsável por atualizar um recurso por completo por meio url [localhost:8888/resources/:id](localhost:8888/resources/:id), assim é necessário enviar um objeto JSON semelhante ao exibido no POST. Vale ressaltar também que caso não exista nenhum recurso com o `id` informado, um novo objeto será criado no banco.
+  - **Atualização de um recurso:** Esse método HTTP é responsável por atualizar um recurso por completo por meio url http://localhost:8888/resources/:id, assim é necessário enviar um objeto JSON semelhante ao exibido no POST.  <br/>
+  Vale ressaltar também que caso não exista nenhum recurso com o `id` informado, um novo objeto será criado no banco.
 
 - **PATCH**
-  - **Atualização parcial de um recurso:** Para atualizar parcialmente um recurso, basta acessar [localhost:8888/resources/:id](localhost:8888/resources/:id), e enviar no corpo da request do PATCH as propriedades que serão atualizadas, conforme exemplificado abaixo:
+  - **Atualização parcial de um recurso:** Para atualizar parcialmente um recurso, basta acessar http://localhost:8888/resources/:id, e enviar no corpo da request do PATCH as propriedades que serão atualizadas, conforme exemplificado abaixo:
   
         {
           "est_descricao": "uma nova descriação criada",
@@ -53,7 +56,7 @@ A porta 8888 está exposta, e a partir dela é possível acessar a API de resour
     Vale ressaltar que caso o `id` informado não exista, um 404 será respondido pelo servidor.
 
 - **DELETE**
-  - **Exclusão de um recurso:** Por meio da url [localhost:8888/resources/:id](localhost:8888/resources/:id) é possível excluir um recurso específicado pelo `id`.
+  - **Exclusão de um recurso:** Por meio da url http://localhost:8888/resources/:id é possível excluir um recurso específicado pelo `id`.
 
 <br/>
 

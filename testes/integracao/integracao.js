@@ -81,7 +81,7 @@ describe('Teste de integração da aplicação', function () {
     });
 
 
-    it('Testa a listagem de um recurso específico não inexistente no banco', (done) => {
+    it('Testa a listagem de um recurso específico inexistente no banco', (done) => {
         request.get(`/resources/${idInexistente}`)
             .expect(res => {
                 assert.equal(res.body.status, `Resource com id: ${idInexistente} não existe`);
@@ -142,7 +142,7 @@ describe('Teste de integração da aplicação', function () {
     });
 
 
-    it('Testa a atualização parcial de um recurso não inexistente no banco', (done) => {
+    it('Testa a atualização parcial de um recurso inexistente no banco', (done) => {
         request.patch(`/resources/${idInexistente}`)
             .expect(res => {
                 assert.equal(res.body.status, `Resource com id: ${idInexistente} não existe`);
