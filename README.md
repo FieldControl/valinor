@@ -63,12 +63,31 @@ Os desafios de programação
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou os dois) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
+&lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt;
 ----------
 
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios pelo nome (os resultados devem ser paginados) e exiba informações relevantes de um repositório, como URL, descrição, contagem de watchers, de estrelas, issues, etc.
+Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
 
-Implemente o melhor design possível para a interface do usuário - resultados de pesquisa e pesquisa e seção de problemas.
+Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
+
+A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
+
+- Header
+- Section para funcionalidades
+- Section de imagens
+- Section do time
+- Slider com depoimentos
+- Section para call to action
+- Footer
+
+A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :)
+
+&lt;challenge&gt; Frontend Developer 2 &lt;/challenge&gt;
+----------
+
+Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
+
+Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
 
 Você pode usar Twitter Bootstrap, Google Material ou qualquer outro framework de interfaces da sua preferência.
 
