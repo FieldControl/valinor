@@ -1,0 +1,24 @@
+{
+  "name": "cars-api",
+  "version": "0.0.1",
+  "description": "Rest Api contendo informações sobre automoveis",
+  "main": "../cars-api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "automoveis",
+    "api",
+    "rest"
+  ],
+  "author": "Leonardo Jesus Falco",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
