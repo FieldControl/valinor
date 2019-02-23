@@ -16,7 +16,10 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "swagger-parser": "^6.0.5",
+    "swagger-routes-express": "^2.0.1",
+    "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

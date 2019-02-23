@@ -1,19 +1,19 @@
-const Connection = require('./Connection');
+const Connection = require('./connection');
 
 module.exports = function () {
-    return AutomovelRepository;
+    return AutomovelRepo;
 };
 
-function AutomovelRepository() {
+function AutomovelRepo() {
     this.con = new Connection();
 }
 
-AutomovelRepository.prototype.findById = function (id) {
+AutomovelRepo.prototype.findById = function (id) {
     return this._executeQuery("select * from automovel where id = ? limit 1", id);
 };
 
 // TODO melhorar método para prevenir sql injection 
-AutomovelRepository.prototype.list = function (page, filtro) {
+AutomovelRepo.prototype.list = function (page, filtro) {
     var condicoes = [];     // condicoes inicialmente vazia
 
     if (filtro.ano) {
@@ -60,15 +60,15 @@ AutomovelRepository.prototype.list = function (page, filtro) {
 
 };
 
-AutomovelRepository.prototype.add = function (automovel) {
+AutomovelRepo.prototype.add = function (automovel) {
     return this._executeQuery("insert automovel set ?", automovel);
 };
 
-AutomovelRepository.prototype.remove = function (id) {
+AutomovelRepo.prototype.remove = function (id) {
     return this._executeQuery("delete from automovel where id = ?", id);
 };
 
-AutomovelRepository.prototype.count = function (where) {
+AutomovelRepo.prototype.count = function (where) {
     let sql = `select count(*) as count
     from automovel ${where}`;
     return this._executeQuery(sql)
@@ -77,7 +77,7 @@ AutomovelRepository.prototype.count = function (where) {
         });
 };
 
-AutomovelRepository.prototype.update = function (id, updateNull, automovel) {
+AutomovelRepo.prototype.update = function (id, updateNull, automovel) {
 
     let campos = [];
     for (field in automovel) {
@@ -113,11 +113,11 @@ AutomovelRepository.prototype.update = function (id, updateNull, automovel) {
     return this._executeQuery(sql, automovel, id);
 };
 
-AutomovelRepository.prototype.close = function () {
+AutomovelRepo.prototype.close = function () {
     this.con.end();
 };
 
-AutomovelRepository.prototype._executeQuery = function (sql, param) {
+AutomovelRepo.prototype._executeQuery = function (sql, param) {
     return new Promise((resolve, reject) => {
         this.con.query(sql, param, (err, result) => {
             if (err) reject(err);

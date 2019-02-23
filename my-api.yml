@@ -1,0 +1,34 @@
+swagger: "2.0"
+info:
+  description: Rest Api contendo informações sobre automoveis
+  version: "1.0.0"
+  title: Automoveis API
+basePath: "/"
+schemes:
+  - "http"
+paths:
+  /automoveis:
+    get:
+      summary: "Get Server Information"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/automovel"
+
+definitions:
+  automovel:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+      placa:
+        type: "string"
+      ano:
+        type: "number"
+      marca:
+        type: "number"
+      modelo:
+        type: "number"

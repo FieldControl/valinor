@@ -1,7 +1,7 @@
-const AutomovelRepository = require("../infra/AutomovelRepository")();
+const AutomovelRepository = require("../infra/automovel-repo")();
 const env = require("../environment");
 
-module.exports = function (app) {
+module.exports = async function (app) {
 
     app.get("/automoveis", (req, res) => {
 

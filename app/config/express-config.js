@@ -1,9 +1,8 @@
-const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-module.exports = function () {
-    const app = express();
+const expressConfig = async (app) => {
+
 
     // definir bodyparser antes das rotas
     app.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
@@ -21,3 +20,5 @@ module.exports = function () {
 
     return app;
 };
+
+module.exports = expressConfig;

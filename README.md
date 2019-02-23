@@ -28,7 +28,7 @@ inicialmente o código não estava muito legível, então decidi refatorar e faz
 **Melhorias e próximas implementações**
 
  - Adição de documentação para os recursos criados, talvez algo utilizando o swagger
- - Melhoria da classe AutomovelRepository atualmente ela contém bastante manipulação de string junto ao         código sql oque pode permitir que o banco de dados sofra de sql injection
+ - Melhoria da classe AutomovelRepo atualmente ela contém bastante manipulação de string junto ao         código sql oque pode permitir que o banco de dados sofra de sql injection
 
 **Contato**
  
