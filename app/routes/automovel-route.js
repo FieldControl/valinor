@@ -75,13 +75,13 @@ module.exports = async function (app) {
         repo.add(automovel)
             .then(result => {
                 res.header("location", `${env.app.url}/automoveis/${result.insertId}`);
-                res.sendStatus(202);
+                res.sendStatus(201); // created
             })
             .then(() => {
                 repo.close();
             })
             .catch(err => {
-                res.send(500, JSON.stringify(err))
+                res.status(500).body(err)
             });
     });
 

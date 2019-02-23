@@ -60,10 +60,30 @@ paths:
           description: "success"
           schema:
             $ref: "#/definitions/automovel"
-
-
         204:
           description: "no content"
+
+        500:
+            description: "server error"
+
+    post:
+      summary: "Insere um novo automóvel"
+      parameters:
+        - in: body
+          name: automovel
+          required: true
+          schema:
+            $ref: "#/definitions/automovel"
+
+      responses:
+        201:
+          description: "created"
+        500:
+          description: "server error"
+
+
+
+
 
 definitions:
   automovel:
