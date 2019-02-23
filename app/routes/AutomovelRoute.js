@@ -9,7 +9,16 @@ module.exports = function (app) {
         const page = {
             limit: req.query.limit || 12,
             page: req.query.page || 1,
+        };
+
+        if (page.limit <= 0) {
+            page.limit = 12;
         }
+
+        if (page.page <= 0) {
+            page.page = 1;
+        }
+
 
         const filter = {
             placa: req.query.placa,
@@ -17,16 +26,18 @@ module.exports = function (app) {
             cor: req.query.cor,
             marca: req.query.marca,
             modelo: req.query.modelo,
-        }
+        };
 
         const repo = new AutomovelRepository();
         repo.list(page, filter)
             .then(result => {
                 res.json(result);
-            }).then(() => {
-                //repo.close();
-            }).catch(err => {
-                console.error(err);
+            })
+            .then(() => {
+                repo.close();
+            })
+            .catch(err => {
+                res.send(500, JSON.stringify(err))
             });
     });
 
@@ -43,11 +54,12 @@ module.exports = function (app) {
                 } else {
                     res.sendStatus(204); // no content
                 }
-
-            }).then(() => {
+            })
+            .then(() => {
                 repo.close();
-            }).catch(err => {
-                console.err("Erro inesperado: " + err);
+            })
+            .catch(err => {
+                res.send(500, JSON.stringify(err))
             });
     });
 
@@ -60,10 +72,12 @@ module.exports = function (app) {
             .then(result => {
                 res.header("location", `${env.appUrl}/automoveis/${result.insertId}`);
                 res.sendStatus(202);
-            }).then(() => {
+            })
+            .then(() => {
                 repo.close();
-            }).catch(err => {
-                console.err("Erro inesperado: " + err);
+            })
+            .catch(err => {
+                res.send(500, JSON.stringify(err))
             });
     });
 
@@ -71,38 +85,74 @@ module.exports = function (app) {
         const id = req.params.id;
         const repo = new AutomovelRepository();
         repo.remove(id)
+            .then((data) => {
+                console.log(data);
+                if (data.affectedRows === 1) {
+                    res.send(200);
+                } else {
+                    res.send(404);
+                }
+            })
             .then(() => {
-                res.send();
-            }).then(() => {
                 repo.close();
-            }).catch(err => {
-                console.err("Erro inesperado: " + err);
+            })
+            .catch(err => {
+                res.send(500, JSON.stringify(err))
             });
     });
 
-    /*
-    | PUT    | /resources/:id | Altera um recurso existente                | 
-    */
     app.put("/automoveis/:id", (req, res) => {
+        const id = req.params.id;
+
+
+        const automovel = {
+            placa: req.body.placa,
+            ano: req.body.ano,
+            cor: req.body.cor,
+            marca: req.body.marca,
+            modelo: req.body.modelo
+        };
+
+        const repo = new AutomovelRepository();
+
+        repo.update(id, true, automovel).then(data => {
+            console.log(data);
+
+            return data;
+        }).then((result) => {
+            if (result.affectedRows === 1) {
+                res.sendStatus(202); //accepted
+            } else {
+                res.send(500, JSON.stringify(err))
+            }
+        }).then(() => {
+            repo.close();
+        }).catch(err => {
+            res.send(500, JSON.stringify(err))
+        });
+
+    });
+
+    app.patch("/automoveis/:id", (req, res) => {
         const id = req.params.id;
         const automovel = req.body;
 
         const repo = new AutomovelRepository();
 
-        repo.update(id, automovel).then(data => {
+        repo.update(id, false, automovel).then(data => {
             console.log(data);
 
             return data;
         }).then((result) => {
-            if (result.affectedRows == 1) {
+            if (result.affectedRows === 1) {
                 res.sendStatus(202); //accepted
             } else {
-                throw new Error("Erro " + result.message)
+                res.send(500, JSON.stringify(err))
             }
         }).then(() => {
             repo.close();
         }).catch(err => {
-            console.error("Erro inesperado: " + err);
+            res.send(500, JSON.stringify(err))
         });
 
     });

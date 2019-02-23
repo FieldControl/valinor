@@ -17,12 +17,12 @@ AutomovelRepository.prototype.list = function (page, filtro) {
     var condicoes = [];     // condicoes inicialmente vazia
 
     if (filtro.ano) {
-        condicoes.push(`ano=${filtro.ano}`) // ano = ao valor do filtro
+        condicoes.push(`ano=${filtro.ano}`); // ano = ao valor do filtro
         delete filtro.ano; // remove a chave ano do objeto filtro
     }
 
     for (key in filtro) { // percorre demais filtros
-        let value = filtro[key]
+        let value = filtro[key];
         if (value) { // valor do filtro esta preenchido
             condicoes.push(`${key} like '%${value}%'`) // adiciona condição like
         }
@@ -40,29 +40,35 @@ AutomovelRepository.prototype.list = function (page, filtro) {
     // montando query final
 
     page.offset = page.limit * (page.page - 1);
-    console.log(page)
+    console.log("page: " + JSON.stringify(page));
     var sql = `select * from automovel ${where} limit ${page.limit} offset ${page.offset}`;
 
     return this.count(where).then(count => {
         console.log('teste');
-        console.log(count)
+        console.log("count" + JSON.stringify(count));
 
         console.log(sql);
         return this._executeQuery(sql).then(result => {
 
-            console.log(page);
-            console.log(page.offset / 2);
-            console.log(result.length);
-            return {
+            console.log("page: " + JSON.stringify(page));
+            console.log("total: " + result.length);
+            console.log("count" + JSON.stringify(count));
+
+            page.limit = parseInt(page.limit);
+            let response = {
                 pageInfo: {
                     totalItens: count,
                     resultsPerPage: parseInt(page.limit),
-                    totalPages: Math.ceil(count / page.limit),
+                    totalPages: Math.ceil(count / (page.limit === 0 ? 1 : page.limit)),
                     actualPage: parseInt(page.page),
                     actualPageSize: result.length
                 },
                 data: result
-            }
+            };
+
+            console.log("response: " + JSON.stringify(response));
+
+            return response;
         });
     });
 
@@ -77,21 +83,41 @@ AutomovelRepository.prototype.remove = function (id) {
 };
 
 AutomovelRepository.prototype.count = function (where) {
-    let sql = `select count(*) as count from automovel ${where}`;
+    let sql = `select count(*) as count
+    from automovel ${where}`;
     console.log(sql);
     return this._executeQuery(sql)
         .then(data => {
-            console.log(data);
+            console.log("data: " + JSON.stringify(data));
             return data[0].count
         })
 };
 
-AutomovelRepository.prototype.update = function (id, automovel) {
+AutomovelRepository.prototype.update = function (id, updateNull, automovel) {
 
     let campos = [];
     for (field in automovel) {
-        campos.push(`${field}='${automovel[field]}'`)
+
+        let value = automovel[field];
+
+        if (updateNull) {
+
+            if (!value) {
+                campos.push(`${field}=null`)
+            } else {
+                campos.push(`${field}='${value}'`)
+            }
+        } else {
+
+            if (!value) {
+                campos.push(`${field}=null`)
+            } else {
+                campos.push(`${field}='${value}'`)
+            }
+        }
     }
+
+    console.log(campos);
 
     sqlCampos = "";
     if (campos.length > 0) {
@@ -111,10 +137,12 @@ AutomovelRepository.prototype.close = function () {
 };
 
 AutomovelRepository.prototype._executeQuery = function (sql, param) {
+    console.log(("sql: " + sql));
+    console.log(("param: " + JSON.stringify(param)));
     return new Promise((resolve, reject) => {
         this.con.query(sql, param, (err, result) => {
-            if (err) reject(err)
+            if (err) reject(err);
             resolve(result)
         });
     });
-}
+};

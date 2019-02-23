@@ -1,0 +1,65 @@
+###
+GET http://localhost:3000/automoveis
+
+###
+GET http://localhost:3000/automoveis?limit=50
+
+
+###
+GET http://localhost:3000/automoveis?page=2&limit=1
+
+###
+GET http://localhost:3000/automoveis/1
+
+
+###
+GET http://localhost:3000/automoveis/17
+
+
+
+###
+POST http://localhost:3000/automoveis
+Content-Type: application/json
+
+{
+  "placa": "UJH-sdf",
+  "ano": 2000,
+  "cor": "Branco",
+  "marca": "Volvo",
+  "modelo": "s90hgfhgjhgjhgjgdj"
+}
+
+###
+POST http://localhost:3000/automoveis
+Content-Type: application/json
+
+{
+  "key": "invalid"
+}
+
+###
+DELETE http://localhost:3000/automoveis/16
+
+
+###
+DELETE http://localhost:3000/automoveis/15
+
+
+
+###
+PUT http://localhost:3000/automoveis/17
+Content-Type: application/json
+
+{
+  "id": 17,
+  "placa": "FEU-4587"
+}
+
+###
+PATCH http://localhost:3000/automoveis/17
+Content-Type: application/json
+
+{
+  "ano": 2007
+}
+
