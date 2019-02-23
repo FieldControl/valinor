@@ -1,0 +1,6 @@
+# editores
+.idea
+.vscode
+
+# modulos do node
+/node_modules
