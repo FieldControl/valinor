@@ -186,6 +186,6 @@ definitions:
       ano:
         type: "number"
       marca:
-        type: "number"
+        type: "string"
       modelo:
-        type: "number"
+        type: "string"
