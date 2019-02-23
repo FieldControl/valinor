@@ -71,27 +71,8 @@ acesse a raiz do projeto e execute os seguintes comandos
     node ./
 
 
-Recursos Disponíveis na Api
+Documentação da Api
 --------
 
-
-| Método | URL  | Comportamento esperado                               | 
-|--------| ---  |                                                  --- |
-| GET    | /automoveis     | Recupera a lista de automoveis , essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso | 
-| GET    | /automoveis/:id | Recupera um automovel pelo id | 
-| POST   | /automoveis     | Insere um novo automovel                     | 
-| PUT    | /automoveis/:id | Altera um automovel existente                | 
-| PATCH  | /automoveis/:id | Altera parcialmente um automovel existente   | 
-| DELETE | /automoveis/:id | Exclui um automovel existente                |
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação de código
-- Documentação do projeto (README)
-- Segurança
+    #execute o projeto e acesse
+    http://localhost:300/api-docs

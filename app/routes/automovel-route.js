@@ -31,7 +31,11 @@ module.exports = async function (app) {
         const repo = new AutomovelRepository();
         repo.list(page, filter)
             .then(result => {
-                res.json(result);
+                if (result.size > 0) {
+                    res.json(result);
+                }else {
+                    res.sendStatus(204); // no content
+                }
             })
             .then(() => {
                 repo.close();

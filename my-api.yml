@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: Rest Api contendo informações sobre automoveis
-  version: "1.0.0"
+  version: "0.0.1"
   title: Automoveis API
 basePath: "/"
 schemes:
@@ -9,7 +9,50 @@ schemes:
 paths:
   /automoveis:
     get:
-      summary: "Get Server Information"
+      summary: "Listagem de automovel com paginação"
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          required: false
+          description: Quantidade de resultados por pagina
+
+        - in: query
+          name: page
+          type: integer
+          required: false
+          description: Número da página
+
+        - in: query
+          name: ano
+          type: integer
+          required: false
+          description: "traz somente os automoveis com o ano informado"
+
+        - in: query
+          name: placa
+          type: string
+          required: false
+          description: "traz somente os automoveis com a placa informado"
+
+        - in: query
+          name: cor
+          type: string
+          required: false
+          description: "traz somente os automoveis contendo a cor informada"
+
+        - in: query
+          name: marca
+          type: string
+          required: false
+          description: "traz somente os automoveis contendo a marca informada"
+
+        - in: query
+          name: modelo
+          type: string
+          required: false
+          description: "traz somente os automoveis contendo o modelo informado"
+
       produces:
         - "application/json"
       responses:
@@ -17,6 +60,10 @@ paths:
           description: "success"
           schema:
             $ref: "#/definitions/automovel"
+
+
+        204:
+          description: "no content"
 
 definitions:
   automovel:

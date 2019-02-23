@@ -21,6 +21,12 @@ AutomovelRepo.prototype.list = function (page, filtro) {
         delete filtro.ano; // remove a chave ano do objeto filtro
     }
 
+    if (filtro.placa) {
+        condicoes.push(`placa='${filtro.placa}'`); // ano = ao valor do filtro
+        delete filtro.placa; // remove a chave ano do objeto filtro
+    }
+
+
     for (key in filtro) { // percorre demais filtros
         let value = filtro[key];
         if (value) { // valor do filtro esta preenchido
