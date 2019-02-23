@@ -38,14 +38,13 @@ AutomovelRepository.prototype.list = function (page, filtro) {
     }
 
     // montando query final
-
     page.offset = page.limit * (page.page - 1);
     var sql = `select * from automovel ${where} limit ${page.limit} offset ${page.offset}`;
 
     return this.count(where).then(count => {
         return this._executeQuery(sql).then(result => {
             page.limit = parseInt(page.limit);
-            let response = {
+            return {
                 pageInfo: {
                     totalItens: count,
                     resultsPerPage: parseInt(page.limit),
@@ -55,7 +54,7 @@ AutomovelRepository.prototype.list = function (page, filtro) {
                 },
                 data: result
             };
-            return response;
+
         });
     });
 
@@ -75,7 +74,7 @@ AutomovelRepository.prototype.count = function (where) {
     return this._executeQuery(sql)
         .then(data => {
             return data[0].count
-        })
+        });
 };
 
 AutomovelRepository.prototype.update = function (id, updateNull, automovel) {
