@@ -70,7 +70,7 @@ module.exports = function (app) {
         const repo = new AutomovelRepository();
         repo.add(automovel)
             .then(result => {
-                res.header("location", `${env.appUrl}/automoveis/${result.insertId}`);
+                res.header("location", `${env.app.url}/automoveis/${result.insertId}`);
                 res.sendStatus(202);
             })
             .then(() => {
