@@ -3,7 +3,6 @@ info:
   description: Rest Api contendo informações sobre automoveis
   version: "0.0.1"
   title: Automoveis API
-basePath: "/"
 schemes:
   - "http"
 paths:
@@ -64,7 +63,7 @@ paths:
           description: "no content"
 
         500:
-            description: "server error"
+          description: "server error"
 
     post:
       summary: "Insere um novo automóvel"
@@ -78,12 +77,91 @@ paths:
       responses:
         201:
           description: "created"
+        409:
+          description: "Já existe um objeto com o id informado"
         500:
           description: "server error"
 
+  /automoveis/{id}:
+    get:
+      summary: "Recupera um automóvel"
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: id do automóvel
+      responses:
+        200:
+          description: "sucess"
+        204:
+          description: "não encontrado"
+        500:
+          description: "server error"
 
+    delete:
+      summary: "Exclui um automóvel"
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: id do automóvel
+      responses:
+        200:
+          description: "sucess"
+        404:
+          description: "Nenhum registro afetado"
+        500:
+          description: "server error"
 
+    put:
+      summary: "Atualiza um automóvel"
+      description: "Atualiza todos os campos do automóvel"
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: id do automóvel
 
+        - in: body
+          name: automovel
+          required: true
+          schema:
+            $ref: "#/definitions/automovel"
+
+      responses:
+        202:
+          description: "sucess"
+        404:
+          description: "Nenhum registro afetado"
+        500:
+          description: "server error"
+
+    patch:
+      summary: "Atualiza um automóvel parcialmente"
+      description: "Atualiza so campos que foram informados os outros permanecem inalterados"
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: id do automóvel
+
+        - in: body
+          name: automovel
+          required: true
+          schema:
+            $ref: "#/definitions/automovel"
+
+      responses:
+        202:
+          description: "sucess"
+        404:
+          description: "Nenhum registro afetado"
+        500:
+          description: "server error"
 
 definitions:
   automovel:

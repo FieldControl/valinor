@@ -33,7 +33,7 @@ module.exports = async function (app) {
             .then(result => {
                 if (result.size > 0) {
                     res.json(result);
-                }else {
+                } else {
                     res.sendStatus(204); // no content
                 }
             })
@@ -73,6 +73,14 @@ module.exports = async function (app) {
 
         const repo = new AutomovelRepository();
         repo.add(automovel)
+            .catch(err => {
+                if (err.code === "ER_DUP_ENTRY") {
+                    res.sendStatus(409); // conflict
+                } else {
+                    throw err;
+                }
+
+            })
             .then(result => {
                 res.header("location", `${env.app.url}/automoveis/${result.insertId}`);
                 res.sendStatus(201); // created
@@ -81,7 +89,7 @@ module.exports = async function (app) {
                 repo.close();
             })
             .catch(err => {
-                res.status(500).body(err)
+                res.status(500).send(err)
             });
     });
 
@@ -91,9 +99,9 @@ module.exports = async function (app) {
         repo.remove(id)
             .then((data) => {
                 if (data.affectedRows === 1) {
-                    res.send(200);
+                    res.sendStatus(200);
                 } else {
-                    res.send(404);
+                    res.sendStatus(404);
                 }
             })
             .then(() => {
@@ -124,7 +132,7 @@ module.exports = async function (app) {
             if (result.affectedRows === 1) {
                 res.sendStatus(202); //accepted
             } else {
-                res.send(500, JSON.stringify(err))
+                res.sendStatus(404);
             }
         }).then(() => {
             repo.close();
@@ -147,7 +155,7 @@ module.exports = async function (app) {
             if (result.affectedRows === 1) {
                 res.sendStatus(202); //accepted
             } else {
-                res.send(500, JSON.stringify(err))
+                res.send(404, JSON.stringify(err))
             }
         }).then(() => {
             repo.close();
