@@ -2,7 +2,7 @@
   "name": "cars-api",
   "version": "0.0.1",
   "description": "Rest Api contendo informações sobre automoveis",
-  "main": "../cars-api/index.js",
+  "main": "../valinor/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

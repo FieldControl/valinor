@@ -7,8 +7,6 @@ GET http://localhost:3000/automoveis?limit=50
 ###
 GET http://localhost:3000/automoveis?limit=50&ano=2000&marca=volvo&cor=branco
 
-
-
 ###
 GET http://localhost:3000/automoveis?page=2&limit=1
 
