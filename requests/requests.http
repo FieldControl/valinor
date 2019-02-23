@@ -4,9 +4,11 @@ GET http://localhost:3000/automoveis
 ###
 GET http://localhost:3000/automoveis?limit=50
 
-
 ###
 GET http://localhost:3000/automoveis?page=2&limit=1
+
+###
+GET http://localhost:3000/automoveis?page=0&limit=0
 
 ###
 GET http://localhost:3000/automoveis/1
