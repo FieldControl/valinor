@@ -86,7 +86,6 @@ module.exports = function (app) {
         const repo = new AutomovelRepository();
         repo.remove(id)
             .then((data) => {
-                console.log(data);
                 if (data.affectedRows === 1) {
                     res.send(200);
                 } else {
@@ -104,7 +103,6 @@ module.exports = function (app) {
     app.put("/automoveis/:id", (req, res) => {
         const id = req.params.id;
 
-
         const automovel = {
             placa: req.body.placa,
             ano: req.body.ano,
@@ -116,7 +114,6 @@ module.exports = function (app) {
         const repo = new AutomovelRepository();
 
         repo.update(id, true, automovel).then(data => {
-            console.log(data);
 
             return data;
         }).then((result) => {
@@ -140,7 +137,6 @@ module.exports = function (app) {
         const repo = new AutomovelRepository();
 
         repo.update(id, false, automovel).then(data => {
-            console.log(data);
 
             return data;
         }).then((result) => {
