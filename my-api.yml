@@ -2,13 +2,15 @@ swagger: "2.0"
 info:
   description: Rest Api contendo informações sobre automoveis
   version: "0.0.1"
-  title: Automoveis API
+  title: Automóveis API
 schemes:
   - "http"
 paths:
   /automoveis:
     get:
       summary: "Listagem de automovel com paginação"
+      tags:
+        - Automóveis
       parameters:
         - in: query
           name: limit
@@ -67,6 +69,8 @@ paths:
 
     post:
       summary: "Insere um novo automóvel"
+      tags:
+        - Automóveis
       parameters:
         - in: body
           name: automovel
@@ -84,6 +88,8 @@ paths:
 
   /automoveis/{id}:
     get:
+      tags:
+        - Automóveis
       summary: "Recupera um automóvel"
       parameters:
         - in: path
@@ -101,6 +107,8 @@ paths:
 
     delete:
       summary: "Exclui um automóvel"
+      tags:
+        - Automóveis
       parameters:
         - in: path
           name: id
@@ -116,6 +124,8 @@ paths:
           description: "server error"
 
     put:
+      tags:
+        - Automóveis
       summary: "Atualiza um automóvel"
       description: "Atualiza todos os campos do automóvel"
       parameters:
@@ -140,6 +150,8 @@ paths:
           description: "server error"
 
     patch:
+      tags:
+        - Automóveis
       summary: "Atualiza um automóvel parcialmente"
       description: "Atualiza so campos que foram informados os outros permanecem inalterados"
       parameters:

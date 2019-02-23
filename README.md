@@ -1,4 +1,4 @@
-## Envio de solução
+## Envio de solução desafio back-end
 
 Gostaríamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
@@ -9,8 +9,8 @@ Gostaríamos de entender como você pensa e as decisões que você tomou durante
     - Postman
     - Heidsql
 - Bibliotecas
-    mysql
-    express
+    - mysql
+    - express
 - Técnologias
     - nodeJS
     - mysql
@@ -27,8 +27,7 @@ inicialmente o código não estava muito legível, então decidi refatorar e faz
 
 **Melhorias e próximas implementações**
 
- - Adição de documentação para os recursos criados, talvez algo utilizando o swagger
- - Melhoria da classe AutomovelRepo atualmente ela contém bastante manipulação de string junto ao         código sql oque pode permitir que o banco de dados sofra de sql injection
+ - Melhoria das rotinas do arquivo automovel-repo.js atualmente ela contém bastante manipulação de string junto ao         código sql oque pode permitir que o banco de dados sofra de sql injection
 
 **Contato**
  
@@ -37,14 +36,14 @@ inicialmente o código não estava muito legível, então decidi refatorar e faz
 ----------
 
 Rest Api contendo informações sobre automoveis
-===========================================
+==============================================
 
 este projeto contempla uma api rest que implementa os recursos propostos no desafio de backend.
 
 ----------
 
 Ambiente necessário
-----------
+-------------------
 - [node v10.15.1](https://nodejs.org/en/)
 - [mysql 8.0.15](https://dev.mysql.com/downloads/mysql/)
 
@@ -73,6 +72,4 @@ acesse a raiz do projeto e execute os seguintes comandos
 
 Documentação da Api
 --------
-
-    #execute o projeto e acesse
-    http://localhost:300/api-docs
+Execute o projeto e acesse http://localhost:300/api-docs
