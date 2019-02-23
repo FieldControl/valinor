@@ -15,7 +15,7 @@ Gostaríamos de entender como você pensa e as decisões que você tomou durante
     - nodeJS
     - mysql
 
-**Tecnologias X e Y**
+**Tecnologias**
 
 Express foi usado para facilitar o mapeamento das rotas da aplicação
 Foi dada preferência para o msyql em relação ao postgress e ao mongodb por uma questão de familiaridade.
