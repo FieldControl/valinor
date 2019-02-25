@@ -35,4 +35,4 @@ acesse a raiz do projeto e execute os seguintes comandos
 
 Documentação da Api
 --------
-Execute o projeto e acesse http://localhost:300/api-docs
+Execute o projeto e acesse http://localhost:3000/api-docs
