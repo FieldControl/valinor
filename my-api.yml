@@ -1,14 +1,14 @@
-swagger: "2.0"
+swagger: 2.0
 info:
   description: Rest Api contendo informações sobre automoveis
-  version: "0.0.1"
+  version: 0.0.1
   title: Automóveis API
 schemes:
-  - "http"
+  - http
 paths:
   /automoveis:
     get:
-      summary: "Listagem de automóveis com paginação"
+      summary: Listagem de automóveis com paginação
       tags:
         - Automóveis
       parameters:
@@ -28,47 +28,47 @@ paths:
           name: ano
           type: integer
           required: false
-          description: "traz somente os automóveis com o ano informado"
+          description: traz somente os automóveis com o ano informado
 
         - in: query
           name: placa
           type: string
           required: false
-          description: "traz somente os automóveis com a placa informada"
+          description: traz somente os automóveis com a placa informada
 
         - in: query
           name: cor
           type: string
           required: false
-          description: "traz somente os automóveis contendo a cor informada"
+          description: traz somente os automóveis contendo a cor informada
 
         - in: query
           name: marca
           type: string
           required: false
-          description: "traz somente os automóveis contendo a marca informada"
+          description: traz somente os automóveis contendo a marca informada
 
         - in: query
           name: modelo
           type: string
           required: false
-          description: "traz somente os automóveis contendo o modelo informado"
+          description: traz somente os automóveis contendo o modelo informado
 
       produces:
-        - "application/json"
+        - application/json
       responses:
         200:
-          description: "success"
+          description: success
           schema:
-            $ref: "#/definitions/automovel"
+            $ref: #/definitions/automovel
         204:
-          description: "no content"
+          description: no content
 
         500:
-          description: "server error"
+          description: server error
 
     post:
-      summary: "Insere um novo automóvel"
+      summary: Insere um novo automóvel
       tags:
         - Automóveis
       parameters:
@@ -76,21 +76,21 @@ paths:
           name: automovel
           required: true
           schema:
-            $ref: "#/definitions/automovel"
+            $ref: #/definitions/automovel
 
       responses:
         201:
-          description: "created"
+          description: created
         409:
-          description: "Já existe um automóvel com o id informado"
+          description: Já existe um automóvel com o id informado
         500:
-          description: "server error"
+          description: server error
 
   /automoveis/{id}:
     get:
       tags:
         - Automóveis
-      summary: "Recupera um automóvel pelo id"
+      summary: Recupera um automóvel pelo id
       parameters:
         - in: path
           name: id
@@ -99,14 +99,14 @@ paths:
           description: id do automóvel
       responses:
         200:
-          description: "sucess"
+          description: sucess
         204:
-          description: "não encontrado"
+          description: não encontrado
         500:
-          description: "server error"
+          description: server error
 
     delete:
-      summary: "Exclui um automóvel"
+      summary: Exclui um automóvel
       tags:
         - Automóveis
       parameters:
@@ -117,17 +117,17 @@ paths:
           description: id do automóvel
       responses:
         200:
-          description: "sucess"
+          description: sucess
         404:
-          description: "Nenhum registro afetado"
+          description: Nenhum registro afetado
         500:
-          description: "server error"
+          description: server error
 
     put:
       tags:
         - Automóveis
-      summary: "Atualiza um automóvel"
-      description: "Atualiza todos os campos do automóvel"
+      summary: Atualiza um automóvel
+      description: Atualiza todos os campos do automóvel
       parameters:
         - in: path
           name: id
@@ -139,21 +139,21 @@ paths:
           name: automovel
           required: true
           schema:
-            $ref: "#/definitions/automovel"
+            $ref: #/definitions/automovel
 
       responses:
         202:
-          description: "sucess"
+          description: sucess
         404:
-          description: "Nenhum registro afetado"
+          description: Nenhum registro afetado
         500:
-          description: "server error"
+          description: server error
 
     patch:
       tags:
         - Automóveis
-      summary: "Atualiza um automóvel parcialmente"
-      description: "Atualiza so campos que foram informados os outros permanecem inalterados"
+      summary: Atualiza um automóvel parcialmente
+      description: Atualiza so campos que foram informados os outros permanecem inalterados
       parameters:
         - in: path
           name: id
@@ -165,27 +165,27 @@ paths:
           name: automovel
           required: true
           schema:
-            $ref: "#/definitions/automovel"
+            $ref: #/definitions/automovel
 
       responses:
         202:
-          description: "sucess"
+          description: sucess
         404:
-          description: "Nenhum registro afetado"
+          description: Nenhum registro afetado
         500:
-          description: "server error"
+          description: server error
 
 definitions:
   automovel:
-    type: "object"
+    type: object
     properties:
       id:
-        type: "number"
+        type: number
       placa:
-        type: "string"
+        type: tring
       ano:
-        type: "number"
+        type: number
       marca:
-        type: "string"
+        type: string
       modelo:
-        type: "string"
+        type: string
