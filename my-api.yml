@@ -8,7 +8,7 @@ schemes:
 paths:
   /automoveis:
     get:
-      summary: "Listagem de automovel com paginação"
+      summary: "Listagem de automóveis com paginação"
       tags:
         - Automóveis
       parameters:
@@ -16,7 +16,7 @@ paths:
           name: limit
           type: integer
           required: false
-          description: Quantidade de resultados por pagina
+          description: Quantidade de resultados por página
 
         - in: query
           name: page
@@ -28,31 +28,31 @@ paths:
           name: ano
           type: integer
           required: false
-          description: "traz somente os automoveis com o ano informado"
+          description: "traz somente os automóveis com o ano informado"
 
         - in: query
           name: placa
           type: string
           required: false
-          description: "traz somente os automoveis com a placa informado"
+          description: "traz somente os automóveis com a placa informada"
 
         - in: query
           name: cor
           type: string
           required: false
-          description: "traz somente os automoveis contendo a cor informada"
+          description: "traz somente os automóveis contendo a cor informada"
 
         - in: query
           name: marca
           type: string
           required: false
-          description: "traz somente os automoveis contendo a marca informada"
+          description: "traz somente os automóveis contendo a marca informada"
 
         - in: query
           name: modelo
           type: string
           required: false
-          description: "traz somente os automoveis contendo o modelo informado"
+          description: "traz somente os automóveis contendo o modelo informado"
 
       produces:
         - "application/json"
@@ -82,7 +82,7 @@ paths:
         201:
           description: "created"
         409:
-          description: "Já existe um objeto com o id informado"
+          description: "Já existe um automóvel com o id informado"
         500:
           description: "server error"
 
@@ -90,7 +90,7 @@ paths:
     get:
       tags:
         - Automóveis
-      summary: "Recupera um automóvel"
+      summary: "Recupera um automóvel pelo id"
       parameters:
         - in: path
           name: id
