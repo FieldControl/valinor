@@ -1,4 +1,4 @@
-Oportunidade de trabalho na Field Control
+Seja um Fielder, venha fazer parte do nosso time
 ===========================================
 
 A empresa
@@ -24,7 +24,7 @@ Condições
 
 :house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho muito agradável:
+Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
 
 <p float="left">
   <img src="field3.jpeg" width="225"/> 
@@ -46,7 +46,7 @@ Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: 
 Oportunidade
 ----------
 
-Estamos em busca de desenvolvedores apaixonados pelo que fazem para somar no nosso time de desenvolvimento.
+Estamos em busca de desenvolvedores apaixonados para somar no nosso time de desenvolvimento.
 
 Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
 
@@ -65,7 +65,9 @@ Na Field, o seu dia-a-dia será repleto de:
   'Amazon Web Services',
   'PAAS & Cloud Services',
   'Serverless apps',
-  'AngularJS, Angular5+',
+  'AngularJS, Angular7(X)',
+  'REST APIs',
+  'GraphQL APIs',
   'Material Design',
   'Open source software'
 ]
@@ -73,14 +75,14 @@ Na Field, o seu dia-a-dia será repleto de:
 
 Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
 
-Mas acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP na nossa stack.
+Mas acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
 
 Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3, Heroku e Serverless na AWS Lambda :)
 
 Os desafios de programação
 ----------
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou os dois) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
+Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
 &lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt;
 ----------
@@ -110,7 +112,7 @@ Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=
 
 Você pode usar Twitter Bootstrap, Google Material ou qualquer outro framework de interfaces da sua preferência.
 
-SPA Framework? Aqui usamos bastante AngularJS e Angular5, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
+SPA Framework? Aqui usamos bastante AngularJS e Angular7, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
 
 Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
 
@@ -123,15 +125,18 @@ URLs úteis:
 
 Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
 
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste. 
+A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
+
 Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
 
-{ "challenge": "Backend Developer" }
+{ "challenge": "Backend Developer 1" }
 ----------
 
-Desenvolver uma API JSON RESTful ou GraphQL em JavaScript expondo operações de um CRUD.
+Desenvolver uma API JSON RESTful expondo operações de um CRUD.
 
-Se optar pela API REST, utilize todos os métodos (GET, POST, PUT, PATCH, DELETE)
+Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+
+Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE)
 
 Você terá que expor os seguintes endpoints para o recurso escolhido:
 
@@ -144,7 +149,20 @@ Você terá que expor os seguintes endpoints para o recurso escolhido:
 | PATCH  | /resources/:id | Altera parcialmente um recurso existente   | 
 | DELETE | /resources/:id | Exclui um recurso existente                |
 
-Se optar pela GraphQL API:
+- **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P
+- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+
+ **Atenção:**
+ Você deve se preocupar com sanitização, validação e semântica. 
+
+{ "challenge": "Backend Developer 2" }
+----------
+
+Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
+
+Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+
+Você terá que expor as seguintes queries e mutations para o tema escolhido:
 
 | Tipo      | O quê?  | Comportamento esperado                               | 
 |--------   | ---     |                                                  --- |
@@ -154,14 +172,12 @@ Se optar pela GraphQL API:
 | Mutation  | Atualizar um item | Altera um item existente                | 
 | Mutation  | Excluir um item   | Remove um item existente                | 
 
-- **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, graphql-js, graphql-yoga.. o que você preferir :P
+- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
 
 - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
 
-Pense em algum recurso/item (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
  **Atenção:**
- Você deve se preocupar com sanitização, validação e semântica. 
+ Você deve se preocupar com validação e semântica. 
 
 Dúvidas?
 ----------
@@ -194,6 +210,6 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 E ai? Let's code?
 ----------
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/FieldControl/valinor/master/cat.gif">
+<p align="left">
+  <img width="200" src="https://raw.githubusercontent.com/FieldControl/valinor/master/cat.gif">
 </p>
