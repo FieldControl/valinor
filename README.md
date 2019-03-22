@@ -15,7 +15,6 @@ Origem
 
 Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
 
-Aqui utilizamos princípios ágeis (DE VERDADE) para criação de software. 
 
 Condições
 ----------
@@ -25,7 +24,20 @@ Condições
 
 :house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho muito agradável. A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho muito agradável:
+
+<p float="left">
+  <img src="field3.jpeg" width="225"/> 
+  <img src="field1.jpeg" width="400"/>
+  <img src="field4.jpeg" width="225"/> 
+</p>
+
+<!-- <p float="left">
+  <img src="field5.jpeg" width="226"/> 
+  <img src="field7.jpeg" width="650"/> 
+</p> -->
+
+A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
 
 Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
 
