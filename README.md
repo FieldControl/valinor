@@ -10,6 +10,13 @@ Entregamos **controle**, **organização** e **melhor relacionamento com o clien
 
 Nossa missão é melhorar a prestação de serviços no Brasil.
 
+Origem
+----------
+
+Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+
+Aqui utilizamos princípios ágeis (DE VERDADE) para criação de software. 
+
 Condições
 ----------
 - Regime de trabalho: CLT
