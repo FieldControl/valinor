@@ -1,0 +1,23 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "API desenvolvida para o desafio da Field Control",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gm1357/valinor.git"
+  },
+  "author": "Gabriel Machado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gm1357/valinor/issues"
+  },
+  "homepage": "https://github.com/gm1357/valinor#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
