@@ -37,10 +37,13 @@ exports.get = async (req, res) => {
 
 exports.create = async (req, res) => {
     const novoFilme = req.body;
-
-    const filme = await filmeService.create(novoFilme);
     
-    res.status(201).json({data: filme, message: 'Inserido novo filme.'});
+    try {
+        const filme = await filmeService.create(novoFilme);
+        res.status(201).json({data: filme, message: 'Inserido novo filme.'});
+    } catch(error) {
+        res.status(400).json({error: error});
+    }
 }
 
 exports.update = async (req, res) => {
