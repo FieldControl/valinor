@@ -1,4 +1,4 @@
-app = require('./config/express')();
+const app = require('./config/express')();
 require('dotenv').config();
 require('./config/mongoose');
 
