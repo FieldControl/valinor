@@ -1,10 +1,13 @@
-express = require('express');
-index = require('../routes/index');
+const express = require('express');
+const bodyParser = require('body-parser');
+const filmeRoutes = require('../routes/filme');
 
 module.exports = () => {
     app = express();
 
-    app.use('/', index);
+    app.use(bodyParser.json());
+
+    app.use('/filmes', filmeRoutes);
 
     return app;
 }
