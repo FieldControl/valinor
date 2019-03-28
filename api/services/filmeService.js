@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const Filme = require('../models/Filme');
+const constants = require('../config/constants');
 
 exports.list = (query) => {
-    const skip = (query.page * query.limit) - query.limit;
-    return Filme.find(query.where).skip(skip).limit(query.limit);
+    const skip = (query.page * constants.PAGE_LIMIT) - constants.PAGE_LIMIT;
+    return Filme.find(query.where).skip(skip).limit(constants.PAGE_LIMIT);
 };
 
 exports.get = (id) => {

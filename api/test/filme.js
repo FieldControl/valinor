@@ -4,6 +4,7 @@ const app = require('../config/express')();
 const request = require('supertest')(app);
 const Filmes = require('../models/Filme');
 const assert = require('assert');
+const messages = require('../config/messages');
 
 const idExistente1 = '5c9bd3ebf2ca98590c9606e2';
 const idExistente2 = '5c9bd3ebf2ca98590c9606e3';
@@ -28,7 +29,7 @@ describe('#filmeController', function() {
         request.get('/filmes')
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, 'A pagina solicitada não existe');
+                assert.equal(res.body.message, messages.PAGINA_NAO_EXISTE);
             })
             .expect(404, done);
     });
@@ -38,7 +39,7 @@ describe('#filmeController', function() {
             .send(filmeTeste)
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, 'Inserido novo filme.');
+                assert.equal(res.body.message, messages.FILME_INSERIDO);
             })
             .expect(201)
             .end((err, res) => {
@@ -81,7 +82,7 @@ describe('#filmeController', function() {
         request.get('/filmes?page=2')
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, 'A pagina solicitada não existe');
+                assert.equal(res.body.message, messages.PAGINA_NAO_EXISTE);
             })
             .expect(404, done);
     });
@@ -95,7 +96,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.nome.message, 'Nome do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.nome.message, messages.FILME_NOME_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -109,7 +110,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.genero.message, 'Gênero do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.genero.message, messages.FILME_GENERO_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -123,7 +124,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.pais.message, 'País de origem do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.pais.message, messages.FILME_PAIS_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -137,7 +138,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.data.message, 'Data de lançamento do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.data.message, messages.FILME_DATA_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -152,7 +153,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.nome.message, 'Nome do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.nome.message, messages.FILME_NOME_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -167,7 +168,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.genero.message, 'Gênero do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.genero.message, messages.FILME_GENERO_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -182,7 +183,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.pais.message, 'País de origem do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.pais.message, messages.FILME_PAIS_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -197,7 +198,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.data.message, 'O filme não pode ser anterior ao mais antigo catalogado.');
+                assert.equal(res.body.error.errors.data.message, messages.FILME_DATA_MIN);
             })
             .expect(400, done);
     });
@@ -212,7 +213,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.data.message, 'Apenas filmes já lançados são aceitos.');
+                assert.equal(res.body.error.errors.data.message, messages.FILME_DATA_MAX);
             })
             .expect(400, done);
     });
@@ -230,7 +231,7 @@ describe('#filmeController', function() {
         request.get(`/filmes/${idInexistente}`)
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, `Filme com id ${idInexistente} não encontrado.`);
+                assert.equal(res.body.message, messages.FILME_NAO_ENCONTRADO(idInexistente));
             })
             .expect(404, done);
     });
@@ -239,7 +240,7 @@ describe('#filmeController', function() {
         request.get('/filmes/5c9')
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.message, 'Cast to ObjectId failed for value \"5c9\" at path \"_id\" for model \"Filmes\"');
+                assert.equal(res.body.error.message, messages.CAST_ERROR);
             })
             .expect(400, done);
     });
@@ -254,7 +255,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, `Filme com id ${idExistente1} atualizado.`);
+                assert.equal(res.body.message, messages.FILME_ATUALIZADO(idExistente1));
             })
             .expect(302, done);
     });
@@ -268,7 +269,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.nome.message, 'Nome do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.nome.message, messages.FILME_NOME_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -283,7 +284,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, `Filme com id ${idExistente2} atualizado.`);
+                assert.equal(res.body.message, messages.FILME_ATUALIZADO(idExistente2));
             })
             .expect(302, done);
     });
@@ -295,7 +296,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, `Filme com id ${idExistente1} atualizado.`);
+                assert.equal(res.body.message, messages.FILME_ATUALIZADO(idExistente1));
                 assert.equal(res.body.data.genero, 'Suspense');
             })
             .expect(302, done);
@@ -308,7 +309,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.genero.message, 'Gênero do filme deve ser fornecido.');
+                assert.equal(res.body.error.errors.genero.message, messages.FILME_GENERO_OBRIGATORIO);
             })
             .expect(400, done);
     });
@@ -320,7 +321,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.error.errors.data.message, 'Apenas filmes já lançados são aceitos.');
+                assert.equal(res.body.error.errors.data.message, messages.FILME_DATA_MAX);
             })
             .expect(400, done);
     });
@@ -332,7 +333,7 @@ describe('#filmeController', function() {
             })
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, `Filme com id ${idInexistente} não encontrado.`);
+                assert.equal(res.body.message, messages.FILME_NAO_ENCONTRADO(idInexistente));
             })
             .expect(404, done);
     });
@@ -341,7 +342,7 @@ describe('#filmeController', function() {
         request.delete(`/filmes/${idInexistente}`)
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, `Filme com id ${idInexistente} não encontrado.`);
+                assert.equal(res.body.message, messages.FILME_NAO_ENCONTRADO(idInexistente));
             })
             .expect(404, done);
     });
@@ -350,7 +351,7 @@ describe('#filmeController', function() {
         request.delete(`/filmes/${idExistente1}`)
             .expect('Content-Type', /json/)
             .expect(res => {
-                assert.equal(res.body.message, `Filme com id ${idExistente1} deletado com sucesso.`);
+                assert.equal(res.body.message, messages.FILME_DELETADO(idExistente1));
             })
             .expect(302, done);
     });
