@@ -4,5 +4,5 @@ const options = {
     useNewUrlParser: true,
     useFindAndModify: false
 }
-
-mongoose.connect(process.env.MONGODB_URI, options);
+const uri = process.env.NODE_ENV === 'test' ? process.env.MONGODB_URI_TEST : process.env.MONGODB_URI;
+mongoose.connect(uri, options);

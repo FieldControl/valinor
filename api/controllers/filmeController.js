@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const Filme = require('../models/Filme');
 const filmeService = require('../services/filmeService');
 
 exports.list = async (req, res) => {
@@ -80,9 +78,9 @@ exports.delete = async (req, res) => {
         const resultado = await filmeService.delete(req.params.id);
 
         if (!resultado) {
-            res.status(404).json({status: `Filme com id ${req.params.id} não encontrado.`});
+            res.status(404).json({message: `Filme com id ${req.params.id} não encontrado.`});
         } else {
-            res.status(302).json({status: `Filme com id ${req.params.id} deletado com sucesso.`});
+            res.status(302).json({message: `Filme com id ${req.params.id} deletado com sucesso.`});
         }
     } catch (error) {
         res.status(400).json({data: error});

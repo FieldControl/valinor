@@ -22,6 +22,8 @@ exports.update = async (id, filme) => {
         filmeBase.genero = filme.genero;
         filmeBase.pais = filme.pais;
         filmeBase.data = filme.data;
+    } else {
+        filme._id = id;
     }
 
     return (new Filme(filmeBase ? filmeBase : filme)).save();
