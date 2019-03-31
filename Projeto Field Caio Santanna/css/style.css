@@ -1,0 +1,425 @@
+/*----------------------*/
+/* -- PADRONIZAÇÃO --*/
+html, body
+{
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+}
+.hide{
+	display: none;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- NAVBAR --*/
+.navbar-main{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: transparent;
+	color: #CCCDD3;
+	font-weight: 700;
+	z-index: 1000;
+	transition: all 0.5s;
+}
+
+.navbar-main a:link {
+  color: #CCCDD3;
+  text-decoration:none;
+  transition: all 0.5s;
+}
+.navbar-main a:visited {
+  color: #CCCDD3;  
+}
+.navbar-main a:hover {
+  color: #fff;
+}
+.navbar-main a:active {
+  color: #CCCDD3;
+}
+
+.navbar-main .float-left{
+	margin: 29px 0;
+	transition: all 0.5s;
+}
+.navbar-main .float-right{
+	margin: 38px 0;
+	transition: all 0.5s;
+}
+.navbar-main span{
+	font-size: 12px;
+	margin: 0 30px;
+}
+
+/* -- NAVBAR IN-PAGE --*/
+.navbar-in-page{  
+	background: white !important;
+	color: black !important; 
+	box-shadow: 0px 1px 15px black;
+}
+
+.navbar-in-page a{
+	color: black !important; 
+}
+.navbar-in-page a:visited {
+  color: black !important;  
+}
+.navbar-in-page a:hover {
+  color: #CCCDD3 !important;
+}
+.navbar-in-page a:active {
+  color: black !important;
+}
+
+.navbar-in-page .float-left{
+  margin: 15px 0 !important;
+}
+.navbar-in-page .float-right{
+  margin: 24px 0 !important;
+}
+
+/* -- SMALL SCREEN --*/
+.nav-small{
+	margin: 22px 0 !important;
+	display: none;
+}
+.nav-button{
+	font-size: 30px;
+    color: white;
+    background: transparent;
+    border: solid 2px white;
+    border-radius: 10px;
+    outline: none;
+    padding: 0px 15px;
+}
+.nav-button:hover{
+	color: gray;
+	border: solid 2px gray;	
+}
+.nav-button:focus{ 
+  	outline: none; 
+}
+
+.navbar-in-page .nav-button{
+	color: black !important;
+	border: solid 2px black !important;
+}
+
+.nav-list{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,0.8);
+	z-index: 100000;
+	text-align: center;
+	font-weight: 700;
+	font-size: 28px;
+}
+
+.nav-list a{
+	color: black !important; 
+}
+.nav-list a:visited {
+  	color: black !important;  
+}
+.nav-list a:hover {
+  	color: #CCCDD3 !important;
+  	text-decoration: none;
+}
+.nav-list a:active {
+  	color: black !important;
+}
+
+.nav-exit{
+	position: absolute;
+    top: 5%;
+    right: 5%;
+}
+.nav-exit button{
+	background: transparent;
+    border: solid 2px black;
+    border-radius: 15px;    
+    padding: 3px 10px;
+    font-size: 18px;
+    font-weight: 900;
+}
+.nav-list-logo{
+	position: absolute;               
+	top: 20%;
+	left: 50%;   
+	transform: translate(-50%, -20%);
+	font-weight: 300;
+	font-size: 48px;
+}
+.nav-list-content{
+	position: absolute;               
+	top: 50%;
+	left: 50%;   
+	transform: translate(-50%, -50%);
+}
+.nav-list-content div{
+	margin-bottom: 1vh;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- MASTERHEAD --*/
+.masterhead { 
+  background-image: url("../img/banner-masterhead.png");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;   
+  text-align: center;
+}
+
+.masterhead div{
+  padding: 30vh 0;  
+}
+.masterhead p{
+  font-size: 18px;
+  color: white;
+  margin-bottom: 20px; 
+}
+
+.masterhead strong{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.masterhead button{
+  text-transform: uppercase;
+  color: white;
+  background: #E74545;
+  border-radius: 2px;
+  border-style: none;
+  font-size: 12px;
+  padding: 10px 30px;
+  margin-top: 40px;
+}
+.masterhead button:focus{ 
+  outline: none; 
+}
+
+.page-head-title{
+  font-size: 48px !important; 
+  font-weight: 500; 
+  line-height: 1; 
+  text-transform: uppercase;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- FEATURES --*/
+.features{
+  text-align: center;
+}
+.features p {
+    font-size: 12px;
+    margin: 10px 0;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- WORKS --*/
+.work{
+  width: 480px;
+  height: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;   
+  outline: none;
+  position: relative;
+  text-align: center;
+  transition: all 0.5s;
+}
+.work p{  
+  color: white;
+  margin: 0;
+  position: absolute;               
+  top: 50%;
+  left: 50%;   
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.work-hover{ transition: all 0.5s }
+
+.work:hover .work-hover{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.6) !important;  
+}
+.work:hover p{
+  display: initial; 
+}
+
+.work-1{ background-image: url('../img/work-1.png'); }
+.work-2{ background-image: url('../img/work-2.png'); }
+.work-3{ background-image: url('../img/work-3.png'); }
+.work-4{ background-image: url('../img/work-4.png'); }
+.work-5{ background-image: url('../img/work-5.png'); }
+.work-6{ background-image: url('../img/work-6.png'); }
+.work-7{ background-image: url('../img/work-7.png'); }
+.work-8{ background-image: url('../img/work-8.png'); }
+/*----------------------*/
+
+/*----------------------*/
+/* -- OUR TEAM --*/
+.our-team{
+  margin: 80px 0;
+}
+.our-team p{
+  margin-top: 25px;
+}
+.our-team .team-name{
+  font-size: 24px;
+}
+.our-team .team-office{
+  color: red;
+  font-size: 12px;
+}
+.social-media{
+	width: 45px;
+  background: transparent;
+  border: solid 2px #C5C9CC;
+  border-radius: 2px;
+  padding: 10px;
+  float: left;
+  margin-right: 5px;
+  transition: all 0.5s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.social-media svg{
+	fill:#C5C9CC;
+}
+.social-media:hover svg{
+	fill:black;
+}
+.social-media:hover{
+	border-color: black;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- TESTIMONIALS --*/
+.testimonial{
+  	text-align: left;
+}
+.testimonials img{
+	width: 100%;
+	height: 100%;
+	float: right;
+	z-index: 10;
+}
+.testimonial .col-md-6,
+.testimonial .col-sm-12{
+	padding: initial;
+}
+.testimonial-text{	
+	background: #533549;
+	z-index: 20;
+}
+.testimonial p{
+	color: white;
+	margin: 15% 60px 0px 60px;  		
+}
+.testimonial i{
+	font-family: 'Cardo', serif;	
+	font-size: 36px;
+	line-height: 1;	
+}
+.testimonial strong{
+	font-size: 13px;
+}
+
+.slick-dots{
+	top: 85%;
+  left: 65%;
+  bottom: initial; 
+  width: initial;
+}
+.testimonials-dots{
+	height: 10px;
+  width: 10px;
+  background: #755D6D;
+  border-radius: 10px;
+}
+.slick-active .testimonials-dots{
+	background: white;
+}
+.slick-dotted.slick-slider {
+    margin-bottom: 0;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- DOWNLOAD --*/
+.download{
+  text-align: center;
+  margin: 100px 0;
+}
+.download p{
+  font-size: 28px;
+  margin: 0 auto -16px auto; 
+}
+.download strong{
+  font-size: 13px;
+}
+.download button{
+  color: white;
+  background: #E74545;
+  border-radius: 2px;
+  border-style: none;
+  font-size: 13px;
+  padding: 12px 70px;
+  margin-top: 50px;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- FOOTER --*/
+.footer{  
+  text-align: center;
+  font-size: 14px;  
+  background: #3A3E64;
+}
+.footer-1{  
+  color: white;
+  padding: 50px 0;
+}
+.footer-2{
+  background: #313454;
+  color: #808080;
+  padding: 25px 0 1px 0;
+}
+/*----------------------*/
+
+/*----------------------*/
+/* -- MEDIA QUERYS --*/
+@media (max-width: 869px) 
+{
+	.nav-small{
+		display: initial;
+	}
+	.nav-normal{
+		display: none;
+	}
+	.navbar-in-page .float-right{
+		margin: 13px 0 !important;
+	}
+
+	.testimonial p{
+		margin: 50px 60px 50px 60px;
+	}
+
+	.slick-dots {
+	    top: 96%;
+	    left: 50%;
+	    bottom: initial;
+	    width: initial;
+	    transform: translate(-50%, 0);
+	}
+}
+/*----------------------*/
