@@ -1,215 +1,61 @@
-Seja um Fielder, venha fazer parte do nosso time
+Simple CRUD Application with AdonisJS
 ===========================================
 
-A empresa
+
+To run this app, you will need
 ----------
-
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos. 
-
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
-
-Nossa missão é melhorar a prestação de serviços no Brasil.
-
-Origem
-----------
-
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
-
-
-Condições
-----------
-- Regime de trabalho: CLT
-- Período: Integral
-- Onde: São José do Rio Preto / SP 
-
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
-
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
-
-<p float="left">
-  <img src="field3.jpeg" width="225"/> 
-  <img src="field1.jpeg" width="400"/>
-  <img src="field4.jpeg" width="225"/> 
-</p>
-
-<!-- <p float="left">
-  <img src="field5.jpeg" width="226"/> 
-  <img src="field7.jpeg" width="650"/> 
-</p> -->
-
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
-
-Oportunidade
-----------
-
-Estamos em busca de desenvolvedores apaixonados para somar no nosso time de desenvolvimento.
-
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
-
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular7(X)',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
-
-Mas acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
-
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3, Heroku e Serverless na AWS Lambda :)
-
-Os desafios de programação
-----------
-
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
-
-&lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt;
-----------
-
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
-
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
-
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
-
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
-
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :)
-
-&lt;challenge&gt; Frontend Developer 2 &lt;/challenge&gt;
-----------
-
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
-
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
-
-Você pode usar Twitter Bootstrap, Google Material ou qualquer outro framework de interfaces da sua preferência.
-
-SPA Framework? Aqui usamos bastante AngularJS e Angular7, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
-
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
-
-URLs úteis:
-
-|  URL  | Descrição      
-|--------|                                  --- |            
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
-
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
-
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
-
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
-
-{ "challenge": "Backend Developer 1" }
-----------
-
-Desenvolver uma API JSON RESTful expondo operações de um CRUD.
-
-Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
-Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE)
-
-Você terá que expor os seguintes endpoints para o recurso escolhido:
-
-| Método | URL  | Comportamento esperado                               | 
-|--------| ---  |                                                  --- |
-| GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso | 
-| GET    | /resources/:id | Recupera um recursos em especifico pelo id | 
-| POST   | /resources     | Insere um novo recurso                     | 
-| PUT    | /resources/:id | Altera um recurso existente                | 
-| PATCH  | /resources/:id | Altera parcialmente um recurso existente   | 
-| DELETE | /resources/:id | Exclui um recurso existente                |
-
-- **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
- **Atenção:**
- Você deve se preocupar com sanitização, validação e semântica. 
-
-{ "challenge": "Backend Developer 2" }
-----------
-
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
-
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
-
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
-
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
-
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
- **Atenção:**
- Você deve se preocupar com validação e semântica. 
-
-Dúvidas?
-----------
-Abra um issue que nós responderemos :)
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação de código
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, então quando for enviar seu pull request, por favor responda:
+- Node
+- MySQL
+- AdonisJS 
+
+Also, you have to create a .env file:
+------------
+HOST=127.0.0.1
+PORT=3333
+NODE_ENV=development
+APP_NAME=AdonisJs
+APP_URL=http://${HOST}:${PORT}
+CACHE_VIEWS=false
+APP_KEY=fmnT43BNkq4ep7nDfDVQrsI9yOTLvKVq
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER={youruser}
+DB_PASSWORD={yourpassword}
+DB_DATABASE={yourDB}
+HASH_DRIVER=bcrypt
+
+
+Método 	URL 			Comportamento esperado
+GET 	api/v1/cars 		Recupera a lista dos carros, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso
+GET 	api/v1/cars/:id 	Recupera um carro em especifico pelo id
+POST 	api/v1/cars/ 		Insere um novo carro na base
+PUT 	api/v1/cars/:id 	Altera um carro existente
+PATCH 	api/v1/cars/:id 	Altera parcialmente um carro existente
+DELETE 	api/v1/cars/:id 	Exclui um carro existente
+
+POST with some data:
+-------
+{
+	"make": "GM",
+	"model": "Vectra",
+	"year": "2011",
+	"style": "Hatch",
+	"color": "White"
+}
+
+
+Sobre a avalição
+--------
 
 - Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+Node e AdonisJS
+
 - Porque você optou pela tecnologia X e não a Y
+Optei por Node por gostar mais de trabalhar com javascript. A escolha do Adonis fiz por não conhecer a ferramenta e querer aprender, então já aproveitei o desafio para aprender um pouco sobre ela :D
+
 - Desafios e problemas que você enfrentou e como você resolveu
+O desafio que enfrentei foi aprender, como configurar e criar as rotas do CRUD de exemplo. Foi bem legal utilizar o Adonis, super fácil de configurar/usar.
+
 - O que você entende que pode ser melhorado e como fazer isso
-
-E ai? Let's code?
-----------
-
-<p align="left">
-  <img width="200" src="https://raw.githubusercontent.com/FieldControl/valinor/master/cat.gif">
-</p>
+No exemplo que fiz, poderia implementar as funcionalidades de login para fazer alguma alteração nos itens, por exemplo. 
