@@ -17,7 +17,8 @@ mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD
 var db = mongoose.connection;
 
 var port = process.env.APP_PORT || 8080;
-app.use('/', routes)
+app.use('/', routes);
+app.use(express.static("public"));
 app.listen(port, function () {
     console.log("Running challenge on port " + port);
 });
