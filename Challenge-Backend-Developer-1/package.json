@@ -27,8 +27,10 @@
   "homepage": "https://github.com/rodolfomenardi/valinor#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "helmet": "^3.16.0",
     "mongoose": "^5.4.20"
   },
   "devDependencies": {
