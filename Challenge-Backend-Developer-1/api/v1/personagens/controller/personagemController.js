@@ -1,4 +1,4 @@
-Personagem = require('../model/personagemModel');
+let Personagem = require('../model/personagemModel');
 
 exports.index = (req, res) => {
     Personagem.get((err, personagens) => {
@@ -17,19 +17,19 @@ exports.new = (req, res) => {
     personagem.sexo = req.body.sexo;
     personagem.poder = req.body.poder;
 
-    personagem.save(err => {
+    personagem.validate(err => {
         if(err) {
-            res.sendStatus(500);
+            res.sendStatus(400);
         }else {
-            personagem.validate(err => {
-                if (err) {
-                    res.sendStatus(400);
+            personagem.save(err => {
+                if(err) {
+                    res.sendStatus(500);
                 }else {
                     res.set('Location',`api/personagens/${personagem._id}`).sendStatus(201);
                 }
             });
         }
-    });
+    })
 };
 
 exports.view = (req, res) => {
