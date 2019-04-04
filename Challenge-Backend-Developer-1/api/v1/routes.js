@@ -40,7 +40,7 @@ router.route('/personagens')
      */
     .get(personagemController.index)
     /**
-     * @api {post} /v1/personagens Adicionar novo personagem
+     * @api {post} /v1/personagens Adiciona um novo personagem
      * @apiGroup Personagens
      * @apiVersion  1.0.0
      * @apiParam  {String} nome Nome do personagem

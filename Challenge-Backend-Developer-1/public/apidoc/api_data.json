@@ -283,7 +283,7 @@
   {
     "type": "post",
     "url": "/v1/personagens",
-    "title": "Adicionar novo personagem",
+    "title": "Adiciona um novo personagem",
     "group": "Personagens",
     "version": "1.0.0",
     "parameter": {
