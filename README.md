@@ -1,4 +1,4 @@
-Seja um Fielder, venha fazer parte do nosso time
+👨‍💻 Vaga para apaixonados por criação de software
 ===========================================
 
 A empresa
@@ -14,6 +14,8 @@ Origem
 ----------
 
 Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+
+Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
 
 
 Condições
@@ -48,8 +50,6 @@ Oportunidade
 
 Estamos em busca de desenvolvedores apaixonados para somar no nosso time de desenvolvimento.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
-
 Na Field, o seu dia-a-dia será repleto de:
 
 ```javascript
@@ -75,9 +75,11 @@ Na Field, o seu dia-a-dia será repleto de:
 
 Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
 
-Mas acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
+Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
 
 Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3, Heroku e Serverless na AWS Lambda :)
+
+Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
 
 Os desafios de programação
 ----------
@@ -200,7 +202,7 @@ Entrega
 
 Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, então quando for enviar seu pull request, por favor responda:
+Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
 
 - Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
 - Porque você optou pela tecnologia X e não a Y
