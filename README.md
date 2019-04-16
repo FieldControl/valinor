@@ -1,217 +1,231 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# Borderlands API
 
-A empresa
-----------
+## Index
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos. 
+1. [Ideia Geral](#ideia-geral)
+2. [Informações Importantes](#informações-importantes)
+3. [Estrutura de Arquivos](#estrutura-de-arquivos)
+4. [Banco de Dados](#banco-de-dados)
+5. [Rotas](#rotas)
+6. [Respostas: "Envio de Solução"](#respostas:-"envio-de-solução")
+7. [Créditos](#créditos)
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+***
 
-Origem
-----------
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
 
 
-Condições
-----------
-- Regime de trabalho: CLT
-- Período: Integral
-- Onde: São José do Rio Preto / SP 
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
 
-<p float="left">
-  <img src="field3.jpeg" width="225"/> 
-  <img src="field1.jpeg" width="400"/>
-  <img src="field4.jpeg" width="225"/> 
-</p>
 
-<!-- <p float="left">
-  <img src="field5.jpeg" width="226"/> 
-  <img src="field7.jpeg" width="650"/> 
-</p> -->
+## Ideia Geral
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+Criar uma API com operações de um CRUD, utilizando os métodos: *GET*, *POST*, *PUT*, *PATCH* e *DELETE*.  
+A API acessa um banco de dados com informações das armas do jogo Borderlands (apenas um template com uma informação de teste) porque Borderlands 3 ta logo ai.
 
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
+***
 
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
 
-Oportunidade
-----------
 
-Estamos em busca de desenvolvedores apaixonados para somar no nosso time de desenvolvimento.
 
-Na Field, o seu dia-a-dia será repleto de:
 
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular7(X)',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3, Heroku e Serverless na AWS Lambda :)
 
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
 
-Os desafios de programação
-----------
+## Informações Importantes
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
+O servidor API utiliza tecnologia providenciada pelo Node.JS (javascript) com a utilização do Framework Express.JS e integração com um Banco de Dados MySQL
 
-&lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt;
-----------
+A API esta programada para escutar a porta *3000*
 
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
+***
 
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
 
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
 
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
 
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :)
 
-&lt;challenge&gt; Frontend Developer 2 &lt;/challenge&gt;
-----------
 
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
 
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
 
-Você pode usar Twitter Bootstrap, Google Material ou qualquer outro framework de interfaces da sua preferência.
+## Estrutura de Arquivos
 
-SPA Framework? Aqui usamos bastante AngularJS e Angular7, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
+* ***Borderlands_API - Project Folder***
+  * **connections**  
+    * sql_connect.js (código de inicialização de conexão com o servidor MySQL)  
+  * **DB**
+    * borderland_db_init.sql (SQL de inicialização de banco)
+    * gun_types_table.json (Backup das informações: Tabela *'gun_type'*)
+    * manufacturers_table.json (Backup das informações: Tabela *'manufacturers'*) 
+  * **routes**
+    * gun_types.js (rotas GET para Tabela *'gun_type'*)
+    * guns.js (rotas GET para View *'gun_view'* e POST/PUT/PATCH/DELETE para Tabela: *'guns'*)
+    * manufacturers.js (rotas GET para Tabela *'gun_type'*)
+  * app.js (arquivo "MAIN")  
+  * package.json (arquivo de dependencia e informações do node.js)  
+  * query_result.js (função principal executada pelas rotas)  
+  * README.md (este exato arquivo)
 
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
+***
 
-URLs úteis:
 
-|  URL  | Descrição      
-|--------|                                  --- |            
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
 
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
 
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
 
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
 
-{ "challenge": "Backend Developer 1" }
-----------
 
-Desenvolver uma API JSON RESTful expondo operações de um CRUD.
 
-Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+## Banco de Dados
 
-Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE)
+Banco de Dados MySQL.  
+Nome Database: *borderland_db*
 
-Você terá que expor os seguintes endpoints para o recurso escolhido:
+SQL para geração do banco: *borderland_db_init.sql*  
+**OBS:** Arquivo gerado pelo *Data_Export* do MySQL Workbench.
 
-| Método | URL  | Comportamento esperado                               | 
-|--------| ---  |                                                  --- |
-| GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso | 
-| GET    | /resources/:id | Recupera um recursos em especifico pelo id | 
-| POST   | /resources     | Insere um novo recurso                     | 
-| PUT    | /resources/:id | Altera um recurso existente                | 
-| PATCH  | /resources/:id | Altera parcialmente um recurso existente   | 
-| DELETE | /resources/:id | Exclui um recurso existente                |
+***
+### Tabela: **guns**
+  
+| Nome Coluna | Descrição  |
+|-------------| ---  |
+| *id_guns* | Identificador Unico da Arma 
+| *gun_name*| Nome da Arma
+| *gun_desc*| Descrição da Arma
+| *id_manufacturer*| Identificação da Marca da Arma (ligada a tabela *manufacturers*)
+| *id_gun_type* | Identificação do Tipo da Arma (ligada a tabela *gun_type*)
+***
+### Tabela: **gun_type**
+  
+| Nome Coluna | Descrição  |
+|-------------| ---  |
+| *id_gun_types* | Identificador Unico do Tipo de Arma 
+| *type_name*| Nome da Categoria da Arma
 
-- **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
 
- **Atenção:**
- Você deve se preocupar com sanitização, validação e semântica. 
+***TABELA READ-ONLY***  
+*Informações padrão já gravadas na tabela (encontradas no arquivo **gun_types_table.json**)*
 
-{ "challenge": "Backend Developer 2" }
-----------
+***
+### Tabela: **manufacturers**
+  
+| Nome Coluna | Descrição  |
+|-------------| ---  |
+| *id_manufacturer* | Identificador Unico da Empresa Produtora de Armas
+| *manufacturer_name*| Nome da Empresa
 
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
 
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+***TABELA READ-ONLY***  
+*Informações padrão já gravadas na tabela (encontradas no arquivo **manufacturers_table.json**)*
 
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
+***
 
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
+### View: **gun_view**
 
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
+View criada para simplificar a visualização da tabela *guns*.  
+Substituindo os campos **ID** (chaves estrangeiras) com o valor **_name* relacionado a elas. 
+    
+| Nome Coluna | Descrição  | Referência [Tabela.Coluna]
+|-------------| ---  | --- |
+| *Gun ID* | Identificador Unico da Arma |*guns.id_guns*
+| *Gun Name*| Nome da Arma |*guns.gun_name*
+| *Gun Type*| Nome da Categoria da Arma |*gun_type.type_name*
+| *Gun Description*| Descrição da Arma |*guns.gun_desc*
+| *Manufacturer*| Nome da Empresa |*manufacturers.manufacturer_name*
+  
 
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
 
- **Atenção:**
- Você deve se preocupar com validação e semântica. 
 
-Dúvidas?
-----------
-Abra um issue que nós responderemos :)
+***
 
-Avaliação
-----------
+## Rotas
 
-Entre os critérios de avaliação estão:
+Todas as tabelas podem ser acessadas através das rotas providenciadas pel aAPI (menos a tabela *guns* onde sua visualização é simplificada para o usuário pela *gun_view*)
 
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação de código
-- Documentação do projeto (README)
-- Segurança
+Tabelas **READ-ONLY** somente são acessadas pelo método **GET**  
+Os métodos **POST**, **PUT** e **PATCH** utilizam informações vinda do header HTTP
 
-Entrega
-----------
+### Parâmetros Header para as Operações POST, PUT e PATCH de **/guns**
 
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
+* ***name*** = String para alocação em *gun_name*
+* ***desc*** = String para alocação em *gun_desc*
+* ***id_man*** = INT para alocação em *id_manufacturer*
+  * Deve ser um número que exista na tabela *manufacurer*
+  * Range Padrão: 1 a 12
+* ***id_type*** = INT para alocação em *id_gun_type*
+  * Deve ser um número que exista na tabela *gun_type*
+  * Range Padrão: 1 a 8
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
+**OBS:** O parâmetro *id_gun* nunca é alterado para evitar que o usuário gere algum conflito de **ID**. O mesmo esta configurado como **AUTO_INCREMENT**, ou seja, a cada novo **INSERT** o *id_gun* será igual o ultimo *id_gun+1*
 
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+### Tabela de Rotas
 
-E ai? Let's code?
-----------
+| Método | Rota | Descrição da Função |
+| ---    | ---  | ---                 |
+| **GET**| /*guns* | Visualiza toda a View *gun_view*
+| **GET**| /*guns/:id* | Visualiza o item da View *gun_view* onde seu *GUN ID* é igual ao *:id* fornecido
+| **GET**| /*types* | Visualiza toda a Tabela *gun_type*
+| **GET**| /*types/:id* | Visualiza o item da Tabela *gun_type* onde seu *id_gun_type* é igual ao *:id* fornecido
+| **GET**| /*manufacturers* | Visualiza toda a Tabela *manufacturers*
+| **GET**| /*manufacturers/:id* | Visualiza o item da Tabela *manufacturers* onde seu *id_manufacturer* é igual ao *:id* fornecido
+| **POST**| /*guns* | Adiciona uma nova tupla na Tabela *guns* com os Parâmetros informados pelo Header HTTP
+| **PUT**| /*guns/:id* | Modifica todos os atributos de um item na Tabela *guns* com os Parâmetros informados pelo Header HTTP. Sendo que o id deste item (*id_guns*) é fornecido pelo *:id*
+| **PATCH**| /*guns/:id* | Modifica apenas os atributos informados pelo Header HTTP de um item na Tabela *guns*. Sendo que o id deste item (*id_guns*) é fornecido pelo *:id*
+| **DELETE**| /*guns/:id* | Deleta um item na Tabela *guns*. Sendo que o id deste item (*id_guns*) é fornecido pelo *:id*
 
-<p align="left">
-  <img width="200" src="https://raw.githubusercontent.com/FieldControl/valinor/master/cat.gif">
-</p>
+
+
+***
+
+
+
+
+
+
+
+
+## Respostas: "Envio de Solução"
+
+**Framework, linguagem e ferramentas**
+
+Foi utilizado a ferramenta Node.JS em conjunto com o Framework Express.JS e a ferramenta de Banco de Dados MySQL. Tudo foi editado pelo Visual Studio Code
+
+**Técnologias X e Y**
+
+O desenvolvimento de uma API REST é algo novo para mim.  
+Toda tecnologia nova gosto de pesquisar como desenvolvedores mais experientes seguem para a soluciona-las (até porque eles tem mais experiência nela).  
+Pesquisando sobre desenvolvimento de APIs, Node.JS é altamente citado por suas inúmeras funcionalidades, assim como seu framework Express.JS que é um middleware altamente utilizado para facilitar a criação de APIs RESTful no ambiente Node.JS.  
+Para Banco de Dados utilizei o MySQL por se tratar de uma aplicação que já tenho um pouco mais de experiência sobre, principalmente na liguagem SQL.  
+E por fim utilizei o Visual Studio Code por sua alta praticidade em edição de código (sem contar que eu baixei ele uma duas semanas atrás e *dropei* totalmente o Sublime por cause dele)
+
+**Desafios e problemas**
+
+* Meu primeiro desafio foi utilizar o MySQL Workbench. Sempre trabalhei com o MySQL sem utilizar o workbench geralmente utilizava ferramentas como phpMyAdmin, mas decidi tentar aprender um pouco do MySQL Workbench durante o projeto e senti bastante dificuldade em navegar nas milhões de funcionalidades que ele propõe.
+  * A solução foi simples. Algumas horas na internet pesquisando as funções essenciais para o projeto, algumas tentativas e erros e fuçar bastante na ferramenta
+* Meu segundo desafio foi retirar as informações adicionais enviadas pelos métodos POST, PUT e PATCH na aplicação.
+  * Após algumas tentativas com a função body-parser e muitos debugs em conjunto com o PostMan, tentando evitar mais perda de tempo neste quesito utilizei o Header HTTP para retirar as informações com mais facilidade.
+
+**Melhorias e próximas implementações**
+
+- [ ] **Refatoração das funções aplicadas nos arquivos de rotas:** A rota poderia chamar uma função modular exportada em uma pasta com uma coleção de funções (pasta controllers).
+- [ ] **Adicionar Leitor de Parâmetros Adicionais pelo Body nos métodos POST, PUT e PATCH:** Identificar se existe informações sendo enviadsa pelo Header ou Body HTTP nos métodos citados e utiliza-las se sua existencia for verdadeira (no caso se for passado as informações corretas em ambos Header e Body o aplicativo escolhe um deles como padrão)
+- [ ] **Adicionar mais colunas na tabela *guns*:** Ainda existe muitas outras informações a serem adicionadas sobre as armas do jogo. Principalmente seus *status* como tipo elemental, tamanho do clipe, dano e etc.
+- [ ] **Popular tabela *guns*:** A graça do jogo são as armas. Então uma tabela cheia delas seria muito divertido.
+
+***
+
+
+
+
+
+
+
+## Créditos
+Programação e Documentação por: Carlos Gabriel Luz Monnazzi (Dreamblader)  
+
+LinkedIn: [Carlos Gabriel Luz Monnazzi](https://www.linkedin.com/in/carlos-gabriel-luz-monnazzi-340201156/)  
+GitHub: [Dreamblader](https://github.com/dreamblader)  
+E-Mail: carlosgabrielmaster@gmail.com

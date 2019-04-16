@@ -1,0 +1,50 @@
+[
+	{
+		"id_manufacturer" : 1,
+		"manufacturer_name" : "Atlas"
+	},
+	{
+		"id_manufacturer" : 2,
+		"manufacturer_name" : "Bandit"
+	},
+	{
+		"id_manufacturer" : 3,
+		"manufacturer_name" : "Dahl"
+	},
+	{
+		"id_manufacturer" : 4,
+		"manufacturer_name" : "Eridians"
+	},
+	{
+		"id_manufacturer" : 5,
+		"manufacturer_name" : "Gearbox"
+	},
+	{
+		"id_manufacturer" : 6,
+		"manufacturer_name" : "Hyperion"
+	},
+	{
+		"id_manufacturer" : 7,
+		"manufacturer_name" : "Jakobs"
+	},
+	{
+		"id_manufacturer" : 8,
+		"manufacturer_name" : "Maliwan"
+	},
+	{
+		"id_manufacturer" : 9,
+		"manufacturer_name" : "S&S Munitions"
+	},
+	{
+		"id_manufacturer" : 10,
+		"manufacturer_name" : "Tediore"
+	},
+	{
+		"id_manufacturer" : 11,
+		"manufacturer_name" : "Torgue"
+	},
+	{
+		"id_manufacturer" : 12,
+		"manufacturer_name" : "Vladof"
+	}
+]

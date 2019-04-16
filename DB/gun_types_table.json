@@ -1,0 +1,34 @@
+[
+	{
+		"id_gun_types" : 1,
+		"type_name" : "Repeater Pistol"
+	},
+	{
+		"id_gun_types" : 2,
+		"type_name" : "Revolver"
+	},
+	{
+		"id_gun_types" : 3,
+		"type_name" : "Submachine Gun"
+	},
+	{
+		"id_gun_types" : 4,
+		"type_name" : "Combat Rifle"
+	},
+	{
+		"id_gun_types" : 5,
+		"type_name" : "Shotgun"
+	},
+	{
+		"id_gun_types" : 6,
+		"type_name" : "Sniper Rifle"
+	},
+	{
+		"id_gun_types" : 7,
+		"type_name" : "Rocket Launcher"
+	},
+	{
+		"id_gun_types" : 8,
+		"type_name" : "Eridian Gun"
+	}
+]
