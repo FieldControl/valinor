@@ -7,7 +7,7 @@
 3. [Estrutura de Arquivos](#estrutura-de-arquivos)
 4. [Banco de Dados](#banco-de-dados)
 5. [Rotas](#rotas)
-6. [Respostas: "Envio de Solução"](#respostas:-"envio-de-solução")
+6. [Respostas: "Envio de Solução"](#respostas:-envio-de-solução)
 7. [Créditos](#créditos)
 
 
@@ -187,7 +187,7 @@ Os métodos **POST**, **PUT** e **PATCH** utilizam informações vinda do header
 
 
 
-## Respostas: "Envio de Solução"
+## Respostas: Envio de Solução
 
 **Framework, linguagem e ferramentas**
 
