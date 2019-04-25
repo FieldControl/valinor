@@ -97,6 +97,34 @@ exports.update = (req, res) => {
 	});
 }
 
+exports.patch = (req, res) => {
+		// validate Request
+	if(!req.body) {
+		return res.status(400).send({
+			message: "Game content can not be empty"
+		});
+	}
+
+	Game.findByIdAndUpdate(req.params.gameId, req.body)
+	.then(game => {
+		if(!game) {
+			return res.status(404).send({
+				message: "Game not found with id " + req.params.gameId
+			});
+		}
+		res.status(200).send();
+	}).catch(err => {
+		if(err.kind === 'ObjectId') {
+			return res.status(404).send({
+				message: "Game not found with id " + req.params.gameId
+			});
+		}	
+		return res.status(500).send({
+			message: "Something went wrong updating game with id " + req.params.gameId
+		});
+	});
+}
+
 // Delete a game with the specific gameId in the request
 exports.delete = (req, res) => {
 	Game.findByIdAndRemove(req.params.gameId)

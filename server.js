@@ -6,6 +6,7 @@ const app = express();
 
 // Documentation
 swaggerDoc(app);
+app.use
 
 // parse request
 app.use(bodyParser.urlencoded({ extend: false}))
