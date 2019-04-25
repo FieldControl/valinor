@@ -1,0 +1,26 @@
+{
+  "name": "valinor",
+  "version": "1.0.0",
+  "description": "👨‍💻 Vaga para apaixonados por criação de software ===========================================",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jhenriquee/valinor.git"
+  },
+  "author": "João Henrique Inacio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jhenriquee/valinor/issues"
+  },
+  "homepage": "https://github.com/Jhenriquee/valinor#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.3",
+    "swagger-jsdoc": "^3.2.9",
+    "swagger-ui-express": "^4.0.2"
+  }
+}

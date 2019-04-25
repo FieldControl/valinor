@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "7366d67e-58d8-48b7-9b0a-850a21f5f35c",
+		"name": "games-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET BY ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Thinkpad X1 Extreme\",\n\t\"description\": \"15 inch lenovo notebook\",\n\t\"price\": \"2000\",\n\t\"company\": \"Lenovo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/5cbfcd92e3ed9175d7c58ab1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"5cbfcd92e3ed9175d7c58ab1"
+					]
+				},
+				"description": "Resource to get a single game by id"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE GAME",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Bloodborne\",\n\t\"description\": \"Bloodborne is an action RPG in which you hunt for answers in the ancient city of Yharnam, now cursed with a strange endemic illness spreading through the streets like a disease. Peril, death and madness infest this dark world, and you're tasked with uncovering its darkest secrets which will be necessary for you to survive. Armed with a singular arsenal of weaponry, including guns and saw cleavers, you'll require wits, strategy and reflexes to dispatch the agile and intelligent enemies that guard the city's underbelly. You will utility holy chalices to access an array of vast underground ruins, chock full of traps, beasts, and rewards, to explore and conquer on your own or with other people.\",\n\t\"score\": \"92\",\n\t\"company\": \"From Software\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games"
+					]
+				},
+				"description": "Create a game into the database"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE BY ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/5cc1c14f73bb5faa721f7ff3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"5cc1c14f73bb5faa721f7ff3"
+					]
+				},
+				"description": "Delete a game with ID"
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT GAME",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\": \"5cbfcd92e3ed9175d7c58ab1\",\n    \"title\": \"The Last of Us\",\n    \"description\": \"Twenty years after a pandemic radically transformed known civilization, infected humans run amuck and survivors kill one another for sustenance and weapons - literally whatever they can get their hands on. Joel, a salty survivor, is hired to smuggle a fourteen-year-old girl, Ellie, out of a rough military quarantine, but what begins as a simple job quickly turns into a brutal journey across the country.\",\n    \"score\": 95,\n    \"company\": \"Naughty Dog\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/5cbfcd92e3ed9175d7c58ab1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"5cbfcd92e3ed9175d7c58ab1"
+					]
+				},
+				"description": "Edit game info"
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL GAMES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
