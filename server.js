@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const swaggerDoc = require('./swaggerDoc');
 
 const app = express();
+
+// Documentation
+swaggerDoc(app);
 
 // parse request
 app.use(bodyParser.urlencoded({ extend: false}))
