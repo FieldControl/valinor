@@ -109,7 +109,7 @@ module.exports = (app) => {
      *  put:
      *      tags:
      *          - Games
-     *      summary: Update a game
+     *      summary: Update a games
      *      produces:
      *          - application/json
      *      parameters:
@@ -124,6 +124,29 @@ module.exports = (app) => {
      *              description: Success            
      */
     app.put('/games/:gameId', games.update);
+
+    /**
+     * @swagger
+     *
+     * /games:
+     *  patch:
+     *      tags:
+     *          - Games
+     *      summary: Update game specific fields
+     *      produces:
+     *          - application/json
+     *      parameters:
+     *          - name: game
+     *            description: Game object
+     *            in: body
+     *            required: true
+     *            schema:
+     *              $ref: '#/definitions/Game'
+     *      responses:
+     *          200:
+     *              description: Success            
+     */
+    app.patch('/games/:gameId', games.patch);
 
     /**
      * @swagger

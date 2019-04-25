@@ -150,6 +150,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "UPDATE FIELDS",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company\": \"Naughty Dog\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/games/5cc1ef56daa17dd063feaeef",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games",
+						"5cc1ef56daa17dd063feaeef"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
