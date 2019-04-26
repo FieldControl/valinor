@@ -1,0 +1,14 @@
+@import '~bootstrap/scss/bootstrap';
+
+$danger: #F0141E;
+
+body,
+html{
+  background: #222;
+}
+
+body{
+  padding-top: 58px;
+}
+
+@import './characters/Characters'
