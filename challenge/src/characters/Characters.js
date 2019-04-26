@@ -125,7 +125,13 @@ class Characters extends Component {
                     {!isLoadingCharacters && characters && characters.length > 0 && (
                         <div className="row">
                             <div className="col-12 py-3">
-                                <p className="lead text-center text-light">viewing {limit} of {total} characters - (page {page})</p> 
+                                <p className="lead text-center text-light">
+                                    {total > limit ? (
+                                        <>viewing {limit} of {total} characters - (page {page})</>
+                                    ):(
+                                        <>viewing {total} characters</>
+                                    )}
+                                </p> 
                                 <div className="card-columns">
                                     {characters.map((item, index) => (
                                         <div className="Character__item card border-0 mt-1 rounded-0 bg-dark text-white" key={index} onClick={() => this.selectCharacter(item)}>
