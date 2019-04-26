@@ -99,8 +99,8 @@ class Characters extends Component {
                         <div className="col-12 col-lg-8 offset-lg-2">
                             <div className="my-4">
                                 <div className="text-center">
-                                    <h1 className="text-light m-0">All about Marvel's characters</h1>
-                                    <p className="lead text-light mt-0 mb-3">Find characters and read about they</p>
+                                    <h1 className="text-light m-0">Marverl's Characters, Super Heroes & Villians</h1>
+                                    <p className="lead text-light mt-0 mb-3">Search and discover all about them</p>
                                 </div>
                                 <form noValidate onSubmit={(e) => { e.preventDefault(); this.searchCharacter({ search }) }}>
                                     <div className="input-group input-group-lg">
