@@ -99,14 +99,14 @@ class Characters extends Component {
                         <div className="col-12 col-lg-8 offset-lg-2">
                             <div className="my-4">
                                 <div className="text-center">
-                                    <h1 className="text-light m-0">Marverl's Characters, Super Heroes & Villians</h1>
+                                    <h1 className="text-light m-0">Marvel's Characters, Super Heroes & Villians</h1>
                                     <p className="lead text-light mt-0 mb-3">Search and discover all about them</p>
                                 </div>
                                 <form noValidate onSubmit={(e) => { e.preventDefault(); this.searchCharacter({ search }) }}>
                                     <div className="input-group input-group-lg">
                                         <input autoFocus onChange={event => this.setSearch(event.target.value)} type="text" className="form-control border-right-0" placeholder="Iron man, Hulk..." />
                                         <div className="input-group-append">
-                                            <span className="input-group-text bg-white"><img className="img-fluid" style={{ height: 30 }} src="https://image.flaticon.com/icons/svg/149/149852.svg" alt="Busca" /></span>
+                                            <button className="btn btn-outline bg-white"><img className="img-fluid" style={{ height: 20 }} src="https://image.flaticon.com/icons/svg/149/149852.svg" alt="Busca" /></button>
                                         </div>
                                     </div>
                                     <small className="form-text text-muted text-center">Do an empty search to list all characters</small>
