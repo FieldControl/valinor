@@ -109,7 +109,7 @@ class Characters extends Component {
                                             <span className="input-group-text bg-white"><img className="img-fluid" style={{ height: 30 }} src="https://image.flaticon.com/icons/svg/149/149852.svg" alt="Busca" /></span>
                                         </div>
                                     </div>
-                                    <small className="form-text text-muted text-center">Do search empty for see all characters</small>
+                                    <small className="form-text text-muted text-center">Do an empty search to list all characters</small>
                                 </form>
                             </div>
                             <div className="lead text-light text-center">
