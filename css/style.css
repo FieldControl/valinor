@@ -1,0 +1,452 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7em;
+  font-family: 'Raleway', 'Helvetica', sans-serif;
+}
+
+section {
+  margin-bottom: 5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* =========== MastHead Section =========== */
+
+#masthead {
+  background: url('../img/background.png') no-repeat;
+  background-size: cover;
+}
+
+#masthead .container {
+  height: 100%;
+  margin: 0 10%;
+  padding-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#masthead .content.text {
+  padding: calc(5em + 20%) 0 10% 0;
+}
+
+#masthead .title {
+  padding-bottom: .5em;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+#masthead .subtitle {
+  text-transform: initial;
+  line-height: 1.5;
+}
+
+.btn {
+  font-weight: 600;
+  border: none;
+  border-radius: 2px;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin: 0 auto;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.btn-classic {
+  background-color: rgb(232, 69, 69);
+  color: white;
+}
+
+.btn-classic:hover {
+  background-color: rgb(206, 62, 62);
+}
+
+/* =========== End MastHead Section =========== */
+
+/* =========== Features Section =========== */
+
+#features .container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-items: center;
+  grid-gap: 3em;
+  transition: all .3s ease-in-out;
+}
+
+.features-icon {
+  color: rgb(232, 69, 69);
+  font-size: 4em;
+  margin-bottom: 10%;
+}
+
+.features-title {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.features-description {
+  text-transform: initial;
+  color: #6c7279;
+}
+
+/* =========== End Features Section =========== */
+
+/* =========== Works Section =========== */
+
+#works .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 1px;
+}
+
+#works .photo {
+  position: relative;
+}
+
+.photo img {
+  width: 100%;
+  display: block;
+}
+
+.photo-info {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(232, 69, 69, .9);
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.photo-info:hover {
+  opacity: 1;
+}
+
+.photo-info .title {
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+.photo-info .description {
+  text-transform: initial;
+}
+
+/* =========== End Works Section =========== */
+
+/* =========== Team Section =========== */
+
+#team .container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 5em;
+
+}
+
+.team-card-photo img {
+  width: 100%;
+  display: block;
+}
+
+.team-card-presentation {
+  text-align: left;
+}
+
+.team-card-presentation .name {
+  color: #2d3033;
+  font-size: 2em;
+  margin: 3% 0;
+}
+
+.team-card-presentation .role {
+  text-align: left;
+  font-size: .9em;
+  margin-bottom: 10%;
+  color: rgb(232, 69, 69);
+}
+
+.team-card-presentation .description {
+  text-transform: initial;
+  text-align: left;
+  color: #6c7279;
+  margin-bottom: 5%;
+}
+
+.social-media {
+  font-size: 1.2em;
+  text-align: left;
+}
+
+.social-media a {
+  color: rgb(198, 202, 204);
+}
+
+.social-media .fa-facebook-f:hover {
+  color: #4267B2;
+  border-color: #4267B2;
+}
+
+.social-media .fa-twitter:hover {
+  color: #1DA1F2;
+  border-color: #1DA1F2;
+}
+
+.social-media .fa-linkedin:hover {
+  color: #0077B5;
+  border-color: #0077B5;
+}
+
+.social-media i {
+  border: solid 1px rgb(198, 202, 204);
+  padding: .5em;
+  width: 2.3em;
+  text-align: center;
+}
+
+/* =========== End Team Section =========== */
+
+/* =========== Clients Section =========== */
+
+#clients .slide {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background-color: rgb(83, 53, 74);
+}
+
+.photo-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+}
+
+.photo-container > .photo {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.photo-container .photo:nth-child(1) {
+  background-image: url("../img/client-1.png");
+  background-position: 70% center;
+}
+
+.photo-container .photo:nth-child(2) {
+  background-image: url("../img/client-2.png");
+  background-position: 70% center;
+}
+
+.photo-container .photo:nth-child(3) {
+  background-image: url("../img/client-3.png");
+  background-position: 40% center;
+}
+
+.slide-item {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .3s ease-in-out;
+}
+
+.slide-item.active {
+  opacity: 1;
+}
+
+.testimonial.active {
+  transform: scale(1);
+}
+
+.testimonial-container {
+  position: relative;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  background-color: rgb(83, 53, 74);
+}
+
+.testimonial {
+  padding: 0 5%;
+  height: 100%;
+  transform: scale(.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial p {
+  margin-bottom: 1em;
+  text-transform: initial;
+  font-family: 'Cardo', 'Arial', sans-serif;
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+.testimonial h3 {
+  font-size: .5em;
+}
+
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 7%;
+  width: 100%;
+  font-size: .5em;
+}
+
+.slide-indicators li {
+  margin: 0 .2em;
+  color: rgb(198, 202, 204);
+  transition: all .3s ease-in-out;
+}
+
+.fa-circle.active {
+  color: white;
+}
+
+.control {
+  display: none;
+  color: white;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 42%;
+  transition: all .3s;
+}
+
+.control:hover {
+  opacity: 1;
+}
+
+.control i {
+  padding: 1em;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+/* =========== End Clients Section =========== */
+
+/* =========== Download Section =========== */
+
+#download .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-download {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.text-download h3 {
+  font-weight: 300;
+  margin-bottom: .5em;
+}
+
+.text-download p {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .6em;
+  margin-bottom: 2em;
+}
+
+/* =========== End Download Section =========== */
+
+/* =========== Footer Section =========== */
+
+footer .container {
+  width: 100%;
+  background-color: rgb(58, 62, 100);
+}
+
+footer .subsection {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3em;
+  column-gap: 2em;
+  margin: 0 auto;
+  padding: 5em 0;
+}
+
+footer .subsection > div {
+  text-align: center;
+  color: white;
+}
+
+footer .subsection h3 {
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+footer .social-media {
+  text-align: center;
+}
+
+footer .social-media i {
+  border-width: 2px;
+  color: white;
+  border-color: white;
+}
+
+.copyright {
+  text-align: center;
+  color: white;
+  padding: 2em 0;
+  width: 100%;
+  background-color: rgb(49, 52, 84);
+}
+
+.copyright p {
+  font-size: .7em;
+  width: 80%;
+  margin: 0 auto;
+  color: #808080;
+  line-height: 1.3;
+}
+
+.copyright span {
+  color: white;
+}
+
+.copyright i {
+  color: #e84545;
+}
+
+/* =========== End Footer Section =========== */

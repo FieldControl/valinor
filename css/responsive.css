@@ -1,0 +1,173 @@
+@media screen and (min-width: 425px) {
+
+    .navbar .content {
+        padding: 1.8em 0;
+    }
+
+    .no-border {
+        padding: 1.5em 0 !important;
+    }
+
+    .slide-indicators {
+        width: 50%;
+        left: 50%;
+    }
+
+    .testimonial * {
+        text-align: left;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    #masthead .title {
+        font-size: 3em;
+    }
+
+    #team .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial {
+        width: 80%;
+    }
+
+    .testimonial p {
+        font-size: 1.7em;
+    }
+
+    #works .container {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+
+    .photo img {
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    #download .text-download {
+        font-size: 1.3em;
+    }
+
+    footer .subsection {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .navbar .open-menu {
+        display: none;
+    }
+
+    .navbar .close-menu {
+        display: none;
+    }
+
+    .menu {
+        height: initial;
+        display: block;
+    }
+
+    .menu-item {
+        display: inline-block;
+    }
+
+    .menu-item a {
+        font-size: initial;
+        margin: 0 1em;
+        color: rgb(200, 200, 200);
+    }
+
+    .menu-item a:hover {
+        color: white;
+    }
+
+    .navbar-nav {
+        position: initial;
+        width: auto;
+        background: none;
+    }
+
+    #works .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #clients .slide {
+        height: 400px;
+        font-size: 1.3em;
+    }
+
+    .control {
+        display: block;
+    }
+
+    #download .text-download {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+
+    #masthead .container {
+        margin: 0 15%;
+    }
+
+    #masthead .content.text {
+        padding: 25% 0 5% 0;
+    }
+
+    #masthead .container {
+        padding-bottom: 15%;
+    }
+
+    .navbar-brand img {
+        width: 100%;
+    }
+
+    #masthead .title {
+        font-size: 4em;
+    }
+
+    #masthead .subtitle {
+        font-size: 1.3em;
+    }
+
+    #features .container {
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 1.3em;
+    }
+
+    #team .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .testimonial-container {
+        font-size: 1.3em;
+    }
+
+    #clients .slide {
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    /* html {
+        font-size: 1.4em;
+    } */
+
+    #masthead .content.text {
+        padding: 25% 0 5% 0;
+    }
+
+    #masthead .container {
+        padding-bottom: 15%;
+    }
+
+    .navbar-brand img {
+        width: 150%;
+    }
+}
