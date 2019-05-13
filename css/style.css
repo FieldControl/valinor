@@ -333,7 +333,6 @@ a {
 }
 
 .control {
-  display: none;
   color: white;
   opacity: 0;
   background-color: rgba(0, 0, 0, .5);

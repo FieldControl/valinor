@@ -33,7 +33,7 @@ window.onload = function () {
 
     $('.close-menu').onclick = function () {
         $('html').classList.remove('menu-active');
-        // Active touch scroll for mobile
+        // Enable touch scroll for mobile
         $('html').removeEventListener('touchmove', preventDefault, { passive: false });
     }
 
@@ -41,7 +41,6 @@ window.onload = function () {
         item.onclick = function () {
             $('html').classList.remove('menu-active');
             $('html').removeEventListener('touchmove', preventDefault, { passive: false });
-
         }
     });
 
@@ -93,9 +92,9 @@ window.onload = function () {
             if (indexOfActiveElement === 0) {
                 nodeListOfElements.item(indexOfActiveElement).classList.remove('active');
 
-                if (moveDirection === direction.RIGHTTOLEFT) { // Active next slide
+                if (moveDirection === direction.RIGHTTOLEFT) { // Activate next slide
                     nodeListOfElements.item(++indexOfActiveElement).classList.add('active');
-                } else { // Active last slide
+                } else { // Activate last slide
                     indexOfActiveElement = nodeListOfElements.length - 1;
                     nodeListOfElements.item(indexOfActiveElement).classList.add('active');
                 }
@@ -104,10 +103,10 @@ window.onload = function () {
             else if (indexOfActiveElement === nodeListOfElements.length - 1) {
                 nodeListOfElements.item(indexOfActiveElement).classList.remove('active');
 
-                if (moveDirection === direction.RIGHTTOLEFT) { // Active first slide
+                if (moveDirection === direction.RIGHTTOLEFT) { // Activate first slide
                     indexOfActiveElement = 0;
                     nodeListOfElements.item(indexOfActiveElement).classList.add('active');
-                } else { // Active previous slide
+                } else { // Activate previous slide
                     nodeListOfElements.item(--indexOfActiveElement).classList.add('active');
                 }
             }
@@ -115,9 +114,9 @@ window.onload = function () {
             else {
                 nodeListOfElements.item(indexOfActiveElement).classList.remove('active');
 
-                if (moveDirection === direction.RIGHTTOLEFT) { // Active next slide
+                if (moveDirection === direction.RIGHTTOLEFT) { // Activate next slide
                     nodeListOfElements.item(++indexOfActiveElement).classList.add('active');
-                } else { // Active previous slide
+                } else { // Activate previous slide
                     nodeListOfElements.item(--indexOfActiveElement).classList.add('active');
                 }
             }

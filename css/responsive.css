@@ -101,16 +101,12 @@
         font-size: 1.3em;
     }
 
-    .control {
-        display: block;
-    }
-
     #download .text-download {
         font-size: 1.5em;
     }
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1300px) {
 
     #masthead .container {
         margin: 0 15%;
@@ -155,9 +151,6 @@
 }
 
 @media screen and (min-width: 1920px) {
-    /* html {
-        font-size: 1.4em;
-    } */
 
     #masthead .content.text {
         padding: 25% 0 5% 0;
