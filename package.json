@@ -1,0 +1,38 @@
+{
+  "name": "prova",
+  "version": "1.0.0",
+  "description": "👨‍💻 Vaga para apaixonados por criação de software\r ===========================================",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate:orm": "node generate-orm.js",
+    "start:dev": "nodemon server.js",
+    "api:test": "mocha --timeout 10000 --recursive src/test/resources.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juhcamila/valinor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juhcamila/valinor/issues"
+  },
+  "homepage": "https://github.com/juhcamila/valinor#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "pg": "^6.4.2",
+    "psql": "0.0.1",
+    "sequelize": "^5.8.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.19.1",
+    "sequelize-auto": "^0.4.29"
+  }
+}
