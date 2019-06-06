@@ -1,0 +1,27 @@
+{
+  "name": "valinor",
+  "version": "1.0.0",
+  "description": "challenge1",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukastf/valinor.git"
+  },
+  "author": "lucas trevizan de freitas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukastf/valinor/issues"
+  },
+  "homepage": "https://github.com/lukastf/valinor#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.5.13",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3"
+  }
+}
