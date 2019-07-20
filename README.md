@@ -10,6 +10,10 @@ Entregamos **controle**, **organização** e **melhor relacionamento com o clien
 
 Nossa missão é melhorar a prestação de serviços no Brasil.
 
+<p>
+  <img src="fielders.png" width="855"/> 
+</p>
+
 Origem
 ----------
 
@@ -33,11 +37,6 @@ Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai t
   <img src="field1.jpeg" width="400"/>
   <img src="field4.jpeg" width="225"/> 
 </p>
-
-<!-- <p float="left">
-  <img src="field5.jpeg" width="226"/> 
-  <img src="field7.jpeg" width="650"/> 
-</p> -->
 
 A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
 
