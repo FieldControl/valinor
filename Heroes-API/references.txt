@@ -1,0 +1,4 @@
+https://grokonez.com/node-js/nodejs-use-mongoose-to-save-files-images-to-mongodb
+https://medium.com/today-i-learned-chai/how-to-upload-files-with-node-js-hapi-js-c788b5c8586a
+https://mongoosejs.com/docs/schematypes.html
+https://www.youtube.com/watch?v=f5W6FkuR-6U

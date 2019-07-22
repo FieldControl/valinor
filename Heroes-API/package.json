@@ -1,0 +1,22 @@
+{
+  "name": "restapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "hapi": "^18.1.0",
+    "joi": "^14.3.1",
+    "mongoose": "^5.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "test": "jest --no-cache ./*",
+    "start": "nodemon ./app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
