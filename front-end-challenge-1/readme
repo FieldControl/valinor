@@ -1,0 +1,2 @@
+# browser-sync
+browser-sync start --proxy "localhost/valinor/front-end-challenge-1" --files "index.html,css/style.css,js/app.js"

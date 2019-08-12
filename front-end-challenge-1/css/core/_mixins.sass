@@ -1,0 +1,140 @@
+$mq-support: true !default
+$mq-fixed-value: 1024px !default
+
+=bp($feature, $value)
+    // Set global device param
+    $media: only screen
+
+    // Media queries supported
+    @if $mq-support == true
+        @media #{$media} and ($feature: $value)
+            @content
+
+        // Media queries not supported
+    @else
+        @if $feature == "min-width"
+            @if $value <= $mq-fixed-value
+                @content
+        @else if $feature == "max-width"
+            @if $value >= $mq-fixed-value
+                @content
+
+=bp-xlarge
+    +bp(max-width, $bp-xlarge)
+        @content
+
+=bp-large
+    +bp(max-width, $bp-large)
+        @content
+
+=bp-medium
+    +bp(max-width, $bp-medium)
+        @content
+
+=bp-small
+    +bp(max-width, $bp-small)
+        @content
+
+=bp-xsmall
+    +bp(max-width, $bp-xsmall)
+        @content
+
+=bp-mobile
+    +bp(max-width, $bp-mobile)
+        @content
+
+=bp-custom($width)
+    +bp(max-width, $width)
+        @content
+
+=fx-display
+    display: -webkit-box
+    display: -moz-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
+
+=fx-display-inline
+    display: -webkit-inline-flex
+    display: -ms-inline-flexbox
+    display: inline-flex
+
+=fx-align-items($x)
+    -webkit-align-items: $x
+    -ms-align-items: $x
+    align-items: $x
+
+=fx-direction($x)
+    -webkit-flex-direction: $x
+    -ms-flex-direction: $x
+    flex-direction: $x
+
+=fx-justify-content($x)
+    justify-content: $x
+    -webkit-justify-content: $x
+    -ms-justify-content: $x
+
+=fx-wrap($x)
+    -webkit-flex-wrap: $x
+    -ms-flex-wrap: $x
+    flex-wrap: $x
+
+=fx-align-content($x)
+    -webkit-align-content: $x
+    -ms-align-content: $x
+    align-content: $x
+
+=fx-order($x)
+    -webkit-box-ordinal-group: $x
+    -moz-box-ordinal-group: $x
+    -ms-flex-order: $x
+    -webkit-order: $x
+    order: $x
+
+=placeholder
+    &::-webkit-input-placeholder
+        @content
+    &::-moz-placeholder
+        @content
+    &:-ms-input-placeholder
+        @content
+    &:-moz-placeholder
+        @content
+
+
+=animation($animation, $duration, $delay: 0s, $fillmode: forwards)
+    -webkit-animation-delay: $delay
+    -webkit-animation-duration: $duration
+    -webkit-animation-name: $animation
+    -webkit-animation-fill-mode: $fillmode
+
+    -moz-animation-delay: $delay
+    -moz-animation-duration: $duration
+    -moz-animation-name: $animation
+    -moz-animation-fill-mode: $fillmode
+
+    -o-animation-delay: $delay
+    -o-animation-duration: $duration
+    -o-animation-name: $animation
+    -o-animation-fill-mode: $fillmode
+
+    animation-delay: $delay
+    animation-duration: $duration
+    animation-name: $animation
+    animation-fill-mode: $fillmode
+
+=animation-css($animation)
+    @-webkit-keyframes #{$animation}
+        @content
+
+    @-moz-keyframes #{$animation}
+        @content
+
+    @-o-keyframes #{$animation}
+        @content
+
+    @keyframes #{$animation}
+        @content
+
+=font-smooth
+    -webkit-font-smoothing: antialiased

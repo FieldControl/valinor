@@ -1,0 +1,70 @@
+$menu-height: 100px
+
+.header-section
+    height: 750px
+    background-image: url("../img/header-background.jpg")
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+
+.header-section .menu
+    +fx-display
+    +fx-justify-content(space-between)
+    +fx-align-items(center)
+    height: $menu-height
+    border-bottom: 1px solid #50536a
+
+.header-section .menu ul
+    +fx-display
+
+.header-section .menu ul li
+    color: #fff
+
+.header-section .menu ul li:not(:first-child)
+    margin-left: 60px
+
+.header-section .menu ul li a
+    text-transform: uppercase
+    font-size: 13px
+
+.header-section .content
+    +fx-display
+    +fx-justify-content(center)
+    +fx-align-items(center)
+    +fx-wrap(wrap)
+    +fx-align-content(center)
+    height: calc(100% - #{$menu-height})
+    width: 920px
+    margin: 0 auto
+
+.header-section .main-title
+    font-family: $font-special
+    font-weight: $font-special-bold
+    font-size: 65px
+    line-height: 74px
+    color: #fff
+    text-transform: uppercase
+    text-align: center
+    width: 100%
+
+.header-section .sub-title
+    +font-smooth
+    font-size: 22px
+    text-align: center
+    font-family: $font-special
+    font-weight: $font-special-regular
+    color: #fff
+    margin-top: 20px
+
+.header-section .button
+    +fx-display
+    +fx-align-items(center)
+    +fx-justify-content(center)
+    background: $red
+    color: #fff
+    font-size: 13px
+    padding: 4px
+    width: 200px
+    height: 46px
+    border-radius: 2px
+    margin-top: 70px
