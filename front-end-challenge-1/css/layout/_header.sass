@@ -66,15 +66,23 @@ $menu-height: 100px
     color: #e84545
 
 .header-section .menu .menu-button-closed
+    display: none
     width: 40px
 
+    +bp-mobile
+        display: block
+
 .header-section .menu .menu-button-opened
+    display: none
     cursor: pointer
     position: absolute
     width: 40px
     padding: 0
     right: 24px
     top: 24px
+
+    +bp-mobile
+        display: block
 
 .header-section .content
     +fx-display
