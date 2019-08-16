@@ -1,0 +1,63 @@
+.images-section
+    padding: 0
+
+.images-section ul
+    +fx-display
+    +fx-wrap(wrap)
+
+.images-section ul li
+    +fx-display-inline
+    +fx-align-content(flex-start)
+    position: relative
+    width: 25%
+    height: auto
+    overflow: hidden
+    cursor: default
+    padding: 0.5px
+
+    +bp-mobile
+        display: inline-block
+        width: 50%
+
+.images-section ul li:hover > div
+    +transform(translate(0, 0))
+
+.images-section ul li > div
+    +transform(translate(0, 100%))
+    +fx-display
+    +fx-justify-content(center)
+    +fx-align-items(center)
+    +fx-wrap(wrap)
+    +fx-align-content(center)
+    position: absolute
+    background-color: rgba($red, 90%)
+    width: 100%
+    height: 100%
+    transition: 0.3s
+    bottom: 0
+    left: 0
+    cursor: default
+
+    +bp-mobile
+        display: none
+
+.images-section ul li > div h5,
+.images-section ul li > div h6
+    +font-smooth
+    display: block
+    width: 100%
+    text-align: center
+    color: #fff
+    font-size: 14px
+
+.images-section ul li > div h5
+    text-transform: uppercase
+
+.images-section ul li > div h6
+    font-weight: normal
+    margin-top: 6px
+
+.images-section ul li img
+    display: block
+    width: 100%
+    height: auto
