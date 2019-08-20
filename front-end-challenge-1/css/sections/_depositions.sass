@@ -1,0 +1,85 @@
+.depositions-section
+    padding: 0
+
+.depositions-section .default-container
+    +fx-display
+    +fx-wrap(wrap)
+    +fx-align-content(flex-start)
+    height: 500px
+
+.depositions-section .image
+    width: 50%
+    background-image: url("../img/depositions-background.jpg")
+    background-position: center center
+    background-size: cover
+    background-repeat: no-repeat
+
+    +bp-large
+        background-position: right -80px center
+
+    +bp-mobile
+        width: 100%
+        height: 300px
+        background-position: center center
+
+.depositions-section .content
+    width: 50%
+    background-color: #53364a
+    color: #fff
+    padding: 110px $section-padding $section-padding 80px
+
+    +bp-mobile
+        width: 100%
+        padding: $section-padding
+
+.depositions-section .content ul
+    display: block
+    width: 520px
+
+    +bp-mobile
+        width: 100%
+
+.depositions-section .content ul li
+    +font-smooth
+    display: block
+    width: 100%
+
+.depositions-section .content ul li .text
+    font-size: 34px
+    font-family: $font-serif
+    font-weight: $font-serif-regular
+    font-style: italic
+
+    +bp-mobile
+        font-size: 20px
+
+.depositions-section .content ul li span
+    display: block
+    font-family: $font-default
+    font-weight: $font-default-bold
+    font-size: 13px
+    font-style: normal
+    text-transform: uppercase
+    margin-top: 20px
+    
+.depositions-section ul.slick-dots
+    text-align: center
+    margin-top: 40px
+
+    +bp-mobile
+        margin-top: 10px
+
+.depositions-section ul.slick-dots li
+    display: inline-block
+    text-indent: -9999px
+    width: 12px
+    height: 12px
+    background-color: #755e6e
+    cursor: pointer
+    border-radius: 50%
+
+.depositions-section ul.slick-dots li.slick-active
+    background-color: #fff
+
+.depositions-section ul.slick-dots li:not(:last-child)
+    margin-right: 8px
