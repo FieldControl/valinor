@@ -1,0 +1,69 @@
+.footer-section
+    background-color: #3a3e64
+    padding: 70px 0 90px 0
+
+.footer-section .default-container
+    +fx-display
+    +fx-wrap(wrap)
+    +fx-justify-content(space-between)
+
+.footer-section .column
+    width: 33.33333333%
+    padding: 0 $section-padding
+
+    +bp-mobile
+        width: 100%
+        
+        &:not(:last-child)
+            margin-bottom: 40px
+
+.footer-section address
+    font-style: normal
+
+.footer-section address span
+    +font-smooth
+    color: #fff
+    text-align: center
+    font-style: normal
+    line-height: 24px
+    width: 100%
+    display: block
+    opacity: 0.5
+
+.footer-section .column-title
+    +font-smooth
+    color: #fff
+    display: block
+    width: 100%
+    text-transform: uppercase
+    font-size: 14px
+    font-weight: $font-default-bold
+    margin-bottom: 20px
+    text-align: center
+
+.footer-section .share .links
+    +fx-display
+    +fx-justify-content(center)
+
+.footer-section .share .links a
+    +fx-display
+    +fx-justify-content(center)
+    +fx-align-items(center)
+    width: 40px
+    height: 40px
+    border: 2px solid #ffffff
+    border-radius: 2px
+
+.footer-section .share .links a:not(:last-child)
+    margin-right: 6px
+
+.footer-section .share .links a img
+    height: 18px
+
+.footer-section .about p
+    display: block
+    opacity: 0.5
+    color: #ffffff
+    text-align: center
+    font-size: 14px
+    line-height: 20px
