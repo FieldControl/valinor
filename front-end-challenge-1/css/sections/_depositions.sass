@@ -9,6 +9,7 @@
 
 .depositions-section .image
     width: 50%
+    height: 100%
     background-image: url("../img/depositions-background.jpg")
     background-position: center center
     background-size: cover
@@ -24,12 +25,17 @@
 
 .depositions-section .content
     width: 50%
+    height: 100%
     background-color: #53364a
     color: #fff
     padding: 110px $section-padding $section-padding 80px
 
+    +bp-large
+        padding: 80px $section-padding $section-padding 40px
+
     +bp-mobile
         width: 100%
+        height: auto
         padding: $section-padding
 
 .depositions-section .content ul
@@ -49,6 +55,9 @@
     font-family: $font-serif
     font-weight: $font-serif-regular
     font-style: italic
+
+    +bp-large
+        font-size: 30px
 
     +bp-mobile
         font-size: 20px
