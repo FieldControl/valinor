@@ -4,14 +4,18 @@ Develop a RESTful JSON API by exposing operations of a CRUD.Something very simil
 
 ### requirements
 
-- Versão node: `10.15.0`
-``` 
+- Versão node: `10.15.0`.
 - NodeJs [Link](https://nodejs.org/en/download/) for backend.
 
-```
 
+## Configuration
+ - Configuration **Express** , a microframework that deals with routes, requests and responses;
+- Configuration **nodemon** to monitor code changes and restart the server automatically when changes occur;
+- Creation of *Models* and *Controllers*;
+- Configuration of **mongoose** (ODM that uses Javascript syntax) to handle **MongoDB**, a nonrelational database;
 - npm globals packages
-```
+
+
 npm install express --save
 
 - MongoDB `2.2.33 `
@@ -20,15 +24,27 @@ npm install express --save
 npm install mongoose --save
 ```
 
-**Obs:** File URI database ./server.js
+### Installing
 
-### Install
+**Cloning the Repository**
 
 ```
-npm install
+$ git clone https://github.com/ItsJuniorDias/valinor.git
+
+$ cd valinor
 ```
 
+**Installing dependencies**
 
-# Execution
+```
+$ npm install nodemon --save
+```
 
-`npm run dev` 
+**Running**
+
+**Backend**
+
+```
+$ cd valinor
+$ npm run dev
+```
