@@ -1,27 +1,21 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
+const cors = require('cors');
 
 //Iniciando o App
 const app = express();
+app.use(express.json());
+app.use(cors());
 
 //Iniciando o Data
 mongoose.connect("mongodb://localhost:27017/nodeapi", {useNewUrlParser: true });  
 
 requireDir('./src/models');
 
-const Product = mongoose.model('Product');
 
-app.get('/', (req, res) => {
-   Product.create({ 
-       title: 'ReactJs',
-       description:'build page web with React',
-       url: 'https://github.com/facebook/create-react-app'
-    });
-
-   return res.send('Hello!!!');
-});
-
+//Rotas
+app.use('/api', require('./src/routes'));
 
 
 app.listen(3001);
