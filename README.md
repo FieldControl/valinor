@@ -15,7 +15,7 @@ Develop a RESTful JSON API by exposing operations of a CRUD.Something very simil
 - I used the docker for database access.
 - Download the tool to have access and manipulation to our database [Link](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
-### Install MongoDb with Docker
+### Install MongoDB with Docker
 - With the docker already installed on your machine do the following commands.
 ```
 $ sudo docker 
