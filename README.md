@@ -42,7 +42,7 @@ $ npm install express --save
 
 ```
 
-### MongoDB `2.2.33 `
+### Mongoose 
 
 ```
 $ npm install mongoose --save
