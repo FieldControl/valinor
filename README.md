@@ -4,24 +4,48 @@ Develop a RESTful JSON API by exposing operations of a CRUD.Something very simil
 
 ### requirements
 
-- Versão node: `10.15.0`.
+- Version node: `10.15.0`.
 - NodeJs [Link](https://nodejs.org/en/download/) for backend.
 
+### Insomnia
+- I used Insomnia to make Application requests.
+- Visit the site and download the tool [Link](https://insomnia.rest/download/).
 
+### Docker 
+- I used the docker for database access.
+- Download the tool to have access and manipulation to our database [Link](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+
+### Install MongoDb with Docker
+- With the docker already installed on your machine do the following commands.
+```
+$ sudo docker 
+
+$ sudo docker pull mongo
+
+$ sudo docker run --name mongodb -p 27017:27017 -d mongo
+
+$ sudo docker ps 
+
+```
+ 
 ## Configuration
- - Configuration **Express** , a microframework that deals with routes, requests and responses;
+- Configuration **Express** , a microframework that deals with routes, requests and responses;
 - Configuration **nodemon** to monitor code changes and restart the server automatically when changes occur;
 - Creation of *Models* and *Controllers*;
 - Configuration of **mongoose** (ODM that uses Javascript syntax) to handle **MongoDB**, a nonrelational database;
 - npm globals packages
 
-
-npm install express --save
-
-- MongoDB `2.2.33 `
+### Express
 
 ```
-npm install mongoose --save
+$ npm install express --save
+
+```
+
+### MongoDB `2.2.33 `
+
+```
+$ npm install mongoose --save
 ```
 
 ### Installing
