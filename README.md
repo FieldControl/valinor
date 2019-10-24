@@ -36,7 +36,7 @@ $ sudo docker ps
 - Configuration **nodemon** to monitor code changes and restart the server automatically when changes occur;
 - Creation of *Models* and *Controllers*;
 - Configuration of **mongoose** (ODM that uses Javascript syntax) to handle **MongoDB**, a nonrelational database;
-- Configuration **mongoose-paginate** to paginate our database.
+- Configuration **mongoose-paginate** to page the records in our database.
 - npm globals packages
 
 ### Express
