@@ -7,7 +7,7 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 - Express para lidar com as requisições e respostas da nossa aplicação e também lidar com a parte de rotas. 
 - Mongoose para acessar a base de dados.
 - MongoDB e Docker para acesso e manipulação da base de dados.
-- Insomnia para lidar com a parte de rotas, requição e resposta. 
+- Insomnia para lidar com a parte de rotas, requisição e resposta. 
 
 **Técnologias X e Y**
 
