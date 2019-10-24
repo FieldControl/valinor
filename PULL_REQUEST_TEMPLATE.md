@@ -3,35 +3,37 @@
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
 **Framework, linguagem e ferramentas**
-
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+- Utilizei NodeJS para construir a aplicação, linguagem JavaScript.
+- Express para lidar com as requisições e respostas da nossa aplicação e também lidar com a parte de rotas. 
+- Mongoose para acessar a base de dados.
+- MongoDB e Docker para acesso e manipulação da base de dados.
+- Insomnia para lidar com a parte de rotas, requição e resposta. 
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
+- Optei por usar NodeJS para construir a aplicação pois JavaScript e a linguagem que tomou minha atenção,   
+já faz algum tempo que venho trabalhando em cima do framework.
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+- Tive alguns problemas no método patch pois ainda não esta sendo possível atualizar restritamente uma informação; Aliás pode-se atualizar qualquer informação através do método update.    
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+- Implementei o CORS na aplicação que torna nossa API pública e permite ser acessada de qualquer dominío.
+- Implementar Middlewares para manipulação das requisições e respostas. 
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
-
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
+ Olá meu nome Alexandre, atualmente estou cursando Análise e desenvolvimento de sistemas na instuição da FATEC(Rio Preto),
+estou em busca de uma oportunidade para atuar como desenvolvedor. Me considero uma pessoa bastante esforçada, penso que na área de tecnologia tudo de resume ao esforço, ninguem nasceu como um execelente programador e um constante processo de aprendizado.
 
 
 ---
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+Email: juniordias_@live.com
+
+cel: 17 996472414
 
 
 
