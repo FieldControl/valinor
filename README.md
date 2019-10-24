@@ -2,6 +2,9 @@
 
 Develop a RESTful JSON API by exposing operations of a CRUD.Something very similar to the ProductHunt API was developed.
 
+## App
+![CRUD](https://user-images.githubusercontent.com/50254416/67446772-0d8be300-f5e8-11e9-99ea-5bd5077d52fa.gif)
+
 ### requirements
 
 - Version node: `10.15.0`.
