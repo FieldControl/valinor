@@ -1,0 +1,613 @@
+/******************** GERAL ********************/
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/******************** header ********************/
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.conteudo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+    border-bottom: 1px solid rgba(81, 83, 105, 0.5);
+}
+
+/******************** nav ********************/
+.nav {
+    display: flex;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    color: #cbccd2;
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+.nav-link:first-child {
+    margin-left: 0;
+}
+
+.nav-link:hover {
+    color: #e84545;
+}
+
+/******************** banner ********************/
+.banner {
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: #31344e;
+    background: url(../img/bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.conteudo-banner {
+    width: 100%;
+    max-width: 970px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.banner-header-titulo {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 65px;
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.banner-header-texto {
+    font-size: 22px;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/******************** botão ********************/
+.btn {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 55px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-red {
+    background-color: #e84545;
+}
+
+.btn-red:hover {
+    background-color: #c43838;
+}
+
+.btn-lg {
+    min-width: 280px;
+}
+
+/******************** features ********************/
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 95px 0;
+}
+
+.features-itens {
+    width: 33.333333%;
+    text-align: center;
+    padding: 0 40px;
+    margin: 25px 0;
+}
+
+.img-features {
+    margin-bottom: 25px;
+}
+
+.titulo-features {
+    font-size: 14px;
+    color: #2d3033;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.texto-features {
+    font-size: 14px;
+    color: #6c7279;
+    line-height: 1.5;
+}
+
+/******************** works ********************/
+.works {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.works-itens {
+    width: 25%;
+    height: 350px;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.works-foto {
+    min-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.conteudo-foto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(232, 69, 69, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+
+.works-itens:hover .conteudo-foto {
+    opacity: 1;
+}
+
+.titulo-works {
+    color: #fff;
+    tab-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.texto-works {
+    color: #fff;
+    font-size: 14px;
+}
+
+/******************** team ********************/
+.team {
+    margin: 100px 0 70px;
+}
+
+.conteudo-team {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.team-itens {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.team-foto {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.team-nome {
+    font-size: 22px;
+    color: #2d3033;
+}
+
+.team-profissao {
+    font-size: 13px;
+    color: #e84545;
+    text-transform: uppercase;
+}
+
+.team-texto {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6c7279;
+}
+
+/******************** team social itens ********************/
+.social-itens a{
+    margin-left: 4px;
+}
+
+.social-itens a:first-child{
+    margin-left: 0;
+}
+
+
+.fa-facebook-f {
+    color: #c6cacc;
+    border: #c6cacc 1px solid;
+    padding: 10px 15px;
+}
+
+.fa-facebook-f:hover {
+    color: #e84545;
+    border-color:#e84545 ;
+}
+
+.fa-twitter {
+    color: #c6cacc;
+    border: #c6cacc 1px solid;
+    padding: 10px 12px;
+}
+
+.fa-twitter:hover {
+    color: #e84545;
+    border-color:#e84545 ;
+}
+
+.fa-linkedin {
+    color: #c6cacc;
+    border: #c6cacc 1px solid;
+    padding: 10px 12px;
+}
+
+.fa-linkedin:hover {
+    color: #e84545;
+    border-color:#e84545 ;
+}
+
+/******************** cliente ********************/
+.cliente-reviw {
+    overflow: hidden;
+    background-color: #53354a;
+}
+
+.itens-reviw {
+    display: flex;
+    flex-wrap: wrap;
+}
+ 
+.foto-reviw {
+    width: 50%;
+    height: 500px;
+    position: relative;
+}
+
+.conteudo-reviw {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding-left: 80px;
+}
+
+.img-reviw {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.texto-reviw {
+    font-family: 'Cardo', serif;
+    font-style: italic;
+    font-size: 36px;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.autor-reviw {
+    font-weight: 700;
+    color: #c6cacc;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/******************** download ********************/
+.download {
+    margin: 90px 0;
+    text-align: center;
+}
+
+.titulo-download {
+    font-size: 28px;
+    color: #2d3033;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.texto-download {
+    font-size: 13px;
+    color: #2d3033;
+    font-weight: 700;text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/******************** footer ********************/
+.footer {
+    background-color: #3a3e64;
+}
+
+.conteudo-footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px 0;
+}
+
+.itens-footer {
+    width: 33.33333%;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.titulo-footer {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+}
+
+.endereco-footer {
+    font-weight: 300;
+    font-style: normal;
+    color: rgba(255,255,255, 0.5);
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+
+.fa-facebook-f:hover {
+    color: #3a3e64;
+    border-color:#3a3e64;
+    background-color: #fff;
+}
+
+.fa-twitter:hover {
+    color: #3a3e64;
+    border-color:#3a3e64;
+    background-color: #fff;
+}
+
+.fa-linkedin:hover {
+    color: #3a3e64;
+    border-color:#3a3e64;
+    background-color: #fff;
+}
+
+.texto-footer {
+    font-weight: 300;
+    font-style: normal;
+    color: rgba(255,255,255, 0.5);
+    font-size: 14px;
+}
+
+/******************** copyright ********************/
+.footer-copyright {
+    padding: 20px 0;
+    background-color: #313454;
+}
+
+.texto-copyright {
+    text-align: center;
+    color: #808080;
+}
+
+.texto-copyright span {
+    color: #fff;
+}
+
+span.coracao {
+    color: #e84545;
+}
+
+/******************** bars ********************/
+.bars {
+    display: none;
+}
+
+.itens-bars {
+    display: block;
+    color: #fff;
+    font-size: 20px;
+}
+
+/******************** media query ********************/
+@media (max-width: 1300px) {
+    /** team **/
+    .team-itens {
+        width: 50%;
+        text-align: center;
+    }
+
+    .team-foto {
+        margin: 0 auto;
+    }
+
+    .social-itens {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+
+    /** nav **/
+    .nav {
+        display: none;
+    }
+    /** bars **/
+    .bars {
+        display: block;
+    }
+
+    /** banner **/
+    .banner-header-titulo {
+        font-size: 40px;
+    }
+
+    /** features **/
+    .features-itens {
+        width: 50%;
+    }
+
+    /** works **/
+    .works-itens {
+        width: 50%;
+    }
+
+    /** team **/
+    .team-itens {
+        width: 50%;
+        text-align: center;
+    }
+
+    .team-foto {
+        margin: 0 auto;
+    }
+
+    .social-itens {
+        margin-bottom: 20px;
+    }
+
+    /** reviw **/
+    .foto-reviw {
+        width: 100%;
+        margin: 15px 0;
+        overflow: hidden;
+    }
+
+    .conteudo-reviw {
+        width: 100%;
+        padding-left: 0;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    
+    /** nav **/
+    .nav {
+        height: auto;
+        padding: 130px 0 30px 0;
+    }
+
+    /** banner **/
+    .banner-header-titulo {
+        font-size: 30px;
+    }
+
+    .banner-header-texto {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    /** features **/
+    .features{
+        margin: 40px 0;
+    }
+
+    .features-itens {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /** works **/
+    .works-itens {
+        width: 100%;
+        height: 300px;
+    }
+
+    /** team **/
+    .team-itens {
+        width: 100%;
+        text-align: center;
+    }
+
+    .team-foto {
+        margin: 0 auto;
+    }
+
+    .social-itens {
+        margin-bottom: 30px;
+    }
+
+    /** reviw **/
+    .texto-reviw {
+        font-size: 25px;
+    }
+
+    /** footer **/
+    .conteudo-footer {
+        padding: 30px 0;
+    }
+
+    .itens-footer {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .itens-footer:first-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 414px) {
+
+    /** footer **/
+    .img-reviw {
+        right: -120px;
+    }
+}
