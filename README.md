@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# AirCnC
-=======
 # Challenge: Backend Developer I
 
 Develop a RESTful JSON API by exposing operations of a CRUD.Something very similar to the ProductHunt API was developed.
