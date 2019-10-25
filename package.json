@@ -11,13 +11,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "sucrase": "^3.10.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.7.6",
     "mongoose-paginate": "^5.0.3",
-    "require-dir": "^1.2.0"
+    "require-dir": "^1.2.0"  
   }
 }

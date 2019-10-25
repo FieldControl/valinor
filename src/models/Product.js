@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate');
+import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate';
 
 const ProductSchema = new mongoose.Schema ({
     title: {
