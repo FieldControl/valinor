@@ -76,4 +76,3 @@ $ npm install nodemon --save
 $ cd valinor
 $ npm run dev
 ```
->>>>>>> 8135dd7f4506c54a03111721ecd849e40b9f9614
