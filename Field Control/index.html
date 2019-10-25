@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="Public/images/github-icon.png" type="image/x-icon">
+        <title>Git Hub | Lista de Repositórios</title>
+
+        <!-- GOOGLE FONTS -->
+        <link rel="stylesheet" href="Public/lib/Google Fonts/OpenSans/OpenSans.css">
+
+        <!-- STYLESHEET -->
+        <link rel="stylesheet" href="Public/css/animations.css">
+        <link rel="stylesheet" href="Public/css/index.css">
+
+        <!-- FONTAWESONE -->
+        <link href="Public/lib/fontawesome/css/all.css" rel="stylesheet">
+
+        <!-- MOMENTJS -->
+        <script src="Public/lib/momentJS/moment-with-locales.js"></script>
+
+        <!-- JAVASCRIPT -->
+        <script src="Public/js/loadTemplate.js"></script>
+
+        <!-- ANGULARJS -->
+        <script src="Public/lib/angularJS/angular.min.js"></script>
+        <script src="Public/js/components.js"></script>
+        <script src="Public/js/filters.js"></script>
+        <script src="Public/js/controller.js"></script>
+        <script src="Public/lib/angularJS/location/angular-locale_pt-br.js"></script>
+        
+    </head>
+    <body ng-app="githubApp" ng-controller="RepositoryListController">
+        
+        <header>
+
+            <picture>
+                <img src="Public/images/github-logo.png" alt="github-logo">
+            </picture>
+
+            <span>
+                <input type="text" maxlength="45" name="repository-search" id="repository-search" placeholder="Buscar"
+                ng-model="query" 
+                ng-keyup="searchRepository($event, query, sort)">
+                <i class="fas fa-search"></i>
+            </span>
+            
+        </header>
+        
+        <div id="container">
+
+            <div class="search-header">
+
+                <div class="search-result">
+                    <ng-pluralize count="search.result.total_count" when="totalResultCount"></ng-pluralize>
+                </div>
+
+                <div class="sort-repository" ng-show="!!search.result.items.length > 0">
+                    <label for="sort">ordenar</label>
+                    <select name="sort" id="sort" 
+                        ng-init="sort = sortOptions[0]"
+                        ng-change="sortBy(search.lastQuery, sort)"
+                        ng-options="sort.title for sort in sortOptions"
+                        ng-model="sort">
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="search-body">
+
+                <div class="no-result" ng-if="!search.result || (search.result.total_count < 1)">
+                    <i ng-show="search.loading" class="fa-spin fas fa-circle-notch"></i>
+                    
+                    <div>
+                        <h2 ng-if="!search.loading"><span ng-bind="search.error.status"></span> :(</h2>
+                        <p ng-show="(search.result.total_count < 1) || search.error.isAPIError || !search">
+                            Oops, faça uma nova busca para recomeçarmos
+                        </p>
+                        <small><a href="{{search.error.url}}" target="_blank" ng-bind="search.error.message"></a></small>
+                    </div>
+                
+                </div>
+
+                <div class="repository" ng-repeat="repository in search.result.items">
+
+                    <div class="repository-summary">
+
+                        <div class="repository-char">
+                            <picture>
+                                <img ng-src="{{repository.owner.avatar_url}}">
+                            </picture>
+                            <div class="repository-stars">
+                                <i class="fas fa-star"></i>
+                                <span ng-bind="repository.stargazers_count | shortNumber"></span>
+                            </div>
+                        </div>
+
+                        <div class="repository-body">
+                            <span class="repository-info">
+                                <h3 ng-bind="repository.name"></h3>
+                                <span ng-if="repository.owner.type == 'Organization'">
+                                    <i class="fas fa-globe"></i>
+                                    <a href="{{repository.homepage}}" target="_blank">ORGANIZAÇÃO</a>
+                                </span>
+                            </span>
+                            <a class="repository-url" href="{{repository.owner.html_url}}" target="_blank" ng-bind="repository.full_name"></a>
+                            <p class="repository-desc" ng-bind="repository.description | descriptionFormat : 350"></p>
+                        </div>
+
+                        <div class="repository-props">
+                            <span class="last-repository-update" ng-bind="(repository.updated_at | relativeTime)"></span>
+                            <span class="repository-language" ng-bind="repository.language"></span>
+                            <span>
+                                <span class="repository-issues-count" ng-bind="repository.open_issues"></span> issues
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="repository-topics" ng-if="repository.topics.length > 0">
+                        <span ng-repeat="topic in repository.topics" ng-bind="topic"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGINATION COMPONENT -->
+            <pagination 
+                ng-show="!!(search.result.items.length > 0)"
+                on-navigate="changePage"
+                current="search.currentPage"
+                total-pages="search.totalPages" 
+                pinned-pages="2"
+                jump="5">
+            </pagination>
+
+        </div>
+    </body>
+</html>

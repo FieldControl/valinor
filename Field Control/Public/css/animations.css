@@ -1,0 +1,33 @@
+.lazyLoad
+{
+    margin: 1%;
+
+    color: #ccc;
+    background: linear-gradient(-45deg, #ccc, rgb(156, 156, 156));
+    border: none !important;
+    border-radius: 3px;
+    animation: lazyLoad 1s infinite ease-out;
+}
+
+.lazyLoad *
+{
+    visibility: hidden;
+}
+
+@keyframes lazyLoad
+{
+    0%
+    {
+        opacity: 0.5;
+    }
+
+    50%
+    {
+        opacity: 1;
+    }
+
+    100%
+    {
+        opacity: 0.5;
+    }
+}
