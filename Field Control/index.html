@@ -12,9 +12,6 @@
         <link rel="stylesheet" href="Public/css/animations.css">
         <link rel="stylesheet" href="Public/css/index.css">
 
-        <!-- FONTAWESONE -->
-        <link href="Public/lib/fontawesome/css/all.css" rel="stylesheet">
-
         <!-- MOMENTJS -->
         <script src="Public/lib/momentJS/moment-with-locales.js"></script>
 
@@ -41,7 +38,7 @@
                 <input type="text" maxlength="45" name="repository-search" id="repository-search" placeholder="Buscar"
                 ng-model="query" 
                 ng-keyup="searchRepository($event, query, sort)">
-                <i class="fas fa-search"></i>
+                <img src="Public/images/svgs/search.svg" width="15px" height="15px" style="margin: 1.5%"></img>
             </span>
             
         </header>
@@ -69,7 +66,7 @@
             <div class="search-body">
 
                 <div class="no-result" ng-if="!search.result || (search.result.total_count < 1)">
-                    <i ng-show="search.loading" class="fa-spin fas fa-circle-notch"></i>
+                    <img src="Public/images/svgs/loading.svg" ng-show="search.loading" width="25px" height="25px"></img>
                     
                     <div>
                         <h2 ng-if="!search.loading"><span ng-bind="search.error.status"></span> :(</h2>
