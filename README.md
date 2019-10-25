@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# AirCnC
-=======
 # Challenge: Backend Developer I
 
 Develop a RESTful JSON API by exposing operations of a CRUD.Something very similar to the ProductHunt API was developed.
@@ -79,4 +76,3 @@ $ npm install nodemon --save
 $ cd valinor
 $ npm run dev
 ```
->>>>>>> 8135dd7f4506c54a03111721ecd849e40b9f9614
