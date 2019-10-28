@@ -1,0 +1,133 @@
+/* ESTILO TABLET */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+	/* INTRODUCAO */
+	.introducao {
+		margin-top: 90px;
+	}
+
+	/* DEPOIMENTOS */
+	.quote_depoimentos p {
+		font-size: 24px;
+		padding-top: 0px;
+		padding-left: 40px;
+	}
+	
+	.quote_depoimentos cite {
+		font-size: 12px;
+		padding-top: 20px;
+		padding-left: 40px;
+	}
+
+	/* FOOTER */
+	.footer_about p {
+		width: 220px;
+		font-size: 12px;
+		margin: 0 auto;
+		text-align: center;
+		padding-top: 20px;
+	}
+
+}
+
+
+/* ESTILO SMARTPHONE */
+@media only screen and (max-width: 787px) {
+
+	/* HEADER */
+	.header {
+		position: relative;
+		padding-bottom: 0;
+	}
+
+	.header img {
+		margin: 0 auto;
+	}
+
+	.header_menu {
+		text-align: center;
+	}
+
+	.header_menu ul li {
+		margin: 12px;
+	}
+
+	/* INTRODUCAO */
+	.introducao h1 {
+		margin-top: -50px;
+		font-size: 32px;
+	}
+
+	.introducao {
+		margin-top: 0;
+		padding-top: 60px;
+	}
+
+	p.capa {
+		margin-top: -20px;
+		font-size: 12px;
+	}
+
+	/* IMAGENS */
+	.imagens_work img {
+		width: 50%;
+	}
+
+	/* DEPOIMENTOS */
+	.slider {
+		display: unset;
+	}
+	
+	.img_slide {
+		width: 100%;
+	}
+	
+	.msgs_slide {
+		width: 100%;
+		height: 260px;
+	}
+
+	.quote_depoimentos p {
+		font-size: 20px;
+		width: 100%;
+		padding-top: 20px;	
+		padding-left: unset;
+	}
+	
+	.quote_depoimentos cite {
+		font-size: 12px;
+		width: 100%;
+		padding-top: 30px;
+		padding-left: unset;
+	}
+
+	/* CALL TO ACTION */
+	.call h2 {
+		font-size: 18px;
+	}
+
+	.call p {
+		font-size: 10px;
+		text-transform: uppercase;
+		padding-top: 10px;
+		padding-bottom: 16px;
+	}
+
+	/* FOOTER */
+	.footer_location p {
+		width: 160px;
+		font-size: 10px;
+		margin-top: -16px;
+	}
+	
+	.footer_social ul li {
+		margin: 0 auto;
+	}
+	
+	.footer_about p {
+		width: 280px;
+		font-size: 10px;
+		margin-top: -16px;
+	}
+
+}
