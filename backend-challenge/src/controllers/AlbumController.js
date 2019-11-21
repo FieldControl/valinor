@@ -81,6 +81,10 @@ class AlbumController {
     const { author, title, launch_year } = req.body;
 
     const album = await Album.findById({ _id: id });
+    
+    if (!album) {
+      return res.status(404).json('Album not found');
+    }
 
     if (author !== album.author || title !== album.title) {
       const albumExists = await Album.findOne({ author, title });
@@ -120,6 +124,10 @@ class AlbumController {
     const { author, title, launch_year } = req.body;
 
     const album = await Album.findById({ _id: id });
+    
+    if (!album) {
+      return res.status(404).json('Album not found');
+    }
 
     if (author !== album.author || title !== album.title) {
       const albumExists = await Album.findOne({ author, title });
