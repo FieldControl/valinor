@@ -1,0 +1,28 @@
+{
+  "name": "backend-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.4",
+    "mongoose": "^5.7.10",
+    "multer": "^1.4.2",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
+    "sucrase": "^3.10.1"
+  }
+}
