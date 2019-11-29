@@ -8,7 +8,9 @@ Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_c
 
 Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+Nossa missão é melhorar a prestação de serviços no Brasil. 
+
+Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControlApp](https://www.instagram.com/fieldcontrolapp/)
 
 <p>
   <img src="fielders.png" width="855"/> 
@@ -39,6 +41,12 @@ Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai t
 </p>
 
 A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+
+Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
+
+<p>
+  <img src="frigobar-da-field-quando-meta-eh-batida.jpeg" width="450" /> 
+</p>
 
 Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
 
