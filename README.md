@@ -21,7 +21,7 @@ Origem
 
 Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) para criação de software e nosso clima é de extrema colaboração. 
+Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
 
 
 Condições
@@ -84,7 +84,7 @@ Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile A
 
 Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3, Heroku e Serverless na AWS Lambda :)
+Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
 
 Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
 
@@ -93,26 +93,27 @@ Os desafios de programação
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-&lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt;
-----------
 
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
+<!-- &lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt; -->
+<!-- ---------- -->
 
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
+<!-- Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page. -->
 
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
+<!-- Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap. -->
 
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
+<!-- A idéia é que a landing seja responsiva e deve conter todas as seções do PSD: -->
 
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :)
+<!-- - Header -->
+<!-- - Section para funcionalidades -->
+<!-- - Section de imagens -->
+<!-- - Section do time -->
+<!-- - Slider com depoimentos -->
+<!-- - Section para call to action -->
+<!-- - Footer -->
 
-&lt;challenge&gt; Frontend Developer 2 &lt;/challenge&gt;
+<!-- A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
+
+&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
 ----------
 
 Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
@@ -138,33 +139,33 @@ A propósito, se você achar a API do Github um pouco `boring` demais, escolha o
 
 Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
 
-{ "challenge": "Backend Developer 1" }
-----------
+<!-- { "challenge": "Backend Developer 1" } -->
+<!-- ---------- -->
 
-Desenvolver uma API JSON RESTful expondo operações de um CRUD.
+<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
 
-Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
 
-Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE)
+<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
 
-Você terá que expor os seguintes endpoints para o recurso escolhido:
+<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
 
-| Método | URL  | Comportamento esperado                               | 
-|--------| ---  |                                                  --- |
-| GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso | 
-| GET    | /resources/:id | Recupera um recursos em especifico pelo id | 
-| POST   | /resources     | Insere um novo recurso                     | 
-| PUT    | /resources/:id | Altera um recurso existente                | 
-| PATCH  | /resources/:id | Altera parcialmente um recurso existente   | 
-| DELETE | /resources/:id | Exclui um recurso existente                |
+<!-- | Método | URL  | Comportamento esperado                               |  -->
+<!-- |--------| ---  |                                                  --- | -->
+<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
+<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
+<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
+<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
+<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
+<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
 
-- **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
+<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
 
- **Atenção:**
- Você deve se preocupar com sanitização, validação e semântica. 
-
-{ "challenge": "Backend Developer 2" }
+ <!-- **Atenção:** -->
+ <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
+ 
+{ "challenge": "Backend Developer" }
 ----------
 
 Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
@@ -190,7 +191,7 @@ Você terá que expor as seguintes queries e mutations para o tema escolhido:
 
 Dúvidas?
 ----------
-Abra um issue que nós responderemos :)
+Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
 
 Avaliação
 ----------
