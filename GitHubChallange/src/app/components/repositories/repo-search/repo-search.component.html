@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>Busca por repositório</h2>
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-group">
+            <label class="center-block">Enter Name:</label>
+            <input class="form-control" formControlName="searchName">
+        </div>
+        <div *ngIf="myForm.controls['searchName'].invalid && (myForm.controls['searchName'].dirty || myForm.controls['searchName'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="myForm.controls['searchName'].errors.minlength">Informe pelo menos 3 letras.</div>
+        </div>
+        <div class="form-group">
+            <button type="submit" [disabled]="myForm.pristine || myForm.invalid" class="btn btn-success">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Resultados..</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <!-- Looop To Display Repos -->
+                <div class="col-md-12">
+                    <div *ngFor="let repo of repositoryList | paginate: { id: 'server',itemsPerPage: 50, currentPage: currentPage, totalItems:totalItems }">
+                        <div class="row">
+
+                            <!-- Div To Display Repositories -->
+                            <div class="col-md-9">
+                                <!-- Repo Name -->
+                                <h3>{{repo.name}}</h3>
+                                <!-- Repo Description -->
+                                <p>{{repo.description}}</p>
+                                <!-- View on Github Button -->
+
+                                <h4><a href="{{repo.html_url}}" target="_blank">View on github</a></h4>
+                            </div>
+
+                            <div class="col-md-3">
+                                <span class="label label-default">{{repo.stargazers_count}} Stars </span><br/>
+                                <span class="label label-primary">{{repo.forks}} Forks </span><br/>
+                                <span class="label label-primary">{{repo.watchers}} Watchers </span><br/>
+                                <span class="label label-primary">{{repo.open_issues_count}} Issues </span>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>                   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">                   
+                    <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
