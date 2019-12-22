@@ -21,6 +21,12 @@
             <h3 class="panel-title">Resultados..</h3>
         </div>
         <div class="panel-body">
+            <div class="row" *ngIf="(submitted && totalItems==0)" >
+                <div class="col-md-12">
+                    <p>{{error}}</p>
+                </div>                
+            </div>
+
             <div class="row">
                 <!-- Looop To Display Repos -->
                 <div class="col-md-12">
@@ -42,7 +48,7 @@
                                 <span class="label label-default">{{repo.stargazers_count}} Stars </span><br/>
                                 <span class="label label-primary">{{repo.forks}} Forks </span><br/>
                                 <span class="label label-primary">{{repo.watchers}} Watchers </span><br/>
-                                <span class="label label-primary">{{repo.open_issues_count}} Issues </span>
+                                <span class="label label-primary">{{repo.open_issues_count}} Issues </span>                                
                             </div>
                         </div>
                         <hr>
@@ -51,7 +57,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12">                   
-                    <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+                    <pagination-controls *ngIf="(totalItems>0)" (pageChange)="getPage($event)" id="server"></pagination-controls>
+                    
                 </div>
             </div>            
         </div>

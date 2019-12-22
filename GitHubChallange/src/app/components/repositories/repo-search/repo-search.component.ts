@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RepositoryService } from 'src/app/services/repository.service';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Repository } from 'src/app/models/repository.model';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { RepositorySearchResult } from 'src/app/models/repository-search-result.model';
@@ -43,11 +43,14 @@ export class RepoSearchComponent implements OnInit {
 
         if (totalCount > 0) {
           this.repositoryList = items;
-          this.totalItems = 1000;
-          //this.getPage(1);
+          if(totalCount > 1000){
+            this.totalItems = 1000;            
+          }else{
+            this.totalItems = this.repositoryList.length;
+          }
         } else {
           this.repositoryList = [];
-          this.error = 'Not found. Please try again or use a different name is the search input above.';
+          this.error = 'Nenhum resultado para está busca.... Tente alterar o parâmetro da busca...';
         }
       },
       (err: HttpErrorResponse) => {
@@ -60,6 +63,7 @@ export class RepoSearchComponent implements OnInit {
   ngOnInit() {
     
   }
+
   getPage(page: number) {
     if(this.f.searchName.value != ''){
       this.repoService.searchRepositoriesByNameWithPage(this.f.searchName.value,page)
@@ -75,7 +79,7 @@ export class RepoSearchComponent implements OnInit {
             this.currentPage = page;
           } else {
             this.repositoryList = [];
-            this.error = 'Not found. Please try again or use a different name is the search input above.';
+            this.error = 'Nenhum resultado para está busca.... Tente alterar o parâmetro da busca...';
           }
         },
         (err: HttpErrorResponse) => {
