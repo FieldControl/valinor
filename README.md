@@ -13,9 +13,12 @@ It is still in the process of improvement, so any suggestions for improvement ar
 
 ## Getting Started
 ### Prerequisites
-### Lib ajax
-```node
+> Lib ajax 
+```ajax
 npm i --save @fdaciuk/ajax
+```
+> Dependências do Node js
+```node
 npm install --save-dev webpack@1
 npm install -g webpack@1
 npm install --save-dev webpack-dev-server@1
