@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import Search from './search'
+import Search from './search.js'
 import UserInfo from './user-info'
 import Actions from './actions'
 import Repos from './repos'
