@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark unique-color-dark" *ngIf="nav.visible" >
+
+    <a class="navbar-brand" href="#">
+        <img src="https://fieldcontrol.com.br/assets/images/logo.svg" height="30" alt=""></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarWdg" aria-controls="navbarWdg" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarWdg">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" >
+                    <img src="{{nav.imagem}}" style="max-width: 30px;" class="rounded"> {{nav.nome}} <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" (click)="logout()">
+                    <i class="fa fa-sign-out"></i> Logout
+                </a>
+            </li>
+
+ 
+        </ul>
+    </div>
+
+</nav>

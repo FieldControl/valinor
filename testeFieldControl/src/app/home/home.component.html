@@ -1,0 +1,141 @@
+<div class="card" style=" border-radius: 0; margin: 0;">
+
+    <div class="card-header"> 
+
+        <span style="font-size: 25px;">
+            Lista de filmes
+        </span>
+
+        <div class="float-right" style="margin: 0">
+
+            <select class="form-control" [(ngModel)]="tipo" (change)="trocarTipo()" style="margin: 0">
+
+                <option [ngValue]="0"> Tendências do momento</option>
+
+                <option [ngValue]="1"> Melhores notas </option>
+
+                <option [ngValue]="2"> Mais vistos </option>
+                
+            </select>
+            
+        </div>
+    </div>
+
+    <div class="card-body" style="background-color: white;">
+
+
+        <nav aria-label="Pagination">
+
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item" [ngClass]="{'disabled': page==1}" >
+                    <a class="page-link" href="movies?page=1">
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'disabled': page==1}" >
+                    <a class="page-link" href="movies?page={{page-1}}">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'active': page==number}" *ngFor="let number of pages" > 
+                    <a class="page-link" href="movies?page={{number}}">{{number}}</a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'disabled': page==totalPages}" >
+                    <a class="page-link" href="movies?page={{page+1}}">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'disabled': page==totalPages}" >
+                    <a class="page-link" href="movies?page={{totalPages}}">
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>    
+
+
+        <div class="row"> 
+
+            <a *ngFor="let movie of movieList; let i = index" [attr.data-index]="i"  [routerLink]="['/movies', movie.id]"  style="width: 100%">
+
+                <div class="movie_card" id="movie">
+                    <div class="info_section">
+                        <div class="movie_header">
+                            <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"/>
+
+                            <h1>{{movie.title}}</h1>
+
+                            <h4>{{formatarData(movie.release_date)}} </h4>
+
+                            <span class="minutes"  [innerHTML]="formatarNota(movie.vote_average)">                                    
+                            </span>
+
+                            <p class="type" [innerHTML]="formatarGenero(movie.genre_ids)">    </p>
+
+                        </div>
+                        <div class="movie_desc">
+                            <br>
+                            <p class="text"> {{movie.overview}} </p>
+                        </div>
+                    </div>
+
+                    <div class="blur_back" [ngStyle]="{'background': '#fff url(' + 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path + ') '}"></div>
+
+                </div>  
+
+            </a>
+
+        </div>  
+
+        <br/>
+
+        <nav aria-label="Pagination">
+
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item" [ngClass]="{'disabled': page==1}" >
+                    <a class="page-link" href="movies?page=1">
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'disabled': page==1}" >
+                    <a class="page-link" href="movies?page={{page-1}}">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'active': page==number}" *ngFor="let number of pages" > 
+                    <a class="page-link" href="movies?page={{number}}">{{number}}</a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'disabled': page==totalPages}" >
+                    <a class="page-link" href="movies?page={{page+1}}">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+
+                <li class="page-item" [ngClass]="{'disabled': page==totalPages}" >
+                    <a class="page-link" href="movies?page={{totalPages}}">
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>       
+
+    </div>
+
+    <div class="card-footer text-muted">
+        {{totalMovies}}
+    </div>
+
+</div>

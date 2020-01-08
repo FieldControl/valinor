@@ -1,0 +1,198 @@
+<section id="banner" class="clearfix"   [ngStyle]="{ 'background-image': 'url(' + capa + ')'}">
+
+	<div class="d-flex">
+		<a (click)="back()" style="color: white; margin: 10px; font-size: 50px;">
+			<i class="fa fa-arrow-left"></i> 
+		</a>		
+	</div>
+
+	<div class="banner_content_wrapper" *ngIf="mostrarTrailer">
+
+		<div class="card text-center" style="width: 100%;">
+
+		  <div class="card-header">
+		    <h5 class="card-title">{{trailerNome}}</h5>
+		  </div>
+
+		  <div class="card-body">
+		    
+		    <div class="card-text">
+
+				<div class="embed-responsive embed-responsive-16by9">
+
+					<iframe [class.thumbnail]="thumbnail" [src]="safeSrc" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>								  	
+				</div>	
+
+		    </div>
+
+		    <a (click)="trocarTrailer()" class="btn btn-primary">
+		    	<i class="fa fa-remove"></i> FECHAR					    	
+		    </a>
+
+		  </div>
+
+		</div>
+
+	</div>
+
+	<div class="banner_content_wrapper" *ngIf="!mostrarTrailer">
+
+		<div id="poster" (click)="trocarTrailer()" style="cursor: pointer; ">
+			<img src="{{imagem}}" alt="Deadpool Movie Poster" class="featured_image">
+			<img src="https://res.cloudinary.com/dw369yzsh/image/upload/v1470916845/play_button_ngnw1z.png" alt="Play Trailer" class="play_button">
+		</div>
+
+		<div id="content">
+			<h2 class="title">{{titulo}}</h2>
+
+			<br/>
+			<br/>
+
+			<div class="ratings" *ngIf="nota > 0 && nota < 2">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 2 && nota < 3">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 3 && nota < 4">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 4 && nota < 5">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 5 && nota < 6">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 6 && nota < 7">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 7 && nota < 8">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 8 && nota < 9">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota >= 9 && nota < 10">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star inactive"></i>
+			</div>
+
+			<div class="ratings" *ngIf="nota == 10 ">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+			</div>
+
+			<br/>
+			<br/>
+
+			<p class="description">{{sinopse}}</p>
+
+			<p class="info">
+				{{duracao}} min 
+				<span>|</span> 
+				<span  *ngFor="let genero of generos; let i = index" [attr.data-index]="i"> {{genero.name}}</span>  
+				<span>|</span> 
+				{{formatarData(data)}}
+			</p>
+
+		</div>
+	</div>
+</section> 
+ 
+ 

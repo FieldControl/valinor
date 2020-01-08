@@ -1,0 +1,7 @@
+.card {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.fundo{
+    background: linear-gradient(to right,  #cccccc 0%, #737373 100%) !important;
+}

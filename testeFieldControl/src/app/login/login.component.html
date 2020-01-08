@@ -1,0 +1,40 @@
+<div class="fundo" style="height: 100vh">
+
+  <div class="container pt-4" >
+        <div class="row justify-content-sm-center">
+      <div class="col-sm-6 col-md-4">
+
+        <div class="card border-info text-center" style="margin-top: 20px;">
+          <div class="card-header">
+            Faça login para continuar
+          </div>
+          <div class="card-body">
+            
+            <img src="https://scontent.faqa2-1.fna.fbcdn.net/v/t1.0-9/72688687_2436983706615994_5184536232243232768_n.png?_nc_cat=103&_nc_ohc=0cpZt8IbS88AQlKT7DhhZax4WpSs2gJj1kW-rifdO7RfB834i_z7aVf9Q&_nc_ht=scontent.faqa2-1.fna&oh=380055bffe9305ed61c944c858c27824&oe=5EAC8012" style="max-width: 200px;">
+ 
+            <form class="form-signin" [formGroup]="loginForm" >
+
+              <input type="text" #email name="email"  formControlName="email"  class="form-control mb-2" placeholder="Email" required autofocus/>
+
+              <input type="password" #senha name="pwd"  formControlName="senha"  class="form-control mb-2" placeholder="Senha" required/>
+
+              <br/>
+
+              <button class="btn btn-lg btn-primary btn-block mb-1" type="submit" (click)="onClickSubmit(loginForm.value)" *ngIf="!carregando">
+              	<i class="fa fa-sign-in"></i> <b> ENTRAR </b>
+              </button>
+
+              <button class="btn btn-lg btn-primary btn-block mb-1" *ngIf="carregando">
+                <i class="fa fa-circle-o-notch fa-spin"></i> Carregando
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
