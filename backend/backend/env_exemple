@@ -1,0 +1,7 @@
+NODE_ENV=development
+
+APP_DB_HOST=localhost
+APP_DB_PORT=3306
+APP_DB_NAME=projeto_final
+APP_DB_USER=root
+APP_DB_PASSWORD=G@briel442018
