@@ -1,0 +1,35 @@
+<div class="card bg-light mb-4">
+  <div class="card-body">
+    Bem-vindo(a) ao Github Search!
+  </div>
+</div>
+
+<form (ngSubmit)="search()">
+  <app-input-field
+    fieldName="Busca"
+    id="search"
+    [control]="form.controls.searchText"
+    [errorMsgs]="msgs"
+  ></app-input-field>
+
+  <app-select-field
+    fieldName="Ordenar por"
+    id="sort"
+    [control]="form.controls.sort"
+    [errorMsgs]="msgs"
+    [options]="optionsSort"
+  ></app-select-field>
+
+  <app-select-field
+    fieldName="Ordem"
+    id="order"
+    [control]="form.controls.order"
+    [errorMsgs]="msgs"
+    [options]="optionsOrder"
+  ></app-select-field>
+
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-primary" type="submit">Buscar</button>
+    <a class="btn btn-link" routerLink='busca-avancada'>Busca Avançada</a>
+  </div>
+</form>
