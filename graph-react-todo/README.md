@@ -6,10 +6,10 @@ Me chamo Samir Mamude, tenho 40 anos, casado, pai de uma linda menina de 2 anos 
 
 **Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou**
 
-Express Js para backend
-Mongoose
-Mongodb
-React para frontend
+- Express Js para backend
+- Mongoose
+- Mongodb
+- React para frontend
 
 **Porque você optou pela tecnologia X e não a Y\_**
 
