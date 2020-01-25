@@ -18,6 +18,8 @@ type RootQuery {
 }
 type RootMutation {
   createTodo(todoInput: TodoInput): Todo
+  updateTodo(id: ID!): Todo
+  removeTodo(id: ID!): String
 }
 schema {
     query: RootQuery

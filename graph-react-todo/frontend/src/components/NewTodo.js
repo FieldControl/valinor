@@ -62,7 +62,7 @@ class NewTodo extends Component {
         <FormGroup>
           <Label for="description">Descrição:</Label>
           <Input
-            type="textarea"
+            type="input"
             name="description"
             id="description"
             innerRef={this.descriptionRef}

@@ -5,7 +5,6 @@ const Todo = require("../../models/todo");
 
 module.exports = {
   getTodo: id => {
-    const ObjectId = mongoose.Types.ObjectId;
     return Todo.findById(id.id).then(todo => {
       return {
         ...todo._doc,
@@ -43,5 +42,13 @@ module.exports = {
         console.log(err);
         throw err;
       });
+  },
+  updateTodo: args => {
+    const id = args.id;
+    return Todo.findByIdAndUpdate(id, { $set: { completed: true } });
+  },
+  removeTodo: args => {
+    const id = args.id;
+    Todo.findByIdAndDelete(id).exec();
   }
 };
