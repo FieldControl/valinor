@@ -1,14 +1,13 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
-const TodoList = props => {
-  return (
-    <ListGroup>
-      <ListGroupItem>item 1</ListGroupItem>
-      <ListGroupItem>item 2</ListGroupItem>
-      <ListGroupItem>item 3</ListGroupItem>
-    </ListGroup>
-  );
-};
+function TodoList(props) {
+  const list = props.todos.map(todo => (
+    <ListGroupItem tag="a" href="#" key={todo._id}>
+      {todo.description}
+    </ListGroupItem>
+  ));
+  return <ListGroup>{list}</ListGroup>;
+}
 
 export default TodoList;
