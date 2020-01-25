@@ -12,6 +12,9 @@ services:
     build:
       context: .
     command: npm start
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
     volumes:
       - ".:/app"
     ports:
