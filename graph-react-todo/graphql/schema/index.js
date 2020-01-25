@@ -13,6 +13,7 @@ input TodoInput {
 }
 
 type RootQuery {
+  getTodo(id: ID!): Todo!
   todos: [Todo!]!
 }
 type RootMutation {

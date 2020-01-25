@@ -1,7 +1,18 @@
+const mongoose = require("mongoose");
+
 // models
 const Todo = require("../../models/todo");
 
 module.exports = {
+  getTodo: id => {
+    const ObjectId = mongoose.Types.ObjectId;
+    return Todo.findById(id.id).then(todo => {
+      return {
+        ...todo._doc,
+        date: new Date(todo._doc.date).toUTCString()
+      };
+    });
+  },
   todos: () => {
     return Todo.find()
       .then(todos => {

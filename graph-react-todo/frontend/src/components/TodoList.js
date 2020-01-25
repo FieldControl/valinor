@@ -1,13 +1,25 @@
 import React from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import {
+  ListGroup,
+  ListGroupItem,
+  ListGroupItemHeading,
+  ListGroupItemText
+} from "reactstrap";
+import { NavLink } from "react-router-dom";
 
-function TodoList(props) {
+const TodoList = props => {
   const list = props.todos.map(todo => (
-    <ListGroupItem tag="a" href="#" key={todo._id}>
-      {todo.description}
+    <ListGroupItem key={todo._id}>
+      <ListGroupItemHeading>Atividade</ListGroupItemHeading>
+      <ListGroupItemText>
+        {todo.description}
+        <NavLink to={todo._id} className="detail">
+          Detalhes
+        </NavLink>
+      </ListGroupItemText>
     </ListGroupItem>
   ));
   return <ListGroup>{list}</ListGroup>;
-}
+};
 
 export default TodoList;

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Container, Row, Col, NavLink } from "reactstrap";
 import Dashboard from "./pages/Dashboard";
 import NewTodo from "./components/NewTodo";
+import ViewTodo from "./components/ViewTodo";
 import "./App.css";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
         <Row className="pt-4">
           <Col>
             <NavLink href="/">
-              <img src="logo.png" className="logo" alt="React Todo" />
+              <img src="/logo.png" className="logo" alt="React Todo" />
             </NavLink>
           </Col>
         </Row>
@@ -21,6 +22,9 @@ function App() {
             <Switch>
               <Route path="/novo">
                 <NewTodo />
+              </Route>
+              <Route path="/:id">
+                <ViewTodo />
               </Route>
               <Route path="/">
                 <Dashboard />
