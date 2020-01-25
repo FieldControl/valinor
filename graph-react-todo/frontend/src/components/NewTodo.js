@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 import service from "../services/api";
 
 class NewTodo extends Component {
@@ -8,6 +8,10 @@ class NewTodo extends Component {
     // campos do formulario via React Ref
     this.descriptionRef = React.createRef();
     this.completedRef = React.createRef();
+    this.state = {
+      visible: false,
+      visibleError: false
+    };
   }
 
   todoHandler = event => {
@@ -16,6 +20,7 @@ class NewTodo extends Component {
     const completed = this.completedRef.current.value;
 
     if (description.trim().length === 0) {
+      this.setState({ visibleError: true });
       return;
     }
 
@@ -33,12 +38,27 @@ class NewTodo extends Component {
     };
 
     // chamar api backend
-    service().post("/graphql", payload);
+    service()
+      .post("/graphql", payload)
+      .then(() => {
+        this.setState({ visible: true, visibleError: false });
+        this.descriptionRef.current.value = "";
+      });
+  };
+
+  backHandler = () => {
+    window.location = "/";
   };
 
   render() {
     return (
       <Form onSubmit={this.todoHandler}>
+        <Alert color="success" isOpen={this.state.visible}>
+          Atividade gravada com sucesso!
+        </Alert>
+        <Alert color="danger" isOpen={this.state.visibleError}>
+          Preencha o campo descrição!
+        </Alert>
         <FormGroup>
           <Label for="description">Descrição:</Label>
           <Input
@@ -56,12 +76,15 @@ class NewTodo extends Component {
             id="completed"
             innerRef={this.completedRef}
           >
-            <option value="true">Sim</option>
             <option value="false">Não</option>
+            <option value="true">Sim</option>
           </Input>
         </FormGroup>
         <Button type="submit" className="mt-3" color="primary">
           Salvar
+        </Button>
+        <Button className="ml-2 mt-3" onClick={this.backHandler}>
+          Voltar
         </Button>
       </Form>
     );
