@@ -9,6 +9,7 @@ type Todo {
 
 input TodoInput {
   description: String!
+  completed: Boolean
 }
 
 type RootQuery {

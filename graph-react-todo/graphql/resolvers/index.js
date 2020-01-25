@@ -20,7 +20,7 @@ module.exports = {
     const todo = new Todo({
       description: args.todoInput.description,
       date: new Date().toISOString(),
-      completed: false
+      completed: args.todoInput.completed
     });
     return todo
       .save()

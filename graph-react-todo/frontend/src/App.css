@@ -2,3 +2,11 @@
   display: block;
   margin: auto;
 }
+
+.background {
+  background-color: #eaeaea;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+  margin: 5px;
+  padding: 15px;
+}

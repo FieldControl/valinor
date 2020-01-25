@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, NavLink } from "reactstrap";
 import Dashboard from "./pages/Dashboard";
 import NewTodo from "./components/NewTodo";
 import "./App.css";
@@ -11,12 +11,12 @@ function App() {
       <Container>
         <Row className="pt-4">
           <Col>
-            <a href="/">
+            <NavLink href="/">
               <img src="logo.png" className="logo" alt="React Todo" />
-            </a>
+            </NavLink>
           </Col>
         </Row>
-        <Row className="pt-4">
+        <Row className="pt-4 background">
           <Col>
             <Switch>
               <Route path="/novo">
