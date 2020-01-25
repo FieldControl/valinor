@@ -7,7 +7,6 @@ import { NgStackFormsModule } from '@ng-stack/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { SearchAdvancedComponent } from './search-advanced/search-advanced.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchComponent } from './search.component';
 
@@ -16,7 +15,6 @@ import { SearchComponent } from './search.component';
   declarations: [
     SearchComponent,
     SearchAdvancedComponent,
-    SearchResultsComponent,
   ],
   imports: [
     CommonModule,

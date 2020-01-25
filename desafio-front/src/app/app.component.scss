@@ -1,0 +1,7 @@
+@import '~bootstrap/scss/bootstrap';
+
+.page-body {
+  @include media-breakpoint-up('sm') {
+    margin-left: calc(100vw - 100%);
+  }
+}

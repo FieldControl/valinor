@@ -24,6 +24,12 @@ export interface GithubRepQuery {
   stars?: number;
 }
 
+export interface GithubSearch {
+  total_count: number;
+  incomplete_results: boolean;
+  items: GithubRep[];
+}
+
 export interface GithubRep {
   license: {
     key: string;

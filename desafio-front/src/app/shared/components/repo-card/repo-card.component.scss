@@ -1,0 +1,26 @@
+@import '~bootstrap/scss/bootstrap';
+
+h3 {
+  @include media-breakpoint-down(sm) {
+    font-size: 20px;
+  }
+}
+
+.fas {
+  font-size: 22px;
+}
+
+.user-avatar {
+  max-height: 32px;
+
+  @include media-breakpoint-down(sm) {
+    max-height: 24px;
+  }
+}
+
+.info-container {
+  max-width: 100%;
+  max-height: 23px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}

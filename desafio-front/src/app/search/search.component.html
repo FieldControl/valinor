@@ -4,32 +4,75 @@
   </div>
 </div>
 
-<form (ngSubmit)="search()">
-  <app-input-field
-    fieldName="Busca"
-    id="search"
-    [control]="form.controls.searchText"
-    [errorMsgs]="msgs"
-  ></app-input-field>
+<h2>Busca</h2>
 
-  <app-select-field
-    fieldName="Ordenar por"
-    id="sort"
-    [control]="form.controls.sort"
-    [errorMsgs]="msgs"
-    [options]="optionsSort"
-  ></app-select-field>
+<div class="card bg-light mb-4">
+  <div class="card-body">
+    <form (ngSubmit)="search()">
+      <div class="row">
+        <div class="col-12">
+          <app-input-field
+            fieldName="Texto"
+            helpText="É possível usar qualificadores de busca do Github, como nome de repositório (in:nome-do-repositoro) ou de usuario (user:usuario)"
+            id="search"
+            [control]="form.controls.searchText"
+            [errorMsgs]="msgs"
+          ></app-input-field>
+        </div>
 
-  <app-select-field
-    fieldName="Ordem"
-    id="order"
-    [control]="form.controls.order"
-    [errorMsgs]="msgs"
-    [options]="optionsOrder"
-  ></app-select-field>
+        <div class="col-12 col-md pr-md-2">
+          <app-select-field
+            fieldName="Ordenar por"
+            id="sort"
+            [control]="form.controls.sort"
+            [errorMsgs]="msgs"
+            [options]="optionsSort"
+          ></app-select-field>
+        </div>
 
-  <div class="d-flex justify-content-between">
-    <button class="btn btn-primary" type="submit">Buscar</button>
-    <a class="btn btn-link" routerLink='busca-avancada'>Busca Avançada</a>
+        <div class="col-12 col-md pl-md-2">
+          <app-select-field
+            fieldName="Ordem"
+            id="order"
+            [control]="form.controls.order"
+            [errorMsgs]="msgs"
+            [options]="optionsOrder"
+          ></app-select-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-xl-3 offset-xl-6 pl-xl-2 pr-md-2 mb-2 mb-md-0">
+          <a class="btn btn-outline-dark w-100" routerLink='busca-avancada'>Busca Avançada</a>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3 pl-md-2">
+          <button class="btn btn-dark w-100" type="submit">
+            <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+            <div *ngIf="!loading">Buscar</div>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-</form>
+</div>
+
+<h2 *ngIf="repositories.length || loading">Resultados</h2>
+
+<div class="card bg-light" *ngIf="loading || error">
+  <div class="card-body">
+    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+
+    <ng-container *ngIf="error">
+      Erro ao se comunicar com a API do Github :(
+    </ng-container>
+  </div>
+</div>
+
+<div class="mb-3" *ngFor="let repo of repositories">
+  <app-repo-card [repository]="repo"></app-repo-card>
+</div>
+
+<div class="my-3 w-100 d-flex justify-content-center" *ngIf="totalPages > 1">
+  <app-paginator></app-paginator>
+</div>
