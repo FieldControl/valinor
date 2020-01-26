@@ -17,7 +17,7 @@ Poderia ter utilizado Python + Graphene no backend, porém achei tão produtivo 
 
 **Desafios e problemas que você enfrentou e como você resolveu**
 
-Obviamente meu forte não é frontend e tive algumas dificuldades com o React, principalmente na parte das rotas, mas acredito que não compromete o teste final.
+Tive algumas dificuldades com o React, principalmente na parte das rotas, mas acredito que não compromete o teste final.
 
 **O que você entende que pode ser melhorado e como fazer isso**
 
