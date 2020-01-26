@@ -26,4 +26,5 @@ Pela falta de tempo, poderia ser criados os testes unitários, ajustar melhor os
 ## Como executar o projeto
 
 - Ter o docker instalado
+- instalar as dependências do node.js
 - executar o script run.sh
