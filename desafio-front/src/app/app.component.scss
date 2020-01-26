@@ -1,6 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 .page-body {
+  overflow-y: scroll;
+  max-height: calc(100vh - 56px);
+
   @include media-breakpoint-up('sm') {
     margin-left: calc(100vw - 100%);
   }

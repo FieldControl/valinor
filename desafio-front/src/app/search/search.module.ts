@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NgStackFormsModule } from '@ng-stack/forms';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 import { SharedModule } from '../shared/shared.module';
 import { SearchAdvancedComponent } from './search-advanced/search-advanced.component';
@@ -20,6 +21,7 @@ import { SearchComponent } from './search.component';
     CommonModule,
     FormsModule,
     NgStackFormsModule,
+    PaginationModule,
     RouterModule,
     SearchRoutingModule,
     SharedModule,

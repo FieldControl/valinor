@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/bootstrap';
+
+.no-container-xs {
+  @include media-breakpoint-down(xs) {
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0 !important;
+  }
+}

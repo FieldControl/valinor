@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
 
 import { validationMessages } from 'constants';
-import { GithubRep, GithubRepOrder, GithubRepSort, SelectOption } from 'models';
+import { GithubRep, GithubRepOrder, GithubRepSort, GithubSearch, SelectOption } from 'models';
 import { GithubService } from 'services';
 import { FormUtil } from 'utils';
 
@@ -21,15 +21,17 @@ interface SearchForm {
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
 
   public loading = false;
   public error = false;
   public repositories: GithubRep[] = [];
+  public loadingIterator = Array(10);
 
   public currentPage = 0;
-  public totalPages = 0;
+  public totalItems = 0;
 
   public readonly msgs = validationMessages;
 
@@ -67,10 +69,10 @@ export class SearchComponent implements OnInit {
 
       this.form.updateValueAndValidity();
 
-      this.performSearch(1, 10);
+      this.performSearch(1, (response: GithubSearch) => { this.totalItems = Math.min(response.total_count, 1000); });
 
     } else if (Object.keys(this.route.snapshot.queryParams).length) {
-
+      this.router.navigate(['']);
     }
   }
 
@@ -84,25 +86,37 @@ export class SearchComponent implements OnInit {
         o: this.form.controls.order.value,
       }});
 
-      this.performSearch(1, 10);
+      this.currentPage = 1;
+      this.totalItems = 0;
+
+      this.performSearch(1, (response: GithubSearch) => { this.totalItems = Math.min(response.total_count, 1000); });
     }
   }
 
-  private performSearch(page: number, repoPerPage: number) {
+  public performSearch(page: number, tapFunction?: (response: GithubSearch) => void) {
     this.loading = true;
     this.error = false;
+
     this.repositories = [];
+
+    setTimeout(() => document.querySelector('#results').scrollIntoView({ behavior: 'smooth' }));
 
     this.githubService.getRepositoriesSimple(
       this.form.controls.searchText.value,
       page.toString(10),
-      repoPerPage.toString(10),
+      '10',
       this.form.controls.sort.value,
       this.form.controls.order.value,
     ).pipe(
-      tap(response => { this.repositories = response.items; }),
+      tap(response => {
+        this.repositories = response.items;
+        if (tapFunction) { tapFunction(response); }
+      }),
       finalize(() => { this.loading = false; }),
-      catchError(() => {
+      catchError((error, caught) => {
+        console.error(error);
+        console.error(caught);
+
         this.error = true;
         return of(null);
       }),
