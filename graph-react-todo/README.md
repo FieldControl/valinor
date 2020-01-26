@@ -2,7 +2,7 @@
 
 **Quem sou eu?**
 
-Me chamo Samir Mamude, tenho 40 anos, casado, pai de uma linda menina de 2 anos chamado Lara, já estou nesse ramo desde 2001 e já passei por muitas tecnologias, hoje meu background se concentra bastante em Python, um pouco de Java (Spring Boot), Javascript (Vuejs e React).
+Me chamo Samir Mamude, tenho 40 anos, casado, pai de uma linda menina de 2 anos chamado Lara, já estou nesse ramo desde 2001 e já passei por muitas tecnologias, hoje meu background se concentra bastante em Python, Java (Spring Boot), Javascript (Vuejs e React).
 
 **Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou**
 
