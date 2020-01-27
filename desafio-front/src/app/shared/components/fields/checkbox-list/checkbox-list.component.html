@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label>{{ label }}</label>
+
+  <div>
+    <app-checkbox-field
+      *ngFor="let key of objectKeys(formGroup.controls)"
+      [control]="formGroup.controls[key]"
+      [fieldName]="labels[key]"
+      [id]="key"
+      [inline]="inline"
+    ></app-checkbox-field>
+  </div>
+</div>

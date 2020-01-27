@@ -9,7 +9,7 @@
 
     <div *ngIf="repository.description">{{ repository.description }}</div>
 
-    <hr>
+    <hr *ngIf="repository.stargazers_count || repository.forks_count || repository.watchers_count">
 
     <div class="d-flex info-container">
       <ng-container *ngIf="repository.stargazers_count">

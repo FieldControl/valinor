@@ -2,26 +2,45 @@ export type GithubRepSort = 'best-match' | 'stars' | 'forks' | 'help-wanted' | '
 
 export type GithubRepOrder = 'asc' | 'desc';
 
+export type GithubRepComp = '>' | '>=' | '<' | '<=' | '..' | '';
+
+export interface GithubRepSearchValue {
+  n: number;
+  comp?: GithubRepComp;
+  betweenAnd?: number;
+}
+
 export interface GithubRepQuery {
   in?: {
-    name?: string;
-    readme?: string;
-    description?: string;
+    description?: boolean;
+    name?: boolean;
+    readme?: boolean;
   };
   repo?: {
-    owner: string,
     name: string,
+    owner: string,
   };
-  user?: string;
+  archived?: string;
+  mirror?: string;
+
+  followers?: GithubRepSearchValue;
+  forks?: GithubRepSearchValue;
+  goodFirstIssues?: GithubRepSearchValue;
+  helpWantedIssues?: GithubRepSearchValue;
+  size?: GithubRepSearchValue;
+  stars?: GithubRepSearchValue;
+  topics?: GithubRepSearchValue;
+
+  created?: string;
+  language?: string;
+  license?: string;
   org?: string;
-  size?: {
-    n: number;
-    comp?: '>' | '>=' | '<' | '<=';
-    betweenAnd?: number;
-  };
-  followers?: number;
-  forks?: number;
-  stars?: number;
+  pushed?: string;
+  text: string;
+  topic?: string;
+  user?: string;
+
+  is?: 'public' | 'private' | '';
 }
 
 export interface GithubSearch {
