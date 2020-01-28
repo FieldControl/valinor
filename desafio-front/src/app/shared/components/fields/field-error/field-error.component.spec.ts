@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FormControl } from '@ng-stack/forms';
+
 import { FieldErrorComponent } from './field-error.component';
+
 
 describe('FieldErrorComponent', () => {
   let component: FieldErrorComponent;
@@ -16,6 +19,9 @@ describe('FieldErrorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FieldErrorComponent);
     component = fixture.componentInstance;
+    component.control = new FormControl();
+    component.errorMsgs = {};
+    component.ObjectKeys = Object.keys;
     fixture.detectChanges();
   });
 

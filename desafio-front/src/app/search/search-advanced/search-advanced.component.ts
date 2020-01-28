@@ -4,7 +4,6 @@ import { FormControl, FormGroup, Validators } from '@ng-stack/forms';
 import { of, Subscription } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
 
-import { validationMessages } from 'constants';
 import {
   GithubRep,
   GithubRepComp,
@@ -32,13 +31,15 @@ export class SearchAdvancedComponent implements OnInit, OnDestroy {
 
   public repositories: GithubRep[] = [];
 
-  public readonly loadingIterator = Array(10);
+  public readonly loadingIterator = Array(5);
   public readonly subscriptions: Subscription[] = [];
 
   public currentPage = 1;
   public totalItems = 0;
 
-  public readonly msgs = validationMessages;
+  public readonly msgs = {
+    required: 'Campo obrigatório',
+  };
 
   public readonly optionsSort: SelectOption[] = [
     { name: 'Melhor correspondencia', value: 'best-match' },
@@ -196,7 +197,7 @@ export class SearchAdvancedComponent implements OnInit, OnDestroy {
 
       this.performSearch(1, (response: GithubSearch) => { this.totalItems = Math.min(response.total_count, 1000); });
     } else {
-      document.querySelector('#title').scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({ behavior: 'smooth', top: (document.querySelector('#title') as HTMLElement).offsetTop - 56 });
     }
   }
 
@@ -216,7 +217,9 @@ export class SearchAdvancedComponent implements OnInit, OnDestroy {
       this.error = false;
       this.emptySearch = false;
 
-      setTimeout(() => document.querySelector('#results').scrollIntoView({ behavior: 'smooth' }));
+      setTimeout(() => {
+      window.scrollTo({ behavior: 'smooth', top: (document.querySelector('#results') as HTMLElement).offsetTop - 56 });
+      });
 
       observable.pipe(
         tap(response => {
