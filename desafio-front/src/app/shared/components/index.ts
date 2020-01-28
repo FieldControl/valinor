@@ -1,5 +1,6 @@
 import { CheckboxFieldComponent } from './fields/checkbox-field/checkbox-field.component';
 import { CheckboxListComponent } from './fields/checkbox-list/checkbox-list.component';
+import { DatepickerFieldComponent } from './fields/datepicker-field/datepicker-field.component';
 import { FieldErrorComponent } from './fields/field-error/field-error.component';
 import { InputFieldComponent } from './fields/input-field/input-field.component';
 import { SelectFieldComponent } from './fields/select-field/select-field.component';
@@ -12,6 +13,7 @@ import { RepoCardComponent } from './repo-card/repo-card.component';
 export const components = [
   CheckboxFieldComponent,
   CheckboxListComponent,
+  DatepickerFieldComponent,
   FieldErrorComponent,
   InputFieldComponent,
   SelectFieldComponent,

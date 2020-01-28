@@ -16,12 +16,14 @@ export interface GithubRepQuery {
     name?: boolean;
     readme?: boolean;
   };
+
   repo?: {
     name: string,
     owner: string,
   };
-  archived?: string;
-  mirror?: string;
+
+  created?: any;
+  pushed?: any;
 
   followers?: GithubRepSearchValue;
   forks?: GithubRepSearchValue;
@@ -31,11 +33,13 @@ export interface GithubRepQuery {
   stars?: GithubRepSearchValue;
   topics?: GithubRepSearchValue;
 
-  created?: string;
+  archived?: string;
+  createdComp?: string;
   language?: string;
   license?: string;
+  mirror?: string;
   org?: string;
-  pushed?: string;
+  pushedComp?: string;
   text: string;
   topic?: string;
   user?: string;

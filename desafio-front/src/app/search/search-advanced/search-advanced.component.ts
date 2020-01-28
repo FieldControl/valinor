@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { FormControl, FormGroup } from '@ng-stack/forms';
-import { of } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@ng-stack/forms';
+import { of, Subscription } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
 
-import { GithubRep, GithubRepComp, GithubRepQuery, GithubRepSearchValue, GithubSearch, SelectOption } from 'models';
+import { validationMessages } from 'constants';
+import {
+  GithubRep,
+  GithubRepComp,
+  GithubRepOrder,
+  GithubRepQuery,
+  GithubRepSearchValue,
+  GithubRepSort,
+  GithubSearch,
+  SelectOption,
+} from 'models';
 import { GithubService } from 'services';
 import { FormUtil } from 'utils';
 
@@ -13,8 +22,9 @@ import { FormUtil } from 'utils';
 @Component({
   selector: 'app-search-advanced',
   templateUrl: './search-advanced.component.html',
+  styleUrls: ['./search-advanced.component.scss'],
 })
-export class SearchAdvancedComponent {
+export class SearchAdvancedComponent implements OnInit, OnDestroy {
 
   public loading = false;
   public error = false;
@@ -23,9 +33,25 @@ export class SearchAdvancedComponent {
   public repositories: GithubRep[] = [];
 
   public readonly loadingIterator = Array(10);
+  public readonly subscriptions: Subscription[] = [];
 
   public currentPage = 1;
   public totalItems = 0;
+
+  public readonly msgs = validationMessages;
+
+  public readonly optionsSort: SelectOption[] = [
+    { name: 'Melhor correspondencia', value: 'best-match' },
+    { name: 'N° de estrelas', value: 'stars' },
+    { name: 'N° de forks', value: 'forks' },
+    { name: 'Ajuda desejada', value: 'help-wanted' },
+    { name: 'Data da última atualização', value: 'updated' },
+  ];
+
+  public readonly optionsOrder: SelectOption[] = [
+    { name: 'Crescente', value: 'asc' },
+    { name: 'Decrescente', value: 'desc' },
+  ];
 
   public readonly inLabels = {
     description: 'Descrição',
@@ -40,6 +66,14 @@ export class SearchAdvancedComponent {
     { value: '<',  name: 'Menor que' },
     { value: '>=', name: 'Maior ou igual' },
     { value: '<=', name: 'Menor ou igual' },
+  ];
+
+  public readonly dateOptions: SelectOption[] = [
+    { value: '',   name: 'Igual' },
+    { value: '>',  name: 'Depois de' },
+    { value: '<',  name: 'Antes de' },
+    { value: '>=', name: 'Depois ou igual' },
+    { value: '<=', name: 'Antes ou igual' },
   ];
 
   public readonly boolFilterOptions: SelectOption[] = [
@@ -64,8 +98,9 @@ export class SearchAdvancedComponent {
       name: new FormControl<string>(),
       owner: new FormControl<string>(),
     }),
-    archived: new FormControl<string>(''),
-    mirror: new FormControl<string>(''),
+
+    created: new FormControl<any>(),
+    pushed: new FormControl<any>(),
 
     followers: new FormGroup<GithubRepSearchValue>({
       n: new FormControl<number>(),
@@ -103,11 +138,13 @@ export class SearchAdvancedComponent {
       comp: new FormControl<GithubRepComp>(''),
     }),
 
-    created: new FormControl<string>(),
+    archived: new FormControl<string>(''),
+    createdComp: new FormControl<string>(''),
     language: new FormControl<string>(),
     license: new FormControl<string>(),
+    mirror: new FormControl<string>(''),
     org: new FormControl<string>(),
-    pushed: new FormControl<string>(),
+    pushedComp: new FormControl<string>(''),
     text: new FormControl<string>(),
     topic: new FormControl<string>(),
     user: new FormControl<string>(),
@@ -115,31 +152,64 @@ export class SearchAdvancedComponent {
     is: new FormControl<'public' | 'private' | ''>(''),
   });
 
+  public readonly sortForm = new FormGroup({
+    sort: new FormControl<GithubRepSort>('best-match', [Validators.required]),
+    order: new FormControl<GithubRepOrder>('desc', [Validators.required]),
+  });
+
+  private searchQuery: GithubRepQuery;
 
   public constructor(
-    private readonly router: Router,
     private readonly githubService: GithubService,
   ) {}
+
+  public ngOnInit() {
+    for (const key of ['followers', 'forks', 'goodFirstIssues', 'helpWantedIssues', 'size', 'stars', 'topics']) {
+      this.subscriptions.push(
+        this.form.controls[key].controls.comp.valueChanges.subscribe((value: string) => {
+          if (value === '..') {
+            this.form.controls[key].controls.betweenAnd.setValidators([Validators.required]);
+          } else {
+            this.form.controls[key].controls.betweenAnd.clearValidators();
+            this.form.controls[key].controls.betweenAnd.setValue(null);
+          }
+
+          this.form.controls[key].controls.betweenAnd.updateValueAndValidity();
+        }),
+      );
+    }
+  }
+
+  public ngOnDestroy() {
+    for (const subscription of this.subscriptions) {
+      subscription.unsubscribe();
+    }
+  }
 
   public search() {
     FormUtil.touchForm(this.form);
 
     if (this.form.valid) {
-      this.router.navigate(['busca-avancada'], { queryParams: {
-        t: this.form.controls.text.value,
-      }});
-
       this.currentPage = 1;
       this.totalItems = 0;
+      this.searchQuery = this.form.value;
 
       this.performSearch(1, (response: GithubSearch) => { this.totalItems = Math.min(response.total_count, 1000); });
+    } else {
+      document.querySelector('#title').scrollIntoView({ behavior: 'smooth' });
     }
   }
 
   public performSearch(page: number, tapFunction?: (response: GithubSearch) => void) {
     this.repositories = [];
 
-    const observable = this.githubService.getRepositoriesAdvanced(this.form.value, '1', '10');
+    const observable = this.githubService.getRepositoriesAdvanced(
+      this.searchQuery,
+      page.toString(10),
+      '10',
+      this.sortForm.controls.sort.value,
+      this.sortForm.controls.order.value,
+    );
 
     if (observable) {
       this.loading = true;

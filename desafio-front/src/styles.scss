@@ -1,11 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~ngx-bootstrap/datepicker/bs-datepicker.scss';
+
+body {
+  overflow: hidden;
+}
 
 .no-container-xs {
   @include media-breakpoint-down(xs) {
     margin-left: -15px;
     margin-right: -15px;
+
     border-left: 0 !important;
     border-right: 0 !important;
     border-radius: 0 !important;
+
+    .card-body {
+      padding: 15px !important;
+    }
   }
 }

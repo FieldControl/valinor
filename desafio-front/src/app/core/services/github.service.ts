@@ -45,8 +45,6 @@ export class GithubService {
     sort?: GithubRepSort,
     order?: GithubRepOrder,
   ) {
-    console.log(query);
-
     const params = {
       q: '',
       page,
@@ -55,7 +53,7 @@ export class GithubService {
       order,
     };
 
-    const queries = [];
+    const queries: string[] = [];
 
     if (query.text) {
       queries.push(query.text);
@@ -70,24 +68,50 @@ export class GithubService {
     if (query.user) { queries.push(`user:${query.user}`); }
     if (query.org) { queries.push(`org:${query.org}`); }
 
+    if (query.language) { queries.push(`language:"${query.language}"`); }
+    if (query.topic) { queries.push(`topic:"${query.topic}"`); }
+
+    if (query.created) {
+      const date = query.created as Date;
+
+      queries.push('created:' +
+        query.createdComp +
+        date.getFullYear() + '-' +
+        (date.getMonth() + 1).toString(10).padStart(2, '0') + '-' +
+        date.getDate().toString(10).padStart(2, '0'),
+      );
+    }
+
+    if (query.pushed) {
+      const date = query.pushed as Date;
+
+      queries.push('pushed:' +
+        query.pushedComp +
+        date.getFullYear() + '-' +
+        (date.getMonth() + 1).toString(10).padStart(2, '0') + '-' +
+        date.getDate().toString(10).padStart(2, '0'),
+      );
+    }
+
+    if (query.is) { queries.push(`is:${query.is}`); }
+    if (query.mirror) { queries.push(`mirror:${query.mirror}`); }
+    if (query.archived) { queries.push(`archived:${query.archived}`); }
+
     for (const searchValue of ['followers', 'forks', 'size', 'stars', 'topics']) {
       if (query[searchValue].n) {
         queries.push(searchValue + ':' +
           (query[searchValue].comp === '..' ? query[searchValue].n : query[searchValue].betweenAnd || '') +
           query[searchValue].comp +
-          (query[searchValue].comp === '..' ? query[searchValue].betweenAnd : query[searchValue].n),
+          (query[searchValue].comp === '..' ? query[searchValue].betweenAnd || '' : query[searchValue].n),
         );
       }
     }
-
-    if (query.language) { queries.push(`language:"${query.language}"`); }
-    if (query.topic) { queries.push(`topic:"${query.topic}"`); }
 
     if (query.goodFirstIssues.n) {
       queries.push('good-first-issues:' +
         (query.goodFirstIssues.comp === '..' ? query.goodFirstIssues.n : query.goodFirstIssues.betweenAnd || '') +
         query.goodFirstIssues.comp +
-        (query.goodFirstIssues.comp === '..' ? query.goodFirstIssues.betweenAnd : query.goodFirstIssues.n),
+        (query.goodFirstIssues.comp === '..' ? query.goodFirstIssues.betweenAnd || '' : query.goodFirstIssues.n),
       );
     }
 
@@ -95,7 +119,7 @@ export class GithubService {
       queries.push('help-wanted-issues:' +
         (query.helpWantedIssues.comp === '..' ? query.helpWantedIssues.n : query.helpWantedIssues.betweenAnd || '') +
         query.helpWantedIssues.comp +
-        (query.helpWantedIssues.comp === '..' ? query.helpWantedIssues.betweenAnd : query.helpWantedIssues.n),
+        (query.helpWantedIssues.comp === '..' ? query.helpWantedIssues.betweenAnd || '' : query.helpWantedIssues.n),
       );
     }
 

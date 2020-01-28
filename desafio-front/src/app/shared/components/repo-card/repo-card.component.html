@@ -26,19 +26,12 @@
         </a>
       </ng-container>
 
-      <ng-container *ngIf="repository.watchers_count">
-        <i class="fas fa-eye fa-lg my-auto mr-1 mr-md-2"></i>
-        <a [href]="repository.html_url + '/watchers'" target="_blank" class="mr-3 mr-lg-4">
-          {{ repository.watchers_count }}
-        </a>
-      </ng-container>
-
-      <div class="d-none d-sm-flex" *ngIf="repository.open_issues_count">
+      <ng-container *ngIf="repository.open_issues_count">
         <i class="fas fa-exclamation-triangle fa-lg my-auto mr-1 mr-md-2"></i>
         <a [href]="repository.html_url + '/issues'" target="_blank" class="mr-3 mr-lg-4">
           {{ repository.open_issues_count }}
         </a>
-      </div>
+      </ng-container>
 
       <div class="d-none d-sm-flex" *ngIf="repository.language">
         <i class="fas fa-language fa-lg my-auto mr-1 mr-md-2"></i>

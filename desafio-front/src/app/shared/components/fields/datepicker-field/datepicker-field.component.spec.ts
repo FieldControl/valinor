@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RepoCardSkelletonComponent } from './repo-card-skelleton.component';
+import { DatepickerFieldComponent } from './datepicker-field.component';
 
 
-describe('RepoCardSkelletonComponent', () => {
-  let component: RepoCardSkelletonComponent;
-  let fixture: ComponentFixture<RepoCardSkelletonComponent>;
+describe('DatepickerFieldComponent', () => {
+  let component: DatepickerFieldComponent;
+  let fixture: ComponentFixture<DatepickerFieldComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RepoCardSkelletonComponent ],
+      declarations: [ DatepickerFieldComponent ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RepoCardSkelletonComponent);
+    fixture = TestBed.createComponent(DatepickerFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

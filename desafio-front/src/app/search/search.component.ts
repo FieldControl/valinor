@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@ng-stack/forms';
 import { of } from 'rxjs';
@@ -23,7 +22,7 @@ interface SearchForm {
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
   public loading = false;
   public error = false;
@@ -54,40 +53,20 @@ export class SearchComponent implements OnInit {
     { name: 'Decrescente', value: 'desc' },
   ];
 
+  private searchQuery: string;
+
 
   public constructor(
     private readonly githubService: GithubService,
-    private readonly router: Router,
-    private readonly route: ActivatedRoute,
   ) { }
-
-  public ngOnInit() {
-    if (this.route.snapshot.queryParams.t) {
-      this.form.controls.searchText.setValue(this.route.snapshot.queryParams.t);
-      this.form.controls.sort.setValue(this.route.snapshot.queryParams.s || 'best-match');
-      this.form.controls.order.setValue(this.route.snapshot.queryParams.o || 'desc');
-
-      this.form.updateValueAndValidity();
-
-      this.performSearch(1, (response: GithubSearch) => { this.totalItems = Math.min(response.total_count, 1000); });
-
-    } else if (Object.keys(this.route.snapshot.queryParams).length) {
-      this.router.navigate(['']);
-    }
-  }
 
   public search() {
     FormUtil.touchForm(this.form);
 
     if (this.form.valid) {
-      this.router.navigate([''], { queryParams: {
-        t: this.form.controls.searchText.value,
-        s: this.form.controls.sort.value,
-        o: this.form.controls.order.value,
-      }});
-
       this.currentPage = 1;
       this.totalItems = 0;
+      this.searchQuery = this.form.controls.searchText.value;
 
       this.performSearch(1, (response: GithubSearch) => { this.totalItems = Math.min(response.total_count, 1000); });
     }
@@ -102,7 +81,7 @@ export class SearchComponent implements OnInit {
     setTimeout(() => document.querySelector('#results').scrollIntoView({ behavior: 'smooth' }));
 
     this.githubService.getRepositoriesSimple(
-      this.form.controls.searchText.value,
+      this.searchQuery,
       page.toString(10),
       '10',
       this.form.controls.sort.value,
