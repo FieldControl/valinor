@@ -1,0 +1,58 @@
+<div class="card bg-light no-container-xs">
+  <div class="card-body">
+    <h3 class="text-truncate d-flex align-items-center">
+      <img [src]="repository.owner.avatar_url" class="user-avatar mr-2">
+      <a [href]="repository.owner.html_url" target="_blank">{{ repository.owner.login }}</a>
+      <span>/</span>
+      <a [href]="repository.html_url" target="_blank" class="text-truncate">{{ repository.name }}</a>
+    </h3>
+
+    <div *ngIf="repository.description">{{ repository.description }}</div>
+
+    <hr *ngIf="repository.stargazers_count || repository.forks_count || repository.watchers_count">
+
+    <div class="d-flex info-container">
+      <ng-container *ngIf="repository.stargazers_count">
+        <i class="fas fa-star fa-lg my-auto mr-1 mr-md-2"></i>
+        <a [href]="repository.html_url + '/stargazers'" target="_blank" class="mr-3 mr-lg-4">
+          {{ repository.stargazers_count }}
+        </a>
+      </ng-container>
+
+      <ng-container *ngIf="repository.forks_count">
+        <i class="fas fa-code-branch fa-lg my-auto mr-1 mr-md-2"></i>
+        <a [href]="repository.html_url + '/network/members'" target="_blank" class="mr-3 mr-lg-4">
+          {{ repository.forks_count }}
+        </a>
+      </ng-container>
+
+      <ng-container *ngIf="repository.open_issues_count">
+        <i class="fas fa-exclamation-triangle fa-lg my-auto mr-1 mr-md-2"></i>
+        <a [href]="repository.html_url + '/issues'" target="_blank" class="mr-3 mr-lg-4">
+          {{ repository.open_issues_count }}
+        </a>
+      </ng-container>
+
+      <div class="d-none d-sm-flex" *ngIf="repository.language">
+        <i class="fas fa-language fa-lg my-auto mr-1 mr-md-2"></i>
+        <div class="mr-3 mr-lg-4">{{ repository.language }}</div>
+      </div>
+
+      <div class="d-none d-lg-flex" *ngIf="repository.license">
+        <i class="fas fa-copyright fa-lg my-auto mr-1 mr-md-2"></i>
+        <div class="mr-3 mr-lg-4">
+          <span class="d-none d-xl-inline-block">Licença:</span>
+          {{ repository.license.name }}
+        </div>
+      </div>
+
+      <div class="d-none d-md-flex" *ngIf="repository.updated_at">
+        <i class="fas fa-calendar-check fa-lg my-auto mr-1 mr-md-2"></i>
+        <div>
+          <span class="d-none d-xl-inline-block">Atualizado em</span>
+          {{ repository.updated_at | date : 'dd/MM/yyyy' }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

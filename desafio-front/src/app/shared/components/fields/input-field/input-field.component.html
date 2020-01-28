@@ -1,0 +1,27 @@
+<div class="form-group">
+  <label [for]="id + 'Input'" class="text-truncate w-100">{{ fieldName }}</label>
+  <input
+    [id]="id + 'Input'"
+    [type]="type"
+
+    class="form-control"
+    [class.is-invalid]="control.invalid && control.touched"
+
+    [formControl]="control"
+
+    [minlength]="minLength"
+    [maxlength]="minLength"
+  />
+
+  <app-field-error
+    [control]="control"
+    [errorMsgs]="errorMsgs"
+  ></app-field-error>
+
+  <small *ngIf="helpText"
+    [id]="id + 'Help'"
+    class="form-text text-muted"
+  >
+    {{ helpText }}
+  </small>
+</div>

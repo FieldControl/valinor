@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label for="id + 'Input'" class="mb-3">{{ fieldName }}</label>
+
+  <input
+    bsDatepicker
+    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+    [id]="id + 'Input'"
+    [formControl]="control"
+    class="form-control"
+    type="text"
+  />
+</div>

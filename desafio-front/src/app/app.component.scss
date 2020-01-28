@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/bootstrap';
+
+.scroll {
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
+}
+
+.page-body {
+  @include media-breakpoint-up('sm') {
+    margin-left: calc(100vw - 100%);
+  }
+}

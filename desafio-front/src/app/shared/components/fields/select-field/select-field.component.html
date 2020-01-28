@@ -1,0 +1,25 @@
+<div class="form-group">
+  <label [for]="id + 'Select'" class="form-control-placeholder text-truncate w-100">{{ fieldName }}</label>
+
+  <select [id]="id + 'Select'"
+    class="form-control"
+    [formControl]="control"
+  >
+    <option [ngValue]="null" disabled>{{ nullLabel }}</option>
+    <option [ngValue]="option.value" *ngFor="let option of options">{{ option.name }}</option>
+  </select>
+
+
+  <app-field-error
+    [control]="control"
+    [errorMsgs]="errorMsgs"
+  ></app-field-error>
+
+  <small *ngIf="helpText"
+    [id]="id + 'Help'"
+    class="form-text text-muted"
+  >
+    {{ helpText }}
+  </small>
+</div>
+

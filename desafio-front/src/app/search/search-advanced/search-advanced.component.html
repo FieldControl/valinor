@@ -1,0 +1,418 @@
+<h2 id="title">Busca Avançada</h2>
+
+<div class="card bg-light no-container-xs mb-4">
+  <div class="card-body">
+    <form (ngSubmit)="search()">
+      <div class="row">
+        <div class="col-12 col-md-6 pr-md-2">
+          <app-input-field
+            id="text"
+            fieldName="Texto"
+            [control]="form.controls.text"
+          ></app-input-field>
+        </div>
+
+        <div class="col-12 col-md-6 pl-md-2">
+          <app-checkbox-list
+            [formGroup]="form.controls.in"
+            [inline]="true"
+            [labels]="inLabels"
+            label="Buscar texto em"
+          ></app-checkbox-list>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 pr-2">
+          <app-input-field
+            id="user"
+            fieldName="Usuário"
+            type="tel"
+            [control]="form.controls.user"
+          ></app-input-field>
+        </div>
+
+        <div class="col-6 pl-2">
+          <app-input-field
+            id="org"
+            fieldName="Organização"
+            type="tel"
+            [control]="form.controls.org"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 pr-2">
+          <app-input-field
+            id="language"
+            fieldName="Língua"
+            [control]="form.controls.language"
+          ></app-input-field>
+        </div>
+
+        <div class="col-6 pl-2">
+          <app-input-field
+            id="topic"
+            fieldName="Tópico"
+            [control]="form.controls.topic"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-6 pr-2">
+          <app-datepicker-field
+            id="created"
+            fieldName="Criado"
+            [control]="form.controls.created"
+          ></app-datepicker-field>
+        </div>
+
+        <div class="col-6 pl-2">
+          <app-select-field
+            id="createdComp"
+            fieldName="Comparação"
+            [control]="form.controls.createdComp"
+            [options]="dateOptions"
+          ></app-select-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 pr-2">
+          <app-datepicker-field
+            id="pushed"
+            fieldName="Último push"
+            [control]="form.controls.pushed"
+          ></app-datepicker-field>
+        </div>
+
+        <div class="col-6 pl-2">
+          <app-select-field
+            id="pushedComp"
+            fieldName="Comparação"
+            [control]="form.controls.pushedComp"
+            [options]="dateOptions"
+          ></app-select-field>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-select-field
+            id="is"
+            fieldName="É publico?"
+            [control]="form.controls.is"
+            [options]="privacyOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="mirror"
+            fieldName="É mirror?"
+            [control]="form.controls.mirror"
+            [options]="boolFilterOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2">
+          <app-select-field
+            id="archived"
+            fieldName="Arquivado?"
+            [control]="form.controls.archived"
+            [options]="boolFilterOptions"
+          ></app-select-field>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Estrelas -->
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-input-field
+            id="stars"
+            fieldName="N° de Estrelas"
+            type="tel"
+            [control]="form.controls.stars.controls.n"
+          ></app-input-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="starsComp"
+            fieldName="Comparação"
+            type="tel"
+            [control]="form.controls.stars.controls.comp"
+            [options]="compOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2" *ngIf="form.value.stars.comp == '..'">
+          <app-input-field
+            id="starsMax"
+            fieldName="Máximo"
+            [control]="form.controls.stars.controls.betweenAnd"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <!-- Forks -->
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-input-field
+            id="forks"
+            fieldName="N° de Forks"
+            type="tel"
+            [control]="form.controls.forks.controls.n"
+          ></app-input-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="forksComp"
+            fieldName="Comparação"
+            type="tel"
+            [control]="form.controls.forks.controls.comp"
+            [options]="compOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2" *ngIf="form.value.forks.comp == '..'">
+          <app-input-field
+            id="forksMax"
+            fieldName="Máximo"
+            [control]="form.controls.forks.controls.betweenAnd"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <!-- Seguidores -->
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-input-field
+            id="followers"
+            fieldName="N° de Seguidores"
+            type="tel"
+            [control]="form.controls.followers.controls.n"
+          ></app-input-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="followersComp"
+            fieldName="Comparação"
+            type="tel"
+            [control]="form.controls.followers.controls.comp"
+            [options]="compOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2" *ngIf="form.value.followers.comp == '..'">
+          <app-input-field
+            id="followersMax"
+            fieldName="Máximo"
+            [control]="form.controls.followers.controls.betweenAnd"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <!-- Tamanho -->
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-input-field
+            id="size"
+            fieldName="Tamanho"
+            type="tel"
+            [control]="form.controls.size.controls.n"
+          ></app-input-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="sizeComp"
+            fieldName="Comparação"
+            type="tel"
+            [control]="form.controls.size.controls.comp"
+            [options]="compOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2" *ngIf="form.value.size.comp == '..'">
+          <app-input-field
+            id="sizeMax"
+            fieldName="Máximo"
+            [control]="form.controls.size.controls.betweenAnd"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <!-- 'N° de tópicos' -->
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-input-field
+            id="topics"
+            fieldName="N° de tópicos"
+            type="tel"
+            [control]="form.controls.topics.controls.n"
+          ></app-input-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="topicsComp"
+            fieldName="Comparação"
+            [control]="form.controls.topics.controls.comp"
+            [options]="compOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2" *ngIf="form.value.topics.comp == '..'">
+          <app-input-field
+            id="topicsMax"
+            fieldName="Máximo"
+            type="tel"
+            [control]="form.controls.topics.controls.betweenAnd"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <!-- 'Good first issues' -->
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-input-field
+            id="goodFirstIssue"
+            fieldName="N° de 'good first issues'"
+            type="tel"
+            [control]="form.controls.goodFirstIssues.controls.n"
+          ></app-input-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="goodFirstIssueComp"
+            fieldName="Comparação"
+            [control]="form.controls.goodFirstIssues.controls.comp"
+            [options]="compOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2" *ngIf="form.value.goodFirstIssues.comp == '..'">
+          <app-input-field
+            id="goodFirstIssueMax"
+            fieldName="Máximo"
+            type="tel"
+            [control]="form.controls.goodFirstIssues.controls.betweenAnd"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <!-- Issues 'ajuda desejada' -->
+      <div class="row">
+        <div class="col-4 pr-2">
+          <app-input-field
+            id="helpWantedIssues"
+            fieldName="N° de Issues 'ajuda desejada'"
+            type="tel"
+            [control]="form.controls.helpWantedIssues.controls.n"
+          ></app-input-field>
+        </div>
+
+        <div class="col-4 pr-2 pl-2">
+          <app-select-field
+            id="helpWantedIssuesComp"
+            fieldName="Comparação"
+            [control]="form.controls.helpWantedIssues.controls.comp"
+            [options]="compOptions"
+          ></app-select-field>
+        </div>
+
+        <div class="col-4 pl-2" *ngIf="form.value.helpWantedIssues.comp == '..'">
+          <app-input-field
+            id="helpWantedIssuesMax"
+            fieldName="Máximo"
+            type="tel"
+            [control]="form.controls.helpWantedIssues.controls.betweenAnd"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-6 pr-2">
+          <app-select-field
+            fieldName="Ordenar por"
+            id="sort"
+            [control]="sortForm.controls.sort"
+            [errorMsgs]="msgs"
+            [options]="optionsSort"
+          ></app-select-field>
+        </div>
+
+        <div class="col-6 pl-2">
+          <app-select-field
+            fieldName="Ordem"
+            id="order"
+            [control]="sortForm.controls.order"
+            [errorMsgs]="msgs"
+            [options]="optionsOrder"
+          ></app-select-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-xl-3 offset-xl-6 pl-xl-2 pr-md-2 mb-2 mb-md-0">
+          <a class="btn btn-outline-dark w-100" routerLink=''>Busca Simples</a>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3 pl-md-2">
+          <button class="btn btn-dark w-100" type="submit" [disabled]="loading">
+            Buscar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h2 id="results" *ngIf="repositories.length || loading">Resultados</h2>
+
+<ng-container *ngIf="loading">
+  <div class="mb-3" *ngFor="let repo of loadingIterator">
+    <app-repo-card-skelleton></app-repo-card-skelleton>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="error || emptySearch">
+  <div class="card bg-light no-container-xs">
+    <div class="card-body">
+      <ng-container *ngIf="error">Erro ao se comunicar com a API do Github :(</ng-container>
+      <ng-container *ngIf="emptySearch">Ao menos um campo deve ser preenchido para buscar ;)</ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<div class="mb-3" *ngFor="let repo of repositories">
+  <app-repo-card [repository]="repo"></app-repo-card>
+</div>
+
+<div class="my-3 w-100 d-flex justify-content-center" *ngIf="totalItems >= 1">
+  <pagination
+    [(ngModel)]="currentPage"
+    [itemsPerPage]="10"
+    [maxSize]="6"
+    [rotate]="false"
+    [totalItems]="totalItems"
+    (pageChanged)="performSearch($event.page)"
+    nextText="Próxima"
+    previousText="Anterior"
+  ></pagination>
+</div>

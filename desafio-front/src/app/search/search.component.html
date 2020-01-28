@@ -1,0 +1,90 @@
+<div class="card bg-light no-container-xs mb-4">
+  <div class="card-body">
+    Bem-vindo(a) ao Github Search!
+  </div>
+</div>
+
+<h2>Busca</h2>
+
+<div class="card bg-light no-container-xs mb-4">
+  <div class="card-body">
+    <form (ngSubmit)="search()">
+      <div class="row">
+        <div class="col-12">
+          <app-input-field
+            fieldName="Texto"
+            helpText="É possível usar qualificadores de busca do Github, como nome de repositório (in:nome-do-repositoro) ou de usuario (user:usuario)"
+            id="search"
+            [control]="form.controls.searchText"
+            [errorMsgs]="msgs"
+          ></app-input-field>
+        </div>
+
+        <div class="col-12 col-md-6 pr-md-2">
+          <app-select-field
+            fieldName="Ordenar por"
+            id="sort"
+            [control]="form.controls.sort"
+            [errorMsgs]="msgs"
+            [options]="optionsSort"
+          ></app-select-field>
+        </div>
+
+        <div class="col-12 col-md-6 pl-md-2">
+          <app-select-field
+            fieldName="Ordem"
+            id="order"
+            [control]="form.controls.order"
+            [errorMsgs]="msgs"
+            [options]="optionsOrder"
+          ></app-select-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-xl-3 offset-xl-6 pl-xl-2 pr-md-2 mb-2 mb-md-0">
+          <a class="btn btn-outline-dark w-100" routerLink='busca-avancada'>Busca Avançada</a>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-3 pl-md-2">
+          <button class="btn btn-dark w-100" type="submit" [disabled]="loading">
+            Buscar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h2 id="results" *ngIf="repositories.length || loading">Resultados</h2>
+
+<ng-container *ngIf="loading">
+  <div class="mb-3" *ngFor="let repo of loadingIterator">
+    <app-repo-card-skelleton></app-repo-card-skelleton>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="error">
+  <div class="card bg-light no-container-xs">
+    <div class="card-body">
+      Erro ao se comunicar com a API do Github :(
+    </div>
+  </div>
+</ng-container>
+
+<div class="mb-3" *ngFor="let repo of repositories">
+  <app-repo-card [repository]="repo"></app-repo-card>
+</div>
+
+<div class="my-3 w-100 d-flex justify-content-center" *ngIf="totalItems >= 1">
+  <pagination
+    [(ngModel)]="currentPage"
+    [itemsPerPage]="10"
+    [maxSize]="6"
+    [rotate]="false"
+    [totalItems]="totalItems"
+    (pageChanged)="performSearch($event.page)"
+    nextText="Próxima"
+    previousText="Anterior"
+  ></pagination>
+</div>
