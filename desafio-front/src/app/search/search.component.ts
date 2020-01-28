@@ -4,7 +4,6 @@ import { FormControl, FormGroup, Validators } from '@ng-stack/forms';
 import { of } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
 
-import { validationMessages } from 'constants';
 import { GithubRep, GithubRepOrder, GithubRepSort, GithubSearch, SelectOption } from 'models';
 import { GithubService } from 'services';
 import { FormUtil } from 'utils';
@@ -27,12 +26,14 @@ export class SearchComponent {
   public loading = false;
   public error = false;
   public repositories: GithubRep[] = [];
-  public loadingIterator = Array(10);
+  public loadingIterator = Array(5);
 
   public currentPage = 0;
   public totalItems = 0;
 
-  public readonly msgs = validationMessages;
+  public readonly msgs = {
+    required: 'Campo obrigatório',
+  };
 
   public readonly form: FormGroup<SearchForm> = new FormGroup({
     searchText: new FormControl<string>(null, [Validators.required]),
@@ -78,7 +79,9 @@ export class SearchComponent {
 
     this.repositories = [];
 
-    setTimeout(() => document.querySelector('#results').scrollIntoView({ behavior: 'smooth' }));
+    setTimeout(() => {
+      window.scrollTo({ behavior: 'smooth', top: (document.querySelector('#results') as HTMLElement).offsetTop - 56 });
+    });
 
     this.githubService.getRepositoriesSimple(
       this.searchQuery,

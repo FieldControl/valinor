@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { FormControl } from '@ng-stack/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { DatepickerFieldComponent } from './datepicker-field.component';
 
@@ -9,6 +13,10 @@ describe('DatepickerFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        BsDatepickerModule.forRoot(),
+        ReactiveFormsModule,
+      ],
       declarations: [ DatepickerFieldComponent ],
     })
     .compileComponents();
@@ -17,6 +25,8 @@ describe('DatepickerFieldComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DatepickerFieldComponent);
     component = fixture.componentInstance;
+    component.control = new FormControl();
+    component.errorMsgs = {};
     fixture.detectChanges();
   });
 

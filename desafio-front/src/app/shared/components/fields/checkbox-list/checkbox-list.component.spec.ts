@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { FormGroup } from '@ng-stack/forms';
+
+import { CheckboxFieldComponent } from '../checkbox-field/checkbox-field.component';
 import { CheckboxListComponent } from './checkbox-list.component';
 
 
@@ -9,7 +13,11 @@ describe('CheckboxListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckboxListComponent ],
+      imports: [ ReactiveFormsModule ],
+      declarations: [
+        CheckboxFieldComponent,
+        CheckboxListComponent,
+      ],
     })
     .compileComponents();
   }));
@@ -17,6 +25,7 @@ describe('CheckboxListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CheckboxListComponent);
     component = fixture.componentInstance;
+    component.formGroup = new FormGroup({});
     fixture.detectChanges();
   });
 

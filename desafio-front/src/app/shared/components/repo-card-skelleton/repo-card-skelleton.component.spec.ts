@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 import { RepoCardSkelletonComponent } from './repo-card-skelleton.component';
 
 
@@ -9,7 +10,10 @@ describe('RepoCardSkelletonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RepoCardSkelletonComponent ],
+      declarations: [
+        LoadingSpinnerComponent,
+        RepoCardSkelletonComponent,
+      ],
     })
     .compileComponents();
   }));

@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { FormControl } from '@ng-stack/forms';
+
+import { FieldErrorComponent } from '../field-error/field-error.component';
 import { SelectFieldComponent } from './select-field.component';
 
 
@@ -9,7 +13,13 @@ describe('SelectFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectFieldComponent ],
+      imports: [
+        ReactiveFormsModule,
+      ],
+      declarations: [
+        FieldErrorComponent,
+        SelectFieldComponent,
+      ],
     })
     .compileComponents();
   }));
@@ -17,6 +27,9 @@ describe('SelectFieldComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SelectFieldComponent);
     component = fixture.componentInstance;
+    component.control = new FormControl();
+    component.errorMsgs = {};
+    component.options = [];
     fixture.detectChanges();
   });
 
