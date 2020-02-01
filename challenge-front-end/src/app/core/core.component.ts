@@ -6,11 +6,15 @@ import { Theme } from 'core/models/theme.enum';
     selector: 'app-core-root',
     template: `
         <nav>NavBar</nav>
-        <router-outlet></router-outlet>
+        <section>
+            <router-outlet></router-outlet>
+        </section>
+        <footer>
+            footer
+        </footer>
     `
 })
 export class CoreComponent implements OnInit {
-
 
     @HostBinding('class.theme-dark') get darkTheme(): boolean {
         if (this.theme === Theme.dark) { return true; }

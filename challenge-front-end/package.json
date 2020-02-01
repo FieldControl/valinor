@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot --proxy-config proxy.conf.json --live-reload --hmr --open --host 0.0.0.0",
+    "start": "ng serve --aot --proxy-config proxy.conf.json --live-reload --hmr --open --host 0.0.0.0 --poll=2000",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -23,8 +23,10 @@
     "@angular/platform-browser": "^8.2.14",
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/router": "^8.2.14",
+    "@fortawesome/fontawesome-free": "^5.12.0",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
+    "hammerjs": "^2.0.8",
     "normalize.css": "^8.0.1",
     "rxjs": "^6.5.4",
     "zone.js": "^0.10.2"

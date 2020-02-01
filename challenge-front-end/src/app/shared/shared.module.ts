@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+
+
 import { CustomHttpInterceptor } from 'app/interceptors/custom-http.interceptor';
 import { sharedEntryComponents } from 'shared/components';
 import { sharedServices } from 'shared/services';
@@ -18,7 +23,10 @@ const defaultModules = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatListModule
 ];
 
 @NgModule({

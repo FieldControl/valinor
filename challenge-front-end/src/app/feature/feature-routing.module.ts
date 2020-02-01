@@ -9,7 +9,7 @@ import { ResolverService } from './services';
 const defaultRoutes: Routes = [
   {
     path: '', component: FeatureRootComponent, canActivate: [AuthGuard], children: [
-      { path: '', component: FeatureComponent, canActivate: [AuthGuard], resolve: { log: ResolverService } },
+      { path: '', component: FeatureComponent, canActivate: [AuthGuard]},
       // { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
       // { path: ':id', component: RecipeDetailComponent },
       // { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard] },

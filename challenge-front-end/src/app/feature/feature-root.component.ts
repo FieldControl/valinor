@@ -13,6 +13,11 @@ import { FeatureDynamicComponent } from './components/feature-dynamic/feature-dy
 })
 export class FeatureRootComponent implements OnInit {
 
+  languageItems: Array<any> = [];
+  menuItems: Array<any> = [];
+  sortOptions: Array<any> = [];
+
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _dynamicComponentCreator: DynamicComponentCreatorService,
@@ -22,29 +27,99 @@ export class FeatureRootComponent implements OnInit {
   ) {
   }
 
-  navToHome() {
-    this._router.navigate(['']);
-  }
-
   destroy(message) {
     console.log(message);
   }
 
   ngOnInit() {
     this._dynamicComponentCreator.defineRootContainerRef(this._viewContainerRef);
-    console.log('Route Snapshot: ', this._activatedRoute.snapshot);
-    console.log('QueryParams: ', this._activatedRoute.snapshot.queryParams);
-    console.log('Params :', this._activatedRoute.snapshot.params);
-    this._sharedHttp.postTest();
-    (async () => {
-      const component: FeatureDynamicComponent = await this._dynamicComponentCreator.create([FeatureDynamicComponent], 'feature', 'feature', [{ title: 'testes' }]);
-      const modalComponent: FeatureDynamicComponent = await this._dynamicComponentCreator.create([ModalComponent, FeatureDynamicComponent], 'feature', 'modal', [{ title: 'testes' }], [{ destroy: (args) => { this.destroy(args) } }]);
-      // Destroi o componente 2 segundos após a sua criação
-      console.log(modalComponent);
-      setTimeout(() => {
-        console.log('Componente destruído');
-        component.pop();
-      }, 2000);
-    })();
+    this._setItems();
+  }
+
+  private _setItems() {
+    this.menuItems = [{
+      label: 'Repositories',
+      qty: '782K'
+    },
+    {
+      label: 'Commits',
+      qty: '782K'
+    },
+    {
+      label: 'Issues',
+      qty: '782K'
+    },
+    {
+      label: 'Packages',
+      qty: '782K'
+    },
+    {
+      label: 'Marketplace',
+      qty: '782K'
+    },
+    {
+      label: 'Topics',
+      qty: '782K'
+    },
+    {
+      label: 'Wikis',
+      qty: '782K'
+    },
+    {
+      label: 'Users',
+      qty: '782K'
+    }];
+
+    this.languageItems = [{
+      label: 'JavaScript',
+      qty: '782K'
+    },
+    {
+      label: 'HTML',
+      qty: '782K'
+    },
+    {
+      label: 'TypeScript',
+      qty: '782K'
+    },
+    {
+      label: 'CSS',
+      qty: '782K'
+    },
+    {
+      label: 'C++',
+      qty: '782K'
+    },
+    {
+      label: 'Shell',
+      qty: '782K'
+    },
+    {
+      label: 'Python',
+      qty: '782K'
+    },
+    {
+      label: 'Java',
+      qty: '782K'
+    },
+    {
+      label: 'CoffeeScript',
+      qty: '782K'
+    },
+    {
+      label: 'Dockerfile',
+      qty: '782K'
+    }];
+
+    this.sortOptions = [
+      {
+        label: 'Best match',
+        value: 0
+      },
+      {
+        label: 'Most stars',
+        value: 0
+      }
+    ]
   }
 }
