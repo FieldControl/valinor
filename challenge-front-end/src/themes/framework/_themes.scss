@@ -1,0 +1,37 @@
+@import './mixins';
+
+// Temas de exemplo crie o seu com base nisso
+$themes: ( 
+    light: ( 
+        main: #0d456f,
+        secondary: #D01481
+        
+    ), 
+    dark: (
+        main: #ec7404,
+        secondary: #106EB0
+    )
+);
+
+// Cores que são compartilhadas entre os temas
+$shared-colors: (
+    warning: #FCe770,
+    caution: #F1AE2f,
+    danger: #b71c1c,
+    error: #531e6d,
+    error-light: #781b8e,
+    surface: #fff
+);
+
+// Tamanhos de fonte com base no font-size da tag HTML
+$font-sizes: (
+    xs: .75rem, // 12px
+    sm: .875rem, // 14px
+    base: 1rem, // 16px
+    md: 1.125rem, // 18px
+    lg: 1.25rem, // 20px,
+    xl: 1.5rem, // 24px
+);
+
+// cria os temas
+@include makeTheme($themes, $shared-colors, $font-sizes);

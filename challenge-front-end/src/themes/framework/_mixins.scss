@@ -1,0 +1,55 @@
+@mixin makeColors($list) {
+    @each $color-name, $color in $list {
+    // Cria as classes da cor do tema
+    .#{$color-name} {
+        color: $color;
+    }
+    // Cria a var da cor
+        --#{$color-name}-color: #{$color};
+    };
+}
+
+// Cria as classes da fonte
+@mixin makeFonts($font-sizes) {
+    // Percorre a variável das fontes
+    @each $font-size,
+    $font in $font-sizes {
+        // Verifica se é o base e cria uma classe sem o font-base também
+        @if $font-size=='base' {
+            .font {
+                font-size: $font;
+            }
+        }
+
+        // Cria a classe da fonte
+        .font-#{$font-size} {
+            font-size: $font;
+        }
+    };
+};
+
+// Cria a classe do tema
+@mixin makeTheme($themes, $shared-colors, $font-sizes) {
+
+    // Executa o mixin para criar as fontes
+    @include makeFonts($font-sizes);
+
+    // Percorre a variável dos temas
+    @each $theme-name,
+    $theme-colors in $themes {
+        // Cria a classe do tema
+        .theme-#{$theme-name} {
+
+             // Cria as classes das cores em comum
+             @include makeColors($shared-colors);
+             // Cria as classes das cores do tema
+             @include makeColors($theme-colors);
+
+            // Cria uma classe padrão para ser usada em um botão por exemplo
+            .primary {
+                background: map-get($theme-colors, main);
+                color: map-get($shared-colors, surface);
+            }
+        }
+    };
+};
