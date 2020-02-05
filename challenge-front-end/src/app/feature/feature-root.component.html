@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-3">
-            <div class="row mb-3">
+            <div class="row mb-3 font-sm">
                 <ul class="col-12 d-flex d-md-block side-menu">
                     <li *ngFor="let menuItem of menuItems; index as i" class="d-flex align-items-center mr-2 mr-md-0" [class.selected]="i === 0">
                         <a class="px-2 d-flex justify-content-between" >
@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="row mb-3 d-none d-md-block">
-                <ul class="col-12 language-menu p-3 font-sm">
+                <ul class="col-12 language-menu p-3 font-xs">
                     <h3>Languages</h3>
                     <li class="p-2" [class.selected]="languageIndex === 0"
                         *ngFor="let languageItem of languageItems; index as languageIndex">

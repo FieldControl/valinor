@@ -5,7 +5,7 @@ import { Theme } from 'core/models/theme.enum';
 @Component({
     selector: 'app-core-root',
     template: `
-        <nav>NavBar</nav>
+        <app-header></app-header>
         <section>
             <router-outlet></router-outlet>
         </section>

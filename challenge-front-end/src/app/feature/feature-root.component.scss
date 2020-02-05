@@ -1,5 +1,7 @@
 .feature-root-wrapper {
-
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
     a {
         color: #0366d6;
         text-decoration: none;
@@ -55,6 +57,10 @@
             li {
                 &.selected {
                     border-left: 2px solid #e36209;
+                    a{
+                        color: #000;
+
+                    }
                 }
 
                 list-style: none;
