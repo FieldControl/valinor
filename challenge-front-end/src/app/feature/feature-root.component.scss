@@ -1,14 +1,166 @@
 .feature-root-wrapper {
+
+    a {
+        color: #0366d6;
+        text-decoration: none;
+
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 2px 5px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #fff;
+        background-color: #6a737d;
+        border-radius: 20px;
+    }
+
+    .topic-tag {
+        display: inline-block;
+        padding: .3em .9em;
+        margin: 0 .5em .5em 0;
+        white-space: nowrap;
+        background-color: #f1f8ff;
+        border-radius: 3px;
+
+        &:hover {
+            text-decoration: none;
+            background-color: #def;
+        }
+    }
+
     ul {
         margin: 0;
+        padding: 0;
+        border: 1px solid #e1e4e8;
+
+        li {
+            list-style: none;
+            cursor: pointer;
+            transition: background-color .33s;
+
+            @media (min-width: 768px) {
+                &:hover {
+                    background-color: #f6f8fa;
+                }
+            }
+
+        }
+
     }
-    li {
-        list-style: none;
+
+    .side-menu {
+        @media (min-width: 768px) {
+            li {
+                &.selected {
+                    border-left: 2px solid #e36209;
+                }
+
+                list-style: none;
+                padding: 8px 10px;
+
+                a {
+                    width: 100%;
+                }
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #e1e4e8;
+                }
+
+            }
+        }
+
+        @media (max-width: 768px) {
+            overflow-x: scroll;
+            align-items: center;
+
+            li {
+                min-height: 70px;
+
+                border-bottom: 2px solid transparent;
+
+                &.selected {
+                    font-weight: bold;
+                    border-bottom-color: #e36209;
+                }
+
+                &:hover:not(.selected) {
+                    border-bottom-color: #d1d5da;
+
+                }
+            }
+        }
     }
+
+    .language-menu {
+        h3 {
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        a {
+            color: #586069;
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        .selected {
+            a {
+                color: #fff;
+
+                span {
+                    font-weight: unset;
+                }
+            }
+
+            background-color: #0366d6;
+            border-radius: 3px;
+            text-overflow: ellipsis;
+        }
+    }
+
+
     .w-100 {
         width: 100%;
     }
-    .node-img {
-        height: 64px;
+
+    .language-card {
+        .language-img {
+            height: 64px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    }
+
+    .material-text-custom {
+        .repository-icon {
+            position: relative;
+            overflow: unset;
+
+            i {
+                position: absolute;
+                left: -20px;
+            }
+        }
+
+        .repo-labels {
+            color: #586069;
+
+            .language-icon {
+                color: #f1e05a;
+            }
+        }
+    }
+}
+
+:host ::ng-deep {
+    .mat-list-text {
+        overflow: unset !important;
     }
 }

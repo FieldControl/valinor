@@ -36,6 +36,10 @@ export class FeatureRootComponent implements OnInit {
     this._setItems();
   }
 
+  removeAt(array: Array<any>, index) {
+    array.splice(index, 1);
+  }
+
   private _setItems() {
     this.menuItems = [{
       label: 'Repositories',
@@ -72,43 +76,43 @@ export class FeatureRootComponent implements OnInit {
 
     this.languageItems = [{
       label: 'JavaScript',
-      qty: '782K'
+      qty: '52392'
     },
     {
       label: 'HTML',
-      qty: '782K'
+      qty: '24715'
     },
     {
       label: 'TypeScript',
-      qty: '782K'
+      qty: '15672'
     },
     {
       label: 'CSS',
-      qty: '782K'
+      qty: '9980'
     },
     {
       label: 'C++',
-      qty: '782K'
+      qty: '8481'
     },
     {
       label: 'Shell',
-      qty: '782K'
+      qty: '7308'
     },
     {
       label: 'Python',
-      qty: '782K'
+      qty: '5932'
     },
     {
       label: 'Java',
-      qty: '782K'
+      qty: '4804'
     },
     {
       label: 'CoffeeScript',
-      qty: '782K'
+      qty: '4804'
     },
     {
       label: 'Dockerfile',
-      qty: '782K'
+      qty: '4798'
     }];
 
     this.sortOptions = [

@@ -7,27 +7,31 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-3">
-            <mat-card class="row mb-3">
-                <ul class="col-12 d-flex d-md-block">
-                    <li *ngFor="let menuItem of menuItems">
-                        <a>
+            <div class="row mb-3">
+                <ul class="col-12 d-flex d-md-block side-menu">
+                    <li *ngFor="let menuItem of menuItems; index as i" class="d-flex align-items-center mr-2 mr-md-0" [class.selected]="i === 0">
+                        <a class="px-2 d-flex justify-content-between" >
                             {{ menuItem.label }}
-                            <span>{{ menuItem.qty }}</span>
+                            <span class="ml-1 badge d-flex align-items-center">{{ menuItem.qty }}</span>
                         </a>
                     </li>
                 </ul>
-            </mat-card>
-            <mat-card class="row mb-3 d-none d-md-block">
-                <ul class="col-12">
-                    <li *ngFor="let languageItem of languageItems">
-                        <a>
+            </div>
+            <div class="row mb-3 d-none d-md-block">
+                <ul class="col-12 language-menu p-3 font-sm">
+                    <h3>Languages</h3>
+                    <li class="p-2" [class.selected]="languageIndex === 0"
+                        *ngFor="let languageItem of languageItems; index as languageIndex">
+                        <a class="d-flex justify-content-between">
                             {{ languageItem.label }}
-                            <span>{{ languageItem.qty }}</span>
+                            <span *ngIf="languageIndex !== 0">{{ languageItem.qty | number }}</span>
+                            <i *ngIf="languageIndex === 0" class="fas fa-times"
+                                (click)="removeAt(languageItems, languageIndex)"></i>
                         </a>
                     </li>
                 </ul>
-            </mat-card>
-            <div class="links d-none d-md-block">
+            </div>
+            <div class="links d-none d-md-flex justify-content-between font-xs">
                 <a href="">Advanced search</a>
                 <a href="">Cheat sheet</a>
             </div>
@@ -51,20 +55,21 @@
                     </div>
                 </div>
             </div>
-            <mat-card class="d-block">
-                <div class="col-4">
-                    <img class="node-img"
+            <mat-card class="d-flex language-card">
+                <div class="col-2">
+                    <img class="language-img"
                         src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
                         alt="nodejs" srcset="">
                 </div>
-                <div class="col-8">
+                <div class="col-10">
                     <div class="row">
-                        <div class="col-12 col-md-6">
-                            <h1>Node.js</h1>
-                            <h2>Node.js is a tool for executing JavaScript in a variety of environments</h2>
-                            <a>See topic</a>
+                        <div class="col-12 col-md-10">
+                            <h1 class="m-0 mb-2 font-lg">Node.js</h1>
+                            <p class="m-0 mb-2">Node.js is a tool for executing JavaScript in a variety of environments
+                            </p>
+                            <a href="">See topic</a>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-2">
                             <button class="btn btn-primary">
                                 <i class="fas fa-star"></i>
                                 Star
@@ -85,23 +90,27 @@
                 </div>
             </div>
             <mat-list>
-                <mat-list-item *ngFor="let card of ['','','','','','','','','']">
+                <mat-list-item class="material-text-custom ml-3" *ngFor="let card of ['','','','','','','','','']">
 
-                    <p mat-line>
-                        <i class="fas fa-star"></i>
+                    <p mat-line class="repository-icon mb-1">
+                        <i class="fas fa-book"></i>
                         nodejs/node
                     </p>
-                    <p mat-line><span>Node.js</span> JavaScript runtime</p>
-                    <div class="tags" mat-line>
-                        <span class="mr-2" *ngFor="let tag of ['javascript', 'nodejs', 'windows', 'macos']">
-                            <a href="">{{tag}}</a>
+                    <p mat-line class="mb-1">
+                        <span>Node.js</span>
+                        JavaScript runtime
+                    </p>
+                    <div class="tags mb-1" mat-line>
+                        <span class="mr-1 topic-tag" *ngFor="let tag of ['javascript', 'nodejs', 'windows', 'macos']">
+                            <a href="" class="font-xs">{{tag}}</a>
                         </span>
                     </div>
-                    <div mat-line class="d-flex">
+                    <div mat-line class="d-flex repo-labels mb-1">
                         <div class="mr-3"
-                            *ngFor="let item of [{icon: 'fas fa-star', label: '67.5k'},{icon: 'fas fa-circle', label: 'JavaScript'},{label: 'GPL'},{label: 'Updated 3 hours ago'},{label: '1 issue needs help'}]">
-                            <i *ngIf="item.icon" [ngClass]="[item.icon]"></i>
-                            <span>{{ item.label }}</span>
+                            *ngFor="let label of [{icon: 'fas fa-star', label: '67.5k'},{icon: 'fas fa-circle', label: 'JavaScript'},{label: 'GPL'},{label: 'Updated 3 hours ago'},{label: '1 issue needs help'}]">
+                            <i *ngIf="label.icon" [ngClass]="[label.icon]"
+                                [class.language-icon]="label.label === 'JavaScript'" class="mr-1"></i>
+                            <span>{{ label.label }}</span>
                         </div>
                     </div>
                     <mat-divider></mat-divider>
