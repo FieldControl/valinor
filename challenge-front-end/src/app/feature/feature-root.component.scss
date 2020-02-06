@@ -2,6 +2,7 @@
     @media (max-width: 768px) {
         max-width: 100%;
     }
+
     a {
         color: #0366d6;
         text-decoration: none;
@@ -57,7 +58,8 @@
             li {
                 &.selected {
                     border-left: 2px solid #e36209;
-                    a{
+
+                    a {
                         color: #000;
 
                     }
@@ -157,6 +159,19 @@
 
         .repo-labels {
             color: #586069;
+
+            a {
+                color: #586069;
+            }
+
+            .hover {
+                &:hover  {
+                    i, a {
+
+                        color: #0366d6;
+                    }
+                }
+            }
 
             .language-icon {
                 color: #f1e05a;

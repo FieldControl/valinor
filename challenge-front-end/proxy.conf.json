@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://localhost:4200",
-    "secure": false
+    "target": "https://github.com/",
+    "secure": true
   }
 }

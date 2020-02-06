@@ -90,15 +90,14 @@
                 </div>
             </div>
             <mat-list>
-                <mat-list-item class="material-text-custom ml-3" *ngFor="let card of ['','','','','','','','','']">
+                <mat-list-item class="material-text-custom ml-3" *ngFor="let card of repositoryRes?.items">
 
                     <p mat-line class="repository-icon mb-1">
                         <i class="fas fa-book"></i>
-                        nodejs/node
+                        {{ card.full_name }}
                     </p>
                     <p mat-line class="mb-1">
-                        <span>Node.js</span>
-                        JavaScript runtime
+                        {{ card.description }}
                     </p>
                     <div class="tags mb-1" mat-line>
                         <span class="mr-1 topic-tag" *ngFor="let tag of ['javascript', 'nodejs', 'windows', 'macos']">
@@ -106,18 +105,30 @@
                         </span>
                     </div>
                     <div mat-line class="d-flex repo-labels mb-1">
-                        <div class="mr-3"
-                            *ngFor="let label of [{icon: 'fas fa-star', label: '67.5k'},{icon: 'fas fa-circle', label: 'JavaScript'},{label: 'GPL'},{label: 'Updated 3 hours ago'},{label: '1 issue needs help'}]">
-                            <i *ngIf="label.icon" [ngClass]="[label.icon]"
-                                [class.language-icon]="label.label === 'JavaScript'" class="mr-1"></i>
-                            <span>{{ label.label }}</span>
+
+                        <div class="mr-3 hover">
+                            <i class="mr-1 fas fa-star"></i>
+                            <a [href]="card.html_url+'/stargazers'">{{ card.watchers | number:'1.0-0' }}</a>
+                        </div>
+                        <div class="mr-3">
+                            <i class="mr-1 fas fa-circle language-icon"></i>
+                            <span>{{ card.language }}</span>
+                        </div>
+                        <div class="mr-3" *ngIf="card.license">
+                            <span>{{ card.license.spdx_id }}</span>
+                        </div>
+                        <div class="mr-3">
+                            <span>{{ getUpdatedAt(card.updated_at) }}</span>
+                        </div>
+                        <div class="mr-3 hover">
+                            <a [href]="card.html_url+'/issues'">{{ getIssues(card.open_issues) }}</a>
                         </div>
                     </div>
                     <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>
             <div class="paginator">
-                <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+                <mat-paginator [showFirstLastButtons]="true" (page)="pageChange($event)" [length]="repositoryRes?.total_count" [pageSize]="pageSize" [pageSizeOptions]="[25, 50, 75, 100]">
                 </mat-paginator>
             </div>
         </div>

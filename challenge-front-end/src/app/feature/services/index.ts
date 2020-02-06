@@ -1,9 +1,11 @@
-import { ResolverService } from "./resolver.service";
+import { ResolverService } from './resolver.service';
+import { FeatureHttpService } from './feature-http.service';
 
 /**
  * Variável utilizada para importar os serviços em um só lugar
  */
 export const featureServices: any = [
+    FeatureHttpService,
     ResolverService
 ];
 
@@ -15,3 +17,4 @@ export const featureServices: any = [
  */
 
  export * from './resolver.service';
+ export * from './feature-http.service';

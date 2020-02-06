@@ -9,7 +9,8 @@ export class CustomHttpInterceptor implements HttpInterceptor {
     ) {
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const request = req.clone();
+        const request = req.clone({
+        });
         console.log('Log http interceptor: ', request);
         return next.handle(request).pipe(
             catchError((e, caught) => {
