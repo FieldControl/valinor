@@ -1,22 +1,24 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { DynamicComponentCreatorService, CoreHttpService } from 'core/services';
 import { SharedHttpService } from 'shared/services';
 import { RepositoryRes } from 'app/core/models/repository.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnDestroy, OnInit {
 
   languageItems: Array<any> = [];
   menuItems: Array<any> = [];
   pageIndex = 0;
   pageSize = 25;
   repositoryRes: RepositoryRes;
+  sortOption: any;
   sortOptions: Array<any> = [];
   templates = {
     prefix: '',
@@ -34,6 +36,7 @@ export class HomeComponent implements OnInit {
     years: '%d years'
   };
 
+  private _subscriptions = new Subscription();
 
   constructor(
     private _coreHttpService: CoreHttpService,
@@ -43,13 +46,24 @@ export class HomeComponent implements OnInit {
 
   }
 
-  async fetchRepositories(repository?, page?, perPage?) {
+  async fetchRepositories(page?, perPage?, sort?, order?) {
     try {
-      this.repositoryRes = await this._coreHttpService.fetchRepositories(repository, page, perPage).toPromise();
+      const res = await Promise.all([
+        this._coreHttpService.fetchRepositories(page, perPage, sort, order).toPromise(),
+      ]);
+      this.repositoryRes = res[0];
+      const languages = await this._coreHttpService.fetchLanguages(this.repositoryRes.items[0].languages_url).toPromise();
+
+      this._parseLanguages(languages);
+      this._parseMenuItems([
+        { label: 'Repositories', qty: res[0].total_count },
+      ]);
     } catch (error) {
       console.error(error);
     }
   }
+
+
 
   getIssues(issuesCount: number) {
     switch (issuesCount) {
@@ -97,19 +111,28 @@ export class HomeComponent implements OnInit {
     ) + this.templates.suffix;
   }
 
+  ngOnDestroy() {
+    this._subscriptions.unsubscribe();
+  }
+
   ngOnInit() {
+    // this._setSortOptions();
     this._dynamicComponentCreator.defineRootContainerRef(this._viewContainerRef);
-    this._setItems();
-    this.fetchRepositories();
+    this.fetchRepositories('node');
+    this._subscriptions.add(
+      this._coreHttpService.searchTerm.subscribe(term => {
+        this.fetchRepositories(term);
+      })
+    );
   }
 
   pageChange(event) {
-    event.pageIndex++;
+    this.pageIndex = event.pageIndex++;
     if (this.pageSize !== event.pageSize) {
       this.pageSize = event.pageSize;
-      this.fetchRepositories('node', event.pageIndex, this.pageSize);
+      this.fetchRepositories(event.pageIndex, this.pageSize);
     } else {
-      this.fetchRepositories('node', event.pageIndex, event.pageSize);
+      this.fetchRepositories(event.pageIndex, event.pageSize);
     }
   }
 
@@ -117,94 +140,93 @@ export class HomeComponent implements OnInit {
     array.splice(index, 1);
   }
 
-  private _template(t, n) {
-    return this.templates[t] && this.templates[t].replace(/%d/i, Math.abs(Math.round(n)));
+  sortOptionChanged($event) {
+    const option = JSON.parse($event);
+    console.log(option);
+    this.fetchRepositories(this.pageIndex, this.pageSize, option.value, option.order);
   }
 
-  private _setItems() {
-    this.menuItems = [{
-      label: 'Repositories',
-      qty: '782K'
-    },
-    {
-      label: 'Commits',
-      qty: '782K'
-    },
-    {
-      label: 'Issues',
-      qty: '782K'
-    },
-    {
-      label: 'Packages',
-      qty: '782K'
-    },
-    {
-      label: 'Marketplace',
-      qty: '782K'
-    },
-    {
-      label: 'Topics',
-      qty: '782K'
-    },
-    {
-      label: 'Wikis',
-      qty: '782K'
-    },
-    {
-      label: 'Users',
-      qty: '782K'
-    }];
+  private _parseLanguages(languages) {
+    this.languageItems = [];
+    const languagesArr = Object.keys(languages);
+    for (const language of languagesArr) {
+      this.languageItems.push({
+        label: language,
+        qty: languages[language]
+      });
+    }
+  }
 
-    this.languageItems = [{
-      label: 'JavaScript',
-      qty: '52392'
-    },
-    {
-      label: 'HTML',
-      qty: '24715'
-    },
-    {
-      label: 'TypeScript',
-      qty: '15672'
-    },
-    {
-      label: 'CSS',
-      qty: '9980'
-    },
-    {
-      label: 'C++',
-      qty: '8481'
-    },
-    {
-      label: 'Shell',
-      qty: '7308'
-    },
-    {
-      label: 'Python',
-      qty: '5932'
-    },
-    {
-      label: 'Java',
-      qty: '4804'
-    },
-    {
-      label: 'CoffeeScript',
-      qty: '4804'
-    },
-    {
-      label: 'Dockerfile',
-      qty: '4798'
-    }];
+  private _parseMenuItems(array) {
+    this.menuItems = [];
+    array.forEach(item => {
+      this.menuItems.push({
+        label: item.label,
+        qty: this._sliceLenght(item.qty)
+      });
+    });
+  }
 
+  private _setSortOptions() {
     this.sortOptions = [
       {
         label: 'Best match',
-        value: 0
+        value: '',
+        order: ''
       },
       {
         label: 'Most stars',
-        value: 0
+        value: 'stars',
+        order: 'desc'
+      },
+      {
+        label: 'Fewer stars',
+        value: 'stars',
+        order: 'asc'
+      },
+      {
+        label: 'Most forks',
+        value: 'forks',
+        order: 'desc'
+      },
+      {
+        label: 'Fewer forks',
+        value: 'forks',
+        order: 'asc'
+      },
+      {
+        label: 'Recently updated',
+        value: 'updated',
+        order: 'desc'
+      },
+      {
+        label: 'Least recently updated',
+        value: 'updated',
+        order: 'asc'
       }
     ];
+  }
+
+  private _sliceLenght(qty: number) {
+    const qtyString = qty.toString();
+    switch (qtyString.length) {
+      case 1:
+      case 2:
+      case 3: {
+        return qtyString;
+      }
+      case 7: {
+        return qtyString.slice(0, 3) + 'M';
+      }
+      default: {
+        return qtyString.slice(0, 3) + 'K';
+      }
+    }
+  }
+
+
+
+  private _template(t, n) {
+    return this.templates[t] && this.templates[t].replace(/%d/i, Math.abs(Math.round(n)));
   }
 }

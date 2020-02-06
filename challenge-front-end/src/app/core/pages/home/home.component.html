@@ -1,10 +1,4 @@
 <div class="container home-wrapper">
-    <div class="row d-md-none">
-        <div class="col-12">
-            <input type="text" class="w-100">
-            <button>Search</button>
-        </div>
-    </div>
     <div class="row">
         <div class="col-12 col-md-3">
             <div class="row mb-3 font-sm">
@@ -26,72 +20,13 @@
                         <a class="d-flex justify-content-between">
                             {{ languageItem.label }}
                             <span *ngIf="languageIndex !== 0">{{ languageItem.qty | number }}</span>
-                            <i *ngIf="languageIndex === 0" class="fas fa-times"
-                                (click)="removeAt(languageItems, languageIndex)"></i>
+                           
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="links d-none d-md-flex justify-content-between font-xs">
-                <a href="">Advanced search</a>
-                <a href="">Cheat sheet</a>
-            </div>
         </div>
         <div class="col-12 col-md-9">
-            <div class="d-md-none">
-                <div class="col-12">
-                    <div class="row d-flex mb-3">
-                        <label for="" class="col-4">Language</label>
-                        <select name="" id="" class="col-8">
-                            <option [value]="languageItem.label" *ngFor="let languageItem of languageItems">
-                                {{ languageItem.label }}</option>
-                        </select>
-                    </div>
-                    <div class="row d-flex">
-                        <label for="" class="col-4">Language</label>
-                        <select name="" id="" class="col-8">
-                            <option [value]="sortOption.value" *ngFor="let sortOption of sortOptions">
-                                {{ sortOption.label }}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <mat-card class="d-flex language-card">
-                <div class="col-2">
-                    <img class="language-img"
-                        src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-                        alt="nodejs" srcset="">
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 col-md-10">
-                            <h1 class="m-0 mb-2 font-lg">Node.js</h1>
-                            <p class="m-0 mb-2">Node.js is a tool for executing JavaScript in a variety of environments
-                            </p>
-                            <a href="">See topic</a>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-star"></i>
-                                Star
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </mat-card>
-            <div class="">
-                <div class="col-12 justify-content-between align-items-center d-flex">
-                    <p class="font-md">{{repositoryRes?.total_count | number:'1.0-0'}} repository results</p>
-                    <select class="d-none d-md-block">
-                        <optgroup label="Sort Options">
-                            <option [value]="sortOption.value" *ngFor="let sortOption of sortOptions">
-                                {{ sortOption.label }}</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <mat-divider></mat-divider>
-
-            </div>
             <mat-list>
                 <mat-list-item class="material-text-custom ml-3" *ngFor="let card of repositoryRes?.items">
 
@@ -104,7 +39,7 @@
                     </p>
                     <div class="tags mb-1" mat-line>
                         <span class="mr-1 topic-tag" *ngFor="let tag of ['javascript', 'nodejs', 'windows', 'macos']">
-                            <a href="" class="font-xs">{{tag}}</a>
+                            <a class="font-xs">{{tag}}</a>
                         </span>
                     </div>
                     <div mat-line class="d-flex repo-labels mb-1">

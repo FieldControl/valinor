@@ -6,24 +6,18 @@
       </path>
     </svg>
   </div>
-  <div class="d-lg-flex d-none controls">
+  <div class="d-lg-flex controls">
     <div class="search">
-      <form>
+      <form [formGroup]="form">
         <label class="custom-input">
-          <input type="text" autocapitalize="off" aria-autocomplete="list" spellcheck="false" autocomplete="off">
+          <input type="text" autocapitalize="off" aria-autocomplete="list" spellcheck="false" autocomplete="off" formControlName="search" (keydown.enter)="search()">
           <img src="https://github.githubassets.com/images/search-key-slash.svg" alt=""
             class="mr-2 header-search-key-slash">
         </label>
       </form>
     </div>
 
-    <nav class="d-flex align-items-center">
 
-      <a href="" class="ml-3">Pull requests</a>
-      <a href="" class="ml-3">Issues</a>
-      <a href="" class="ml-3"> Marketplace</a>
-      <a href="" class="ml-3">Explore</a>
-    </nav>
 
   </div>
 
