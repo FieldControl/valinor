@@ -9,9 +9,6 @@ import { Theme } from 'core/models/theme.enum';
         <section>
             <router-outlet></router-outlet>
         </section>
-        <footer>
-            footer
-        </footer>
     `
 })
 export class CoreComponent implements OnInit {

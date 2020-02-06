@@ -9,8 +9,6 @@ import { coreComponents } from 'core/components';
 import { coreServices } from 'core/services';
 import { CoreComponent } from 'core/core.component';
 import { corePages } from 'core/pages';
-import { AuthService } from 'guards/auth/services';
-import { AuthModule } from 'guards/auth/auth.module';
 import { SharedModule } from 'shared/shared.module';
 import { coreDirectives } from 'core/directives';
 import { corePipes } from 'core/pipes';
@@ -33,14 +31,12 @@ import { LAZY_WIDGETS, lazyArrayToObj } from 'app/lazy-widgets';
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
-    AuthModule,
   ],
   exports: [
     AppRoutingModule,
     CoreComponent
   ],
   providers: [
-    AuthService,
     ...coreServices,
     { provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true },
     { provide: LAZY_WIDGETS, useFactory: lazyArrayToObj },

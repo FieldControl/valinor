@@ -4,7 +4,6 @@ import { Routes, RouterModule, PreloadAllModules, UrlSegment } from '@angular/ro
 import { HomeComponent } from 'core/pages/home/home.component';
 
 export const appRoutes: Routes = [
-  { path: 'feature', loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule)},
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 ];

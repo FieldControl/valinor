@@ -6,7 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-
+import { EmojifyModule } from 'angular-emojify';
 
 import { CustomHttpInterceptor } from 'app/interceptors/custom-http.interceptor';
 import { sharedEntryComponents } from 'shared/components';
@@ -26,7 +26,8 @@ const defaultModules = [
     HttpClientModule,
     MatPaginatorModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    EmojifyModule
 ];
 
 @NgModule({
