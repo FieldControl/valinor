@@ -50,7 +50,7 @@
                                 {{ card.watchers | number:'1.0-0' }}
                             </a>
                         </div>
-                        <div class="mr-3">
+                        <div class="mr-3" *ngIf="card.language">
                             <i class="mr-1 fas fa-circle language-icon"></i>
                             <span>{{ card.language }}</span>
                         </div>

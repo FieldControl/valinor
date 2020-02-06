@@ -39,11 +39,12 @@ export class HomeComponent implements OnDestroy, OnInit {
   private _subscriptions = new Subscription();
 
   constructor(
+    private _activatedRoute: ActivatedRoute,
     private _coreHttpService: CoreHttpService,
     private _dynamicComponentCreator: DynamicComponentCreatorService,
     private _viewContainerRef: ViewContainerRef,
   ) {
-
+    this._activatedRoute.params.subscribe()
   }
 
   async fetchRepositories(page?, perPage?, sort?, order?) {
@@ -121,7 +122,7 @@ export class HomeComponent implements OnDestroy, OnInit {
     this.fetchRepositories('node');
     this._subscriptions.add(
       this._coreHttpService.searchTerm.subscribe(term => {
-        this.fetchRepositories(term);
+        this.fetchRepositories();
       })
     );
   }
