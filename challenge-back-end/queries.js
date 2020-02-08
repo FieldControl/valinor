@@ -1,73 +1,115 @@
-const Pool = require('pg').Pool
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'api',
-    password: '',
-    port: 5432,
-})
+const pool = global.pool;
 
-const getUsers = (request, response) => {
-    pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
-        if (error) {
-            throw error
+const hero = async ({ sr_id }) => {
+    try {
+        const results = await pool.query('SELECT * FROM tb_heroes WHERE sr_id = $1', [sr_id]);
+        if (!results.rows.length) {
+            throw `No hero found with id ${sr_id}`;
         }
-        response.status(200).json(results.rows)
-    })
-}
+        return results.rows[0];
+    } catch (error) {
+        console.error(error);
+        throw new Error(error);
+    }
+};
 
-const getUserById = (request, response) => {
-    const id = parseInt(request.params.id)
-    pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
-        if (error) {
-            throw error
+const heroes = async ({ count, page }) => {
+    console.log(count);
+    try {
+        const results = await pool.query({
+            text: `SELECT * FROM tb_heroes ORDER BY vc_name`,
+        });
+        if (!results.rows.length) {
+            throw 'No heroes found!';
         }
-        response.status(200).json(results.rows)
-    })
-}
-
-const createUser = (request, response) => {
-    const { name, email } = request.body
-
-    pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
-        if (error) {
-            throw error
+        console.log(results.rows);
+        if (count === undefined || page === undefined) {
+            return {
+                total: results.rows.length,
+                data: results.rows,
+                currentPage: 1,
+                lastPage: 1
+            };
         }
-        response.status(201).send(`User added with ID: ${result.insertId}`)
-    })
-}
+        const paginated = [];
+        const total = results.rows.length;
+        while (results.rows.length) {
+            paginated.push(results.rows.splice(0, count));
+        }
+        if (page === 0) { page++; }
+        if (page > paginated.length) { page = paginated.length }
+        return {
+            total,
+            data: paginated[page - 1],
+            currentPage: page,
+            lastPage: paginated.length
+        }
+    } catch (error) {
+        console.error(error);
+        throw new Error(error);
+    }
+};
 
-const updateUser = (request, response) => {
-    const id = parseInt(request.params.id)
-    const { name, email } = request.body
+const heroCreate = async ({ vc_name, vc_role, vc_type }) => {
+    try {
+        const results = await pool.query('INSERT INTO tb_heroes (vc_name, vc_role, vc_type) VALUES ($1, $2, $3) RETURNING *', [vc_name, vc_role, vc_type]);
+        return results.rows[0];
+    } catch (error) {
+        console.error(error);
+        throw new Error(error);
+    }
+};
 
-    pool.query(
-        'UPDATE users SET name = $1, email = $2 WHERE id = $3',
-        [name, email, id],
-        (error, results) => {
-            if (error) {
-                throw error
+const heroDelete = async ({ sr_id }) => {
+    try {
+        const result = await pool.query('DELETE FROM tb_heroes WHERE sr_id = $1', [sr_id]);
+        if (result.rowCount) {
+            return { message: `Hero deleted with ID: ${sr_id}` };
+        } else {
+            if (!result.rows[0]) {
+                throw new Error(`No Hero found with ID: ${sr_id}!`);
             }
-            response.status(200).send(`User modified with ID: ${id}`)
         }
-    )
-}
+    } catch (error) {
+        console.error(error);
 
-const deleteUser = (request, response) => {
-    const id = parseInt(request.params.id)
+        throw new Error(error);
+    }
+};
 
-    pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
-        if (error) {
-            throw error
+const heroUpdate = async ({ id, vc_name, vc_role, vc_type }) => {
+    try {
+        let query = 'UPDATE tb_heroes SET vc_name = $1';
+        let paramQuantity = 1;
+        const values = [vc_name];
+        if (vc_role) {
+            paramQuantity++;
+            values.push(vc_role);
+            query += `,vc_role = $${paramQuantity}`;
         }
-        response.status(200).send(`User deleted with ID: ${id}`)
-    })
-}
+        if (vc_type) {
+            paramQuantity++;
+            values.push(vc_type);
+            query += `,vc_type = $${paramQuantity}`;
+        }
+        paramQuantity++;
+        values.push(sr_id);
+        query += ` WHERE sr_id = $${paramQuantity} RETURNING *`;
+        const result = await pool.query(query, values);
+        if (!result.rows.length) {
+            throw new Error(`No Hero found with ID: ${sr_id}!`);
+        }
+        return result.rows[0];
+    } catch (error) {
+        console.error(error);
+        throw new Error(error);
+    }
+};
 
 module.exports = {
-    getUsers,
-    getUserById,
-    createUser,
-    updateUser,
-    deleteUser,
+    hero,
+    heroCreate,
+    heroes,
+    heroDelete,
+    heroUpdate
 }
