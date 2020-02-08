@@ -13,37 +13,32 @@ const hero = async ({ sr_id }) => {
     }
 };
 
-const heroes = async ({ count, page }) => {
-    console.log(count);
+const heroes = async ({ limit, page }) => {
     try {
+        if (page <= 0) { page = 1; }
+
+        let offset = (page - 1) * limit;
+        let tableLength = await pool.query({
+            text: `SELECT COUNT(*) FROM tb_heroes`
+        });
+        tableLength = tableLength.rows[0].count;
+        if(offset > tableLength) {
+            throw 'No heroes found!'
+        }
         const results = await pool.query({
-            text: `SELECT * FROM tb_heroes ORDER BY vc_name`,
+            text: `SELECT * FROM tb_heroes ORDER BY vc_name LIMIT $1 OFFSET $2`,
+            values: [limit, offset]
         });
         if (!results.rows.length) {
             throw 'No heroes found!';
         }
-        console.log(results.rows);
-        if (count === undefined || page === undefined) {
-            return {
-                total: results.rows.length,
-                data: results.rows,
-                currentPage: 1,
-                lastPage: 1
-            };
-        }
-        const paginated = [];
-        const total = results.rows.length;
-        while (results.rows.length) {
-            paginated.push(results.rows.splice(0, count));
-        }
-        if (page === 0) { page++; }
-        if (page > paginated.length) { page = paginated.length }
+        const lastPage = Math.ceil(tableLength / limit);
         return {
-            total,
-            data: paginated[page - 1],
-            currentPage: page,
-            lastPage: paginated.length
-        }
+            total: tableLength,
+            data: results.rows,
+            currentPage: page > lastPage ? lastPage : page,
+            lastPage
+        };
     } catch (error) {
         console.error(error);
         throw new Error(error);
