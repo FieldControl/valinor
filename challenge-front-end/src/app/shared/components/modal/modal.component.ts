@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DynamicComponentCreatorService } from 'app/core/services';
+import { DynamicComponentCreatorService } from 'app/core/services/dynamic-component-creator/dynamic-component-creator.service';
 
 @Component({
     selector: 'app-modal',

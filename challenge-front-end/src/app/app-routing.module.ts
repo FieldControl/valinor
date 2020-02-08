@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules, UrlSegment } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { HomeComponent } from './core/pages/home/home.component';
 
-import { HomeComponent } from 'core/pages/home/home.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },

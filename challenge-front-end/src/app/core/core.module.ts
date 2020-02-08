@@ -6,13 +6,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CustomHttpInterceptor } from 'app/interceptors/custom-http.interceptor';
 import { coreComponents } from 'core/components';
-import { coreServices } from 'core/services';
 import { CoreComponent } from 'core/core.component';
-import { corePages } from 'core/pages';
 import { SharedModule } from 'shared/shared.module';
 import { coreDirectives } from 'core/directives';
 import { corePipes } from 'core/pipes';
-import { LAZY_WIDGETS, lazyArrayToObj } from 'app/lazy-widgets';
+import { LAZY_WIDGETS } from 'app/lazy-widgets';
+import { HomeComponent } from './pages/home/home.component';
+import { lazyArrayToObj } from 'app/lazy-array-to-obj';
+import { DynamicComponentCreatorService } from './services/dynamic-component-creator/dynamic-component-creator.service';
+import { CoreHttpService } from './services/core-http/core-http.service';
+import { corePages } from './pages';
+import { LoadingService } from './services/loading/loading.service';
 
 // export function getConfigAsync(configService: ConfigService) {
 //   return () => configService.getConfigAsync();
@@ -20,24 +24,27 @@ import { LAZY_WIDGETS, lazyArrayToObj } from 'app/lazy-widgets';
 
 @NgModule({
   declarations: [
+    ...corePages,
     ...coreComponents,
     ...coreDirectives,
-    ...corePages,
     ...corePipes,
     CoreComponent
   ],
   imports: [
+    SharedModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModule,
   ],
   exports: [
     AppRoutingModule,
-    CoreComponent
+    CoreComponent,
+    HomeComponent
   ],
   providers: [
-    ...coreServices,
+    DynamicComponentCreatorService,
+    CoreHttpService,
+    LoadingService,
     { provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true },
     { provide: LAZY_WIDGETS, useFactory: lazyArrayToObj },
      // { provide: APP_INITIALIZER, useFactory: getConfigAsync, deps: [ConfigService], multi: true },

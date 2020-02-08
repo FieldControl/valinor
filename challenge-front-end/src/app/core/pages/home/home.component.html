@@ -37,11 +37,7 @@
                     <p mat-line class="mb-1">
                         {{ card.description | emojify }}
                     </p>
-                    <div class="tags mb-1" mat-line>
-                        <span class="mr-1 topic-tag" *ngFor="let tag of ['javascript', 'nodejs', 'windows', 'macos']">
-                            <a class="font-xs">{{tag}}</a>
-                        </span>
-                    </div>
+                    
                     <div mat-line class="d-flex repo-labels mb-1">
 
                         <div class="mr-3 hover">
@@ -68,7 +64,7 @@
                 </mat-list-item>
             </mat-list>
             <div class="paginator">
-                <mat-paginator [showFirstLastButtons]="true" (page)="pageChange($event)" [length]="1000"
+                <mat-paginator [showFirstLastButtons]="true" (page)="pageChange($event)" [length]="repositoryRes?.total_count > 1000 ? 1000 : this.repositoryRes?.total_count"
                     [pageSize]="pageSize" [pageSizeOptions]="[25, 50, 75, 100]">
                 </mat-paginator>
             </div>

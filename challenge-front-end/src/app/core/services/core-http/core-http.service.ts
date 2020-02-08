@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RepositoryRes } from 'app/core/models/repository.interface';
 import { Subject } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Injectable()
@@ -9,11 +10,18 @@ export class CoreHttpService {
 
     searchTerm = new Subject<string>();
 
-    private _repository = 'node';
+    private _repository = '';
 
     constructor(
-        private _httpClient: HttpClient
+        private _activatedRoute: ActivatedRoute,
+        private _httpClient: HttpClient,
+        private _router: Router
     ) {
+        this._activatedRoute.queryParams.subscribe((params) => {
+            if (params && params.q && !this._repository) {
+                this.streamRepository(params.q);
+            }
+        });
     }
 
     fetchCode() {
@@ -32,6 +40,14 @@ export class CoreHttpService {
     }
 
     fetchRepositories(page = '1', perPage = '25', sort = '', order = '') {
+        console.log(page, perPage);
+        this._router.navigate(
+            [],
+            {
+                relativeTo: this._activatedRoute,
+                queryParams: { q: this._repository, page },
+                queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
         return this._httpClient.get<RepositoryRes>('https://api.github.com/search/repositories', {
             params: {
                 q: this._repository,

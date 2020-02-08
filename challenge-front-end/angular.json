@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "ng-start-app"
+  "defaultProject": "ng-start-app",
+  "cli": {
+    "analytics": "b54dc859-540a-4b8f-a05f-90ddcd98ffdb"
+  }
 }

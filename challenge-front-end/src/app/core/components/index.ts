@@ -1,4 +1,5 @@
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 /**
  * Variável utilizada para importar os componentes em um só lugar

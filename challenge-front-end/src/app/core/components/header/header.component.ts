@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
-import { CoreHttpService } from 'app/core/services';
+import { CoreHttpService } from 'app/core/services/core-http/core-http.service';
 
 @Component({
   selector: 'app-header',
@@ -26,6 +25,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._coreHttpService.searchTerm.subscribe(term => {
+      this.form.get('search').setValue(term)
+    });
     this.form = this._formBuilder.group({
       search: ['node', []]
     });

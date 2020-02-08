@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DynamicComponentCreatorService } from 'core/services';
+import { DynamicComponentCreatorService } from 'app/core/services/dynamic-component-creator/dynamic-component-creator.service';
 
 @Component({
     selector: 'app-dynamic',

@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewContainerRef, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { DynamicComponentCreatorService, CoreHttpService } from 'core/services';
-import { SharedHttpService } from 'shared/services';
 import { RepositoryRes } from 'app/core/models/repository.interface';
 import { Subscription } from 'rxjs';
+import { CoreHttpService } from 'app/core/services/core-http/core-http.service';
+import { DynamicComponentCreatorService } from 'app/core/services/dynamic-component-creator/dynamic-component-creator.service';
 
 @Component({
   selector: 'app-home',
@@ -39,12 +39,10 @@ export class HomeComponent implements OnDestroy, OnInit {
   private _subscriptions = new Subscription();
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private _coreHttpService: CoreHttpService,
     private _dynamicComponentCreator: DynamicComponentCreatorService,
     private _viewContainerRef: ViewContainerRef,
   ) {
-    this._activatedRoute.params.subscribe()
   }
 
   async fetchRepositories(page?, perPage?, sort?, order?) {
@@ -119,9 +117,10 @@ export class HomeComponent implements OnDestroy, OnInit {
   ngOnInit() {
     // this._setSortOptions();
     this._dynamicComponentCreator.defineRootContainerRef(this._viewContainerRef);
-    this.fetchRepositories('node');
+    this.fetchRepositories();
     this._subscriptions.add(
       this._coreHttpService.searchTerm.subscribe(term => {
+        console.log(term);
         this.fetchRepositories();
       })
     );
@@ -168,46 +167,6 @@ export class HomeComponent implements OnDestroy, OnInit {
     });
   }
 
-  private _setSortOptions() {
-    this.sortOptions = [
-      {
-        label: 'Best match',
-        value: '',
-        order: ''
-      },
-      {
-        label: 'Most stars',
-        value: 'stars',
-        order: 'desc'
-      },
-      {
-        label: 'Fewer stars',
-        value: 'stars',
-        order: 'asc'
-      },
-      {
-        label: 'Most forks',
-        value: 'forks',
-        order: 'desc'
-      },
-      {
-        label: 'Fewer forks',
-        value: 'forks',
-        order: 'asc'
-      },
-      {
-        label: 'Recently updated',
-        value: 'updated',
-        order: 'desc'
-      },
-      {
-        label: 'Least recently updated',
-        value: 'updated',
-        order: 'asc'
-      }
-    ];
-  }
-
   private _sliceLenght(qty: number) {
     const qtyString = qty.toString();
     switch (qtyString.length) {
@@ -224,8 +183,6 @@ export class HomeComponent implements OnDestroy, OnInit {
       }
     }
   }
-
-
 
   private _template(t, n) {
     return this.templates[t] && this.templates[t].replace(/%d/i, Math.abs(Math.round(n)));
