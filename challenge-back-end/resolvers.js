@@ -1,4 +1,4 @@
-const pool = global.pool;
+const pool = require('./pool').pool;
 
 const hero = async ({ sr_id }) => {
     try {
@@ -77,7 +77,7 @@ const heroDelete = async ({ sr_id }) => {
     }
 };
 
-const heroUpdate = async ({ id, vc_name, vc_role, vc_type }) => {
+const heroUpdate = async ({ sr_id, vc_name, vc_role, vc_type }) => {
     try {
         let query = 'UPDATE tb_heroes SET vc_name = $1';
         let paramQuantity = 1;
