@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CoreHttpService } from 'app/core/services/core-http/core-http.service';
 import { Subscription, iif } from 'rxjs';
+import { LoadingService } from 'app/core/services/loading/loading.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private _subscription = new Subscription();
 
   constructor(
+    public loadingService: LoadingService,
     private _activatedRoute: ActivatedRoute,
     private _coreHttpService: CoreHttpService,
     private _formBuilder: FormBuilder,
@@ -48,6 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   search() {
+    if (this.loadingService.isLoading) { return; }
     this._coreHttpService.streamRepository(this.form.get('search').value);
   }
 }

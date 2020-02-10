@@ -1,11 +1,14 @@
 # Entrega
 
 - Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+
 	Utilizei Angular v9 no frontend, sistema de grid do bootstrap e o normalize para dar reset no css dos browsers, como ferramenta o bom e velho VS Code.
 - Porque você optou pela tecnologia X e não a Y
-	Optei pelo Angular pois é o framework que possuo melhor dominio, e por tabem ser um framework de mercado é muito fácil encontrar solução para dúvidas ou problemas na web, na responsividade utilizei apenas o grid do bootstrap para alinhar e deixar responsivo o app.
+
+	Optei pelo Angular pois é o framework que possuo melhor dominio, e por tambem ser um framework de mercado é muito fácil encontrar solução para dúvidas ou problemas na web, na responsividade utilizei apenas o grid do bootstrap para alinhar e deixar responsivo o app.
 - Desafios e problemas que você enfrentou e como você resolveu.
-	Não houve um grande desafio pois estou acostumado a desenvolver apps usando o angular, o bom do desafio é sempre ir revisitando coisas que são pontuais para resolver determinado problema, como o loading ao carregar a página já sabia como faria porém não lembrava tive que verificar a melhor maneira.
+
+	Não houve um grande desafio pois estou acostumado a desenvolver apps usando o angular, o bom deste desafio é sempre ir revisitando coisas que são pontuais para resolver determinado problema, como o loading ao carregar a página já sabia como faria porém não lembrava tive que verificar a melhor maneira.
 
 	Um problema que encontrei é que a API do github limita os resultados a até 1000
 
@@ -18,7 +21,10 @@
   ```
 
   o hash utilizado no interceptor NÃO é minha senha do github é um hash gerado por eles
+
+  Outro ponto é que há um limite de 30 requests em um determinado intervalo
 - O que você entende que pode ser melhorado e como fazer isso
+
 	 a parte de testes acredito que seja algo que falte não sei como implementar isso.
 
 email: felipe.santos1504@outlook.com 17-988084541

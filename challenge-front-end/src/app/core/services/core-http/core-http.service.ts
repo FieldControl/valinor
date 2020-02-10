@@ -35,7 +35,8 @@ export class CoreHttpService {
     }
 
     fetchRepositories(page = '1', perPage = '25', sort = '', order = '') {
-        if (+page > 40) { page = '40'; }
+        // if (+page > 40) { page = '40'; }
+        if (+page <= 0) { page = '1'; }
 
         this._router.navigate(
             [],

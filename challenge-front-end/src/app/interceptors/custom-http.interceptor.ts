@@ -4,11 +4,13 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap, finalize } from 'rxjs/operators';
 
 import { LoadingService } from 'app/core/services/loading/loading.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {
     constructor(
-        private _loadingService: LoadingService
+        private _loadingService: LoadingService,
+        private _toastr: ToastrService
     ) {
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -18,6 +20,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
         this._loadingService.loadingShow();
         return next.handle(request).pipe(
             catchError((e, caught) => {
+                this._toastr.error(e.error.message, e.statusText);
                 console.error(e);
                 return throwError(e);
             }),

@@ -5,6 +5,7 @@ import { RepositoryRes } from 'app/core/models/repository.interface';
 import { Subscription } from 'rxjs';
 import { CoreHttpService } from 'app/core/services/core-http/core-http.service';
 import { DynamicComponentCreatorService } from 'app/core/services/dynamic-component-creator/dynamic-component-creator.service';
+import { LoadingService } from 'app/core/services/loading/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -39,6 +40,7 @@ export class HomeComponent implements OnDestroy, OnInit {
   private _subscriptions = new Subscription();
 
   constructor(
+    public loadingService: LoadingService,
     private _activatedRoute: ActivatedRoute,
     private _coreHttpService: CoreHttpService,
     private _dynamicComponentCreator: DynamicComponentCreatorService,

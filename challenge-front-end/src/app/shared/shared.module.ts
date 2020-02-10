@@ -7,6 +7,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { EmojifyModule } from 'angular-emojify';
+import { ToastrModule } from 'ngx-toastr';
 
 import { CustomHttpInterceptor } from 'app/interceptors/custom-http.interceptor';
 import { sharedEntryComponents } from 'shared/components';
@@ -27,7 +28,8 @@ const defaultModules = [
     MatPaginatorModule,
     MatCardModule,
     MatListModule,
-    EmojifyModule
+    EmojifyModule,
+    ToastrModule.forRoot()
 ];
 
 @NgModule({
@@ -52,7 +54,7 @@ const defaultModules = [
     ],
     providers: [
         ...sharedServices,
-        { provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true }
+        // { provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true }
     ]
 })
 export class SharedModule { }

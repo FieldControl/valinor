@@ -3,6 +3,8 @@
         max-width: 100%;
     }
 
+
+
     a {
         color: #0366d6;
         text-decoration: none;
@@ -133,6 +135,8 @@
 
     .w-100 {
         width: 100%;
+        text-align: center;
+        cursor: pointer;
     }
 
     .language-card {
@@ -162,9 +166,10 @@
 
             a {
                 color: #586069;
-                &:hover  {
 
-                        color: #0366d6;
+                &:hover {
+
+                    color: #0366d6;
                 }
             }
 

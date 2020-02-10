@@ -1,7 +1,7 @@
 <div class="container home-wrapper">
     <div class="row">
         <div class="col-12 col-md-3">
-            <div class="row mb-3 font-sm">
+            <div class="row mb-3 font-sm" *ngIf="languageItems.length">
                 <ul class="col-12 d-flex d-md-block side-menu">
                     <li *ngFor="let menuItem of menuItems; index as i" class="d-flex align-items-center mr-2 mr-md-0"
                         [class.selected]="i === 0">
@@ -28,9 +28,14 @@
         </div>
         <div class="col-12 col-md-9">
             <mat-list>
-                <mat-list-item class="d-flex justify-content-center" *ngIf="repositoryRes?.items && !repositoryRes?.items.length">
-                    <p>No results found!</p>
-                </mat-list-item>
+                <div *ngIf="!loadingService.isLoading && !repositoryRes?.items.length" (click)="fetchRepositories()">
+                    <mat-list-item>
+                        <p class="w-100">No results found!</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p  class="w-100" >Click here to refresh the search with default params!</p>
+                    </mat-list-item>
+                </div>
                 <mat-list-item class="material-text-custom ml-3" *ngFor="let card of repositoryRes?.items">
 
                     <a [href]="card.html_url" mat-line class="repository-icon mb-1">
@@ -66,10 +71,10 @@
                     <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>
-            <div class="paginator">
-                <mat-paginator [showFirstLastButtons]="true" (page)="pageChange($event)"
+            <div class="paginator" >
+                <mat-paginator *ngIf="repositoryRes?.items.length" [showFirstLastButtons]="true" (page)="pageChange($event)"
                     [length]="repositoryRes?.total_count > 1000 ? 1000 : this.repositoryRes?.total_count"
-                    [pageSize]="pageSize" [pageSizeOptions]="[25, 50, 75, 100]" [pageIndex]="this.pageIndex - 1">
+                    [pageSize]="pageSize" [pageSizeOptions]="[25, 50, 75, 100]" [pageIndex]="this.pageIndex -1">
                 </mat-paginator>
             </div>
         </div>
