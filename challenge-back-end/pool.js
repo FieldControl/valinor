@@ -15,7 +15,7 @@ const pool = new Pool({
 const setHeroes = async () => {
 
     try {
-        await pool.query(`SELECT * FROM tb_heroes`);
+        await pool.query(`SELECT 1 FROM tb_heroes`);
     } catch (error) {
         await pool.query({
             text: `CREATE TABLE tb_heroes (
