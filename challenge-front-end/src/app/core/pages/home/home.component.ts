@@ -50,15 +50,12 @@ export class HomeComponent implements OnDestroy, OnInit {
 
   async fetchRepositories(page?, perPage?, sort?, order?) {
     try {
-      const res = await Promise.all([
-        this._coreHttpService.fetchRepositories(page, perPage, sort, order).toPromise(),
-      ]);
-      this.repositoryRes = res[0];
+      this.repositoryRes = await this._coreHttpService.fetchRepositories(page, perPage, sort, order).toPromise();
       const languages = await this._coreHttpService.fetchLanguages(this.repositoryRes.items[0].languages_url).toPromise();
 
       this._parseLanguages(languages);
       this._parseMenuItems([
-        { label: 'Repositories', qty: res[0].total_count },
+        { label: 'Repositories', qty: this.repositoryRes.total_count },
       ]);
     } catch (error) {
       console.error(error);
@@ -140,12 +137,13 @@ export class HomeComponent implements OnDestroy, OnInit {
   }
 
   pageChange(event) {
-    this.pageIndex = event.pageIndex++;
+    console.log(event);
+    this.pageIndex = ++event.pageIndex;
     if (this.pageSize !== event.pageSize) {
       this.pageSize = event.pageSize;
-      this.fetchRepositories(event.pageIndex, this.pageSize);
+      this.fetchRepositories(this.pageIndex, this.pageSize);
     } else {
-      this.fetchRepositories(event.pageIndex, event.pageSize);
+      this.fetchRepositories(this.pageIndex, event.pageSize);
     }
   }
 
