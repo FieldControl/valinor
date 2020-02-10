@@ -1,39 +1,36 @@
-# Angular App
+# Entrega
 
-Sugestão de arquitetura para App Angular 8 (v 8.2.14).
+- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+	Utilizei Angular v9 no frontend, sistema de grid do bootstrap e o normalize para dar reset no css dos browsers, como ferramenta o bom e velho VS Code.
+- Porque você optou pela tecnologia X e não a Y
+	Optei pelo Angular pois é o framework que possuo melhor dominio, e por tabem ser um framework de mercado é muito fácil encontrar solução para dúvidas ou problemas na web, na responsividade utilizei apenas o grid do bootstrap para alinhar e deixar responsivo o app.
+- Desafios e problemas que você enfrentou e como você resolveu.
+	Não houve um grande desafio pois estou acostumado a desenvolver apps usando o angular, o bom do desafio é sempre ir revisitando coisas que são pontuais para resolver determinado problema, como o loading ao carregar a página já sabia como faria porém não lembrava tive que verificar a melhor maneira.
+
+	Um problema que encontrei é que a API do github limita os resultados a até 1000
+
+  ```sh 
+  https://api.github.com/search/repositories?q=node&page=41&per_page=25
+  {
+    "message": "Only the first 1000 search results are available",
+    "documentation_url": "https://developer.github.com/v3/search/"
+  }
+  ```
+
+  o hash utilizado no interceptor NÃO é minha senha do github é um hash gerado por eles
+- O que você entende que pode ser melhorado e como fazer isso
+	 a parte de testes acredito que seja algo que falte não sei como implementar isso.
+
+email: felipe.santos1504@outlook.com 17-988084541
+[LinkedIn Felipe Santos](https://www.linkedin.com/in/felipecarlos1504/)
+
+# Angular App
 
 Dar clone nesse Projeto e logo após `npm i` para instalar a última versão das dependências do app e iniciar o desenvolvimento.
 
 ## Development server
 
 Digite `npm start` para começar. O browser será aberto automaticamente em `http://localhost:4200/`.
-
-## Compilação Dinâmica de Módulos
-* [Tutorial Compilação de Módulos](https://dev.to/binarysort/manually-lazy-load-components-in-angular-8-ffi)
-
-Agora é possível compilar módulos dinamicamente (adaptei a solução acima para o projeto base).
-
-Primeiro exportar a variável de rotas que possuam módulos por ex: `app\app-routing.module.ts` tem o seguinte módulo com o `path: 'feature'` carregado por rota:
-
-```sh
-export const appRoutes: Routes = [
-  { path: 'feature', loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule)},
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', component: HomeComponent, pathMatch: 'full' },
-];
-```
-
-usar o *spread operator* na propriedade `appRoutes` para não ter que ficar digitando mais de uma vez a rota ou em qualquer outro **módulo** de rotas que seu app possuír para que o processo seja "automático". 
-arquivo: `app\lazy-widgets.ts`
-```sh
-  // This will create a dedicated JS bundle for lazy module
-  export const lazyWidgets: Routes = [
-      ...appRoutes
-  ];
-```
-
-Qual o ganho disso? Bom agora os *entry components* podem ficar nos seus respectivos módulos! Não sendo mais necessário deixa-los nos módulos que inicialmente não eram responsáveis por eles (algo que era inicialmente ruim na nossa arquitetura)!
-Um dos problemas dos módulos *lazy loaded* era que, não conseguiamos criar componentes dinamicamente sem o módulo estar carregado pelo Angular.
 
 ## HMR
 
@@ -54,22 +51,6 @@ Reinicie sua IDE para certificar de que os paths serão reconhecidos.
       "feature/*": ["src/app/feature/*"],
       "shared/*": ["src/app/shared/*"]
     }
-```
-
-## Proxy
-
-Adicione os end-points da sua api no arquivo `proxy.conf.json` para evitar problemas com CORS (desenvolvimento apenas).
-
-* [Fazendo o CORS seu amigo](https://www.hiago.me/2018/09/08/ionic-angular-fazendo-o-cors-seu-amigo/) - By Hiago.
-* [Proxying to a backend server](https://angular.io/guide/build#proxying-to-a-backend-server) - Angular.io.
-
-```sh 
-{
-  "/api": {
-    "target": "http://localhost:4200",
-    "secure": false
-  }
-}
 ```
 
 ## Interceptors
@@ -97,41 +78,9 @@ O `normalize.scss` também está sendo utilizado é um reset de alguns elementos
   ],
 ```
 
-## Temas
-
-Utilizando o scss, foi gerado 2 temas `light` e `dark` no arquivo `/src/themes/framework/_themes.scss`, a saída deste arquivo pode ser vista aqui:
-
-* [Gist Github](https://gist.github.com/TusaMAL/3d862bc5f0d9dbd967b97ae7dfc34ff1) - Input/Output themes.scss
-
-Se baseando neles crie temas para o seu arquivo, os temas são adicionados utilizando o `@HostBinding` no `core.component.ts` ficando assim: 
-
-```sh
-    theme: Theme = Theme.light;
-
-    @HostBinding('class.theme-dark') get darkTheme() {
-        if (this.theme === Theme.dark) { return true; }
-    }
-
-    @HostBinding('class.theme-light') get lightTheme() {
-        if (this.theme === Theme.light) { return true; }
-    }
-```
-
-Para mudar de tema apenas altere o valor da propriedade `theme` que o angular vai se encarregar de adicionar o tema nas classes do `app-core-root` como no exemplo será `theme-light` ou `theme-dark` por padrão está o light. 
-
-```sh
-<app-core-root class="theme-light">
-  ...
-</app-core-root>
-```
-
-A classe `Theme` é um enum sua model está na pasta `models`.
-
 ## Estrutura de Arquivos
 
 As pastas estão organizadas desta maneira, cada módulo tem suas pastas `component`, `directives`, `models`, `pages`, `pipes` e `services`, dentro das pastas existe um arquivo `index.ts` para exportar os arquivos da pasta para deixar mais simples muitos imports.
-
-Em especial o `feature` module que é um modulo referência para criar outros.
 
 Quanto ao `shared` module não está pronto para que se tenha rotas nele, por não fazer sentido, porém caso seja util para você basta ter como base o `feature` module para criar as rotas.
 

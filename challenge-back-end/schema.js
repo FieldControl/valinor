@@ -18,7 +18,7 @@ const schema = buildSchema(`
   }
   type Query {
     hero(sr_id: ID!): Hero
-    heroes(limit: Int, page: Int, sort: String, order: String): Paginated
+    heroes(limit: Int, page: Int): Paginated
   }
   type Mutation {
     heroCreate(vc_name: String!, vc_role: String!, vc_type: String!): Hero

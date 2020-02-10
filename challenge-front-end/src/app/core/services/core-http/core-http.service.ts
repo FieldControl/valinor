@@ -17,11 +17,6 @@ export class CoreHttpService {
         private _httpClient: HttpClient,
         private _router: Router
     ) {
-        this._activatedRoute.queryParams.subscribe((params) => {
-            if (params && params.q && !this._repository) {
-                this.streamRepository(params.q);
-            }
-        });
     }
 
     fetchCode() {
@@ -40,7 +35,8 @@ export class CoreHttpService {
     }
 
     fetchRepositories(page = '1', perPage = '25', sort = '', order = '') {
-        console.log(page, perPage);
+        if (+page > 40) { page = '40'; }
+
         this._router.navigate(
             [],
             {
@@ -52,9 +48,7 @@ export class CoreHttpService {
             params: {
                 q: this._repository,
                 page,
-                per_page: perPage,
-                s: sort,
-                o: order
+                per_page: perPage
             }
         });
     }

@@ -12,7 +12,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="row mb-3 d-none d-md-block">
+            <div class="row mb-3 d-none d-md-block" *ngIf="languageItems.length">
                 <ul class="col-12 language-menu p-3 font-xs">
                     <h3>Languages</h3>
                     <li class="p-2" [class.selected]="languageIndex === 0"
@@ -20,7 +20,7 @@
                         <a class="d-flex justify-content-between">
                             {{ languageItem.label }}
                             <span *ngIf="languageIndex !== 0">{{ languageItem.qty | number }}</span>
-                           
+
                         </a>
                     </li>
                 </ul>
@@ -28,6 +28,9 @@
         </div>
         <div class="col-12 col-md-9">
             <mat-list>
+                <mat-list-item class="d-flex justify-content-center" *ngIf="repositoryRes?.items && !repositoryRes?.items.length">
+                    <p>No results found!</p>
+                </mat-list-item>
                 <mat-list-item class="material-text-custom ml-3" *ngFor="let card of repositoryRes?.items">
 
                     <a [href]="card.html_url" mat-line class="repository-icon mb-1">
@@ -37,7 +40,7 @@
                     <p mat-line class="mb-1">
                         {{ card.description | emojify }}
                     </p>
-                    
+
                     <div mat-line class="d-flex repo-labels mb-1">
 
                         <div class="mr-3 hover">
@@ -64,8 +67,9 @@
                 </mat-list-item>
             </mat-list>
             <div class="paginator">
-                <mat-paginator [showFirstLastButtons]="true" (page)="pageChange($event)" [length]="repositoryRes?.total_count > 1000 ? 1000 : this.repositoryRes?.total_count"
-                    [pageSize]="pageSize" [pageSizeOptions]="[25, 50, 75, 100]">
+                <mat-paginator [showFirstLastButtons]="true" (page)="pageChange($event)"
+                    [length]="repositoryRes?.total_count > 1000 ? 1000 : this.repositoryRes?.total_count"
+                    [pageSize]="pageSize" [pageSizeOptions]="[25, 50, 75, 100]" [pageIndex]="this.pageIndex - 1">
                 </mat-paginator>
             </div>
         </div>

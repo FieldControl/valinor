@@ -1,35 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CoreHttpService } from 'app/core/services/core-http/core-http.service';
+import { Subscription, iif } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
+
+  private _subscription = new Subscription();
 
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _coreHttpService: CoreHttpService,
     private _formBuilder: FormBuilder,
     private _router: Router,
-  ) { }
+  ) {
 
+  }
 
-  navToFeature() {
-    this._router.navigate(['feature']);
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
   }
 
   ngOnInit() {
-    this._coreHttpService.searchTerm.subscribe(term => {
-      this.form.get('search').setValue(term)
-    });
     this.form = this._formBuilder.group({
-      search: ['node', []]
+      search: ['', [Validators.required]]
+    });
+    this._subscription.add(
+      this._coreHttpService.searchTerm.subscribe(term => {
+        this.form.get('search').setValue(term);
+      })
+    );
+    const subs = this._activatedRoute.queryParams.subscribe((params) => {
+      if (params && params.q) {
+        this._coreHttpService.streamRepository(params.q);
+      } else {
+        this._coreHttpService.streamRepository('node');
+      }
+      if (subs) { subs.unsubscribe(); }
     });
   }
 

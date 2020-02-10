@@ -15,20 +15,31 @@ const hero = async ({ sr_id }) => {
 
 const heroes = async ({ limit, page }) => {
     try {
-        if (page <= 0) { page = 1; }
+        if (page <= 0 || !page) { page = 1; }
 
-        let offset = (page - 1) * limit;
         let tableLength = await pool.query({
             text: `SELECT COUNT(*) FROM tb_heroes`
         });
         tableLength = tableLength.rows[0].count;
-        if(offset > tableLength) {
-            throw 'No heroes found!'
+        let offset
+        if(offset) {
+            offset = (page - 1) * limit;
+            if(offset > tableLength) {
+                throw 'No heroes found!'
+            }
         }
-        const results = await pool.query({
-            text: `SELECT * FROM tb_heroes ORDER BY vc_name LIMIT $1 OFFSET $2`,
-            values: [limit, offset]
-        });
+        let results;
+        if(limit) {
+            results = await pool.query({
+                text: `SELECT * FROM tb_heroes ORDER BY vc_name LIMIT $1 OFFSET $2`,
+                values: [limit, offset]
+            });
+        } else {
+            results = await pool.query({
+                text: `SELECT * FROM tb_heroes ORDER BY vc_name`,
+            });
+            limit = tableLength;
+        }
         if (!results.rows.length) {
             throw 'No heroes found!';
         }

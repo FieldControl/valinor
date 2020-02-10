@@ -39,6 +39,7 @@ export class HomeComponent implements OnDestroy, OnInit {
   private _subscriptions = new Subscription();
 
   constructor(
+    private _activatedRoute: ActivatedRoute,
     private _coreHttpService: CoreHttpService,
     private _dynamicComponentCreator: DynamicComponentCreatorService,
     private _viewContainerRef: ViewContainerRef,
@@ -117,11 +118,21 @@ export class HomeComponent implements OnDestroy, OnInit {
   ngOnInit() {
     // this._setSortOptions();
     this._dynamicComponentCreator.defineRootContainerRef(this._viewContainerRef);
-    this.fetchRepositories();
+    const subs = this._activatedRoute.queryParams.subscribe(params => {
+      if (subs) {
+        subs.unsubscribe();
+        return;
+      }
+      if (params && params.page) {
+        this.pageIndex = params.page;
+        this.fetchRepositories(params.page);
+      } else {
+        this.fetchRepositories();
+      }
+    });
     this._subscriptions.add(
       this._coreHttpService.searchTerm.subscribe(term => {
-        console.log(term);
-        this.fetchRepositories();
+        this.fetchRepositories(this.pageIndex);
       })
     );
   }
