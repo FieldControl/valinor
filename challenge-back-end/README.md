@@ -9,9 +9,13 @@ O backend foi inspirado a partir do jogo de MOBA da Valve Dota 2, onde há mais 
     Como banco de dados foi utilizado o Postgres.
 	
 	Para testar a API utilizei o REST client Insomnia.
+    
 - Porque você optou pela tecnologia X e não a Y
-	Usei o express por ser um webserver de node bem simples e muito utilizado.
+
+	Usei o express por ser um webserver de node bem simples e muito utilizado, as outras tecnologias foi a primeira vez que utilizei elas.
+
 - Desafios e problemas que você enfrentou e como você resolveu.
+
 	Praticamente tudo neste app foi um desafio, apesar de entender bem javascript, não domino o node, que é algo que quero que seja minha especialidade. Não tinha feito nenhuma API previamente, fui pesquisando e consegui fazer este desafio.
 
 - O que você entende que pode ser melhorado e como fazer isso
