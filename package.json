@@ -14,7 +14,8 @@
     "postinstall": "prisma2 generate",
     "dev": "nodemon src -e *.*",
     "start": "node src",
-    "migrate": "flyway -c flyway/config.js migrate"
+    "generate-schema": "rd /s /q \"prisma\\migrations\" && prisma2 migrate save --name init  --experimental",
+    "drop-create": "flyway -c flyway/config.js migrate"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",

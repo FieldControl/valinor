@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://tsv0j2hl5m7q14l2:y1uzfzvtvo7kuwhp@g3v9lgqa8h5nq05o.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c572ymepzv3e1tq5"
+  url      = env("GQL_DATABASE_URL")
 }
 
 enum Status {

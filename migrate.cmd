@@ -1,3 +1,1 @@
-rd /s /q "prisma\migrations"
-
-call prisma2 migrate save --name init  --experimental
+rd /s /q "prisma\migrations" && prisma2 migrate save --name init  --experimental
