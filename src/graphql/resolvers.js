@@ -36,7 +36,7 @@ const Mutation = {
         return produtoService.save(prisma, produtoInput)
     },
 
-    inserirFinalizadora: async (_, { finalizadoraInput }, context, info) => {
+    inserirFinalizadora: async (_, { finalizadoraInput }, {prisma}, info) => {
         return finalizadoraService.save(prisma, finalizadoraInput)
     },
 

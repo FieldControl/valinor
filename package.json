@@ -8,8 +8,10 @@
     "apollo-boost": "^0.4.7",
     "async": "^3.1.1",
     "cross-spawn": "^7.0.1",
+    "cuid": "^2.1.8",
     "graphql": "^14.6.0",
     "graphql-yoga": "^1.16.1",
+    "node-fetch": "^2.6.0",
     "node-flywaydb": "^2.1.1",
     "npm": "^6.13.7",
     "postinstall": "^0.7.0",
@@ -23,11 +25,13 @@
     "generate-schema": "prisma2 migrate save --name init --experimental",
     "migrate": "prisma2 migrate up --experimental --verbose",
     "drop-create": "node utils/drop-create.js",
-    "seed": "node utils/seed.js"
+    "seed": "node utils/seed.ts"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
-    "prisma2": "^2.0.0-preview021"
+    "prisma2": "^2.0.0-preview021",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
   },
   "prettier": {
     "singleQuote": true,

@@ -50,7 +50,26 @@ mysql.createConnection({ ...credentials })
                     })
             })
             .then(tableNames => {
-                return con.query("truncate table _Migration")
+
+                const createTableMigration = `CREATE TABLE _Migration (
+                    revision INT(11) NOT NULL AUTO_INCREMENT,
+                    name TEXT NOT NULL COLLATE 'utf8_unicode_ci',
+                    datamodel LONGTEXT NOT NULL COLLATE 'utf8_unicode_ci',
+                    status TEXT NOT NULL COLLATE 'utf8_unicode_ci',
+                    applied INT(11) NOT NULL,
+                    rolled_back INT(11) NOT NULL,
+                    datamodel_steps LONGTEXT NOT NULL COLLATE 'utf8_unicode_ci',
+                    database_migration LONGTEXT NOT NULL COLLATE 'utf8_unicode_ci',
+                    errors LONGTEXT NOT NULL COLLATE 'utf8_unicode_ci',
+                    started_at DATETIME(3) NOT NULL,
+                    finished_at DATETIME(3) NULL,
+                    PRIMARY KEY (revision) USING BTREE
+                )
+                COLLATE='utf8_unicode_ci'
+                ENGINE=InnoDB`
+
+                console.log(createTableMigration)
+                return con.query(createTableMigration)
                     .then(() => {
                         return tableNames;
                     })
@@ -82,18 +101,16 @@ function dropTables(con, tables) {
     console.log(tables)
     return Promise.all(
         tables.map(table => {
-            console.log("drop tanle " + table)
+            console.log("drop table " + table)
             return con.query("drop table " + table)
         })
     )
 }
 
 function tableNames(con, databaseName) {
-    console.log(databaseName);
     let tablesQuery = `SELECT table_name FROM information_schema.tables
-                            WHERE table_schema = ? AND TABLE_NAME NOT LIKE "_Migration"`
+                            WHERE table_schema = ?`
     return con.query(tablesQuery, [databaseName]).then(result => {
-        console.log(result)
         return result;
     })
 }
