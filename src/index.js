@@ -17,10 +17,3 @@ server.start(() =>
 ).catch(error => {
     console.log(error)
 })
-
-console.log(Object.keys(server))
-console.log(Object.keys(server.express))
-server.express.on("error", (error) => {
-    console.log("Erro ==>")
-    console.log(error)
-})
