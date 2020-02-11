@@ -3,7 +3,7 @@ async function list(prisma) {
 }
 
 async function save(prisma, produtoInput) {
-    return await prisma.produto.upsert({
+    return prisma.produto.upsert({
         create: {
             ...produtoInput
         },
@@ -13,7 +13,7 @@ async function save(prisma, produtoInput) {
         where: {
             id: produtoInput.id || ''
         }
-    })
+    });
 }
 
 module.exports = {

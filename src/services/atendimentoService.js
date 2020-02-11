@@ -73,7 +73,7 @@ async function lancarItem(prisma, { idAtendimento, itemInput }) {
         throw new Error("Atendimento [Id " + idAtendimento + "] não encontrado");
     }
 
-    if (atendimento.status != Status.ABERTO) {
+    if (atendimento.status !== Status.ABERTO) {
         throw new Error("Atendimento [Id " + idAtendimento + "] não está aberto");
     }
 
@@ -91,7 +91,7 @@ async function lancarItem(prisma, { idAtendimento, itemInput }) {
             }
         })
 
-        if (item && (item.atendimento.id != idAtendimento)) {
+        if (item && (item.atendimento.id !== idAtendimento)) {
             throw new Error("Item [Id " + itemInput.id + "] não pertence ao atendimento [Id " + idAtendimento + "]");
         }
     }
