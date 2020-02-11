@@ -1,8 +1,8 @@
-const helloService = require('./services/helloService');
-const produtoService = require('./services/produtoService');
-const finalizadoraService = require('./services/finalizadoraService')
-const clienteService = require('./services/clienteService')
-const atendimentoService = require('./services/atendimentoService')
+const helloService = require('../services/helloService');
+const produtoService = require('../services/produtoService');
+const finalizadoraService = require('../services/finalizadoraService')
+const clienteService = require('../services/clienteService')
+const atendimentoService = require('../services/atendimentoService')
 
 const Query = {
     hello: (_, { nome }, context, info) => {
@@ -65,7 +65,7 @@ const Mutation = {
     }
 }
 
-export {
+module.exports = {
     Query,
     Mutation
 }

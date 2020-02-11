@@ -6,10 +6,13 @@
   "dependencies": {
     "@prisma/client": "2.0.0-preview021",
     "graphql": "^14.5.8",
-    "graphql-yoga": "^1.16.1"
+    "graphql-yoga": "^1.16.1",
+    "postinstall": "^0.7.0"
   },
   "scripts": {
-    "dev": "nodemon src -e *.*"
+    "postinstall": "prisma2 generate",
+    "dev": "nodemon src -e *.*",
+    "start": "node src"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
