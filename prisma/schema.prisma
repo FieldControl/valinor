@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://restaurante:restaurante@localhost:3306/restaurante?serverTimezone=Brazil/East"
+}
+
+enum Status {
+  ABERTO CONFIRMADO EM_ENTREGA RECEBIDO CANCELADO
+}
+
+model Cliente {
+  id       String   @id @default(cuid())
+  nome     String
+  telefone String
+  endereco Endereco
+  @@map("cliente")
+}
+
+model Produto {
+  id        String  @id @default(cuid())
+  descricao String
+  codigo    String?
+  preco     Float
+
+  @@map("produto")
+}
+
+model Item {
+  id            String      @id @default(cuid())
+  descricao     String
+  quantidade    Float
+  precoUnitario Float
+  valor         Float
+  cancelado     Boolean
+  produto       Produto
+  atendimento   Atendimento @relation(references: [id])
+
+  @@map("item")
+}
+
+model Finalizadora {
+  id        String @id @default(cuid())
+  descricao String
+
+  @@map("finalizadora")
+}
+
+model Pagamento {
+  id           String       @id @default(cuid())
+  valor        Float
+  troco        Float
+  cancelado    Boolean      @default(false)
+  finalizadora Finalizadora
+  atendimento  Atendimento  @relation(references: [id])
+
+  @@map("pagamento")
+}
+
+model Endereco {
+  id         String @id @default(cuid())
+  logradouro String
+  bairro     String
+  cidade     String
+  cep        String
+
+  @@map("endereco")
+}
+
+model Atendimento {
+  id               String      @id @default(cuid())
+  cliente          Cliente?
+  dataAbertura     DateTime    @default(now())
+  dataEncerramento DateTime?
+  status           Status      @default(ABERTO)
+  itens            Item[]      @relation(references: [atendimento])
+  pagamentos       Pagamento[] @relation(references: [atendimento])
+  valorPedido      Float       @default(0)
+  valorEntrega     Float       @default(0)
+  valorTotal       Float       @default(0)
+  valorPago        Float       @default(0)
+  enderecoEntrega  Endereco?
+  arquivado        Boolean     @default(false)
+
+  @@map("atendimento")
+}
