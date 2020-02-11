@@ -26,10 +26,6 @@ const Query = {
     },
 
     atendimento: async (_, { id }, { prisma }, info) => {
-
-        console.log("teste");
-        console.log(id);
-        console.log(prisma)
         return await atendimentoService.find(prisma, id);
     },
 }
