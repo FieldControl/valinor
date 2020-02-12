@@ -24,6 +24,7 @@
     "generate-schema": "prisma2 migrate save --name init --experimental",
     "migrate": "prisma2 migrate up --experimental --verbose",
     "drop-create": "node src/utils/drop-create.js",
+    "clean-data": "node src/utils/clean-data.js",
     "seed": "node src/utils/seed.ts"
   },
   "devDependencies": {
