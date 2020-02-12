@@ -12,7 +12,6 @@
     "graphql": "^14.6.0",
     "graphql-yoga": "^1.16.1",
     "node-fetch": "^2.6.0",
-    "node-flywaydb": "^2.1.1",
     "npm": "^6.13.7",
     "postinstall": "^0.7.0",
     "promise-mysql": "^4.1.3",
