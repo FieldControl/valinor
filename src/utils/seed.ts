@@ -6,7 +6,7 @@ const { createHttpLink } = require('apollo-link-http')
 const nodeFetch = require('node-fetch')
 const cuid = require('cuid')
 
-const { appUrl } = require('../src/utils')
+const { appUrl } = require('./config')
 
 const client = new ApolloClient({
 	cache: new InMemoryCache(),

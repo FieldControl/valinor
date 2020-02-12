@@ -23,8 +23,8 @@
     "start": "node src",
     "generate-schema": "prisma2 migrate save --name init --experimental",
     "migrate": "prisma2 migrate up --experimental --verbose",
-    "drop-create": "node utils/drop-create.js",
-    "seed": "node utils/seed.ts"
+    "drop-create": "node src/utils/drop-create.js",
+    "seed": "node src/utils/seed.ts"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
