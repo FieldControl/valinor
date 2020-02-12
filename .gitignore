@@ -1,3 +1,3 @@
 node_modules
-prisma/migrations
+api/prisma/migrations
 .idea/
