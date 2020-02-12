@@ -1,24 +1,34 @@
-const { gql } = require('apollo-boost')
+// const { mutate } = require('./client')
 const { ApolloClient } = require('apollo-client')
 const { InMemoryCache } = require('apollo-cache-inmemory')
 const { createHttpLink } = require('apollo-link-http')
 const nodeFetch = require('node-fetch')
-
 const { appUrl } = require('./config')
+const {
+  INSERIR_FINALIZADORA,
+  INSERIR_PRODUTO,
+  INSERIR_CLIENTE,
+  ABRIR_ATENDIMENTO,
+  LANCAR_ITEM,
+  LANCAR_PAGAMENTO,
+  ALTERAR_STATUS,
+  AUDITAR_EARQUIVAR
+} = require('./query')
 
-const client = new ApolloClient({
+const Client = new ApolloClient({
   cache: new InMemoryCache(),
   link: createHttpLink({ uri: appUrl, fetch: nodeFetch })
 })
 
-const ADD_FINALIZADORA = gql`
-mutation inserirFinalizadora($finalizadoraInput: FinalizadoraInput!) {
-  inserirFinalizadora(finalizadoraInput: $finalizadoraInput) {
-    id
-    descricao
-  }
+const mutate = Client.mutate
+
+Object.keys(Client)
+
+/*
+module.exports = {
+  Client
 }
-`
+*/
 
 const credito = {
   finalizadoraInput: {
@@ -44,8 +54,8 @@ const dinheiro = {
 const promisses = []
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_FINALIZADORA,
+  mutate({
+    mutation: INSERIR_FINALIZADORA,
     variables: credito
   }).then(result => {
     console.log(result)
@@ -53,8 +63,8 @@ promisses.push(
 )
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_FINALIZADORA,
+  mutate({
+    mutation: INSERIR_FINALIZADORA,
     variables: debito
   }).then(result => {
     console.log(result)
@@ -62,23 +72,13 @@ promisses.push(
 )
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_FINALIZADORA,
+  mutate({
+    mutation: INSERIR_FINALIZADORA,
     variables: dinheiro
   }).then(result => {
     console.log(result)
   })
 )
-
-const ADD_PRODUTO = gql`
-mutation inserirProduto($produtoInput: ProdutoInput!) {
-  inserirProduto(produtoInput: $produtoInput) {
-    id
-    descricao
-    codigo
-  }
-}
-`
 
 const coca = {
   produtoInput: {
@@ -108,8 +108,8 @@ const lanche = {
 }
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_PRODUTO,
+  mutate({
+    mutation: INSERIR_PRODUTO,
     variables: coca
   }).then(result => {
     console.log(result)
@@ -117,8 +117,8 @@ promisses.push(
 )
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_PRODUTO,
+  mutate({
+    mutation: INSERIR_PRODUTO,
     variables: lanche
   }).then(result => {
     console.log(result)
@@ -126,33 +126,13 @@ promisses.push(
 )
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_PRODUTO,
+  mutate({
+    mutation: INSERIR_PRODUTO,
     variables: batataRustica
   }).then(result => {
     console.log(result)
   })
 )
-
-const ADD_CLIENTE = gql`
-mutation inserirCliente(
-  $clienteInput: ClienteInput!
-  $enderecoInput: EnderecoInput
-) {
-  inserirCliente(clienteInput: $clienteInput, enderecoInput: $enderecoInput) {
-    id
-    nome
-    telefone
-    endereco {
-      id
-      logradouro
-      bairro
-      cidade
-      cep
-    }
-  }
-}
-`
 
 const deneris = {
   clienteInput: {
@@ -185,8 +165,8 @@ const leo = {
 }
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_CLIENTE,
+  mutate({
+    mutation: INSERIR_CLIENTE,
     variables: deneris
   }).then(result => {
     console.log(result)
@@ -194,58 +174,13 @@ promisses.push(
 )
 
 promisses.push(
-  client.mutate({
-    mutation: ADD_CLIENTE,
+  mutate({
+    mutation: INSERIR_CLIENTE,
     variables: leo
   }).then(result => {
     console.log(result)
   })
 )
-
-const ABRIR_ATENDIMENTO = gql`# Write your query or mutation here
-mutation abrirAtendimento($atendimentoInput: AtendimentoInput!) {
-  abrirAtendimento(atendimentoInput: $atendimentoInput) {
-    id
-    dataAbertura
-    dataEncerramento
-    status
-    valorPedido
-    valorEntrega
-    valorTotal
-    cliente {
-      id
-      nome
-    }
-    enderecoEntrega {
-      id
-      logradouro
-      bairro
-      cidade
-      cep
-    }
-    itens {
-      id
-      quantidade
-      precoUnitario
-      valor
-      produto {
-        id
-        descricao
-        codigo
-      }
-    }
-    pagamentos {
-      id
-      valor
-      troco
-      finalizadora {
-        id
-        descricao
-      }
-    }
-  }
-}
-`
 
 const atendimentoDeneris = {
   atendimentoInput: {
@@ -253,30 +188,6 @@ const atendimentoDeneris = {
     idCliente: 'ck6ib9a3m0001iwmcd6sj0r0s'
   }
 }
-
-const LANCAR_ITEM = gql`
-mutation lancarItem($idAtendimento: String!, $itemInput: ItemInput!) {
-  lancarItem(idAtendimento: $idAtendimento, itemInput: $itemInput) {
-    id
-    valorEntrega
-    valorPago
-    valorTotal
-    itens {
-      id
-      cancelado
-      quantidade
-      precoUnitario
-      valor
-      produto {
-        id
-        descricao
-        codigo
-        preco
-      }
-    }
-  }
-}  
-`
 
 const cocaParaDeneris = {
   idAtendimento: 'ck6iexb0f0002g0mcn11ur1u3',
@@ -308,34 +219,6 @@ const batataRusticaParaDeneris = {
   }
 }
 
-const LANCAR_PAGAMENTO = gql`
-mutation lancarPagamento(
-  $idAtendimento: String!
-  $pagamentoInput: PagamentoInput!
-) {
-  lancarPagamento(
-    idAtendimento: $idAtendimento
-    pagamentoInput: $pagamentoInput
-  ) {
-    id
-    valorPedido
-    valorEntrega
-    valorTotal
-    valorPago
-    pagamentos {
-      id
-      cancelado
-      valor
-      troco
-      finalizadora {
-        id
-        descricao
-      }
-    }
-  }
-}
-`
-
 const pagamentoNoDinheiroComTroco = {
   idAtendimento: 'ck6iexb0f0002g0mcn11ur1u3',
   pagamentoInput: {
@@ -347,61 +230,9 @@ const pagamentoNoDinheiroComTroco = {
   }
 }
 
-const AUDITAR_EARQUIVAR = gql`
-mutation auditarEArquivar($idAtendimento: String!) {
-  auditarEArquivar(idAtendimento: $idAtendimento) {
-    id
-    dataAbertura
-    dataEncerramento
-    status
-    valorPedido
-    valorEntrega
-    valorTotal
-    cliente {
-      id
-      nome
-    }
-    enderecoEntrega {
-      id
-      logradouro
-      bairro
-      cidade
-      cep
-    }
-    itens {
-      id
-      quantidade
-      precoUnitario
-      valor
-      produto {
-        id
-        descricao
-        codigo
-      }
-    }
-    pagamentos {
-      id
-      valor
-      troco
-      finalizadora {
-        id
-        descricao
-      }
-    }
-  }
-}
-`
 const auditarAtendimento = {
   idAtendimento: 'ck6iexb0f0002g0mcn11ur1u3'
 }
-
-const ALTERAR_STATUS = gql`
-mutation alterarStatus($idAtendimento: String!, $status: Status!) {
-  alterarStatus(idAtendimento: $idAtendimento, status: $status) {
-    status
-  }
-}
-`
 
 const confirmado = {
   idAtendimento: 'ck6iexb0f0002g0mcn11ur1u3',
@@ -413,88 +244,80 @@ const emEntrega = {
   status: 'EM_ENTREGA'
 }
 
-Promise.all(promisses) // aguardar todos os cadastro serem realizados
-  .then(() => { // provavelmente vai dar problema lançar itens de maneira concorrente ...
-    console.log(atendimentoDeneris)
-    return client.mutate({
-      mutation: ABRIR_ATENDIMENTO,
-      variables: atendimentoDeneris
-    }).then((result) => {
-      console.log(result)
-    })
-  }).then(() => {
-    console.log(cocaParaDeneris)
-    return client.mutate({
-      mutation: LANCAR_ITEM,
-      variables: cocaParaDeneris
-    }).then((result) => {
-      console.log(result)
-    })
-  }).then(() => {
-    console.log(lancheParaDeneris)
-    return client.mutate({
-      mutation: LANCAR_ITEM,
-      variables: lancheParaDeneris
-    }).then((result) => {
-      console.log(result)
-    })
-  }).then(() => {
-    console.log(batataRusticaParaDeneris)
-    return client.mutate({
-      mutation: LANCAR_ITEM,
-      variables: batataRusticaParaDeneris
-    }).then((result) => {
-      console.log(result)
-    })
-  }).then(() => {
-    console.log(confirmado)
-    return client.mutate({
-      mutation: ALTERAR_STATUS,
-      variables: confirmado
-    }).then((result) => {
-      console.log(result)
-    })
-  }).then(() => {
-    console.log(emEntrega)
-    return client.mutate({
-      mutation: ALTERAR_STATUS,
-      variables: emEntrega
-    }).then((result) => {
-      console.log(result)
-    })
-  }).then(() => {
-    console.log(pagamentoNoDinheiroComTroco)
-    return client.mutate({
-      mutation: LANCAR_PAGAMENTO,
-      variables: pagamentoNoDinheiroComTroco
-    })
-  }).then((result) => {
-    const pagamentoNoCartao = {
-      idAtendimento: 'ck6iexb0f0002g0mcn11ur1u3',
-      pagamentoInput: {
-        id: 'ck6ijimmz0000wcmc6ktf475q',
-        valor: result.data.lancarPagamento.valorTotal - result.data.lancarPagamento.valorPago,
-        idFinalizadora: 'cjld2cjxh0000qzrmn831i7rn'
+lancarAtendimento()
+async function lancarAtendimento () {
+  await Promise.all(promisses) // aguardar todos os cadastro serem realizados
 
-      }
+  console.log(atendimentoDeneris)
+  const atendimentoAberto = await mutate({
+    mutation: ABRIR_ATENDIMENTO,
+    variables: atendimentoDeneris
+  })
+  console.log(atendimentoAberto)
+
+  console.log(cocaParaDeneris)
+  const cocaLancada = await mutate({
+    mutation: LANCAR_ITEM,
+    variables: cocaParaDeneris
+  })
+  console.log(cocaLancada)
+
+  console.log(lancheParaDeneris)
+  const lancheLancado = await mutate({
+    mutation: LANCAR_ITEM,
+    variables: lancheParaDeneris
+  })
+  console.log(lancheLancado)
+
+  console.log(batataRusticaParaDeneris)
+  const batataLancada = await mutate({
+    mutation: LANCAR_ITEM,
+    variables: batataRusticaParaDeneris
+  })
+  console.log(batataLancada)
+
+  console.log(confirmado)
+  const atendimentoCondirmado = await mutate({
+    mutation: ALTERAR_STATUS,
+    variables: confirmado
+  })
+  console.log(atendimentoCondirmado)
+
+  console.log(emEntrega)
+  const atendimentoEmEntrega = await mutate({
+    mutation: ALTERAR_STATUS,
+    variables: emEntrega
+  })
+  console.log(atendimentoEmEntrega)
+
+  console.log(pagamentoNoDinheiroComTroco)
+  const result = await mutate({
+    mutation: LANCAR_PAGAMENTO,
+    variables: pagamentoNoDinheiroComTroco
+  })
+  console.log(result)
+
+  const pagamentoNoCartao = {
+    idAtendimento: 'ck6iexb0f0002g0mcn11ur1u3',
+    pagamentoInput: {
+      id: 'ck6ijimmz0000wcmc6ktf475q',
+      valor: result.data.lancarPagamento.valorTotal - result.data.lancarPagamento.valorPago,
+      idFinalizadora: 'cjld2cjxh0000qzrmn831i7rn'
+
     }
-    console.log(pagamentoNoCartao)
-    return client.mutate({
-      mutation: LANCAR_PAGAMENTO,
-      variables: pagamentoNoCartao
-    }).then((result) => {
-      console.log('teste7')
-      console.log(result)
-    })
-  }).then(() => {
-    console.log(auditarAtendimento)
-    return client.mutate({
-      mutation: AUDITAR_EARQUIVAR,
-      variables: auditarAtendimento
-    }).then((result) => {
-      console.log(result)
-    })
+  }
+
+  console.log(pagamentoNoCartao)
+  const pagamentoNoCartaoLancado = await mutate({
+    mutation: LANCAR_PAGAMENTO,
+    variables: pagamentoNoCartao
   })
-  .catch(erro => {
-    console.log(JSON.stringify(erro))
+  console.log(pagamentoNoCartaoLancado)
+
+  console.log(auditarAtendimento)
+  const atendimentoAuditado = await mutate({
+    mutation: AUDITAR_EARQUIVAR,
+    variables: auditarAtendimento
   })
+  console.log(atendimentoAuditado)
+}
