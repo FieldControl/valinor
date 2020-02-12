@@ -1,4 +1,4 @@
-const cuid = require("cuid");
+const cuid = require('cuid')
 
 console.log(cuid())
 process.exit(0)
