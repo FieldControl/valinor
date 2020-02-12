@@ -1,8 +1,8 @@
-const helloService = require('../services/helloService');
-const produtoService = require('../services/produtoService');
-const finalizadoraService = require('../services/finalizadoraService')
-const clienteService = require('../services/clienteService')
-const atendimentoService = require('../services/atendimentoService')
+const helloService = require('../services/hello-service');
+const produtoService = require('../services/produto-service');
+const finalizadoraService = require('../services/finalizadora-service')
+const clienteService = require('../services/cliente-service')
+const atendimentoService = require('../services/atendimento-service')
 
 const Query = {
     hello: (_, { nome }, context, info) => {
