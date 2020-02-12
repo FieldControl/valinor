@@ -1,140 +1,139 @@
 scalar DateTime
 
 input ClienteInput {
-  id: String
-  nome: String!
-  telefone: String!
+	id: String
+	nome: String!
+	telefone: String!
 }
 
 type Cliente {
-  id:        String
-  nome:      String
-  telefone: String
-  endereco: Endereco
+	id:        String
+	nome:      String
+	telefone: String
+	endereco: Endereco
 }
 
 type Produto {
-  id:        String
-  descricao: String
-  codigo:    String
-  preco:     Float
+	id:        String
+	descricao: String
+	codigo:    String
+	preco:     Float
 }
 
 type Item {
-  id:            String
-  cancelado:     Boolean
-  quantidade:    Float
-  precoUnitario: Float
-  valor:         Float
-  produto:       Produto
+	id:            String
+	cancelado:     Boolean
+	quantidade:    Float
+	precoUnitario: Float
+	valor:         Float
+	produto:       Produto
 }
 
 type Finalizadora {
-  id:        String
-  descricao: String
+	id:        String
+	descricao: String
 }
 
 type Pagamento {
-  id:           String
-  valor:        Float
-  troco:        Float
-  cancelado:    Boolean
-  finalizadora: Finalizadora
+	id:           String
+	valor:        Float
+	troco:        Float
+	cancelado:    Boolean
+	finalizadora: Finalizadora
 }
 
 enum Status {
-  ABERTO CONFIRMADO EM_ENTREGA RECEBIDO CANCELADO
+	ABERTO CONFIRMADO EM_ENTREGA RECEBIDO CANCELADO
 }
 
 input EnderecoInput {
-    id: String
-    logradouro: String 
-    bairro: String 
-    cidade: String 
-    cep: String
+	id: String
+	logradouro: String 
+	bairro: String 
+	cidade: String 
+	cep: String
 }
 
 type Endereco {
-    id:           String
-    logradouro: String 
-    bairro: String 
-    cidade: String 
-    cep: String
+	id:           String
+	logradouro: String 
+	bairro: String 
+	cidade: String 
+	cep: String
 }
 
 input AtendimentoInput {
-  idCliente:          String
-  dataAbertura:     DateTime
-  enderecoEntrega: EnderecoInput
+	id: String
+	idCliente:          String
+	dataAbertura:     DateTime
+	enderecoEntrega: EnderecoInput
 }
 
 type Atendimento {
-  id:               String 
-  cliente:          Cliente
-  dataAbertura:     DateTime
-  dataEncerramento: DateTime
-  status:           Status
-  enderecoEntrega: Endereco
-  valorPedido: Float
-  valorEntrega: Float
-  valorTotal: Float
-  valorPago: Float
-  pagamentos: [Pagamento]
-  itens: [Item]
-  arquivado: Boolean
+	id:               String 
+	cliente:          Cliente
+	dataAbertura:     DateTime
+	dataEncerramento: DateTime
+	status:           Status
+	enderecoEntrega: Endereco
+	valorPedido: Float
+	valorEntrega: Float
+	valorTotal: Float
+	valorPago: Float
+	pagamentos: [Pagamento]
+	itens: [Item]
+	arquivado: Boolean
 }
 
 input ItemInput {
-  id:            String
-  idProduto:      String!
-  quantidade:    Float!
-  cancelado:     Boolean
+	id:            String
+	idProduto:      String!
+	quantidade:    Float!
+	cancelado:     Boolean
 }
 
 
 input ProdutoInput {
-  id:        String
-  descricao: String!
-  codigo:    String!
-  preco:     Float!
+	id:        String
+	descricao: String!
+	codigo:    String!
+	preco:     Float!
 }
 
 
 input FinalizadoraInput {
-  id:        String
-  descricao: String
+	id:        String
+	descricao: String
 }
 
 type Query {
-  hello(nome: String): String
-  produtos: [Produto]
-  finalizadoras: [Finalizadora]
-  clientes: [Cliente]
-  atendimento(id: String!): Atendimento
-  atendimentos(skip: Int, first: Int): [Atendimento]
+	hello(nome: String): String
+	produtos: [Produto]
+	finalizadoras: [Finalizadora]
+	clientes: [Cliente]
+	atendimento(id: String!): Atendimento
+	atendimentos(skip: Int, first: Int): [Atendimento]
 }
 
 
 input PagamentoInput {
-  id:             String
-  valor:          Float!
-  troco:          Float
-  cancelado:      Boolean
-  idFinalizadora: String!
+	id:             String
+	valor:          Float!
+	troco:          Float
+	cancelado:      Boolean
+	idFinalizadora: String!
 }
 
 
 
 type Mutation {
-  inserirCliente(clienteInput: ClienteInput!, enderecoInput: EnderecoInput): Cliente!
-  
-  inserirProduto(produtoInput: ProdutoInput): Produto!
-  inserirFinalizadora(finalizadoraInput: FinalizadoraInput): Finalizadora!
+	inserirCliente(clienteInput: ClienteInput!, enderecoInput: EnderecoInput): Cliente!
+	inserirProduto(produtoInput: ProdutoInput): Produto!
+	inserirFinalizadora(finalizadoraInput: FinalizadoraInput): Finalizadora!
 
-  abrirAtendimento(atendimentoInput: AtendimentoInput!): Atendimento!
-  alterarStatus(idAtendimento: String!, status: Status!): Atendimento!
-  
-  lancarItem(idAtendimento: String!, itemInput: ItemInput!): Atendimento!
-  lancarPagamento(idAtendimento: String!, pagamentoInput: PagamentoInput!): Atendimento!
-  auditarEArquivar(idAtendimento: String!): Atendimento!
+	abrirAtendimento(atendimentoInput: AtendimentoInput!): Atendimento!
+	alterarStatus(idAtendimento: String!, status: Status!): Atendimento!
+	lancarItem(idAtendimento: String!, itemInput: ItemInput!): Atendimento!
+	lancarPagamento(idAtendimento: String!, pagamentoInput: PagamentoInput!): Atendimento!
+	auditarEArquivar(idAtendimento: String!): Atendimento!
 }

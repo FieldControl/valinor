@@ -18,7 +18,7 @@ const ATENDIMENTO_ALL_FIELDS = {
 async function list(prisma, { skip, first }) {
     slip = skip || 0
     first = first || 24
-    return await prisma.atendimento.findMany()
+    return await prisma.atendimento.findMany({ include: ATENDIMENTO_ALL_FIELDS })
 }
 
 async function find(prisma, id) {
@@ -38,6 +38,8 @@ async function find(prisma, id) {
         throw new Error("Atendimento [Id " + id + " não encontrado]")
     }
 
+
+    console.log(atendimento)
     return atendimento;
 }
 
@@ -60,7 +62,7 @@ async function lancarItem(prisma, { idAtendimento, itemInput }) {
     })
 
     if (!produto) {
-        throw new Error("Produto [Id " + args.item.idProduto + "] não encontrado");
+        throw new Error("Produto [Id " + itemInput.idProduto + "] não encontrado");
     }
 
     const atendimento = await prisma.atendimento.findOne({
@@ -219,25 +221,33 @@ async function abrirAtendimento(prisma, atendimentoInput) {
 
         });
 
-        return await prisma.atendimento.create({
-            data: {
-                ...atendimento,
-                valorEntrega: 10 * Math.random(),
-                cliente: {
-                    connect: {
-                        id: idCliente
-                    }
-                },
-                enderecoEntrega: {
-                    connect: {
-                        id: enderecoEntregaInserido.id
-                    }
+        const createOrUpdate = {
+            ...atendimento,
+            cliente: {
+                connect: {
+                    id: idCliente
                 }
+            },
+            enderecoEntrega: {
+                connect: {
+                    id: enderecoEntregaInserido.id
+                }
+            }
+        };
+
+        return await prisma.atendimento.upsert({
+            create: {
+                ...createOrUpdate,
+                valorEntrega: 10 * Math.random(),
+            },
+            update: createOrUpdate,
+            where: {
+                id: atendimentoInput.id || ''
             },
             include: {
                 cliente: true,
                 enderecoEntrega: true
-            }
+            },
         })
 
     } else if (idCliente) { // somente cliente
@@ -259,20 +269,29 @@ async function abrirAtendimento(prisma, atendimentoInput) {
             throw new Error("cliente [Id " + idCliente + "] não encontrado")
         }
 
-        return await prisma.atendimento.create({
-            data: {
-                ...atendimento,
-                valorEntrega: parseFloat((10 * Math.random()).toFixed(2)),
-                cliente: {
-                    connect: {
-                        id: idCliente
-                    }
-                },
-                enderecoEntrega: {
-                    connect: {
-                        id: cliente.endereco.id
-                    }
+
+        const createOrUpdate = {
+            ...atendimento,
+            cliente: {
+                connect: {
+                    id: idCliente
                 }
+            },
+            enderecoEntrega: {
+                connect: {
+                    id: cliente.endereco.id
+                }
+            }
+        }
+
+        return await prisma.atendimento.upsert({
+            create: {
+                ...createOrUpdate,
+                valorEntrega: parseFloat((10 * Math.random()).toFixed(2)),
+            },
+            update: createOrUpdate,
+            where: {
+                id: atendimentoInput.id || ''
             },
             include: {
                 cliente: true,
@@ -297,15 +316,23 @@ async function abrirAtendimento(prisma, atendimentoInput) {
 
         });
 
+        const createOrUpdate = {
+            ...atendimento,
+            enderecoEntrega: {
+                connect: {
+                    id: enderecoEntregaInserido.id
+                },
+            }
+        }
+
         return await prisma.atendimento.create({
-            data: {
-                ...atendimento,
+            create: {
+                ...createOrUpdate,
                 valorEntrega: parseFloat((10 * Math.random()).toFixed(2)),
-                enderecoEntrega: {
-                    connect: {
-                        id: enderecoEntregaInserido.id
-                    },
-                }
+            },
+            update: createOrUpdate,
+            where: {
+                id: atendimentoInput.id || ''
             },
             include: {
                 cliente: true,
@@ -315,9 +342,16 @@ async function abrirAtendimento(prisma, atendimentoInput) {
 
     } else {
 
-        return await prisma.atendimento.create({
-            data: {
+        return await prisma.atendimento.upsert({
+            create: {
                 ...atendimento,
+                valorEntrega: parseFloat((10 * Math.random()).toFixed(2)),
+            },
+            update: {
+                ...atendimento,
+            },
+            where: {
+                id: atendimentoInput.id || ''
             },
             include: {
                 cliente: true,
@@ -433,6 +467,7 @@ async function lancarPagamento(prisma, { idAtendimento, pagamentoInput }) {
         }
     })
 
+
     const valorPago = atendimentoComPagamentos.pagamentos
         .filter(pagamento => !pagamento.cancelado)
         .map(pagamento => pagamento.valor - pagamento.troco)
@@ -440,13 +475,19 @@ async function lancarPagamento(prisma, { idAtendimento, pagamentoInput }) {
             return soma += valorAtual
         }, 0);
 
+    const data = {
+        valorPago: valorPago,
+    }
+
+    if (valorPago == atendimentoComPagamentos.valorTotal) {
+        data.status = Status.RECEBIDO
+    }
+
     return await prisma.atendimento.update({
         where: {
             id: idAtendimento
         },
-        data: {
-            valorPago: valorPago,
-        },
+        data: data,
         include: {
             cliente: true,
             enderecoEntrega: true,
@@ -533,21 +574,28 @@ async function auditar(prisma, atendimento) {
         });
     }
 
-    const somaValorPago = atendimento.itens
+    const somaValorPagamento = atendimento.pagamentos
         .filter(pagamento => !pagamento.cancelado)
         .map(pagamento => {
+            console.log(pagamento)
             let multiply = pagamento.valor - pagamento.troco
             return multiply;
         }).reduce((soma, atual) => {
+            console.log(soma)
+            console.log(atual)
             return soma += atual;
         }, 0)
 
-    if (somaValorPago + atendimento.valorEntrega != atendimento.valorPago) {
+    if (somaValorPagamento != atendimento.valorPago) {
+        console.log("teste");
+        console.log(somaValorPagamento)
+        console.log(atendimento.valorPago)
+
         erros.push({
             entidade: "atendimento",
             id: atendimento.id,
             descricao: "valor do atendimento difere do valor do pagamento",
-            valorEsperado: somaValorPago,
+            valorEsperado: somaValorPagamento,
             valorObtido: atendimento.valorPago
         });
     }

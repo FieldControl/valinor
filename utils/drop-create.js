@@ -1,7 +1,5 @@
 const mysql = require('promise-mysql')
-const rimraf = require("rimraf");
 const spawn = require('cross-spawn');
-
 
 function credentialsFromEnv() {
     // exemple url mysql://user:pass@host:port/database?reconnect=true
@@ -27,7 +25,14 @@ console.log(credentials)
 mysql.createConnection({ ...credentials })
     .then(con => {
         return tableNames(con, credentials.database)
-            .then((tableNames) => dropTables(con, tableNames.map(data => { data.table_name })))
+            .then((tableNames) => {
+
+                console.log(tableNames)
+                const names = tableNames.map(data => data.table_name)
+
+                console.log(names)
+                return dropTables(con, names)
+            })
             .then(() => createTableMigration(con))
             .then(() => {
                 // console.log(package)
@@ -35,6 +40,7 @@ mysql.createConnection({ ...credentials })
                 spawn.sync('rimraf', ['prisma/migrations'], { stdio: 'inherit' }); // remove migracoes antigas
                 spawn.sync('npm', ['run', 'generate-schema'], { stdio: 'inherit' }); // genre nova migracao
                 spawn.sync('npm', ['run', 'migrate'], { stdio: 'inherit' }); // aplica migracao
+                // spawn.sync('npm', ['run', 'seed'], { stdio: 'inherit' }); // aplica migracao
 
             })
     }).catch(error => {
@@ -60,6 +66,7 @@ function tableNames(con, databaseName) {
     let tablesQuery = `SELECT table_name FROM information_schema.tables
                             WHERE table_schema = ?`
     return con.query(tablesQuery, [databaseName]).then(result => {
+        console.log((result))
         return result;
     })
 }
