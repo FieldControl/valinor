@@ -1,5 +1,5 @@
 async function list (prisma) {
-  return await prisma.cliente.findMany()
+  return prisma.cliente.findMany()
 }
 
 async function save (prisma, { clienteInput, enderecoInput }) {

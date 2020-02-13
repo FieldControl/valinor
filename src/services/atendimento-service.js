@@ -16,7 +16,7 @@ const ATENDIMENTO_ALL_FIELDS = {
 }
 
 async function list (prisma, { skip, first }) {
-  slip = skip || 0
+  skip = skip || 0
   first = first || 24
   return prisma.atendimento.findMany({ include: ATENDIMENTO_ALL_FIELDS })
 }
@@ -42,7 +42,7 @@ async function find (prisma, id) {
 }
 
 async function alterarStatus (prisma, { idAtendimento, status }) {
-  return await prisma.atendimento.update({
+  return prisma.atendimento.update({
     data: {
       status: status
     },
@@ -158,7 +158,7 @@ async function lancarItem (prisma, { idAtendimento, itemInput }) {
   const valorPedido = itens.filter(item => !item.cancelado)
     .map(item => item.valor)
     .reduce((soma, valorAtual) => {
-      return soma += valorAtual
+      return (soma += valorAtual)
     }, 0)
 
   const atendimentoAtualizado = await prisma.atendimento.update({
@@ -230,7 +230,7 @@ async function abrirAtendimento (prisma, atendimentoInput) {
       }
     }
 
-    return await prisma.atendimento.upsert({
+    return prisma.atendimento.upsert({
       create: {
         ...createOrUpdate,
         valorEntrega: 10 * Math.random()
@@ -245,7 +245,7 @@ async function abrirAtendimento (prisma, atendimentoInput) {
       }
     })
   } else if (idCliente) { // somente cliente
-    const cliente = await prisma.cliente.findOne({
+    const cliente = prisma.cliente.findOne({
       where: {
         id: idCliente
       },
@@ -276,7 +276,7 @@ async function abrirAtendimento (prisma, atendimentoInput) {
       }
     }
 
-    return await prisma.atendimento.upsert({
+    return prisma.atendimento.upsert({
       create: {
         ...createOrUpdate,
         valorEntrega: parseFloat((10 * Math.random()).toFixed(2))
@@ -316,7 +316,7 @@ async function abrirAtendimento (prisma, atendimentoInput) {
       }
     }
 
-    return await prisma.atendimento.create({
+    return prisma.atendimento.create({
       create: {
         ...createOrUpdate,
         valorEntrega: parseFloat((10 * Math.random()).toFixed(2))
@@ -331,7 +331,7 @@ async function abrirAtendimento (prisma, atendimentoInput) {
       }
     })
   } else {
-    return await prisma.atendimento.upsert({
+    return prisma.atendimento.upsert({
       create: {
         ...atendimento,
         valorEntrega: parseFloat((10 * Math.random()).toFixed(2))
@@ -392,7 +392,7 @@ async function lancarPagamento (prisma, { idAtendimento, pagamentoInput }) {
       }
     })
 
-    if (pagamento && (pagamento.atendimento.id != idAtendimento)) {
+    if (pagamento && (pagamento.atendimento.id !== idAtendimento)) {
       throw new Error('Pagamento [Id ' + pagamentoInput.id + '] não pertence ao atendimento [Id ' + idAtendimento + ']')
     }
   }
@@ -455,18 +455,18 @@ async function lancarPagamento (prisma, { idAtendimento, pagamentoInput }) {
     .filter(pagamento => !pagamento.cancelado)
     .map(pagamento => pagamento.valor - pagamento.troco)
     .reduce((soma, valorAtual) => {
-      return soma += valorAtual
+      return (soma += valorAtual)
     }, 0)
 
   const data = {
     valorPago: valorPago
   }
 
-  if (valorPago == atendimentoComPagamentos.valorTotal) {
+  if (valorPago === atendimentoComPagamentos.valorTotal) {
     data.status = Status.RECEBIDO
   }
 
-  return await prisma.atendimento.update({
+  return prisma.atendimento.update({
     where: {
       id: idAtendimento
     },
@@ -489,7 +489,7 @@ async function lancarPagamento (prisma, { idAtendimento, pagamentoInput }) {
 }
 
 async function arquivar (prisma, idAtendimento) {
-  return await prisma.atendimento.update({
+  return prisma.atendimento.update({
     where: {
       id: idAtendimento
     },
@@ -500,7 +500,7 @@ async function arquivar (prisma, idAtendimento) {
 }
 
 async function auditar (prisma, atendimento) {
-  if (atendimento.status == Status.CANCELADO) {
+  if (atendimento.status === Status.CANCELADO) {
     return
   }
 
@@ -508,7 +508,7 @@ async function auditar (prisma, atendimento) {
 
   const valorTotal = atendimento.valorPedido + atendimento.valorEntrega
 
-  if (valorTotal != atendimento.valorTotal) {
+  if (valorTotal !== atendimento.valorTotal) {
     erros.push({
       entidade: 'atendimento',
       id: atendimento.id,
@@ -518,7 +518,7 @@ async function auditar (prisma, atendimento) {
     })
   }
 
-  if (valorTotal != atendimento.valorPago) {
+  if (valorTotal !== atendimento.valorPago) {
     erros.push({
       entidade: 'atendimento',
       id: atendimento.id,
@@ -532,7 +532,7 @@ async function auditar (prisma, atendimento) {
     .filter(item => !item.cancelado)
     .map(item => {
       const multiply = item.quantidade * item.precoUnitario
-      if (multiply != item.valor) {
+      if (multiply !== item.valor) {
         erros.push({
           entidade: 'item',
           id: item.id,
@@ -543,16 +543,16 @@ async function auditar (prisma, atendimento) {
       }
       return multiply
     }).reduce((soma, atual) => {
-      return soma += atual
+      return (soma += atual)
     }, 0)
 
-  if (somaValorItem != atendimento.valorPedido) {
+  if (somaValorItem !== atendimento.valorPedido) {
     erros.push({
       entidade: 'atendimento',
       id: atendimento.id,
       descricao: 'valor do atendimento difere do valor do item',
-      valorEsperado: multiply,
-      valorObtido: item.valor
+      valorEsperado: somaValorItem,
+      valorObtido: atendimento.valorPedido
     })
   }
 
@@ -563,12 +563,10 @@ async function auditar (prisma, atendimento) {
       const multiply = pagamento.valor - pagamento.troco
       return multiply
     }).reduce((soma, atual) => {
-      console.log(soma)
-      console.log(atual)
-      return soma += atual
+      return (soma += atual)
     }, 0)
 
-  if (somaValorPagamento != atendimento.valorPago) {
+  if (somaValorPagamento !== atendimento.valorPago) {
     console.log('teste')
     console.log(somaValorPagamento)
     console.log(atendimento.valorPago)
@@ -582,7 +580,7 @@ async function auditar (prisma, atendimento) {
     })
   }
 
-  if (erros.length != 0) {
+  if (erros.length !== 0) {
     throw new Error(JSON.stringify(erros))
   }
 }
