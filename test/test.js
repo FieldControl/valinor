@@ -24,14 +24,14 @@ mutate({
   variables: { id: 1, email: 'nancy@foo.co' }
 })
 
-async function main () {
-  const serverReady = await server
+// async function main () {
+//   const serverReady = await server
 
-  describe('Array', function () {
-    describe('#indexOf()', function () {
-      it('should return -1 when the value is not present', function () {
-        expect([1, 2]).toContain(1)
-      })
-    })
-  })
-}
+//   describe('Array', function () {
+//     describe('#indexOf()', function () {
+//       it('should return -1 when the value is not present', function () {
+//         expect([1, 2]).toContain(1)
+//       })
+//     })
+//   })
+// }

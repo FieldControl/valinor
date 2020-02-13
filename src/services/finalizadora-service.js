@@ -1,5 +1,5 @@
 async function list (prisma) {
-  return await prisma.finalizadora.findMany()
+  return prisma.finalizadora.findMany()
 }
 
 async function save (prisma, finalizadoraInput) {

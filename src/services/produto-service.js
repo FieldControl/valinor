@@ -1,5 +1,5 @@
 async function list (prisma) {
-  return await prisma.produto.findMany()
+  return prisma.produto.findMany()
 }
 
 async function save (prisma, produtoInput) {

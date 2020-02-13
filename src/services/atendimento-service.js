@@ -22,7 +22,7 @@ async function list (prisma, { skip, first }) {
 }
 
 async function find (prisma, id) {
-  if ((typeof id !== 'string') || id == '') {
+  if ((typeof id !== 'string') || id === '') {
     throw new Error('invalid id: ' + id)
   }
 
