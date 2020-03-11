@@ -1,0 +1,5 @@
+font utilizada
+
+https://fonts.google.com/specimen/Raleway?selection.family=Raleway:400,
+
+imagens em base 64 por seram mais leves
