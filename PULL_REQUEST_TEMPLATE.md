@@ -1,7 +1,5 @@
 ## Envio de solução
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
-
 **Framework, linguagem e ferramentas**
 - Construção de FrontEnd foi utilizado React ⚛️;
 - Framework de CSS foi utilizado o Bootstrap (Grid, Input, Button e Classes padronizadas do framework) + CSS3 Puro.
