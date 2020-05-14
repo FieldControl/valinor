@@ -25,11 +25,13 @@ Com isso e um estudo mais amplo na API do Github pode ser adicionadas algumas fe
 
 **Sobre você**
 
-Meu nome é Victor Reinor, tenho 22 anos e sou de Mirassol, fiz técnico em informática para internet na ETEC Philadelpho Gouvea Netto e trabalho em uma Software house em mirassol a 4 anos e 6 meses.
+Meu nome é Victor Reinor, tenho 22 anos e sou de Mirassol, fiz técnico em informática para internet na ETEC Philadelpho Gouvea Netto e trabalho em uma Software house em mirassol a 4 anos e 6 meses, respiro informática desde pequeno e sempre almejei trabalhar com desenvolvimento de soluções que ajudasse pessoas, toda vez que posso assistir documentários ou filmes relacionados a informática eu assisto ❤️.
 
-Começei na programação bem cedo e nem sabia o que era isso, jogava um jogo chamado Tibia e nele eu podia baixar servidores pirata e ficar configurando conforme eu quisesse porém não tinha nenhum conhecimento da linguagem **LUA**, ficava fuçando nos arquivos editando eles e vendo resultado, ia juntando pedaço de um, pedaço do outro e no final conseguia editar itens, magias, npc's e etc... Depois de um tempo consegui ganhar um pouco de dinheiro com isso e foi ai que resolvi fazer o técnico em informática e dentro do técnico consegui vaga de emprego na minha cidade (Mirassol) para trabalhar com Delphi e nesta empresa tinha um sistema web de vendas, começei dando manutenção nele e de pouco em pouco começamos a desenvolver mais aplicações com tecnologias web. Hoje atuo como desenvolvedor full stack com a stack do React (NodeJs, ReactJs e React-Native) e estou aberto para novos conhecimentos
+Começei na programação bem cedo e nem sabia o que era isso, jogava um jogo chamado Tibia e nele eu podia baixar servidores pirata e ficar configurando conforme eu quisesse, porém não tinha nenhum conhecimento da linguagem **LUA** e ficava fuçando nos arquivos editando eles e vendo resultado, ia juntando pedaço de um e pedaço do outro no final conseguia editar itens, magias, npc's e etc... Depois de um tempo consegui ganhar um pouco de dinheiro com isso e foi ai que resolvi fazer o técnico em informática. Dentro do técnico consegui uma vaga de emprego na minha cidade (Mirassol) para trabalhar com Delphi, nessa empresa tinha um sistema web de vendas, começei dando manutenção nele e de pouco em pouco começamos a desenvolver mais aplicações com tecnologias web. Hoje atuo como desenvolvedor full stack com a stack do React (NodeJs, ReactJs e React-Native) e estou aberto para novos conhecimentos.
 
 Estudo firme Javascript desde 2017, começei com **NodeJs + EJS** depois fui estudando React começando pelo **React-Native** e depois **ReactJs**.
+Tenho conhecimento em **Docker**, **GraphQL** (não tão profundo) e APIs Rest (conhecimento amplo)
+
 
 ✉️ victorreinor@gmail.com
 📱(17) 9 9773-4788
