@@ -1,0 +1,26 @@
+.home-search-input {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.home-search-button {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.title-logo {
+  margin-top: 98px;
+  margin-left: -68px;
+}
+
+@media only screen and (max-width: 700px) {
+  .home-search-input {
+    width: 100%;
+  }
+
+  .home-search-button {
+    width: 100%;
+  }
+}

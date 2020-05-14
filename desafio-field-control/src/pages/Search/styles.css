@@ -1,0 +1,69 @@
+#header {
+  position: relative;
+  top: 20px;
+  padding: 4px 28px 20px 30px;
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+#header .header-logo {
+  width: 70px;
+}
+
+#header .input-group {
+  margin-top: 10px;
+  margin-left: 14px;
+  width: 600px;
+  height: 38px;
+}
+
+.content {
+  margin-top: 32px;
+  padding-left: 7em;
+}
+
+@media only screen and (max-width: 1024px) {
+  .content {
+    padding-left: 2em;
+  }
+}
+
+.repo-list {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.repo-list-item {
+  list-style: none;
+}
+
+.repo-title {
+  font-weight: 600;
+}
+
+.keywords {
+  margin-bottom: .25rem;
+}
+
+.repo-list-item .keywords .badge {
+  margin-right: .5rem !important;
+  border-radius: 2px;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.info {
+  font-size: 13px;
+}
+
+.info div {
+  margin-right: .5rem !important;
+  border-right: 1px solid rgba(0,0,0,.1);
+  padding-right: 5px;
+}
+
+.info svg {
+  vertical-align: text-top;
+}

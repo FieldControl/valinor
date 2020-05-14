@@ -1,0 +1,14 @@
+[{
+  "created_at": "2016-11-28T18:41:00Z",
+  "created_by": "Ryan Dahl",
+  "curated": true,
+  "description": "Node.js is a tool for executing JavaScript in a variety of environments. JavaScript had humble beginnings as a language that lived only in web browsers, but the Node.js project has expanded its reach and helped make it the most  popular programming language in the world. Node.js extends the creative potential of people with web development experience, enabling a new generation  of developers to create servers, command-line tools, desktop apps, and even robots.",
+  "display_name": "Node.js",
+  "featured": true,
+  "image": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png",
+  "name": "nodejs",
+  "released": "May 27, 2009",
+  "score": 1,
+  "short_description": "Node.js is a tool for executing JavaScript in a variety of environments.",
+  "updated_at": "2020-05-05T18:21:28Z"
+}]
