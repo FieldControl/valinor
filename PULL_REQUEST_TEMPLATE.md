@@ -3,8 +3,8 @@
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
 **Framework, linguagem e ferramentas**
-Construção de FrontEnd foi utilizado React ⚛️;
-Framework de CSS foi utilizado o Bootstrap (Grid, Input, Button e Classes padronizadas do framework) + CSS3 Puro.
+- Construção de FrontEnd foi utilizado React ⚛️;
+- Framework de CSS foi utilizado o Bootstrap (Grid, Input, Button e Classes padronizadas do framework) + CSS3 Puro.
 
 Ferramenta de Lint foi utilizado Eslint + Prettier + EditorConfig.
 - Eslint para padronizar o código. Foram utilizados alguns plugins do **ESLINT** como **import-helpers** para padronizar as importações do javascript e o **root-import** para não precisar ficar voltando diretorio quando for importar algum componente ou arquivo.
