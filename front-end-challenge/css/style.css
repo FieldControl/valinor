@@ -1,0 +1,75 @@
+body{
+  background: #f0f0f0;
+}
+nav {
+  background-color: #001849;
+}
+.fade{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url(../img/loading.gif);
+  background-position: center center;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.showfade{
+  display: block;
+  opacity: 1;
+}
+
+#search{
+    color: #fff;
+}
+
+#search:focus{
+    color: #001849;
+}
+
+
+h1{ font-size: 2em; font-weight: 500; }
+h2{ font-size: 1.5em; font-weight: 500; }
+h3{ font-size: 1.17em; font-weight: 500; }
+h4{ font-size: 1em; font-weight: 500; }
+h5{ font-size: .83em; font-weight: 500; }
+h6{ font-size: .67em; font-weight: 500; }
+
+.card .card-title{
+  font-weight: 500;
+}
+
+.card-action span{
+  margin-right: 10px;
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+.card-action .material-icons{
+  font-size: 0.9em;
+  margin-right: 0;
+  border-right: none;
+  padding-right: 0;
+}
+
+.card-action span:last-child {
+    border-right: none;
+}
+
+.pagination{
+  text-align: center;
+}
+
+.pagination li.active {
+    background-color: #001849;
+}
+
+.gap{
+  line-height: 30px;
+}

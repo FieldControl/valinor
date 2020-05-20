@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Field Control | Valinor</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <form autocomplete="off">
+          <div class="input-field">
+            <input id="search" type="search" autocomplete="false">
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i id="clearSearch" class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <div class="fade"></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col s12"><h1>Buscar repositórios no github</h1></div>
+      </div>
+      <div class="row">
+        <div class="col s6"><p>Buscando por: <span id="buscaPor"></span></p></div>
+        <div class="col s6 right-align"><p>Resultados: <span id="numResultados"></span></p></div>
+      </div>
+    </div>
+
+    <div class="container container-resultado"></div>
+    <div class="container container-paginacao">
+      <ul class="pagination"></ul>
+    </div>
+    <script src="js/valinor.js"></script>
+  </body>
+</html>
