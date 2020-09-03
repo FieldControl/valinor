@@ -13,7 +13,7 @@ Nossa missão é melhorar a prestação de serviços no Brasil.
 Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControlApp](https://www.instagram.com/fieldcontrolapp/)
 
 <p>
-  <img src="fielders.png" width="855"/> 
+  <img src="fielders.png" width="855"/>
 </p>
 
 Origem
@@ -23,12 +23,11 @@ Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse
 
 Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
 
-
 Condições
 ----------
-- Regime de trabalho: CLT
 - Período: Integral
-- Onde: Qualquer lugar! :)
+- Onde: Remoto / Qualquer lugar! :)
+- Benefícios: Alimentação, Plano de saúde, Seguro de vida, conta Pluralsight <3
 
 :house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
 
@@ -113,8 +112,16 @@ Se você **realmente ama** trabalhar com desenvolvimento de software e quer desa
 
 <!-- A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
 
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
+&lt;challenge&gt; Frontend Developer Rock Star &lt;/challenge&gt;
 ----------
+
+Estamos a procura de um Frontend **FODA** para somar no nosso time de produto! :)
+
+Requisitos principais:
+ - Proficiência em JavaScript e Typescript
+ - Familiaridade com APIs RESTful, GraphQL e WebSockets;
+ - Ter experiência com CSS e HTML Semântico
+ - Experiência sólida com Angular, Ionic e testes de software
 
 Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
 
@@ -165,7 +172,7 @@ Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](h
  <!-- **Atenção:** -->
  <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
  
-{ "challenge": "Backend Developer" }
+<!-- { "challenge": "Backend Developer" }
 ----------
 
 Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
@@ -187,7 +194,7 @@ Você terá que expor as seguintes queries e mutations para o tema escolhido:
 - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
 
  **Atenção:**
- Você deve se preocupar com validação e semântica. 
+ Você deve se preocupar com validação e semântica.  -->
 
 Dúvidas?
 ----------
