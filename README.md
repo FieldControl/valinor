@@ -21,12 +21,12 @@ Origem
 
 Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
+Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
 
 Condições
 ----------
 - Período: Integral
-- Onde: Remoto / Qualquer lugar! :)
+- Onde: Qualquer lugar :)
 - Benefícios: Alimentação, Plano de saúde, Seguro de vida, conta Pluralsight <3
 
 :house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
@@ -34,9 +34,9 @@ Condições
 Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
 
 <p float="left">
-  <img src="field3.jpeg" width="225"/> 
-  <img src="field1.jpeg" width="400"/>
-  <img src="field4.jpeg" width="225"/> 
+  <img src="field3.jpeg" width="215"/> 
+  <img src="field1.jpeg" width="382"/>
+  <img src="field4.jpeg" width="215"/> 
 </p>
 
 A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
@@ -44,7 +44,7 @@ A empresa não possui hierarquias e você é convidado e desafiado a colaborar c
 Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
 
 <p>
-  <img src="frigobar-da-field-quando-meta-eh-batida.jpeg" width="450" /> 
+  <img src="frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" /> 
 </p>
 
 Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
@@ -54,7 +54,7 @@ Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: 
 Oportunidade
 ----------
 
-Estamos em busca de desenvolvedores apaixonados para somar no nosso time de desenvolvimento.
+Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
 
 Na Field, o seu dia-a-dia será repleto de:
 
@@ -71,7 +71,7 @@ Na Field, o seu dia-a-dia será repleto de:
   'Amazon Web Services',
   'PAAS & Cloud Services',
   'Serverless apps',
-  'AngularJS, Angular7(X)',
+  'AngularJS, Angular',
   'REST APIs',
   'GraphQL APIs',
   'Material Design',
@@ -87,11 +87,22 @@ Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps ro
 
 Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
 
-Os desafios de programação
+Requisitos principais
+----------
+ - P R O A T I V I D A D E
+ - Sentimento de D O N O
+ - Boa comunicação e trabalho em equipe :)
+ - Proficiência em JavaScript e Typescript 
+ - Experiência com CSS e HTML Semântico
+ - Experiência sólida com Angular, Ionic
+ - Familiaridade com princípios de UX
+ - Familiaridade com APIs REST, GraphQL e WebSockets
+ - Ter prática em testar software!
+ 
+O desafio de programação
 ----------
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
-
 
 <!-- &lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt; -->
 <!-- ---------- -->
@@ -115,21 +126,13 @@ Se você **realmente ama** trabalhar com desenvolvimento de software e quer desa
 &lt;challenge&gt; Frontend Developer Rock Star &lt;/challenge&gt;
 ----------
 
-Estamos a procura de um Frontend **FODA** para somar no nosso time de produto! :)
-
-Requisitos principais:
- - Proficiência em JavaScript e Typescript
- - Familiaridade com APIs RESTful, GraphQL e WebSockets;
- - Ter experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic e testes de software
-
 Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
 
 Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
 
 Você pode usar Twitter Bootstrap, Google Material ou qualquer outro framework de interfaces da sua preferência.
 
-SPA Framework? Aqui usamos bastante AngularJS e Angular7, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
+SPA Framework? Aqui usamos bastante AngularJS e Angular, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
 
 Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
 
@@ -221,6 +224,7 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 - Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
 - Porque você optou pela tecnologia X e não a Y
+- Quais princípios da engenharia de software que você usou?
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
 

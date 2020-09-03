@@ -10,6 +10,10 @@ Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
 Justifique porque você optou pela tecnologia X e não a Y?
 
+**Princípios de software**
+
+Quais princípios da engenharia de software que você usou?
+
 **Desafios e problemas**
 
 Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
