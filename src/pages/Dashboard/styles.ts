@@ -1,13 +1,18 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { shade } from 'polished';
 
-export const Container = styled.main`
+interface ILoadingProps {
+  loading: boolean;
+}
+
+export const Container = styled.main<ILoadingProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 960px;
   height: 100%;
   margin: 0 auto;
+  padding: 40px 20px;
 
   header {
     display: flex;
@@ -57,5 +62,23 @@ export const Container = styled.main`
         background-color: ${shade(0.5, '#23272a')};
       }
     }
+  }
+
+  ${props =>
+    props.loading &&
+    css`
+      svg {
+        animation: ${rotate} 2s linear infinite;
+      }
+    `}
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 `;
