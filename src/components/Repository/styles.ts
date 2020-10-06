@@ -4,7 +4,7 @@ export const Container = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 16px;
+  padding: 40px 16px;
   max-width: 700px;
   width: 100%;
   height: 200px;
@@ -29,6 +29,7 @@ export const Container = styled.a`
     height: 84px;
     margin-right: 18px;
     border-radius: 50%;
+    background-color: #f0f0f5;
   }
 
   svg {
@@ -46,6 +47,7 @@ export const About = styled.div`
 
   p {
     margin: 4px 0 8px;
+    color: #3a3a3a;
   }
 `;
 

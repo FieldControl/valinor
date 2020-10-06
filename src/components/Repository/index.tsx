@@ -1,30 +1,58 @@
 import React from 'react';
 import { FaRegStar, FaRegEye, FaChevronRight } from 'react-icons/fa';
 
-import logo from '../../assets/logo.png';
-
 import { Container, About, RepositoryData } from './styles';
 
-const Repository: React.FC = () => (
-  <Container>
-    <img src={logo} alt="github" />
-    <About>
-      <h1>GitHub</h1>
-      <p>Description about github an example the software open source</p>
-      <RepositoryData>
-        <div>
-          <FaRegStar size={14} color="#3a3a3a" />
-          <p>Stars</p>
-        </div>
+interface IDataParams {
+  data: IDataProps;
+}
 
-        <div>
-          <FaRegEye size={14} color="#3a3a3a" />
-          <p>Watchers</p>
-        </div>
-      </RepositoryData>
-    </About>
-    <FaChevronRight size={14} color="#3a3a3a" />
-  </Container>
-);
+interface IDataProps {
+  total_count: number;
+  items: IRepositorieDataProps[];
+}
+
+interface IRepositorieDataProps {
+  id: number;
+  name: string;
+  owner: {
+    avatar_url: string;
+    html_url: string;
+  };
+  description: string;
+  stargazers_count: number;
+  watchers_count: number;
+}
+
+const Repository: React.FC<IDataParams> = ({ data }: IDataParams) => {
+  const { items, total_count } = data;
+
+  return (
+    <>
+      {items &&
+        items.map(item => (
+          <Container key={item.id}>
+            <img src={item.owner.avatar_url} alt={item.name} />
+            <About>
+              <h1>{item.name}</h1>
+              <p>{item.description}</p>
+              <RepositoryData>
+                <div>
+                  <FaRegStar size={14} color="#3a3a3a" />
+                  <p>{item.stargazers_count}</p>
+                </div>
+
+                <div>
+                  <FaRegEye size={14} color="#3a3a3a" />
+                  <p>{item.watchers_count}</p>
+                </div>
+              </RepositoryData>
+            </About>
+            <FaChevronRight size={14} color="#3a3a3a" />
+          </Container>
+        ))}
+    </>
+  );
+};
 
 export default Repository;
