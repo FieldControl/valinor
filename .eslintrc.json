@@ -35,6 +35,11 @@
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
       "import/prefer-default-export": "off",
       "no-use-before-define": "off",
+      "implicit-arrow-linebreak": "off",
+      "object-curly-newline": "off",
+      "operator-linebreak": "off",
+      "camelcase": "off",
+      "arrow-parens": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
