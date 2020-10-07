@@ -13,7 +13,7 @@ import formatNumber from '../../utils/format';
 
 import logo from '../../assets/logo.png';
 
-import { Container } from './styles';
+import { Container, Error } from './styles';
 
 interface IDataProps {
   formatedCount: string;
@@ -38,6 +38,7 @@ interface IRepositorieDataProps {
 const Dashboard: React.FC = () => {
   const inputRepositoryRef = useRef<HTMLInputElement>(null);
 
+  const [inputError, setInputError] = useState('');
   const [loading, setLoading] = useState(false);
   const [repositories, setRepositories] = useState<IDataProps>(() => {
     const storageRepositories = localStorage.getItem(
@@ -62,9 +63,15 @@ const Dashboard: React.FC = () => {
     void
   > => {
     event.preventDefault();
-    setLoading(true);
-    const findRepository = inputRepositoryRef.current?.value;
 
+    if (!inputRepositoryRef.current?.value) {
+      setInputError('Digite o nome do repositório');
+      return;
+    }
+
+    setLoading(true);
+
+    const findRepository = inputRepositoryRef.current?.value;
     const response = await api.get<IDataProps>('search/repositories', {
       params: { q: findRepository, per_page: 5 },
     });
@@ -80,6 +87,12 @@ const Dashboard: React.FC = () => {
       formatedCount: formatNumber(total_count),
       total_count,
     };
+
+    if (total_count === 0) {
+      setInputError('Erro na busca do repositório');
+    } else {
+      setInputError('');
+    }
 
     setRepositories(formatResponse);
     setLoading(false);
@@ -99,6 +112,7 @@ const Dashboard: React.FC = () => {
         />
         <button type="submit">Pesquisar</button>
       </form>
+      {inputError && <Error>{inputError}</Error>}
       {loading ? (
         <FiLoader size={36} color="#3a3a3a" />
       ) : (

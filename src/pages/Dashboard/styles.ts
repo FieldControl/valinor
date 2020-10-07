@@ -87,3 +87,8 @@ const rotate = keyframes`
     transform: rotate(360deg);
   }
 `;
+
+export const Error = styled.span`
+  display: block;
+  color: #c53030;
+`;
