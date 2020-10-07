@@ -9,6 +9,7 @@ interface IDataParams {
 
 interface IDataProps {
   total_count: number;
+  formatedCount: string;
   items: IRepositorieDataProps[];
 }
 
@@ -22,10 +23,12 @@ interface IRepositorieDataProps {
   description: string;
   stargazers_count: number;
   watchers_count: number;
+  stargazers_format_count: string;
+  watchers_format_count: string;
 }
 
 const Repository: React.FC<IDataParams> = ({ data }: IDataParams) => {
-  const { items, total_count } = data;
+  const { items } = data;
 
   return (
     <>
@@ -39,12 +42,12 @@ const Repository: React.FC<IDataParams> = ({ data }: IDataParams) => {
               <RepositoryData>
                 <div>
                   <FaRegStar size={14} color="#3a3a3a" />
-                  <p>{item.stargazers_count}</p>
+                  <p>{item.stargazers_format_count}</p>
                 </div>
 
                 <div>
                   <FaRegEye size={14} color="#3a3a3a" />
-                  <p>{item.watchers_count}</p>
+                  <p>{item.watchers_format_count}</p>
                 </div>
               </RepositoryData>
             </About>
