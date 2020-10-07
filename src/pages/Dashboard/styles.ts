@@ -71,6 +71,11 @@ export const Container = styled.main<ILoadingProps>`
         animation: ${rotate} 2s linear infinite;
       }
     `}
+
+  h3 {
+    text-align: left;
+    margin: 30px 0;
+  }
 `;
 
 const rotate = keyframes`
