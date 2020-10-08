@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FaRegStar, FaRegEye, FaChevronRight } from 'react-icons/fa';
 
 import { Container, About, RepositoryData } from './styles';
@@ -16,6 +17,7 @@ interface IDataProps {
 interface IRepositorieDataProps {
   id: number;
   name: string;
+  full_name: string;
   owner: {
     avatar_url: string;
     html_url: string;
@@ -34,7 +36,7 @@ const Repository: React.FC<IDataParams> = ({ data }: IDataParams) => {
     <>
       {items &&
         items.map(item => (
-          <Container key={item.id}>
+          <Container to={`/issues/${item.full_name}`} key={item.id}>
             <img src={item.owner.avatar_url} alt={item.name} />
             <About>
               <h1>{item.name}</h1>

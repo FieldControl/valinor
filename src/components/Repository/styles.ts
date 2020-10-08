@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Container = styled.a`
+export const Container = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +11,7 @@ export const Container = styled.a`
   height: 200px;
   border-radius: 5px;
   background-color: #fff;
+  text-decoration: none;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
