@@ -20,7 +20,6 @@ export default createGlobalStyle`
   #root {
     max-width: 100vw;
     max-height: 100vh;
-    padding: 40px 20px;
   }
 
   button, a {
