@@ -24,6 +24,7 @@ interface IDataProps {
 interface IRepositorieDataProps {
   id: number;
   name: string;
+  full_name: string;
   owner: {
     avatar_url: string;
     html_url: string;
@@ -93,7 +94,6 @@ const Dashboard: React.FC = () => {
     } else {
       setInputError('');
     }
-
     setRepositories(formatResponse);
     setLoading(false);
   }, []);
