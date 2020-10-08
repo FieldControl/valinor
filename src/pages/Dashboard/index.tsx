@@ -74,7 +74,7 @@ const Dashboard: React.FC = () => {
 
     const findRepository = inputRepositoryRef.current?.value;
     const response = await api.get<IDataProps>('search/repositories', {
-      params: { q: findRepository, per_page: 5 },
+      params: { q: findRepository, per_page: 15 },
     });
 
     const { items, total_count } = response.data;
