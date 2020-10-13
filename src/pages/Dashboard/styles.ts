@@ -32,7 +32,7 @@ export const Container = styled.main<ILoadingProps>`
 
   form {
     display: flex;
-    margin: 18px 0 60px;
+    margin: 18px 0 40px;
     max-width: 700px;
     width: 100%;
     height: 60px;
@@ -78,6 +78,34 @@ export const Container = styled.main<ILoadingProps>`
   }
 `;
 
+export const Error = styled.span`
+  display: block;
+  color: #c53030;
+`;
+
+export const Pagination = styled.div`
+  display: flex;
+  padding-top: 15px;
+  max-width: 700px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  button {
+    background-color: #23272a;
+    color: #fff;
+    font-weight: bold;
+    transition: opacity 0.25s ease-out;
+    border-radius: 4px;
+    border: 0;
+    padding: 8px;
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+`;
+
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -86,9 +114,4 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
-
-export const Error = styled.span`
-  display: block;
-  color: #c53030;
 `;

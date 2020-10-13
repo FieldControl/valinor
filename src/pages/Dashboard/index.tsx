@@ -13,7 +13,7 @@ import formatNumber from '../../utils/format';
 
 import logo from '../../assets/logo.png';
 
-import { Container, Error } from './styles';
+import { Container, Error, Pagination } from './styles';
 
 interface IDataProps {
   formatedCount: string;
@@ -39,6 +39,7 @@ interface IRepositorieDataProps {
 const Dashboard: React.FC = () => {
   const inputRepositoryRef = useRef<HTMLInputElement>(null);
 
+  const [page, setPage] = useState(1);
   const [inputError, setInputError] = useState('');
   const [loading, setLoading] = useState(false);
   const [repositories, setRepositories] = useState<IDataProps>(() => {
@@ -60,43 +61,80 @@ const Dashboard: React.FC = () => {
     );
   }, [repositories]);
 
-  const handleSearchRepository = useCallback(async (event: FormEvent): Promise<
-    void
-  > => {
-    event.preventDefault();
-
-    if (!inputRepositoryRef.current?.value) {
-      setInputError('Digite o nome do repositório');
-      return;
-    }
+  useEffect(() => {
+    const findRepository = inputRepositoryRef.current?.value;
 
     setLoading(true);
+    api
+      .get<IDataProps>('search/repositories', {
+        params: { q: findRepository, page, per_page: 5 },
+      })
+      .then(response => {
+        const { items, total_count } = response.data;
 
-    const findRepository = inputRepositoryRef.current?.value;
-    const response = await api.get<IDataProps>('search/repositories', {
-      params: { q: findRepository, per_page: 15 },
-    });
+        const formatResponse: IDataProps = {
+          items: items.map(item => ({
+            ...item,
+            stargazers_format_count: formatNumber(item.stargazers_count),
+            watchers_format_count: formatNumber(item.watchers_count),
+          })),
+          formatedCount: formatNumber(total_count),
+          total_count,
+        };
+        setRepositories(formatResponse);
+        setLoading(false);
+      });
+  }, [page]);
 
-    const { items, total_count } = response.data;
+  const handleSearchRepository = useCallback(
+    async (event: FormEvent): Promise<void> => {
+      event.preventDefault();
+      setPage(1);
 
-    const formatResponse = {
-      items: items.map(item => ({
-        ...item,
-        stargazers_format_count: formatNumber(item.stargazers_count),
-        watchers_format_count: formatNumber(item.watchers_count),
-      })),
-      formatedCount: formatNumber(total_count),
-      total_count,
-    };
+      if (!inputRepositoryRef.current?.value) {
+        setInputError('Digite o nome do repositório');
+        return;
+      }
 
-    if (total_count === 0) {
-      setInputError('Erro na busca do repositório');
-    } else {
-      setInputError('');
-    }
-    setRepositories(formatResponse);
-    setLoading(false);
-  }, []);
+      setLoading(true);
+
+      const findRepository = inputRepositoryRef.current?.value;
+
+      const response = await api.get<IDataProps>('search/repositories', {
+        params: { q: findRepository, page, per_page: 5 },
+      });
+
+      const { items, total_count } = response.data;
+
+      const formatResponse = {
+        items: items.map(item => ({
+          ...item,
+          stargazers_format_count: formatNumber(item.stargazers_count),
+          watchers_format_count: formatNumber(item.watchers_count),
+        })),
+        formatedCount: formatNumber(total_count),
+        total_count,
+      };
+
+      if (total_count === 0) {
+        setInputError('Erro na busca do repositório');
+      } else {
+        setInputError('');
+      }
+      setRepositories(formatResponse);
+      setLoading(false);
+    },
+    [page],
+  );
+
+  function handleAddPage(): void {
+    setPage(page + 1);
+  }
+
+  function handlePastPage(): void {
+    if (page === 1) return;
+    setPage(page - 1);
+  }
 
   return (
     <Container loading={loading}>
@@ -119,6 +157,15 @@ const Dashboard: React.FC = () => {
         <>
           <h3>{repositories.formatedCount}</h3>
           <Repository data={repositories} />
+          <Pagination>
+            <button disabled={page < 2} type="button" onClick={handlePastPage}>
+              Anterior
+            </button>
+            <span>{page}</span>
+            <button type="button" onClick={handleAddPage}>
+              Próxima
+            </button>
+          </Pagination>
         </>
       )}
     </Container>
