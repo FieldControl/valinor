@@ -1,41 +1,38 @@
-## Envio de solução
+﻿## Envio de solução
 
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+Para a criação da SPA não foi utilizado nenhum framework, apenas JavaScript puro.
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
-
-**Princípios de software**
-
-Quais princípios da engenharia de software que você usou?
+O projeto foi feito sem a utilização de frameworks JavaScript devido a minha falta de conhecimento. Achei que seria melhor realizar o desenvolvimento
+do projeto atualmente apenas com JavaScript puro, pois era a maneira que eu estava apto a fazer.
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+Como esse projeto foi realizado de uma forma simples e sem nenhum framework, não tive grandes problemas para desenvolve-lo. Porém algumas funcionalidades,
+como a paginação, eu acabei não conseguindo desenvolver.
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+Primeiramente estudaria para implementar corretamente o sistema de páginas. Em seguida, melhoraria a parte do código JavaScript, adicionando funções
+para deixá-lo mais legível.
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
-
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
+Me chamo Nathan Ferreira, tenho 19 anos.
+Nasci em São José do Rio Preto, completei o Ensino Médio no Colégio Ateneu no ano de 2017. Já no ano de 2018, comecei a cursar Análise e Desenvolvimento de Sistemas
+na Fatec Rio Preto, no qual finalizarei ainda este ano.
+Meu envolvimento com a área de desenvolvimento se deu principalmente pela influência do meu irmão mais velho, que ja trabalha na área á um bom tempo.
 
 
 ---
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+Email: nathanferreira00@hotmail.com
+Tel: 17 99140-7968
 
 
 
