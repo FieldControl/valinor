@@ -18,6 +18,19 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  background-color: #23272a;
+  color: #ffff;
+
+  h1 {
+    margin-left: 60px;
+  }
+`;
+
 export const ContainerCard = styled.a`
   display: flex;
   flex-direction: column;

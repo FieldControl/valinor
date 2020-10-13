@@ -3,7 +3,13 @@ import { useRouteMatch } from 'react-router-dom';
 
 import api from '../../services/api';
 
-import { Wrapper, Container, ContainerCard, HeaderCard } from './styles';
+import {
+  Wrapper,
+  Container,
+  Header,
+  ContainerCard,
+  HeaderCard,
+} from './styles';
 
 interface IRepositoryParams {
   repository: string;
@@ -38,6 +44,9 @@ const Issues: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header>
+        <h1>Issues</h1>
+      </Header>
       <Container>
         {issues.map(issue => (
           <ContainerCard href={issue.html_url} target="_blank" key={issue.id}>
