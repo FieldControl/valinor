@@ -64,7 +64,6 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     const findRepository = inputRepositoryRef.current?.value;
 
-    setLoading(true);
     api
       .get<IDataProps>('search/repositories', {
         params: { q: findRepository, page, per_page: 5 },
@@ -82,7 +81,6 @@ const Dashboard: React.FC = () => {
           total_count,
         };
         setRepositories(formatResponse);
-        setLoading(false);
       });
   }, [page]);
 
