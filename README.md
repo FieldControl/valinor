@@ -13,7 +13,7 @@ Nossa missão é melhorar a prestação de serviços no Brasil.
 Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControlApp](https://www.instagram.com/fieldcontrolapp/)
 
 <p>
-  <img src="fielders.png" width="855"/>
+  <img src="assets/fielders.png" width="855"/>
 </p>
 
 Origem
@@ -34,9 +34,9 @@ Condições
 Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
 
 <p float="left">
-  <img src="field3.jpeg" width="215"/> 
-  <img src="field1.jpeg" width="382"/>
-  <img src="field4.jpeg" width="215"/> 
+  <img src="assets/field3.jpeg" width="215"/> 
+  <img src="assets/field1.jpeg" width="382"/>
+  <img src="assets/field4.jpeg" width="215"/> 
 </p>
 
 A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
@@ -44,7 +44,7 @@ A empresa não possui hierarquias e você é convidado e desafiado a colaborar c
 Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
 
 <p>
-  <img src="frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" /> 
+  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" /> 
 </p>
 
 Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
@@ -99,31 +99,36 @@ Requisitos principais
  - Familiaridade com APIs REST, GraphQL e WebSockets
  - Ter prática em testar software!
  
-O desafio de programação
+Os desafios de programação
 ----------
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-<!-- &lt;challenge&gt; Frontend Developer 1 &lt;/challenge&gt; -->
-<!-- ---------- -->
+&lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
+----------
 
-<!-- Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page. -->
+:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
+---: | :---
 
-<!-- Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap. -->
+<br/>
 
-<!-- A idéia é que a landing seja responsiva e deve conter todas as seções do PSD: -->
+Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
 
-<!-- - Header -->
-<!-- - Section para funcionalidades -->
-<!-- - Section de imagens -->
-<!-- - Section do time -->
-<!-- - Slider com depoimentos -->
-<!-- - Section para call to action -->
-<!-- - Footer -->
+Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
 
-<!-- A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
+A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
 
-&lt;challenge&gt; Frontend Developer Rock Star &lt;/challenge&gt;
+- Header
+- Section para funcionalidades
+- Section de imagens
+- Section do time
+- Slider com depoimentos
+- Section para call to action
+- Footer
+
+A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :)
+
+&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
 ----------
 
 Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
@@ -227,10 +232,3 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 - Quais princípios da engenharia de software que você usou?
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
-
-E ai? Let's code?
-----------
-
-<p align="left">
-  <img width="200" src="https://raw.githubusercontent.com/FieldControl/valinor/master/cat.gif">
-</p>
