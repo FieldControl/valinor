@@ -1,4 +1,11 @@
-# ProjetoMarvel
+ProjetoMarvel
+
+Como Startar o projeto 
+utilizando node.js e angular cli
+no cmd 
+- npm install
+- ng serve 
+
 
 thaynnadias23@gmail.com
 (17)981197975	

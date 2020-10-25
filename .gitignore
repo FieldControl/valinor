@@ -1,0 +1,5 @@
+# pastas ignoradas para o git
+node_modules/
+
+# arquivos ignorados para o git
+package-lock.json
