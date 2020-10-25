@@ -1,0 +1,21 @@
+<div class="container">
+  <!-- input de pesquisa -->
+  <input id="search" class="form-control mr-sm-2" [formControl] = "search" type = "search" placeholder = "Search">
+  <div class="row">
+      <div class="container">
+        <div class="card-columns">
+          <!-- renderizando informaçoes dos personagens no card -->
+          <div *ngFor = "let character of allcharacters | async | paginate:page_size:page_number ">
+            <app-card [name] = "character.name" [imagePath] = "character.thumbnail.path"
+                      [imageExtension] = "character.thumbnail.extension" [description] = "character.description">
+            </app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- paginação -->
+    <mat-paginator [length] = "(allcharacters | async)?.length" [pageSize] = "page_size" (page) = "handlePage($event)"></mat-paginator>
+</div>
+
+
+

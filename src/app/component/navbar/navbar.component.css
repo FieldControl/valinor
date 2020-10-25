@@ -1,0 +1,19 @@
+.navbar {
+  position: relative;
+  margin-bottom: 16px;
+  height: 60px;
+  background-color: #ed1d24;
+  margin-bottom: 16px;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;
+  display: block;
+}
+
+img {
+  width: 65px;
+  height: 30px;
+}
