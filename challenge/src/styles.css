@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #161616;
+}
+
+.blue-text {
+    color: dodgerblue;
+}
+
+.white-text {
+    color: white;
+}
+
+.dark {
+    background-color: #161616;
+}
+
+.dark-grey {
+    background-color: #242424;
+}
+
+.blue {
+    background-color: #0077BE;
+}
+
+.dark-blue{
+    background-color: #043272;
+}
+
+.v-middle{
+    vertical-align: middle;
+}
