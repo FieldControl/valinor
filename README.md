@@ -4,6 +4,8 @@ Como Startar o projeto
 utilizando node.js e angular cli
 no cmd 
 - npm install
+- ng add @ng-bootstrap/ng-bootstrap
+- ng add @angular/material
 - ng serve 
 
 
