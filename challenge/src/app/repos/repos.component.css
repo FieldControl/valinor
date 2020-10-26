@@ -1,0 +1,22 @@
+.content{
+    padding-top: 32px;
+    padding-bottom: 96px;
+}
+
+table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    color:#BBB;
+}
+
+td {
+    color: white;
+}
+
+.action {
+    margin-right: 15px;
+}
