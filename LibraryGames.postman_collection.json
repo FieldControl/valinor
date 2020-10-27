@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "8396b66b-3610-424e-b42c-df487111c31d",
+		"name": "LibraryGames",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:49873/api/Game",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49873/api/Game",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49873",
+					"path": [
+						"api",
+						"Game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:49873/api/Game/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49873/api/Game/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49873",
+					"path": [
+						"api",
+						"Game",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:49873/api/Game",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Name\" : \"Test\",\n\t\"Release\" : \"2020-01-01\",\n\t\"Category\" : \"Test Cat\",\n\t\"Score\" : 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49873/api/Game",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49873",
+					"path": [
+						"api",
+						"Game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:49873/api/Game/4",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\" : \"Resident Evil 2 Remake\",\r\n\t\"Release\" : \"2019-01-25\",\r\n\t\"Category\" : \"Horror/Action\",\r\n\t\"Score\" : 89\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49873/api/Game/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49873",
+					"path": [
+						"api",
+						"Game",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:49873/api/Game/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49873/api/Game/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49873",
+					"path": [
+						"api",
+						"Game",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,13 @@
+Ferramentas: Visual Studio 2019 e SQL Server 2012
+Bibliotecas: Microsoft Entity Framework e Microsoft Entity Framework SQL Server
+
+Porque tais ferramentas: São as ferramentas que eu já trabalhei e que eu mais tenho experiencia e conhecimento
+
+Principios da Engenharia de Software: Modularidade e separação de interesses
+
+Desafios e Problemas enfretados: eu tive um certo problema com o metodo Update em que ele recebia os dados
+e atualizava as modificações, mas acabava dando erro então eu fiz um select com base no Id a ser atualizado
+e substitui com os dados novos e salvei.
+
+o que pode ser melhorado e como fazer: Pode ser melhorado os tratamentos de excesões fazendo uma verificação 
+para cada tipo de exceção para determinado problema 
