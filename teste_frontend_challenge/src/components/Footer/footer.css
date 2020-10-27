@@ -1,0 +1,37 @@
+footer {
+  min-height: 10vh;
+  max-height: 10vh;
+  height: 100%;
+
+  border-top: 1px solid white;
+
+  display: flex;
+}
+
+footer div.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer div.container div.copyrigth {
+  display: flex;
+  align-items: center;
+}
+
+footer div.container div.copyrigth img {
+  width: 30px;
+  height: 30px;
+
+  margin-right: 30px;
+}
+
+footer div.container div.copyrigth h1,
+footer div.container a {
+  color: var(--color-text-link);
+
+  font-size: 10px;
+  font-weight: 400;
+
+  letter-spacing: 1px;
+}

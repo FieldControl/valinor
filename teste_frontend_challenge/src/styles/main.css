@@ -1,0 +1,207 @@
+main {
+  max-height: 100vh;
+  height: 100%;
+
+  margin: 50px 0;
+}
+
+div.card a, div.card h1 {
+  font-size: 14px;
+}
+
+main div.container-middle {
+  display: grid;
+  grid-template-columns: 2.5fr 6fr;
+  column-gap: 25px;
+}
+
+main div.container-middle div.left div.repositories {
+  margin-bottom: 30px;
+}
+
+main div.container-middle div.left div.repositories div.cards {
+  border: 1px solid var(--color-text-header);
+}
+
+main div.container-middle div.left div.repositories div.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0px 10px;
+
+  border-bottom: 1px solid var(--color-text-header);
+
+  cursor: pointer;
+}
+
+main div.container-middle div.left div.repositories div.card:last-child {
+  border-bottom: none;
+}
+
+main div.container-middle div.left div.repositories div.card a {
+  color: black;
+
+  padding: 13px 70px 13px 10px;
+
+  font-size: 12px;
+  font-weight: normal;
+}
+
+main div.container-middle div.left div.repositories div.card h1 {
+  padding: 2px 8px;
+
+  border-radius: 8px;
+
+  background-color: #24292E;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: normal;
+}
+
+main div.container-middle div.left div.languages {
+  padding: 10px;
+
+  border: 1px solid  var(--color-text-header);
+}
+
+main div.container-middle div.left div.languages div.cards {
+  padding: 10px;
+}
+
+main div.container-middle div.left div.languages div.cards > h1 {
+  font-size: 15px;
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  padding-bottom: 10px;
+}
+
+main div.container-middle div.left div.languages div.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px;
+}
+
+main div.container-middle div.left div.languages div.card a {
+  color: black;
+
+  font-size: 12px;
+  font-weight: normal;
+}
+
+main div.container-middle div.left div.languages div.card h1 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+main div.container-middle div.right div.results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid var(--color-text-header);
+
+  padding-bottom: 20px;
+}
+
+main div.container-middle div.right div.results h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+main div.container-middle div.right div.results button {
+  font-size: 12px;
+
+  padding: 5px 15px;
+
+  border: 1px solid var(--color-text-header);
+  border-radius: 4px;
+
+  background-color: #F3F4F6;
+}
+
+main div.container-middle div.right div.card-grid {
+  display: flex;
+  column-gap: 20px;
+  align-items: flex-start;
+
+  padding: 30px 0;
+
+  border-bottom: 1px solid #D6D8DA;
+}
+
+main div.container-middle div.right div.card-grid  img {
+  width: 25px;
+  height: 25px;
+}
+
+main div.container-middle div.right div.card-grid div.card div.header-card h1 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+main div.container-middle div.right div.card-grid div.card div.header-card span {
+  font-weight: bold;
+}
+
+main div.container-middle div.right div.card-grid div.card p {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.stars {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.stars img {
+  width: 18px;
+  height: 18px;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.stars h1 {
+  font-weight: normal;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.language {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.language div {
+  background-color: yellow;
+
+  height: 15px;
+  width: 15px;
+
+  border-radius: 50%;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.language h1 {
+  font-weight: normal;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.update {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+main div.container-middle div.right div.card-grid div.card div.card-bottom div.update h1 {
+  font-weight: normal;
+}
+

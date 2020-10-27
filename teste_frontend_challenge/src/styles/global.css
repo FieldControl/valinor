@@ -1,0 +1,38 @@
+:root {
+  --color-text-header: #D6D8DA;
+  --color-text-link: #0366D6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+.all {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+.container-middle  {
+  max-width: 900px;
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+a, li {
+  text-decoration: none;
+  list-style: none;
+}
