@@ -2,12 +2,14 @@ import React from 'react';
 
 import './footer.css';
 
+import logo from '../../assets/github.svg';
+
 export default function Footer() {
   return (
     <footer>
       <div className="container">
         <div className="copyrigth">
-          <img src="/assets/github.svg" alt="github" />
+          <img src={logo} alt="github" />
           <h1>2020 Github, Inc.</h1>
         </div>
         <a href="/">Terms</a>
