@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api.github.com/search/repositories?q=',
+  baseURL: 'https://api.github.com/',
 });
 
 export default api;

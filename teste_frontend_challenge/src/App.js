@@ -1,19 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './styles/global.css';
+import './styles/header.css';
 import './styles/main.css';
+import './styles/footer.css';
 
-import repository from './assets/repository.svg';
+import logo from './assets/github.svg';
+import imgRepository from './assets/repository.svg';
 import star from './assets/estrela.svg';
 
-import Header from './components/Header/index.js';
-import Footer from './components/Footer/index.js';
+import api from './services/api.js';
 
 function App() {
+  const [repositories, setRepositories] = useState({});
+  const [repository, setRepository] = useState('');
+
+  function handleClickSearch(event) {
+    api.get(`search/repositories?q=${repository}`).then((response) => {
+      setRepositories(response.data);
+    }, []);
+    event.preventDefault();
+  }
+
   return (
     <>
-      <Header />
-
+      <header>
+        <div className="container">
+          <div className="nav">
+            <img src={logo} alt="github" />
+            <div className="list">
+              <h1>Why GitHub?</h1>
+              <ul>
+                <li />
+              </ul>
+            </div>
+            <a href="/">Team</a>
+            <a href="/">Enterprise</a>
+            <div className="list">
+              <h1>Explore</h1>
+              <ul>
+                <li />
+              </ul>
+            </div>
+            <a href="/">Marketplace</a>
+            <div className="list">
+              <h1>Pricing</h1>
+              <ul>
+                <li />
+              </ul>
+            </div>
+          </div>
+          <div className="search-login">
+            <div className="search">
+              <form onSubmit={handleClickSearch}>
+                <input
+                  id="search"
+                  type="text"
+                  onChange={(event) => setRepository(event.target.value)}
+                  placeholder="Buscar"
+                />
+                <button type="submit">Buscar</button>
+              </form>
+            </div>
+            <div className="login">
+              <a href="/">Sign in</a>
+              <a href="/">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </header>
       <main>
         <div className="container-middle">
           <div className="left">
@@ -21,12 +76,12 @@ function App() {
               <div className="cards">
                 <div className="card">
                   <a href="/">Repositories</a>
-                  <h1>963K</h1>
+                  <h1>{repositories.total_count}</h1>
                 </div>
 
                 <div className="card">
                   <a href="/">Code</a>
-                  <h1>963K</h1>
+                  <h1>854k</h1>
                 </div>
 
                 <div className="card">
@@ -128,44 +183,65 @@ function App() {
 
           <div className="right">
             <div className="results">
-              <h1>963,346 repository results</h1>
+              <h1>
+                {repositories.total_count}
+                repository results
+              </h1>
               <button type="button">Sort: Best match</button>
             </div>
+            {console.log(repositories)}
+            {/* {repositories !== '' &&
+              repositories.items.map((item) => ( */}
             <div className="card-grid">
-              <img src={repository} alt="repositorio" />
+              <img src={imgRepository} alt="repositorio" />
               <div className="card">
                 <div className="header-card">
-                  <h1>
-                    ArlanBiati/
-                    <span>fiedlControl</span>
-                  </h1>
+                  <h1>item.full_name</h1>
                 </div>
 
-                <p>Teste Frontend Challenger</p>
+                <p>item.description</p>
 
                 <div className="card-bottom">
                   <div className="stars">
                     <img src={star} alt="estrela" />
-                    <h1>8</h1>
+                    <h1>item.stargazers_count</h1>
                   </div>
 
                   <div className="language">
                     <div />
-                    <h1>JavaScript</h1>
+                    <h1>item.language</h1>
                   </div>
 
                   <div className="update">
                     <h1>Updated on</h1>
-                    <h1>26 Out 2020</h1>
+                    <h1>item.updated_at</h1>
                   </div>
                 </div>
               </div>
             </div>
+            {/* ))} */}
           </div>
         </div>
       </main>
-
-      <Footer />
+      <footer>
+        <div className="container">
+          <div className="copyrigth">
+            <img src={logo} alt="github" />
+            <h1>2020 Github, Inc.</h1>
+          </div>
+          <a href="/">Terms</a>
+          <a href="/">Privacy</a>
+          <a href="/">Security</a>
+          <a href="/">Status</a>
+          <a href="/">Help</a>
+          <a href="/">Contact GitHub</a>
+          <a href="/">Pricing</a>
+          <a href="/">API</a>
+          <a href="/">Training</a>
+          <a href="/">Blog</a>
+          <a href="/">About</a>
+        </div>
+      </footer>
     </>
   );
 }

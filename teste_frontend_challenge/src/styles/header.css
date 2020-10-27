@@ -48,6 +48,11 @@ header div.container div.search-login {
   column-gap: 20px;
 }
 
+header div.container div.search-login div.search form {
+  display: flex;
+  column-gap: 5px;
+}
+
 header div.container div.search-login div.search input {
   padding: 8px;
 
@@ -65,6 +70,28 @@ header div.container div.search-login div.search input::placeholder {
   padding-left: 8px;
 
   color: var(--color-text-header);
+}
+
+header div.container div.search-login div.search form button {
+  background-color: #1B1D23;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  padding: 0 8px;
+
+  color: var(--color-text-header);
+
+  cursor: pointer;
+
+  transition: background-color 200ms ease-in-out;
+}
+
+header div.container div.search-login div.search button:hover {
+  background-color: #353842;
 }
 
 header div.container div.search-login div.login a {
