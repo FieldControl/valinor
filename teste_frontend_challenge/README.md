@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img alt="Github" title="Github" src="https://user-images.githubusercontent.com/43690080/97244626-f32aad80-17d7-11eb-9a77-9be1e39241ba.png" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-## Available Scripts
+<p align="center">
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=24292E&labelColor=000000" alt="PRs welcome!" />
 
-In the project directory, you can run:
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=24292E&labelColor=000000">
+</p>
 
-### `yarn start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <img alt="Github" src="https://user-images.githubusercontent.com/43690080/97244630-f6259e00-17d7-11eb-8839-d55f4b667556.gif" width="100%">
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+&nbsp;&nbsp;&nbsp;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Tecnologias
 
-### `yarn build`
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Node.js](https://nodejs.org/en/)
+- [React](https://reactjs.org)
+- [Axios](https://github.com/axios/axios)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+&nbsp;&nbsp;&nbsp;
 
-### `yarn eject`
+## 💻 Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Desenvolvimento da página de pesquisa do GitHub para o teste Frontend Challenge
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+&nbsp;&nbsp;&nbsp;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📂 Como iniciar o projeto
 
-## Learn More
+```zsh
+  # Clonar o repositório
+  ❯ git clone https://github.com/ArlanBiati/valinor
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  # Entrar no diretório
+  ❯ cd valinor
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  # Instalar dependências da aplicação
+  ❯ yarn install
 
-### Code Splitting
+  # Iniciar a aplicação
+  ❯ yarn start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+---
 
-### Analyzing the Bundle Size
+&nbsp;&nbsp;&nbsp;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📝 Desenvolvido por
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Arlan Gustavo Biati
 
-### Advanced Configuration
+❯ [@ArlanBiati](https://www.linkedin.com/in/arlan-biati-2b3512115/) <img src="https://user-images.githubusercontent.com/43690080/84064413-f0e6c480-a998-11ea-8d87-fa7e45653884.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+❯ arlangustavo@hotmail.com  <img src="https://user-images.githubusercontent.com/43690080/84064502-1542a100-a999-11ea-8085-b751f54ea57a.png">
 
-### Deployment
+❯ [ArlanBiati](https://github.com/ArlanBiati/) <img src="https://user-images.githubusercontent.com/43690080/84064412-f04e2e00-a998-11ea-859c-50c4c05df79b.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+&nbsp;&nbsp;&nbsp;
 
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
