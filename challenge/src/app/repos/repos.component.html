@@ -3,11 +3,34 @@
 
         <ng-container matColumnDef="repos">
             <td mat-cell *matCellDef="let row">
-                {{row.name}}
+
+                <span>
+                    <i class="material-icons v-middle white-text">book</i>
+                    <a class="blue-text title" href={{row.html_url}}>{{row.full_name}}</a>
+                </span>
+
+                <p class="description small">{{row.description}}</p>
+
+                <div>
+                    <p class="white-text small"><i class="material-icons v-middle">star_outline</i>
+                        {{kFormatter(row.stargazers_count)}}
+
+                        <i class="material-icons v-middle language">trip_origin</i>
+                        {{row.language}}
+
+                        <i class="material-icons v-middle language">visibility</i>
+                        {{kFormatter(row.watchers)}}
+
+                        <i class="material-icons v-middle language">bug_report</i>
+                        {{row.open_issues}}
+                </div>
             </td>
         </ng-container>
 
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
+
+    <mat-paginator class="dark-grey" [length]="lenght" [pageSize]="pageSize" (page)="getPaginatorData($event)">
+    </mat-paginator>
 </div>

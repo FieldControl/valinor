@@ -8,11 +8,21 @@ import { Observable } from 'rxjs';
 })
 export class ReposService {
 
-  baseUrl = "https://api.github.com/search/repositories?q=bootstrap";
+  baseUrl = "https://api.github.com/search/repositories?q=";
+  url: string;
 
   constructor(private http: HttpClient) { }
 
-  getRepos(): Observable<Search> {
-    return this.http.get<Search>(this.baseUrl);
+  getRepos(query: string = "bootstrap"): Observable<Search> {
+    this.url = this.baseUrl + query;
+    return this.http.get<Search>(this.url + "&page=1&per_page=10");
+  }
+
+  nextPage(page: number): Observable<Search> {
+    return this.http.get<Search>(this.url + "&page=" + page + "&per_page=10");
+  }
+
+  previousPage(page: number): Observable<Search> {
+    return this.http.get<Search>(this.url + "&page=" + page + "&per_page=10");
   }
 }

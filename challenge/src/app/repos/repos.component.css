@@ -1,22 +1,51 @@
 .content{
     padding-top: 32px;
-    padding-bottom: 96px;
-}
+    padding-bottom: 32px;
 
-table {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
 
-th {
-    color:#BBB;
+table {
+    width: 100%;
 }
 
-td {
-    color: white;
+table td {
+    padding: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    font-size: 1.2rem;
+    padding-right: 5px;
+}
+
+.title {
+    font-size: 1rem;
+}
+
+.description{
+    color: #BBB;
+}
+
+.small {
+    font-size: 0.8rem;
+    padding-left: 25px;
+}
+
+.language {
+    font-size: 0.8rem;
+    padding-left: 10px;
 }
 
 .action {
     margin-right: 15px;
+}
+
+mat-paginator {
+    color: #BBB;
 }

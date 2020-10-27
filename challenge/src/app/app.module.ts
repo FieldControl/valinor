@@ -12,6 +12,7 @@ import { ReposComponent } from './repos/repos.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatTableModule } from '@angular/material/table';
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
