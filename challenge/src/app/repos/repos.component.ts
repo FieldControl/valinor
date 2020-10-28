@@ -2,6 +2,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ReposService } from './repos.service';
 import { Search } from './repos.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-repos',
@@ -12,7 +13,7 @@ export class ReposComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  search: Search['items'];
+  search;
   displayedColumns: Array<string> = ['repos'];
   page: number = 1;
 
@@ -23,23 +24,35 @@ export class ReposComponent implements OnInit {
   constructor(private reposService: ReposService) { }
 
   ngOnInit(): void {
+    this.getRepos();
+  }
+
+  getRepos(query: string = "valinor"): void {
+
+    this.reposService.query = query;
     this.reposService.getRepos().subscribe(search => {
-      this.search = search['items'];
+      this.search = new MatTableDataSource(search['items']);
       this.lenght = search['total_count'];
 
       if (this.lenght > 1000)
         this.lenght = 1000;
+
+      //Atualiza a datatable
+      this.paginator._changePageSize(this.paginator.pageSize);
     });
   }
 
-  getPaginatorData(event) {
+  getPaginatorData(event?) {
+
     if (event.pageIndex === this.pageIndex + 1) {
       this.nextPage();
     }
     else if (event.pageIndex === this.pageIndex - 1) {
       this.previousPage();
     }
+
     this.pageIndex = event.pageIndex;
+
   }
 
   nextPage(): void {
@@ -69,4 +82,5 @@ export class ReposComponent implements OnInit {
   kFormatter(num: number) {
     return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num);
   }
+
 }

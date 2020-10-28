@@ -1,9 +1,18 @@
 <mat-toolbar class="header dark-grey">
 
-    <span>
-        <a>
-            <img class="logo" src="assets/img/logo.jpg" alt="logo">
-        </a>
-    </span>
+    <div class="center">
+        <span>
+            <a>
+                <img class="logo v-middle" src="assets/img/logo.jpg" alt="logo">
+            </a>
+        </span>
+
+        <input matInput placeholder="Search GitHub" #searchInput value={{query}}>
+
+        <button mat-icon-button>
+            <i class="material-icons white-text" (click)="search()">search</i>
+        </button>
+
+    </div>
 
 </mat-toolbar>
