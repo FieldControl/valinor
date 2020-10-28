@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import './styles/global.css';
 import './styles/header.css';
@@ -18,9 +18,15 @@ function App() {
   function handleClickSearch(event) {
     api.get(`search/repositories?q=${repository}`).then((response) => {
       setRepositories(response.data);
-    }, []);
+    });
     event.preventDefault();
   }
+
+  const totalCodeGeneral = useMemo(() => {
+    // const totalCode = 0;
+
+    return repositories.items?.map(({ size }) => size);
+  }, [repositories.items]);
 
   return (
     <>
@@ -81,7 +87,7 @@ function App() {
 
                 <div className="card">
                   <a href="/">Code</a>
-                  <h1>854k</h1>
+                  <h1>{totalCodeGeneral}</h1>
                 </div>
 
                 <div className="card">
@@ -121,7 +127,7 @@ function App() {
 
                 <div className="card">
                   <a href="/">Users</a>
-                  <h1>963K</h1>
+                  <h1>{repositories.items && repositories.items.length}</h1>
                 </div>
               </div>
             </div>
@@ -185,41 +191,40 @@ function App() {
             <div className="results">
               <h1>
                 {repositories.total_count}
-                repository results
+                <p>repository results</p>
               </h1>
               <button type="button">Sort: Best match</button>
             </div>
-            {console.log(repositories)}
-            {/* {repositories !== '' &&
-              repositories.items.map((item) => ( */}
-            <div className="card-grid">
-              <img src={imgRepository} alt="repositorio" />
-              <div className="card">
-                <div className="header-card">
-                  <h1>item.full_name</h1>
+            {repositories.items &&
+              repositories.items.map((item) => (
+                <div className="card-grid" key={item.id}>
+                  <img src={imgRepository} alt="repositorio" />
+                  <div className="card">
+                    <div className="header-card">
+                      <h1>{item.full_name}</h1>
+                    </div>
+
+                    <p>{item.description}</p>
+
+                    <div className="card-bottom">
+                      <div className="stars">
+                        <img src={star} alt="estrela" />
+                        <h1>{item.stargazers_count}</h1>
+                      </div>
+
+                      <div className="language">
+                        <div />
+                        <h1>{item.language}</h1>
+                      </div>
+
+                      <div className="update">
+                        <h1>Updated on</h1>
+                        <h1>{item.updated_at}</h1>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <p>item.description</p>
-
-                <div className="card-bottom">
-                  <div className="stars">
-                    <img src={star} alt="estrela" />
-                    <h1>item.stargazers_count</h1>
-                  </div>
-
-                  <div className="language">
-                    <div />
-                    <h1>item.language</h1>
-                  </div>
-
-                  <div className="update">
-                    <h1>Updated on</h1>
-                    <h1>item.updated_at</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* ))} */}
+              ))}
           </div>
         </div>
       </main>
@@ -247,3 +252,7 @@ function App() {
 }
 
 export default App;
+
+// criar logica para pegar o valor total de commits, issues, code, users
+
+// formatador de data não funciona

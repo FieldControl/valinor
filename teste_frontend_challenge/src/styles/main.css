@@ -1,5 +1,4 @@
 main {
-  max-height: 100vh;
   height: 100%;
 
   margin: 50px 0;
@@ -113,6 +112,12 @@ main div.container-middle div.right div.results {
 main div.container-middle div.right div.results h1 {
   font-size: 20px;
   font-weight: 600;
+
+  display: flex;
+}
+
+main div.container-middle div.right div.results h1 p {
+  margin-left: 10px;
 }
 
 main div.container-middle div.right div.results button {
