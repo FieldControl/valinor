@@ -1,0 +1,404 @@
+/* ========== HEADER ========== */
+
+header  {
+  background-color: #2a2e49;
+
+  height: 100%;
+  max-height: 70vh;
+}
+
+header div nav.menu {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(128, 128, 128, 0.863);
+
+  height: 10vh;
+}
+
+header div nav.menu div.links a {
+  color: white;
+
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  margin-right: 30px;
+
+  transition: color 200ms ease-in-out;
+}
+
+header div nav.menu div.links a:hover {
+  color: rgba(128, 128, 128, 0.863);
+}
+
+header div nav.menu div.links a:last-child {
+  margin-right: 0;  
+}
+
+header div div.banner {
+  height: 60vh;
+  max-height: 60vh;
+
+  display: flex;
+  align-items: center;
+}
+
+header div div.banner div.content {
+  text-align: center;
+}
+
+header div div.banner div.content h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+
+  color: white;
+}
+
+header div div.banner div.content p {
+  font-size: 20px;
+  line-height: 30px;
+
+  margin-top: 30px;
+
+  color: white;
+}
+
+header div div.banner div.content button {
+  margin-top: 50px;
+  padding: 15px 60px;
+
+  cursor: pointer;
+
+  color: white;
+
+  background-color: #e84545;
+
+  border: none;
+  border-radius: 4px;
+
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+/* ========== SECTION FUNCTIONALITIES ========== */
+
+
+section.functionalities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  column-gap: 50px;
+  row-gap: 20px;
+
+  height: 100%;
+  max-height: 70vh;
+
+  padding: 50px 0;
+}
+
+section.functionalities div.card {
+  text-align: center;
+}
+
+section.functionalities div.card img {
+  width: 60px;
+  height: 60px;
+}
+
+section.functionalities div.card h1 {
+  margin: 15px 0;
+
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+section.functionalities div.card p {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
+/* ========== SECTION IMAGES ========== */
+
+
+section.images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+
+  height: 100%;
+  max-height: 70vh;
+}
+
+section.images img {
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ========== SECTION TEAM ========== */
+
+
+section.team {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 25px;
+  align-items: center;
+
+  height: 100%;
+  max-height: 90vh;
+
+  padding: 10% 0;
+}
+
+section.team div.card img {
+  width: 100%;
+}
+
+section.team div.card h1 {
+  font-size: 25px;
+  font-weight: normal;
+
+  margin: 15px 0 5px;
+}
+
+section.team div.card h2 {
+  font-size: 15px;
+  font-weight: normal;
+
+  text-transform: uppercase;
+
+  color: red;
+}
+
+section.team div.card p {
+  font-size: 15px;
+  line-height: 20px;
+
+  margin: 25px 0;
+
+  color: #555555;
+}
+
+section.team div.card div.midias {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+section.team div.card div.midias img {
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #b7b7b741;
+
+  padding: 7px;
+
+  cursor: pointer;
+}
+
+
+/* ========== SECTION DEPOIMENTS ========== */
+
+
+section.slide-depoiments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  background-color:#53354a;
+
+  height: 100%;
+  max-height: 50vh;
+}
+
+section.slide-depoiments img {
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+}
+
+section.slide-depoiments div.gallery figure.item {
+  text-align: left;
+
+  width: 550px;
+
+  padding-left: 60px;
+}
+
+section.slide-depoiments div.gallery em {
+  font-size: 30px;
+
+  color: #aba3a9;
+}
+
+section.slide-depoiments div.gallery h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+
+  color: #aba3a9;
+
+  margin: 20px 0 50px;
+}
+
+
+/* ========== SECTION READY ========== */
+
+
+section.ready {
+  height: 100%;
+  max-height: 30vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section.ready h1 {
+  font-size: 25px;
+  font-weight: normal;
+}
+
+section.ready p {
+  font-size: 12px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+
+  margin: 10px 0 20px;
+}
+
+section.ready button {
+  background-color: #e84545;
+
+  color: white;
+
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 15px 70px;
+
+  cursor: pointer;
+}
+
+
+/* ========== FOOTER ========== */
+
+
+footer {
+  height: 100%;
+  max-height: 40vh;
+}
+
+footer div.footer {
+  background-color: #3a3e64;
+
+  height: 70%;
+}
+
+footer div.footer div.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-content: center;
+  align-items: flex-start;
+  justify-content: center;
+
+  height: 100%;
+}
+
+footer div.footer div.container div.location {
+  text-align: center;
+}
+
+footer div.footer div.container div.location h5 {
+  font-size: 15px;
+  text-transform: uppercase;
+
+  color: white;
+}
+
+footer div.footer div.container div.location p {
+  font-size: 15px;
+  margin-top: 15px;
+
+  color: #5c5f7b;
+}
+
+footer div.footer div.container div.social-midia {
+  text-align: center;
+}
+
+footer div.footer div.container div.social-midia h5 {
+  font-size: 15px;
+  text-transform: uppercase;
+
+  color: white;
+}
+
+footer div.footer div.container div.social-midia div.midia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  margin-top: 15px;
+}
+
+footer div.footer div.container div.social-midia div.midia img {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #ffffff;
+
+  padding: 7px;
+
+  cursor: pointer;
+}
+
+footer div.footer div.container div.about {
+  text-align: center;
+}
+
+footer div.footer div.container div.about h5 {
+  font-size: 15px;
+  text-transform: uppercase;
+
+  color: white;
+}
+
+footer div.footer div.container div.about p {
+  font-size: 15px;
+  margin-top: 15px;
+
+  color: #5c5f7b;
+}
+
+footer div.copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 30%;
+
+  background-color: #313454;
+
+  color: #5c5f7b;
+
+  font-weight: normal;
+}
+
+footer div.copyright p strong {
+  color: white;
+}

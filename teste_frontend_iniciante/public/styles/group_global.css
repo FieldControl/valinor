@@ -1,0 +1,12 @@
+/* Global styles */
+@import './styles_page/global.css';
+
+/* Landing page styles */
+@import './styles_page/landing.css';
+
+/* Responsive styles */
+@import './styles_page/responsive.css';
+
+/* Slider styles */
+@import './gallery/gallery.min.css';
+@import './gallery/gallery.theme.css';

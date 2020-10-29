@@ -1,0 +1,404 @@
+#menuToggle {
+  display: block;
+  position: relative;
+  right: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: tomato;
+}
+
+#menuToggle input {
+  display: block;
+
+  width: 40px;
+  height: 32px;
+  
+  position: absolute;
+  top: -7px;
+  left: 0px;
+  
+  cursor: pointer;
+  
+  opacity: 0;
+  z-index: 2;
+  
+  -webkit-touch-callout: none;
+}
+
+#menuToggle span {
+  display: block;
+
+  width: 33px;
+  height: 4px;
+
+  margin-bottom: 5px;
+
+  position: relative;
+  
+  background: #cdcdcd;
+
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(1.5px, 1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+  position: absolute;
+
+  right: -110px;
+
+  width: 300px;
+
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+
+@media (min-width: 770px) {
+  nav {
+    display: none;
+  }
+}
+
+@media (max-width: 770px) {
+  .container {
+    max-width: 650px;
+  }
+
+  header div nav.menu div.links {
+    display: none;
+  }
+
+  header div div.banner div.content h1 {
+    font-size: 40px;
+  }
+
+  header div div.banner div.content p {
+    font-size: 20px;
+  }
+
+  section.functionalities {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+
+    max-height: 100vh;
+  }
+
+  section.images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section.team {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+
+    max-height: none;
+  }
+
+  section.slide-depoiments img {
+    display: none;
+  }
+
+  .gallery .controls {
+    margin-top: -30px;
+    position: relative;
+    width: 30%;
+  }
+
+  footer section.footer div.container div.social-midia div.midia img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 425px) {
+  header div nav.menu div.links {
+    display: none;
+  }
+
+  #menuToggle {
+    right: 5px;
+  }
+
+  .container {
+    max-width: 400px;
+  }
+
+  header div div.banner div.content h1 {
+    font-size: 30px;
+  }
+
+  header div div.banner div.content p {
+    font-size: 18px;
+  }
+
+  section.functionalities {
+    grid-template-columns: 1fr;
+
+    max-height: none;
+  }
+
+  section.images {
+    grid-template-columns: 1fr;
+
+    height: 340%;
+    max-height: none;
+  }
+
+  section.images img {
+    width: auto;
+    height: 350px;
+  }
+
+  section.team {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  section.team div.card img {
+    width: 80%;
+  }
+
+  section.slide-depoiments {
+    grid-template-columns: 1fr;
+  }
+
+  section.slide-depoiments div.gallery em {
+    font-size: 20px;
+  }
+  
+  section.slide-depoiments div.gallery h3 {
+    font-size: 12px;
+  }
+
+  .gallery .controls {
+    margin-top: -30px;
+    position: relative;
+    width: 33%;
+  }
+
+  section.ready h1 {
+    font-size: 20px;
+
+    text-align: center;
+  }
+
+  section.ready p {
+    font-size: 10px;
+  }
+
+  footer {
+    max-height: 60vh;
+  }
+
+  footer section.footer div.container {
+    grid-template-columns: 1fr;
+
+    padding: 30px 0;
+
+    height: 100%;
+  }
+}
+
+@media (max-width: 330px) {
+  #menuToggle span {
+    width: 25px;
+  }
+
+  #menu {
+    padding: 30px;
+    padding-top: 100px;
+  }
+
+  #menu li {
+    padding: 5px 0;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: 310px;
+  }
+
+  header div nav.menu img {
+    width: 50%;
+  }
+
+  header div div.banner div.content h1 {
+    font-size: 22px;
+  }
+  
+  header div div.banner div.content p {
+    font-size: 15px;
+    line-height: normal;
+  }
+
+  header div div.banner div.content button {
+    margin-top: 30px;
+    padding: 15px 40px;
+  }
+
+  section.functionalities div.card img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  section.functionalities div.card h1 {  
+    font-size: 12px;
+  }
+  
+  section.functionalities div.card p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  section.images {
+    height: 425%;
+  }
+
+  section.images img {
+    height: 300px;
+  }
+
+  section.team div.card h1 {
+    font-size: 20px;
+  }
+  
+  section.team div.card h2 {
+    font-size: 12px;
+  }
+  
+  section.team div.card p {
+    font-size: 15px;
+  }
+  
+  section.team div.card div.midias {
+    justify-content: center;
+  }
+
+  section.slide-depoiments div.gallery figure.item { 
+    padding-left: 40px;
+  }
+
+  section.slide-depoiments div.gallery em {
+    font-size: 15px;
+  }
+  
+  section.slide-depoiments div.gallery h3 {
+    font-size: 10px;
+  }
+
+  .gallery .controls {
+    margin-top: -30px;
+    position: relative;
+    width: 25%;
+  }
+
+  section.ready h1 {
+    font-size: 15px;
+  }
+  
+  section.ready p {
+    font-size: 10px;
+  }
+  
+  section.ready button {
+    font-size: 10px;
+
+    padding: 15px 40px;
+  }
+
+  footer section.footer div.container div.location h1 {
+    font-size: 10px;
+  }
+  
+  footer section.footer div.container div.location h2 {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  footer section.footer div.container div.social-midia h1 {
+    font-size: 10px;
+  }
+  
+  footer section.footer div.container div.social-midia div.midia img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  footer section.footer div.container div.about h1 {
+    font-size: 10px;
+  }
+  
+  footer section.footer div.container div.about p {
+    font-size: 12px;
+  }
+
+  footer section.copyright p {
+    font-size: 12px;
+  }
+
+  footer section.copyright p strong {
+    font-size: 12px;
+  }
+}
