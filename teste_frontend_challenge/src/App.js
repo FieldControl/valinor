@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+// import ReactPaginate from 'react-paginate';
 
 import './styles/global.css';
 import './styles/header.css';
@@ -15,6 +16,8 @@ function App() {
   const [repositories, setRepositories] = useState({});
   const [repository, setRepository] = useState('');
 
+  // const [currentPage, setCurrentPage] = useState(0);
+
   function handleClickSearch(event) {
     api.get(`search/repositories?q=${repository}`).then((response) => {
       setRepositories(response.data);
@@ -23,10 +26,44 @@ function App() {
   }
 
   const totalCodeGeneral = useMemo(() => {
-    // const totalCode = 0;
-
-    return repositories.items?.map(({ size }) => size);
+    let totalCode = 0;
+    repositories.items?.map(({ size }) => {
+      totalCode += size;
+      return totalCode;
+    });
+    return totalCode;
   }, [repositories.items]);
+
+  const totalIssuesGeneral = useMemo(() => {
+    let totalIssues = 0;
+    repositories.items?.map(({ openIssues }) => {
+      totalIssues += openIssues;
+      return totalIssues;
+    });
+    console.log(totalIssues);
+    return totalIssues;
+  }, [repositories.items]);
+
+  // const itemsPage = 6;
+  // const offset = currentPage * itemsPage;
+
+  // if (repositories.items) {
+  //   const currentPageData = repositories.items
+  //     .slice(offset, offset + itemsPage)
+  //     .map((item) => item);
+
+  //   return currentPageData;
+  // }
+
+  // if (repositories.items) {
+  //   const pageCount = Math.ceil(repositories.items.length / itemsPage);
+
+  //   return pageCount;
+  // }
+
+  // function handlePageClick({ selected: selectedPage }) {
+  //   setCurrentPage(selectedPage);
+  // }
 
   return (
     <>
@@ -97,7 +134,7 @@ function App() {
 
                 <div className="card">
                   <a href="/">Issues</a>
-                  <h1>963K</h1>
+                  <h1>{totalIssuesGeneral}</h1>
                 </div>
 
                 <div className="card">
@@ -213,8 +250,8 @@ function App() {
                       </div>
 
                       <div className="language">
-                        <div />
-                        <h1>{item.language}</h1>
+                        {item.language !== null ? <div /> : ''}
+                        <h1>{item.language !== null ? item.language : ''}</h1>
                       </div>
 
                       <div className="update">
@@ -225,6 +262,18 @@ function App() {
                   </div>
                 </div>
               ))}
+            {/* <ReactPaginate
+              previousLabel="← Previous"
+              nextLabel="Next →"
+              // pageCount={pageCount}
+              // onPageChange={handlePageClick}
+              containerClassName="pagination"
+              previousLinkClassName="pagination__link"
+              nextLinkClassName="pagination__link"
+              disabledClassName="pagination__link--disabled"
+              activeClassName="pagination__link--active"
+            /> */}
+            {/* {currentPageData} */}
           </div>
         </div>
       </main>
@@ -252,7 +301,3 @@ function App() {
 }
 
 export default App;
-
-// criar logica para pegar o valor total de commits, issues, code, users
-
-// formatador de data não funciona

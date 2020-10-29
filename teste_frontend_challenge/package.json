@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/lab": "^4.0.0-alpha.56",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -12,6 +10,7 @@
     "intl": "^1.2.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-paginate": "^6.5.0",
     "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4"
   },
