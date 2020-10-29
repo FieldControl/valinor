@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-// import ReactPaginate from 'react-paginate';
 
 import './styles/global.css';
 import './styles/header.css';
@@ -15,14 +14,15 @@ import api from './services/api.js';
 function App() {
   const [repositories, setRepositories] = useState({});
   const [repository, setRepository] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  // const [currentPage, setCurrentPage] = useState(0);
-
-  function handleClickSearch(event) {
-    api.get(`search/repositories?q=${repository}`).then((response) => {
-      setRepositories(response.data);
-    });
+  async function handleClickSearch(event) {
     event.preventDefault();
+    await setLoading(true);
+    const response = await api.get(`search/repositories?q=${repository}`);
+    await setRepositories(response.data);
+
+    await setLoading(false);
   }
 
   const totalCodeGeneral = useMemo(() => {
@@ -36,34 +36,12 @@ function App() {
 
   const totalIssuesGeneral = useMemo(() => {
     let totalIssues = 0;
-    repositories.items?.map(({ openIssues }) => {
-      totalIssues += openIssues;
+    repositories.items?.map(({ open_issues_count: issuesRepo }) => {
+      totalIssues += issuesRepo;
       return totalIssues;
     });
-    console.log(totalIssues);
     return totalIssues;
   }, [repositories.items]);
-
-  // const itemsPage = 6;
-  // const offset = currentPage * itemsPage;
-
-  // if (repositories.items) {
-  //   const currentPageData = repositories.items
-  //     .slice(offset, offset + itemsPage)
-  //     .map((item) => item);
-
-  //   return currentPageData;
-  // }
-
-  // if (repositories.items) {
-  //   const pageCount = Math.ceil(repositories.items.length / itemsPage);
-
-  //   return pageCount;
-  // }
-
-  // function handlePageClick({ selected: selectedPage }) {
-  //   setCurrentPage(selectedPage);
-  // }
 
   return (
     <>
@@ -129,7 +107,7 @@ function App() {
 
                 <div className="card">
                   <a href="/">Commits</a>
-                  <h1>963K</h1>
+                  <h1>142M+</h1>
                 </div>
 
                 <div className="card">
@@ -139,32 +117,32 @@ function App() {
 
                 <div className="card">
                   <a href="/">Discussions</a>
-                  <h1>963K</h1>
+                  <h1>2K</h1>
                 </div>
 
                 <div className="card">
                   <a href="/">Packages</a>
-                  <h1>963K</h1>
+                  <h1>6K</h1>
                 </div>
 
                 <div className="card">
                   <a href="/">Marketplace</a>
-                  <h1>963K</h1>
+                  <h1>68</h1>
                 </div>
 
                 <div className="card">
                   <a href="/">Topics</a>
-                  <h1>963K</h1>
+                  <h1>2K</h1>
                 </div>
 
                 <div className="card">
                   <a href="/">Wikis</a>
-                  <h1>963K</h1>
+                  <h1>264K</h1>
                 </div>
 
                 <div className="card">
                   <a href="/">Users</a>
-                  <h1>{repositories.items && repositories.items.length}</h1>
+                  <h1>22K</h1>
                 </div>
               </div>
             </div>
@@ -262,20 +240,16 @@ function App() {
                   </div>
                 </div>
               ))}
-            {/* <ReactPaginate
-              previousLabel="← Previous"
-              nextLabel="Next →"
-              // pageCount={pageCount}
-              // onPageChange={handlePageClick}
-              containerClassName="pagination"
-              previousLinkClassName="pagination__link"
-              nextLinkClassName="pagination__link"
-              disabledClassName="pagination__link--disabled"
-              activeClassName="pagination__link--active"
-            /> */}
-            {/* {currentPageData} */}
           </div>
         </div>
+        {loading && (
+          <div className="loaded">
+            <img
+              src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif"
+              alt="github"
+            />
+          </div>
+        )}
       </main>
       <footer>
         <div className="container">

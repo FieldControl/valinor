@@ -1,7 +1,24 @@
 main {
   height: 100%;
 
-  margin: 50px 0;
+  margin-top: 50px;
+
+  position: relative;
+}
+
+main div.loaded {
+  background-color: #24292ea6;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+
+  top: -51px;
+}
+
+main div.loaded img {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
 }
 
 div.card a, div.card h1 {
@@ -209,5 +226,3 @@ main div.container-middle div.right div.card-grid div.card div.card-bottom div.u
 main div.container-middle div.right div.card-grid div.card div.card-bottom div.update h1 {
   font-weight: normal;
 }
-
-
