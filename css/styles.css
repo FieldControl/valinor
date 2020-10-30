@@ -1,3 +1,5 @@
+/* Global styles */
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Cardo:ital@1&display=swap');
@@ -8,13 +10,16 @@ body {
     font-size: 11pt;
 }
 
+.section-spacer {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 .btn {
     border: none;
     border-radius: 0;
     font-size: 9pt;
     line-height: 20pt;
-    margin-top: 8%;
-    margin-bottom: 8%;
 }
 
 .bg-red {
@@ -25,15 +30,42 @@ body {
     color: rgb(232, 69, 69);
 }
 
+.text-grey {
+    color: #888888;
+}
+
 .text-bold {
     font-weight: bold;
+}
+
+.text-9 {
+    font-size: 9pt;
 }
 
 .font-13 {
     font-size: 13pt;
 }
 
+.social-media {
+    margin: 2px;
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+    border: solid 1px #bbbbbb;
+    color: #bbbbbb
+}
+
+.social-media:hover {
+    border: solid 1px #666666;
+    color: #666666;
+}
+
+.emoji {
+    font-family: 'emoji';
+}
+
 /* Navbar */
+
 nav.navbar {
     background-color: transparent;
     border-bottom: solid 1px rgba(145, 145, 145, 0.6);
@@ -45,8 +77,9 @@ span.logo-special {
 }
 
 /* Header */
+
 .overlay {
-    background-color: rgba(12, 15, 63, 0.7);
+    background-color: rgba(58, 62, 99, 0.94);
     position: relative;
     height: 100%;
 }
@@ -65,8 +98,8 @@ header#page-header {
 }
 
 header#page-header .row {
-    margin-top: 8%;
-    margin-bottom: 8%
+    padding-top: 8%;
+    padding-bottom: 10%
 }
 
 .header-title {
@@ -76,6 +109,7 @@ header#page-header .row {
 }
 
 /* Features */
+
 #features {
     margin-bottom: 8%;
 }
@@ -85,10 +119,13 @@ header#page-header .row {
 }
 
 /* Products */
+
 .product {
     width: 99.9%;
     overflow: hidden;
     border: solid 1px #eeeeee;
+    object-fit: cover;
+    -o-object-fit: cover;
 }
 
 .product-overlay {
@@ -98,11 +135,13 @@ header#page-header .row {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0%;
+    opacity: 0;
+    padding-top: 25%;
 }
 
 .product-overlay:hover {
-    opacity: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
 .product img {
@@ -110,7 +149,41 @@ header#page-header .row {
 }
 
 /* Clients */
+
+.carousel-background {
+    background-color: rgb(82, 53, 73);
+    padding: 7% 13% 5% 5%;
+}
+
+@media (min-width: 992px) {
+    .carousel-indicators {
+        left: 14.2rem;
+    }    
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+}
+
 .client-quote {
     font-family: 'Cardo', 'Arial Narrow', Arial, sans-serif;
     font-size: 28pt;
+}
+
+/* Footer */
+
+footer {
+    background-color: rgb(58, 62, 99);
+}
+
+footer .contact-bar {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+footer .copy-bar {
+    background-color: rgb(48, 51, 84);
 }
