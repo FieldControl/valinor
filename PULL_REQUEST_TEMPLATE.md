@@ -4,38 +4,33 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+Apenas HTML, CSS e Bootstrap no Visual Studio Code
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
+Apenas o bootstrap pelo conhecimento que já tenho facilitou na criação.
 
 **Princípios de software**
 
-Quais princípios da engenharia de software que você usou?
+Fiz todo o código HTML semântico utilizando boas práticas e extraindo todas as informações de estilização do arquivo psd.
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+Foram 3 horas durante 2 noites para fazer toda a landing page totalizando 6 horas para fazer toda a landing page. Achei desafiador pois precisei usar algumas propriedades no CSS que não conhecia e também precisei aprender um pouquinho de photoshopo para conseguir extrair todas as informações do psd rsrs. Foi uma experiência bem legal!
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+Faltou fazer a responsividade, não conheço muito bem como fazer isso, sei apenas algumas coisas bem básicas mas não foram o suficiente. Nesse fim de semana vou estudar para conseguir fazer.
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
+22 Anos, Formado em Análise e desenvolvimento de sistema pela Faculdade de tecnologia do Estado de São Paulo (FATEC-RP).
+Apaixonado por TI e atualmente estudando e aprendendo bastante desenvolvimento WEB =]
 
 **Outros detalhes**
 
-Se quiser enviar alguma informação adicional sobre o desafio..
-
-
----
-
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+solano.oliveira@fatec.sp.gov.br
+17 981867590
 
 
 

@@ -1,0 +1,277 @@
+body {
+    background-color: white;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url('/src/fonts/OpenSans-Bold.ttf') format('woff');
+}
+
+@font-face {
+    font-family: 'Cardo-Italic';
+    src: url('/src/fonts/Cardo-Italic.ttf') format('woff');
+}
+
+h1 {
+    color: white !important;
+    font-family: 'OpenSans-Bold', Fallback, sans-serif;
+    text-transform: uppercase;
+    font-size: 65px !important;
+    font-weight: 700 !important;
+}
+
+header {
+    text-align: center;
+    background: linear-gradient(0deg, #333751f0, #333751f0), url(/src/img/banner.png);
+    height: 752px;
+}
+
+header .title img {
+    object-fit: scale-down;
+}
+
+header nav {
+    display: grid;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    object-fit: cover;
+    height: 100px;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+header nav .navLinks {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: right;
+}
+
+
+header .title {
+    max-width: fit-content;
+    float: left;
+}
+
+header .option {
+    color: white;
+    font-family: "Raleway";
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px;
+}
+
+header .container #banner p {
+    color: white;
+    font-family: 'Raleway', Fallback, sans-serif;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 300 !important;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+button {
+    font-family: 'Open Sans';
+    border: none;
+    padding: 12px 50px;
+    background-color: #e84545;
+    color: white;
+    border-radius: 3px !important;
+    font-size: 12px !important;
+}
+
+#features,
+#staff {
+    font-family: "Raleway" !important;
+    padding: 50px 0;
+}
+
+#features .feature {
+    padding: 5px;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin: 20px 0 !important;
+}
+
+#features .feature .featureHeader {
+    margin: 25px;
+}
+
+#features .feature .featureTitle {
+    font-family: "Raleway";
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+#features .feature .featureBody {
+    margin: 10px;
+}
+
+.card {
+    padding: 0 !important;
+    border: 1px solid white;
+    ;
+}
+
+#staff .staff-card {
+    margin-top: 40px;
+}
+
+#staff .staff-card .staff-photo {
+    margin: 20px 0 30px 0;
+}
+
+#staff .staff-card .staff-name {
+    font-size: 22px;
+}
+
+#staff .staff-card .staff-role {
+    color: #e84545;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#staff .staff-card .staff-description {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+#staff .staff-card .staff-social-media {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: left;
+    grid-gap: 5px;
+}
+
+#staff .staff-card .staff-social-media a {
+    border: solid 1px #e8ecee;
+    width: 40px;
+    height: 40px;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#depoiments {
+    min-height: 500px;
+    height: 500px;
+}
+
+#depoiments .depoiment {
+    padding-top: 100px;
+    padding-left: 100px;
+    max-width: 580px;
+    line-height: 50px;
+}
+
+#depoiments .depoiment .depoiment-quote {
+    font-size: 36px;
+    font-family: "Cardo";
+    font-style: italic;
+}
+
+#depoiments .depoiment .depoiment-sign {
+    font-family: "Raleway";
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#download {
+    margin: 100px 0;
+    text-align: center;
+}
+
+#download .call {
+    font-family: "Raleway";
+    font-weight: 300;
+    font-size: 28px;
+}
+
+#download .sub {
+    font-family: "Raleway";
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.customer-image {
+    object-fit: cover;
+}
+
+.customer-image img {
+    min-height: 500px;
+    height: 500px;
+}
+
+.carousel-indicators li {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50px !important;
+}
+
+.carousel-item {
+    background-color: #53354a;
+    color: white;
+    min-height: 500px;
+    height: 500px;
+}
+
+footer .footer-content {
+    color: white;
+    background-color: #3a3e64;
+    text-align: center;
+    min-height: 280px;
+    display: grid;
+    align-items: center;
+}
+
+footer .footer-item .footer-item-title {
+    font-family: "Raleway";
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+footer .footer-item .footer-item-content {
+    font-family: "Raleway";
+    font-size: 14px;
+    font-weight: bold;
+    color: #9d9fb2;
+    justify-content: center;
+    display: grid;
+}
+
+footer .social-media {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: left;
+    grid-gap: 5px;
+}
+
+footer .social-media a {
+    border: solid 1px white;
+    width: 40px;
+    height: 40px;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .social-media a img {
+    filter: brightness(1.5);
+}
+
+footer .footer-copyright {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #313454;
+    min-height: 120px;
+}
