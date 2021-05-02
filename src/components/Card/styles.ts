@@ -29,7 +29,7 @@ export const Container = styled.li`
     border-radius: 50%;
   }
 
-  div div {
+  div div.info-repo {
     margin-left: 1.5rem;
 
     a {
@@ -40,6 +40,24 @@ export const Container = styled.li`
 
     p {
       margin-top: 0.2rem;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      margin-top: 0.3rem;
+      gap: 0.9rem;
+
+      span.stargazers {
+        display: flex;
+        align-items: center;
+      }
+
+      span {
+        font-size: 0.75rem;
+        color: #58a6ff;
+      }
     }
   }
 `;

@@ -9,6 +9,9 @@ interface IRepository {
   full_name: string;
   url: string;
   description: string;
+  stargazers_count: number;
+  language: string;
+  pushed_at: Date;
   owner: {
     avatar_url: string;
     login: string;
@@ -24,11 +27,9 @@ export function Home() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    fetch(`${baseUrlApi}?q=${repository}&per_page=100`) // per_page=10&
+    fetch(`${baseUrlApi}?q=${repository}&per_page=10`) // per_page=10&
       .then((response) => response.json())
       .then((data) => setRepositories(data.items));
-
-    console.log(repositories);
   }
 
   return (
