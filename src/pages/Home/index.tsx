@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import { Card } from '../../components/Card';
 
 import { Header } from '../../components/Header';
+import { api } from '../../services/api';
 import { CardContainer, Container, Form } from './styles';
 
 interface IRepository {
@@ -22,14 +23,13 @@ export function Home() {
   const [repository, setRepository] = useState('');
   const [repositories, setRepositories] = useState<IRepository[]>([]);
 
-  const baseUrlApi = 'https://api.github.com/search/repositories';
-
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    fetch(`${baseUrlApi}?q=${repository}&per_page=10`) // per_page=10&
-      .then((response) => response.json())
-      .then((data) => setRepositories(data.items));
+    const response = await api.get(
+      `/search/repositories?q=${repository}&per_page=10`
+    );
+    setRepositories(response.data.items);
   }
 
   return (
