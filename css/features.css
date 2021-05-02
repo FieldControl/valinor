@@ -1,0 +1,24 @@
+.features {
+    padding: 10rem 0;
+}
+
+.feature-item {
+    max-width: 16rem;
+    text-align: center;
+    margin: 3rem 2rem;
+}
+.feature-item h3 {
+   color: #3b3e41;
+   text-transform: uppercase;
+   font-weight: bold;
+}
+
+.feature-item p {
+    color: #6c7279;
+    line-height: 1.31em;
+ }
+
+.feature-item img {
+    display: block;
+    margin: 0 auto;
+}

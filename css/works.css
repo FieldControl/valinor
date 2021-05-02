@@ -1,0 +1,22 @@
+.works {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.works img {
+    max-width: 25%;
+    display: block;
+}
+
+/* Media Queries */
+@media (max-width: 739px) {
+    .works {
+        flex-direction: column;
+    }
+
+    .works img {
+        max-width: 100%;
+        display: block;
+    }
+}

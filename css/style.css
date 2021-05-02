@@ -1,0 +1,55 @@
+/* CSS Imports */
+@import "header.css";
+@import "cover.css";
+@import "features.css";
+@import "clients.css";
+@import "works.css";
+@import "team.css";
+@import "download.css";
+@import "footer-activebox.css";
+@import "footer-copyright.css";
+
+/*  General style and CSS resets */
+body, ul, li, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Raleway";
+    color: #303030;
+}
+
+img {
+    max-width: 100%;
+    display: block;   
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+ul li {
+    list-style: none;
+}
+
+.container {
+    max-width: 60em;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+

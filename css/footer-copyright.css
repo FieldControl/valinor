@@ -1,0 +1,27 @@
+.copyright {
+    padding: 2rem;
+    background-color: #313454;
+}
+
+.copyright-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.copyright-container p {
+    color: #9d9fb2;
+    font-size: 0.875em;
+    line-height: 1.31em;
+}
+
+.copyright-container a {
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+}
+
+.copyright-container a:hover {
+    text-decoration: underline;
+}
+
