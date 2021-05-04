@@ -1,41 +1,29 @@
 ## Envio de solução
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
+Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre você:
 
-**Framework, linguagem e ferramentas**
-
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
-
-**Técnologias X e Y**
-
-Justifique porque você optou pela tecnologia X e não a Y?
-
-**Princípios de software**
-
-Quais princípios da engenharia de software que você usou?
-
-**Desafios e problemas**
-
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
-
-**Melhorias e próximas implementações**
-
-O que você entende que pode ser melhorado e como isso pode ser feito?
-
-**Sobre você**
-
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
-
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
+Eu optei por não usar nenhum Framework no momento pois tenho 
+até mais facilidade com a linguagem pura.
+Como o Luiz " Quem me enviou " o teste pediu pra enviar 
+o quanto antes... Fiz nas linguagens que mais domino (HTML,CSS,JS e Sass)
+Desenvolvi uma SPA utilizando o padrão MVC
 
 
----
+Meu principal desafio foi terminar a página em um único dia
+Geralmente eu teria mais tempo pra pensar, etc.
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+Se eu utilizasse React.js eu poderia linkar as páginas mais facilmente
+ou então melhorar e otimizar meu código
 
 
 
+Sobre mim
+Lucas Rafael, 18 anos e amo trabalhar/estudar.
+Pode ser sozinho ou em equipe eu sempre quero estar com a mão na massa!
+Estou estagiando numa secretaria do governo aqui no estado de MT - SEPLAG
+Lá eu atuo como FullStack mas tenho muita facilidade com o Front haha
+Estou cursando ADS na FATEC - Cuiabá
+
+Contato: +55 65 9 96449294
+Email: lucasrafael123araujolima@gmail.com
+**
