@@ -1,9 +1,13 @@
-
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
 .app {
   text-align: center;
+}
+.app__title {
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
