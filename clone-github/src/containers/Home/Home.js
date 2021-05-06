@@ -3,6 +3,9 @@ import "./Home.scss";
 import Search from "../../components/Search/Search";
 import { withRouter } from "react-router-dom";
 import RepoCard from "./RepoCard/RepoCard";
+import IssueCard from "./IssueCard/IssueCard";
+
+import { formatNumberWithComma } from "../../helpers/format";
 
 class Home extends Component {
   state = {
@@ -11,6 +14,8 @@ class Home extends Component {
     submit: false,
     pageCounter: 0,
     totalCount: 0,
+    type: "repositories",
+    issues: [],
   };
   /* eslint-disable  react/prop-types */
 
@@ -21,21 +26,31 @@ class Home extends Component {
     }
   }
   fetchRepos = async () => {
-    const { search } = this.state;
+    const { search, type } = this.state;
     try {
       const response = await fetch(
-        `https://api.github.com/search/repositories?q=${search}&page=1&per_page=10`
+        `https://api.github.com/search/${type}?q=${search}&page=1&per_page=10`
       );
       const data = await response.json();
-      this.setState({
-        repos: data.items,
-        submit: false,
-        totalCount: data.total_count,
-      });
+      if (type === "issues") {
+        this.setState({
+          issues: data.items,
+          submit: false,
+          totalCount: data.total_count,
+        });
+      }
+      if (type === "repositories") {
+        this.setState({
+          repos: data.items,
+          submit: false,
+          totalCount: data.total_count,
+        });
+      }
     } catch (err) {
       console.log(err);
       this.setState({
         repos: [],
+        issues: [],
         submit: false,
       });
     }
@@ -43,42 +58,64 @@ class Home extends Component {
   searchField = (e) => {
     this.setState({ search: e.target.value });
   };
+  searchType = (e) => {
+    this.setState({ type: e.target.value });
+  };
   submitSearch = () => {
-    const { search } = this.state;
-    if (search.length) {
+    const { search, type } = this.state;
+    if (search.length && type.length) {
       this.setState({ submit: true });
     }
   };
 
   render() {
-    const { search, repos, totalCount } = this.state;
+    const { search, type, issues, repos, totalCount } = this.state;
     let name = "";
-    if (repos.length) {
+    if (repos.length || issues.length) {
       name = (
         <ul className="home__container">
           <h3 className="home__total__count">
             {" "}
-            {totalCount} repository results
+            {formatNumberWithComma(totalCount)} {`${type} results`}
           </h3>
 
-          {repos.map((repo, index) => {
-            return <RepoCard key={index} {...repo} />;
-          })}
+          {type === "repositories"
+            ? repos.map((repo, index) => {
+                return <RepoCard key={index} {...repo} />;
+              })
+            : null}
+
+          {type === "issues"
+            ? issues.map((issue, index) => {
+                // return <li key={index}>{issue.number}</li>;
+                return <IssueCard key={index} {...issue} />;
+              })
+            : null}
         </ul>
       );
     }
     return (
-      <div className="home">
-        <div className="home__search">
-          <Search change={(e) => this.searchField(e)} text={search} />
-          <button className="home__button" onClick={() => this.submitSearch()}>
-            {" "}
-            Search
-          </button>
-        </div>
+      <>
+        <div className="home">
+          <div className="home__search">
+            <Search
+              change={(e) => this.searchField(e)}
+              text={search}
+              changeType={(e) => this.searchType(e)}
+              type={type}
+            />
+            <button
+              className="home__button"
+              onClick={() => this.submitSearch()}
+            >
+              {" "}
+              Search
+            </button>
+          </div>
 
-        {name}
-      </div>
+          {name}
+        </div>
+      </>
     );
   }
 }

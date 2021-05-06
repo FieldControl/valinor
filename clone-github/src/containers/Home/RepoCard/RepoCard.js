@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import "./RepoCard.scss";
 import starIcon from "../../../assets/star.png";
 import repoIcon from "../../../assets/repo.png";
+import { formatNumber, formatString } from "../../../helpers/format";
 
 const RepoCard = ({
   full_name,
-  url,
   description,
   updated_at,
   language,
@@ -15,8 +15,8 @@ const RepoCard = ({
   license,
 }) => {
   return (
-    <div className="repoCard">
-      <a className="repoCard__link repoCardIcon" href={url}>
+    <div className="repo__card">
+      <a className="repo__card__link repo__card__icon" href="/">
         {" "}
         <img
           width="12px"
@@ -26,14 +26,15 @@ const RepoCard = ({
         />
         {full_name}
       </a>
-      <p className="repoCard__description">{description}</p>
-      <ul className="repoCard__content">
-        <li className="repoCardIcon">
+      <p className="repo__card__description">{formatString(description)}</p>
+
+      <ul className="repo__card__content">
+        <li className="repo__card__icon">
           <img width="12px" height="12px" className="icon" src={starIcon} />
-          {stargazers_count}
+          {formatNumber(stargazers_count)}
         </li>
         {language ? (
-          <li className="repoCardIcon">
+          <li className="repo__card__icon">
             {" "}
             <span className="icon__circle"></span>
             {language}
@@ -49,7 +50,6 @@ const RepoCard = ({
 
 RepoCard.propTypes = {
   full_name: PropTypes.string,
-  url: PropTypes.string,
   description: PropTypes.string,
   updated_at: PropTypes.string,
   language: PropTypes.string,
