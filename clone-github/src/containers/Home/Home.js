@@ -19,8 +19,11 @@ class Home extends Component {
   };
   /* eslint-disable  react/prop-types */
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     const { submit } = this.state;
+    console.log(prevProps);
+    console.log(prevState);
+
     if (submit) {
       this.fetchRepos();
     }
@@ -87,7 +90,6 @@ class Home extends Component {
 
           {type === "issues"
             ? issues.map((issue, index) => {
-                // return <li key={index}>{issue.number}</li>;
                 return <IssueCard key={index} {...issue} />;
               })
             : null}
@@ -103,6 +105,7 @@ class Home extends Component {
               text={search}
               changeType={(e) => this.searchType(e)}
               type={type}
+              click={() => this.submitSearch()}
             />
             <button
               className="home__button"

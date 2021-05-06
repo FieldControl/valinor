@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshoot 1`] = `
+<DocumentFragment>
+  <div
+    class="issue__card"
+  >
+    <a
+      class="issue__card__link issue__card__icon"
+      href="/"
+    >
+       
+      <img
+        class="icon icon--issue"
+        height="12px"
+        src="e.png"
+        width="12px"
+      />
+      <div
+        class="issue__header"
+      >
+        <p
+          class="issue__card__number"
+        >
+          #
+        </p>
+      </div>
+    </a>
+    <ul
+      class="issue__card__content"
+    >
+      <li
+        class="issue__title"
+      />
+      <li
+        class="issue__card__icon"
+      >
+        ed
+      </li>
+      <li
+        class="issue__card__updated"
+      >
+        Invalid Date
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

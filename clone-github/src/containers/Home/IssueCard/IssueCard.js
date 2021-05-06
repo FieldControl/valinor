@@ -26,17 +26,21 @@ const IssueCard = ({
           src={eIcon}
         />
         <div className="issue__header">
-          <p className="issue__card__description ">
-            {formatUrl(repository_url)}
-          </p>
+          {repository_url ? (
+            <p className="issue__card__description ">
+              {formatUrl(repository_url)}
+            </p>
+          ) : null}
           <p className="issue__card__number">#{number}</p>
         </div>
       </a>
 
       <ul className="issue__card__content">
         <li className="issue__title">{title}</li>
-        <li className="issue__body">{`${String(body).slice(0, 200)} ...`}</li>
-        {user !== null ? (
+        {body && body.length ? (
+          <li className="issue__body">{`${String(body).slice(0, 200)} ...`}</li>
+        ) : null}
+        {user && user !== null ? (
           <li className="issue__card__user">{user.login.toUpperCase()}</li>
         ) : null}
         <li className="issue__card__icon">{state}ed</li>
@@ -56,7 +60,7 @@ IssueCard.propTypes = {
   number: PropTypes.number,
   comments: PropTypes.number,
   user: PropTypes.object,
-  state: PropTypes.bool,
+  state: PropTypes.string,
   body: PropTypes.string,
 };
 

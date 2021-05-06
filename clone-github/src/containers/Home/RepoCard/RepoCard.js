@@ -26,7 +26,9 @@ const RepoCard = ({
         />
         {full_name}
       </a>
-      <p className="repo__card__description">{formatString(description)}</p>
+      {description ? (
+        <p className="repo__card__description">{formatString(description)}</p>
+      ) : null}
 
       <ul className="repo__card__content">
         <li className="repo__card__icon">
@@ -40,7 +42,9 @@ const RepoCard = ({
             {language}
           </li>
         ) : null}
-        {license !== null ? <li>{license.key.toUpperCase()} license</li> : null}
+        {license && license !== null ? (
+          <li>{license.key.toUpperCase()} license</li>
+        ) : null}
         <li>Updated {new Date(updated_at).toLocaleDateString()}</li>
         <li>{open_issues} issues need help</li>
       </ul>

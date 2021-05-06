@@ -31,9 +31,13 @@ const formatNumber = (text) => {
   }
   if (t.length === 6) {
     l = 3;
+    if (t[3] === "0") {
+      l = 4;
+    }
     metric = "k";
     point = 3;
   }
+
   if (t.length === 5) {
     l = 3;
     if (t[2] === "0") {

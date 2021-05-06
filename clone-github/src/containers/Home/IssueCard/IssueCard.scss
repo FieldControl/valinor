@@ -20,6 +20,7 @@
   }
 }
 .issue__card__content {
+  position: relative;
   box-sizing: border-box;
   padding: 1px;
   font-size: 12px;
@@ -27,7 +28,6 @@
   width: 100%;
   list-style: none;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
   & li {
     margin-top: 5px;
@@ -59,8 +59,12 @@
   margin-right: 2px;
 }
 .issue__body {
+  position: relative;
+  box-sizing: border-box;
   font-size: 14px;
   color: rgb(22, 22, 22);
+  line-height: 1.5;
+  width: 100%;
 }
 .icon {
   width: 14px;
@@ -95,4 +99,10 @@
   margin-right: 3px;
   margin-left: 3px;
   border: 2px solid black;
+}
+
+@media (max-width: 850px) {
+  .issue__body {
+    overflow: hidden;
+  }
 }
