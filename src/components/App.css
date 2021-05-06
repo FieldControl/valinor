@@ -1,0 +1,54 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    width: 80vw;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.card {
+    margin: 50px auto;
+    width: 50vw;
+}
+
+.cardResult{
+    margin: 10px;
+    text-align: left;
+}
+
+.details{
+    white-space: pre;
+}
+
+.pagination {
+    margin: 20px 0 10px 180px;
+}
+
+@media (max-width: 768px) {
+
+    .card {
+        width: 70vw;
+    }
+
+    .pagination {
+        margin-left: 100px; 
+    }
+}
+
+@media (max-width: 480px) {
+
+    
+
+    p{
+        font-size: 12px;
+    }
+
+    .card {
+        width: 90vw;
+        margin: 50px -15px ;
+    }
+
+    .pagination {
+        width: 100vw;
+        margin-left: -10px; 
+    }
+}
