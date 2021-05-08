@@ -4,6 +4,7 @@ import Search from "../../components/Search/Search";
 import { withRouter } from "react-router-dom";
 import RepoCard from "./RepoCard/RepoCard";
 import IssueCard from "./IssueCard/IssueCard";
+import Paginator from "../../components/Paginator/Paginator";
 
 import { formatNumberWithComma } from "../../helpers/format";
 
@@ -12,34 +13,52 @@ class Home extends Component {
     repos: [],
     search: "",
     submit: false,
-    pageCounter: 0,
+    pageCounter: 1,
     totalCount: 0,
     type: "repositories",
     issues: [],
+    links: [],
   };
   /* eslint-disable  react/prop-types */
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const { submit } = this.state;
-    console.log(prevProps);
-    console.log(prevState);
+    const { page } = this.props.location;
 
     if (submit) {
       this.fetchRepos();
     }
+    if (prevProps.location.page !== page) {
+      this.setState({ submit: true });
+      window.scrollTo(0, 0);
+    }
   }
+  componentWillUnmount() {
+    this.fetchRepos();
+    window.scrollTo(0, 0);
+    this.props.history.replace({ location: { page: 1 } });
+  }
+
   fetchRepos = async () => {
     const { search, type } = this.state;
+    const { page } = this.props.location;
     try {
       const response = await fetch(
-        `https://api.github.com/search/${type}?q=${search}&page=1&per_page=10`
+        `https://api.github.com/search/${type}?q=${search}&page=${
+          page ? page : "1"
+        }&per_page=10`
       );
       const data = await response.json();
+
+      const arr = this.getLinksOfHeader(response);
+
       if (type === "issues") {
         this.setState({
           issues: data.items,
           submit: false,
           totalCount: data.total_count,
+          pageCounter: page,
+          links: arr,
         });
       }
       if (type === "repositories") {
@@ -47,6 +66,8 @@ class Home extends Component {
           repos: data.items,
           submit: false,
           totalCount: data.total_count,
+          pageCounter: page,
+          links: arr,
         });
       }
     } catch (err) {
@@ -65,12 +86,35 @@ class Home extends Component {
     this.setState({ type: e.target.value });
   };
   submitSearch = () => {
+    this.props.history.replace({ location: { page: 1 } });
     const { search, type } = this.state;
     if (search.length && type.length) {
       this.setState({ submit: true });
     }
   };
+  getLinksOfHeader = (header) => {
+    const { page } = this.props.location;
+    const link = header.headers.get("link");
+    let re = link.split(",");
+    let arr = [];
+    arr.push({ rel: "page", page: page || 1 });
 
+    for (let i = 0; i <= re.length; i++) {
+      if (re[i]) {
+        arr.push(this.regexLink(re[i]));
+      }
+    }
+    return arr;
+  };
+  regexLink = (link) => {
+    let l = link.replace(/;/gim, "&");
+    let p = l.replace(/<|>/gim, "");
+    let g = p.replace(/ /gim, "");
+    let a = new URLSearchParams(g);
+    let rel = String(a.get("rel")).replace(/"/gim, "");
+    let page = String(a.get("page")).replace(/ /gim, "");
+    return { rel: rel, page: page };
+  };
   render() {
     const { search, type, issues, repos, totalCount } = this.state;
     let name = "";
@@ -93,32 +137,29 @@ class Home extends Component {
                 return <IssueCard key={index} {...issue} />;
               })
             : null}
+          <Paginator links={this.state.links} />
         </ul>
       );
     }
-    return (
-      <>
-        <div className="home">
-          <div className="home__search">
-            <Search
-              change={(e) => this.searchField(e)}
-              text={search}
-              changeType={(e) => this.searchType(e)}
-              type={type}
-              click={() => this.submitSearch()}
-            />
-            <button
-              className="home__button"
-              onClick={() => this.submitSearch()}
-            >
-              {" "}
-              Search
-            </button>
-          </div>
 
-          {name}
+    return (
+      <div className="home">
+        <div className="home__search">
+          <Search
+            change={(e) => this.searchField(e)}
+            text={search}
+            changeType={(e) => this.searchType(e)}
+            type={type}
+            click={() => this.submitSearch()}
+          />
+          <button className="home__button" onClick={() => this.submitSearch()}>
+            {" "}
+            Search
+          </button>
         </div>
-      </>
+
+        {name}
+      </div>
     );
   }
 }

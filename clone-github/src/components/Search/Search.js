@@ -6,13 +6,18 @@ const Search = ({ change, text, changeType, type, click }) => {
   const [select, setSelect] = useState(false);
   return (
     <div className="search__container">
+      <label className="search__label" htmlFor="search">
+        {text.length ? null : "Search or jump to..."}
+      </label>
       <input
+        id="search"
         data-testid="input"
         onClick={() => setSelect((prevState) => !prevState)}
         className="search"
         onChange={change}
         type="text"
         value={text}
+        autoComplete="off"
       />
       {select ? (
         <select
