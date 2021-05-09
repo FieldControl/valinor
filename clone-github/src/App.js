@@ -3,11 +3,12 @@ import "./App.scss";
 import Home from "./containers/Home/Home";
 import { Switch, Route } from "react-router-dom";
 import "./containers/Home/Home";
+import Navbar from "./containers/Navbar/Navbar";
 
 function App() {
   return (
     <div className="app">
-      <h1 className="app__title">Github Clone</h1>
+      <Navbar />
       <Switch>
         <Route>
           <Home />

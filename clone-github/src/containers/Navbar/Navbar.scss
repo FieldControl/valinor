@@ -1,0 +1,45 @@
+.nav__title {
+  box-sizing: border-box;
+  color: white;
+  padding: 5px;
+  font-size: 1rem;
+  margin-left: 5px;
+}
+.nav {
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(56, 56, 56);
+  width: 100%;
+}
+.nav__left {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.nav__right {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  & a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+.nav__icon {
+  margin-left: 10px;
+}
+
+@media (max-width: 820px) {
+  .nav__left {
+    width: 50%;
+  }
+  .nav__right {
+    width: 50%;
+  }
+}

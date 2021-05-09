@@ -7,7 +7,6 @@ import IssueCard from "./IssueCard/IssueCard";
 import Paginator from "../../components/Paginator/Paginator";
 
 import { formatNumberWithComma } from "../../helpers/format";
-
 class Home extends Component {
   state = {
     repos: [],
@@ -44,8 +43,7 @@ class Home extends Component {
     const { page } = this.props.location;
     try {
       const response = await fetch(
-        `https://api.github.com/search/${type}?q=${search}&page=${
-          page ? page : "1"
+        `https://api.github.com/search/${type}?order="desc"&q=${search}&page=${page ? page : "1"
         }&per_page=10`
       );
       const data = await response.json();
@@ -118,6 +116,7 @@ class Home extends Component {
   render() {
     const { search, type, issues, repos, totalCount } = this.state;
     let name = "";
+
     if (repos.length || issues.length) {
       name = (
         <ul className="home__container">
@@ -128,14 +127,14 @@ class Home extends Component {
 
           {type === "repositories"
             ? repos.map((repo, index) => {
-                return <RepoCard key={index} {...repo} />;
-              })
+              return <RepoCard key={index} {...repo} />;
+            })
             : null}
 
           {type === "issues"
             ? issues.map((issue, index) => {
-                return <IssueCard key={index} {...issue} />;
-              })
+              return <IssueCard key={index} {...issue} />;
+            })
             : null}
           <Paginator links={this.state.links} />
         </ul>
@@ -157,7 +156,9 @@ class Home extends Component {
             Search
           </button>
         </div>
-
+        {repos.length || search.length ? null : (
+          <h1 className="home__title">Search a repository in github.</h1>
+        )}
         {name}
       </div>
     );

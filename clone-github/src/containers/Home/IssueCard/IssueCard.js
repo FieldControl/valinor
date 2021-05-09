@@ -6,7 +6,7 @@ import eIcon from "../../../assets/e.png";
 import { formatUrl } from "../../../helpers/format";
 
 const IssueCard = ({
-  repository_url,
+  html_url,
   title,
   number,
   state,
@@ -17,7 +17,7 @@ const IssueCard = ({
 }) => {
   return (
     <div className="issue__card">
-      <a className="issue__card__link issue__card__icon" href="/">
+      <a className="issue__card__link issue__card__icon" href={html_url}>
         {" "}
         <img
           width="12px"
@@ -26,10 +26,8 @@ const IssueCard = ({
           src={eIcon}
         />
         <div className="issue__header">
-          {repository_url ? (
-            <p className="issue__card__description ">
-              {formatUrl(repository_url)}
-            </p>
+          {html_url ? (
+            <p className="issue__card__description ">{formatUrl(html_url)}</p>
           ) : null}
           <p className="issue__card__number">#{number}</p>
         </div>
@@ -54,7 +52,7 @@ const IssueCard = ({
 };
 
 IssueCard.propTypes = {
-  repository_url: PropTypes.string,
+  html_url: PropTypes.string,
   title: PropTypes.string,
   updated_at: PropTypes.string,
   number: PropTypes.number,

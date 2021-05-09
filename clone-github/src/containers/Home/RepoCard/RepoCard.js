@@ -16,7 +16,10 @@ const RepoCard = ({
 }) => {
   return (
     <div className="repo__card">
-      <a className="repo__card__link repo__card__icon" href="/">
+      <a
+        href={`https://github.com/${full_name}`}
+        className="repo__card__link repo__card__icon"
+      >
         {" "}
         <img
           width="12px"

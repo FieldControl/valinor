@@ -7,6 +7,8 @@
   box-shadow: 0 1px 2px rgb(182, 181, 181);
   border-radius: 5px;
   outline: none;
+  width: 100%;
+
   &:focus {
     border-color: rgb(10, 72, 165);
     box-shadow: 0 2px 5px rgb(8, 42, 155);
@@ -45,11 +47,19 @@
 .search__container {
   position: relative;
   display: flex;
+  width: 30%;
+
   & span {
     position: absolute;
     right: 5px;
     top: 5px;
     font-weight: bold;
     color: blue;
+  }
+}
+
+@media (max-width: 820px) {
+  .search__container {
+    width: 60%;
   }
 }
