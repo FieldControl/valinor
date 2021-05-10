@@ -20,7 +20,7 @@ const Select: React.FC<SelectProps> =  ({options, value, update}) => {
 
   const tempFunction = (e: MouseEvent) => {
     if (e.target) {
-      let target: any = e.target
+      let target = e.target as HTMLDetailsElement
 
       if (details.current && !details.current.contains(target)) {
         details.current.removeAttribute('open')
