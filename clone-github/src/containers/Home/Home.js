@@ -43,7 +43,8 @@ class Home extends Component {
     const { page } = this.props.location;
     try {
       const response = await fetch(
-        `https://api.github.com/search/${type}?order="desc"&q=${search}&page=${page ? page : "1"
+        `https://api.github.com/search/${type}?order="desc"&q=${search}&page=${
+          page ? page : "1"
         }&per_page=10`
       );
       const data = await response.json();
@@ -127,14 +128,14 @@ class Home extends Component {
 
           {type === "repositories"
             ? repos.map((repo, index) => {
-              return <RepoCard key={index} {...repo} />;
-            })
+                return <RepoCard key={index} {...repo} />;
+              })
             : null}
 
           {type === "issues"
             ? issues.map((issue, index) => {
-              return <IssueCard key={index} {...issue} />;
-            })
+                return <IssueCard key={index} {...issue} />;
+              })
             : null}
           <Paginator links={this.state.links} />
         </ul>

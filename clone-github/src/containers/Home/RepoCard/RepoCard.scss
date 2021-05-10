@@ -12,6 +12,8 @@
 }
 
 .repo__card__link {
+  font-family: AssistantRegular, serif;
+
   & em {
     font-weight: bold;
   }
@@ -20,6 +22,7 @@
   }
 }
 .repo__card__content {
+  font-family: Lato, serif;
   box-sizing: border-box;
   padding: 1px;
   font-size: 12px;

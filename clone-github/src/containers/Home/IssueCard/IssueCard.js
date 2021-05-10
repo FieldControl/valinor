@@ -7,6 +7,7 @@ import { formatUrl } from "../../../helpers/format";
 
 const IssueCard = ({
   html_url,
+  repository_url,
   title,
   number,
   state,
@@ -26,8 +27,10 @@ const IssueCard = ({
           src={eIcon}
         />
         <div className="issue__header">
-          {html_url ? (
-            <p className="issue__card__description ">{formatUrl(html_url)}</p>
+          {repository_url ? (
+            <p className="issue__card__description ">
+              {formatUrl(repository_url)}
+            </p>
           ) : null}
           <p className="issue__card__number">#{number}</p>
         </div>
@@ -53,6 +56,7 @@ const IssueCard = ({
 
 IssueCard.propTypes = {
   html_url: PropTypes.string,
+  repository_url: PropTypes.string,
   title: PropTypes.string,
   updated_at: PropTypes.string,
   number: PropTypes.number,

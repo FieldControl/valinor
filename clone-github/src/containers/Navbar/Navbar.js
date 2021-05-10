@@ -17,8 +17,8 @@ const Navbar = () => {
       </div>
       <ul className="nav__right">
         <li>
-          <a href="" alt="home">
-            Home
+          <a href="/" alt="home">
+            clean
           </a>
         </li>
       </ul>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
 
@@ -7,10 +7,6 @@ import PropTypes from "prop-types";
 
 const Paginator = ({ click, links }) => {
   const { page } = useLocation();
-
-  useEffect(() => {
-    console.log(page);
-  }, [page]);
 
   let arr = [];
   for (let i = 0; i < links.length; i++) {

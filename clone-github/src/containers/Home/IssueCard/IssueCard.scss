@@ -12,6 +12,8 @@
 }
 
 .issue__card__link {
+  font-family: AssistantRegular, serif;
+
   & em {
     font-weight: bold;
   }
@@ -20,6 +22,7 @@
   }
 }
 .issue__card__content {
+  font-family: Lato, sans-serif;
   position: relative;
   box-sizing: border-box;
   padding: 1px;
@@ -34,11 +37,11 @@
   }
 }
 .issue__card__description {
+  position: relative;
   box-sizing: border-box;
   padding: 1px;
   font-size: 12px;
   font-weight: bold;
-  color: #565656;
   margin-top: 5px;
 }
 .issue__card__number {
@@ -47,15 +50,17 @@
   font-size: 12px;
   color: #666768;
   margin-top: 5px;
-  margin-left: 5px;
+  margin-right: 5px;
 }
 .issue__header {
+  box-sizing: border-box;
+  position: relative;
   display: flex;
 }
 .issue__title {
   width: 100%;
   font-size: 1rem;
-  color: blue;
+  color: #f92104;
   margin-right: 2px;
 }
 .issue__body {
