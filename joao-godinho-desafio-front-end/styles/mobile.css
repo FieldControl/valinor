@@ -1,0 +1,213 @@
+@media(max-width: 859px) {
+
+    div.page-number-container {
+        font-size: 10px;
+    }
+
+    div.page-number-container a,
+    div.page-number-container span,
+    div.page-number-container a i {
+        font-size: 10px;
+    }
+}
+
+@media(max-width: 820px) {
+    div.page-number-container {
+        font-size: 8px;
+    }
+
+    div.page-number-container a,
+    div.page-number-container span,
+    div.page-number-container a i {
+        font-size: 8px;
+    }
+}
+
+@media(max-width: 770px) {
+    header#main-header div.left-container {
+        justify-content: flex-start;
+    }
+
+    div.left-container div.search {
+        width: 60%;
+        margin-left: 15px;
+    }
+    div.left-container nav {
+        display: none;
+    }
+    
+    header#main-header div.right-container {
+        width: auto;
+        margin-right: 0;
+    }
+
+    header#main-header div.right-container div.icon-container,
+    header#main-header div.right-container nav {
+        display: none;
+    }
+
+    header#main-header div.menu-toggle {
+        height: auto;
+        width: 40px;
+        
+        margin-right: 0;
+    }
+
+    .one,
+    .two,
+    .three {
+        height: 4px;
+        width: 70%;
+
+        margin: 6px auto;
+
+        background: #F2F2F2;
+
+        transition-duration: .3s;
+    }
+
+    header#main-header div.menu-section.on {
+        height: 100vh;
+        width: 100vw;
+        
+        background: #0d1117;
+        color: #c9d1d9;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        z-index: 10;
+    }
+
+    header#main-header .menu-section.on .menu-toggle {
+        position: absolute;
+        right: 45px;
+        
+        margin-top: 5px;
+    }
+
+    header#main-header .menu-section.on .menu-toggle .two {
+        opacity: 0;
+    }
+
+    header#main-header .menu-section.on .menu-toggle .one {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    header#main-header .menu-section.on .menu-toggle .three {
+        transform: rotate(-45deg) translate(8px, -7px);
+    }
+
+    header#main-header div.right-container div.menu-section.on {
+        height: 100vh;
+        width: 100vw;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    header#main-header div.menu-section.on nav {
+        height: 55vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    header#main-header .menu-section.on div.flex.icons {
+        height: 40vh;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    header#main-header div.right-container div.menu-section.on div.icon-container  {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 20px;
+    }
+
+    header#main-header div.menu-section.on nav a {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    main#primary-main {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    main#primary-main div.left-menu{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media(max-width: 739px) {
+
+    div.page-number-container {
+        font-size: 6px;
+    }
+
+    div.page-number-container a,
+    div.page-number-container span,
+    div.page-number-container a i {
+        font-size: 6px;
+    }
+}
+
+@media(max-width: 580px) {
+    div.page-number-container:not(.previous):not(.next) {
+        display: none;
+    }
+    div.page-number-container {
+        font-size: 8px;
+    }
+
+    div.page-number-container a,
+    div.page-number-container span,
+    div.page-number-container a i {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 514px) {
+    header div.menu-toggle 
+    .one,
+    .two,
+    .three {
+        height: 3px;
+        width: 65%;
+    }
+
+    div.content-view header h3 {
+        font-size: 12px;
+    }
+
+    div.filter select {
+        font-size: 10px;
+    }
+
+    div.container-infos {
+        flex-wrap: wrap;
+    }
+
+    div.container-infos div.specific-infos.language {
+        font-size: 9px;
+    }
+
+    div.specific-infos p {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 480px) {
+    header#main-header {
+        padding: 16px 17px;
+    }
+}

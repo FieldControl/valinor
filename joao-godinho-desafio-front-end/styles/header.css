@@ -1,0 +1,100 @@
+header#main-header {
+    height: 54px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #161b22;
+
+    padding: 16px 32px;
+
+    line-height: 1.5;
+    font-size: 12px;
+}
+
+header#main-header div.left-container {
+    width: 500px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.left-container a {
+    font-weight: 600;
+    color: white;
+}
+
+div.left-container a:hover {
+    color: #f0f6fcb3;
+}
+
+div.left-container div.search {
+    width: 40%;
+    
+    display: flex;
+
+    padding-right: 5px;
+
+    border-radius: 5px;
+    background: #0d1117;
+}
+
+div.left-container input {
+    width: 100%;
+    height: 28px;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 3px 12px;
+
+    background-color: #0d1117;
+    color: white;
+}
+
+div.right-container {
+    width: 105px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-right: 1rem;
+}
+
+div.menu-section nav {
+    display: none;
+}
+
+div.right-container .icon-container {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    margin-left: 10px;
+}
+
+div.icon-container i {
+    color: #f0f6fc;
+    cursor: pointer;
+
+    font-size: 13px;
+
+    margin-left: 5px;
+}
+
+div.icon-container:hover > i {
+    color: #989ca1;
+    cursor: pointer;
+} 
+
+div.icon-container img.perfil {
+    height: 20px;
+    width: 20px;
+
+    border-radius: 50%;
+}

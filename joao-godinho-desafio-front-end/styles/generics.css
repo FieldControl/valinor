@@ -1,0 +1,19 @@
+a.normal-link {
+    color: #58a6ff;
+}
+
+a.normal-link:hover {
+    text-decoration: underline;
+}
+
+span.bullet-info {
+    border-radius: 2em;
+    font-size: 13px;
+
+    padding: 2px 8px;
+}
+
+.flex {
+    display: flex;
+    align-items: flex-end;
+}
