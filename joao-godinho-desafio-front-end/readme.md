@@ -52,4 +52,4 @@ Plataforma de busca de repositórios no Github.
 ### nome: João Godinho
 ### email: godinhojoao2003@gmail.com
 
-[![Linkedin Badge](https://img.shields.io/badge/-Renata-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/joao-godinho-)](https://www.linkedin.com/in/joao-godinho-)
+[![Linkedin Badge](https://img.shields.io/badge/-João-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/joao-godinho-)](https://www.linkedin.com/in/joao-godinho-)
