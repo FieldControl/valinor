@@ -25,6 +25,10 @@ Plataforma de busca de repositórios no Github.
   
   ## O meu maior desafio nessa aplicação foi a paginação, embora a api tenha paginação foi necessário fazer uma paginação no front-end. Resolvi ele dessa forma: 
    Basicamente peguei o *número total de itens* e dividi pelo *número de itens por página* resultando assim no total de páginas, populei um array com as páginas, criei um objeto Pagination e dentro dele criei métodos para as seguintes funções: renderizar páginas e alterar páginas.
+   
+   ## Desafios em relação a api:
+    A cor da "bolinha das linguagens", peguei em: https://raw.githubusercontent.com/ozh/github-colors/master/colors.json
+    Os emojis que vem no formato :nomeDoEmoji:, peguei em: https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json
 
   ## O que eu entendo que pode ser mudado e como fazer isso: 
   
