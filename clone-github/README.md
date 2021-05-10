@@ -2,6 +2,11 @@
 
 # Um clone do github para pesquisar repositorios.
 
+Veja ao vivo.
+### [github-clone](https://frosty-pike-5f129d.netlify.app)
+
+### code [https://github.com/ulissesnew/valinor/tree/dev/clone-github](https://github.com/ulissesnew/valinor/tree/dev/clone-github)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
