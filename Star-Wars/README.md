@@ -18,4 +18,4 @@
 </ul>
 
 <h2 align="center" class="autor">Autor</h2>
-<p>Alessandra L. Capellari</p>
+<p align="center">Alessandra L. Capellari</p>
