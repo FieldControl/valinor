@@ -1,12 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import "./Home.scss";
 import Search from "../../components/Search/Search";
 import { withRouter } from "react-router-dom";
-import RepoCard from "./RepoCard/RepoCard";
-import IssueCard from "./IssueCard/IssueCard";
-import Paginator from "../../components/Paginator/Paginator";
-
 import { formatNumberWithComma } from "../../helpers/format";
+
+const AsyncPaginator = React.lazy(() =>
+  import("../../components/Paginator/Paginator")
+);
+const AsyncRepoCard = React.lazy(() => import("./RepoCard/RepoCard"));
+const AsyncIssueCard = React.lazy(() => import("./IssueCard/IssueCard"));
+
 class Home extends Component {
   state = {
     repos: [],
@@ -128,16 +131,26 @@ class Home extends Component {
 
           {type === "repositories"
             ? repos.map((repo, index) => {
-                return <RepoCard key={index} {...repo} />;
+                return (
+                  <Suspense key={index} fallback={<div>Loading...</div>}>
+                    <AsyncRepoCard {...repo} />
+                  </Suspense>
+                );
               })
             : null}
 
           {type === "issues"
             ? issues.map((issue, index) => {
-                return <IssueCard key={index} {...issue} />;
+                return (
+                  <Suspense key={index} fallback={<div>Loading...</div>}>
+                    <AsyncIssueCard key={index} {...issue} />
+                  </Suspense>
+                );
               })
             : null}
-          <Paginator links={this.state.links} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <AsyncPaginator links={this.state.links} />
+          </Suspense>
         </ul>
       );
     }

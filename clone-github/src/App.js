@@ -1,19 +1,21 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import "./App.scss";
-import Home from "./containers/Home/Home";
 import { Switch, Route } from "react-router-dom";
 import "./containers/Home/Home";
 import Navbar from "./containers/Navbar/Navbar";
 
+const AsyncHome = lazy(() => import("./containers/Home/Home"));
 function App() {
   return (
     <div className="app">
       <Navbar />
-      <Switch>
-        <Route>
-          <Home />
-        </Route>
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route>
+            <AsyncHome />
+          </Route>
+        </Switch>
+      </Suspense>
     </div>
   );
 }
