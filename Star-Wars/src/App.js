@@ -4,8 +4,7 @@ import {
   Accordion,
   AccordionSummary,
   Typography,
-  AccordionDetails,
-  TextField,
+  AccordionDetails
 } from "@material-ui/core";
 import { getApi } from "./api";
 
@@ -30,11 +29,10 @@ function App() {
             <h1>Star Wars Characters</h1>
             <p>Search about your favorite Star Wars character</p>
           </header>
-          <TextField
+          <input
             id="Search"
-            label="Search"
+            placeholder="Search"
             onChange={handleSearch}
-            size="medium"
           />
 
           {people.map((item, index) => {
@@ -95,7 +93,7 @@ function App() {
           alignItems="center"
           container
         >
-          <img src={"/r2d2.png"} alt={"r2d2"} />
+          <img src={"/millennium-falcon.png"} alt={"Millennium Falcon"} />
         </Grid>
       </Grid>
     </>

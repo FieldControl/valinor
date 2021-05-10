@@ -1,13 +1,66 @@
+body {
+  margin: 3rem;
+  background-color: #000;
+}
+
 h1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 2.5rem;
-  margin: 1rem;
+  font-family: 'Poller One', 'Comic Sans MS', 'Comic Sans' !important;
+  font-size: 3rem;
+  margin: 1.5rem;
+  color: #ffdf01;
 }
 
 p {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 1.2rem;
-  margin: 1rem;
+  font-family: 'Poller One', 'Comic Sans MS', 'Comic Sans' !important;
+  font-size: 1.2rem !important;
+  margin: 1.5rem;
+  color: #fff;
+}
+
+input {
+  font-family: 'Poller One', 'Comic Sans MS', 'Comic Sans';
+ font-size: 1.2rem;
+ margin: 2rem;
+ padding: 0.6rem;
+ width: 50%;
+ border: 1px solid #ffdf01;
+ background-color: #000;
+ color: #fff;
+}
+
+::-webkit-input-placeholder {
+  color: #ffdf01;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #ffdf01;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #ffdf01;  
+}
+
+:-ms-input-placeholder {  
+  color: #ffdf01;  
+}
+
+.MuiAccordionSummary-root,
+.MuiPaper-root {
+  border: 1px solid #ffdf01 !important;
+  background-color: #000 !important;
+  
+}
+
+.MuiAccordion-root {
+  margin-left: 2rem !important;
+}
+
+.MuiAccordion-root p {
+  color: #fff !important;
+}
+
+span {
+  color: #ffdf01;
 }
 
 img {
