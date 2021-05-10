@@ -1,0 +1,22 @@
+/*Essa estilização vai ser aplicado em todos os cards de todos os grupos*/
+h4 {
+  text-align: center;
+  margin-bottom: 5%;
+}
+.card-title {
+  margin-bottom: 1.5rem;
+}
+p {
+  margin-bottom: 1%;
+}
+.page-item:last-child .page-link {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.page-item:first-child .page-link {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.btn-light {
+  border: 2px solid rgba($color: black, $alpha: 0.3);
+}
