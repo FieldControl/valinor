@@ -9,26 +9,27 @@ const Paginator = ({ click, links }) => {
   const { page } = useLocation();
 
   let arr = [];
-  for (let i = 0; i < links.length; i++) {
-    let element = links[i];
-    if (page >= 3 && element.rel === "first") {
-      arr[0] = element;
-    }
+  if (links) {
+    for (let i = 0; i < links.length; i++) {
+      let element = links[i];
+      if (page >= 3 && element.rel === "first") {
+        arr[0] = element;
+      }
 
-    if (element.rel === "page") {
-      arr[2] = element;
-    }
-    if (element.rel === "prev" && page >= 2) {
-      arr[1] = element;
-    }
-    if (element.rel === "next") {
-      arr[3] = element;
-    }
-    if (element.rel === "last" && element.rel === "next") {
-      arr[4] = element;
+      if (element.rel === "page") {
+        arr[2] = element;
+      }
+      if (element.rel === "prev" && page >= 2) {
+        arr[1] = element;
+      }
+      if (element.rel === "next") {
+        arr[3] = element;
+      }
+      if (element.rel === "last" && element.rel === "next") {
+        arr[4] = element;
+      }
     }
   }
-
   return (
     <ul className="paginator">
       {links

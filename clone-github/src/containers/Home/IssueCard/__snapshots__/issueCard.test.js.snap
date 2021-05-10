@@ -7,7 +7,6 @@ exports[`should take a snapshoot 1`] = `
   >
     <a
       class="issue__card__link issue__card__icon"
-      href="/"
     >
        
       <img

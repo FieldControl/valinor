@@ -7,7 +7,7 @@ const Search = ({ change, text, changeType, type, click }) => {
   return (
     <div className="search__container">
       <label className="search__label" htmlFor="search">
-        {text.length ? null : "Search or jump to..."}
+        {text && text.length ? null : "Search or jump to..."}
       </label>
       <input
         id="search"

@@ -37,7 +37,6 @@ class Home extends Component {
   }
   componentWillUnmount() {
     this.fetchRepos();
-    window.scrollTo(0, 0);
     this.props.history.replace({ location: { page: 1 } });
   }
 

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshoot 1`] = `
+<DocumentFragment>
+  <nav
+    class="nav"
+  >
+    <div
+      class="nav__left"
+    >
+      <img
+        alt="icon"
+        class="nav__icon"
+        height="40px"
+        src="cloud.png"
+        width="40px"
+      />
+      <span
+        class="nav__title"
+      >
+        Github Clone
+      </span>
+    </div>
+    <ul
+      class="nav__right"
+    >
+      <li>
+        <a
+          alt="home"
+          href="/"
+        >
+          clean
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

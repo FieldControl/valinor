@@ -5,9 +5,17 @@ exports[`Search snapshoot should take a snapshoot 1`] = `
   <div
     class="search__container"
   >
+    <label
+      class="search__label"
+      for="search"
+    >
+      Search or jump to...
+    </label>
     <input
+      autocomplete="off"
       class="search"
       data-testid="input"
+      id="search"
       type="text"
       value=""
     />
