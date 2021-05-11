@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const scaleIn = keyframes`
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 
 export const Container = styled.li`
   display: flex;
@@ -10,6 +19,8 @@ export const Container = styled.li`
   padding: 1rem;
 
   background: var(--white);
+
+  animation: ${scaleIn} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   > div {
     display: flex;

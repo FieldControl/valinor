@@ -20,11 +20,12 @@ interface Repository {
 
 interface ICardProps {
   repository: Repository;
+  delay: number;
 }
 
-export function Card({ repository }: ICardProps) {
+export function Card({ repository, delay }: ICardProps) {
   return (
-    <Container>
+    <Container style={{ animationDelay: `${delay}ms` }}>
       <div>
         <img src={repository.owner.avatar_url} alt={repository.owner.login} />
 
