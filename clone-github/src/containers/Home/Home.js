@@ -62,8 +62,7 @@ class Home extends Component {
     const { page } = this.props.location;
     try {
       const response = await fetch(
-        `https://api.github.com/search/${type}?order="desc"&q=${search}&page=${
-          page ? page : "1"
+        `https://api.github.com/search/${type}?order="desc"&q=${search}&page=${page ? page : "1"
         }&per_page=10`
       );
       const data = await response.json();
@@ -177,22 +176,22 @@ class Home extends Component {
 
           {type === "repositories"
             ? repos.map((repo, index) => {
-                return (
-                  <Suspense key={index} fallback={<div>Loading...</div>}>
-                    <AsyncRepoCard {...repo} />
-                  </Suspense>
-                );
-              })
+              return (
+                <Suspense key={index} fallback={<div>Loading...</div>}>
+                  <AsyncRepoCard {...repo} />
+                </Suspense>
+              );
+            })
             : null}
 
           {type === "issues"
             ? issues.map((issue, index) => {
-                return (
-                  <Suspense key={index} fallback={<div>Loading...</div>}>
-                    <AsyncIssueCard key={index} {...issue} />
-                  </Suspense>
-                );
-              })
+              return (
+                <Suspense key={index} fallback={<div>Loading...</div>}>
+                  <AsyncIssueCard key={index} {...issue} />
+                </Suspense>
+              );
+            })
             : null}
           <Suspense fallback={<div>Loading...</div>}>
             <AsyncPaginator links={this.state.links} />
