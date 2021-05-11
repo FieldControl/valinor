@@ -8,6 +8,9 @@ export const Container = styled.header`
   padding: 2rem 0;
 
   img + a {
+    display: flex;
+    align-items: center;
+
     font-size: 1rem;
     font-weight: 700;
 
