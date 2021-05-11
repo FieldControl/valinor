@@ -5,6 +5,37 @@ import eIcon from "../../../assets/e.png";
 
 import { formatUrl } from "../../../helpers/format";
 
+/**
+* Component for render issues.
+*
+* @component
+* @param {string} html_url url
+* @param {string} repository_url  url
+* @param {string} title   title 
+* @param {string} updated_at date of update
+* @param {number} number number of issues 
+* @param {number}   stargazers_count  number of stars
+* @param {object} comments number of comments
+* @param {string} state update
+* @param {object} user  user 
+* @param {object} comments number of comments
+* @param {string} body body with dexcription 
+* @example
+
+* <IssueCard 
+    * html_url={"https://example.com"}
+    * repository_url={"https://example.com"}
+    * title={"example"}
+    * number={10}
+    * state={"close"}
+    * updated_at={"2021-05-11T03:00:56Z"}
+    * user={{login:"John"}}
+    * comments={"Hey haaa"}
+    * body={"My info of body"}
+    *  />
+    * 
+ */
+
 const IssueCard = ({
   html_url,
   repository_url,

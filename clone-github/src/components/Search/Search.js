@@ -2,6 +2,27 @@ import PropTypes from "prop-types";
 import "./Search.scss";
 import React, { useState } from "react";
 
+/**
+ * Component for search .
+ *
+ * @component
+ * @example
+ * <Search
+ * change={() => change()}
+ * text="something"
+ * changeType="issues"
+ * type="issues"
+ * click={() => click()}
+ * />
+ *
+ * Search
+ * @param   {string} change Gets called when the user change a text in input
+ * @param   {string} text  value of input
+ * @param   {string} type  value of select tag
+ * @param   {function} changeType Gets called when the user click in select  tag
+ * @param   {function}  click Gets called when the user clicks on the button
+ */
+
 const Search = ({ change, text, changeType, type, click }) => {
   const [select, setSelect] = useState(false);
   return (
@@ -41,7 +62,6 @@ Search.propTypes = {
   change: PropTypes.func,
   text: PropTypes.string,
   type: PropTypes.string,
-
   changeType: PropTypes.func,
   click: PropTypes.func,
 };

@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +43,7 @@
   "devDependencies": {
     "eslint": "^7.25.0",
     "eslint-plugin-react": "^7.23.2",
+    "jsdoc": "^3.6.6",
     "prettier": "2.2.1"
   }
 }

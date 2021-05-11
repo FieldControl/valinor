@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: components/Paginator/Paginator.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: components/Paginator/Paginator.js</h1>
+
+      <section>
+        <article>
+          <pre
+            class="prettyprint source linenums"
+          ><code>import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import arrow from "../../assets/arrow.png";
+
+import "./Paginator.scss";
+import PropTypes from "prop-types";
+
+
+/**
+ * Component for paginate the search. 
+ *
+ * @component
+ * @example
+ *
+ * &lt;Paginator  
+ * links={
+ *     [ 
+ *       {rel:"page", page:2},
+ *       {rel:"prev", page:1},
+ *       {rel:"next", page:3},
+ *      {rel:"last", page:100}
+ *    ]
+ * }
+ * />
+
+* @param   {array} links    Array of links
+* @param   {function}  click Gets called when the user clicks on the button
+ */
+
+const Paginator = ({ click, links }) => {
+  const { page } = useLocation();
+
+  let arr = [];
+  if (links) {
+    for (let i = 0; i &lt; links.length; i++) {
+      let element = links[i];
+      if (page >= 3 &amp;&amp; element.rel === "first") {
+        arr[0] = element;
+      }
+
+      if (element.rel === "page") {
+        arr[2] = element;
+      }
+      if (element.rel === "prev" &amp;&amp; page >= 2) {
+        arr[1] = element;
+      }
+      if (element.rel === "next") {
+        arr[3] = element;
+      }
+      if (element.rel === "last" &amp;&amp; element.rel === "next") {
+        arr[4] = element;
+      }
+    }
+  }
+  return (
+    &lt;ul className="paginator">
+      {links
+        ? arr
+          .filter((p) => {
+            return p.rel === "prev";
+          })
+          .map((p, index) => {
+            return (
+              &lt;li className="paginator__control paginator__prev" key={index}>
+                &lt;NavLink
+                  to={{
+                    pathname: `/`,
+                    page: p.page,
+                  }}
+                  onClick={click}
+                  activeClassName=""
+                >
+                  &lt;img src={arrow} alt="arrow prev" />
+                &lt;/NavLink>
+              &lt;/li>
+            );
+          })
+        : null}
+
+      {links
+        ? arr.map((p, index) => {
+          return (
+            &lt;li className="paginator__item" key={index}>
+              &lt;NavLink
+                to={{
+                  pathname: `/`,
+                  page: p.page,
+                }}
+                onClick={click}
+                activeClassName={
+                  page === p.page || (page === undefined &amp;&amp; p.page === 1)
+                    ? "active"
+                    : null
+                }
+              >
+                {p.page}
+              &lt;/NavLink>
+            &lt;/li>
+          );
+        })
+        : null}
+      {links
+        ? arr
+          .filter((p) => {
+            return p.rel === "next";
+          })
+          .map((p, index) => {
+            return (
+              &lt;li className="paginator__control paginator__next" key={index}>
+                &lt;NavLink
+                  to={{
+                    pathname: `/`,
+                    page: p.page,
+                  }}
+                  activeClassName=""
+                  onClick={click}
+                >
+                  &lt;img src={arrow} alt="arrow next" />
+                &lt;/NavLink>
+              &lt;/li>
+            );
+          })
+        : null}
+    &lt;/ul>
+  );
+};
+
+Paginator.propTypes = {
+  click: PropTypes.func,
+  links: PropTypes.array,
+};
+export default Paginator;
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Classes</h3>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+      </ul>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#fetchRepos">fetchRepos</a></li>
+        <li><a href="global.html#formatNumber">formatNumber</a></li>
+        <li>
+          <a href="global.html#formatNumberWithComma">formatNumberWithComma</a>
+        </li>
+        <li><a href="global.html#formatString">formatString</a></li>
+        <li><a href="global.html#formatUrl">formatUrl</a></li>
+        <li><a href="global.html#getLinksOfHeader">getLinksOfHeader</a></li>
+        <li><a href="global.html#IssueCard">IssueCard</a></li>
+        <li><a href="global.html#Navbar">Navbar</a></li>
+        <li><a href="global.html#Paginator">Paginator</a></li>
+        <li><a href="global.html#regexLink">regexLink</a></li>
+        <li><a href="global.html#RepoCard">RepoCard</a></li>
+        <li><a href="global.html#Search">Search</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue May 11
+      2021 17:37:09 GMT-0300 (Brasilia Standard Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

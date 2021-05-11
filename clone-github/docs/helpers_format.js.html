@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: helpers/format.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: helpers/format.js</h1>
+
+      <section>
+        <article>
+          <pre class="prettyprint source linenums"><code>
+/**
+ * format number  .
+ *
+ * @component
+ * @example
+ * format(1000)
+ * 1k
+* Return a number with point and metric.
+* @param  {number} text number 
+* @returns string
+*
+*/
+
+
+const formatNumber = (number) => {
+  let t = String(number);
+  let arr = [];
+  let l = 0;
+  let metric = "";
+  let point;
+
+  if (t.length === 9) {
+    l = 6;
+    if (t[3] === "0") {
+      l = 7;
+    }
+    metric = "m";
+    point = 3;
+  }
+  if (t.length === 8) {
+    l = 6;
+    if (t[2] === "0") {
+      l = 7;
+    }
+    metric = "m";
+    point = 2;
+  }
+  if (t.length === 7) {
+    l = 6;
+    if (t[1] === "0") {
+      l = 7;
+    }
+    metric = "m";
+    point = 1;
+  }
+  if (t.length === 6) {
+    l = 3;
+    if (t[3] === "0") {
+      l = 4;
+    }
+    metric = "k";
+    point = 3;
+  }
+
+  if (t.length === 5) {
+    l = 3;
+    if (t[2] === "0") {
+      l = 4;
+    }
+    metric = "k";
+    point = 2;
+  }
+  if (t.length === 4) {
+    l = 3;
+    if (t[1] === "0") {
+      l = 4;
+    }
+    metric = "k";
+    point = 1;
+  }
+  if (t.length === 3) {
+    metric = "";
+  }
+
+  for (let i = 0; i &lt;= t.length - l; i++) {
+    if (i === point) {
+      arr.push(".");
+    }
+    arr.push(t[i]);
+    if (i === t.length - l) {
+      arr.push(metric);
+    }
+  }
+
+  return arr.join("");
+};
+
+/**
+ * format number with comma.
+ *
+ * @component
+ * @example
+ * format(10000)
+ * 10,000
+* Return a number with point and metric.
+* @param  {number} text number 
+* @returns string
+*
+*/
+
+const formatNumberWithComma = (number) => {
+  let t = String(number);
+  let arr = [];
+  let comma;
+  let comma2;
+  let comma3;
+
+  if (t.length === 10) {
+    comma = 1;
+    comma2 = 4;
+    comma3 = 7;
+  }
+
+  if (t.length === 9) {
+    comma = 3;
+    comma2 = 6;
+  }
+  if (t.length === 8) {
+    comma = 2;
+    comma2 = 5;
+  }
+  if (t.length === 7) {
+    comma = 1;
+    comma2 = 4;
+  }
+  if (t.length === 6) {
+    comma = 3;
+  }
+  if (t.length === 5) {
+    comma = 2;
+  }
+  if (t.length === 4) {
+    comma = 1;
+  }
+  for (let i = 0; i &lt;= t.length; i++) {
+    if (i === comma || i === comma2 || i === comma3) {
+      arr.push(",");
+    }
+    arr.push(t[i]);
+  }
+  return arr.join("");
+};
+
+/**
+ * format string 
+ *
+ * @component
+ * @example
+ * format( "Node.js JavaScript runtime :sparkles::turtle::rocket::sparkles:")
+ * "Node.js JavaScript runtime  sparkles  turtle  rocket  sparkles "
+* Return a string without ::.
+* @param  {string} text string 
+* @returns string format
+*
+*/
+
+const formatString = (text) => {
+  let r = /[^a-zA-Z.?()...]/gim;
+  return text.replace(r, " ");
+};
+
+/**
+ * format url 
+ *
+ * @component
+ * @example
+ * format("https://api.github.com/repos/s-KaiNet/spfx-fast-serve")
+ * "//s-KaiNet/spfx-fast-serve"
+* Return a number with point and metric.
+* @param  {string} text number 
+* @returns string format
+*
+*/
+
+const formatUrl = (text) => {
+  let r = /(https:)|api.github.com|repos|\W[/]/gim;
+  return text.replace(r, "");
+};
+module.exports = {
+  formatNumber: formatNumber,
+  formatNumberWithComma: formatNumberWithComma,
+  formatString: formatString,
+  formatUrl: formatUrl,
+};
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Classes</h3>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+      </ul>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#fetchRepos">fetchRepos</a></li>
+        <li><a href="global.html#formatNumber">formatNumber</a></li>
+        <li>
+          <a href="global.html#formatNumberWithComma">formatNumberWithComma</a>
+        </li>
+        <li><a href="global.html#formatString">formatString</a></li>
+        <li><a href="global.html#formatUrl">formatUrl</a></li>
+        <li><a href="global.html#getLinksOfHeader">getLinksOfHeader</a></li>
+        <li><a href="global.html#IssueCard">IssueCard</a></li>
+        <li><a href="global.html#Navbar">Navbar</a></li>
+        <li><a href="global.html#Paginator">Paginator</a></li>
+        <li><a href="global.html#regexLink">regexLink</a></li>
+        <li><a href="global.html#RepoCard">RepoCard</a></li>
+        <li><a href="global.html#Search">Search</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue May 11
+      2021 17:37:09 GMT-0300 (Brasilia Standard Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

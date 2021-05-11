@@ -3,12 +3,23 @@ import "./Home.scss";
 import Search from "../../components/Search/Search";
 import { withRouter } from "react-router-dom";
 import { formatNumberWithComma } from "../../helpers/format";
+import PropTypes from "prop-types";
 
 const AsyncPaginator = React.lazy(() =>
   import("../../components/Paginator/Paginator")
 );
 const AsyncRepoCard = React.lazy(() => import("./RepoCard/RepoCard"));
 const AsyncIssueCard = React.lazy(() => import("./IssueCard/IssueCard"));
+
+/**
+ * Container  Home. 
+ *
+ * @class
+ * @example
+ * 
+ * <Home>
+ 
+ */
 
 class Home extends Component {
   state = {
@@ -21,7 +32,6 @@ class Home extends Component {
     issues: [],
     links: [],
   };
-  /* eslint-disable  react/prop-types */
 
   componentDidUpdate(prevProps) {
     const { submit } = this.state;
@@ -39,7 +49,14 @@ class Home extends Component {
     this.fetchRepos();
     this.props.history.replace({ location: { page: 1 } });
   }
-
+  /**
+   * @async
+   * @function  fetchRepos
+   * @property  {string}  search   value of search
+   * @property  {number}  page  property of history.location
+   * @property  {string}  type   value of search of select tag
+   * @return {Promise<Array>} The data from URL
+   */
   fetchRepos = async () => {
     const { search, type } = this.state;
     const { page } = this.props.location;
@@ -50,7 +67,6 @@ class Home extends Component {
         }&per_page=10`
       );
       const data = await response.json();
-
       const arr = this.getLinksOfHeader(response);
 
       if (type === "issues") {
@@ -80,6 +96,7 @@ class Home extends Component {
       });
     }
   };
+
   searchField = (e) => {
     this.setState({ search: e.target.value });
   };
@@ -93,6 +110,22 @@ class Home extends Component {
       this.setState({ submit: true });
     }
   };
+  /**
+   * Return a array of links
+   * @function  getLinksOfHeader
+   * @param {string}  header  link of header
+   * @property  {string}  page  property of history.location
+   * @return {Array} array of links
+   *
+   * @example
+   * this.getLinksOfHeader(`<https://api.github.com/search/repositories?order="desc"&q=ss&page=2&per_page=10>; rel="next",
+   * <https://api.github.com/search/repositories?order="desc"&q=ss&page=100&per_page=10>; rel="last"`)
+   * [
+   *  <https://api.github.com/search/repositories?order="desc"&q=ss&page=2&per_page=10>; rel="next",
+   *  <https://api.github.com/search/repositories?order="desc"&q=ss&page=100&per_page=10>; rel="last"
+   * ]
+   *
+   */
   getLinksOfHeader = (header) => {
     const { page } = this.props.location;
     const link = header.headers.get("link");
@@ -107,6 +140,20 @@ class Home extends Component {
     }
     return arr;
   };
+  /**
+   * Regex for clean a string
+   *
+   * @function  regexLink
+   * @param {array} link  array of links
+   * @property  {number}  page  property of history.location
+   * @return {Object} Return a Object
+   *
+   * @example
+   * this.regexLink(<https://api.github.com/search/repositories?order="desc"&q=ss&page=100&per_page=10>; rel="last")
+   * { rel: "last", page: 10 };
+   *
+   */
+
   regexLink = (link) => {
     let l = link.replace(/;/gim, "&");
     let p = l.replace(/<|>/gim, "");
@@ -178,4 +225,9 @@ class Home extends Component {
   }
 }
 
+Home.propTypes = {
+  page: PropTypes.number,
+  location: PropTypes.object,
+  history: PropTypes.object,
+};
 export default withRouter(Home);

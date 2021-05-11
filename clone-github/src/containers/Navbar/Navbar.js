@@ -2,6 +2,14 @@ import React from "react";
 import "./Navbar.scss";
 import cloud from "../../assets/cloud.png";
 
+/**
+ * Navbar Component 
+ *
+ * @component
+ * @example
+
+ * <Navbar  />
+ */
 const Navbar = () => {
   return (
     <nav className="nav">

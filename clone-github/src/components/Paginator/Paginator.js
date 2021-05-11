@@ -5,6 +5,27 @@ import arrow from "../../assets/arrow.png";
 import "./Paginator.scss";
 import PropTypes from "prop-types";
 
+/**
+ * Component for paginate the search. 
+ *
+ * @component
+ * @example
+ *
+ * <Paginator  
+ * links={
+ *     [ 
+ *       {rel:"page", page:2},
+ *       {rel:"prev", page:1},
+ *       {rel:"next", page:3},
+ *      {rel:"last", page:100}
+ *    ]
+ * }
+ * />
+
+* @param   {array} links    Array of links
+* @param   {function}  click Gets called when the user clicks on the button
+ */
+
 const Paginator = ({ click, links }) => {
   const { page } = useLocation();
 

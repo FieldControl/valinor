@@ -5,6 +5,30 @@ import starIcon from "../../../assets/star.png";
 import repoIcon from "../../../assets/repo.png";
 import { formatNumber, formatString } from "../../../helpers/format";
 
+/**
+ * Component for render repositories. 
+ *
+ * @component
+ * @example
+ * 
+ <RepoCard 
+* full_name={"Life/John"}
+*  description={"Daily of John"}
+*  updated_at={"2021-05-11T03:00:56Z"}
+*  language={"JavaScript"}
+*  open_issues={2}
+*  stargazers_count={10}
+*  license={{key:"MIT"}}
+*  />
+* @param {string} full__name full name
+* @param {string} description description
+* @param {string} update_at   date of update 
+* @param {string} language language of code
+* @param {number} open_issues number of issues open  full name
+* @param {number}   stargazers_count  number of stars
+* @param {object} license  license
+ */
+
 const RepoCard = ({
   full_name,
   description,

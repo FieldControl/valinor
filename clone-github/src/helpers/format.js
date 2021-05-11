@@ -1,5 +1,18 @@
-const formatNumber = (text) => {
-  let t = String(text);
+/**
+ * format number  .
+ *
+ * @component
+ * @example
+ * format(1000)
+ * 1k
+ * Return a number with point and metric.
+ * @param  {number} text number
+ * @returns string
+ *
+ */
+
+const formatNumber = (number) => {
+  let t = String(number);
   let arr = [];
   let l = 0;
   let metric = "";
@@ -71,8 +84,21 @@ const formatNumber = (text) => {
   return arr.join("");
 };
 
-const formatNumberWithComma = (text) => {
-  let t = String(text);
+/**
+ * format number with comma.
+ *
+ * @component
+ * @example
+ * format(10000)
+ * 10,000
+ * Return a number with point and metric.
+ * @param  {number} text number
+ * @returns string
+ *
+ */
+
+const formatNumberWithComma = (number) => {
+  let t = String(number);
   let arr = [];
   let comma;
   let comma2;
@@ -114,10 +140,36 @@ const formatNumberWithComma = (text) => {
   return arr.join("");
 };
 
+/**
+ * format string
+ *
+ * @component
+ * @example
+ * format( "Node.js JavaScript runtime :sparkles::turtle::rocket::sparkles:")
+ * "Node.js JavaScript runtime  sparkles  turtle  rocket  sparkles "
+ * Return a string without ::.
+ * @param  {string} text string
+ * @returns string format
+ *
+ */
+
 const formatString = (text) => {
   let r = /[^a-zA-Z.?()...]/gim;
   return text.replace(r, " ");
 };
+
+/**
+ * format url
+ *
+ * @component
+ * @example
+ * format("https://api.github.com/repos/s-KaiNet/spfx-fast-serve")
+ * "//s-KaiNet/spfx-fast-serve"
+ * Return a number with point and metric.
+ * @param  {string} text number
+ * @returns string format
+ *
+ */
 
 const formatUrl = (text) => {
   let r = /(https:)|api.github.com|repos|\W[/]/gim;
