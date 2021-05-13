@@ -40,7 +40,6 @@ export const Form = styled.form<ContentProps>`
 
   div{
     padding: 0.8rem;
-    margin-top: -0.1rem;
     background: var(--background);
     border-bottom: 0.05rem solid var(--gray-300);
     border-right: 0.05rem solid var(--gray-300);
@@ -66,7 +65,10 @@ export const Form = styled.form<ContentProps>`
       margin-left: 1rem;
     }
 
-
+   :last-child  {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+   }
 
   }
 
