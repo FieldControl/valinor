@@ -31,11 +31,6 @@ export const CardRepository = styled.ul`
 border-bottom: 1px solid var(--gray-300);
 padding: 1.8rem 0;
 display: flex; 
-
-  svg {
-    color: var(--gray-250); 
-    margin-right: 0.5rem;   
- }  
   
   li {
   display: flex;
@@ -61,6 +56,16 @@ display: flex;
     } 
  }
   
+
+`;
+
+export const Icon = styled.i`
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+  min-width: 1rem;
+svg {
+    color: var(--gray-250);     
+ }  
 
 `;
 

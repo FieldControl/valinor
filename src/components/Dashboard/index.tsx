@@ -1,4 +1,4 @@
-import { Container, Content, TitleBox, CardRepository, CardFooter } from './styles';
+import { Container, Content, TitleBox, CardRepository, CardFooter, Icon } from './styles';
 import { GoRepo } from 'react-icons/go';
 import { BsStar, BsEye } from 'react-icons/bs';
 import {FaHandsHelping, FaCode} from 'react-icons/fa';
@@ -19,7 +19,9 @@ export const Dashboard: React.FC = () => {
         </TitleBox>
         {RepositoriesCard.map(repositorie => (
           <CardRepository key={repositorie.id}>
+           <Icon>
             <GoRepo />
+           </Icon> 
             <ul>
               <li>
                 <a rel="noreferrer" target='_blank' href={repositorie.html_url}>

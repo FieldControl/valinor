@@ -71,8 +71,8 @@ export const RepositoryProvider: React.FC = ({ children }) => {
       }
 
       try {
-        await api.get<Repository>(`repositories?q=${textInputDashboard}`)
-        .then(response => setRepositoriesCard(response.data.items))
+       await api.get<Repository>(`repositories?q=${textInputDashboard}`)
+        .then((response: any) => setRepositoriesCard(response.data.items))
         
         setTextInput('');
         
@@ -88,7 +88,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
       try {
         if(textInput !== ''){
          await api.get<Repository>(`repositories?q=${textInput}&per_page=8`)
-         .then(response => setRepositories(response.data.items))
+         .then((response: any ) => setRepositories(response.data.items))
        }
       } catch (err){
         return;
