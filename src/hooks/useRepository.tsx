@@ -2,10 +2,8 @@ import {
   createContext,
   useState, 
   useEffect, 
-  useCallback, 
   useContext, 
   FormEvent,
-  FocusEvent
   } from "react";
 import {api} from '../services/api';
 
@@ -25,18 +23,12 @@ interface Repository{
 }
 
 interface RepositoryData{
-  handleInputFocus: () => void;
-  handleInputBlur: (event: FocusEvent) => void;
   Repositories: RepositoryProps[];
   RepositoriesCard: RepositoryProps[];
   textInput: string;
   textInputDashboard: string;
-  isFocused: boolean;
-  isFocusedDashboard: boolean;
   setTextInput: React.Dispatch<React.SetStateAction<string>>
   setTextInputDashboard: React.Dispatch<React.SetStateAction<string>>
-  handleInputFocusDashboard: () => void;
-  handleInputBlurDashboard: () => void;
   handleAddRepository: (event: FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
@@ -45,8 +37,6 @@ const RepositoryContext = createContext<RepositoryData>({} as RepositoryData);
 
 
 export const RepositoryProvider: React.FC = ({ children }) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [isFocusedDashboard, SetIsFocusedDashboard] = useState(false);
   const [textInput,setTextInput] = useState('');
   const [textInputDashboard,setTextInputDashboard] = useState('');
   const [Repositories,setRepositories] = useState<RepositoryProps[]>([]);
@@ -96,7 +86,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
   useEffect(() => {
     async function SearchList(){
       try {
-        if(isFocused && textInput !== ''){
+        if(textInput !== ''){
          await api.get<Repository>(`repositories?q=${textInput}&per_page=8`)
          .then(response => setRepositories(response.data.items))
        }
@@ -106,42 +96,21 @@ export const RepositoryProvider: React.FC = ({ children }) => {
     }
     SearchList()
 
-  },[textInput,isFocused]);
+  },[textInput]);
  
 
-  const handleInputFocus = useCallback(() => {
-    setIsFocused(true);
-  },[]);
+ 
 
-  const handleInputBlur = useCallback((event: FocusEvent) => {
-    console.log(event.target.localName);
-    if(event.currentTarget.localName === 'div') return;
-    setIsFocused(false)
-  },[]);
-
-  const handleInputFocusDashboard = useCallback(() => {
-    SetIsFocusedDashboard(true);
-  },[]);
-
-  const handleInputBlurDashboard = useCallback(() => {
-    SetIsFocusedDashboard(false)
-  },[]);
 
   return (
     <RepositoryContext.Provider value={
       {
-        handleInputBlur,
-        handleInputFocus,
         setTextInputDashboard,
         Repositories,
         RepositoriesCard,
         setTextInput,
         textInput,
-        textInputDashboard,
-        isFocused,
-        isFocusedDashboard,
-        handleInputBlurDashboard,
-        handleInputFocusDashboard,
+        textInputDashboard,  
         handleAddRepository
       }}>
       {children}

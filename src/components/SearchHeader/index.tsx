@@ -1,6 +1,7 @@
 import {Form} from './styles'
 import { GoRepo } from 'react-icons/go';
 import {useRepository} from '../../hooks/useRepository';
+import { useState , useCallback, FocusEvent } from 'react';
 
 
 
@@ -9,13 +10,21 @@ export const SearchHeader =  () => {
   const { 
     Repositories,
     textInput,
-    handleInputBlur,
-    handleInputFocus,
     setTextInput,
-    isFocused,
   } = useRepository();
 
+  const [isFocused, setIsFocused] = useState(false);
 
+  const handleInputFocus = useCallback(() => {
+    setIsFocused(true);
+  },[]);
+
+  
+  const handleInputBlur = useCallback((event: FocusEvent) => {
+    console.log(event.target.localName);
+    if(event.currentTarget.localName === 'div') return;
+    setIsFocused(false)
+  },[]);
   
   return isFocused ? (
     <Form 
