@@ -28,7 +28,6 @@ export const TitleBox = styled.div`
 `;
 
 export const CardRepository = styled.ul`
-height: 8.75rem;
 border-bottom: 1px solid var(--gray-300);
 padding: 1.8rem 0;
 display: flex; 
@@ -66,11 +65,14 @@ display: flex;
 `;
 
 export const CardFooter = styled.div`
-
+display: flex;
+flex-wrap: wrap;
  span{
    color: var(--text-secondary);
    font-size: 0.9rem;
    font-weight: 300;
+   display: flex;
+   align-items: center;
 
    & + span{
      margin-left: 0.8rem;
