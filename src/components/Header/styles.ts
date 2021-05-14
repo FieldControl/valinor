@@ -7,6 +7,7 @@ height: 4rem;
 padding: 1rem;
 background: var(--gray-700);
 
+
 `;
 
 export const Content = styled.div`

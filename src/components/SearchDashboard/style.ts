@@ -18,6 +18,8 @@ export const Form = styled.form<ContentProps>`
     background: none;
     border-radius: 0.25rem;
     border: 0.05rem solid var(--gray-300);
+    color: var(--text-primary);
+    padding: 0.8rem;
 
     ::placeholder{
       font-weight: 300;

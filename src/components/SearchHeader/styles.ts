@@ -8,7 +8,7 @@ interface ContentProps{
 export const Form = styled.form<ContentProps>`
 
   margin-left: 1rem;
-  width: 17rem;
+  width: 20rem;
   height: 1.75rem;
   border-radius: 0.25rem;
   border: 0.05rem solid var(--gray-300);
@@ -28,10 +28,6 @@ export const Form = styled.form<ContentProps>`
     font-weight: 300;
     padding: 0.8rem;
     
-    ::placeholder{
-     
-    }
-   
   }
 
 
@@ -39,6 +35,7 @@ export const Form = styled.form<ContentProps>`
 
 
   div{
+   
     padding: 0.8rem;
     background: var(--background);
     border-bottom: 0.05rem solid var(--gray-300);
@@ -46,6 +43,7 @@ export const Form = styled.form<ContentProps>`
     border-left: 0.05rem solid var(--gray-300);
     z-index: 10;
     cursor: pointer;
+    display: flex;
     
 
     &:hover{
@@ -63,6 +61,7 @@ export const Form = styled.form<ContentProps>`
       text-decoration: none;
       color: var(--text-primary);
       margin-left: 1rem;
+      flex: 1;
     }
 
    :last-child  {
@@ -72,11 +71,10 @@ export const Form = styled.form<ContentProps>`
 
   }
 
-${props => props.isFocused && css`
+  ${props => props.isFocused && css`
     border: 0.05rem solid var(--blue-300);
-    width: 20rem;
+    width: 25rem;
    `
   }
-  
+`
 
-`;
