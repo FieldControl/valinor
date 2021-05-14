@@ -1,48 +1,39 @@
-import { Container , Content, TitleBox, CardRepository, CardFooter} from './styles';
+import { Container, Content, TitleBox, CardRepository, CardFooter } from './styles';
 import { GoRepo } from 'react-icons/go';
 import { BsStar } from 'react-icons/bs';
-import {SearchDashboard} from '../SearchDashboard'
+import { SearchDashboard } from '../SearchDashboard'
+import { useRepository } from '../../hooks/useRepository';
 
-export const Dashboard = () => {
+export const Dashboard: React.FC = () => {
+  const { RepositoriesCard } = useRepository();
+
+
+
   return (
     <Container>
       <Content>
-      <SearchDashboard />
+        <SearchDashboard />
         <TitleBox>
-          <h1>130 repository results</h1>
+          <h1>{RepositoriesCard.length} repository results</h1>
         </TitleBox>
-      <CardRepository>
-        <GoRepo/>
-        <ul>    
-          <li>
-            <a href="https://github.com/BismarckOliveira/GitHub-Explorer">
-              Bismarck/Cronometro
-           </a>  
-            <strong>Marcado Digital de Tempo</strong>
-            <CardFooter>
-              <span><BsStar/>79k</span>
-              <span>Update 4 hours ago</span>
-              <span>73 issues need help</span>
-            </CardFooter>
-          </li>
-        </ul>
-      </CardRepository>
-      <CardRepository>
-        <GoRepo/>
-        <ul>    
-          <li>
-            <a href="https://github.com/BismarckOliveira/GitHub-Explorer">
-              Bismarck/Cronometro
-           </a>  
-            <strong>Marcado Digital de Tempo</strong>
-            <CardFooter>
-              <span><BsStar/>79k</span>
-              <span>Update 4 hours ago</span>
-              <span>73 issues need help</span>
-            </CardFooter>
-          </li>
-        </ul>
-      </CardRepository>
+        {RepositoriesCard.map(repositorie => (
+          <CardRepository key={repositorie.id}>
+            <GoRepo />
+            <ul>
+              <li>
+                <a href={repositorie.html_url}>
+                  {repositorie.full_name}
+                </a>
+                <strong>{repositorie.description}</strong>
+                <CardFooter>
+                  <span><BsStar />{repositorie.stargazers_count}</span>
+                  <span>{repositorie.forks_count} forks</span>
+                  <span>{repositorie.open_issues_count} issues need help</span>
+                </CardFooter>
+              </li>
+            </ul>
+          </CardRepository>
+        ))}
       </Content>
     </Container>
   )

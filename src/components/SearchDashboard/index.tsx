@@ -1,23 +1,35 @@
-import { useCallback, useState } from 'react';
 import {Form} from './style'
+import {useRepository } from '../../hooks/useRepository';
+import {FormEvent } from 'react'
 
 
 
 export const SearchDashboard = () => {
-  const [isFocused, setIsFocused] = useState(false);
+  const {
+    isFocusedDashboard,
+    handleInputBlurDashboard,
+    handleInputFocusDashboard,
+    setTextInputDashboard,
+    textInputDashboard,
+    } = useRepository();
 
-  const handleInputFocus = useCallback(() => {
-    setIsFocused(true);
-  },[]);
+    function handleAddRepository(
+      event: FormEvent<HTMLFormElement>) {
 
-  const handleInputBlur = useCallback(() => {
-    setIsFocused(false);
-  },[]);
+      event.preventDefault();
+    }
 
   return (
-    <Form isFocused={isFocused}>
-      <input placeholder="Search Github" onBlur={handleInputBlur} onFocus={handleInputFocus}  type="text" />
-      <button>Search</button>
+    <Form isFocused={isFocusedDashboard} onClick={handleAddRepository}>
+      <input 
+        placeholder="Search Github" 
+        onBlur={handleInputBlurDashboard} 
+        onFocus={handleInputFocusDashboard}  
+        type="text"
+        value={textInputDashboard}
+        onChange={text => setTextInputDashboard(text.target.value)}
+      />
+      <button type="submit">Search</button>
     </Form>
   )
 }
