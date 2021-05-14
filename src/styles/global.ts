@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
 :root{
   --background: #0d1117;
+  --background-mobile: #010409;
   --text-primary:#f0f6fc;
   --text-secondary: #8b9496;
   --gray-700: #161b22; 
@@ -36,6 +37,11 @@ html{
 body{
   -webkit-font-smoothing: antialiased;
   background: var(--background);
+
+
+  @media (max-width: 720px){
+   background: var(--background-mobile);
+  }
 
 }
 

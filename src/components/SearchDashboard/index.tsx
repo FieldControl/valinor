@@ -1,6 +1,5 @@
 import {Form} from './style'
 import {useRepository } from '../../hooks/useRepository';
-import {FormEvent } from 'react'
 
 
 
@@ -11,16 +10,12 @@ export const SearchDashboard = () => {
     handleInputFocusDashboard,
     setTextInputDashboard,
     textInputDashboard,
+    handleAddRepository
     } = useRepository();
 
-    function handleAddRepository(
-      event: FormEvent<HTMLFormElement>) {
-
-      event.preventDefault();
-    }
 
   return (
-    <Form isFocused={isFocusedDashboard} onClick={handleAddRepository}>
+    <Form isFocused={isFocusedDashboard} onSubmit={handleAddRepository}>
       <input 
         placeholder="Search Github" 
         onBlur={handleInputBlurDashboard} 

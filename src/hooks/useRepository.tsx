@@ -4,8 +4,8 @@ import {
   useEffect, 
   useCallback, 
   useContext, 
-  FocusEvent,
-   
+  FormEvent,
+  FocusEvent
   } from "react";
 import {api} from '../services/api';
 
@@ -37,6 +37,7 @@ interface RepositoryData{
   setTextInputDashboard: React.Dispatch<React.SetStateAction<string>>
   handleInputFocusDashboard: () => void;
   handleInputBlurDashboard: () => void;
+  handleAddRepository: (event: FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
 
@@ -44,15 +45,54 @@ const RepositoryContext = createContext<RepositoryData>({} as RepositoryData);
 
 
 export const RepositoryProvider: React.FC = ({ children }) => {
-  const [Repositories,setRepositories] = useState<RepositoryProps[]>([]);
-  const [RepositoriesCard,setRepositoriesCard] = useState<RepositoryProps[]>([]);
   const [isFocused, setIsFocused] = useState(false);
   const [isFocusedDashboard, SetIsFocusedDashboard] = useState(false);
   const [textInput,setTextInput] = useState('');
   const [textInputDashboard,setTextInputDashboard] = useState('');
+  const [Repositories,setRepositories] = useState<RepositoryProps[]>([]);
+  const [RepositoriesCard,setRepositoriesCard] = useState<RepositoryProps[]>(() => {
+    const storageRepository = localStorage.getItem(
+      '@GitHubCard:repositories',
+    );
+
+    if (storageRepository) {
+      return JSON.parse(storageRepository);
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      '@GitHubCard:repositories',
+      JSON.stringify(RepositoriesCard),
+    );
+  }, [RepositoriesCard]);
  
 
   
+    async function handleAddRepository(
+      event: FormEvent<HTMLFormElement>): Promise<void>{
+      event.preventDefault();
+    
+
+      if(!textInputDashboard){
+        alert('campo vazio');
+        return;
+      }
+
+      try {
+        await api.get<Repository>(`repositories?q=${textInputDashboard}`)
+        .then(response => setRepositoriesCard(response.data.items))
+        
+        setTextInput('');
+        
+       }catch (err){
+        alert('erro na busca do repositorio')
+      }
+    }
+   
+
+
   useEffect(() => {
     async function SearchList(){
       try {
@@ -67,22 +107,6 @@ export const RepositoryProvider: React.FC = ({ children }) => {
     SearchList()
 
   },[textInput,isFocused]);
-
-
-  useEffect(() => {
-    async function SearchDashboard(){
-      try {
-        if(isFocusedDashboard && textInputDashboard !== ''){
-         await api.get<Repository>(`repositories?q=${textInputDashboard}`)
-         .then(response => setRepositoriesCard(response.data.items))
-       }
-      } catch (err){
-        return;
-      }
-    }
-    SearchDashboard()
-
-  },[textInputDashboard,isFocusedDashboard]);
  
 
   const handleInputFocus = useCallback(() => {
@@ -118,6 +142,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
         isFocusedDashboard,
         handleInputBlurDashboard,
         handleInputFocusDashboard,
+        handleAddRepository
       }}>
       {children}
     </RepositoryContext.Provider> 
