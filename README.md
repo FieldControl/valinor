@@ -64,7 +64,7 @@ O layout da aplicação está disponível no Figma:
 </a>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="github_explore" title="#github_explore" src="https://github.com/elianbecali/valinor/blob/tree/feat/challenge-frontend-developer/.github/Macbook-Pro.png?raw=true" />
+  <img alt="github_explore" title="#github_explore" src="https://github.com/elianbecali/valinor/blob/feat/challenge-frontend-developer/.github/Macbook-Pro.png?raw=true" />
 </p>
 
 ---
