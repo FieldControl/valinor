@@ -1,5 +1,5 @@
 <h1 align="center">
-			<img src="https://raw.githubusercontent.com/elianbecali/valinor/tree/feat/challenge-frontend-developer/.github/Logo.svg" alt="Github_explore logo" />
+			<img src="https://raw.githubusercontent.com/elianbecali/valinor/feat/challenge-frontend-developer/.github/Logo.svg" alt="Github_explore logo" />
 </h1>
 
 <h3 align="center">
