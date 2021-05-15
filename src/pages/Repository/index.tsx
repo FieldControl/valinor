@@ -44,7 +44,7 @@ export function Repository() {
 
       setRepository(response.data);
     })();
-  }, []);
+  }, [repo_name, username]);
 
   return (
     <Container>
