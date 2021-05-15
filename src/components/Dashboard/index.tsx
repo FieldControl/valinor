@@ -4,11 +4,13 @@ import { BsStar, BsEye } from 'react-icons/bs';
 import {FaHandsHelping, FaCode} from 'react-icons/fa';
 import { SearchDashboard } from '../SearchDashboard'
 import { useRepository } from '../../hooks/useRepository';
+import { Pagination } from '../Pagination';
+import { Footer } from '../Footer';
 
 export const Dashboard: React.FC = () => {
   const { RepositoriesCard } = useRepository();
 
-
+  
 
   return (
     <Container>
@@ -38,7 +40,9 @@ export const Dashboard: React.FC = () => {
             </ul>
           </CardRepository>
         ))}
+        <Pagination/>
       </Content>
+      <Footer/>
     </Container>
   )
 }
