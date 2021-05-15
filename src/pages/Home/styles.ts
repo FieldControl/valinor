@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import githubBg from '../../images/Github.svg';
 
@@ -53,6 +53,11 @@ export const Form = styled.form`
   }
 `;
 
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
 export const CardContainer = styled.ul`
   display: flex;
   flex-direction: column;
@@ -61,4 +66,49 @@ export const CardContainer = styled.ul`
   max-width: 714px;
   margin: 6rem 0;
   gap: 10px;
+
+  div.loader {
+    border: 8px solid var(--gray); /* Light grey */
+    border-top: 8px solid var(--text-title); /* Blue */
+    border-radius: 50%;
+
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+
+    animation: ${spin} 1s linear infinite;
+  }
+
+  span.notFound {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  div.pagination {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      display: flex;
+      align-items: center;
+
+      border: 0;
+      background: transparent;
+
+      font-size: 1rem;
+      color: var(--text-title);
+
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--text-info);
+      }
+
+      &:disabled {
+        cursor: default;
+        color: var(--text-info);
+      }
+    }
+  }
 `;
