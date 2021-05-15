@@ -5,8 +5,8 @@ import {
   useContext,
   FormEvent,
 } from "react";
-import { api } from '../services/api';
 import { toast } from 'react-toastify'
+import { api } from "../services/api";
 
 interface RepositoryProps {
   full_name: string;
@@ -20,17 +20,18 @@ interface RepositoryProps {
 }
 
 interface Repository {
+  total_count: number;
   items: RepositoryProps[];
 }
 
 interface RepositoryData {
-  Repositories: RepositoryProps[];
-  RepositoriesCard: RepositoryProps[];
   textInput: string;
   textInputDashboard: string;
   setTextInput: React.Dispatch<React.SetStateAction<string>>
   setTextInputDashboard: React.Dispatch<React.SetStateAction<string>>
-  handleAddRepository: (event: FormEvent<HTMLFormElement>) => Promise<void>;
+  handleAddRepository: (event: FormEvent<HTMLFormElement>) => void;
+  Pageinfo: Repository | undefined;
+  LIMIT: number;
 }
 
 
@@ -38,31 +39,14 @@ const RepositoryContext = createContext<RepositoryData>({} as RepositoryData);
 
 
 export const RepositoryProvider: React.FC = ({ children }) => {
+  const LIMIT = 8;
   const [textInput, setTextInput] = useState('');
   const [textInputDashboard, setTextInputDashboard] = useState('');
-  const [Repositories, setRepositories] = useState<RepositoryProps[]>([]);
-  const [RepositoriesCard, setRepositoriesCard] = useState<RepositoryProps[]>(() => {
-    const storageRepository = localStorage.getItem(
-      '@GitHubCard:repositories',
-    );
-
-    if (storageRepository) {
-      return JSON.parse(storageRepository);
-    }
-    return [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem(
-      '@GitHubCard:repositories',
-      JSON.stringify(RepositoriesCard),
-    );
-  }, [RepositoriesCard]);
+  const [Pageinfo, setPageinfo] = useState<Repository>();
 
 
-
-  async function handleAddRepository(
-    event: FormEvent<HTMLFormElement>): Promise<void> {
+    function handleAddRepository(
+    event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (!textInputDashboard) {
@@ -77,24 +61,25 @@ export const RepositoryProvider: React.FC = ({ children }) => {
       });
       return;
     }
+   
+      try {
+       fetch (`${api}repositories?q=${textInputDashboard}&per_page=8`)
+        .then(response => response.json())
+        .then((response: any) => setPageinfo(response))
 
-    try {
-      await api.get<Repository>(`repositories?q=${textInputDashboard}&per_page=5`)
-        .then((response: any) => setRepositoriesCard(response.data.items))
-
-      setTextInputDashboard('');
-
-    } catch (err) {
-      throw new Error(err);
-    }
+      } catch (err) {
+        throw new Error(err);
+      }
+   
   }
 
   useEffect(() => {
     async function SearchList() {
       try {
         if (textInput !== '') {
-          await api.get<Repository>(`repositories?q=${textInput}&page=1&per_page=8`)
-            .then((response: any) => setRepositories(response.data.items))
+          fetch (`${api}repositories?q=${textInput}&page=1&per_page=8`)
+            .then((response: any) => response.json())
+            .then((response: any) => setPageinfo(response))
         }
       } catch (err) {
         return;
@@ -107,13 +92,13 @@ export const RepositoryProvider: React.FC = ({ children }) => {
   return (
     <RepositoryContext.Provider value={
       {
-        setTextInputDashboard,
-        Repositories,
-        RepositoriesCard,
-        setTextInput,
-        textInput,
         textInputDashboard,
-        handleAddRepository
+        LIMIT,
+        Pageinfo,
+        textInput,
+        setTextInputDashboard,
+        setTextInput,
+        handleAddRepository,
       }}>
       {children}
     </RepositoryContext.Provider>

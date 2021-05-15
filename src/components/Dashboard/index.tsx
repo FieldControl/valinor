@@ -6,20 +6,27 @@ import { SearchDashboard } from '../SearchDashboard'
 import { useRepository } from '../../hooks/useRepository';
 import { Pagination } from '../Pagination';
 import { Footer } from '../Footer';
+import { useState } from 'react';
 
 export const Dashboard: React.FC = () => {
-  const { RepositoriesCard } = useRepository();
-
+  const {Pageinfo,LIMIT} = useRepository();
+  const [offset, setOffset] = useState(0);
   
-
+  console.log(Pageinfo?.items)
   return (
     <Container>
       <Content>
         <SearchDashboard />
         <TitleBox>
-          <h1>{RepositoriesCard.length} repository results</h1>
+          <h1>
+            <strong>
+              {Pageinfo?.total_count ? new Intl.NumberFormat()
+              .format(Pageinfo?.total_count): 0}
+            </strong> 
+            repository results
+          </h1>
         </TitleBox>
-        {RepositoriesCard.map(repositorie => (
+        {Pageinfo?.items && Pageinfo.items.map(repositorie => (
           <CardRepository key={repositorie.id}>
            <Icon>
             <GoRepo />
@@ -40,7 +47,12 @@ export const Dashboard: React.FC = () => {
             </ul>
           </CardRepository>
         ))}
-        <Pagination/>
+        <Pagination 
+        limit={LIMIT} 
+        total={Pageinfo?.total_count || 0} 
+        offset={offset} 
+        setOffset={setOffset}
+        />
       </Content>
       <Footer/>
     </Container>

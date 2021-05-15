@@ -19,6 +19,11 @@ export const TitleBox = styled.div`
  
 
   h1{
+
+    strong{
+    margin-right: 1rem;
+    }
+
     color: var(--text-primary);
     font-size: 1.5rem;
     line-height: 1.5rem;    
