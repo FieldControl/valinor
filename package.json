@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@types/qs": "^6.9.6",
     "@types/styled-components": "^5.1.9"
   }
 }

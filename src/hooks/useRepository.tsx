@@ -32,6 +32,7 @@ interface RepositoryData {
   setTextInput: React.Dispatch<React.SetStateAction<string>>
   setTextInputDashboard: React.Dispatch<React.SetStateAction<string>>
   setPageinfo: React.Dispatch<React.SetStateAction<Repository>>
+  setPage: React.Dispatch<React.SetStateAction<number>>
   handleAddRepository: (event: FormEvent<HTMLFormElement>) => void;
 }
 
@@ -41,6 +42,7 @@ const RepositoryContext = createContext<RepositoryData>({} as RepositoryData);
 
 export const RepositoryProvider: React.FC = ({ children }) => {
   const LIMIT = 8;
+  const [page, setPage] = useState(1)
   const [textInput, setTextInput] = useState('');
   const [textInputDashboard, setTextInputDashboard] = useState('');
   const [Pageinfo, setPageinfo] = useState<Repository>(() => {
@@ -61,6 +63,8 @@ export const RepositoryProvider: React.FC = ({ children }) => {
     event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    
+
     if (!textInputDashboard) {
       toast.info(' Pesquisa Vazia', {
         position: "top-right",
@@ -75,7 +79,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
     }
    
       try {
-       fetch (`${api}repositories?q=${textInputDashboard}&per_page=8&page=1`)
+       fetch (`${api}repositories?q=${textInputDashboard}&per_page=${LIMIT}&page=${page}`)
         .then(response => response.json())
         .then((response: any) => setPageinfo(response))
 
@@ -109,6 +113,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
         Pageinfo,
         textInput,
         setPageinfo,
+        setPage,
         setTextInputDashboard,
         setTextInput,
         handleAddRepository,
