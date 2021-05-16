@@ -62,9 +62,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
     function handleAddRepository(
     event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
     
-
     if (!textInputDashboard) {
       toast.info(' Pesquisa Vazia', {
         position: "top-right",
@@ -77,20 +75,23 @@ export const RepositoryProvider: React.FC = ({ children }) => {
       });
       return;
     }
+      setTimeout(() => {
+        try {
+          fetch (`${api}repositories?q=${textInputDashboard}&per_page=${LIMIT}&page=${page}`)
+           .then(response => response.json())
+           .then((response: any) => setPageinfo(response))
    
-      try {
-       fetch (`${api}repositories?q=${textInputDashboard}&per_page=${LIMIT}&page=${page}`)
-        .then(response => response.json())
-        .then((response: any) => setPageinfo(response))
+         } catch (err) {
+           throw new Error(err);
+         }
 
-      } catch (err) {
-        throw new Error(err);
-      }
-   
+      },3000)
+     
   }
 
   useEffect(() => {
-    async function SearchList() {
+   setTimeout(() => {
+    function SearchList() {
       try {
         if (textInput !== '') {
           fetch(`${api}repositories?q=${textInput}&page=1&per_page=8`)
@@ -102,6 +103,9 @@ export const RepositoryProvider: React.FC = ({ children }) => {
       }
     }
     SearchList()
+   },3000)
+
+   
 
   }, [textInput]);
 
