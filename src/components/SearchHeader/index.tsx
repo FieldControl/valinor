@@ -9,7 +9,7 @@ import ClickOutside from '../ClickOutside';
 
 export const SearchHeader =  () => {
   const { 
-    Repositories,
+    Pageinfo,
     textInput,
     setTextInput,
   } = useRepository();
@@ -39,7 +39,7 @@ export const SearchHeader =  () => {
           type="text"
         >
         </input>
-        {isFocused && Repositories.map( repositorie => (
+        {isFocused && Pageinfo?.items && Pageinfo.items.map( repositorie => (
         <div key={repositorie.id}>
           <GoRepo/>
           <a rel="noreferrer" target='_blank' href={repositorie.html_url}>{repositorie.full_name}</a> 

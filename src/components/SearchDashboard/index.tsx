@@ -5,7 +5,11 @@ import { useCallback , useState} from 'react';
 
 
 export const SearchDashboard = () => {
-  const {handleAddRepository, setTextInputDashboard,textInputDashboard} = useRepository();
+  const {
+    handleAddRepository, 
+    setTextInputDashboard,
+    textInputDashboard
+  } = useRepository();
   
   const [isFocused, SetIsFocused] = useState(false);
   

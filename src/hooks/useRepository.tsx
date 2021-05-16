@@ -1,35 +1,39 @@
-import { 
+import {
   createContext,
-  useState, 
-  useEffect, 
-  useContext, 
+  useState,
+  useEffect,
+  useContext,
   FormEvent,
-  } from "react";
-import {api} from '../services/api';
+} from "react";
+import { toast } from 'react-toastify'
+import { api } from "../services/api";
 
-interface RepositoryProps{
-  full_name: string;
+interface RepositoryProps {
   id: number;
-  html_url: string;
-  description: string;
   stargazers_count: number;
   watchers_count: number;
   open_issues_count: number;
+  full_name: string;
+  html_url: string;
+  description: string;
   language: string;
 }
 
-interface Repository{
+interface Repository {
+  total_count: number;
   items: RepositoryProps[];
 }
 
-interface RepositoryData{
-  Repositories: RepositoryProps[];
-  RepositoriesCard: RepositoryProps[];
+interface RepositoryData {
   textInput: string;
   textInputDashboard: string;
+  LIMIT: number;
+  Pageinfo: Repository;
   setTextInput: React.Dispatch<React.SetStateAction<string>>
   setTextInputDashboard: React.Dispatch<React.SetStateAction<string>>
-  handleAddRepository: (event: FormEvent<HTMLFormElement>) => Promise<void>;
+  setPageinfo: React.Dispatch<React.SetStateAction<Repository>>
+  setPage: React.Dispatch<React.SetStateAction<number>>
+  handleAddRepository: (event: FormEvent<HTMLFormElement>) => void;
 }
 
 
@@ -37,88 +41,85 @@ const RepositoryContext = createContext<RepositoryData>({} as RepositoryData);
 
 
 export const RepositoryProvider: React.FC = ({ children }) => {
-  const [textInput,setTextInput] = useState('');
-  const [textInputDashboard,setTextInputDashboard] = useState('');
-  const [Repositories,setRepositories] = useState<RepositoryProps[]>([]);
-  const [RepositoriesCard,setRepositoriesCard] = useState<RepositoryProps[]>(() => {
-    const storageRepository = localStorage.getItem(
-      '@GitHubCard:repositories',
-    );
+  const LIMIT = 8;
+  const [page, setPage] = useState(1)
+  const [textInput, setTextInput] = useState('');
+  const [textInputDashboard, setTextInputDashboard] = useState('');
+  const [Pageinfo, setPageinfo] = useState<Repository>(() => {
+    const storageRepositore = localStorage.getItem('@Repositories:Items');
 
-    if (storageRepository) {
-      return JSON.parse(storageRepository);
+    if(storageRepositore){
+      return JSON.parse(storageRepositore)
     }
-    return [];
+      return ;
   });
 
-  useEffect(() => {
-    localStorage.setItem(
-      '@GitHubCard:repositories',
-      JSON.stringify(RepositoriesCard),
-    );
-  }, [RepositoriesCard]);
- 
+   useEffect(() => {
+     localStorage.setItem('@Repositories:Items',JSON.stringify(Pageinfo))
+   },[Pageinfo])
 
-  
-    async function handleAddRepository(
-      event: FormEvent<HTMLFormElement>): Promise<void>{
-      event.preventDefault();
+
+  function handleAddRepository(
+    event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     
-
-      if(!textInputDashboard){
-        alert('campo vazio');
-        return;
-      }
-
-      try {
-       await api.get<Repository>(`repositories?q=${textInputDashboard}`)
-        .then((response: any) => setRepositoriesCard(response.data.items))
-        
-        setTextInput('');
-        
-       }catch (err){
-        alert('erro na busca do repositorio')
-      }
+    if (!textInputDashboard) {
+      toast.info(' Pesquisa Vazia', {position: "top-right"});
+      return;
     }
+      setTimeout(async () => {
+        try {
+          await fetch (`${api}repositories?q=${textInputDashboard}&per_page=${LIMIT}&page=${page}`)
+           .then(response => response.json())
+           .then((response: any) => setPageinfo(response))
    
+         } catch (err) {
+           throw new Error(err);
+         }
 
+      },3000)
+     
+  }
 
-  useEffect(() => {
-    async function SearchList(){
+  useEffect( () => {
+   setTimeout(() => {
+    async function SearchList() {
       try {
-        if(textInput !== ''){
-         await api.get<Repository>(`repositories?q=${textInput}&per_page=8`)
-         .then((response: any ) => setRepositories(response.data.items))
-       }
-      } catch (err){
+        if (textInput !== '') {
+         await fetch(`${api}repositories?q=${textInput}&page=1&per_page=8`)
+            .then((response: any) => response.json())
+            .then((response: any) => setPageinfo(response))
+        }
+      } catch (err) {
         return;
       }
     }
     SearchList()
+   },2000)
 
-  },[textInput]);
- 
+   
 
- 
-
+  }, [textInput]);
 
   return (
     <RepositoryContext.Provider value={
       {
-        setTextInputDashboard,
-        Repositories,
-        RepositoriesCard,
-        setTextInput,
+        textInputDashboard,
+        LIMIT,
+        Pageinfo,
         textInput,
-        textInputDashboard,  
-        handleAddRepository
+        setPageinfo,
+        setPage,
+        setTextInputDashboard,
+        setTextInput,
+        handleAddRepository,
       }}>
       {children}
-    </RepositoryContext.Provider> 
+    </RepositoryContext.Provider>
   )
 }
 
-export function useRepository(){
+export function useRepository() {
   const context = useContext(RepositoryContext)
 
   return context;
