@@ -34,7 +34,6 @@ Tabela de conteúdos
      * [Rodando a aplicação](#-rodando-a-aplicação)
    * [Tecnologias](#-tecnologias)
    * [Autor](#-autor)
-   * [Licença](#-licença)
 <!--te-->
 
 
@@ -128,10 +127,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 [![Gmail Badge](https://img.shields.io/badge/-elianbecaliaguiar@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:elianbecaliaguiar@gmail.com)](mailto:elianbecaliaguiar@gmail.com)
 
 ---
-
-## 📝 Licença
-
-Este projeto esta sobe a licença [MIT](./LICENSE).
 
 Feito com 💜 por Elian Becali.
 
