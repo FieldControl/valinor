@@ -59,25 +59,17 @@ export const RepositoryProvider: React.FC = ({ children }) => {
    },[Pageinfo])
 
 
-    function handleAddRepository(
+  function handleAddRepository(
     event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     
     if (!textInputDashboard) {
-      toast.info(' Pesquisa Vazia', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.info(' Pesquisa Vazia', {position: "top-right"});
       return;
     }
-      setTimeout(() => {
+      setTimeout(async () => {
         try {
-          fetch (`${api}repositories?q=${textInputDashboard}&per_page=${LIMIT}&page=${page}`)
+          await fetch (`${api}repositories?q=${textInputDashboard}&per_page=${LIMIT}&page=${page}`)
            .then(response => response.json())
            .then((response: any) => setPageinfo(response))
    
@@ -89,12 +81,12 @@ export const RepositoryProvider: React.FC = ({ children }) => {
      
   }
 
-  useEffect(() => {
+  useEffect( () => {
    setTimeout(() => {
-    function SearchList() {
+    async function SearchList() {
       try {
         if (textInput !== '') {
-          fetch(`${api}repositories?q=${textInput}&page=1&per_page=8`)
+         await fetch(`${api}repositories?q=${textInput}&page=1&per_page=8`)
             .then((response: any) => response.json())
             .then((response: any) => setPageinfo(response))
         }
@@ -103,7 +95,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
       }
     }
     SearchList()
-   },3000)
+   },2000)
 
    
 
