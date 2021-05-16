@@ -11,7 +11,6 @@ const ClickOutside: React.FC<ClickOutsideProps> = ({ children, onClick }) => {
       return;
     }
     const handleClickOutside = (e: MouseEvent) => {
-       console.log(onClick)
       if (onClick && !ref?.current?.contains(e.target as Node)) {
         onClick();
       }

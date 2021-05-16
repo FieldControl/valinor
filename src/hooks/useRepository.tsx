@@ -3,7 +3,6 @@ import {
   useState,
   useEffect,
   useContext,
-  FormEvent,
 } from "react";
 import { toast } from 'react-toastify'
 import { api } from "../services/api";
@@ -25,15 +24,12 @@ interface Repository {
 }
 
 interface RepositoryData {
-  textInput: string;
-  textInputDashboard: string;
   LIMIT: number;
   Pageinfo: Repository;
-  setTextInput: React.Dispatch<React.SetStateAction<string>>
-  setTextInputDashboard: React.Dispatch<React.SetStateAction<string>>
+  page: number;
   setPageinfo: React.Dispatch<React.SetStateAction<Repository>>
   setPage: React.Dispatch<React.SetStateAction<number>>
-  handleAddRepository: (event: FormEvent<HTMLFormElement>) => void;
+  handleAddRepository(text: string): void
 }
 
 
@@ -43,8 +39,6 @@ const RepositoryContext = createContext<RepositoryData>({} as RepositoryData);
 export const RepositoryProvider: React.FC = ({ children }) => {
   const LIMIT = 8;
   const [page, setPage] = useState(1)
-  const [textInput, setTextInput] = useState('');
-  const [textInputDashboard, setTextInputDashboard] = useState('');
   const [Pageinfo, setPageinfo] = useState<Repository>(() => {
     const storageRepositore = localStorage.getItem('@Repositories:Items');
 
@@ -58,60 +52,27 @@ export const RepositoryProvider: React.FC = ({ children }) => {
      localStorage.setItem('@Repositories:Items',JSON.stringify(Pageinfo))
    },[Pageinfo])
 
-
-  function handleAddRepository(
-    event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    
-    if (!textInputDashboard) {
-      toast.info(' Pesquisa Vazia', {position: "top-right"});
-      return;
-    }
-      setTimeout(async () => {
-        try {
-          await fetch (`${api}repositories?q=${textInputDashboard}&per_page=${LIMIT}&page=${page}`)
-           .then(response => response.json())
-           .then((response: any) => setPageinfo(response))
-   
-         } catch (err) {
-           throw new Error(err);
-         }
-
-      },3000)
-     
-  }
-
-  useEffect( () => {
-   setTimeout(() => {
-    async function SearchList() {
+  async function handleAddRepository(text: string) {
+    if(text !== '') {
       try {
-        if (textInput !== '') {
-         await fetch(`${api}repositories?q=${textInput}&page=1&per_page=8`)
-            .then((response: any) => response.json())
-            .then((response: any) => setPageinfo(response))
-        }
+       await fetch (`${api}repositories?q=${text}&per_page=${LIMIT}&page=${page}`)
+        .then(response => response.json())
+        .then((response: any) => setPageinfo(response))
+   
       } catch (err) {
-        return;
+        toast.error('Houve um erro na pesquisa', {position: "top-right"});
       }
     }
-    SearchList()
-   },2000)
-
-   
-
-  }, [textInput]);
+  }
 
   return (
     <RepositoryContext.Provider value={
       {
-        textInputDashboard,
         LIMIT,
         Pageinfo,
-        textInput,
+        page,
         setPageinfo,
         setPage,
-        setTextInputDashboard,
-        setTextInput,
         handleAddRepository,
       }}>
       {children}

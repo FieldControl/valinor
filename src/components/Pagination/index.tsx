@@ -15,19 +15,14 @@ const MAX_LEFT = (MAX_ITENS - 1)/ 2;
   const current = offset ? (offset / limit) + 1 : 1;
   const pages = Math.ceil(total / limit);
   const first = Math.max(current - MAX_LEFT, 1);
-  const {setPage, handleAddRepository} = useRepository()
+  const {setPage} = useRepository()
   
   function onPageChange(page: number){
     setOffset((page - 1) * limit)
     setPage(page);
-    console.log(page);
   }
-
-
-
   return(
     <Container> 
-     <form onSubmit={handleAddRepository}>
       <Content>
         {Array.from({length: Math.min(MAX_ITENS, pages)})
         .map((_,index) => index + first)
@@ -39,7 +34,6 @@ const MAX_LEFT = (MAX_ITENS - 1)/ 2;
           </li>
         ))}
         </Content>
-      </form>
     </Container>
   )
 }

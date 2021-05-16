@@ -1,20 +1,19 @@
 import {Form} from './styles'
 import { GoRepo } from 'react-icons/go';
 import {useRepository} from '../../hooks/useRepository';
-import { useState , useCallback } from 'react';
+import { useState , useCallback, useEffect } from 'react';
 import ClickOutside from '../ClickOutside';
-
-
-
 
 export const SearchHeader =  () => {
   const { 
     Pageinfo,
-    textInput,
-    setTextInput,
+    handleAddRepository
   } = useRepository();
 
+
   const [isFocused, setIsFocused] = useState(false);
+  const [textInput, setTextInput] = useState('');
+
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -22,9 +21,19 @@ export const SearchHeader =  () => {
 
   
   const handleInputBlur = useCallback(() => {
-    return setIsFocused(false)
-    
+    setIsFocused(false)
   },[]);
+
+  function handleChange(text: string){
+    setTextInput(text)
+  }
+  
+  useEffect(() => {
+    handleAddRepository(textInput) 
+   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[textInput])
+  
   
   return  (
     <ClickOutside onClick={handleInputBlur}>
@@ -34,7 +43,7 @@ export const SearchHeader =  () => {
         >
         <input
           value={textInput}
-          onChange={text => setTextInput(text.target.value)} 
+          onChange={text => handleChange(text.target.value)} 
           placeholder="Searcg or jump to ..."  
           type="text"
         >
