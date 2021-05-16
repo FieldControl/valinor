@@ -12,7 +12,7 @@ export const Dashboard: React.FC = () => {
   const {Pageinfo,LIMIT} = useRepository();
   const [offset, setOffset] = useState(0);
   
-  console.log(Pageinfo?.items)
+  
   return (
     <Container>
       <Content>
@@ -20,7 +20,7 @@ export const Dashboard: React.FC = () => {
         <TitleBox>
           <h1>
             <strong>
-              {Pageinfo?.total_count ? new Intl.NumberFormat()
+              {Pageinfo?.total_count ? new Intl.NumberFormat('en-IN')
               .format(Pageinfo?.total_count): 0}
             </strong> 
             repository results

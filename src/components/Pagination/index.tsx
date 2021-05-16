@@ -14,16 +14,17 @@ const MAX_LEFT = (MAX_ITENS - 1)/ 2;
   const current = offset ? (offset / limit) + 1 : 1;
   const pages = Math.ceil(total / limit);
   const first = Math.max(current - MAX_LEFT, 1);
+  
 
   return(
     <Container> 
      <Content>
-       {Array.from({length: MAX_ITENS})
+       {Array.from({length: Math.min(MAX_ITENS, pages)})
        .map((_,index) => index + first)
-       .map((pages) =>(
-         <li>
-           <button onClick={() => setOffset((pages - 1) * limit) }>
-             {pages}
+       .map((page) =>(
+         <li key={page}>
+           <button onClick={() => setOffset((page - 1) * limit) }>
+             {page}
            </button>
          </li>
        ))}
@@ -31,4 +32,6 @@ const MAX_LEFT = (MAX_ITENS - 1)/ 2;
     </Container>
   )
 }
+
+
 

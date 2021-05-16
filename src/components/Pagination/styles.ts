@@ -28,6 +28,10 @@ display: flex;
         background: var(--blue-500);
       }
 
+      &:focus{
+        background: var(--blue-500);
+      }
+
     } 
   
   }

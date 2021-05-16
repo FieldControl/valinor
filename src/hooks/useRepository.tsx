@@ -9,13 +9,13 @@ import { toast } from 'react-toastify'
 import { api } from "../services/api";
 
 interface RepositoryProps {
-  full_name: string;
   id: number;
-  html_url: string;
-  description: string;
   stargazers_count: number;
   watchers_count: number;
   open_issues_count: number;
+  full_name: string;
+  html_url: string;
+  description: string;
   language: string;
 }
 
@@ -27,11 +27,12 @@ interface Repository {
 interface RepositoryData {
   textInput: string;
   textInputDashboard: string;
+  LIMIT: number;
+  Pageinfo: Repository;
   setTextInput: React.Dispatch<React.SetStateAction<string>>
   setTextInputDashboard: React.Dispatch<React.SetStateAction<string>>
+  setPageinfo: React.Dispatch<React.SetStateAction<Repository>>
   handleAddRepository: (event: FormEvent<HTMLFormElement>) => void;
-  Pageinfo: Repository | undefined;
-  LIMIT: number;
 }
 
 
@@ -42,7 +43,18 @@ export const RepositoryProvider: React.FC = ({ children }) => {
   const LIMIT = 8;
   const [textInput, setTextInput] = useState('');
   const [textInputDashboard, setTextInputDashboard] = useState('');
-  const [Pageinfo, setPageinfo] = useState<Repository>();
+  const [Pageinfo, setPageinfo] = useState<Repository>(() => {
+    const storageRepositore = localStorage.getItem('@Repositories:Items');
+
+    if(storageRepositore){
+      return JSON.parse(storageRepositore)
+    }
+      return ;
+  });
+
+   useEffect(() => {
+     localStorage.setItem('@Repositories:Items',JSON.stringify(Pageinfo))
+   },[Pageinfo])
 
 
     function handleAddRepository(
@@ -63,7 +75,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
     }
    
       try {
-       fetch (`${api}repositories?q=${textInputDashboard}&per_page=8`)
+       fetch (`${api}repositories?q=${textInputDashboard}&per_page=8&page=1`)
         .then(response => response.json())
         .then((response: any) => setPageinfo(response))
 
@@ -77,7 +89,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
     async function SearchList() {
       try {
         if (textInput !== '') {
-          fetch (`${api}repositories?q=${textInput}&page=1&per_page=8`)
+          fetch(`${api}repositories?q=${textInput}&page=1&per_page=8`)
             .then((response: any) => response.json())
             .then((response: any) => setPageinfo(response))
         }
@@ -96,6 +108,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
         LIMIT,
         Pageinfo,
         textInput,
+        setPageinfo,
         setTextInputDashboard,
         setTextInput,
         handleAddRepository,
