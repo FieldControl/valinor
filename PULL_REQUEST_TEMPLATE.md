@@ -6,7 +6,7 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
-*libs*
+*libs* <br>
 Axios - Biblioteca para trabalhar com requisições. <br>
 React - Biblioteca SPA. <br>
 Styled Components - Biblioteca Para trabalhar com estilização utilizando conceitos de CSS-in-JS. <br>
