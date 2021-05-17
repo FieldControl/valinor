@@ -7,15 +7,15 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
 *libs*
-Axios - Biblioteca para trabalhar com requisições.
-React - Biblioteca SPA.
-Styled Components - Biblioteca Para trabalhar com estilização utilizando conceitos de CSS-in-JS.
-react-toastify - Biblioteca para trabalhar com Toasts personalizados.
-*framework*
-creact-react-app 
+Axios - Biblioteca para trabalhar com requisições. <br>
+React - Biblioteca SPA. <br>
+Styled Components - Biblioteca Para trabalhar com estilização utilizando conceitos de CSS-in-JS. <br>
+react-toastify - Biblioteca para trabalhar com Toasts personalizados. <br>
+*framework* <br> 
+creact-react-app  <br>
 
-*linguagem*
-TypeScript - Linguagem para trabalhar com tipagem 
+*linguagem* <br>
+TypeScript - Linguagem para trabalhar com tipagem <br>
 
 
 
