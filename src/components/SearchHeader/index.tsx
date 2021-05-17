@@ -7,7 +7,7 @@ import ClickOutside from '../ClickOutside';
 export const SearchHeader =  () => {
   const { 
     Pageinfo,
-    handleAddRepository
+    AddRepository
   } = useRepository();
 
 
@@ -29,7 +29,7 @@ export const SearchHeader =  () => {
   }
   
   useEffect(() => {
-    handleAddRepository(textInput) 
+    AddRepository(textInput) 
    
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[textInput])

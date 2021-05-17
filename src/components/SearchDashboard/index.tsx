@@ -6,7 +6,7 @@ import { useCallback , useState, FormEvent, useEffect} from 'react';
 
 export const SearchDashboard = () => {
   const {
-    handleAddRepository,
+    AddRepository,
     page
   } = useRepository();
   
@@ -29,12 +29,12 @@ export const SearchDashboard = () => {
 
   function handleSubmit(event: FormEvent){
     event.preventDefault();
-    handleAddRepository(input);
+    AddRepository(input);
   }
 
   useEffect(() => {
     if(input !== ''){
-      handleAddRepository(input);
+      AddRepository(input);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[page])

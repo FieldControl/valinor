@@ -5,10 +5,12 @@ height: 3rem;
 align-items: center;
 justify-content: center;
 
+
 `
 
 export const Content = styled.div`
 flex: 1;
+
 display: flex;
 line-height: 4rem;
 justify-content: center;
