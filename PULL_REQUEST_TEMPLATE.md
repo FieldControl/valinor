@@ -30,6 +30,8 @@ Escolhi trabalhar com React e vez de usar Angular pela sua simplificadade na com
 
 Quais princípios da engenharia de software que você usou?
 
+
+
 **Desafios e problemas**
 
 Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
