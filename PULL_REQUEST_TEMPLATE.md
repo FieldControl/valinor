@@ -6,30 +6,21 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
-*libs*<br>
-Axios - Biblioteca para trabalhar com requisições.<br>
-React - Biblioteca SPA.<br>
-Styled Components - Biblioteca Para trabalhar com estilização utilizando conceitos de CSS-in-JS. <br>
-react-toastify - Biblioteca para trabalhar com Toasts personalizados.<br>
-*framework*<br>
-creact-react-app <br>
-
-*linguagem*<br>
-TypeScript - Linguagem para trabalhar com tipagem 
-
+Na construção do projeto utilizando SPA escolhi trabalhar com React, utilizei do create-react-app para otimizar a configuração  de ferramentas e funcionalidades para iniciar o meu projeto. Também utilizei o TypeScript para trabalhar com tipagens, o axios para trabalhar requisições, para trabalhar com estilos utilizei o styled-componentes.
 
 
 **Técnologias X e Y**
 
 Justifique porque você optou pela tecnologia X e não a Y?
 
-Escolhi trabalhar com React e vez de usar Angular pela sua simplificadade na composição, poder utilizar componentes e pelo fato do react ser baseado na Virtual-DOM.
+Escolhi utilizar o React por ter uma maior adessão ao mercado e menos break changes em relação ao AngularJs ou Vue. Usei typescript para ter uma melhor legibilidade na estrutura do codigo e optei por utilizar o style-components por que além de ter as funcionalidades do SASS ele me permiti utilizar codigo javaScript.
  
 
 **Princípios de software**
 
 Quais princípios da engenharia de software que você usou?
 
+SOLID - Componentes reutilizaveis  e estrutura logica separada da interface 
 
 
 **Desafios e problemas**
