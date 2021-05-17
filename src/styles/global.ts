@@ -47,7 +47,7 @@ body{
 
 body, textarea, input, button{
   font-family: 'Roboto', sans-serif;
-  color: var()
+  
 }
 
 
@@ -65,5 +65,17 @@ button{
 }
 
 
+::-webkit-scrollbar{
+  background-color: var(--gray-500);
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--gray-250);
+}
+
+::-webkit--ms-scrollbar-arrow-color{
+  background: var(--gray-250);
+
+}
 
 `;

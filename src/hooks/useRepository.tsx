@@ -29,7 +29,7 @@ interface RepositoryData {
   page: number;
   setPageinfo: React.Dispatch<React.SetStateAction<Repository>>
   setPage: React.Dispatch<React.SetStateAction<number>>
-  handleAddRepository(text: string): void
+  AddRepository(text: string): void
 }
 
 
@@ -52,13 +52,13 @@ export const RepositoryProvider: React.FC = ({ children }) => {
      localStorage.setItem('@Repositories:Items',JSON.stringify(Pageinfo))
    },[Pageinfo])
 
-  async function handleAddRepository(text: string) {
+  async function AddRepository(text: string) {
     if(text !== '') {
       try {
-       await fetch (`${api}repositories?q=${text}&per_page=${LIMIT}&page=${page}`)
-        .then(response => response.json())
-        .then((response: any) => setPageinfo(response))
-   
+      const response = await api.get(`repositories?q=${text}&per_page=${LIMIT}&page=${page}`)
+      setPageinfo(response.data)
+      
+  
       } catch (err) {
         toast.error('Houve um erro na pesquisa', {position: "top-right"});
       }
@@ -73,7 +73,7 @@ export const RepositoryProvider: React.FC = ({ children }) => {
         page,
         setPageinfo,
         setPage,
-        handleAddRepository,
+        AddRepository,
       }}>
       {children}
     </RepositoryContext.Provider>
