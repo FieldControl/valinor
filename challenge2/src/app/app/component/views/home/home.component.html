@@ -1,0 +1,52 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<mat-card  class="mat-elevation-z3 cardTopo">
+<div class="center">
+  <form [formGroup]="formulario" (ngSubmit)="pesquisa(pgAtual)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Search Repositories</mat-label>
+      <input matInput placeholder="Node Js"  formControlName="pesquisa"  class="pesquisa">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button class="botao" [disabled]="!formulario.valid" (click)="pesquisa(pgAtual)">Buscar<mat-icon> search
+  </mat-icon></button>
+</div>
+</mat-card>
+
+<app-error *ngIf="resultado == 0" ></app-error>
+
+
+<div *ngIf="resultado != 0">
+
+<mat-list role="list">
+  <div *ngFor="let dados of resultado" class="lista">
+  <mat-list-item class="listitem">
+     <a class="linkName" href="{{dados.html_url}}"> <mat-card-title style="padding-right: 15px"  >{{dados.name}}</mat-card-title></a>
+      <span style="padding-right: 15px">Full Name: {{dados.full_name}}</span>
+      <span *ngIf="dados.language!=null"  style="padding-right: 15px">Language: {{dados.language}}</span>
+
+      <mat-icon class="star">star</mat-icon> <span>{{dados.stargazers_count}}</span>
+
+  </mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+
+</mat-list>
+
+
+<nav aria-label="Page navigation example" class="paginator">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <button class="page-link" [disabled]="previous" (click)="pginacao(pgAtual-1)">Previous</button>
+    </li>
+    <li class="page-item"><button class="page-link" (click)="pginacao(primeira)"> {{primeira}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="pginacao(segunda)"> {{segunda}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="pginacao(terceira)"> {{terceira}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="pginacao(quarta)"> {{quarta}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="pginacao(quinta)"> {{quinta}}</button></li>
+    <li class="page-item">
+      <button class="page-link" (click)="pginacao(pgAtual+1)">Next</button>
+    </li>
+  </ul>
+</nav>
+</div>
