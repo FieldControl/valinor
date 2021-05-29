@@ -6,9 +6,13 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
+Utilizei o Angular com o Material, para desenvolver, usei, várias bibliotecas do material.
+
 **Técnologias X e Y**
 
 Justifique porque você optou pela tecnologia X e não a Y?
+
+Utilizei essa tecnologia pois é a que estou mais familiarizado, assim pude terminar o progeto com mais rapidez.
 
 **Princípios de software**
 
@@ -28,14 +32,14 @@ Queremos te conhecer um pouco melhor, conte um pouco sobre você.
 
 Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
 
+Nasci em São José do Rio Preto, residindo a vida toda na região, tenho 24 anos e sou apaixonado por tecnologia. No ensino médio estava indeciso entre fazer Eng. Civil ou Eng. Mecatrônica, acabei fazendo Eng. Civil, entretanto, nesse período, nos lugares em que trabalhei, sempre tive contato com T.I., quando via algo que podia ser melhorado, empenhava-me em buscar melhorias, assim comecei a programar pelo VBA, quando tinha algo que era padronizado (aquele trabalho repetitivo), já corria automatizar.
+
+Assim, em 2019 no término da Eng. Civil adentrei ao curso de ADS da FATEC, onde enxerguei todas as possibilidades que essa área pode alcançar, me deixou ainda mais empolgado e empenhado em aprofundar meus conhecimentos na área.
+
 **Outros detalhes**
 
 Se quiser enviar alguma informação adicional sobre o desafio..
 
-
 ---
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
-
-
-
+Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :)
