@@ -1,0 +1,37 @@
+.sidenav-container {
+  height: 100%;
+}
+
+
+.background-color{
+  background-color: #24292e;
+  color: white;
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
+
+.logo{
+  height: 32px;
+  transition: 0.4s;
+}
+
+
+.logo:hover{
+  transform: scale(1.5);
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

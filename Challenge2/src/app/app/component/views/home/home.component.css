@@ -1,0 +1,50 @@
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardTopo{
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  min-width: 200px;
+}
+.logo{
+  height: 100px;
+  transition: 0.4s;
+}
+
+.logo:hover{
+  transform: scale(1.5);
+}
+
+.pesquisa{
+  text-align: center;}
+
+.botao{
+  background-color: #24292e;
+  color: white;
+}
+
+.lista{
+  padding-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.star{
+  color: goldenrod;
+}
+
+.linkName{
+  color: #24292e;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.linkName:hover{
+  transform: scale(1.3);
+}
+

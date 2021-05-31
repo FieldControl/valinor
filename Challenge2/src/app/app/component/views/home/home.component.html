@@ -1,0 +1,37 @@
+
+<mat-card  class="mat-elevation-z3 cardTopo">
+<div class="center">
+  <form [formGroup]="formulario" (ngSubmit)="pesquisa(pgAtual)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Search Repositories</mat-label>
+      <input matInput placeholder="Node Js"  formControlName="pesquisa"  class="pesquisa">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button class="botao" [disabled]="!formulario.valid" (click)="pesquisa(pgAtual)">Buscar<mat-icon> search
+  </mat-icon></button>
+</div>
+</mat-card>
+
+<!--Motra um aviso de erro caso a api nao encontre nenhum resultado em seu banco de dados e retorne o valor 0-->
+<app-error *ngIf="resultado == 0" ></app-error>
+
+
+
+<!--Construindo a lista dos resultados-->
+<mat-list role="list">
+  <div *ngFor="let dados of resultado" class="lista">
+  <mat-list-item class="listitem">
+     <a class="linkName" href="{{dados.html_url}}"> <mat-card-title style="padding-right: 15px"  >{{dados.name}}</mat-card-title></a>
+      <span style="padding-right: 15px">Full Name: {{dados.full_name}}</span>
+      <span *ngIf="dados.language!=null"  style="padding-right: 15px">Language: {{dados.language}}</span>
+
+      <mat-icon class="star">star</mat-icon> <span>{{dados.stargazers_count}}</span>
+
+  </mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+
+</mat-list>
+
+<!--Paginator-->
+<app-paginator *ngIf="resultado != 0"></app-paginator>
