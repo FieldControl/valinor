@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/sort/testing",
+  "main": "../../bundles/material-sort-testing.umd.js",
+  "fesm2015": "../../fesm2015/sort/testing.js",
+  "esm2015": "../../esm2015/sort/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/sort/testing.js",
+  "es2015": "../../fesm2015/sort/testing.js"
+}

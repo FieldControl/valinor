@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/form-field/testing/control",
+  "main": "../../../bundles/material-form-field-testing-control.umd.js",
+  "fesm2015": "../../../fesm2015/form-field/testing/control.js",
+  "esm2015": "../../../esm2015/form-field/testing/control/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../../fesm2015/form-field/testing/control.js",
+  "es2015": "../../../fesm2015/form-field/testing/control.js"
+}

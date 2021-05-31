@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/grid-list",
+  "main": "../bundles/material-grid-list.umd.js",
+  "fesm2015": "../fesm2015/grid-list.js",
+  "esm2015": "../esm2015/grid-list/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/grid-list.js",
+  "es2015": "../fesm2015/grid-list.js"
+}

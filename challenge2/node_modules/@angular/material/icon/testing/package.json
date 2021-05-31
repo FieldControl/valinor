@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/icon/testing",
+  "main": "../../bundles/material-icon-testing.umd.js",
+  "fesm2015": "../../fesm2015/icon/testing.js",
+  "esm2015": "../../esm2015/icon/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/icon/testing.js",
+  "es2015": "../../fesm2015/icon/testing.js"
+}

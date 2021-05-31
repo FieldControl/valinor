@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/radio/testing",
+  "main": "../../bundles/material-radio-testing.umd.js",
+  "fesm2015": "../../fesm2015/radio/testing.js",
+  "esm2015": "../../esm2015/radio/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/radio/testing.js",
+  "es2015": "../../fesm2015/radio/testing.js"
+}

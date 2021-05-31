@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/list/testing",
+  "main": "../../bundles/material-list-testing.umd.js",
+  "fesm2015": "../../fesm2015/list/testing.js",
+  "esm2015": "../../esm2015/list/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/list/testing.js",
+  "es2015": "../../fesm2015/list/testing.js"
+}

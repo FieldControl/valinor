@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/badge/testing",
+  "main": "../../bundles/material-badge-testing.umd.js",
+  "fesm2015": "../../fesm2015/badge/testing.js",
+  "esm2015": "../../esm2015/badge/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/badge/testing.js",
+  "es2015": "../../fesm2015/badge/testing.js"
+}

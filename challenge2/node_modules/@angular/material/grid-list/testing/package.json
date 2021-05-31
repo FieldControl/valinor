@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/grid-list/testing",
+  "main": "../../bundles/material-grid-list-testing.umd.js",
+  "fesm2015": "../../fesm2015/grid-list/testing.js",
+  "esm2015": "../../esm2015/grid-list/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/grid-list/testing.js",
+  "es2015": "../../fesm2015/grid-list/testing.js"
+}

@@ -1,0 +1,14 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+export declare const allowMangle: boolean;
+export declare const shouldBeautify: boolean;
+export declare const allowMinify: boolean;
+export declare const cachingDisabled: boolean;
+export declare const cachingBasePath: string | null;
+export declare const profilingEnabled: boolean;
+export declare const maxWorkers: number;

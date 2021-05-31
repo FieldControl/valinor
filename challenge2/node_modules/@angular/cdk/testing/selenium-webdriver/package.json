@@ -1,0 +1,9 @@
+{
+  "name": "@angular/cdk/testing/selenium-webdriver",
+  "main": "../../bundles/cdk-testing-selenium-webdriver.umd.js",
+  "fesm2015": "../../fesm2015/testing/selenium-webdriver.js",
+  "esm2015": "../../esm2015/testing/selenium-webdriver/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/testing/selenium-webdriver.js",
+  "es2015": "../../fesm2015/testing/selenium-webdriver.js"
+}

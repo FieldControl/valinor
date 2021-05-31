@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/checkbox",
+  "main": "../bundles/material-checkbox.umd.js",
+  "fesm2015": "../fesm2015/checkbox.js",
+  "esm2015": "../esm2015/checkbox/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/checkbox.js",
+  "es2015": "../fesm2015/checkbox.js"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/card/testing",
+  "main": "../../bundles/material-card-testing.umd.js",
+  "fesm2015": "../../fesm2015/card/testing.js",
+  "esm2015": "../../esm2015/card/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/card/testing.js",
+  "es2015": "../../fesm2015/card/testing.js"
+}

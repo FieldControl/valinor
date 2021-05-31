@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/core/testing",
+  "main": "../../bundles/material-core-testing.umd.js",
+  "fesm2015": "../../fesm2015/core/testing.js",
+  "esm2015": "../../esm2015/core/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/core/testing.js",
+  "es2015": "../../fesm2015/core/testing.js"
+}

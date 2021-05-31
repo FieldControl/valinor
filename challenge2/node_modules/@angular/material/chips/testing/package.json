@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/chips/testing",
+  "main": "../../bundles/material-chips-testing.umd.js",
+  "fesm2015": "../../fesm2015/chips/testing.js",
+  "esm2015": "../../esm2015/chips/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/chips/testing.js",
+  "es2015": "../../fesm2015/chips/testing.js"
+}

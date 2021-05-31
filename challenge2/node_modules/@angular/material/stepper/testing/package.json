@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/stepper/testing",
+  "main": "../../bundles/material-stepper-testing.umd.js",
+  "fesm2015": "../../fesm2015/stepper/testing.js",
+  "esm2015": "../../esm2015/stepper/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/stepper/testing.js",
+  "es2015": "../../fesm2015/stepper/testing.js"
+}

@@ -1,0 +1,52 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable, Optional, NgZone, } from '@angular/core';
+import { InteractivityChecker } from '../interactivity-checker/interactivity-checker';
+import { ConfigurableFocusTrap } from './configurable-focus-trap';
+import { FOCUS_TRAP_INERT_STRATEGY } from './focus-trap-inert-strategy';
+import { EventListenerFocusTrapInertStrategy } from './event-listener-inert-strategy';
+import { FocusTrapManager } from './focus-trap-manager';
+import * as i0 from "@angular/core";
+import * as i1 from "../interactivity-checker/interactivity-checker";
+import * as i2 from "./focus-trap-manager";
+import * as i3 from "@angular/common";
+import * as i4 from "./focus-trap-inert-strategy";
+/** Factory that allows easy instantiation of configurable focus traps. */
+export class ConfigurableFocusTrapFactory {
+    constructor(_checker, _ngZone, _focusTrapManager, _document, _inertStrategy) {
+        this._checker = _checker;
+        this._ngZone = _ngZone;
+        this._focusTrapManager = _focusTrapManager;
+        this._document = _document;
+        // TODO split up the strategies into different modules, similar to DateAdapter.
+        this._inertStrategy = _inertStrategy || new EventListenerFocusTrapInertStrategy();
+    }
+    create(element, config = { defer: false }) {
+        let configObject;
+        if (typeof config === 'boolean') {
+            configObject = { defer: config };
+        }
+        else {
+            configObject = config;
+        }
+        return new ConfigurableFocusTrap(element, this._checker, this._ngZone, this._document, this._focusTrapManager, this._inertStrategy, configObject);
+    }
+}
+ConfigurableFocusTrapFactory.ɵprov = i0.ɵɵdefineInjectable({ factory: function ConfigurableFocusTrapFactory_Factory() { return new ConfigurableFocusTrapFactory(i0.ɵɵinject(i1.InteractivityChecker), i0.ɵɵinject(i0.NgZone), i0.ɵɵinject(i2.FocusTrapManager), i0.ɵɵinject(i3.DOCUMENT), i0.ɵɵinject(i4.FOCUS_TRAP_INERT_STRATEGY, 8)); }, token: ConfigurableFocusTrapFactory, providedIn: "root" });
+ConfigurableFocusTrapFactory.decorators = [
+    { type: Injectable, args: [{ providedIn: 'root' },] }
+];
+ConfigurableFocusTrapFactory.ctorParameters = () => [
+    { type: InteractivityChecker },
+    { type: NgZone },
+    { type: FocusTrapManager },
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [FOCUS_TRAP_INERT_STRATEGY,] }] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29uZmlndXJhYmxlLWZvY3VzLXRyYXAtZmFjdG9yeS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3NyYy9jZGsvYTExeS9mb2N1cy10cmFwL2NvbmZpZ3VyYWJsZS1mb2N1cy10cmFwLWZhY3RvcnkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFDLFFBQVEsRUFBQyxNQUFNLGlCQUFpQixDQUFDO0FBQ3pDLE9BQU8sRUFDTCxNQUFNLEVBQ04sVUFBVSxFQUNWLFFBQVEsRUFDUixNQUFNLEdBQ1AsTUFBTSxlQUFlLENBQUM7QUFDdkIsT0FBTyxFQUFDLG9CQUFvQixFQUFDLE1BQU0sZ0RBQWdELENBQUM7QUFDcEYsT0FBTyxFQUFDLHFCQUFxQixFQUFDLE1BQU0sMkJBQTJCLENBQUM7QUFFaEUsT0FBTyxFQUFDLHlCQUF5QixFQUF5QixNQUFNLDZCQUE2QixDQUFDO0FBQzlGLE9BQU8sRUFBQyxtQ0FBbUMsRUFBQyxNQUFNLGlDQUFpQyxDQUFDO0FBQ3BGLE9BQU8sRUFBQyxnQkFBZ0IsRUFBQyxNQUFNLHNCQUFzQixDQUFDOzs7Ozs7QUFFdEQsMEVBQTBFO0FBRTFFLE1BQU0sT0FBTyw0QkFBNEI7SUFJdkMsWUFDWSxRQUE4QixFQUM5QixPQUFlLEVBQ2YsaUJBQW1DLEVBQ3pCLFNBQWMsRUFDZSxjQUF1QztRQUo5RSxhQUFRLEdBQVIsUUFBUSxDQUFzQjtRQUM5QixZQUFPLEdBQVAsT0FBTyxDQUFRO1FBQ2Ysc0JBQWlCLEdBQWpCLGlCQUFpQixDQUFrQjtRQUk3QyxJQUFJLENBQUMsU0FBUyxHQUFHLFNBQVMsQ0FBQztRQUMzQiwrRUFBK0U7UUFDL0UsSUFBSSxDQUFDLGNBQWMsR0FBRyxjQUFjLElBQUksSUFBSSxtQ0FBbUMsRUFBRSxDQUFDO0lBQ3BGLENBQUM7SUFnQkQsTUFBTSxDQUFDLE9BQW9CLEVBQUUsU0FBOEMsRUFBQyxLQUFLLEVBQUUsS0FBSyxFQUFDO1FBRXZGLElBQUksWUFBeUMsQ0FBQztRQUM5QyxJQUFJLE9BQU8sTUFBTSxLQUFLLFNBQVMsRUFBRTtZQUMvQixZQUFZLEdBQUcsRUFBQyxLQUFLLEVBQUUsTUFBTSxFQUFDLENBQUM7U0FDaEM7YUFBTTtZQUNMLFlBQVksR0FBRyxNQUFNLENBQUM7U0FDdkI7UUFDRCxPQUFPLElBQUkscUJBQXFCLENBQzVCLE9BQU8sRUFBRSxJQUFJLENBQUMsUUFBUSxFQUFFLElBQUksQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLFNBQVMsRUFBRSxJQUFJLENBQUMsaUJBQWlCLEVBQzVFLElBQUksQ0FBQyxjQUFjLEVBQUUsWUFBWSxDQUFDLENBQUM7SUFDekMsQ0FBQzs7OztZQTFDRixVQUFVLFNBQUMsRUFBQyxVQUFVLEVBQUUsTUFBTSxFQUFDOzs7WUFSeEIsb0JBQW9CO1lBRjFCLE1BQU07WUFPQSxnQkFBZ0I7NENBWWpCLE1BQU0sU0FBQyxRQUFROzRDQUNmLFFBQVEsWUFBSSxNQUFNLFNBQUMseUJBQXlCIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCB7RE9DVU1FTlR9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5pbXBvcnQge1xuICBJbmplY3QsXG4gIEluamVjdGFibGUsXG4gIE9wdGlvbmFsLFxuICBOZ1pvbmUsXG59IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtJbnRlcmFjdGl2aXR5Q2hlY2tlcn0gZnJvbSAnLi4vaW50ZXJhY3Rpdml0eS1jaGVja2VyL2ludGVyYWN0aXZpdHktY2hlY2tlcic7XG5pbXBvcnQge0NvbmZpZ3VyYWJsZUZvY3VzVHJhcH0gZnJvbSAnLi9jb25maWd1cmFibGUtZm9jdXMtdHJhcCc7XG5pbXBvcnQge0NvbmZpZ3VyYWJsZUZvY3VzVHJhcENvbmZpZ30gZnJvbSAnLi9jb25maWd1cmFibGUtZm9jdXMtdHJhcC1jb25maWcnO1xuaW1wb3J0IHtGT0NVU19UUkFQX0lORVJUX1NUUkFURUdZLCBGb2N1c1RyYXBJbmVydFN0cmF0ZWd5fSBmcm9tICcuL2ZvY3VzLXRyYXAtaW5lcnQtc3RyYXRlZ3knO1xuaW1wb3J0IHtFdmVudExpc3RlbmVyRm9jdXNUcmFwSW5lcnRTdHJhdGVneX0gZnJvbSAnLi9ldmVudC1saXN0ZW5lci1pbmVydC1zdHJhdGVneSc7XG5pbXBvcnQge0ZvY3VzVHJhcE1hbmFnZXJ9IGZyb20gJy4vZm9jdXMtdHJhcC1tYW5hZ2VyJztcblxuLyoqIEZhY3RvcnkgdGhhdCBhbGxvd3MgZWFzeSBpbnN0YW50aWF0aW9uIG9mIGNvbmZpZ3VyYWJsZSBmb2N1cyB0cmFwcy4gKi9cbkBJbmplY3RhYmxlKHtwcm92aWRlZEluOiAncm9vdCd9KVxuZXhwb3J0IGNsYXNzIENvbmZpZ3VyYWJsZUZvY3VzVHJhcEZhY3Rvcnkge1xuICBwcml2YXRlIF9kb2N1bWVudDogRG9jdW1lbnQ7XG4gIHByaXZhdGUgX2luZXJ0U3RyYXRlZ3k6IEZvY3VzVHJhcEluZXJ0U3RyYXRlZ3k7XG5cbiAgY29uc3RydWN0b3IoXG4gICAgICBwcml2YXRlIF9jaGVja2VyOiBJbnRlcmFjdGl2aXR5Q2hlY2tlcixcbiAgICAgIHByaXZhdGUgX25nWm9uZTogTmdab25lLFxuICAgICAgcHJpdmF0ZSBfZm9jdXNUcmFwTWFuYWdlcjogRm9jdXNUcmFwTWFuYWdlcixcbiAgICAgIEBJbmplY3QoRE9DVU1FTlQpIF9kb2N1bWVudDogYW55LFxuICAgICAgQE9wdGlvbmFsKCkgQEluamVjdChGT0NVU19UUkFQX0lORVJUX1NUUkFURUdZKSBfaW5lcnRTdHJhdGVneT86IEZvY3VzVHJhcEluZXJ0U3RyYXRlZ3kpIHtcblxuICAgIHRoaXMuX2RvY3VtZW50ID0gX2RvY3VtZW50O1xuICAgIC8vIFRPRE8gc3BsaXQgdXAgdGhlIHN0cmF0ZWdpZXMgaW50byBkaWZmZXJlbnQgbW9kdWxlcywgc2ltaWxhciB0byBEYXRlQWRhcHRlci5cbiAgICB0aGlzLl9pbmVydFN0cmF0ZWd5ID0gX2luZXJ0U3RyYXRlZ3kgfHwgbmV3IEV2ZW50TGlzdGVuZXJGb2N1c1RyYXBJbmVydFN0cmF0ZWd5KCk7XG4gIH1cblxuICAvKipcbiAgICogQ3JlYXRlcyBhIGZvY3VzLXRyYXBwZWQgcmVnaW9uIGFyb3VuZCB0aGUgZ2l2ZW4gZWxlbWVudC5cbiAgICogQHBhcmFtIGVsZW1lbnQgVGhlIGVsZW1lbnQgYXJvdW5kIHdoaWNoIGZvY3VzIHdpbGwgYmUgdHJhcHBlZC5cbiAgICogQHBhcmFtIGNvbmZpZyBUaGUgZm9jdXMgdHJhcCBjb25maWd1cmF0aW9uLlxuICAgKiBAcmV0dXJucyBUaGUgY3JlYXRlZCBmb2N1cyB0cmFwIGluc3RhbmNlLlxuICAgKi9cbiAgY3JlYXRlKGVsZW1lbnQ6IEhUTUxFbGVtZW50LCBjb25maWc/OiBDb25maWd1cmFibGVGb2N1c1RyYXBDb25maWcpOiBDb25maWd1cmFibGVGb2N1c1RyYXA7XG5cbiAgLyoqXG4gICAqIEBkZXByZWNhdGVkIFBhc3MgYSBjb25maWcgb2JqZWN0IGluc3RlYWQgb2YgdGhlIGBkZWZlckNhcHR1cmVFbGVtZW50c2AgZmxhZy5cbiAgICogQGJyZWFraW5nLWNoYW5nZSAxMS4wLjBcbiAgICovXG4gIGNyZWF0ZShlbGVtZW50OiBIVE1MRWxlbWVudCwgZGVmZXJDYXB0dXJlRWxlbWVudHM6IGJvb2xlYW4pOiBDb25maWd1cmFibGVGb2N1c1RyYXA7XG5cbiAgY3JlYXRlKGVsZW1lbnQ6IEhUTUxFbGVtZW50LCBjb25maWc6IENvbmZpZ3VyYWJsZUZvY3VzVHJhcENvbmZpZ3xib29sZWFuID0ge2RlZmVyOiBmYWxzZX0pOlxuICAgICAgQ29uZmlndXJhYmxlRm9jdXNUcmFwIHtcbiAgICBsZXQgY29uZmlnT2JqZWN0OiBDb25maWd1cmFibGVGb2N1c1RyYXBDb25maWc7XG4gICAgaWYgKHR5cGVvZiBjb25maWcgPT09ICdib29sZWFuJykge1xuICAgICAgY29uZmlnT2JqZWN0ID0ge2RlZmVyOiBjb25maWd9O1xuICAgIH0gZWxzZSB7XG4gICAgICBjb25maWdPYmplY3QgPSBjb25maWc7XG4gICAgfVxuICAgIHJldHVybiBuZXcgQ29uZmlndXJhYmxlRm9jdXNUcmFwKFxuICAgICAgICBlbGVtZW50LCB0aGlzLl9jaGVja2VyLCB0aGlzLl9uZ1pvbmUsIHRoaXMuX2RvY3VtZW50LCB0aGlzLl9mb2N1c1RyYXBNYW5hZ2VyLFxuICAgICAgICB0aGlzLl9pbmVydFN0cmF0ZWd5LCBjb25maWdPYmplY3QpO1xuICB9XG59XG4iXX0=

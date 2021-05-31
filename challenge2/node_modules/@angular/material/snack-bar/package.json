@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/snack-bar",
+  "main": "../bundles/material-snack-bar.umd.js",
+  "fesm2015": "../fesm2015/snack-bar.js",
+  "esm2015": "../esm2015/snack-bar/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/snack-bar.js",
+  "es2015": "../fesm2015/snack-bar.js"
+}

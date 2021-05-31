@@ -1,0 +1,47 @@
+"use strict";
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getPackageVersionFromPackageJson = exports.addPackageToPackageJson = void 0;
+/**
+ * Sorts the keys of the given object.
+ * @returns A new object instance with sorted keys
+ */
+function sortObjectByKeys(obj) {
+    return Object.keys(obj).sort().reduce((result, key) => (result[key] = obj[key]) && result, {});
+}
+/** Adds a package to the package.json in the given host tree. */
+function addPackageToPackageJson(host, pkg, version) {
+    if (host.exists('package.json')) {
+        const sourceText = host.read('package.json').toString('utf-8');
+        const json = JSON.parse(sourceText);
+        if (!json.dependencies) {
+            json.dependencies = {};
+        }
+        if (!json.dependencies[pkg]) {
+            json.dependencies[pkg] = version;
+            json.dependencies = sortObjectByKeys(json.dependencies);
+        }
+        host.overwrite('package.json', JSON.stringify(json, null, 2));
+    }
+    return host;
+}
+exports.addPackageToPackageJson = addPackageToPackageJson;
+/** Gets the version of the specified package by looking at the package.json in the given tree. */
+function getPackageVersionFromPackageJson(tree, name) {
+    if (!tree.exists('package.json')) {
+        return null;
+    }
+    const packageJson = JSON.parse(tree.read('package.json').toString('utf8'));
+    if (packageJson.dependencies && packageJson.dependencies[name]) {
+        return packageJson.dependencies[name];
+    }
+    return null;
+}
+exports.getPackageVersionFromPackageJson = getPackageVersionFromPackageJson;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGFja2FnZS1jb25maWcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvY2RrL3NjaGVtYXRpY3MvbmctYWRkL3BhY2thZ2UtY29uZmlnLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7Ozs7O0dBTUc7OztBQVFIOzs7R0FHRztBQUNILFNBQVMsZ0JBQWdCLENBQUMsR0FBVztJQUNuQyxPQUFPLE1BQU0sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxFQUFFLENBQUMsTUFBTSxDQUFDLENBQUMsTUFBTSxFQUFFLEdBQUcsRUFBRSxFQUFFLENBQUMsQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLEdBQUcsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDLElBQUksTUFBTSxFQUFFLEVBQUUsQ0FBQyxDQUFDO0FBQ2pHLENBQUM7QUFFRCxpRUFBaUU7QUFDakUsU0FBZ0IsdUJBQXVCLENBQUMsSUFBVSxFQUFFLEdBQVcsRUFBRSxPQUFlO0lBRTlFLElBQUksSUFBSSxDQUFDLE1BQU0sQ0FBQyxjQUFjLENBQUMsRUFBRTtRQUMvQixNQUFNLFVBQVUsR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDLGNBQWMsQ0FBRSxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUNoRSxNQUFNLElBQUksR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLFVBQVUsQ0FBZ0IsQ0FBQztRQUVuRCxJQUFJLENBQUMsSUFBSSxDQUFDLFlBQVksRUFBRTtZQUN0QixJQUFJLENBQUMsWUFBWSxHQUFHLEVBQUUsQ0FBQztTQUN4QjtRQUVELElBQUksQ0FBQyxJQUFJLENBQUMsWUFBWSxDQUFDLEdBQUcsQ0FBQyxFQUFFO1lBQzNCLElBQUksQ0FBQyxZQUFZLENBQUMsR0FBRyxDQUFDLEdBQUcsT0FBTyxDQUFDO1lBQ2pDLElBQUksQ0FBQyxZQUFZLEdBQUcsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1NBQ3pEO1FBRUQsSUFBSSxDQUFDLFNBQVMsQ0FBQyxjQUFjLEVBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLEVBQUUsSUFBSSxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7S0FDL0Q7SUFFRCxPQUFPLElBQUksQ0FBQztBQUNkLENBQUM7QUFuQkQsMERBbUJDO0FBRUQsa0dBQWtHO0FBQ2xHLFNBQWdCLGdDQUFnQyxDQUFDLElBQVUsRUFBRSxJQUFZO0lBQ3ZFLElBQUksQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLGNBQWMsQ0FBQyxFQUFFO1FBQ2hDLE9BQU8sSUFBSSxDQUFDO0tBQ2I7SUFFRCxNQUFNLFdBQVcsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsY0FBYyxDQUFFLENBQUMsUUFBUSxDQUFDLE1BQU0sQ0FBQyxDQUFnQixDQUFDO0lBRTNGLElBQUksV0FBVyxDQUFDLFlBQVksSUFBSSxXQUFXLENBQUMsWUFBWSxDQUFDLElBQUksQ0FBQyxFQUFFO1FBQzlELE9BQU8sV0FBVyxDQUFDLFlBQVksQ0FBQyxJQUFJLENBQUMsQ0FBQztLQUN2QztJQUVELE9BQU8sSUFBSSxDQUFDO0FBQ2QsQ0FBQztBQVpELDRFQVlDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCB7VHJlZX0gZnJvbSAnQGFuZ3VsYXItZGV2a2l0L3NjaGVtYXRpY3MnO1xuXG5pbnRlcmZhY2UgUGFja2FnZUpzb24ge1xuICBkZXBlbmRlbmNpZXM6IFJlY29yZDxzdHJpbmcsIHN0cmluZz47XG59XG5cbi8qKlxuICogU29ydHMgdGhlIGtleXMgb2YgdGhlIGdpdmVuIG9iamVjdC5cbiAqIEByZXR1cm5zIEEgbmV3IG9iamVjdCBpbnN0YW5jZSB3aXRoIHNvcnRlZCBrZXlzXG4gKi9cbmZ1bmN0aW9uIHNvcnRPYmplY3RCeUtleXMob2JqOiBvYmplY3QpIHtcbiAgcmV0dXJuIE9iamVjdC5rZXlzKG9iaikuc29ydCgpLnJlZHVjZSgocmVzdWx0LCBrZXkpID0+IChyZXN1bHRba2V5XSA9IG9ialtrZXldKSAmJiByZXN1bHQsIHt9KTtcbn1cblxuLyoqIEFkZHMgYSBwYWNrYWdlIHRvIHRoZSBwYWNrYWdlLmpzb24gaW4gdGhlIGdpdmVuIGhvc3QgdHJlZS4gKi9cbmV4cG9ydCBmdW5jdGlvbiBhZGRQYWNrYWdlVG9QYWNrYWdlSnNvbihob3N0OiBUcmVlLCBwa2c6IHN0cmluZywgdmVyc2lvbjogc3RyaW5nKTogVHJlZSB7XG5cbiAgaWYgKGhvc3QuZXhpc3RzKCdwYWNrYWdlLmpzb24nKSkge1xuICAgIGNvbnN0IHNvdXJjZVRleHQgPSBob3N0LnJlYWQoJ3BhY2thZ2UuanNvbicpIS50b1N0cmluZygndXRmLTgnKTtcbiAgICBjb25zdCBqc29uID0gSlNPTi5wYXJzZShzb3VyY2VUZXh0KSBhcyBQYWNrYWdlSnNvbjtcblxuICAgIGlmICghanNvbi5kZXBlbmRlbmNpZXMpIHtcbiAgICAgIGpzb24uZGVwZW5kZW5jaWVzID0ge307XG4gICAgfVxuXG4gICAgaWYgKCFqc29uLmRlcGVuZGVuY2llc1twa2ddKSB7XG4gICAgICBqc29uLmRlcGVuZGVuY2llc1twa2ddID0gdmVyc2lvbjtcbiAgICAgIGpzb24uZGVwZW5kZW5jaWVzID0gc29ydE9iamVjdEJ5S2V5cyhqc29uLmRlcGVuZGVuY2llcyk7XG4gICAgfVxuXG4gICAgaG9zdC5vdmVyd3JpdGUoJ3BhY2thZ2UuanNvbicsIEpTT04uc3RyaW5naWZ5KGpzb24sIG51bGwsIDIpKTtcbiAgfVxuXG4gIHJldHVybiBob3N0O1xufVxuXG4vKiogR2V0cyB0aGUgdmVyc2lvbiBvZiB0aGUgc3BlY2lmaWVkIHBhY2thZ2UgYnkgbG9va2luZyBhdCB0aGUgcGFja2FnZS5qc29uIGluIHRoZSBnaXZlbiB0cmVlLiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGdldFBhY2thZ2VWZXJzaW9uRnJvbVBhY2thZ2VKc29uKHRyZWU6IFRyZWUsIG5hbWU6IHN0cmluZyk6IHN0cmluZyB8IG51bGwge1xuICBpZiAoIXRyZWUuZXhpc3RzKCdwYWNrYWdlLmpzb24nKSkge1xuICAgIHJldHVybiBudWxsO1xuICB9XG5cbiAgY29uc3QgcGFja2FnZUpzb24gPSBKU09OLnBhcnNlKHRyZWUucmVhZCgncGFja2FnZS5qc29uJykhLnRvU3RyaW5nKCd1dGY4JykpIGFzIFBhY2thZ2VKc29uO1xuXG4gIGlmIChwYWNrYWdlSnNvbi5kZXBlbmRlbmNpZXMgJiYgcGFja2FnZUpzb24uZGVwZW5kZW5jaWVzW25hbWVdKSB7XG4gICAgcmV0dXJuIHBhY2thZ2VKc29uLmRlcGVuZGVuY2llc1tuYW1lXTtcbiAgfVxuXG4gIHJldHVybiBudWxsO1xufVxuIl19

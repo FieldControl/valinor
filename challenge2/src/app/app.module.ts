@@ -27,6 +27,7 @@ import {IConfig, NgxMaskModule} from 'ngx-mask';
 import {registerLocaleData} from "@angular/common";
 import localePt from '@angular/common/locales/pt';
 import { ErrorComponent } from './app/component/views/error/error.component';
+import { PaginatorComponent } from './app/component/views/paginator/paginator.component';
 
 registerLocaleData(localePt);
 const maskConfig: Partial<IConfig> = {
@@ -41,6 +42,7 @@ const maskConfig: Partial<IConfig> = {
     NavigationComponent,
     HomeComponent,
     ErrorComponent,
+    PaginatorComponent,
 
 
   ],

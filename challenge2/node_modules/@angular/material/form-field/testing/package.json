@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/form-field/testing",
+  "main": "../../bundles/material-form-field-testing.umd.js",
+  "fesm2015": "../../fesm2015/form-field/testing.js",
+  "esm2015": "../../esm2015/form-field/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/form-field/testing.js",
+  "es2015": "../../fesm2015/form-field/testing.js"
+}

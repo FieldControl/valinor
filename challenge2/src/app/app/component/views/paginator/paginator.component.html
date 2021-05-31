@@ -1,0 +1,42 @@
+<!--Paginator definido com até no maximo de 100 paginas-->
+<!--link do Bootstrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<div *ngIf="tipo">
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item ">
+      <button class="page-link" (click)="proxAnterior(-1)">Previous</button>
+    </li>
+    <li class="page-item"><button class="page-link" (click)="somaSubtraiPaginas(inicio)"  >{{inicio}}</button></li>
+    <li class="page-item disabled" [hidden]="pontinhos1"><button class="page-link" >...</button></li>
+    <li class="page-item"><button class="page-link" (click)="somaSubtraiPaginas(op2)" >{{op2}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="somaSubtraiPaginas(op3)" >{{op3}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="somaSubtraiPaginas(op4)">{{op4}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="somaSubtraiPaginas(op5)" >{{op5}}</button></li>
+    <li class="page-item"><button class="page-link" (click)="somaSubtraiPaginas(op6)" >{{op6}}</button></li>
+    <li class="page-item disabled"><button class="page-link" [hidden]="pontinhos2" >...</button></li>
+    <li class="page-item"><button class="page-link" (click)="somaSubtraiPaginas(fim)" >{{fim}}</button></li>
+    <li class="page-item">
+      <button class="page-link" (click)="proxAnterior(1)">Next</button>
+    </li>
+  </ul>
+</nav>
+</div>
+
+<!--Paginator para pesquisa que contenha 10 paginas ou menos-->
+<div *ngIf="!tipo">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <button class="page-link" (click)="nexPrev(-1)">Previous</button>
+      </li>
+      <div *ngFor="let pg of lista">
+      <li class="page-item"><button class="page-link" (click)="trocapagina(pg)">{{pg}}</button></li>
+      </div>
+      <li class="page-item">
+        <button class="page-link" (click)="nexPrev(1)" >Next</button>
+      </li>
+    </ul>
+  </nav>
+</div>

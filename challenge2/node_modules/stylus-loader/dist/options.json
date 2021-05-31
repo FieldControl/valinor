@@ -1,0 +1,38 @@
+{
+  "title": "Stylus Loader options",
+  "type": "object",
+  "properties": {
+    "stylusOptions": {
+      "description": "Options to pass through to `Stylus` (https://github.com/webpack-contrib/stylus-loader#stylusoptions).",
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": true
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
+    },
+    "sourceMap": {
+      "description": "Enables/Disables generation of source maps (https://github.com/webpack-contrib/stylus-loader#sourcemap).",
+      "type": "boolean"
+    },
+    "webpackImporter": {
+      "description": "Enables/Disables default `webpack` importer (https://github.com/webpack-contrib/stylus-loader#webpackimporter).",
+      "type": "boolean"
+    },
+    "additionalData": {
+      "description": "Prepends/Appends `Stylus` code to the actual entry file (https://github.com/webpack-contrib/stylus-loader#additionalData).",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

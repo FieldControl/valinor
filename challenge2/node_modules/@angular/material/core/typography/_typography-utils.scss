@@ -1,0 +1,77 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:string';
+// Utility for fetching a nested value from a typography config.
+@function _mat-get-type-value($config, $level, $name) {
+  @return map.get(map.get($config, $level), $name);
+}
+
+// Gets the font size for a level inside a typography config.
+@function font-size($config, $level) {
+  @return _mat-get-type-value($config, $level, font-size);
+}
+
+// Gets the line height for a level inside a typography config.
+@function line-height($config, $level) {
+  @return _mat-get-type-value($config, $level, line-height);
+}
+
+// Gets the font weight for a level inside a typography config.
+@function font-weight($config, $level) {
+  @return _mat-get-type-value($config, $level, font-weight);
+}
+
+// Gets the letter spacing for a level inside a typography config.
+@function letter-spacing($config, $level) {
+  @return _mat-get-type-value($config, $level, letter-spacing);
+}
+
+// Gets the font-family from a typography config and removes the quotes around it.
+@function font-family($config, $level: null) {
+  $font-family: map.get($config, font-family);
+
+  @if $level != null {
+    $font-family: _mat-get-type-value($config, $level, font-family);
+  }
+
+  // Guard against unquoting non-string values, because it's deprecated.
+  @return if(meta.type-of($font-family) == string, string.unquote($font-family), $font-family);
+}
+
+// Outputs the shorthand `font` CSS property, based on a set of typography values. Falls back to
+// the individual properties if a value that isn't allowed in the shorthand is passed in.
+@mixin font-shorthand($font-size, $font-weight, $line-height, $font-family) {
+  // If any of the values are set to `inherit`, we can't use the shorthand
+  // so we fall back to passing in the individual properties.
+  @if ($font-size == inherit or
+       $font-weight == inherit or
+       $line-height == inherit or
+       $font-family == inherit or
+       $font-size == null or
+       $font-weight == null or
+       $line-height == null or
+       $font-family == null) {
+
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    font-family: $font-family;
+  }
+  @else {
+    // Otherwise use the shorthand `font`, because it's the least amount of bytes. Note
+    // that we need to use interpolation for `font-size/line-height` in order to prevent
+    // Sass from dividing the two values.
+    font: $font-weight #{$font-size}/#{$line-height} $font-family;
+  }
+}
+
+// Converts a typography level into CSS styles.
+@mixin typography-level($config, $level) {
+  $font-size: font-size($config, $level);
+  $font-weight: font-weight($config, $level);
+  $line-height: line-height($config, $level);
+  $font-family: font-family($config, $level);
+
+  @include font-shorthand($font-size, $font-weight, $line-height, $font-family);
+  letter-spacing: letter-spacing($config, $level);
+}

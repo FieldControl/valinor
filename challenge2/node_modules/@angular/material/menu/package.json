@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/menu",
+  "main": "../bundles/material-menu.umd.js",
+  "fesm2015": "../fesm2015/menu.js",
+  "esm2015": "../esm2015/menu/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/menu.js",
+  "es2015": "../fesm2015/menu.js"
+}

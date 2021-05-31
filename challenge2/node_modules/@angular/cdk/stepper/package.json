@@ -1,0 +1,9 @@
+{
+  "name": "@angular/cdk/stepper",
+  "main": "../bundles/cdk-stepper.umd.js",
+  "fesm2015": "../fesm2015/stepper.js",
+  "esm2015": "../esm2015/stepper/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/stepper.js",
+  "es2015": "../fesm2015/stepper.js"
+}

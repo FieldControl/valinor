@@ -1,0 +1,147 @@
+"use strict";
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.InlineFontsProcessor = void 0;
+const cacache = require("cacache");
+const fs = require("fs");
+const https = require("https");
+const proxyAgent = require("https-proxy-agent");
+const url_1 = require("url");
+const cache_path_1 = require("../cache-path");
+const environment_options_1 = require("../environment-options");
+const html_rewriting_stream_1 = require("./html-rewriting-stream");
+const cacheFontsPath = environment_options_1.cachingDisabled
+    ? undefined
+    : cache_path_1.findCachePath('angular-build-fonts');
+const packageVersion = require('../../../package.json').version;
+const SUPPORTED_PROVIDERS = ['fonts.googleapis.com'];
+class InlineFontsProcessor {
+    constructor(options) {
+        this.options = options;
+    }
+    async process(content) {
+        const hrefList = [];
+        // Collector link tags with href
+        const { rewriter: collectorStream } = await html_rewriting_stream_1.htmlRewritingStream(content);
+        collectorStream.on('startTag', (tag) => {
+            var _a;
+            const { tagName, attrs } = tag;
+            if (tagName !== 'link') {
+                return;
+            }
+            // <link tag with rel="stylesheet" and a href.
+            const href = attrs.find(({ name, value }) => name === 'rel' && value === 'stylesheet') &&
+                ((_a = attrs.find(({ name }) => name === 'href')) === null || _a === void 0 ? void 0 : _a.value);
+            if (href) {
+                hrefList.push(href);
+            }
+        });
+        await new Promise((resolve) => collectorStream.on('finish', resolve));
+        // Download stylesheets
+        const hrefsContent = await this.processHrefs(hrefList);
+        if (hrefsContent.size === 0) {
+            return content;
+        }
+        // Replace link with style tag.
+        const { rewriter, transformedContent } = await html_rewriting_stream_1.htmlRewritingStream(content);
+        rewriter.on('startTag', (tag) => {
+            const { tagName, attrs } = tag;
+            if (tagName !== 'link') {
+                rewriter.emitStartTag(tag);
+                return;
+            }
+            const hrefAttr = attrs.some(({ name, value }) => name === 'rel' && value === 'stylesheet') &&
+                attrs.find(({ name, value }) => name === 'href' && hrefsContent.has(value));
+            if (hrefAttr) {
+                const href = hrefAttr.value;
+                const cssContent = hrefsContent.get(href);
+                rewriter.emitRaw(`<style type="text/css">${cssContent}</style>`);
+            }
+            else {
+                rewriter.emitStartTag(tag);
+            }
+        });
+        return transformedContent;
+    }
+    async getResponse(url, userAgent) {
+        var _a;
+        const key = `${packageVersion}|${url}|${userAgent}`;
+        if (cacheFontsPath) {
+            const entry = await cacache.get.info(cacheFontsPath, key);
+            if (entry) {
+                return fs.promises.readFile(entry.path, 'utf8');
+            }
+        }
+        let agent;
+        const httpsProxy = (_a = process.env.HTTPS_PROXY) !== null && _a !== void 0 ? _a : process.env.https_proxy;
+        if (httpsProxy) {
+            agent = proxyAgent(httpsProxy);
+        }
+        const data = await new Promise((resolve, reject) => {
+            let rawResponse = '';
+            https
+                .get(url, {
+                agent,
+                rejectUnauthorized: false,
+                headers: {
+                    'user-agent': userAgent,
+                },
+            }, (res) => {
+                if (res.statusCode !== 200) {
+                    reject(new Error(`Inlining of fonts failed. ${url} returned status code: ${res.statusCode}.`));
+                    return;
+                }
+                res.on('data', (chunk) => (rawResponse += chunk)).on('end', () => resolve(rawResponse));
+            })
+                .on('error', (e) => reject(new Error(`Inlining of fonts failed. An error has occurred while retrieving ${url} over the internet.\n` +
+                e.message)));
+        });
+        if (cacheFontsPath) {
+            await cacache.put(cacheFontsPath, key, data);
+        }
+        return data;
+    }
+    async processHrefs(hrefList) {
+        const hrefsContent = new Map();
+        for (const hrefPath of hrefList) {
+            // Need to convert '//' to 'https://' because the URL parser will fail with '//'.
+            const normalizedHref = hrefPath.startsWith('//') ? `https:${hrefPath}` : hrefPath;
+            if (!normalizedHref.startsWith('http')) {
+                // Non valid URL.
+                // Example: relative path styles.css.
+                continue;
+            }
+            const url = new url_1.URL(normalizedHref);
+            // Force HTTPS protocol
+            url.protocol = 'https:';
+            if (!SUPPORTED_PROVIDERS.includes(url.hostname)) {
+                // Provider not supported.
+                continue;
+            }
+            // The order IE -> Chrome is important as otherwise Chrome will load woff1.
+            let cssContent = '';
+            if (this.options.WOFFSupportNeeded) {
+                cssContent += await this.getResponse(url, "Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11. 0) like Gecko" /* IE */);
+            }
+            cssContent += await this.getResponse(url, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" /* Chrome */);
+            if (this.options.minify) {
+                cssContent = cssContent
+                    // Comments.
+                    .replace(/\/\*([\s\S]*?)\*\//g, '')
+                    // New lines.
+                    .replace(/\n/g, '')
+                    // Safe spaces.
+                    .replace(/\s?[\{\:\;]\s+/g, (s) => s.trim());
+            }
+            hrefsContent.set(hrefPath, cssContent);
+        }
+        return hrefsContent;
+    }
+}
+exports.InlineFontsProcessor = InlineFontsProcessor;

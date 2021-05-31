@@ -1,0 +1,9 @@
+{
+  "name": "@angular/cdk/drag-drop",
+  "main": "../bundles/cdk-drag-drop.umd.js",
+  "fesm2015": "../fesm2015/drag-drop.js",
+  "esm2015": "../esm2015/drag-drop/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/drag-drop.js",
+  "es2015": "../fesm2015/drag-drop.js"
+}

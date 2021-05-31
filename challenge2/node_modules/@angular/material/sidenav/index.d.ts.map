@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sources":["index.d.ts"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","sourcesContent":["/**\n * Generated bundle index. Do not edit.\n */\nexport * from './public-api';\nexport { MAT_DRAWER_CONTAINER as ɵangular_material_src_material_sidenav_sidenav_a } from './drawer';\n"]}

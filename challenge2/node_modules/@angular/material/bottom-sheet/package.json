@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/bottom-sheet",
+  "main": "../bundles/material-bottom-sheet.umd.js",
+  "fesm2015": "../fesm2015/bottom-sheet.js",
+  "esm2015": "../esm2015/bottom-sheet/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/bottom-sheet.js",
+  "es2015": "../fesm2015/bottom-sheet.js"
+}

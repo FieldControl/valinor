@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material/autocomplete",
+  "main": "../bundles/material-autocomplete.umd.js",
+  "fesm2015": "../fesm2015/autocomplete.js",
+  "esm2015": "../esm2015/autocomplete/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/autocomplete.js",
+  "es2015": "../fesm2015/autocomplete.js"
+}
