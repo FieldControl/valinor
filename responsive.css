@@ -1,0 +1,38 @@
+/*Min Width*/
+@media (min-width:992px) {
+    #header .nave-link {
+        margin-left: 15px;
+        margin-right:15px;
+    }
+}
+/*Max Medium*/
+@media (max-width: 991.98px) { 
+    #header .navbar-collapse {
+        width:100%;
+    }
+ }
+ @media (max-width:767.98px) {
+     #ourteam a.destaque .img-container {
+         height:120px;
+     }
+ }
+ @media (max-width:767.98px){
+     #time a.equipe .img-container {
+         height:120px;
+     }
+     #time a.equipe .img-container img {
+         max-height: 120px;
+     }
+     #contato ul {
+        padding-top:30px;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+                  
+    }
+    #contato {
+        padding: 0;
+        
+    }
+ }
+ 

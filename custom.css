@@ -1,0 +1,221 @@
+body, html {
+    font-family: 'Raleway', sans-serif;
+    color:#fff;
+    background:#fff;
+}
+#header {
+    width:100%;
+    background: #2a2d48;
+    transition: background ease-out 0.2s;
+}
+#header .navbar-collapse {
+    width:auto;
+    background: #2a2d48;
+
+}
+#header .nav-link {
+    text-transform: uppercase;
+    font-weight: 300;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 15px;
+    margin-left: 15px;
+    color: #c9c8ce;
+    border-bottom: solid 4px rgb(88, 84, 84);
+}
+#header .nav-link:hover {
+    border-bottom: solid 4px var(--secondary);
+    color: var(--secondary)
+}
+#header.active {
+    position:fixed;
+    background:#2a2d48;
+    box-shadow:0 0 30px 0 rgba(0,0,0,0.2);
+    z-index: 9999;    
+}
+#slider {
+    background: var(--primary);
+    padding-top: 30px;
+    padding-bottom: 70px;
+   
+}
+#slider h1 {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: 'Open Sans' sans-serif;
+}
+#slider h4 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Raleway' sans-serif;
+    font-weight: 500;
+}
+#works {
+    background:#fff;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    padding-left: 15px;    
+    padding-right: 15px;
+    font-family: 'Raleway' sans-serif;
+    text-justify: auto;
+    color:#000
+}
+#works a.icones {
+    color:#000;
+    display: block;
+    border-radius: 5px;
+    text-align:center;
+    background:var(--secondary);
+    border:5px;
+    padding:20px;
+    text-decoration-line: none;
+    transition: all ease-out 0.2s;
+  
+} 
+#works a.icones:hover {
+    background:var(--light);
+       
+}
+#works p {
+    color:var(--dark);
+}
+#ourteam {
+    background:#fff;
+    padding-top:-200px;
+    transition:all ease-out;
+
+}
+#ourteam a.destaque .img-container {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 150px;
+    transition:all ease-out 0.2s;
+        
+}
+#ourteam a.destaque .img-container:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0 0.12);
+    transform:scale(1.05);
+}
+#ourteam a.destaque .img-container img{
+    max-height: 160px;
+  }
+
+#time a.equipe{
+    display:block;
+    background: #fff;
+    text-align:center;
+    padding:20px;
+    color:black;
+    text-decoration: none;
+    transition:all ease-out 0.2s;
+    font-family: 'Cardo', serif;
+    padding-bottom: 400px;
+    
+}
+#time a.equipe:hover {
+    background: var(--light);
+    box-shadow:0px 0px 10px 0px rgba(0,0,0,0.12);
+    transform:scale(1.05);
+       
+}
+#time h4 {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 18px;
+}
+#time h5 {
+    color:#e84545;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+#time a.equipe .img-container {
+    max-height: 160px;
+}
+#depoimentos {
+    padding-top: 50px;
+    display:flex;
+    font-family:'Raleway', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+      
+}
+#depoimentos .depoimento {
+    background-color: #fff;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+#depoimentos .depoimento img {
+    max-height: 400px;
+}
+
+#depoimentos .depoimento-texto {
+    color:var(--light);
+    font-weight: 700; 
+    background: #53354a;
+    text-align: center;
+    justify-content: center;
+    margin-left: 10px;    
+    margin-right: 10px;
+       }
+#depoimentos .name {
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 11px;
+}
+
+#download {    
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color:#000;
+    background-size: contain;
+    font-weight: 300px;
+}
+
+#contato {
+    background-color: #3a3e64;
+    font-family:'Cardo', 'serif';
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    padding: 70px 30px;    
+    text-align: justify;    
+   
+}
+#contato img {
+    max-height: 60px;
+    align-content: center;
+}
+#contato h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#contato p {
+    font-size: 14px;
+    text-align: center;
+}
+#contato ul {
+   
+    display: flex;
+    align-content: center;
+    margin-left: 88px;
+    
+}
+#contato ul li {
+    display:flex;
+    list-style-type: none; 
+}
+
+#autor {
+    background:#313454;
+    font-size:15px;
+    align-content: center;
+    text-align: center;
+    
+  
+}
