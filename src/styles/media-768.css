@@ -1,0 +1,37 @@
+@media screen and (max-width: 768px) {
+    /*********************-----MAIN-----*********************/
+    #main div {
+        width: 75%;
+    }
+    #main div p:first-of-type {
+        font-size: 5vw;
+    }
+    #main div p:last-of-type {
+        font-size: 2.5vw;
+    }
+    /*********************-----FEATURES-----*********************/
+    .featuresRow {
+        flex-wrap: wrap;
+    }
+    .featureCell {
+        width: 35%;
+    }
+    /*********************-----IMAGES-----*********************/
+    #images {
+        justify-content: center;
+    }
+    #images .imageCell {
+        max-width: 40%;
+    }
+    /*********************-----OURTEAM-----*********************/
+    #ourTeam {
+        padding: 60px 0;
+    }
+    #ourTeam .teamRow {
+        flex-wrap: wrap;
+    }
+    #ourTeam .teamRow .teamCell {
+        width: 35%;
+        margin: 40px 30px 0;
+    }
+}

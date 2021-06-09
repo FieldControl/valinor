@@ -1,0 +1,32 @@
+@media screen and (max-width: 480px) {
+    /*********************-----MAIN-----*********************/
+    #main div p:first-of-type {
+        font-size: 5.5vw;
+    }
+    #main div p:last-of-type {
+        font-size: 3.5vw;
+    }
+    /*********************-----TESTIMONIALS-----*********************/
+    #testimonials .clientsRow .clientText {
+        margin: 0 0 0 30px;
+    }
+    #testimonials .clientsRow .clientText>p:first-child {
+        margin-bottom: 15px;
+    }
+    #testimonials .clientsRow .clientText>p:last-child {
+        font-size: 2vw;
+    }
+    /*********************-----DOWNLOAD-----*********************/
+    #download .downloadRow .downloadText>p:first-child {
+        font-size: 20px;
+    }
+    /*********************-----ABOUT-----*********************/
+    #about .aboutRow .aboutLocation>p:last-child {
+        font-size: 10px;
+        line-height: 12px;
+    }
+    #about .aboutRow .aboutText>p:last-child {
+        font-size: 10px;
+        line-height: 12px;
+    }
+}

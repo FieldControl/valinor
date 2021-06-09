@@ -1,0 +1,49 @@
+@media screen and (max-width: 1024px) {
+    /*********************-----HEADER-----*********************/
+    .header .sectionButtons a {
+        display: none;
+    }
+    header .sectionButtons .iconMenu {
+        display: block;
+    }
+    header>div:last-of-type {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /*********************-----HEADER-----*********************/
+    .headerresponsive {
+        background: #2b2e4a;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        animation: fadeIn 1000ms 0ms backwards;
+    }
+    @keyframes fadeIn {
+        from {
+            transform: translateY(-85vh);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+    .headerresponsive>div:last-of-type {
+        padding: 20px;
+    }
+    .headerresponsive .sectionButtons {
+        flex-direction: column;
+    }
+    .headerresponsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
