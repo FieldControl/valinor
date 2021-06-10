@@ -12,6 +12,7 @@
           type="text"
           placeholder="Pesquisar repositórios..."
           @keyup="clearButton"
+          @keypress.enter="goToSearch"
         >
         <div
           v-if="showClearButton"
@@ -54,6 +55,14 @@ export default Vue.extend({
       this.showClearButton = false;
 
       document.querySelector('#searchBar').focus();
+    },
+    goToSearch() {
+      const { search } = this;
+      const query = { q: search };
+
+      if (search !== null) {
+        this.$router.push({ name: 'Search', query });
+      }
     },
   },
 });

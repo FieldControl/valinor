@@ -10,6 +10,19 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "index" */ './views/Home/Home.vue'),
   },
   {
+    path: '/search',
+    name: 'Search',
+    component: () => import(/* webpackChunkName: "404" */ './views/Search/Search.vue'),
+    beforeEnter: (to, from, next) => {
+      const query = to.query.q;
+      if (query !== '' && query !== undefined) {
+        return next();
+      }
+
+      return next({ name: 'Home' });
+    },
+  },
+  {
     path: '*',
     name: 'PageNotFound',
     component: () => import(/* webpackChunkName: "404" */ './views/PageNotFound/PageNotFound.vue'),

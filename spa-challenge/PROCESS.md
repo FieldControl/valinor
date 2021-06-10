@@ -13,7 +13,7 @@
   - [x] Configuração de Vue Router
   - [ ] Views
     - [x] 404
-    - [ ] Index
+    - [x] Index
     - [ ] Search
 - [ ] SCSS
   - [x] Definição de cores principais e variáveis
