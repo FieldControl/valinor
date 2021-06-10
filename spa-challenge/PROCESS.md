@@ -12,7 +12,7 @@
 - [ ] Vue
   - [x] Configuração de Vue Router
   - [ ] Views
-    - [ ] 404
+    - [x] 404
     - [ ] Index
     - [ ] Search
 - [ ] SCSS

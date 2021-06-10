@@ -13,6 +13,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+body, html, #app {
+  height: 100%;
+}
+
 button {
   cursor: pointer;
 }
@@ -27,8 +31,16 @@ button {
   font-weight: 500;
 }
 
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity .3s;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
