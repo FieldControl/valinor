@@ -10,7 +10,7 @@
   - [ ] Testes com arquivos .vue
 - [x] Arquivo html
 - [ ] Vue
-  - [ ] Configuração de Vue Router
+  - [x] Configuração de Vue Router
   - [ ] Views
     - [ ] Index
     - [ ] Search
