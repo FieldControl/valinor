@@ -1,0 +1,31 @@
+@import '@/styles/variables.scss';
+
+.error-container {
+  position: relative;
+  left: 50%;
+  max-width: 500px;
+  padding: 14px;
+  margin: 60px 0;
+  transform: translateX(-50%);
+  text-align: center;
+
+  h1 {
+    font-size: 100px;
+    color: $background-color;
+    background: linear-gradient(135deg, $gray-second-color, $background-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h2 {
+    margin: 20px 0 12px 0;
+    font-size: 30px;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 15px;
+    color: $gray-color;
+    margin-bottom: 50px;
+  }
+}

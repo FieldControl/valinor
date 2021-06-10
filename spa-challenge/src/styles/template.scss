@@ -1,0 +1,35 @@
+@import './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: $roboto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: $gray-color;
+  background-color: $background-color;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 15px 25px;
+  position: relative;
+  font-weight: 500;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}

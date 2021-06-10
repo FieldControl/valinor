@@ -12,11 +12,12 @@
 - [ ] Vue
   - [x] Configuração de Vue Router
   - [ ] Views
+    - [ ] 404
     - [ ] Index
     - [ ] Search
 - [ ] SCSS
-  - [ ] Definição de cores principais e variáveis
-  - [ ] Mini framework reaproveitável de classes e tags
+  - [x] Definição de cores principais e variáveis
+  - [x] Mini template reaproveitável de classes e tags
   - [ ] Mobile first
   - [ ] Responsividade para tablets 768px
   - [ ] Responsividade para monitores simples 1024px

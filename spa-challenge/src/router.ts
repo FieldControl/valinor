@@ -12,7 +12,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '*',
     name: 'PageNotFound',
-    component: () => import(/* webpackChunkName: "404" */ './views/PageNotFound.vue'),
+    component: () => import(/* webpackChunkName: "404" */ './views/PageNotFound/PageNotFound.vue'),
   },
 ];
 
