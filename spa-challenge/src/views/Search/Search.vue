@@ -1,15 +1,33 @@
 <template>
   <div>
-    <h1>teste</h1>
+    <search-bar
+      :style-minimized="true"
+      :search-query="searchQuery"
+    />
   </div>
 </template>
 
 <script>
-export default {
+import Vue from 'vue';
+import SearchBar from '@/components/SearchBar/SearchBar.vue';
 
-};
+export default Vue.extend({
+  components: { SearchBar },
+  data() {
+    return {
+      searchQuery: null,
+    };
+  },
+  created() {
+    const { q } = this.$route.query;
+
+    if (q !== undefined && q !== '') {
+      this.searchQuery = q;
+    }
+  },
+});
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  @import './style.scss';
 </style>

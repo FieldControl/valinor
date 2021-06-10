@@ -1,0 +1,55 @@
+@import '@/styles/variables.scss';
+
+section {
+  h1 {
+    padding-top: 100px;
+    font-size: 44px;
+    text-align: center;
+    margin-bottom: 35px;
+    color: $primary-color;
+    font-family: $poppins;
+    font-weight: 600;
+  }
+
+  .search-bar {
+    background-color: $background-color;
+    position: relative;
+    display: flex;
+    height: 45px;
+    padding: 0 22.5px;
+    margin-bottom: 100px;
+    width: 100%;
+    align-items: center;
+    border-radius: 25px;
+
+    .search-icon {
+      margin-right: 20px;
+    }
+
+    .fas {
+      color: $gray-color;
+      font-size: 15px;
+    }
+
+    .times-icon{
+      cursor: pointer;
+      position: absolute;
+      right: 22.5px;
+    }
+
+    input {
+      color: $primary-color;
+      background-color: transparent;
+      font-size: 15px;
+      width: calc(100% - 70px);
+    }
+  }
+}
+
+.minimized {
+  h1 {
+    padding-top: 20px;
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+}

@@ -11,6 +11,7 @@
 - [x] Arquivo html
 - [ ] Vue
   - [x] Configuração de Vue Router
+  - [x] Componente de pesquisa
   - [ ] Views
     - [x] 404
     - [x] Index
