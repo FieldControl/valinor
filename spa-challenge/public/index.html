@@ -1,15 +1,67 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="shortcut icon" href="<%= BASE_URL %>/images/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5b27a99c39.js" crossorigin="anonymous"></script>
+    <title>SearchHub - Pesquise repositórios do GitHub</title>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #f3f3f3;
+        }
+
+        .warning {
+          margin: 120px 0;
+          max-width: 500px;
+          padding: 0 12px;
+          font-family: 'Roboto', sans-serif;
+        }
+
+        .warning h1 {
+          text-align: center;
+          font-size: 30px;
+          font-weight: 500;
+          color: #404040;
+          padding-bottom: 15px;
+        }
+
+        .warning p {
+          font-size: 16px;
+          font-weight: 400;
+          color: #080808;
+        }
+
+        .warning img {
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: auto;
+          color: #E74C3C;
+          margin-bottom: 40px;
+        }
+      </style>
+      <div class="warning">
+        <img src="/images/warning.svg" alt="Warning!">
+        <h1>JavaScript desabilitado!</h1>
+        <p>Verifique as configuração do seu navegador e atualize esta página.</p>
+      </div>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->

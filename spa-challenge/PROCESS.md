@@ -8,6 +8,7 @@
   - [x] Estudo de parâmetros de consulta na documentação do GitHub
   - [x] Testes de pesquisa de repositórios com parâmetros
   - [ ] Testes com arquivos .vue
+- [x] Arquivo html
 - [ ] Vue
   - [ ] Configuração de Vue Router
   - [ ] Views
