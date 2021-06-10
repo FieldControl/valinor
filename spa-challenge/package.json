@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test-api": "vue-cli-service test:unit api.spec.ts",
-    "test-repo": "vue-cli-service test:unit repositories.spec.ts",
+    "test-api": "vue-cli-service test:unit api/api.spec.ts",
+    "test-repo": "vue-cli-service test:unit api/repositories.spec.ts",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

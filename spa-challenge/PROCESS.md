@@ -5,10 +5,20 @@
 - [x] URL da API como variável de ambiente
 - [ ] Testes
   - [x] Testes de API
-  - [ ] Estudo de parâmetros de consulta na documentação do GitHub
-  - [ ] Testes de pesquisa de repositórios com parâmetros
+  - [x] Estudo de parâmetros de consulta na documentação do GitHub
+  - [x] Testes de pesquisa de repositórios com parâmetros
+  - [ ] Testes com arquivos .vue
 - [ ] Vue
   - [ ] Configuração de Vue Router
-  - [ ] ...
+  - [ ] Views
+    - [ ] Index
+    - [ ] Search
+- [ ] SCSS
+  - [ ] Definição de cores principais e variáveis
+  - [ ] Mini framework reaproveitável de classes e tags
+  - [ ] Mobile first
+  - [ ] Responsividade para tablets 768px
+  - [ ] Responsividade para monitores simples 1024px
+  - [ ] Responsividade para monitores modernos 1280px
 - [ ] Documentação do projeto
 - [ ] Pull request da fork
