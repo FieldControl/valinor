@@ -25,17 +25,26 @@ section {
     align-items: center;
     border-radius: 25px;
 
+    .search-icon {
+      margin-right: 20px;
+    }
+
     .fas {
       color: $gray-color;
       font-size: 15px;
-      margin-right: 20px;
+    }
+
+    .times-icon{
+      cursor: pointer;
+      position: absolute;
+      right: 22.5px;
     }
 
     input {
       color: $primary-color;
-      font-size: 15px;
       background-color: transparent;
-      width: calc(100% - 35px);
+      font-size: 15px;
+      width: calc(100% - 70px);
     }
   }
 }

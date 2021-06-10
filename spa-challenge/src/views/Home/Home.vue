@@ -3,11 +3,23 @@
     <section class="container">
       <h1>SearchHub</h1>
       <div class="search-bar">
-        <i class="fas fa-search" />
+        <div class="search-icon">
+          <i class="fas fa-search" />
+        </div>
         <input
+          id="searchBar"
+          v-model="search"
           type="text"
           placeholder="Pesquisar repositórios..."
+          @keyup="clearButton"
         >
+        <div
+          v-if="showClearButton"
+          class="times-icon"
+          @click="clearSearch"
+        >
+          <i class="fas fa-backspace" />
+        </div>
       </div>
       <div class="push" />
     </section>
@@ -18,9 +30,33 @@
 </template>
 
 <script>
-export default {
+import Vue from 'vue';
 
-};
+export default Vue.extend({
+  data() {
+    return {
+      search: null,
+      showClearButton: false,
+    };
+  },
+  methods: {
+    clearButton() {
+      const { search } = this;
+
+      if (search === '' || search === null) {
+        this.showClearButton = false;
+      } else {
+        this.showClearButton = true;
+      }
+    },
+    clearSearch() {
+      this.search = null;
+      this.showClearButton = false;
+
+      document.querySelector('#searchBar').focus();
+    },
+  },
+});
 </script>
 
 <style lang="scss">
