@@ -11,12 +11,12 @@
 - [x] Arquivo html
 - [ ] Vue
   - [x] Configuração de Vue Router
-  - [ ] Vuex
   - [x] Componente de pesquisa
   - [ ] Views
     - [x] 404
     - [x] Index
     - [ ] Search
+      - [x] Barra de pesquisa
       - [ ] Opções de pesquisa
         - [ ] Quantidade de itens por página
         - [ ] Classificações

@@ -9,7 +9,7 @@
         <i class="fas fa-search" />
       </div>
       <input
-        id="searchBar"
+        ref="searchBar"
         v-model="search"
         type="text"
         placeholder="Pesquisar repositórios..."
@@ -65,14 +65,15 @@ export default Vue.extend({
       this.search = '';
       this.showClearButton = false;
 
-      const searchBar = document.getElementById('#searchBar');
-      if (searchBar !== null) searchBar.focus();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { searchBar } = this.$refs as any;
+      if (searchBar !== undefined) searchBar.focus();
     },
     goToSearch(): void {
-      const { search } = this;
+      const { search, $route } = this;
       const query = { q: search };
 
-      if (search !== null && search !== '') {
+      if (search !== null && search !== '' && search !== $route.query.q) {
         this.$router.push({ name: 'Search', query });
         document.title = `${search} - SearchHub`;
       }
