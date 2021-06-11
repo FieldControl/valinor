@@ -73,6 +73,7 @@ export default Vue.extend({
 
       if (search !== null) {
         this.$router.push({ name: 'Search', query });
+        document.title = `${search} - SearchHub`;
       }
     },
   },

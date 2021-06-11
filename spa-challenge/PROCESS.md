@@ -16,6 +16,10 @@
     - [x] 404
     - [x] Index
     - [ ] Search
+      - [ ] Opções de pesquisa
+        - [ ] Ordenação
+        - [ ] Quantidade de itens por página
+        - [ ] Classificações
 - [ ] SCSS
   - [x] Definição de cores principais e variáveis
   - [x] Mini template reaproveitável de classes e tags

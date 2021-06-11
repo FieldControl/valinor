@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
+import qs from 'qs';
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,10 @@ const routes: Array<RouteConfig> = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  stringifyQuery: (query) => {
+    const result = qs.stringify(query, { format: 'RFC1738' });
+    return result ? (`?${result}`) : '';
+  },
   routes,
 });
 

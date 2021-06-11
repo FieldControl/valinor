@@ -20,7 +20,6 @@ export default Vue.extend({
   },
   created() {
     const { q } = this.$route.query;
-
     if (q !== undefined && q !== '') {
       this.searchQuery = q;
     }
