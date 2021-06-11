@@ -18,6 +18,9 @@
           :list="lists.sortOptions"
           type-option="sort"
         />
+        <search-sort
+          :list="lists.resultOptions"
+        />
       </div>
     </section>
   </div>
@@ -43,6 +46,7 @@ export default Vue.extend({
   },
   created() {
     this.lists = data;
+    document.title = `${this.$route.query.q} - SearchHub`;
   },
 });
 </script>

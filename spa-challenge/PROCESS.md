@@ -19,7 +19,8 @@
       - [x] Barra de pesquisa
       - [ ] Opções de pesquisa
         - [ ] Quantidade de itens por página
-        - [ ] Classificações
+        - [x] Classificações
+      - [ ] Consulta de API
 - [ ] SCSS
   - [x] Definição de cores principais e variáveis
   - [x] Mini template reaproveitável de classes e tags

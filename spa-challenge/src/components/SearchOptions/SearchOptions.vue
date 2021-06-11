@@ -35,7 +35,7 @@ export default Vue.extend({
     },
     typeOption: {
       type: String,
-      required: true,
+      default: null,
     },
   },
   data() {
@@ -44,13 +44,30 @@ export default Vue.extend({
       selectedItem: '',
     };
   },
-  mounted() {
+  created() {
     this.selectedItem = Object(this.list[0]).name;
   },
   methods: {
     selectItem(index: number): void {
-      this.selectedItem = Object(this.list[index]).name;
       this.showList = false;
+
+      const item = Object(this.list[index]);
+
+      if (item.name !== this.selectedItem) {
+        this.selectedItem = item.name;
+
+        const { query } = this.$route;
+        const searchParams = { ...query };
+        delete searchParams.page;
+
+        if (this.typeOption === 'sort') {
+          Object.assign(searchParams, { filter: item.name.toLowerCase() });
+        } else {
+          Object.assign(searchParams, { per_page: item.code });
+        }
+
+        this.$router.replace({ query: searchParams });
+      }
     },
   },
 });
