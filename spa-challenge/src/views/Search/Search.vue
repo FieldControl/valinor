@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 import SearchBar from '@/components/SearchBar/SearchBar.vue';
 
@@ -15,13 +15,13 @@ export default Vue.extend({
   components: { SearchBar },
   data() {
     return {
-      searchQuery: null,
+      searchQuery: '',
     };
   },
-  created() {
+  created(): void {
     const { q } = this.$route.query;
     if (q !== undefined && q !== '') {
-      this.searchQuery = q;
+      this.searchQuery = String(q);
     }
   },
 });

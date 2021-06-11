@@ -11,13 +11,13 @@
 - [x] Arquivo html
 - [ ] Vue
   - [x] Configuração de Vue Router
+  - [ ] Vuex
   - [x] Componente de pesquisa
   - [ ] Views
     - [x] 404
     - [x] Index
     - [ ] Search
       - [ ] Opções de pesquisa
-        - [ ] Ordenação
         - [ ] Quantidade de itens por página
         - [ ] Classificações
 - [ ] SCSS

@@ -28,7 +28,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -45,14 +45,14 @@ export default Vue.extend({
   data() {
     return {
       showClearButton: false,
-      search: null,
+      search: '',
     };
   },
   created() {
     this.search = this.searchQuery;
   },
   methods: {
-    clearButton() {
+    clearButton(): void {
       const { search } = this;
 
       if (search === '' || search === null) {
@@ -61,17 +61,18 @@ export default Vue.extend({
         this.showClearButton = true;
       }
     },
-    clearSearch() {
-      this.search = null;
+    clearSearch(): void {
+      this.search = '';
       this.showClearButton = false;
 
-      document.querySelector('#searchBar').focus();
+      const searchBar = document.getElementById('#searchBar');
+      if (searchBar !== null) searchBar.focus();
     },
-    goToSearch() {
+    goToSearch(): void {
       const { search } = this;
       const query = { q: search };
 
-      if (search !== null) {
+      if (search !== null && search !== '') {
         this.$router.push({ name: 'Search', query });
         document.title = `${search} - SearchHub`;
       }

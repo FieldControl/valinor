@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script >
 import Vue from 'vue';
 import SearchBar from '@/components/SearchBar/SearchBar.vue';
 
