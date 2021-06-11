@@ -14,7 +14,10 @@
         </h2>
       </div>
       <div class="options">
-        <search-sort />
+        <search-sort
+          :list="lists.sortOptions"
+          type-option="sort"
+        />
       </div>
     </section>
   </div>
@@ -24,13 +27,22 @@
 import Vue from 'vue';
 import SearchBar from '@/components/SearchBar/SearchBar.vue';
 import SearchSort from '@/components/SearchOptions/SearchOptions.vue';
+import data from './data';
 
 export default Vue.extend({
   components: { SearchBar, SearchSort },
+  data() {
+    return {
+      lists: {},
+    };
+  },
   computed: {
     query() {
       return this.$route.query;
     },
+  },
+  created() {
+    this.lists = data;
   },
 });
 </script>
