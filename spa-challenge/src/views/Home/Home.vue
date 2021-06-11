@@ -16,6 +16,9 @@ import SearchBar from '@/components/SearchBar/SearchBar.vue';
 
 export default Vue.extend({
   components: { SearchBar },
+  created() {
+    document.title = 'SearchHub - Pesquise repositórios do GitHub';
+  },
 });
 </script>
 

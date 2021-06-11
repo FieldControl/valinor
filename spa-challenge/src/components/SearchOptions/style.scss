@@ -1,0 +1,25 @@
+@import '@/styles/variables.scss';
+
+.sort-button {
+  position: relative;
+  padding: 12px 25px;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid $gray-second-color;
+  font-size: 14px;
+  color: $gray-color;
+  transition: all .3s ease;
+
+  &:hover {
+    color: $black-color;
+  }
+  
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0px 7px rgba($color: $secondary-color, $alpha: 0.3);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}

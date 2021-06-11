@@ -70,10 +70,10 @@ export default Vue.extend({
       if (searchBar !== undefined) searchBar.focus();
     },
     goToSearch(): void {
-      const { search, $route } = this;
+      const { search } = this;
       const query = { q: search };
 
-      if (search !== null && search !== '' && search !== $route.query.q) {
+      if (search !== '' && search !== this.searchQuery) {
         this.$router.push({ name: 'Search', query });
         document.title = `${search} - SearchHub`;
       }

@@ -39,6 +39,12 @@ button {
   transform: translateX(-50%);
 }
 
+.txt-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s;
 }

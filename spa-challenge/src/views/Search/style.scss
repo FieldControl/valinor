@@ -1,3 +1,26 @@
 @import '@/styles/variables.scss';
 
+.informations {
+  position: relative;
+  text-align: center;
+  margin-top: 35px;
 
+  h1 {
+    font-weight: 500;
+    font-size: 25px;
+    text-transform: capitalize;
+    max-width: 100%;
+    color: $black-color;
+  }
+
+  h2 {
+    color: $gray-color;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 100%;
+  }
+}
+
+.options {
+  margin-top: 20px;
+}
