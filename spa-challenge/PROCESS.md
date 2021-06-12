@@ -3,11 +3,10 @@
 - [x] Criação de projeto com Vue CLI
 - [x] Primeiro commit de inicialização
 - [x] URL da API como variável de ambiente
-- [ ] Testes
+- [x] Testes
   - [x] Testes de API
   - [x] Estudo de parâmetros de consulta na documentação do GitHub
   - [x] Testes de pesquisa de repositórios com parâmetros
-  - [ ] Testes com arquivos .vue
 - [x] Arquivo html
 - [ ] Vue
   - [x] Configuração de Vue Router
@@ -20,7 +19,7 @@
       - [x] Opções de pesquisa
         - [x] Quantidade de itens por página
         - [x] Classificações
-      - [ ] Configuração do Axios
+      - [x] Configuração do Axios
       - [ ] Consulta de API
       - [ ] Retorno de consulta
       - [ ] Efeito de loading

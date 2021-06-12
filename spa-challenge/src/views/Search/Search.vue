@@ -10,7 +10,7 @@
           {{ query.q }}
         </h1>
         <h2 class="txt-overflow">
-          70.652 repositórios
+          {{ response.total }} repositórios
         </h2>
       </div>
       <div class="options">
@@ -37,6 +37,10 @@ export default Vue.extend({
   data() {
     return {
       lists: {},
+      response: {
+        total: 0,
+        items: [],
+      },
     };
   },
   computed: {
@@ -56,7 +60,15 @@ export default Vue.extend({
   },
   methods: {
     searchQuery() {
-      console.log(this.query);
+      // const { $axios, query } = this;
+
+      // $axios({
+      //   params: {
+      //     q: query.q,
+      //   },
+      // })
+      //   .then((res) => console.log(res))
+      //   .catch((err) => console.log(err));
     },
   },
 });
