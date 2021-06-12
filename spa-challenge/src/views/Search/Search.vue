@@ -44,9 +44,20 @@ export default Vue.extend({
       return this.$route.query;
     },
   },
+  watch: {
+    query() {
+      this.searchQuery();
+    },
+  },
   created() {
     this.lists = data;
     document.title = `${this.$route.query.q} - SearchHub`;
+    this.searchQuery();
+  },
+  methods: {
+    searchQuery() {
+      console.log(this.query);
+    },
   },
 });
 </script>

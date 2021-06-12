@@ -56,28 +56,41 @@ export default Vue.extend({
       selectedItem: '',
     };
   },
+  computed: {
+    search() {
+      return this.$route.query.q;
+    },
+  },
+  watch: {
+    search() {
+      this.comboBox();
+    },
+  },
   created() {
-    const { list, $route, typeOption } = this;
-
-    const type = typeOption === 'sort' ? 'filter' : 'per_page';
-    let itemIndex;
-    let itemName;
-
-    if (type === 'filter') {
-      itemIndex = list.findIndex((obj) => obj.name === $route.query[type]);
-    } else {
-      itemIndex = list.findIndex((obj) => String(obj.code) === $route.query[type]);
-    }
-
-    if (itemIndex >= 0) {
-      itemName = list[itemIndex].name;
-    } else {
-      itemName = list[0].name;
-    }
-
-    this.selectedItem = this.$options.filters.capitalize(itemName);
+    this.comboBox();
   },
   methods: {
+    comboBox() {
+      const { list, $route, typeOption } = this;
+
+      const type = typeOption === 'sort' ? 'filter' : 'per_page';
+      let itemIndex;
+      let itemName;
+
+      if (type === 'filter') {
+        itemIndex = list.findIndex((obj) => String(obj.name) === $route.query[type]);
+      } else {
+        itemIndex = list.findIndex((obj) => String(obj.code) === $route.query[type]);
+      }
+
+      if (itemIndex >= 0) {
+        itemName = list[itemIndex].name;
+      } else {
+        itemName = list[0].name;
+      }
+
+      this.selectedItem = this.$options.filters.capitalize(itemName);
+    },
     selectItem(index) {
       this.showList = false;
 

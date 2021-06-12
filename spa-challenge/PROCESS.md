@@ -20,7 +20,11 @@
       - [x] Opções de pesquisa
         - [x] Quantidade de itens por página
         - [x] Classificações
+      - [ ] Configuração do Axios
       - [ ] Consulta de API
+      - [ ] Retorno de consulta
+      - [ ] Efeito de loading
+      - [ ] Paginação
 - [ ] SCSS
   - [x] Definição de cores principais e variáveis
   - [x] Mini template reaproveitável de classes e tags
