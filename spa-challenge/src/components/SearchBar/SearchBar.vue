@@ -65,7 +65,6 @@ export default Vue.extend({
       this.search = '';
       this.showClearButton = false;
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { searchBar } = this.$refs as any;
       if (searchBar !== undefined) searchBar.focus();
     },

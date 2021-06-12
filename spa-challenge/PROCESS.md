@@ -17,8 +17,8 @@
     - [x] Index
     - [ ] Search
       - [x] Barra de pesquisa
-      - [ ] Opções de pesquisa
-        - [ ] Quantidade de itens por página
+      - [x] Opções de pesquisa
+        - [x] Quantidade de itens por página
         - [x] Classificações
       - [ ] Consulta de API
 - [ ] SCSS

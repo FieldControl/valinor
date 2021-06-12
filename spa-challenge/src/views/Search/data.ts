@@ -6,27 +6,27 @@ interface Type {
 const data: Type = {
   sortOptions: [
     {
-      name: 'Mais relevantes',
+      name: 'mais relevantes',
       sort: '',
       order: '',
     },
     {
-      name: 'Mais avaliados',
+      name: 'mais avaliados',
       sort: 'stars',
       order: 'desc',
     },
     {
-      name: 'Menos avaliados',
+      name: 'menos avaliados',
       sort: 'stars',
       order: 'asc',
     },
     {
-      name: 'Mais forks',
+      name: 'mais forks',
       sort: 'forks',
       order: 'desc',
     },
     {
-      name: 'Menos forks',
+      name: 'menos forks',
       sort: 'forks',
       order: 'asc',
     },
