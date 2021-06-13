@@ -3,10 +3,11 @@
 - [x] Criação de projeto com Vue CLI
 - [x] Primeiro commit de inicialização
 - [x] URL da API como variável de ambiente
-- [x] Testes
+- [ ] Testes
   - [x] Testes de API
   - [x] Estudo de parâmetros de consulta na documentação do GitHub
   - [x] Testes de pesquisa de repositórios com parâmetros
+  - [ ] Testes de arquivos Vue
 - [x] Arquivo html
 - [ ] Vue
   - [x] Configuração de Vue Router

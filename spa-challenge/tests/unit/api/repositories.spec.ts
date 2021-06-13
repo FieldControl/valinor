@@ -1,10 +1,9 @@
 import supertest from 'supertest';
 
-const url = process.env.VUE_APP_API_URL;
-const repo = '/search/repositories';
-const request = supertest(url + repo);
-
 describe('Repositories', () => {
+  const url = process.env.VUE_APP_API_URL;
+  const request = supertest(url);
+
   it('Deve retornar com sucesso a pesquisa com a palavra "FieldControl"', async () => {
     const query = encodeURIComponent('FieldControl');
     const res = await request.get(`?q=${query}`).set('User-agent', 'request');
