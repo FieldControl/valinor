@@ -1,0 +1,221 @@
+/* ================================= 
+  Estilos dos elementos
+==================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 1em/1.5 'Roboto', sans-serif;
+  color: #c1c1c1;
+  background: #161b22;
+  padding-top: 145px;
+  padding-bottom: 3em;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #7bcbc4;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input {
+  font-size: 1.12em;
+  height: 46px;
+  padding-bottom: 1em;
+  padding-left: 0;
+  background: none;
+  border: none;
+  outline: 0;
+  transition: border-color .4s;
+}
+
+input:focus {
+  border-color: #c1c1c1;
+}
+
+button {
+  width: 40px;
+  height: 35px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  outline: 0;
+  position: relative;
+  z-index: 2000;
+}
+
+img{
+  width: 17px;
+  height: 17px;
+
+}
+
+/* ================================= 
+  Pagina dos Components
+==================================== */
+
+.main-title {
+  color: #fff;
+  font-size: 1.4em;
+  line-height: 80px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+}
+
+.search-form input:only-of-type {
+  display: flex;
+  background-color: #161b22;
+  height: 50px;
+  color: #a5aab4;
+  align-content: start;
+  padding: 10px 5px;
+}
+
+.search-button {
+  float: right;
+  margin-right: -10px;
+}
+
+.icn-search {
+  font-weight: 700;
+}
+
+.icon-gif {
+  font-size: 6em;
+  margin-bottom: 0;
+  color: #7bcbc4;
+  display: block;
+}
+
+.no-repos  {
+  color: #7bcbc4;
+  height: 140px;
+  padding-top: 62px;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.repo-list a {
+  display: block;
+  margin: auto;
+}
+
+.repo-wrap {
+  background-color: #fff;
+  margin-bottom: .8em;
+  position: relative;
+}
+
+.repo-wrap img {
+  min-width: 100%;
+}
+
+/* ================================= 
+  Estilo do layout
+==================================== */
+
+.inner,
+.main-content {
+  width: 90%;
+  max-width: 1025px;
+  margin: auto;
+}
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  height: 100px;
+
+}
+
+.git-icon{
+margin-top: 30px;
+margin-left: 10px;
+width: 60px;
+
+}
+
+
+.main-content::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.is-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+@media (min-width: 0) and (max-width: 549px) {
+  .repo-list li {
+    text-align: center;
+    margin: 20px 0 0;
+    font-size: 0;
+  }
+}
+
+@media (min-width: 550px) {
+  .repo-list li {
+    float: left;
+    width: 50%;
+    margin: 0;
+  }
+  .repo-wrap img {
+    height: 235px;
+  }
+  .repo-list .no-repos {
+    float: none;
+    width: 100%;
+  }
+
+  .repo-wrap {
+    border: 1px solid white;
+    padding: 0;
+    overflow: hidden;
+    font-size: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 115px;
+  }
+  .main-title {
+    float: left;
+  }
+  .search-form {
+    width: 422px;
+    float: right;
+    margin-top: 34px;
+  }
+  .repo-list li {
+    width: 33.333333333%;
+  }
+}
+
+@media (min-width: 768px) { 
+  .repo-list li:nth-of-type(3n+1) {
+    clear: left;
+  }
+}
