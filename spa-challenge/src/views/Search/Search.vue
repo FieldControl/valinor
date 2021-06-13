@@ -40,6 +40,7 @@ export default Vue.extend({
       response: {
         total: 0,
         items: [],
+        error: null,
       },
     };
   },
@@ -50,25 +51,56 @@ export default Vue.extend({
   },
   watch: {
     query() {
-      this.searchQuery();
+      this.searchRepositories();
     },
   },
   created() {
     this.lists = data;
     document.title = `${this.$route.query.q} - SearchHub`;
-    this.searchQuery();
+    this.searchRepositories();
   },
   methods: {
-    searchQuery() {
-      // const { $axios, query } = this;
+    searchRepositories() {
+      const { $axios, query } = this;
+      const params = { q: query.q, per_page: 10 };
 
-      // $axios({
-      //   params: {
-      //     q: query.q,
-      //   },
-      // })
-      //   .then((res) => console.log(res))
-      //   .catch((err) => console.log(err));
+      const filter = this.findQuery(query.filter, 'sortOptions', 'name');
+      const perPage = this.findQuery(Number(query.per_page), 'resultOptions', 'code');
+
+      if (filter !== undefined) {
+        Object.assign(params, {
+          sort: filter.sort,
+          order: filter.order,
+        });
+      }
+
+      if (perPage !== undefined) {
+        Object.assign(params, {
+          per_page: perPage.code,
+        });
+      }
+
+      $axios({ params })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          // err.message
+          console.log(err);
+        });
+    },
+    findQuery(param, objName, objVerification) {
+      const list = this.lists[objName];
+      if (list === undefined) {
+        return undefined;
+      }
+
+      const index = list.findIndex((res) => res[objVerification] === param);
+      if (index < 0) {
+        return undefined;
+      }
+
+      return list[index];
     },
   },
 });

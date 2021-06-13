@@ -21,7 +21,7 @@
         - [x] Quantidade de itens por página
         - [x] Classificações
       - [x] Configuração do Axios
-      - [ ] Consulta de API
+      - [x] Consulta de API
       - [ ] Retorno de consulta
       - [ ] Efeito de loading
       - [ ] Paginação

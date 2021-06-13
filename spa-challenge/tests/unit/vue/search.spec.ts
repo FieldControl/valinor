@@ -1,29 +1,28 @@
 import { shallowMount } from '@vue/test-utils';
-import axios from 'axios';
 import Search from '@/views/Search/Search.vue';
+import axios from 'axios';
 
 describe('Search', () => {
-  const url = process.env.VUE_APP_API_URL || 'https://api.github.com/search/repositories';
+  const url = process.env.VUE_APP_API_URL || '';
   const $route = {
     path: '/search',
-    query: { q: 'Field Control' },
+    query: { q: encodeURIComponent('Field Control') },
   };
 
-  it('Deve receber itens no objeto "response"', async () => {
+  const wrapper = shallowMount(Search, {
+    mocks: { $route },
+  });
+
+  it('Deve receber um array de resultado no objeto "response"', async () => {
     const res = await axios.get(url, {
       params: {
         q: $route.query.q,
       },
     });
 
-    const wrapper = shallowMount(Search, {
-      mocks: { $route },
-      data() {
-        return {
-          response: {
-            items: res.data.items,
-          },
-        };
+    wrapper.setData({
+      response: {
+        items: res.data.items,
       },
     });
 
