@@ -4,13 +4,16 @@
       :style-minimized="true"
       :search-query="query.q"
     />
-    <section class="container">
+    <section
+      v-if="response.error === null"
+      class="container"
+    >
       <div class="informations">
         <h1 class="txt-overflow">
-          {{ query.q }}
+          {{ query.q | $capitalize }}
         </h1>
         <h2 class="txt-overflow">
-          {{ response.total }} repositórios
+          {{ response.total | $numberFormat }} repositórios
         </h2>
       </div>
       <div class="options">
@@ -22,6 +25,24 @@
           :list="lists.resultOptions"
         />
       </div>
+    </section>
+    <section
+      v-else
+      class="container error-container"
+    >
+      <img
+        src="/images/favicon.svg"
+        alt="Ícone do GitHub"
+      >
+      <h3>Ocorreu um erro!</h3>
+      <p> {{ response.error | $capitalize }} </p>
+      <button
+        v-wave
+        class="btn-primary"
+        @click="searchRepositories"
+      >
+        Tentar novamente
+      </button>
     </section>
   </div>
 </template>
@@ -41,6 +62,7 @@ export default Vue.extend({
         total: 0,
         items: [],
         error: null,
+        loaded: false,
       },
     };
   },
@@ -62,7 +84,10 @@ export default Vue.extend({
   methods: {
     searchRepositories() {
       const { $axios, query } = this;
-      const params = { q: query.q, per_page: 10 };
+
+      const q = encodeURIComponent(query.q);
+      const page = query.page || 1;
+      const params = { q, per_page: 10, page };
 
       const filter = this.findQuery(query.filter, 'sortOptions', 'name');
       const perPage = this.findQuery(Number(query.per_page), 'resultOptions', 'code');
@@ -82,11 +107,11 @@ export default Vue.extend({
 
       $axios({ params })
         .then((res) => {
-          console.log(res);
+          this.response.total = res.data.total_count;
+          this.response.items = res.data.items;
         })
         .catch((err) => {
-          // err.message
-          console.log(err);
+          this.response.error = err.response.data.message;
         });
     },
     findQuery(param, objName, objVerification) {

@@ -23,8 +23,11 @@
       - [x] Configuração do Axios
       - [x] Consulta de API
       - [ ] Retorno de consulta
+        - [x] Exibição de erro
+        - [ ] Exibição de itens
+        - [ ] Caso não haja resultados, exibição de mensagem
+      - [ ] Paginação Math.floor(total / per_page)
       - [ ] Efeito de loading
-      - [ ] Paginação
 - [ ] SCSS
   - [x] Definição de cores principais e variáveis
   - [x] Mini template reaproveitável de classes e tags

@@ -20,7 +20,7 @@
           :class="{ 'selected-item': item.name === selectedItem.toLowerCase() }"
           @click="selectItem(index)"
         >
-          {{ item.name | capitalize }}
+          {{ item.name | $capitalize }}
         </li>
       </ul>
     </div>
@@ -34,11 +34,6 @@ import ClickOutside from 'vue-click-outside';
 export default Vue.extend({
   directives: {
     ClickOutside,
-  },
-  filters: {
-    capitalize(text) {
-      return text[0].toUpperCase() + text.substr(1);
-    },
   },
   props: {
     list: {
@@ -89,13 +84,13 @@ export default Vue.extend({
         itemName = list[0].name;
       }
 
-      this.selectedItem = this.$options.filters.capitalize(itemName);
+      this.selectedItem = this.$options.filters.$capitalize(itemName);
     },
     selectItem(index) {
       this.showList = false;
 
       const item = Object(this.list[index]);
-      const name = this.$options.filters.capitalize(item.name);
+      const name = this.$options.filters.$capitalize(item.name);
 
       if (name !== this.selectedItem) {
         this.selectedItem = name;
