@@ -68,6 +68,7 @@
             :current-page="parseInt(query.page) || 1"
             :total="response.total"
             :per-page="parseInt(query.per_page) || 10"
+            :per-pages-accepted="lists.resultOptions"
           />
         </template>
         <template v-else>

@@ -43,6 +43,10 @@ export default Vue.extend({
       type: Number,
       default: 10,
     },
+    perPagesAccepted: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
@@ -68,9 +72,15 @@ export default Vue.extend({
   },
   methods: {
     addPages(): void {
-      this.pages.current = this.currentPage;
-      this.pages.after = this.currentPage + 1;
-      this.pages.before = this.currentPage - 1;
+      if (this.currentPage >= 1) {
+        this.pages.current = this.currentPage;
+        this.pages.after = this.currentPage + 1;
+        this.pages.before = this.currentPage - 1;
+      } else {
+        this.pages.current = 1;
+        this.pages.after = 2;
+        this.pages.before = 0;
+      }
     },
     goToPage(page: number): void {
       const { query } = this.$route;
@@ -79,7 +89,14 @@ export default Vue.extend({
       this.$router.replace({ query: newQuery });
     },
     lastPage(): void {
-      const { total, perPage } = this;
+      const { total, perPagesAccepted } = this;
+      let { perPage } = this;
+
+      const perPageIndex = perPagesAccepted.findIndex((res: any) => res.code === Number(perPage));
+
+      if (perPageIndex < 0) {
+        perPage = 10;
+      }
 
       let totalItems = total;
 
