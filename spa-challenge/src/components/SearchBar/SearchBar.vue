@@ -3,7 +3,11 @@
     class="container"
     :class="{ minimized: styleMinimized }"
   >
-    <h1>SearchHub</h1>
+    <h1>
+      <router-link :to="{ name: 'Home' }">
+        SearchHub
+      </router-link>
+    </h1>
     <div class="search-bar">
       <div class="search-icon">
         <i class="fas fa-search" />

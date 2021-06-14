@@ -67,7 +67,7 @@
           <pagination
             :current-page="Number(query.page) || 1"
             :total="response.total"
-            :per-page="query.per_page"
+            :per-page="Number(query.per_page)"
           />
         </template>
         <template v-else>

@@ -27,6 +27,10 @@
   margin: 20px 0 45px 0;
   display: grid;
   width: 100%;
+  max-width: 400px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
@@ -147,6 +151,7 @@
       max-width: 100%;
       text-overflow: ellipsis;
       white-space: nowrap;
+      text-align: left;
       overflow: hidden;
     }
   }
@@ -154,4 +159,70 @@
 
 .push {
   height: 30px;
+}
+
+@media (min-width: 768px) {
+  .informations {
+    margin-top: 42px;
+  
+    h1 {
+      font-size: 30px;
+    }
+  
+    h2 {
+      font-size: 18px;
+      margin-top: 8px;
+    }
+  }
+
+  .options {
+    margin: 25px 0 50px 0;
+    display: grid;
+    grid-gap: 15px;
+    z-index: 5000;
+  }
+
+  .items-empty p{
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+  
+    li {
+      position: relative;
+      border-radius: 12px;
+      padding: 18px;
+  
+      .title {
+        font-size: 20px;
+  
+        a {
+          max-width: calc(100% - 75px);
+        }
+  
+        p {
+          font-size: 15px;
+          max-width: 100px;
+        }
+      }
+  
+      .description {
+        font-size: 16px;
+        -webkit-line-clamp: 4;
+        margin-bottom: 40px;
+      }
+  
+      .points {
+        font-size: 15px;
+        position: absolute;
+        bottom: 18px;
+        width: calc(100% - 38px);
+        left: 18px;
+        text-align: left;
+      }
+    }
+  }
 }

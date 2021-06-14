@@ -19,3 +19,9 @@
 .push, .footer {
   height: 50px;
 }
+
+@media (min-width: 768px) {
+  .footer {
+    font-size: 15px;
+  }
+}

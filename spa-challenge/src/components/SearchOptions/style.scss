@@ -50,7 +50,7 @@
     border: 1px solid $gray-second-color;
     user-select: none;
     background-color: $white-color;
-    z-index: 4000;
+    z-index: 9999;
 
     li {
       font-size: 14px;
@@ -67,3 +67,24 @@
   }
 }
 
+@media (min-width: 768px) {
+  .search-options {
+    .sort-button {
+      height: 45px;
+      padding: 0 18px;
+      font-size: 16px;
+      border-radius: 7px;
+    }
+    
+    .list {
+      top: 70px;
+      border-radius: 7px;
+      padding: 18px 10px;
+  
+      li {
+        font-size: 16px;
+        padding: 7px 0;
+      }
+    }
+  }
+}

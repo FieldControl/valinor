@@ -3,19 +3,19 @@
 - [x] Criação de projeto com Vue CLI
 - [x] Primeiro commit de inicialização
 - [x] URL da API como variável de ambiente
-- [ ] Testes
+- [x] Testes
   - [x] Testes de API
   - [x] Estudo de parâmetros de consulta na documentação do GitHub
   - [x] Testes de pesquisa de repositórios com parâmetros
-  - [ ] Testes de arquivos Vue
+  - [x] Testes de arquivos Vue
 - [x] Arquivo html
-- [ ] Vue
+- [x] Vue
   - [x] Configuração de Vue Router
   - [x] Componente de pesquisa
-  - [ ] Views
+  - [x] Views
     - [x] 404
     - [x] Index
-    - [ ] Search
+    - [x] Search
       - [x] Barra de pesquisa
       - [x] Opções de pesquisa
         - [x] Quantidade de itens por página
@@ -28,12 +28,12 @@
         - [x] Caso não haja resultados, exibição de mensagem
       - [x] Paginação Math.ceil(total / per_page)
       - [x] Efeito de loading
-- [ ] SCSS
+- [x] SCSS
   - [x] Definição de cores principais e variáveis
   - [x] Mini template reaproveitável de classes e tags
-  - [ ] Mobile first
-  - [ ] Responsividade para tablets 768px
-  - [ ] Responsividade para monitores simples 1024px
-  - [ ] Responsividade para monitores modernos 1280px
+  - [x] Mobile first
+  - [x] Responsividade para tablets 768px
+  - [x] Responsividade para monitores simples 1024px
+  - [x] Responsividade para monitores modernos 1200px
 - [ ] Documentação do projeto
 - [ ] Pull request da fork
