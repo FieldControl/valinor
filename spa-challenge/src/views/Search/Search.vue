@@ -25,6 +25,19 @@
           :list="lists.resultOptions"
         />
       </div>
+      <div
+        v-if="response.items.length > 0"
+        class="items"
+      >
+        itens encontrados
+      </div>
+      <div
+        v-else
+        class="items-empty"
+      >
+        <i class="fas fa-search" />
+        <p>Nenhum resultado encontrado</p>
+      </div>
     </section>
     <section
       v-else
@@ -114,7 +127,6 @@ export default Vue.extend({
         .then((res) => {
           this.response.total = res.data.total_count;
           this.response.items = res.data.items;
-          console.log(res);
         })
         .catch((err) => {
           this.response.error = err.response.data.message;

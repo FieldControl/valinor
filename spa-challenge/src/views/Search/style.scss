@@ -22,7 +22,7 @@
 }
 
 .options {
-  margin-top: 20px;
+  margin: 20px 0 45px 0;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
@@ -30,7 +30,7 @@
 }
 
 .error-container {
-  margin: 70px 0;
+  margin: 20px 0;
   position: relative;
   max-width: 700px;
   left: 50%;
@@ -64,5 +64,20 @@
     margin-top: 40px;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+.items-empty {
+  text-align: center;
+  .fas {
+    display: block;
+    font-size: 30px;
+    color: $gray-color;
+  }
+
+  p {
+    margin-top: 12px;
+    font-size: 16px;
+    color: $gray-color;
   }
 }

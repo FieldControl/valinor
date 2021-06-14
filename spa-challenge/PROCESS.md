@@ -25,7 +25,7 @@
       - [ ] Retorno de consulta
         - [x] Exibição de erro
         - [ ] Exibição de itens
-        - [ ] Caso não haja resultados, exibição de mensagem
+        - [x] Caso não haja resultados, exibição de mensagem
       - [ ] Paginação Math.floor(total / per_page)
       - [ ] Efeito de loading
 - [ ] SCSS

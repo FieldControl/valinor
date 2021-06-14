@@ -10,14 +10,13 @@ describe('Pagination', () => {
     const params = { q, per_page: perPage };
     const searchResult = await axios(url, { params });
 
-    const totalItems = Number(searchResult.data.total_count);
-    let lastPage;
+    let totalItems = Number(searchResult.data.total_count);
 
     if (totalItems < 1000) {
-      lastPage = Math.ceil(totalItems / perPage);
-    } else {
-      lastPage = Math.ceil(1000 / perPage);
+      totalItems = 1000;
     }
+
+    const lastPage = Math.ceil(totalItems / perPage);
 
     const lastResult = await axios.get(url, {
       params: { ...params, page: lastPage },
