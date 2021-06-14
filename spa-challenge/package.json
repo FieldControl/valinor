@@ -8,6 +8,7 @@
     "test-api": "vue-cli-service test:unit api.spec.ts",
     "test-repo": "vue-cli-service test:unit repositories.spec.ts",
     "test-search": "vue-cli-service test:unit search.spec.ts",
+    "test-pagination": "vue-cli-service test:unit pagination.spec.ts",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

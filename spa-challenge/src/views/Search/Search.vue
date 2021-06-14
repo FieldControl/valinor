@@ -86,8 +86,7 @@ export default Vue.extend({
       const { $axios, query } = this;
 
       const q = encodeURIComponent(query.q);
-      const page = query.page || 1;
-      const params = { q, per_page: 10, page };
+      const params = { q, per_page: 10 };
 
       const filter = this.findQuery(query.filter, 'sortOptions', 'name');
       const perPage = this.findQuery(Number(query.per_page), 'resultOptions', 'code');
@@ -105,10 +104,17 @@ export default Vue.extend({
         });
       }
 
+      if (Number.isInteger(query.page)) {
+        Object.assign(params, {
+          page: query.page,
+        });
+      }
+
       $axios({ params })
         .then((res) => {
           this.response.total = res.data.total_count;
           this.response.items = res.data.items;
+          console.log(res);
         })
         .catch((err) => {
           this.response.error = err.response.data.message;
