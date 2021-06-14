@@ -33,6 +33,7 @@
   position: relative;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+  z-index: 5000;
 }
 
 .error-container {
@@ -179,7 +180,6 @@
     margin: 25px 0 50px 0;
     display: grid;
     grid-gap: 15px;
-    z-index: 5000;
   }
 
   .items-empty p{

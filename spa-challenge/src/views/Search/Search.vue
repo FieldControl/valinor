@@ -65,9 +65,9 @@
             </li>
           </ul>
           <pagination
-            :current-page="Number(query.page) || 1"
+            :current-page="parseInt(query.page) || 1"
             :total="response.total"
-            :per-page="Number(query.per_page)"
+            :per-page="parseInt(query.per_page) || 10"
           />
         </template>
         <template v-else>

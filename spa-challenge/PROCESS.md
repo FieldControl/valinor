@@ -36,4 +36,4 @@
   - [x] Responsividade para monitores simples 1024px
   - [x] Responsividade para monitores modernos 1200px
 - [x] Documentação do projeto
-- [ ] Pull request da fork
+- [x] Pull request da fork
