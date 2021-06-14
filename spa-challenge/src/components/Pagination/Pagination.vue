@@ -8,11 +8,7 @@
       >
         {{ pages.before }}
       </button>
-      <button
-        v-wave
-        class="current"
-        @click="goToPage(pages.current)"
-      >
+      <button class="current">
         {{ pages.current }}
       </button>
       <button

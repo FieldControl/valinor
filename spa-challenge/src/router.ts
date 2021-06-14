@@ -33,11 +33,14 @@ const routes: Array<RouteConfig> = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  routes,
   stringifyQuery: (query) => {
     const result = qs.stringify(query, { format: 'RFC1738' });
     return result ? (`?${result}`) : '';
   },
-  routes,
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
 });
 
 export default router;

@@ -198,8 +198,6 @@ export default Vue.extend({
         });
       }
 
-      window.scrollTo(0, 0);
-
       $axios({ params })
         .then((res) => {
           this.response.total = res.data.total_count;
