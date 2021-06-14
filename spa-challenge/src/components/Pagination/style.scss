@@ -1,0 +1,31 @@
+@import '@/styles/variables.scss';
+
+.pagination {
+  margin-top: 50px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: row;
+
+  button {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background-color: $background-color;
+    position: relative;
+    font-size: 14px;
+    color: $black-color;
+
+  }
+
+  .current {
+    color: $white-color;
+    background-color: $secondary-color;
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+}

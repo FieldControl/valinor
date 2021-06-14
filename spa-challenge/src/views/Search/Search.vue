@@ -25,50 +25,49 @@
           :list="lists.resultOptions"
         />
       </div>
-      <ul
-        v-if="response.items.length > 0"
-        class="items"
-      >
-        <li
-          v-for="(repo, index) in response.items"
-          :key="index"
-        >
-          <div class="title">
-            <a
-              rel="noreferrer noopener"
-              target="_blank"
-              :href="repo.html_url"
-            >
-              {{ repo.full_name }}
-            </a>
-            <p>
-              <i class="far fa-star" /> {{ repo.stargazers_count | $numberFormat }}
+      <template v-if="response.items.length > 0">
+        <ul class="items">
+          <li
+            v-for="(repo, index) in response.items"
+            :key="index"
+          >
+            <div class="title">
+              <a
+                rel="noreferrer noopener"
+                target="_blank"
+                :href="repo.html_url"
+              >
+                {{ repo.full_name }}
+              </a>
+              <p>
+                <i class="far fa-star" /> {{ repo.stargazers_count | $numberFormat }}
+              </p>
+            </div>
+            <p class="description">
+              <template v-if="repo.description !== null">
+                {{ repo.description | $emoji }}
+              </template>
+              <template v-else>
+                Sem descrição
+              </template>
             </p>
-          </div>
-          <p class="description">
-            <template v-if="repo.description !== null">
-              {{ repo.description | $emoji }}
-            </template>
-            <template v-else>
-              Sem descrição
-            </template>
-          </p>
-          <p class="points">
-            {{ repo.forks_count | $numberFormat }} forks
-            &nbsp;•&nbsp;
-            {{ repo.open_issues_count | $numberFormat }} issues
-            &nbsp;•&nbsp;
-            {{ repo.watchers | $numberFormat }} watchers
-          </p>
-        </li>
-      </ul>
-      <div
-        v-else
-        class="items-empty"
-      >
-        <i class="fas fa-search" />
-        <p>Nenhum resultado encontrado</p>
-      </div>
+            <p class="points">
+              {{ repo.forks_count | $numberFormat }} forks
+              &nbsp;•&nbsp;
+              {{ repo.open_issues_count | $numberFormat }} issues
+              &nbsp;•&nbsp;
+              {{ repo.watchers | $numberFormat }} watchers
+            </p>
+          </li>
+        </ul>
+        <pagination :current-page="Number(query.page) || 1" />
+      </template>
+      <template v-else>
+        <div class="items-empty">
+          <i class="fas fa-search" />
+          <p>Nenhum resultado encontrado</p>
+        </div>
+      </template>
     </section>
     <section
       v-else
@@ -88,6 +87,7 @@
         Tentar novamente
       </button>
     </section>
+    <div class="push" />
   </div>
 </template>
 
@@ -95,10 +95,11 @@
 import Vue from 'vue';
 import SearchBar from '@/components/SearchBar/SearchBar.vue';
 import SearchSort from '@/components/SearchOptions/SearchOptions.vue';
+import Pagination from '@/components/Pagination/Pagination.vue';
 import data from './data';
 
 export default Vue.extend({
-  components: { SearchBar, SearchSort },
+  components: { SearchBar, SearchSort, Pagination },
   data() {
     return {
       lists: {},

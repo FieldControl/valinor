@@ -30,7 +30,7 @@
 }
 
 .error-container {
-  margin: 20px 0;
+  margin: 50px 0;
   position: relative;
   max-width: 700px;
   left: 50%;
@@ -147,4 +147,8 @@
       overflow: hidden;
     }
   }
+}
+
+.push {
+  height: 30px;
 }
