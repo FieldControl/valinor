@@ -25,12 +25,43 @@
           :list="lists.resultOptions"
         />
       </div>
-      <div
+      <ul
         v-if="response.items.length > 0"
         class="items"
       >
-        itens encontrados
-      </div>
+        <li
+          v-for="(repo, index) in response.items"
+          :key="index"
+        >
+          <div class="title">
+            <a
+              rel="noreferrer noopener"
+              target="_blank"
+              :href="repo.html_url"
+            >
+              {{ repo.full_name }}
+            </a>
+            <p>
+              <i class="far fa-star" /> {{ repo.stargazers_count | $numberFormat }}
+            </p>
+          </div>
+          <p class="description">
+            <template v-if="repo.description !== null">
+              {{ repo.description | $emoji }}
+            </template>
+            <template v-else>
+              Sem descrição
+            </template>
+          </p>
+          <p class="points">
+            {{ repo.forks_count | $numberFormat }} forks
+            &nbsp;•&nbsp;
+            {{ repo.open_issues_count | $numberFormat }} issues
+            &nbsp;•&nbsp;
+            {{ repo.watchers | $numberFormat }} watchers
+          </p>
+        </li>
+      </ul>
       <div
         v-else
         class="items-empty"

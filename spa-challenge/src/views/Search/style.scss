@@ -81,3 +81,70 @@
     color: $gray-color;
   }
 }
+
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
+
+  li {
+    position: relative;
+    border: 1px solid $gray-second-color;
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    min-width: 0;
+
+    .title {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+
+      a {
+        color: $secondary-color;
+        font-weight: 500;
+        max-width: calc(100% - 55px);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        color: $gray-color;
+        max-width: 70px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    .description {
+      font-size: 15px;
+      color: $black-color;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .points {
+      font-size: 14px;
+      color: $gray-color;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}

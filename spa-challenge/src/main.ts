@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import './filters/capitalize';
 import './filters/numberFormat';
+import './filters/emoji';
 import './plugins/vwave';
 import './plugins/axios';
 import './styles/template.scss';

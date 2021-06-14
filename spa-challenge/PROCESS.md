@@ -24,7 +24,7 @@
       - [x] Consulta de API
       - [ ] Retorno de consulta
         - [x] Exibição de erro
-        - [ ] Exibição de itens
+        - [x] Exibição de itens
         - [x] Caso não haja resultados, exibição de mensagem
       - [ ] Paginação Math.floor(total / per_page)
       - [ ] Efeito de loading
