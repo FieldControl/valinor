@@ -22,7 +22,7 @@
         - [x] Classificações
       - [x] Configuração do Axios
       - [x] Consulta de API
-      - [ ] Retorno de consulta
+      - [x] Retorno de consulta
         - [x] Exibição de erro
         - [x] Exibição de itens
         - [x] Caso não haja resultados, exibição de mensagem

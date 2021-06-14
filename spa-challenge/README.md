@@ -24,7 +24,7 @@ Projeto de SPA, referente ao desafio intermediário, que consulta a API do GitHu
 - Interface em mobile first com responsividade para telas maiores;
 - Efeito placeholder de loading (Semelhante ao FB/IG).
 
-**Observações:** A API do GitHub permite apenas 1.000 resultados por consulta, ou seja, de uma busca com 2.000 respostas encontradas, apenas metade poderá ser consultada.
+**Observações:** A API do GitHub permite apenas 1.000 resultados por consulta, ou seja, de uma busca com 2.000 respostas encontradas, apenas a primeira metade poderá ser consultada.
 
 ## Instalação
 
@@ -36,7 +36,7 @@ a versão LTS mais recente.
 **Dependências**
 ```bash
 $ git clone https://github.com/willaug/valinor.git
-$ cd valinor
+$ cd valinor/spa-challenge
 ```
 
 **Instalação**
@@ -79,7 +79,7 @@ $ yarn test-pagination // Testar função de paginação
 - **Axios** - Cliente HTTP;
 - **Qs** - Stringify para JS/TS;
 - **Vue-click-outside** - Diretiva Vue para cliques fora de elementos;
-- **V-wave** - Animação wave (Aquelas que o Google utiliza em seus botões);
+- **V-wave** - Animação wave (Aquela de clique que o Google utiliza em seus botões);
 - **Node-Emoji** - Conversor de nomes de emoji para emoji.
 
 
@@ -90,4 +90,4 @@ Estou bem ansioso por um feedback, por conta disso, vocês podem me contactar po
 - Website: [williamaugusto.com](https://www.williamaugusto.com) (Recomendo conhecerem);
 - Telefone: [17997299699](tel:5517997299699);
 
-Caso queiram conhecer um pouco mais de mim, todos os meus projetos fixados no GitHub possui uma documentação sobre. 🧑‍💻
+Caso queiram conhecer um pouco mais de mim, todos os meus projetos fixados no GitHub possuem uma documentação sobre. 🧑‍💻
