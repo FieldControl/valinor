@@ -35,5 +35,5 @@
   - [x] Responsividade para tablets 768px
   - [x] Responsividade para monitores simples 1024px
   - [x] Responsividade para monitores modernos 1200px
-- [ ] Documentação do projeto
+- [x] Documentação do projeto
 - [ ] Pull request da fork
