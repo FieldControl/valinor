@@ -1,0 +1,96 @@
+body {
+  background-color: #0d1117;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+}
+
+.nav {
+  grid-area: nav;
+  display: flex;
+  background-color: #161b22;
+  height: 50px;
+  color: #a5aab4;
+  align-content: start;
+  padding: 10px 5px;
+}
+
+.nav img {
+  margin: 8px;
+}
+
+.nav input {
+  margin: 8px;
+  border-radius: 5px;
+  background-color: #0d1117;
+  border: 1px solid rgb(104, 104, 104);
+  color: #a5aab4;
+  text-indent: 10px;
+}
+
+.pag {
+}
+
+.pag li button {
+  color: white;
+}
+
+.content {
+  grid-area: content;
+  color: #a5aab4;
+  margin: 10px;
+}
+
+.list-itens a {
+  text-decoration: none;
+  color: #a5aab4;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.content li {
+  border-top: lightgray solid 1px;
+  padding: 5px 0px;
+  align-items: center;
+}
+
+.content li a {
+  text-decoration: none;
+  color: #58a6ff;
+}
+
+.content li a:visited {
+  text-decoration: none;
+  color: #58a6ff;
+}
+
+.lip {
+  margin-left: 35px;
+}
+
+.list-itens {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+p {
+  padding-left: 15px;
+}
+
+.sidenav {
+  grid-area: sidenav;
+  background-color: mediumseagreen;
+}
+
+.grid-template-areas-1 {
+  grid-template-areas:
+    "nav nav nav"
+    "sidenav content content"
+    "sidenav content content";
+}
