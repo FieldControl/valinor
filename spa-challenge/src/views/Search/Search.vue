@@ -13,65 +13,99 @@
           {{ query.q | $capitalize }}
         </h1>
         <h2 class="txt-overflow">
+          <div
+            v-if="!response.loaded"
+            class="loader loader-repository"
+          />
           {{ response.total | $numberFormat }} repositórios
         </h2>
-      </div>
-      <div class="options">
-        <search-sort
-          :list="lists.sortOptions"
-          type-option="sort"
-        />
-        <search-sort
-          :list="lists.resultOptions"
-        />
-      </div>
-      <template v-if="response.items.length > 0">
-        <ul class="items">
-          <li
-            v-for="(repo, index) in response.items"
-            :key="index"
-          >
-            <div class="title">
-              <a
-                rel="noreferrer noopener"
-                target="_blank"
-                :href="repo.html_url"
-              >
-                {{ repo.full_name }}
-              </a>
-              <p>
-                <i class="far fa-star" /> {{ repo.stargazers_count | $numberFormat }}
-              </p>
-            </div>
-            <p class="description">
-              <template v-if="repo.description !== null">
-                {{ repo.description | $emoji }}
-              </template>
-              <template v-else>
-                Sem descrição
-              </template>
-            </p>
-            <p class="points">
-              {{ repo.forks_count | $numberFormat }} forks
-              &nbsp;•&nbsp;
-              {{ repo.open_issues_count | $numberFormat }} issues
-              &nbsp;•&nbsp;
-              {{ repo.watchers | $numberFormat }} watchers
-            </p>
-          </li>
-        </ul>
-        <pagination
-          :current-page="Number(query.page) || 1"
-          :total="response.total"
-          :per-page="query.per_page"
-        />
-      </template>
-      <template v-else>
-        <div class="items-empty">
-          <i class="fas fa-search" />
-          <p>Nenhum resultado encontrado</p>
+        <div />
+        <div class="options">
+          <search-sort
+            :list="lists.sortOptions"
+            type-option="sort"
+          />
+          <search-sort
+            :list="lists.resultOptions"
+          />
         </div>
-      </template>
+        <template v-if="response.items.length > 0 && response.loaded">
+          <ul class="items">
+            <li
+              v-for="(repo, index) in response.items"
+              :key="index"
+            >
+              <div class="title">
+                <a
+                  rel="noreferrer noopener"
+                  target="_blank"
+                  :href="repo.html_url"
+                >
+                  {{ repo.full_name }}
+                </a>
+                <p>
+                  <i class="far fa-star" /> {{ repo.stargazers_count | $numberFormat }}
+                </p>
+              </div>
+              <p class="description">
+                <template v-if="repo.description !== null">
+                  {{ repo.description | $emoji }}
+                </template>
+                <template v-else>
+                  Sem descrição
+                </template>
+              </p>
+              <p class="points">
+                {{ repo.forks_count | $numberFormat }} forks
+                &nbsp;•&nbsp;
+                {{ repo.open_issues_count | $numberFormat }} issues
+                &nbsp;•&nbsp;
+                {{ repo.watchers | $numberFormat }} watchers
+              </p>
+            </li>
+          </ul>
+          <pagination
+            :current-page="Number(query.page) || 1"
+            :total="response.total"
+            :per-page="query.per_page"
+          />
+        </template>
+        <template v-else>
+          <div
+            v-if="response.loaded"
+            class="items-empty"
+          >
+            <i class="fas fa-search" />
+            <p>Nenhum resultado encontrado</p>
+          </div>
+          <div v-else>
+            <ul class="items">
+              <li
+                v-for="(fakeRepo, index) in response.fakeLoaded"
+                :key="index"
+                style="border: none;"
+              >
+                <div class="loader loader-item" />
+                <div class="title">
+                  <a>
+                    {{ fakeRepo }}
+                  </a>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Nemo incidunt doloremque vel,
+                  nostrum ipsum atque quisquam, corrupti aperiam saepe dolorem
+                  iusto eum molestias temporibus
+                  sed, laudantium at. Voluptate, debitis velit?
+                </div>
+                <div class="points">
+                  {{ fakeRepo }}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </template>
+      </div>
     </section>
     <section
       v-else
@@ -110,6 +144,7 @@ export default Vue.extend({
       response: {
         total: 0,
         items: [],
+        fakeLoaded: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         error: null,
         loaded: false,
       },
@@ -132,6 +167,8 @@ export default Vue.extend({
   },
   methods: {
     searchRepositories() {
+      this.response.loaded = false;
+
       const { $axios, query } = this;
 
       const q = encodeURIComponent(query.q);
@@ -166,8 +203,10 @@ export default Vue.extend({
         .then((res) => {
           this.response.total = res.data.total_count;
           this.response.items = res.data.items;
+          this.response.loaded = true;
         })
         .catch((err) => {
+          this.response.loaded = true;
           this.response.error = err.response.data.message;
         });
     },
@@ -190,4 +229,5 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   @import './style.scss';
+  @import './loader.scss';
 </style>

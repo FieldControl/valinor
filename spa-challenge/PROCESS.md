@@ -26,8 +26,8 @@
         - [x] Exibição de erro
         - [x] Exibição de itens
         - [x] Caso não haja resultados, exibição de mensagem
-      - [ ] Paginação Math.floor(total / per_page)
-      - [ ] Efeito de loading
+      - [x] Paginação Math.ceil(total / per_page)
+      - [x] Efeito de loading
 - [ ] SCSS
   - [x] Definição de cores principais e variáveis
   - [x] Mini template reaproveitável de classes e tags

@@ -1,0 +1,45 @@
+@import '@/styles/variables.scss';
+
+.loader {
+  -webkit-animation-duration: 1.3s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: backAnimation;
+  -webkit-animation-timing-function: linear;
+  background: $loader-bg;
+  background-image: linear-gradient(to right, $loader-bg 0%, $loader-color 20%, $loader-bg 40%, $loader-bg 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  position: relative;
+  display: block;
+}
+
+@keyframes backAnimation{  
+  0% {
+      background-position: -468px 0;
+  }
+  100% {
+      background-position: 468px 0;
+  }
+}
+
+.loader-repository {
+  position: absolute;
+  height: 100%;
+  border-radius: 3px;
+  width: 130px;
+  left: 50%;
+  z-index: 3000;
+  transform: translateX(-50%);
+}
+
+.loader-item {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 4000;
+  border-radius: 10px;
+  background-size: 800px 700px;
+}

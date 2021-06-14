@@ -15,6 +15,16 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  created():void {
+    document.title = 'Página não encontrada - SearchHub';
+  },
+});
+</script>
+
 <style lang="scss" scoped>
   @import './style.scss';
 </style>
