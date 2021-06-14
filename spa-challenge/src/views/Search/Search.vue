@@ -60,7 +60,11 @@
             </p>
           </li>
         </ul>
-        <pagination :current-page="Number(query.page) || 1" />
+        <pagination
+          :current-page="Number(query.page) || 1"
+          :total="response.total"
+          :per-page="query.per_page"
+        />
       </template>
       <template v-else>
         <div class="items-empty">
@@ -131,6 +135,7 @@ export default Vue.extend({
       const { $axios, query } = this;
 
       const q = encodeURIComponent(query.q);
+      const page = Number(query.page);
       const params = { q, per_page: 10 };
 
       const filter = this.findQuery(query.filter, 'sortOptions', 'name');
@@ -149,11 +154,13 @@ export default Vue.extend({
         });
       }
 
-      if (Number.isInteger(query.page)) {
+      if (Number.isInteger(page)) {
         Object.assign(params, {
-          page: query.page,
+          page,
         });
       }
+
+      window.scrollTo(0, 0);
 
       $axios({ params })
         .then((res) => {

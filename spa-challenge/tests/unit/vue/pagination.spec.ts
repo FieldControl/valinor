@@ -12,7 +12,7 @@ describe('Pagination', () => {
 
     let totalItems = Number(searchResult.data.total_count);
 
-    if (totalItems < 1000) {
+    if (totalItems > 1000) {
       totalItems = 1000;
     }
 
