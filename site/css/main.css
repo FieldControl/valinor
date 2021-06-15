@@ -1,0 +1,321 @@
+body {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    max-width: 100%;
+    height: 750px;
+    background-image: url(../images/MenuPrincipal.png);
+}
+
+.menu-principal {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #b6b6bd;
+    padding: 20px 10px 10px 10px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.menu-principal nav {
+    margin-top: 10px;
+}
+
+.logo {
+    width: 100px;
+    height: 20px;
+    margin-top: 10px
+}
+
+
+nav ul {
+    display: flex;
+}
+
+nav ul, li, a {
+    list-style: none;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+@media (max-width: 960px) {
+
+    .list-menu {
+        display: block;
+        position: absolute;
+        width:100%;
+        top: 70px;
+        right: 0px;
+        padding: 0;
+    }
+
+}
+.texto {
+    position: relative;
+    text-align: center;
+    top: 30%;
+    margin: 0 auto;
+    color: #ffff;
+    max-width: 750px;
+}
+
+.btn-1 {
+    position: relative;
+    text-align: center;
+    top: 40%;
+}
+
+.size-button-1 {
+    width: 170px;
+    height: 40px;
+    font-size: 12px;
+}
+
+@media (max-width: 173px) {
+    .size-button-1 {
+        width: 100px;
+        height: 40px;
+        font-size: 8px;
+    }
+}
+
+.space-between-icon {
+    margin-top: 10px;
+}
+
+.icon-description {
+    margin-top: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.section-functionalities {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.section-images {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+
+.image-size {
+    max-width: 100%;
+    height: 300px;
+}
+
+@media (min-width:1800px) {
+    .image-size {
+        width: 100%;
+        height: 400px;
+    }
+
+}
+
+@media (max-width:770px) {
+    .image-size {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:1024px) {
+    .col-md-3 {
+        width: 33.33%;
+    }
+}
+
+@media (max-width:820px) {
+    .col-md-3 {
+        width: 50%;
+    }
+}
+
+@media (max-width:600px) {
+    .col-md-3 {
+        width: 100%;
+    }
+}
+
+
+
+.col-md-3 {
+    padding-right: 1px;
+    padding-left: 1px;
+    padding-bottom: 1px;
+}
+
+.image-size:hover {
+    color: #e84545 !important;
+    opacity: 0.2;
+}
+
+
+
+.section-team {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%; 
+}
+
+.title-colaborators {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.function-colaborators {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #e84545;
+    font-size: 14px;
+}
+
+
+.icons-colaborators a {
+    width: 40px;
+    height: 35px;
+    background-color: white;
+    border: 1px solid #e8ecee;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+
+.flex-column p {
+    color: #909499;
+}
+
+
+.section-slider {
+    margin-bottom: 10%;
+}
+
+.col-md-6 {
+    padding: 0;
+}
+
+.col-md-6 img {
+    width: 100%;
+    height: 400px;
+}
+
+.carousel-indicators {
+    margin-bottom: 10%;
+    width: 80px;
+}
+
+.text-md-start {
+    text-align: left;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.text-carousel {
+    padding-bottom: 15%;
+}
+
+.text-person {
+    text-align: left;
+    font-size: 11px;
+}
+
+.rounded-circle {
+    height: 10px !important;
+}
+
+
+
+
+.call-to-action {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.text-call {
+    padding-top: 40px;
+}
+
+.size-button-2 {
+    width: 180px;
+    height: 40px;
+}
+
+@media (max-width: 190px) {
+    .size-button-2 {
+        width: 90px;
+        height: 30px;
+    }
+}
+
+
+.call-to-action div > button {
+    font-size: 12px;
+}
+
+
+.call-to-action p {
+    font-size: 20px;
+    color: #454749;
+    margin-bottom: 50px;
+    margin-top: 15px;
+}
+
+.span-call {
+    font-size: 40px;
+}
+
+@media (max-width:190px) {
+    .span-call{
+        font-size: 20px;
+    }
+
+    .text-call p {
+        font-size: 10px;
+    }
+}
+
+
+
+.align-footer {
+    justify-content: center;
+    text-align: center;
+}
+
+.title-footer {
+    margin-left: 20px;
+}
+
+.margin-list p {
+    margin: 0;
+}
+
+.icons-footer {
+    justify-content: center;
+}
+
+.icons-footer a {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #e8ecee;
+    text-align: center;
+    padding: 2px;
+    margin-top: 10px;
+}
+
+.background-footer-1 {
+    max-width: 100%;
+    margin: 0;
+    background-color:#3a3e64;
+    color: #afb0bc;
+    
+}
+
+.background-footer-2 {
+    background-color: #313454 ;
+    color: #afb0bc;
+
+}
