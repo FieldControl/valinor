@@ -192,7 +192,7 @@ export default Vue.extend({
         });
       }
 
-      if (Number.isInteger(page)) {
+      if (Number.isInteger(page) && page >= 1) {
         Object.assign(params, {
           page,
         });
