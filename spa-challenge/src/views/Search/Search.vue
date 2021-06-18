@@ -172,7 +172,7 @@ export default Vue.extend({
 
       const { $axios, query } = this;
 
-      const q = encodeURIComponent(query.q);
+      const { q } = query;
       const page = Number(query.page);
       const params = { q, per_page: 10 };
 
