@@ -1,0 +1,379 @@
+*{
+    font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
+}
+
+
+.navbar{
+    width: 61vw;
+    margin: 0 auto;
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.15);
+    img{
+        height: 24px;
+        width: 189px;
+        margin: 1.6rem 0;
+    }
+    &__menu{
+        &__item{
+            cursor: pointer;
+            font-size: 13px;
+            opacity: .75;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #FFF;
+            margin-left: 59px;
+        }
+        &__item:hover{
+            color: #e74545;
+        }
+    }
+    &__menubtn{
+        background: none;
+        border: 0;
+        &__menutoggler{
+            height: 40px;
+            width: 40px;
+            &__barra{
+                display: block;
+                margin-top: 5px;
+                height: 5px;
+                width: 30px;
+                background: #FFF;
+                border-radius: 9px;
+                transition-duration: .3s;
+            }
+        }
+    }
+
+    .navbar__menubtn.on{
+        .one{
+            transform: rotate(45deg) translate(8px, 4px);
+        }
+        .two{
+            display: none;
+        }
+        .three{
+            transform: rotate(-45deg) translate(2px, 0px);
+        }
+    }
+}
+
+.mastehead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    color: #FFF;
+    &__conteudo{
+        text-align: center;
+        width: 55rem;
+        &__titulo{
+            font-size: 65px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        &__subtitulo{
+            margin-top: 20px;
+            font-size: 22px;
+        }
+        &__botao{
+            font-size: 13px;
+            margin: 3rem 0;
+            padding: .8rem 2.5rem;
+            border: 0;
+            text-transform: uppercase;
+            background: #e74545;
+            color: #FFF;
+        }
+        &__botao:hover{
+            transform: scale(1.1);
+            transition-duration: .6s;
+        }
+    }
+}
+
+.secao{
+    position: absolute;
+    z-index: -10;
+    width: 100%;
+    height: 750px;
+    background-position:50% 65%;
+    background-image:linear-gradient(0deg, rgba(43, 46, 74, 0.95), rgba(43, 46, 74, 0.95)),  url("../assets/masthead.svg") ;
+}
+
+.features{
+    height: fit-content;
+    background: #FFF;
+    overflow: hidden;
+    .row{
+        padding: 0 412px;
+    }
+    &__item{
+        text-align: center;
+        display: grid;
+        place-items: center;
+        margin-top: 74px;
+        &__titulo{
+            margin: 34px 0 26px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        &__subtitulo{
+            width: 296px;
+            font-size: 14px;
+            height: 60px;
+            overflow: hidden;
+        }
+    }
+}
+
+.works{
+    overflow: hidden;
+    margin-top: 74px;
+    margin-bottom: 101px;
+    .col{
+        padding: 0;
+    }
+    &__item{
+        display: inline-block;
+        position: relative;
+        &__img{
+            width: 100%;
+            img{
+                transform: translate(-15%, 0%);
+                width: 650px;
+                height: 350px;
+            }
+        }
+        &__bloco{
+            background-color: rgba(231, 69, 69, .9);
+            color: #FFF;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            position: absolute;
+            transition: opacity .5s;
+            &__texto{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                &__titulo{
+                    text-transform: uppercase;
+                    font-size: .7rem;
+                    font-weight: bold;
+                }
+                &__conteudo{
+                    font-size: .8rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.works__item__bloco:hover{
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.team{
+    width: 61vw;
+    margin: 0 auto;
+    &__item{
+        margin-bottom: 101px;
+        a{
+            padding: 2px;
+        }
+        &__nome{
+            margin-top: 25px;
+            font-size: 22px;
+        }
+        &__funcao{
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #e84545;
+        }
+        &__img{
+            width: 100%;
+        }
+        &__info{
+            font-size: 14px;
+            margin-top: 1rem;
+            color: #6c7279;
+        }
+        &__botao{
+            width: 2.3rem;
+            height: 2.3rem;
+            padding: 8px;
+            border: 1px solid #e7ebed;
+            margin: .15rem 0;
+        }
+        &__botao:hover{
+            transform: scale(1.1);
+            transition-duration: .6s;
+        }
+    }
+}
+
+.clients{
+    height: 27vw;
+    position: relative;
+    clear: both;
+    &__slider{
+        height: 100%;
+        .active{
+            clip-path: circle(150% at 0 50%);
+            transition: 1s;
+            transition-property: clip-path;
+        }
+        &__slide{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            background: #533549;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            clip-path: circle(0% at 0 50%);
+            &__img{
+                height: 100%;
+            }
+            &__conteudo{
+                color: #FFF;
+                margin-left: 5rem;
+                &__citacao{
+                    overflow: hidden;
+                    font-family: 'Cardo', serif;
+                    max-width: 32vw;
+                    font-size: 1.8vw;
+                }
+                &__autor{
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin-top: 1vw;
+                    font-size: .7vw;
+                }
+            }
+        }
+        &__navigation{
+            z-index: 2;
+            position: absolute;
+            display: flex;
+            height: fit-content;
+            bottom: 30px;
+            top: 75%;
+            left: 65%;
+            &__btn{
+                background: rgba(255, 255, 255, 0.5);
+                width: 12px;
+                height: 12px;
+                margin: 5px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            .active{
+                background: #FFF;
+            }
+        }
+    }
+}
+
+
+.download{
+    height: 20rem;
+    display: flex;
+    &__info{
+        margin: auto;
+        width:fit-content;
+        padding: 1rem;
+        text-align: center;
+        &__titulo{
+            font-size: 1.6rem;
+            font-weight: 200;
+        }
+        &__subtitulo{
+            font-size: .8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        &__botao{
+            margin-top: 1.3rem;
+            font-size: 13px;
+            padding: .7rem 3rem;
+            text-transform: uppercase;
+            border: 0;
+            color: #FFF;
+            background: #e74545;
+            transition: all .2s ease-in-out;
+        }
+        &__botao:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+.rodape{
+    &__info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        background: #393d63;
+        &__bloco{
+            width: 23rem;
+            color: #FFF;
+            text-align: center;
+            margin: 5rem 2rem;
+            &__titulo{
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            &__conteudo{
+                font-size: 14px;
+                opacity: .5;
+                font-weight: 200;
+            }
+            &__botao{
+                width: 2.3rem;
+                height: 2.3rem;
+                padding: 7px;
+                border: 2px solid #e7ebed;
+                cursor: pointer;
+                margin: .3rem .1rem;
+            }
+            &__botao:hover{
+                transform: scale(1.1);
+                transition-duration: .6s;
+            }
+        }
+    }
+    &__copy{
+        background: #313353;
+        height: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__info{
+            &__texto{
+                width: 25rem;
+                margin: auto;
+                color: #808080;
+                text-align: center;
+            }
+            &__autor{
+                color: #FFF;
+            }
+            &__heart{
+                font-family: 'Webdings';
+                color: #e84545;
+            }
+        }
+    }
+}

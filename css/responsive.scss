@@ -1,0 +1,193 @@
+@media (min-width: 768px){
+    .navbar{
+        &__menubtn{
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 1780px) {
+    .features{
+        .row{
+            padding: 0 2rem;
+        }
+    }
+    .works{
+        &__item{
+            &__img{
+                img{
+                    transform: unset;
+                    width: 100%;
+                    height: unset;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) { 
+    .navbar{
+        width: 100%;
+        &__logo{
+            width: 17rem;
+            margin-left: 2rem;
+        }
+        &__menu{
+            width: 100%;
+            text-align: center;
+            margin-right: 2rem;
+        }
+    }
+
+    .team{
+        &__item{
+            &__nome{
+                font-size: 19px;
+            }
+            &__funcao{
+                font-size: 10px;
+            }
+            &__info{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 920px){
+    .navbar{
+        &__logo{
+            img{
+                width: 9rem;
+            }
+        }
+        &__menu{
+            .navbar-nav{
+                width: 100%;
+                justify-content: center;
+            }
+            &__item{
+                margin-left: 2rem;
+                font-size: .7rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .navbar{
+        &__menubtn{
+            margin-right: 2rem;
+        }
+        &__menu{
+            display: none;
+            width: 0;
+            &__item{
+                font-size: 1.2rem;
+                margin: 1rem 0;
+                color: #fff;
+                display: block;
+            }
+        }
+        &__menu.on{
+            margin: 0;
+            display: flex;
+            height: 100%;
+            width: 70%;
+            position: fixed;
+            top:0;
+            left:0;
+            background-color: rgba(43, 46, 74, 1);
+            overflow-x: hidden;
+        }
+    }
+    .nav-item{
+        margin-bottom: 1rem;
+    }
+
+    .team{
+        &__item{
+            text-align: center;
+            &__nome{
+                font-size: 2rem;
+            }
+            &__funcao{
+                font-size: 1rem;
+            }
+            &__info{
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .clients{
+        height: 120vw;
+        &__slider{
+            background: #533549;
+            &__slide{
+                display: block;
+                background: none;
+                &__img{
+                    height: auto;
+                    width: 100%;
+                }
+                &__conteudo{
+                    margin: 1rem 0;
+                    text-align: center;
+                    &__citacao{
+                        max-width: 95vw;
+                        font-size: 7vw;
+                    }
+                    &__autor{
+                        font-size: 4vw;
+                    }
+                }
+            }
+            &__navigation{
+                top: 90%;
+                left: 50%;
+                transform: translate(-50%);
+            }
+        }
+    }
+
+    .mastehead{
+        
+        &__conteudo{
+            &__titulo{
+                font-size: 2rem;
+            }
+            &__subtitulo{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar{
+        &__logo{
+            width: 10rem;
+        }
+    }
+
+    .features{
+        height: fit-content;
+        background: #FFF;
+        overflow: hidden;
+        .row{
+            padding: 0;
+        }
+    }
+
+    .rodape{
+        &__copy{
+            &__info{
+                width: 15rem;
+                &__texto{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

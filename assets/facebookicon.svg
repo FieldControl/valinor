@@ -1,0 +1,14 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 18" width="8" height="18">
+	<title>team</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #c6cacc } 
+	</style>
+	<g id="team">
+		<g id="team 1">
+			<g id="social icons">
+				<path id="Shape 6" class="shp0" d="M8 5.83L5.28 5.83L5.28 3.96C5.28 3.26 5.72 3.09 6.03 3.09C6.35 3.09 7.96 3.09 7.96 3.09L7.96 0.01L5.31 0C2.37 0 1.7 2.3 1.7 3.77L1.7 5.83L0 5.83L0 9.01L1.7 9.01C1.7 13.09 1.7 18 1.7 18L5.28 18C5.28 18 5.28 13.04 5.28 9.01L7.69 9.01L8 5.83Z" />
+			</g>
+		</g>
+	</g>
+</svg>

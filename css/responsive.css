@@ -1,0 +1,161 @@
+@media (min-width: 768px) {
+  .navbar__menubtn {
+    display: none;
+  }
+}
+
+@media (max-width: 1780px) {
+  .features .row {
+    padding: 0 2rem;
+  }
+  .works__item__img img {
+    -webkit-transform: unset;
+            transform: unset;
+    width: 100%;
+    height: unset;
+  }
+}
+
+@media (max-width: 1400px) {
+  .navbar {
+    width: 100%;
+  }
+  .navbar__logo {
+    width: 17rem;
+    margin-left: 2rem;
+  }
+  .navbar__menu {
+    width: 100%;
+    text-align: center;
+    margin-right: 2rem;
+  }
+  .team__item__nome {
+    font-size: 19px;
+  }
+  .team__item__funcao {
+    font-size: 10px;
+  }
+  .team__item__info {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 920px) {
+  .navbar__logo img {
+    width: 9rem;
+  }
+  .navbar__menu .navbar-nav {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .navbar__menu__item {
+    margin-left: 2rem;
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar__menubtn {
+    margin-right: 2rem;
+  }
+  .navbar__menu {
+    display: none;
+    width: 0;
+  }
+  .navbar__menu__item {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: #fff;
+    display: block;
+  }
+  .navbar__menu.on {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    width: 70%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2b2e4a;
+    overflow-x: hidden;
+  }
+  .nav-item {
+    margin-bottom: 1rem;
+  }
+  .team__item {
+    text-align: center;
+  }
+  .team__item__nome {
+    font-size: 2rem;
+  }
+  .team__item__funcao {
+    font-size: 1rem;
+  }
+  .team__item__info {
+    font-size: 1.1rem;
+  }
+  .clients {
+    height: 120vw;
+  }
+  .clients__slider {
+    background: #533549;
+  }
+  .clients__slider__slide {
+    display: block;
+    background: none;
+  }
+  .clients__slider__slide__img {
+    height: auto;
+    width: 100%;
+  }
+  .clients__slider__slide__conteudo {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .clients__slider__slide__conteudo__citacao {
+    max-width: 95vw;
+    font-size: 7vw;
+  }
+  .clients__slider__slide__conteudo__autor {
+    font-size: 4vw;
+  }
+  .clients__slider__navigation {
+    top: 90%;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+  .mastehead__conteudo__titulo {
+    font-size: 2rem;
+  }
+  .mastehead__conteudo__subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar__logo {
+    width: 10rem;
+  }
+  .features {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    background: #FFF;
+    overflow: hidden;
+  }
+  .features .row {
+    padding: 0;
+  }
+  .rodape__copy__info {
+    width: 15rem;
+  }
+  .rodape__copy__info__texto {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
