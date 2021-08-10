@@ -2,11 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 :root {
   --black: #000000;
   --white: #ffffff;
+
+  --gray-200: #c8c8c8;
+  --gray-450: #8a8a8a;
 
   --green-200: #52d053;
 
@@ -20,6 +24,7 @@
 body {
   background: var(--black);
   color: var(--white);
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (max-width: 1080px) {
