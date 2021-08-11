@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useMemo } from 'react';
 
 import { Pagination } from '../../components/Pagination';
 import { RepoItem } from '../../components/RepoItem';
@@ -14,12 +14,15 @@ export function SearchPage(): JSX.Element {
   const query = useQuery();
   const ITEMS_PER_PAGE = 8;
 
+  const q = useMemo(() => {
+    return query.get('repo');
+  }, [query]);
+
   useEffect(() => {
     async function fetchRepos(): Promise<void> {
-      const repo = query.get('repo');
       const { data } = await gitApi.get('search/repositories', {
         params: {
-          q: repo,
+          q,
           per_page: ITEMS_PER_PAGE,
           page: currentPage,
         },
@@ -32,7 +35,7 @@ export function SearchPage(): JSX.Element {
     }
 
     fetchRepos();
-  }, [currentPage, query]);
+  }, [currentPage, q]);
 
   const handlePagination = useCallback((page: number) => {
     setCurrentPage(page);
@@ -43,7 +46,7 @@ export function SearchPage(): JSX.Element {
       {repos.length > 0 ? (
         <ul>
           {repos.map(repo => (
-            <RepoItem repo={repo} />
+            <RepoItem key={repo.id} repo={repo} />
           ))}
         </ul>
       ) : (
