@@ -9,6 +9,15 @@ interface SearchInputProps {
   onClick: () => void;
 }
 
+const handleKeyPress = (
+  e: React.KeyboardEvent<HTMLInputElement>,
+  onKeyPress: () => void
+): void => {
+  if (e.code === 'Enter') {
+    onKeyPress();
+  }
+};
+
 export function SearchInput({
   isLoading = false,
   onChange,
@@ -21,6 +30,7 @@ export function SearchInput({
         onChange={e => onChange(e.target.value)}
         placeholder="Pesquise por um repositório"
         value={value}
+        onKeyPress={e => handleKeyPress(e, onClick)}
       />
       <button type="button" onClick={onClick}>
         {isLoading ? (
