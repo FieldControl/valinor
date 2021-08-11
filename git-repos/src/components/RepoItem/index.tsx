@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   AiOutlineBook,
   AiOutlineExclamationCircle,
@@ -14,7 +15,7 @@ interface RepoItemProps {
   repo: IRepo;
 }
 
-export function RepoItem({ repo }: RepoItemProps): JSX.Element {
+function RepoItemComponent({ repo }: RepoItemProps): JSX.Element {
   return (
     <li key={repo.id}>
       <div className="book-icon">
@@ -47,3 +48,5 @@ export function RepoItem({ repo }: RepoItemProps): JSX.Element {
     </li>
   );
 }
+
+export const RepoItem = memo(RepoItemComponent);

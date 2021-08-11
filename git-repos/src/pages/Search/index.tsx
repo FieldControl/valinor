@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
+import { Pagination } from '../../components/Pagination';
 import { RepoItem } from '../../components/RepoItem';
 import { useQuery } from '../../hooks/useQuery';
 import { IRepo } from '../../interfaces/IRepo';
@@ -8,28 +9,34 @@ import './styles.scss';
 
 export function SearchPage(): JSX.Element {
   const [repos, setRepos] = useState<IRepo[]>([]);
-  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(1);
   const query = useQuery();
+  const ITEMS_PER_PAGE = 8;
 
   useEffect(() => {
     async function fetchRepos(): Promise<void> {
       const repo = query.get('repo');
-      const ITEMS_PER_PAGE = 10;
       const { data } = await gitApi.get('search/repositories', {
         params: {
           q: repo,
           per_page: ITEMS_PER_PAGE,
-          page,
+          page: currentPage,
         },
       });
 
-      const { items } = data;
+      const { items, total_count } = data;
 
       setRepos(items);
+      setTotalCount(total_count);
     }
 
     fetchRepos();
-  }, [page, query]);
+  }, [currentPage, query]);
+
+  const handlePagination = useCallback((page: number) => {
+    setCurrentPage(page);
+  }, []);
 
   return (
     <main className="container">
@@ -42,6 +49,12 @@ export function SearchPage(): JSX.Element {
       ) : (
         <h1>Nenhum repositório encontrado</h1>
       )}
+      <Pagination
+        currentPage={currentPage}
+        handlePagination={handlePagination}
+        itemsPerPage={ITEMS_PER_PAGE}
+        totalCount={totalCount}
+      />
     </main>
   );
 }
