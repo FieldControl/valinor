@@ -8,6 +8,7 @@
   --black: #000000;
   --white: #ffffff;
 
+  --gray-100: #e7e6e68a;
   --gray-200: #c8c8c8;
   --gray-450: #8a8a8a;
 
@@ -16,6 +17,7 @@
   --orange-100: #e6770b;
 
   --purple-400: #765898;
+  --purple-950: #0a070e;
 
   --red-200: #d3290f;
 }
@@ -51,4 +53,9 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { SearchInput } from '../../components/SearchInput';
 
@@ -6,14 +7,16 @@ import './styles.scss';
 
 export function Home(): JSX.Element {
   const [query, setQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const { push } = useHistory();
 
   const handleChange = (text: string): void => {
     setQuery(text);
   };
 
   const handleClick = (): void => {
-    console.log('todo');
+    if (!query) return;
+
+    push(`search?repo=${query}`);
   };
 
   return (
@@ -21,7 +24,6 @@ export function Home(): JSX.Element {
       <section>
         <h1>GitRepos</h1>
         <SearchInput
-          isLoading={isLoading}
           value={query}
           onChange={handleChange}
           onClick={handleClick}

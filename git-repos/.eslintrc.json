@@ -25,12 +25,14 @@
     "prettier"
   ],
   "rules": {
+    "camelcase": "off",
     "import/no-unresolved": "error",
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [ 1, {"extensions": [".tsx"]} ],
     "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-function-return-type": [
       "error",

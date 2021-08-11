@@ -3,14 +3,14 @@ import { AiOutlineLoading, AiOutlineSearch } from 'react-icons/ai';
 import './styles.scss';
 
 interface SearchInputProps {
-  isLoading: boolean;
+  isLoading?: boolean;
   value: string;
   onChange: (text: string) => void;
   onClick: () => void;
 }
 
 export function SearchInput({
-  isLoading,
+  isLoading = false,
   onChange,
   onClick,
   value,
