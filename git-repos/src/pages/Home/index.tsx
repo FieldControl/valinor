@@ -1,18 +1,31 @@
-import { MdSearch } from 'react-icons/md';
+import { useState } from 'react';
+
+import { SearchInput } from '../../components/SearchInput';
 
 import './styles.scss';
 
 export function Home(): JSX.Element {
+  const [query, setQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (text: string): void => {
+    setQuery(text);
+  };
+
+  const handleClick = (): void => {
+    console.log('todo');
+  };
+
   return (
     <main className="content-container">
       <section>
         <h1>GitRepos</h1>
-        <div>
-          <input placeholder="Pesquise por um repositório" />
-          <button type="button">
-            <MdSearch size={30} color="#ffffff" />
-          </button>
-        </div>
+        <SearchInput
+          isLoading={isLoading}
+          value={query}
+          onChange={handleChange}
+          onClick={handleClick}
+        />
       </section>
     </main>
   );

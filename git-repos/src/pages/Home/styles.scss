@@ -1,3 +1,12 @@
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .content-container {
   max-width: 1120px;
   margin: 0 auto;
@@ -14,42 +23,7 @@
     h1 {
       font-size: 6rem;
       font-weight: 700;
-    }
-
-    div {
-      height: 4rem;
-      width: 632px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 3rem;
-
-      input {
-        height: 100%;
-        width: 100%;
-
-        padding: 0 1.5rem;
-        font-size: 1.2rem;
-        color: var(--gray-450);
-
-        border-top-left-radius: 0.25rem;
-        border-bottom-left-radius: 0.25rem;
-
-        &::placeholder {
-          color: var(--gray-200);
-        }
-
-        border: 0;
-      }
-
-      button {
-        height: 100%;
-        padding: 1rem;
-        background: var(--purple-400);
-        border-top-right-radius: 0.25rem;
-        border-bottom-right-radius: 0.25rem;
-        border: 0;
-      }
+      margin-bottom: 4rem;
     }
   }
 }
