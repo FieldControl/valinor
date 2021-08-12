@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Header } from '../../components/Header';
 import { SearchInput } from '../../components/SearchInput';
 
 import './styles.scss';
@@ -21,18 +20,15 @@ export function Home(): JSX.Element {
   };
 
   return (
-    <>
-      <Header />
-      <main className="container">
-        <section>
-          <h1>GitRepos</h1>
-          <SearchInput
-            value={query}
-            onChange={handleChange}
-            onClick={handleClick}
-          />
-        </section>
-      </main>
-    </>
+    <main className="container">
+      <section>
+        <h1>GitRepos</h1>
+        <SearchInput
+          value={query}
+          onChange={handleChange}
+          onClick={handleClick}
+        />
+      </section>
+    </main>
   );
 }

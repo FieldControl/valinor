@@ -1,7 +1,6 @@
 import { useCallback, useState, useEffect, useMemo } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-import { Header } from '../../components/Header';
 import { Pagination } from '../../components/Pagination';
 import { RepoItem } from '../../components/RepoItem';
 import { useQuery } from '../../hooks/useQuery';
@@ -53,30 +52,27 @@ export function SearchPage(): JSX.Element {
   }, []);
 
   return (
-    <>
-      <Header />
-      <main className="container">
-        <ul>
-          {isLoading ? (
-            <SkeletonTheme
-              color={`${theme === 'dark' ? '#202020' : '#eee'}`}
-              highlightColor={`${theme === 'dark' ? '#202020' : '#f2f2f2'}`}
-            >
-              <Skeleton count={10} height={24} />
-            </SkeletonTheme>
-          ) : repos.length > 0 ? (
-            repos.map(repo => <RepoItem key={repo.id} repo={repo} />)
-          ) : (
-            <h1>Nenhum repositório encontrado</h1>
-          )}
-        </ul>
-        <Pagination
-          currentPage={currentPage}
-          handlePagination={handlePagination}
-          itemsPerPage={ITEMS_PER_PAGE}
-          totalCount={totalCount}
-        />
-      </main>
-    </>
+    <main className="container">
+      <ul>
+        {isLoading ? (
+          <SkeletonTheme
+            color={`${theme === 'dark' ? '#202020' : '#eee'}`}
+            highlightColor={`${theme === 'dark' ? '#202020' : '#f2f2f2'}`}
+          >
+            <Skeleton count={10} height={24} />
+          </SkeletonTheme>
+        ) : repos.length > 0 ? (
+          repos.map(repo => <RepoItem key={repo.id} repo={repo} />)
+        ) : (
+          <h1>Nenhum repositório encontrado</h1>
+        )}
+      </ul>
+      <Pagination
+        currentPage={currentPage}
+        handlePagination={handlePagination}
+        itemsPerPage={ITEMS_PER_PAGE}
+        totalCount={totalCount}
+      />
+    </main>
   );
 }

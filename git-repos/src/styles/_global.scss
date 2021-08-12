@@ -8,6 +8,7 @@
 
 body {
   -webkit-font-smoothing: antialiased;
+  transition: all linear 0.8s;
 }
 
 body.dark {
@@ -47,4 +48,9 @@ a {
 ul,
 li {
   list-style: none;
+}
+
+[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

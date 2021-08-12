@@ -69,14 +69,14 @@ function PaginationComponent({
         className={`arrow ${!showFirst && 'hidden'}`}
         onClick={() => handlePagination(FIRST_PAGE)}
       >
-        <AiOutlineDoubleLeft size={24} color="#e6770b" />
+        <AiOutlineDoubleLeft size={24} />
       </button>
       <button
         type="button"
         className={`arrow ${!showPrevious && 'hidden'}`}
         onClick={() => handlePagination(currentPage - 1)}
       >
-        <AiOutlineLeft size={24} color="#e6770b" />
+        <AiOutlineLeft size={24} />
       </button>
       {showPages
         ? pages.map(page => (

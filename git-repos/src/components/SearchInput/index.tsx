@@ -13,7 +13,7 @@ const handleKeyPress = (
   e: React.KeyboardEvent<HTMLInputElement>,
   onKeyPress: () => void
 ): void => {
-  if (e.code === 'Enter') {
+  if (e.key === 'Enter') {
     onKeyPress();
   }
 };
@@ -32,7 +32,12 @@ export function SearchInput({
         value={value}
         onKeyPress={e => handleKeyPress(e, onClick)}
       />
-      <button data-testid="search-button" type="button" onClick={onClick}>
+      <button
+        data-testid="search-button"
+        disabled={isLoading}
+        type="button"
+        onClick={onClick}
+      >
         {isLoading ? (
           <AiOutlineLoading className="loading" size={30} color="#ffffff" />
         ) : (
