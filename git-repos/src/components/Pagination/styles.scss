@@ -1,32 +1,37 @@
-div.pagination {
+@import '../../styles/theme';
+
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
 
-  .arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0;
-    background: transparent;
-  }
+  @include themify() {
+    .arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      background: transparent;
+      color: themed('primary-color');
+    }
 
-  .hidden {
-    display: none;
-  }
+    .hidden {
+      display: none;
+    }
 
-  .page-number {
-    border: 0;
-    background: transparent;
-    text-align: center;
-    color: var(--gray-200);
-    font-size: 18px;
-    font-weight: bold;
-    padding: 4px;
-  }
+    .page-number {
+      border: 0;
+      background: transparent;
+      text-align: center;
+      color: themed('text-color');
+      font-size: 18px;
+      font-weight: bold;
+      padding: 4px;
+    }
 
-  .active {
-    color: var(--orange-100);
+    .active {
+      color: themed('primary-color');
+    }
   }
 }

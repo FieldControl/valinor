@@ -1,13 +1,6 @@
-@keyframes loading-spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+@import '../../styles/theme';
 
-.content-container {
+.container {
   max-width: 1120px;
   margin: 0 auto;
   padding: 5rem 2rem;
@@ -21,6 +14,9 @@
     padding: 1rem;
 
     h1 {
+      @include themify() {
+        color: themed('title-color');
+      }
       font-size: 6rem;
       font-weight: 700;
       margin-bottom: 4rem;

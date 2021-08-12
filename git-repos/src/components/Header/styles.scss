@@ -1,0 +1,16 @@
+@import '../../styles/theme';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1.5rem 2rem;
+  @include themify() {
+    border-bottom: solid 1px themed('border-color');
+  }
+
+  .theme-toggler-wrapper {
+    margin-left: auto;
+  }
+}

@@ -1,56 +1,60 @@
-li {
+@import '../../styles/theme';
+
+.repo-item {
   display: flex;
   align-items: flex-start;
 
   padding: 1rem 0;
 
-  & + li {
-    border-top: solid 1px var(--gray-100);
-  }
-
-  div.book-icon {
-    margin-right: 1rem;
-  }
-
-  div.repo-infos {
-    display: flex;
-    flex-direction: column;
-
-    a.fullname {
-      color: var(--orange-100);
-      font-size: 1.1rem;
-      font-weight: bold;
-
-      transition: 0.2s;
-
-      &:hover {
-        filter: brightness(0.8);
-      }
+  @include themify() {
+    & + li {
+      border-top: solid 1px themed('border-color');
     }
 
-    span.description {
-      font-size: 1.2rem;
-      line-height: 1.6rem;
-      color: var(--gray-200);
-      margin-top: 0.5rem;
+    .book-icon-box {
+      margin-right: 1rem;
     }
 
-    div.counters {
+    .repo-infos {
       display: flex;
-      align-items: center;
-      margin-top: 0.5rem;
+      flex-direction: column;
 
-      div {
+      .fullname {
+        color: themed('primary-color');
+        font-size: 1.1rem;
+        font-weight: bold;
+
+        transition: 0.2s;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
+      }
+
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        color: themed('text-color');
+        margin-top: 0.5rem;
+      }
+
+      .counters {
         display: flex;
         align-items: center;
-        color: var(--gray-200);
+        margin-top: 0.5rem;
 
-        & + div {
-          margin-left: 1rem;
-        }
+        div {
+          display: flex;
+          align-items: center;
+          color: themed('text-color');
 
-        small {
-          margin-left: 0.3rem;
+          & + div {
+            margin-left: 1rem;
+          }
+
+          small {
+            margin-left: 0.3rem;
+          }
         }
       }
     }

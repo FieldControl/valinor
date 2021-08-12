@@ -1,0 +1,55 @@
+$light-primary-color: #e6770b;
+$light-body-color: #fff;
+$light-title-color: #272727;
+$light-text-color: #afafaf;
+$light-border-color: #c8c8c8;
+$light-placeholder-color: #dfdfdf;
+
+$dark-primary-color: #765898;
+$dark-body-color: #000;
+$dark-title-color: #dfdfdf;
+$dark-text-color: #c2c2c2;
+$dark-border-color: #e7e6e68a;
+$dark-placeholder-color: #dfdfdf50;
+
+$themes: (
+  light: (
+    primary-color: $light-primary-color,
+    body-color: $light-body-color,
+    title-color: $light-title-color,
+    text-color: $light-text-color,
+    border-color: $light-border-color,
+    placeholder-color: $light-placeholder-color,
+  ),
+  dark: (
+    primary-color: $dark-primary-color,
+    body-color: $dark-body-color,
+    title-color: $dark-title-color,
+    text-color: $dark-text-color,
+    border-color: $dark-border-color,
+    placeholder-color: $dark-placeholder-color,
+  ),
+);
+
+@mixin themify() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

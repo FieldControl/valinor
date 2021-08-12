@@ -95,14 +95,14 @@ function PaginationComponent({
         className={`arrow ${!showNext && 'hidden'}`}
         onClick={() => handlePagination(currentPage + 1)}
       >
-        <AiOutlineRight size={24} color="#e6770b" />
+        <AiOutlineRight size={24} />
       </button>
       <button
         type="button"
         className={`arrow ${!showLast && 'hidden'}`}
         onClick={() => handlePagination(LAST_PAGE)}
       >
-        <AiOutlineDoubleRight size={24} color="#e6770b" />
+        <AiOutlineDoubleRight size={24} />
       </button>
     </div>
   );

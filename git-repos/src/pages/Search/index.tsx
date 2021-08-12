@@ -1,9 +1,11 @@
 import { useCallback, useState, useEffect, useMemo } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
+import { Header } from '../../components/Header';
 import { Pagination } from '../../components/Pagination';
 import { RepoItem } from '../../components/RepoItem';
 import { useQuery } from '../../hooks/useQuery';
+import { useTheme } from '../../hooks/useTheme';
 import { IRepo } from '../../interfaces/IRepo';
 import { gitApi } from '../../services/gitApi';
 import './styles.scss';
@@ -13,6 +15,7 @@ export function SearchPage(): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const { theme } = useTheme();
   const query = useQuery();
   const ITEMS_PER_PAGE = 8;
 
@@ -50,26 +53,30 @@ export function SearchPage(): JSX.Element {
   }, []);
 
   return (
-    <main className="container">
-      {isLoading ? (
-        <SkeletonTheme color="#202020" highlightColor="#202020">
-          <Skeleton count={8} height={20} />
-        </SkeletonTheme>
-      ) : repos.length > 0 ? (
+    <>
+      <Header />
+      <main className="container">
         <ul>
-          {repos.map(repo => (
-            <RepoItem key={repo.id} repo={repo} />
-          ))}
+          {isLoading ? (
+            <SkeletonTheme
+              color={`${theme === 'dark' ? '#202020' : '#eee'}`}
+              highlightColor={`${theme === 'dark' ? '#202020' : '#f2f2f2'}`}
+            >
+              <Skeleton count={10} height={24} />
+            </SkeletonTheme>
+          ) : repos.length > 0 ? (
+            repos.map(repo => <RepoItem key={repo.id} repo={repo} />)
+          ) : (
+            <h1>Nenhum repositório encontrado</h1>
+          )}
         </ul>
-      ) : (
-        <h1>Nenhum repositório encontrado</h1>
-      )}
-      <Pagination
-        currentPage={currentPage}
-        handlePagination={handlePagination}
-        itemsPerPage={ITEMS_PER_PAGE}
-        totalCount={totalCount}
-      />
-    </main>
+        <Pagination
+          currentPage={currentPage}
+          handlePagination={handlePagination}
+          itemsPerPage={ITEMS_PER_PAGE}
+          totalCount={totalCount}
+        />
+      </main>
+    </>
   );
 }

@@ -1,44 +1,58 @@
-div.search-box {
-  height: 4rem;
-  width: 632px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@import '../../styles/theme';
 
-  input {
-    height: 100%;
-    width: 100%;
-
-    padding: 0 1.5rem;
-    font-size: 1.2rem;
-    color: var(--gray-450);
-
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-
-    &::placeholder {
-      color: var(--gray-200);
-    }
-
-    border: 0;
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  button {
-    height: 100%;
-    padding: 1rem;
-    background: var(--purple-400);
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    border: 0;
+.search-box {
+  @include themify() {
+    height: 4rem;
+    width: 632px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    transition: 0.2s;
+    input {
+      height: 100%;
+      width: 100%;
 
-    &:hover {
-      filter: brightness(0.9);
+      padding: 0 1.5rem;
+      font-size: 1.2rem;
+      background: transparent;
+      color: themed('text-color');
+
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+
+      border: 1px solid themed('border-color');
+
+      &::placeholder {
+        color: themed('placeholder-color');
+      }
     }
 
-    svg.loading {
-      animation: loading-spinner 1s infinite;
+    button {
+      height: 100%;
+      padding: 1rem;
+      background: themed('primary-color');
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+      border: 0;
+
+      transition: 0.2s;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+
+      svg.loading {
+        animation: loading-spinner 1s infinite;
+      }
     }
   }
 }

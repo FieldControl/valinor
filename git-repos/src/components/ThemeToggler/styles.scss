@@ -1,0 +1,15 @@
+@import '../../styles/theme';
+
+.theme-toggler-button {
+  @include themify() {
+    background: transparent;
+    border: 2px solid themed('primary-color');
+  }
+  border-radius: 30px;
+  font-size: 0.8rem;
+  padding: 0.6rem;
+
+  svg {
+    margin: 0 0.5rem;
+  }
+}

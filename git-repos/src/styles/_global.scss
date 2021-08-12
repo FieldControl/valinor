@@ -1,29 +1,20 @@
+@import './theme';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --black: #000000;
-  --white: #ffffff;
+.theme--light {
+  background: $light-body-color;
+}
 
-  --gray-100: #e7e6e68a;
-  --gray-200: #c8c8c8;
-  --gray-450: #8a8a8a;
-
-  --green-200: #52d053;
-
-  --orange-100: #e6770b;
-
-  --purple-400: #765898;
-
-  --red-200: #d3290f;
+.theme--dark {
+  background: $dark-body-color;
 }
 
 body {
-  background: var(--black);
-  color: var(--white);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,7 +41,6 @@ button {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 

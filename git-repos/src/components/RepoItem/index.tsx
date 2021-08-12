@@ -17,8 +17,8 @@ interface RepoItemProps {
 
 function RepoItemComponent({ repo }: RepoItemProps): JSX.Element {
   return (
-    <li>
-      <div className="book-icon">
+    <li className="repo-item">
+      <div className="book-icon-box">
         <AiOutlineBook size={16} color="#d4d4d4" />
       </div>
       <div className="repo-infos">
