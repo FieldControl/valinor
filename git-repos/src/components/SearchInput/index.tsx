@@ -32,7 +32,7 @@ export function SearchInput({
         value={value}
         onKeyPress={e => handleKeyPress(e, onClick)}
       />
-      <button type="button" onClick={onClick}>
+      <button data-testid="search-button" type="button" onClick={onClick}>
         {isLoading ? (
           <AiOutlineLoading className="loading" size={30} color="#ffffff" />
         ) : (

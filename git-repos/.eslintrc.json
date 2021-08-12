@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
@@ -27,6 +28,7 @@
   "rules": {
     "camelcase": "off",
     "import/no-unresolved": "error",
+    "no-console": ["error", {"allow": ["warn", "error"]}],
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
