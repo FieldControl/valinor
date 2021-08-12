@@ -17,9 +17,15 @@
     align-items: center;
     justify-content: center;
 
+    &.focus {
+      border: solid 1px themed('primary-color');
+      border-radius: 0.25rem;
+    }
+
     input {
       height: 100%;
       width: 100%;
+      outline: none;
 
       padding: 0 1.5rem;
       font-size: 1.2rem;

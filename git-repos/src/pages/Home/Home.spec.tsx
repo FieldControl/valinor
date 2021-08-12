@@ -1,3 +1,6 @@
+import { toast } from 'react-toastify';
+import { mocked } from 'ts-jest/utils';
+
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { Home } from '.';
@@ -12,8 +15,10 @@ jest.mock('react-router-dom', () => {
   };
 });
 
+jest.mock('react-toastify');
+
 describe('Home page', () => {
-  it('should push to search page when search repo input has values', () => {
+  it('should redirect to search page when search repo input has values', () => {
     render(<Home />);
 
     const input = screen.getByPlaceholderText('Pesquise por um repositório');
@@ -27,11 +32,14 @@ describe('Home page', () => {
     expect(mockedHistoryPush).toHaveBeenCalled();
   });
 
-  it('should not push to search page when search repo input is empty', () => {
+  it('should not redirect to search page when search repo input is empty', () => {
+    const mockedErrorToast = mocked(toast.error);
+
     render(<Home />);
 
-    screen.getByTestId('search-button').click();
+    fireEvent.click(screen.getByTestId('search-button'));
 
     expect(mockedHistoryPush).not.toHaveBeenCalled();
+    expect(mockedErrorToast).toHaveBeenCalled();
   });
 });

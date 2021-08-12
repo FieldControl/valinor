@@ -1,22 +1,26 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { SearchInput } from '../../components/SearchInput';
 
 import './styles.scss';
 
 export function Home(): JSX.Element {
-  const [query, setQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const { push } = useHistory();
 
   const handleChange = (text: string): void => {
-    setQuery(text);
+    setSearchQuery(text);
   };
 
   const handleClick = (): void => {
-    if (!query) return;
+    if (!searchQuery) {
+      toast.error('É necessário informar um repositório para prosseguir');
+      return;
+    }
 
-    push(`search?repo=${query}`);
+    push(`search?repo=${searchQuery}`);
   };
 
   return (
@@ -24,7 +28,7 @@ export function Home(): JSX.Element {
       <section>
         <h1>GitRepos</h1>
         <SearchInput
-          value={query}
+          value={searchQuery}
           onChange={handleChange}
           onClick={handleClick}
         />

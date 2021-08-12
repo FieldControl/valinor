@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { Header } from './components/Header';
 import { ThemeProvider } from './hooks/useTheme';
@@ -20,6 +21,7 @@ export function App(): JSX.Element {
             <SearchPage />
           </Route>
         </Switch>
+        <ToastContainer autoClose={3000} />
       </ThemeProvider>
     </BrowserRouter>
   );

@@ -18,6 +18,20 @@ const handleKeyPress = (
   }
 };
 
+const handleFocus = (): void => {
+  const searchBox = document.querySelector('.search-box');
+  if (searchBox) {
+    searchBox.classList.add('focus');
+  }
+};
+
+const handleBlur = (): void => {
+  const searchBox = document.querySelector('.search-box');
+  if (searchBox) {
+    searchBox.classList.remove('focus');
+  }
+};
+
 export function SearchInput({
   isLoading = false,
   onChange,
@@ -25,7 +39,7 @@ export function SearchInput({
   value,
 }: SearchInputProps): JSX.Element {
   return (
-    <div className="search-box">
+    <div className="search-box" onFocus={handleFocus} onBlur={handleBlur}>
       <input
         onChange={e => onChange(e.target.value)}
         placeholder="Pesquise por um repositório"
