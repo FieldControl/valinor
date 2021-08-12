@@ -28,7 +28,6 @@
   "rules": {
     "camelcase": "off",
     "import/no-unresolved": "error",
-    "no-console": ["warn", {"allow": ["warn", "error"]}],
     "no-nested-ternary": "off",
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
@@ -75,7 +74,8 @@
       "error",
       {
         "devDependencies": [
-          "**/*.spec.js"
+          "**/*.spec.ts",
+          "**/*.spec.tsx"
         ]
       }
     ]

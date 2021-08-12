@@ -39,6 +39,8 @@ export function SearchPage(): JSX.Element {
 
         setRepos(items);
         setTotalCount(total_count);
+      } catch {
+        setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
