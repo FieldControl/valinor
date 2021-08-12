@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect, useMemo } from 'react';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import { Pagination } from '../../components/Pagination';
 import { RepoItem } from '../../components/RepoItem';
@@ -11,6 +12,7 @@ export function SearchPage(): JSX.Element {
   const [repos, setRepos] = useState<IRepo[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const query = useQuery();
   const ITEMS_PER_PAGE = 8;
 
@@ -20,18 +22,24 @@ export function SearchPage(): JSX.Element {
 
   useEffect(() => {
     async function fetchRepos(): Promise<void> {
-      const { data } = await gitApi.get('search/repositories', {
-        params: {
-          q,
-          per_page: ITEMS_PER_PAGE,
-          page: currentPage,
-        },
-      });
+      setIsLoading(true);
 
-      const { items, total_count } = data;
+      try {
+        const { data } = await gitApi.get('search/repositories', {
+          params: {
+            q,
+            per_page: ITEMS_PER_PAGE,
+            page: currentPage,
+          },
+        });
 
-      setRepos(items);
-      setTotalCount(total_count);
+        const { items, total_count } = data;
+
+        setRepos(items);
+        setTotalCount(total_count);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     fetchRepos();
@@ -43,7 +51,11 @@ export function SearchPage(): JSX.Element {
 
   return (
     <main className="container">
-      {repos.length > 0 ? (
+      {isLoading ? (
+        <SkeletonTheme color="#202020" highlightColor="#202020">
+          <Skeleton count={8} height={20} />
+        </SkeletonTheme>
+      ) : repos.length > 0 ? (
         <ul>
           {repos.map(repo => (
             <RepoItem key={repo.id} repo={repo} />

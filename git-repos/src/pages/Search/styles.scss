@@ -3,11 +3,16 @@ main.container {
   margin: 0 auto;
   padding: 5rem 2rem;
 
+  span {
+    span {
+      margin-top: 2rem;
+    }
+  }
+
   ul {
     border: 1px solid var(--gray-100);
     border-radius: 0.25rem;
 
     padding: 0 0.5rem;
-    background-color: var(--purple-950);
   }
 }

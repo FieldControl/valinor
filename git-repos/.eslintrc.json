@@ -29,6 +29,7 @@
     "camelcase": "off",
     "import/no-unresolved": "error",
     "no-console": ["error", {"allow": ["warn", "error"]}],
+    "no-nested-ternary": "off",
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
