@@ -6,16 +6,16 @@
   box-sizing: border-box;
 }
 
-.theme--light {
-  background: $light-body-color;
+body {
+  -webkit-font-smoothing: antialiased;
 }
 
-.theme--dark {
+body.dark {
   background: $dark-body-color;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
+body.light {
+  background: $light-body-color;
 }
 
 @media (max-width: 1080px) {
