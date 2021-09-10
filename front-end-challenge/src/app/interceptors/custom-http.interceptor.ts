@@ -15,7 +15,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const request = req.clone({
-            headers: req.headers.set('Authorization', `Basic ${btoa('felipe.carlos1504@gmail.com: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')}`)
+            headers: req.headers.set('Authorization', `Basic ZmVsaXBlLmNhcmxvczE1MDRAZ21haWwuY29tOmdocF9wc0VhcEs5cGVJNjNYOEVZVnFQMDZxUHFkV3I5R2MyNGJBVWY=`)
         });
         this._loadingService.loadingShow();
         return next.handle(request).pipe(
