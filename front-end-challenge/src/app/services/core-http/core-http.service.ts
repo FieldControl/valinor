@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RepositoryRes } from 'app/core/models/repository.interface';
 import { Subject } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import { RepositoryRes } from 'src/app/models/repository.interface';
 
 
 @Injectable()
@@ -30,11 +30,11 @@ export class CoreHttpService {
         });
     }
 
-    fetchLanguages(url) {
+    fetchLanguages(url: any) {
         return this._httpClient.get<Array<{ [key: string]: number }>>(url);
     }
 
-    fetchMenuItems(page = '1', perPage = '25', sort = '', order = '', language, menuItem) {
+    fetchMenuItems(page = '1', perPage = '25', sort = '', order = '', language = '', menuItem = '') {
         // if (+page > 40) { page = '40'; }
         let query;
         if (+page <= 0) { page = '1'; }
@@ -63,7 +63,7 @@ export class CoreHttpService {
         });
     }
 
-    fetchRepositories(page = '1', perPage = '25', sort = '', order = '', language) {
+    fetchRepositories(page = '1', perPage = '25', sort = '', order = '', language = '') {
         // if (+page > 40) { page = '40'; }
         let query;
         if (+page <= 0) { page = '1'; }

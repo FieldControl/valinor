@@ -1,0 +1,224 @@
+.home-wrapper {
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+
+    p {
+        color: #c9d1d9;
+    }
+
+    .fa-times {
+        color: #c9d1d9;
+    }
+
+    a {
+        color: #0366d6;
+        text-decoration: none;
+
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 2px 5px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #fff;
+        background-color: #6a737d;
+        border-radius: 20px;
+    }
+
+    .topic-tag {
+        display: inline-block;
+        padding: .3em .9em;
+        margin: 0 .5em .5em 0;
+        white-space: nowrap;
+        background-color: #f1f8ff;
+        border-radius: 3px;
+
+        &:hover {
+            text-decoration: none;
+            background-color: #def;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+
+        li {
+            list-style: none;
+            cursor: pointer;
+            transition: background-color .33s;
+
+            @media (min-width: 768px) {
+                &:hover {
+                    background-color: rgba(110, 118, 129, .1);
+                }
+            }
+
+        }
+
+    }
+
+    .side-menu {
+        @media (min-width: 768px) {
+            li {
+                &.selected {
+                    border-left: 2px solid #e36209;
+
+                    a {
+                        color: #c9d1d9;
+                        margin-left: -2px;
+                    }
+                }
+
+                list-style: none;
+                padding: 8px 16px;
+
+                a {
+                    width: 100%;
+                }
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #e1e4e8;
+                }
+
+            }
+        }
+
+        @media (max-width: 768px) {
+            overflow-x: scroll;
+            align-items: center;
+
+            li {
+                min-height: 70px;
+
+                border-bottom: 2px solid transparent;
+
+                &.selected {
+                    font-weight: bold;
+                    border-bottom-color: #e36209;
+                }
+
+                &:hover:not(.selected) {
+                    border-bottom-color: #d1d5da;
+
+                }
+            }
+        }
+    }
+
+    .language-menu {
+        h3 {
+            font-size: 14px;
+            margin-top: 0;
+            color: #c9d1d9;
+        }
+
+        a {
+            color: #c9d1d9;
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        .selected {
+            a {
+                color: #fff;
+                margin-left: -2px;
+
+                span {
+                    font-weight: unset;
+                }
+            }
+
+            background-color: #0366d6;
+            border-radius: 3px;
+            text-overflow: ellipsis;
+        }
+    }
+
+
+    .w-100 {
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .language-card {
+        .language-img {
+            height: 64px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    }
+
+    .material-text-custom {
+        overflow: hidden;
+
+        .repository-icon {
+            position: relative;
+            overflow: unset;
+
+
+            .repository-name {
+                font-weight: bold;
+            }
+
+            i {
+                position: absolute;
+                left: -16px;
+                color: #6a737d;
+
+                @media (max-width: 768px) {
+                    left: -16px;
+                }
+            }
+        }
+
+        .repo-labels {
+            color: #586069;
+            font-size: 12px;
+
+            a {
+                color: #586069;
+
+                &:hover {
+
+                    color: #0366d6;
+                }
+            }
+
+
+            .language-icon {
+                color: #f1e05a;
+            }
+        }
+    }
+}
+
+:host ::ng-deep {
+    .mat-list-text {
+        overflow: unset !important;
+    }
+
+    mat-divider {
+        border-color: #30363d;
+    }
+
+    .mat-paginator {
+        background-color: #0d1117;
+        color: #c9d1d9;
+    }
+
+    .mat-select-value, .mat-select-arrow{
+        color: #c9d1d9;
+    }
+    
+}

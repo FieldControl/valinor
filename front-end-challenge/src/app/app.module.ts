@@ -8,9 +8,16 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
 import { CustomHttpInterceptor } from './interceptors/custom-http.interceptor';
+import { HomeComponent } from './pages/home/home.component';
 import { CoreHttpService } from './services/core-http/core-http.service';
 import { LoadingService } from './services/loading/loading.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 const defaultModules = [
   CommonModule,
@@ -21,20 +28,23 @@ const defaultModules = [
   MatCardModule,
   MatListModule,
   EmojifyModule,
-  ToastrModule.forRoot()
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ...defaultModules
+    ToastrModule.forRoot(),
+    ...defaultModules,
+    BrowserAnimationsModule
   ],
   exports: [
-    ...defaultModules
+    ...defaultModules,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true },

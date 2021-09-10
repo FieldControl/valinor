@@ -1,0 +1,84 @@
+<div class="container home-wrapper">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="row mb-3 font-sm" *ngIf="languageItems.length">
+                <ul class="col-12 d-flex d-md-block side-menu mx-sm-1">
+                    <li *ngFor="let menuItem of menuItems; index as i" class="d-flex align-items-center mr-2 mr-md-0"
+                        [class.selected]="i === 0">
+                        <a class="px-2 d-flex justify-content-between">
+                            {{ menuItem.label }}
+                            <span class="ml-1 badge d-flex align-items-center">{{ menuItem.qty }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row mb-3 d-none d-md-block" *ngIf="languageItems.length">
+                <ul class="col-12 language-menu p-3 font-xs">
+                    <h3>Languages</h3>
+                    <li class="p-2 d-flex justify-content-between" [class.selected]="languageItem.label === language"
+                        *ngFor="let languageItem of languageItems; index as languageIndex">
+                        <a (click)="languageSet(languageItem.label)" class="w-100 d-flex justify-content-between">
+                            {{ languageItem.label }}
+                            <span *ngIf="languageItem.label !== language">{{ languageItem.qty | number }}</span>
+                        </a>
+                        <i class="mr-1 fas fa-times" *ngIf="languageItem.label === language"
+                            (click)="languageSet('')"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
+            <mat-list>
+                <div *ngIf="!loadingService.isLoading && !repositoryRes?.items.length" (click)="fetchRepositories()">
+                    <mat-list-item>
+                        <p class="w-100">No results found!</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p class="w-100">Click here to refresh the search with default params!</p>
+                    </mat-list-item>
+                </div>
+                <mat-list-item class="material-text-custom ml-lg-3" *ngFor="let card of repositoryRes?.items">
+
+                    <a [href]="card.html_url" mat-line class="repository-icon mb-1">
+                        <i class="fas fa-book"></i>
+                        {{ card.owner.login }}/<span class="repository-name">{{ card.name }}</span>
+                    </a>
+                    <p mat-line class="mb-1">
+                        {{ card.description | emojify }}
+                    </p>
+
+                    <div mat-line class="d-flex repo-labels mb-1">
+
+                        <div class="mr-3 hover">
+                            <a [href]="card.html_url+'/stargazers'">
+                                <i class="fas fa-star"></i>
+                                {{ card.watchers | number:'1.0-0' }}
+                            </a>
+                        </div>
+                        <div class="mr-3" *ngIf="card.language">
+                            <i class="mr-1 fas fa-circle language-icon"></i>
+                            <span>{{ card.language }}</span>
+                        </div>
+                        <div class="mr-3" *ngIf="card.license">
+                            <span>{{ card.license.spdx_id }}</span>
+                        </div>
+                        <div class="mr-3">
+                            <span>{{ getUpdatedAt(card.updated_at) }}</span>
+                        </div>
+                        <div class="mr-3 hover">
+                            <a [href]="card.html_url+'/issues'">{{ getIssues(card.open_issues) }}</a>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </mat-list>
+            <div class="paginator">
+                <mat-paginator *ngIf="repositoryRes?.items?.length" [showFirstLastButtons]="true"
+                    (page)="pageChange($event)"
+                    [length]="repositoryRes?.total_count > 1000 ? 1000 : this.repositoryRes?.total_count"
+                    [pageSize]="pageSize" [pageSizeOptions]="[25, 50, 75, 100]" [pageIndex]="this.pageIndex -1">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,8 +3,8 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, finalize } from 'rxjs/operators';
 
-import { LoadingService } from 'app/core/services/loading/loading.service';
 import { ToastrService } from 'ngx-toastr';
+import { LoadingService } from '../services/loading/loading.service';
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {
