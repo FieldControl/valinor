@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RepositoryRes } from 'src/app/models/repository.interface';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable()
@@ -20,7 +21,7 @@ export class CoreHttpService {
     }
 
     fetchCode() {
-        return this._httpClient.get<RepositoryRes>('https://api.github.com/search/code', {
+        return this._httpClient.get<RepositoryRes>(environment.gitURL + 'search/code', {
             headers: new HttpHeaders({
                 'Accept': 'application/vnd.github.mercy-preview+json'
             }),
@@ -51,7 +52,7 @@ export class CoreHttpService {
                 queryParams: { q: query, page },
                 queryParamsHandling: 'merge', // remove to replace all query params by provided
             });
-        return this._httpClient.get<RepositoryRes>(`https://api.github.com/search/${menuItem}`, {
+        return this._httpClient.get<RepositoryRes>(environment.gitURL + `search/${menuItem}`, {
             headers: new HttpHeaders({
                 'Accept': 'application/vnd.github.cloak-preview+json'
             }),
@@ -80,7 +81,7 @@ export class CoreHttpService {
                 queryParams: { q: query, page },
                 queryParamsHandling: 'merge', // remove to replace all query params by provided
             });
-        return this._httpClient.get<RepositoryRes>('https://api.github.com/search/repositories', {
+        return this._httpClient.get<RepositoryRes>(environment.gitURL + 'search/repositories', {
             headers: new HttpHeaders({
                 'Accept': 'application/vnd.github.v3+json'
             }),
