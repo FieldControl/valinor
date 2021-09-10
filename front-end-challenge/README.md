@@ -1,27 +1,72 @@
-# FrontEndChallenge
+# Entrega Front-End-Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+### Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+
+1- Angular v12 no frontend.
+2- sistema de grid do bootstrap.
+3- componentes do angular materials para exibir os dados.
+4- ngxtoastr para exibir toasts de erro.
+5- normalize para dar reset no css dos browsers.
+6- FontAwesome, usado para mostrar icones.
+7- Angular Emojify, usado para mostrar os emojis que tem na descrição de alguns repositórios.
+8- VS Code.
+	
+### Porque você optou pela tecnologia X e não a Y
+
+Optei pelo Angular pois é o framework que possuo melhor dominio, e por tambem ser um framework de mercado é muito fácil encontrar solução para dúvidas ou problemas na web, na responsividade utilizei apenas o grid do bootstrap para alinhar e deixar responsivo o app.
+
+### Desafios e problemas que você enfrentou e como você resolveu.
+
+Um problema que encontrei é que a API do github limita os resultados a até 1000
+
+  ```sh 
+  https://api.github.com/search/repositories?q=node&page=41&per_page=25
+  {
+    "message": "Only the first 1000 search results are available",
+    "documentation_url": "https://developer.github.com/v3/search/"
+  }
+  ```
+
+Outro ponto é que há um limite de 30 requests em um determinado intervalo
+
+o hash utilizado no interceptor NÃO é minha senha do github é um hash gerado por eles
+
+### O que você entende que pode ser melhorado e como fazer isso
+
+ a parte de testes acredito que seja algo que falte não sei como implementar isso.
+
+[EMAIL](mailto:felipe.carlos1504@outlook.com) 17-988084541
+[LinkedIn Felipe Santos](https://www.linkedin.com/in/felipecarlos1504/)
+
+# Angular App
+
+Dar clone nesse Projeto e logo após `npm i` para instalar a última versão das dependências do app e iniciar o desenvolvimento.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Digite `npm start` para começar. O browser será aberto automaticamente em `http://localhost:4200/`.
 
-## Code scaffolding
+## Interceptors
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Na raiz do app há um interceptor na pasta `interceptors` o arquivo `custom-http.interceptor.ts` para que você possa interceptar os requests feitos pela sua aplicação,
+é possível adicionar/remover headers, exibir mensagens de erro padrão baseado no retorno do request/response e etc. Para mais informações visite a documentação do angular:
 
-## Build
+* [Intercepting-requests-and-responses](https://angular.io/guide/http#intercepting-requests-and-responses) - Angular.io.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Frameworks CSS
 
-## Running unit tests
+Neste projeto está sendo utilizado o sistema de grid do bootstrap, apenas ele, caso não queira utilizá-lo digite `npm rm bootstrap` e remova o import no arquivo `angular.json`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* [Docs Bootstrap Grid](https://getbootstrap.com/docs/4.1/layout/grid/) - Grid Docs.
 
-## Running end-to-end tests
+O `normalize.scss` também está sendo utilizado é um reset de alguns elementos que não funcionam corretamente em alguns browsers entre outros, para mais detalhes visitar o repositório.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* [Normalize](https://github.com/necolas/normalize.css) - Repositório normalize.css.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```sh
+  "styles": [
+    "src/styles.scss",
+    "./node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+    "./node_modules/normalize.css/normalize.css"
+  ],
+```
