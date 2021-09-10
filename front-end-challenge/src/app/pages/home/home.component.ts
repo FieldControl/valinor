@@ -115,7 +115,6 @@ export class HomeComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit() {
-    console.log('asd');
     const subs = this._activatedRoute.queryParams.subscribe(params => {
       if (params && params.page) {
         this.pageIndex = params.page;

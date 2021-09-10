@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-12 col-md-3">
             <div class="row mb-3 font-sm" *ngIf="languageItems.length">
-                <ul class="col-12 d-flex d-md-block side-menu mx-sm-1">
+                <ul class="col-12 d-flex d-md-block side-menu mx-sm-1 mx-md-0">
                     <li *ngFor="let menuItem of menuItems; index as i" class="d-flex align-items-center mr-2 mr-md-0"
                         [class.selected]="i === 0">
-                        <a class="px-2 d-flex justify-content-between">
+                        <a class="px-2 d-flex justify-content-between align-items-center">
                             {{ menuItem.label }}
                             <span class="ml-1 badge d-flex align-items-center">{{ menuItem.qty }}</span>
                         </a>
