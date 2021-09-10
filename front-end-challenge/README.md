@@ -1,5 +1,9 @@
 # Entrega Front-End-Challenge
 
+O App está rodando nesta URL:
+
+https://github-f9w1l3.stackblitz.io/?q=node&page=1
+
 ### Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
 
 * Angular v12 no frontend.
