@@ -2,14 +2,14 @@
 
 ### Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
 
-1- Angular v12 no frontend.
-2- sistema de grid do bootstrap.
-3- componentes do angular materials para exibir os dados.
-4- ngxtoastr para exibir toasts de erro.
-5- normalize para dar reset no css dos browsers.
-6- FontAwesome, usado para mostrar icones.
-7- Angular Emojify, usado para mostrar os emojis que tem na descrição de alguns repositórios.
-8- VS Code.
+* Angular v12 no frontend.
+* sistema de grid do bootstrap.
+* componentes do angular materials para exibir os dados.
+* ngxtoastr para exibir toasts de erro.
+* normalize para dar reset no css dos browsers.
+* FontAwesome, usado para mostrar icones.
+* Angular Emojify, usado para mostrar os emojis que tem na descrição de alguns repositórios.
+* VS Code.
 	
 ### Porque você optou pela tecnologia X e não a Y
 
