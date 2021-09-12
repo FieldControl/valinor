@@ -2,7 +2,7 @@
 
 header {
     width: 100%;
-    height: 116px;
+    height: 104px;
     background-color: transparent;
     box-shadow: none;
     transition: .5s ease;
@@ -62,7 +62,7 @@ header {
     
     max-width: $container-l;
     margin: 0 auto;
-    padding: 45px 15px;
+    padding: 33px 15px;
 
     display: none;
 
@@ -76,7 +76,7 @@ header {
 .bx {
     width: 36px;
     height: 36px;
-    margin-right: 15px;
+    margin-right: 20px;
 
     position: relative;
     cursor: pointer;

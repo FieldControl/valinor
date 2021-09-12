@@ -95,3 +95,23 @@ $container-s: 540px;
     }
 }
 
+
+// FEATURES
+.features {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.features-item {
+    max-width: 350px;
+    padding: 24px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img{
+        max-width: 80px;
+    }
+}
