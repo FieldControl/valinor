@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import LeftSide from "../../components/LeftSide";
 import RepoItem from "../../components/RepoItem";
 import axios, { constants } from "../../config/api";
-import { IRepository } from "../../config/interfaces";
+import { IRepository, RepositoriesCount } from "../../config/interfaces";
 
-import { List } from "./styles";
+import { Container, List, Title } from "./styles";
 
 const RepositioriesList: React.FC = () => {
   const [repositories, setRepositories] = useState<IRepository[]>([]);
+  const [totalResults, setTotalResults] = useState<RepositoriesCount>();
   const [input, setInput] = useState("react");
 
   useEffect(() => {
@@ -22,6 +24,8 @@ const RepositioriesList: React.FC = () => {
       })
       .then((res) => {
         setRepositories(res.data.items);
+        setTotalResults(res.data.total_count);
+        console.log(res);
       })
       .catch((e) => {
         console.log("Não deu certo", { ...e });
@@ -29,13 +33,15 @@ const RepositioriesList: React.FC = () => {
   }, [input]);
 
   return (
-    <>
+    <Container>
+      <LeftSide />
       <List>
+        <Title>{totalResults} repository results</Title>
         {repositories.map((repository) => (
           <RepoItem key={repository.id} repository={repository} />
         ))}
       </List>
-    </>
+    </Container>
   );
 };
 

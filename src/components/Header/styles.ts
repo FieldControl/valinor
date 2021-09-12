@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  background-color: #181818;
+  background-color: #161b22;
   padding: 11px 16px;
 `;
 
@@ -23,6 +23,7 @@ export const GithubLogo = styled(FaGithub)`
 export const SearchForm = styled.form`
   width: 100%;
   padding-left: 16px;
+  background-color: #161b22;
 `;
 
 export const Input = styled.input`
