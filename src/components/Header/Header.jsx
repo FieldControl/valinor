@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { AppBar, Box, Toolbar, Typography, InputBase } from '@material-ui/core';
+import { AppBar, Box, Toolbar, Typography, InputBase, LinearProgress } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { FaGithubAlt } from 'react-icons/fa';
 import useStyles from '../../styles/Styles';
@@ -7,21 +7,20 @@ import useStyles from '../../styles/Styles';
 const Header = (props) => {
     const classes = useStyles();
     const [query, setQuery] = useState('');
+    const loading = props.loading;
 
     const handlePesquisa = (e) => {
-        console.log(query);
         if (e.keyCode === 13) {
             props.doQuery(query);
+            props.newSearch(true);
             setQuery('');
         }
     }
 
-
-
     return(
         <AppBar color='secondary'>
-            <Toolbar>
-                <Box className={classes.title}>
+            <Toolbar className={classes.nav}>
+                <Box className={classes.logo}>
                     <FaGithubAlt size={32}/>
                     <Typography variant='h6' style={{marginLeft: '10px'}}>GitRepos</Typography>
                 </Box>
@@ -42,6 +41,11 @@ const Header = (props) => {
                     />
                 </div>
             </Toolbar>
+            {loading && (
+                <div className={classes.loading}>
+                    <LinearProgress color='primary'/>
+                </div>
+            )}
         </AppBar>
     )
 }

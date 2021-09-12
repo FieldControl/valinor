@@ -16,10 +16,31 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  nav: {
+      flexDirection: 'row',
+      [theme.breakpoints.down('xs')]: {
+          flexDirection: 'column',
+          padding: '10px'
+      }
+  },
+  logo: {
+      display: 'flex',
+      flexGrow: 1,
+      alignItems: 'center',
+      [theme.breakpoints.down('xs')] : {
+          marginBottom: '10px'
+      }
+  },
   title: {
     display: 'flex',
     flexGrow: 1,
     alignItems: 'center',
+  },
+  repList: {
+      marginTop: '15px',
+      [theme.breakpoints.down('xs')]: {
+          marginTop: '60px'
+      }
   },
   search: {
     position: 'relative',
@@ -30,9 +51,9 @@ const useStyles = makeStyles((theme) => ({
     },
     marginLeft: 0,
     width: 'auto',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.down('xs')]: {
       marginLeft: theme.spacing(1),
-      width: 'auto',
+      width: '100%',
     },
   },
   searchIcon: {
@@ -49,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -76,6 +96,14 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       marginRight: '15px'
+  },
+  loading: {
+      width: '100%',
+      position: 'absolute',
+      zIndex: 99,
+      top: 0,
+      left: 0,
+      right: 0
   }
 }));
 
