@@ -1,0 +1,158 @@
+// TYPOGRAPHY
+
+@mixin typeface-1($size, $device: desktop) {
+    
+    font-family: 'Raleway', sans-serif;
+
+    // H2
+    @if $size == h2 and $device == desktop {
+        font-size: 28px;
+        line-height: 21px;
+    }@else if $size == h2 and $device == mobile {
+        font-size: 20px;
+        line-height: 120%;
+    }
+
+    // H3
+    @if $size == h3 and $device == desktop {
+        font-size: 22px;
+        line-height: 120%;
+    }@else if $size == h3 and $device == mobile {
+        font-size: 16px;
+        line-height: 140%;
+    }
+
+    // H4
+    @if $size == h4 and $device == desktop {
+        font-size: 14px;
+        line-height: 120%;
+    }@else if $size == h4 and $device == mobile {
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    // P1
+    @if $size == p1 and $device == desktop {
+        font-size: 22px;
+        line-height: 33px;
+    }@else if $size == p1 and $device == mobile {
+        font-size: 16px;
+        line-height: 140%;
+    }
+
+    // P2
+    @if $size == p2 and $device == desktop {
+        font-size: 14px;
+        line-height: 21px;
+    }@else if $size == p2 and $device == mobile {
+        font-size: 13px;
+        line-height: 150%;
+    }
+
+    // P3
+    @if $size == p3 and $device == desktop {
+        font-size: 13px;
+        line-height: 160%;
+    }@else if $size == p3 and $device == mobile {
+        font-size: 13px;
+        line-height: 160%;
+    }
+}
+
+@mixin typeface-2($size, $device: desktop) {
+    
+    font-family: 'Open Sans', sans-serif;
+
+    // H1
+    @if $size == h1 and $device == desktop {
+        font-size: 65px;
+        line-height: 71px;
+    } @else if $size == h1 and $device == mobile {
+        font-size: 36px;
+        line-height: 120%;
+    }
+}
+
+@mixin typeface-3($size, $device: desktop) {
+
+    font-family: 'Cardo', serif;
+
+    // P1
+    @if $size == p1 and $device == desktop {
+        font-size: 36px;
+        line-height: 42px;
+    } @else if $size == p1 and $device == mobile {
+        font-size: 24px;
+        line-height: 120%;
+    }
+}
+
+h1 {
+    text-transform: uppercase;
+    color: $white;
+    @include typeface-2(h1, desktop);
+
+    @include responsive(s) {
+        @include typeface-2(h1, mobile);
+    }
+}
+
+h2 {
+    color: $gray-6;
+    @include typeface-1(h2, desktop);
+
+    @include responsive(s) {
+        @include typeface-1(h2, mobile);
+    }
+}
+
+h3 {
+    color: $gray-6;
+    @include typeface-1(h3, desktop);
+
+    @include responsive(s) {
+        @include typeface-1(h3, mobile);
+    }
+}
+
+h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $gray-6;
+    @include typeface-1(h4, desktop);
+
+    @include responsive(s) {
+        @include typeface-1(h4, mobile);
+    }
+}
+
+p {
+    color: $gray-4;
+
+    @include typeface-1(p2, desktop);
+
+    @include responsive(s) {
+        @include typeface-1(p2, mobile);
+    }
+}
+
+.main p {
+    color: $white;
+    margin-bottom: 72px;
+
+    @include typeface-1(p1, desktop);
+
+    @include responsive(s) {
+        max-width: 700px;
+        margin-bottom: 48px;
+        @include typeface-1(p1, mobile);
+    }
+
+    @include responsive(xs) {
+        margin-bottom: 32px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}

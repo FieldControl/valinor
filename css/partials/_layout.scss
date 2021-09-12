@@ -1,0 +1,97 @@
+// LAYOUT
+
+// Container devices
+
+$container-l: 1200px;
+$container-m: 960px;
+$container-s: 540px;
+
+// Media query mixins
+
+@mixin responsive($device) {
+    
+    @if $device == l {
+        // Para resoluções maiores que 1200px
+        @media screen and (min-width: $container-l) {
+            @content;
+        }
+    }
+
+    @else if $device == m {
+        // Para resoluções entre 960px e 1200px
+        @media screen and (max-width: $container-l) and (min-width: $container-m) {
+            @content;
+        }
+    }
+
+    @else if $device == s {
+        // Para resoluções menores que 960px
+        @media screen and (max-width: $container-m) {
+            @content;
+        }
+    }
+
+    @else if $device == xs {
+        // Para resoluções menores que 540px
+        @media screen and (max-width: $container-s) {
+            @content;
+        }
+    }
+}
+
+// Container
+.container {
+    max-width: $container-l;
+    margin: 0 auto;
+
+    padding: 72px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+
+    @include responsive(s) {
+        flex-direction: column;
+
+        padding: 32px 15px;
+    }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// HERO SECTION
+.bg-hero {
+    background-image: url(../img/bg-hero.jpg);
+    height: 750px; 
+
+    @include responsive(s) {
+        height: 500px;
+    }
+}
+
+.main {
+    max-width: $container-m;
+    margin: 0 auto;
+    padding: 256px 15px 0 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include responsive(s) {
+        padding-top: 160px;
+    }
+
+    @include responsive(xs) {
+        padding-top: 140px;
+    }
+}
+
