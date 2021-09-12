@@ -1,4 +1,5 @@
 import React from "react";
+import { IRepository } from "../../config/interfaces";
 import TagItem from "../TagItem";
 
 import {
@@ -17,15 +18,32 @@ import {
   Issues,
 } from "./styles";
 
-const RepoItem: React.FC = () => {
+interface IRepoItem {
+  repository: IRepository;
+}
+
+const RepoItem: React.FC<IRepoItem> = ({ repository }) => {
+  const {
+    name,
+    html_url,
+    language,
+    updated_at,
+    description,
+    stargazers_count,
+    open_issues_count,
+    owner: { login },
+  } = repository;
+
   return (
     <Container>
       <BookMarkIcon />
 
       <TextContent>
         <Header>
-          <Name href="#">nodejs/node</Name>
-          <Description>Node.js JavaScript runtime</Description>
+          <Name href={html_url}>
+            {login}/<strong>{name}</strong>
+          </Name>
+          <Description>{description}</Description>
         </Header>
 
         <TagList>
@@ -40,11 +58,13 @@ const RepoItem: React.FC = () => {
         <Footer>
           <StarsContainer>
             <Star />
-            81.7k
+            {stargazers_count}
           </StarsContainer>
-          <Language>JavaScript</Language>
-          <Updated>Updated 3 hours ago</Updated>
-          <Issues href="#">75 issues need help</Issues>
+          <Language>{language}</Language>
+          <Updated>Updated {updated_at}</Updated>
+          <Issues href={`${html_url}/issues`}>
+            {open_issues_count} issues need help
+          </Issues>
         </Footer>
       </TextContent>
     </Container>
