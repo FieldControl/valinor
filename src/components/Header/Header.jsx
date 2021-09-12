@@ -11,16 +11,15 @@ const Header = (props) => {
     const handlePesquisa = (e) => {
         console.log(query);
         if (e.keyCode === 13) {
-            console.log('pesquisa');
+            props.doQuery(query);
             setQuery('');
-            // props.doQuery(query);
         }
     }
 
 
 
     return(
-        <AppBar>
+        <AppBar color='secondary'>
             <Toolbar>
                 <Box className={classes.title}>
                     <FaGithubAlt size={32}/>

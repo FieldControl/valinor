@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     display: 'flex',
-    flexGrow: 1
+    flexGrow: 1,
+    alignItems: 'center',
   },
   search: {
     position: 'relative',
@@ -59,6 +60,23 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  link: {
+    fontWeight: 'bold'
+  },
+  description: {
+    paddingLeft: '24px'
+  },
+  infoBox : {
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: '15px',
+    paddingLeft: '24px'
+  },
+  info : {
+      display: 'flex',
+      alignItems: 'center',
+      marginRight: '15px'
+  }
 }));
 
 export default useStyles;
