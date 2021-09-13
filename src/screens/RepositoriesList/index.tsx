@@ -1,21 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import LeftSide from "../../components/LeftSide";
 import RepoItem from "../../components/RepoItem";
 import axios, { constants } from "../../config/api";
-import { IRepository, RepositoriesCount } from "../../config/interfaces";
+import {
+  IFilter,
+  IRepository,
+  RepositoriesCount,
+} from "../../config/interfaces";
+import GlobalContext from "../../global/GlobalContext";
+import debounce from "lodash.debounce";
 
 import { Container, List, Title } from "./styles";
 
 const RepositioriesList: React.FC = () => {
   const [repositories, setRepositories] = useState<IRepository[]>([]);
   const [totalResults, setTotalResults] = useState<RepositoriesCount>();
-  const [input, setInput] = useState("react");
+  const { state }: any = useContext(GlobalContext);
 
-  useEffect(() => {
+  const fetchData = useCallback((search: string, filter: IFilter) => {
+    const { type, language } = filter;
+
     axios
-      .get("/search/repositories", {
+      .get(`/search/${type.toLowerCase()}`, {
         params: {
-          q: `${input} in:name,description`,
+          language,
+          q: `${search} in:name,description`,
           sort: "stars",
           page: 1,
           client_id: constants.CLIENT_ID,
@@ -30,7 +45,16 @@ const RepositioriesList: React.FC = () => {
       .catch((e) => {
         console.log("Não deu certo", { ...e });
       });
-  }, [input]);
+  }, []);
+
+  const debouncedFetchData = useMemo(
+    () => debounce(fetchData, 500),
+    [fetchData]
+  );
+
+  useEffect(() => {
+    debouncedFetchData(state.search, state.filter);
+  }, [debouncedFetchData, state.search, state.filter]);
 
   return (
     <Container>

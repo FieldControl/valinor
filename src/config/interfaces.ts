@@ -15,3 +15,8 @@ export interface IRepository {
 }
 
 export type RepositoriesCount = number | undefined;
+
+export interface IFilter {
+  type: string;
+  language?: string;
+}

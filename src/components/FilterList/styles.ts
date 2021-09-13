@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+interface IFilterButton {
+  active: boolean;
+}
 
 export const Container = styled.div`
   margin-bottom: 16px;
@@ -6,7 +10,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export const Filter = styled.button`
+
+export const Filter = styled.button<IFilterButton>`
   background-color: transparent;
   color: #c9d1d9;
   padding: 8px 16px;
@@ -28,13 +33,16 @@ export const Filter = styled.button`
     cursor: pointer;
   }
 
-  &:focus {
-    border-left-color: #f28065;
-    border-top-color: #161b22;
-    background-color: #161b22;
-    border-top-left-radius: 0px;
-  }
+  ${({ active }) =>
+    active &&
+    css`
+      border-left-color: #f28065;
+      border-top-color: #161b22;
+      background-color: #161b22;
+      border-top-left-radius: 0;
+    `}
 `;
+
 export const Amount = styled.p`
   min-width: 20px;
   padding: 0 6px;

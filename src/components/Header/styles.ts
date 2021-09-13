@@ -34,10 +34,10 @@ export const Input = styled.input`
   width: 100%;
   max-width: 210px;
   border: 1px solid #57606a;
-  transition: width 0.2s ease-out, color 0.2s ease-out;
-  color: #000;
+  color: #fff;
 
   &:focus {
     background-color: #fff;
+    color: #000;
   }
 `;

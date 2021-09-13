@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { FilterType } from "../../config/constants";
+import { IFilter } from "../../config/interfaces";
+import GlobalContext from "../../global/GlobalContext";
 import { Container, Filter, Amount } from "./styles";
 
 const filters = [
-  "Repositories",
+  FilterType.REPOSITORIES,
   "Code",
   "Commits",
   "Issues",
@@ -14,11 +18,24 @@ const filters = [
 ];
 
 const FilterList: React.FC = () => {
+  const { state, setters }: any = useContext(GlobalContext);
+
+  const handleFilterItem = (type: string) => {
+    setters.setFilter((filter: IFilter) => ({
+      ...filter,
+      type,
+    }));
+  };
+
   return (
     <Container>
       {filters.map((filter) => {
         return (
-          <Filter key={filter}>
+          <Filter
+            key={filter}
+            active={state.filter.type === filter}
+            onClick={() => handleFilterItem(filter)}
+          >
             {filter}
             <Amount>15K</Amount>
           </Filter>
