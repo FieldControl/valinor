@@ -253,29 +253,37 @@ $container-s: 540px;
     }
 }
 
-.bquote {
-    max-width: 450px;
-}
-
 .testimonial-photo {
-    height: 100%;
     background-image: url(/img/img-testimonial.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: -140px;
+    background-position: center;
+}
 
-    @include responsive(m) {
-        background-position: -350px;
-    }
+.bquote {
+    max-width: 500px;
+    margin-top: 96px;
+    margin-left: 72px;
+    padding: 15px 15px 15px 0;
 
     @include responsive(s) {
-        background-position: -350px;
+        margin-top: 64px;
+        margin-left: 36px;
+    }
+
+    @include responsive(xs) {
+        margin-top: 48px;
     }
 }
 
 .dot {
     margin-left: 270px;
+    margin-bottom: 96px;
+    margin-top: 64px;
     display: flex;
+
+    @include responsive(s) {
+        margin: 32px 0 64px 140px;
+    }
 }
 
 .dot-item {

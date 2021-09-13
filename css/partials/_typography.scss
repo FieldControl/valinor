@@ -207,6 +207,10 @@ p {
 .quotes p {
     color: $white;
     @include typeface-3(p1, desktop);
+
+    @include responsive(s) {
+        @include typeface-3(p1, mobile);
+    }
 }
 
 .quotes cite {
