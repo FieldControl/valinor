@@ -104,7 +104,7 @@ const colors = {
         "url": "https://github.com/trending?l=AsciiDoc"
     },
     "ASL": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=ASL"
     },
     "ASP.NET": {
@@ -168,7 +168,7 @@ const colors = {
         "url": "https://github.com/trending?l=Beef"
     },
     "Befunge": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Befunge"
     },
     "BibTeX": {
@@ -236,7 +236,7 @@ const colors = {
         "url": "https://github.com/trending?l=C++"
     },
     "C2hs Haskell": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=C2hs-Haskell"
     },
     "Cabal Config": {
@@ -248,7 +248,7 @@ const colors = {
         "url": "https://github.com/trending?l=Cap'n-Proto"
     },
     "CartoCSS": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=CartoCSS"
     },
     "Ceylon": {
@@ -260,7 +260,7 @@ const colors = {
         "url": "https://github.com/trending?l=Chapel"
     },
     "Charity": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Charity"
     },
     "ChucK": {
@@ -308,7 +308,7 @@ const colors = {
         "url": "https://github.com/trending?l=CMake"
     },
     "COBOL": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=COBOL"
     },
     "CodeQL": {
@@ -344,7 +344,7 @@ const colors = {
         "url": "https://github.com/trending?l=Component-Pascal"
     },
     "Cool": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Cool"
     },
     "Coq": {
@@ -392,7 +392,7 @@ const colors = {
         "url": "https://github.com/trending?l=CWeb"
     },
     "Cycript": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Cycript"
     },
     "Cython": {
@@ -424,7 +424,7 @@ const colors = {
         "url": "https://github.com/trending?l=Dhall"
     },
     "DIGITAL Command Language": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=DIGITAL-Command-Language"
     },
     "DirectX 3D File": {
@@ -444,7 +444,7 @@ const colors = {
         "url": "https://github.com/trending?l=Dogescript"
     },
     "DTrace": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=DTrace"
     },
     "Dylan": {
@@ -548,7 +548,7 @@ const colors = {
         "url": "https://github.com/trending?l=Filebench-WML"
     },
     "Filterscript": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Filterscript"
     },
     "fish": {
@@ -616,7 +616,7 @@ const colors = {
         "url": "https://github.com/trending?l=GCC-Machine-Description"
     },
     "GDB": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=GDB"
     },
     "GDScript": {
@@ -752,7 +752,7 @@ const colors = {
         "url": "https://github.com/trending?l=Haxe"
     },
     "HCL": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=HCL"
     },
     "HiveQL": {
@@ -804,7 +804,7 @@ const colors = {
         "url": "https://github.com/trending?l=Hy"
     },
     "HyPhy": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=HyPhy"
     },
     "IDL": {
@@ -828,7 +828,7 @@ const colors = {
         "url": "https://github.com/trending?l=ImageJ-Macro"
     },
     "Inform 7": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Inform-7"
     },
     "INI": {
@@ -988,7 +988,7 @@ const colors = {
         "url": "https://github.com/trending?l=Latte"
     },
     "Lean": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Lean"
     },
     "Less": {
@@ -1008,7 +1008,7 @@ const colors = {
         "url": "https://github.com/trending?l=LilyPond"
     },
     "Limbo": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Limbo"
     },
     "Liquid": {
@@ -1036,7 +1036,7 @@ const colors = {
         "url": "https://github.com/trending?l=LLVM"
     },
     "Logos": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Logos"
     },
     "Logtalk": {
@@ -1052,7 +1052,7 @@ const colors = {
         "url": "https://github.com/trending?l=LookML"
     },
     "LoomScript": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=LoomScript"
     },
     "LSL": {
@@ -1064,15 +1064,15 @@ const colors = {
         "url": "https://github.com/trending?l=Lua"
     },
     "M": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=M"
     },
     "M4": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=M4"
     },
     "M4Sugar": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=M4Sugar"
     },
     "Macaulay2": {
@@ -1132,7 +1132,7 @@ const colors = {
         "url": "https://github.com/trending?l=Metal"
     },
     "MiniD": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=MiniD"
     },
     "Mirah": {
@@ -1160,15 +1160,15 @@ const colors = {
         "url": "https://github.com/trending?l=Modula-3"
     },
     "Module Management System": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Module-Management-System"
     },
     "Monkey": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Monkey"
     },
     "Moocode": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Moocode"
     },
     "MoonScript": {
@@ -1192,7 +1192,7 @@ const colors = {
         "url": "https://github.com/trending?l=MTML"
     },
     "MUF": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=MUF"
     },
     "mupad": {
@@ -1204,7 +1204,7 @@ const colors = {
         "url": "https://github.com/trending?l=Mustache"
     },
     "Myghty": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Myghty"
     },
     "nanorc": {
@@ -1212,7 +1212,7 @@ const colors = {
         "url": "https://github.com/trending?l=nanorc"
     },
     "NASL": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=NASL"
     },
     "NCL": {
@@ -1272,7 +1272,7 @@ const colors = {
         "url": "https://github.com/trending?l=NPM-Config"
     },
     "NSIS": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=NSIS"
     },
     "Nu": {
@@ -1324,7 +1324,7 @@ const colors = {
         "url": "https://github.com/trending?l=ooc"
     },
     "Opa": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Opa"
     },
     "Opal": {
@@ -1348,7 +1348,7 @@ const colors = {
         "url": "https://github.com/trending?l=OpenQASM"
     },
     "OpenRC runscript": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=OpenRC-runscript"
     },
     "OpenSCAD": {
@@ -1360,7 +1360,7 @@ const colors = {
         "url": "https://github.com/trending?l=Org"
     },
     "Ox": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Ox"
     },
     "Oxygene": {
@@ -1388,11 +1388,11 @@ const colors = {
         "url": "https://github.com/trending?l=Parrot"
     },
     "Parrot Assembly": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Parrot-Assembly"
     },
     "Parrot Internal Representation": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Parrot-Internal-Representation"
     },
     "Pascal": {
@@ -1444,7 +1444,7 @@ const colors = {
         "url": "https://github.com/trending?l=PogoScript"
     },
     "Pony": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Pony"
     },
     "PostCSS": {
@@ -1520,7 +1520,7 @@ const colors = {
         "url": "https://github.com/trending?l=Qsharp"
     },
     "QMake": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=QMake"
     },
     "QML": {
@@ -1564,7 +1564,7 @@ const colors = {
         "url": "https://github.com/trending?l=RDoc"
     },
     "REALbasic": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=REALbasic"
     },
     "Reason": {
@@ -1584,7 +1584,7 @@ const colors = {
         "url": "https://github.com/trending?l=Red"
     },
     "Redcode": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Redcode"
     },
     "Regular Expression": {
@@ -1596,7 +1596,7 @@ const colors = {
         "url": "https://github.com/trending?l=Ren'Py"
     },
     "RenderScript": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=RenderScript"
     },
     "ReScript": {
@@ -1640,7 +1640,7 @@ const colors = {
         "url": "https://github.com/trending?l=Rouge"
     },
     "RPC": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=RPC"
     },
     "Ruby": {
@@ -1656,7 +1656,7 @@ const colors = {
         "url": "https://github.com/trending?l=Rust"
     },
     "Sage": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Sage"
     },
     "SaltStack": {
@@ -1708,7 +1708,7 @@ const colors = {
         "url": "https://github.com/trending?l=Shell"
     },
     "ShellSession": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=ShellSession"
     },
     "Shen": {
@@ -1716,7 +1716,7 @@ const colors = {
         "url": "https://github.com/trending?l=Shen"
     },
     "Sieve": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Sieve"
     },
     "Singularity": {
@@ -1736,7 +1736,7 @@ const colors = {
         "url": "https://github.com/trending?l=Slim"
     },
     "Smali": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Smali"
     },
     "Smalltalk": {
@@ -1752,7 +1752,7 @@ const colors = {
         "url": "https://github.com/trending?l=SmPL"
     },
     "SMT": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=SMT"
     },
     "Solidity": {
@@ -1836,7 +1836,7 @@ const colors = {
         "url": "https://github.com/trending?l=Swift"
     },
     "SWIG": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=SWIG"
     },
     "SystemVerilog": {
@@ -1848,7 +1848,7 @@ const colors = {
         "url": "https://github.com/trending?l=Tcl"
     },
     "Tcsh": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Tcsh"
     },
     "Terra": {
@@ -1920,7 +1920,7 @@ const colors = {
         "url": "https://github.com/trending?l=Unity3D-Asset"
     },
     "Unix Assembly": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Unix-Assembly"
     },
     "Uno": {
@@ -2004,7 +2004,7 @@ const colors = {
         "url": "https://github.com/trending?l=WebAssembly"
     },
     "WebIDL": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=WebIDL"
     },
     "Wikitext": {
@@ -2056,7 +2056,7 @@ const colors = {
         "url": "https://github.com/trending?l=Xonsh"
     },
     "XProc": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=XProc"
     },
     "XQuery": {
@@ -2064,7 +2064,7 @@ const colors = {
         "url": "https://github.com/trending?l=XQuery"
     },
     "XS": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=XS"
     },
     "XSLT": {
@@ -2096,7 +2096,7 @@ const colors = {
         "url": "https://github.com/trending?l=ZAP"
     },
     "Zeek": {
-        "color": null,
+        "color": '#fff',
         "url": "https://github.com/trending?l=Zeek"
     },
     "ZenScript": {
@@ -2118,6 +2118,9 @@ const colors = {
     "Zimpl": {
         "color": "#d67711",
         "url": "https://github.com/trending?l=Zimpl"
+    },
+    "Matlab": {
+        "color": "#fff"
     }
 }
 
