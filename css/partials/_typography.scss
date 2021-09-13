@@ -165,21 +165,28 @@ p {
 
 
 // GALLERY
+.gallery a span{ 
+    color: $white;
+
+    &:first-child {
+        @include typeface-1(p2, desktop);
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    &:last-child {
+
+        font-weight: 400;
+        text-transform: none;
+        @include typeface-1(h4, desktop);
+    }
+}
+
 .gallery-item-name {
     opacity: 0;
     transition: .4s ease;
 
     span {
-        color: $white;
-        @include typeface-1(p2, desktop);
-
-        &:first-child {
-            font-weight: 700;
-            text-transform: uppercase;
-
-            margin-bottom: 5px;
-        }
-
         &:hover {
             opacity: 1;
         }
@@ -187,7 +194,6 @@ p {
 
     &:hover {
         opacity: .9;
-
         background-color: $primary-color;
     }
 }
