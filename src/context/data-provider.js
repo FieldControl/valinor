@@ -3,12 +3,12 @@ import React, { createContext, useState } from 'react';
 export const context = createContext();
 
 export const ContextProvider = (props) => {
-  const [repos, setRepos] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
 
   const value = {
-    repos: [repos],
-    setRepos: [setRepos],
+    totalPages: [totalPages],
+    setTotalPages: [setTotalPages],
     currentPage: [currentPage],
     setCurrentPage: [setCurrentPage],
   };

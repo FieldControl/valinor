@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useContext, useState } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import { context } from '../../context/data-provider';
 import {
   HeaderContainer,
   Logo,
@@ -11,19 +11,23 @@ import {
 
 const Header = () => {
   const [search, setSearch] = useState('');
+  const value = useContext(context);
+  const [setCurrentPage] = value.setCurrentPage;
 
   return (
     <HeaderContainer>
-      <Logo>GitHub Repo's</Logo>
+      <Logo to="/">
+        <AiFillGithub className="github-icon" />
+      </Logo>
       <InputContainer>
         <Input
           type="text"
-          placeholder="Search..."
+          placeholder="Search a repo..."
           onChange={(e) => setSearch(e.target.value)}
         />
-        <Link to={`/repo=${search}`}>
-          <SearchButton>Search</SearchButton>
-        </Link>
+        <SearchButton to={`/repo=${search}`} onClick={() => setCurrentPage(1)}>
+          Search
+        </SearchButton>
       </InputContainer>
     </HeaderContainer>
   );
