@@ -160,6 +160,35 @@ p {
 }
 
 
+// GALLERY
+.gallery-item-name {
+    opacity: 0;
+    transition: .4s ease;
+
+    span {
+        color: $white;
+        @include typeface-1(p2, desktop);
+
+        &:first-child {
+            font-weight: 700;
+            text-transform: uppercase;
+
+            margin-bottom: 5px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        opacity: .9;
+
+        background-color: $primary-color;
+    }
+}
+
+
 // TEAM
 .team-data span {
     color: $primary-color;
@@ -195,4 +224,31 @@ p {
     font-weight: 700;
     text-transform: uppercase;
     @include typeface-1(p3, desktop);
+}
+
+
+// FOOTER
+.footer-item {
+    h4 {
+        color: $white;
+    }
+
+    p {
+        color: $white;
+        opacity: .5;
+    }
+}
+
+.copy-item span {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    line-height: 22.5px;
+
+    &:first-child {
+        color: $gray-5;
+    }
+
+    &:last-child {
+        color: $white;
+    }
 }

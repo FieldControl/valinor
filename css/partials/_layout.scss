@@ -72,7 +72,7 @@ $container-s: 540px;
     height: 750px; 
 
     @include responsive(s) {
-        height: 500px;
+        height: 550px;
     }
 }
 
@@ -125,6 +125,10 @@ $container-s: 540px;
 }
 
 .gallery-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     flex: 1 1 25%;
     width: 480px;
     height: 350px;
@@ -175,6 +179,15 @@ $container-s: 540px;
     background-image: url(/img/img8.jpg);
 }
 
+.gallery-item-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
 
 // TEAM
 .team {
@@ -283,4 +296,92 @@ $container-s: 540px;
 .cta {
     padding: 82px 15px;
     flex-direction: column;
+}
+
+
+// FOOTER
+// FOOTER
+.footer {
+    background-color: $secondary-normal;
+}
+
+.container-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 64px 15px 48px;
+
+    @include responsive(s) {
+        align-items: center;
+        padding: 48px 15px 24px;
+    }
+}
+
+.footer-item {
+    padding: 10px;
+    text-align: center;
+    
+    flex: 1 1 33%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &:last-child {
+        max-width: 340px;
+    }
+}
+
+.footer-item-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons {
+    opacity: 1;
+    border: 2px solid $white;
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        border: 2px solid $primary-color;
+    }
+}
+
+.icons:hover {
+    fill: $primary-color;
+}
+
+// Copy
+.copy-bg {
+    width: 100%;
+    background-color: $secondary-dark;
+}
+
+.copy-container {
+    max-width: $container-l;
+    margin: 0 auto;
+
+    padding: 29px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    img {
+        display: inline-block;
+    }
+}
+
+.copy-item {
+    display: flex;
+    align-items: center;
 }

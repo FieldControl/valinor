@@ -7,6 +7,15 @@ function scrollHeader() {
 
 window.addEventListener('scroll', scrollHeader)
 
+// HIDE HEADER BORDER
+function hideBorder() {
+    const nav = document.getElementById('navbar-desktop');
+
+    if(this.scrollY >= 50) nav.classList.add('active-navbar-desktop'); else nav.classList.remove('active-navbar-desktop')
+}
+
+window.addEventListener('scroll', hideBorder)
+
 // MENU MOBILE
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId);
