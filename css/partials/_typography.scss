@@ -106,6 +106,10 @@ h2 {
     @include responsive(s) {
         @include typeface-1(h2, mobile);
     }
+
+    @include responsive(xs) {
+        max-width: 300px;
+    }
 }
 
 h3 {

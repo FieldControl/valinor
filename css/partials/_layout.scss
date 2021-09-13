@@ -192,25 +192,23 @@ $container-s: 540px;
 // TEAM
 .team {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+
+    @include responsive(s) {
+        align-items: center;
+    }
 }
 
 .team-item {
-    max-width: 320px;
+    max-width: 300px;
     flex: 1 1 25%;
     padding: 10px;
+    margin-bottom: 48px;
 
     display: flex;
     flex-direction: column;
-
-    @include responsive(s) {
-        flex: 1 1 75%;
-    }
-
-    @include responsive(xs) {
-        flex: 1 1 100%;
-        height: 250px;
-    }
 }
 
 .team-photo {
@@ -235,6 +233,27 @@ $container-s: 540px;
 
 .photo-4 {
     background-image: url(/img/beverly-little.jpg);
+}
+
+.team-item-social {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.team-item-social-icons {
+    opacity: 1;
+    border: 1px solid #c6cacc;
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        border: 1px solid $primary-color;
+    }
 }
 
 
@@ -307,7 +326,6 @@ $container-s: 540px;
 }
 
 
-// FOOTER
 // FOOTER
 .footer {
     background-color: $secondary-normal;
