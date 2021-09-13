@@ -1979,6 +1979,9 @@ const colors = {
         "color": "#199f4b",
         "url": "https://github.com/trending?l=Vim-Snippet"
     },
+    "VimL": {
+        "color": '#fff'
+    },
     "Visual Basic .NET": {
         "color": "#945db7",
         "url": "https://github.com/trending?l=Visual-Basic-.NET"
