@@ -112,6 +112,205 @@
   max-width: 80px;
 }
 
+.gallery {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gallery-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  width: 480px;
+  height: 350px;
+  margin-bottom: 1px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 960px) {
+  .gallery-item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+  }
+}
+@media screen and (max-width: 540px) {
+  .gallery-item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    height: 250px;
+  }
+}
+
+.img-1 {
+  background-image: url(/img/img1.jpg);
+}
+
+.img-2 {
+  background-image: url(/img/img2.jpg);
+}
+
+.img-3 {
+  background-image: url(/img/img3.jpg);
+}
+
+.img-4 {
+  background-image: url(/img/img4.jpg);
+}
+
+.img-5 {
+  background-image: url(/img/img5.jpg);
+}
+
+.img-6 {
+  background-image: url(/img/img6.jpg);
+}
+
+.img-7 {
+  background-image: url(/img/img7.jpg);
+}
+
+.img-8 {
+  background-image: url(/img/img8.jpg);
+}
+
+.team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.team-item {
+  max-width: 320px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media screen and (max-width: 960px) {
+  .team-item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 75%;
+            flex: 1 1 75%;
+  }
+}
+@media screen and (max-width: 540px) {
+  .team-item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    height: 250px;
+  }
+}
+
+.team-photo {
+  width: 270px;
+  height: 270px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.photo-1 {
+  background-image: url(/img/ruth-woods.jpg);
+}
+
+.photo-2 {
+  background-image: url(/img/timothy-reed.jpg);
+}
+
+.photo-3 {
+  background-image: url(/img/victoria-valdez.jpg);
+}
+
+.photo-4 {
+  background-image: url(/img/beverly-little.jpg);
+}
+
+.testimonials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #53354a;
+}
+
+.testimonials-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+@media screen and (max-width: 540px) {
+  .testimonials-item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+}
+
+.bquote {
+  max-width: 450px;
+}
+
+.testimonial-photo {
+  height: 100%;
+  background-image: url(/img/img-testimonial.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -140px;
+}
+@media screen and (max-width: 1200px) and (min-width: 960px) {
+  .testimonial-photo {
+    background-position: -350px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .testimonial-photo {
+    background-position: -350px;
+  }
+}
+
+.dot {
+  margin-left: 270px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dot-item {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.2;
+}
+
+.active-dot {
+  opacity: 1;
+}
+
+.cta {
+  padding: 82px 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 h1 {
   text-transform: uppercase;
   color: #fff;
@@ -129,6 +328,8 @@ h1 {
 
 h2 {
   color: #2d3033;
+  font-weight: 300;
+  text-align: center;
   font-family: "Raleway", sans-serif;
   font-size: 28px;
   line-height: 21px;
@@ -143,6 +344,7 @@ h2 {
 
 h3 {
   color: #2d3033;
+  font-weight: 400;
   font-family: "Raleway", sans-serif;
   font-size: 22px;
   line-height: 120%;
@@ -207,14 +409,49 @@ p {
   }
 }
 
+.team-data span {
+  color: #e84545;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  line-height: 120%;
+}
+
 .text-center {
   text-align: center;
+}
+
+.quotes p {
+  color: #fff;
+  font-family: "Cardo", serif;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.quotes cite {
+  color: #fff;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  line-height: 120%;
+}
+
+.cta span {
+  color: #2d3033;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  line-height: 120%;
 }
 
 a {
   font-family: "Raleway", sans-serif;
   font-size: 13px;
-  line-height: 160%;
+  line-height: 120%;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
@@ -870,7 +1107,7 @@ img {
 
 header {
   width: 100%;
-  height: 104px;
+  height: 100px;
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;

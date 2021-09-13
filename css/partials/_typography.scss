@@ -52,7 +52,7 @@
     // P3
     @if $size == p3 and $device == desktop {
         font-size: 13px;
-        line-height: 160%;
+        line-height: 120%;
     }@else if $size == p3 and $device == mobile {
         font-size: 13px;
         line-height: 160%;
@@ -99,6 +99,8 @@ h1 {
 
 h2 {
     color: $gray-6;
+    font-weight: 300;
+    text-align: center;
     @include typeface-1(h2, desktop);
 
     @include responsive(s) {
@@ -108,6 +110,8 @@ h2 {
 
 h3 {
     color: $gray-6;
+    font-weight: 400;
+
     @include typeface-1(h3, desktop);
 
     @include responsive(s) {
@@ -136,6 +140,8 @@ p {
     }
 }
 
+
+// MAIN
 .main p {
     color: $white;
     margin-bottom: 72px;
@@ -153,6 +159,40 @@ p {
     }
 }
 
+
+// TEAM
+.team-data span {
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: 400;
+
+    @include typeface-1(p3, desktop);
+}
+
 .text-center {
     text-align: center;
+}
+
+
+// TESTIMONIALS
+.quotes p {
+    color: $white;
+    @include typeface-3(p1, desktop);
+}
+
+.quotes cite {
+    color: $white;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    @include typeface-1(p3, desktop);
+}
+
+
+// CALL-TO-ACTION
+.cta span {
+    color: $gray-6;
+    font-weight: 700;
+    text-transform: uppercase;
+    @include typeface-1(p3, desktop);
 }
