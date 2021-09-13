@@ -18,11 +18,11 @@ const Header = (props) => {
     }
 
     return(
-        <AppBar color='secondary'>
+        <AppBar className={classes.navbar}>
             <Toolbar className={classes.nav}>
                 <Box className={classes.logo}>
                     <FaGithubAlt size={32}/>
-                    <Typography variant='h6' style={{marginLeft: '10px'}}>GitRepos</Typography>
+                    <Typography variant='h6' style={{marginLeft: '10px'}}>GitRepos by Ramon Metzker</Typography>
                 </Box>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>

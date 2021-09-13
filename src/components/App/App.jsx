@@ -32,6 +32,11 @@ const App = () => {
                 setNewSearch(false);
             }; 
             handleSearch(search, page);
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });
         }
     }, [search, handleSearch, page, newSearch])
 

@@ -1,10 +1,9 @@
-import { Grid, Card, Typography, CardContent, Box, Link } from '@material-ui/core';
 import React from 'react';
+import { Grid, Card, Typography, CardContent, Box, Link } from '@material-ui/core';
 import  {GoRepo} from 'react-icons/go';
 import useStyles from '../../styles/Styles';
 import colors from '../../styles/Colors';
-import {BsFillCircleFill} from 'react-icons/bs';
-import {MdStarBorder} from 'react-icons/md';
+import {BsFillCircleFill, BsStar} from 'react-icons/bs';
 import TimeAgo from 'react-timeago';
 
 const Repo = (props) => {
@@ -19,13 +18,13 @@ const Repo = (props) => {
     function kFormatter(num) {
         return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
     }
-   
+
     return(
         <Grid item xs={12}>
             <Card variant='outlined'>
                 <CardContent>
                     <Box className={classes.title}>
-                        <Typography>
+                        <Typography color='textSecondary'>
                             <GoRepo display='flex'/>
                         </Typography>
                         <Typography style={{marginLeft: '10px'}}>
@@ -38,16 +37,16 @@ const Repo = (props) => {
                     {desc}
                 </Typography>
                 <div className={classes.infoBox}>
-                        <Typography variant='body2'>
-                            <Link target='_blank' href={`https://github.com/${repository.owner.login}/${repository.name}/stargazers`} className={classes.info} color='textPrimary'>
-                                <MdStarBorder size={14}/>
+                        <Typography variant='caption' className={classes.info}>
+                            <Link target='_blank' href={`https://github.com/${repository.owner.login}/${repository.name}/stargazers`} color='textPrimary' underline='none' className={classes.infoLink}>
+                                <BsStar size={12} style={{marginRight: '3px'}}/>
                                 {kFormatter(repository.stargazers_count)}
                             </Link>
                         </Typography>
                     {repository.language && (
                         <Box className={classes.info}>
-                        <Typography variant='caption' style={{marginLeft: '5px', display: 'flex', alignItems: 'center'}}>
-                        <BsFillCircleFill size={12} color={colors[repository.language].color} style={{marginRight: '5px'}}/> {repository.language}
+                        <Typography variant='caption'>
+                        <BsFillCircleFill size={12} color={colors[repository.language].color} style={{marginRight: '3px'}}/> {repository.language}
                         </Typography>
                     </Box>
                     )}
@@ -59,6 +58,16 @@ const Repo = (props) => {
                     <Box className={classes.info}>
                         <Typography variant='caption' color='textSecondary'>Updated <TimeAgo date={repository.updated_at}/></Typography>
                     </Box>
+                    {(repository.has_issues && repository.open_issues_count > 0) && (
+                        <Box className={classes.info}>
+                        <Typography variant='caption' color='textSecondary'>
+                            <Link target='_blank' href={`https://github.com/${repository.owner.login}/${repository.name}/issues`}color='textSecondary' underline='none' className={classes.infoLink}>
+                                {repository.open_issues_count} open issues
+                            </Link>
+                        </Typography>
+                    </Box>
+                    )}
+                    
                 </div>
                 </CardContent>
             </Card>

@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  navbar: {
+      backgroundColor: '#161B22',
+      color: '#fff'
+  },
   nav: {
       flexDirection: 'row',
       [theme.breakpoints.down('xs')]: {
@@ -96,6 +100,11 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       marginRight: '15px'
+  },
+  infoLink: {
+      '&:hover': {
+          color: '#189FED'
+      }
   },
   loading: {
       width: '100%',
