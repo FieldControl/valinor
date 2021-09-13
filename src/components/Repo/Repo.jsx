@@ -9,7 +9,6 @@ import TimeAgo from 'react-timeago';
 const Repo = (props) => {
     const classes = useStyles();
     const repository = props.repository;
-    console.log(repository.language, colors[repository.language]);
     
     let desc = repository.description ? repository.description : '';
     if (desc.length > 120) {
