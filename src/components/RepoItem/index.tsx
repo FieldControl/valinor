@@ -2,6 +2,9 @@ import React from "react";
 import { IRepository } from "../../config/interfaces";
 import TagItem from "../TagItem";
 
+import dayjs from "dayjs";
+import relativeTimePlugin from "dayjs/plugin/relativeTime";
+
 import {
   Container,
   BookMarkIcon,
@@ -17,6 +20,9 @@ import {
   Updated,
   Issues,
 } from "./styles";
+import { NumberLiteralType } from "typescript";
+
+dayjs.extend(relativeTimePlugin);
 
 interface IRepoItem {
   repository: IRepository;
@@ -33,6 +39,14 @@ const RepoItem: React.FC<IRepoItem> = ({ repository }) => {
     open_issues_count,
     owner: { login },
   } = repository;
+
+  // const formatNumber = (number: NumberLiteralType) => {
+  //   const NumberToString = number.toString();
+
+  //   if (NumberToString.length > 3) {
+
+  //   }
+  // };
 
   return (
     <Container>
@@ -61,7 +75,7 @@ const RepoItem: React.FC<IRepoItem> = ({ repository }) => {
             {stargazers_count}
           </StarsContainer>
           <Language>{language}</Language>
-          <Updated>Updated {updated_at}</Updated>
+          <Updated>Updated {dayjs(updated_at).fromNow()}</Updated>
           <Issues href={`${html_url}/issues`}>
             {open_issues_count} issues need help
           </Issues>

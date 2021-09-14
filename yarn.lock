@@ -1964,6 +1964,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-paginate@^7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-paginate/-/react-paginate-7.1.1.tgz#81cbe7bfcf2af60b9d784a56cd0e5d870675c68c"
+  integrity sha512-94cEJHfBaINba2XGQOWFJF/tYe+AImIhOPqMCfqyeFOgk0qUpDZyDOOW76A1rgdtWndR8UwsMPgV/uuTM8vZ7w==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^17.0.0":
   version "17.0.20"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.20.tgz#a4284b184d47975c71658cd69e759b6bd37c3b8c"
@@ -4116,6 +4123,11 @@ data-urls@^2.0.0:
     abab "^2.0.3"
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
+
+dayjs@^1.10.7:
+  version "1.10.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
+  integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -9050,7 +9062,7 @@ prompts@2.4.0, prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.7.2:
+prop-types@^15.6.1, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9284,6 +9296,13 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-paginate@^7.1.3:
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-7.1.3.tgz#51a2ccb13febc7f96d28405bdf6e029510227206"
+  integrity sha512-cHTXXE90Z3DlKSJiIQFzAcWoIFs9mq6r1/+rQF099NPvdJpbR8f6E/ES32tlUw4qe1R6qWLOrPZYhvAy4UgHLA==
+  dependencies:
+    prop-types "^15.6.1"
 
 react-refresh@^0.8.3:
   version "0.8.3"

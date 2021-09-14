@@ -20,3 +20,8 @@ export interface IFilter {
   type: string;
   language?: string;
 }
+
+export interface IPagination {
+  page: number;
+  itemsPerPage: number;
+}
