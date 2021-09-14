@@ -52,6 +52,10 @@ const GlobalState: React.FC = ({ children }) => {
     [fetchData]
   );
 
+  // const getRepoTags = () => {
+  //   axios.get(` /repos/{owner}/{repo}/tags`)
+  // }
+
   const state = {
     search,
     filter,

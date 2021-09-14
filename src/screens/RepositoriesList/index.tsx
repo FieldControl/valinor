@@ -1,12 +1,17 @@
 import React, { useContext, useEffect } from "react";
-import LeftSide from "../../components/LeftSide";
 import RepoItem from "../../components/RepoItem";
 
 import GlobalContext from "../../global/GlobalContext";
 
 import ReactPaginate from "react-paginate";
 
-import { Container, List, Title, PaginationContainer } from "./styles";
+import {
+  Container,
+  ContentContainer,
+  List,
+  Title,
+  PaginationContainer,
+} from "./styles";
 import { IPagination } from "../../config/interfaces";
 
 const RepositioriesList: React.FC = () => {
@@ -28,9 +33,8 @@ const RepositioriesList: React.FC = () => {
   }, [fetchData, state.search]);
 
   return (
-    <>
-      <Container>
-        <LeftSide />
+    <Container>
+      <ContentContainer>
         <List>
           <Title>{state.totalResults} repository results</Title>
           {state.repositories.map((repository: any) => (
@@ -39,8 +43,8 @@ const RepositioriesList: React.FC = () => {
         </List>
         <PaginationContainer>
           <ReactPaginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
             breakLabel={"..."}
             breakClassName={"break-me"}
             pageCount={
@@ -55,8 +59,8 @@ const RepositioriesList: React.FC = () => {
             activeClassName={"active"}
           />
         </PaginationContainer>
-      </Container>
-    </>
+      </ContentContainer>
+    </Container>
   );
 };
 
