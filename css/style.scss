@@ -1,0 +1,34 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import "partials/colors";
+@import "partials/layout";
+@import "partials/typography";
+@import "partials/buttons";
+@import "partials/spacing";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.border {
+    border: 1px solid red;
+}
+
+@import "partials/menu";
+@import "partials/footer";

@@ -1,0 +1,334 @@
+// LAYOUT
+
+// Container devices
+
+$container-l: 1200px;
+$container-m: 960px;
+$container-s: 540px;
+
+// Media query mixins
+
+@mixin responsive($device) {
+    
+    @if $device == l {
+        // Para resoluções maiores que 1200px
+        @media screen and (min-width: $container-l) {
+            @content;
+        }
+    }
+
+    @else if $device == m {
+        // Para resoluções entre 960px e 1200px
+        @media screen and (max-width: $container-l) and (min-width: $container-m) {
+            @content;
+        }
+    }
+
+    @else if $device == s {
+        // Para resoluções menores que 960px
+        @media screen and (max-width: $container-m) {
+            @content;
+        }
+    }
+
+    @else if $device == xs {
+        // Para resoluções menores que 540px
+        @media screen and (max-width: $container-s) {
+            @content;
+        }
+    }
+}
+
+// Container
+.container {
+    max-width: $container-l;
+    margin: 0 auto;
+
+    padding: 72px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+
+    @include responsive(s) {
+        flex-direction: column;
+
+        padding: 32px 15px;
+    }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// HERO SECTION
+.bg-hero {
+    background-image: url(../img/bg-hero.jpg);
+    height: 750px; 
+
+    @include responsive(s) {
+        height: 550px;
+    }
+}
+
+.main {
+    max-width: $container-m;
+    margin: 0 auto;
+    padding: 256px 15px 0 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include responsive(s) {
+        padding-top: 160px;
+    }
+
+    @include responsive(xs) {
+        padding-top: 140px;
+    }
+}
+
+
+// FEATURES
+.features {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.features-item {
+    max-width: 350px;
+    padding: 24px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img{
+        max-width: 80px;
+    }
+}
+
+
+// GALLERY
+.gallery {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    flex: 1 1 25%;
+    width: 480px;
+    height: 350px;
+    margin-bottom: 1px;
+
+    opacity: 1;
+
+    @include responsive(s) {
+        flex: 1 1 50%;
+    }
+
+    @include responsive(xs) {
+        flex: 1 1 100%;
+    }
+}
+
+.gallery-item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-1 {
+    background-image: url(/img/img1.jpg);
+}
+
+.img-2 {
+    background-image: url(/img/img2.jpg);
+}
+
+.img-3 {
+    background-image: url(/img/img3.jpg);
+}
+
+.img-4 {
+    background-image: url(/img/img4.jpg);
+}
+
+.img-5 {
+    background-image: url(/img/img5.jpg);
+}
+
+.img-6 {
+    background-image: url(/img/img6.jpg);
+}
+
+.img-7 {
+    background-image: url(/img/img7.jpg);
+}
+
+.img-8 {
+    background-image: url(/img/img8.jpg);
+}
+
+.gallery-item-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+// TEAM
+.team {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    @include responsive(s) {
+        align-items: center;
+    }
+}
+
+.team-item {
+    max-width: 290px;
+    padding: 15px;
+    margin-bottom: 48px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include responsive(s) {
+        margin-bottom: 32px;
+    }
+}
+
+.team-photo {
+    width: 260px;
+    height: 260px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.photo-1 {
+    background-image: url(/img/ruth-woods.jpg);
+}
+
+.photo-2 {
+    background-image: url(/img/timothy-reed.jpg);
+}
+
+.photo-3 {
+    background-image: url(/img/victoria-valdez.jpg);
+}
+
+.photo-4 {
+    background-image: url(/img/beverly-little.jpg);
+}
+
+.team-item-social {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.team-item-social-icons {
+    opacity: 1;
+    border: 1px solid #c6cacc;
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        border: 1px solid $primary-color;
+    }
+}
+
+
+// TESTIMONIALS
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $auxiliary-color;
+}
+
+.testimonials-item {
+    flex: 1 1 50%;
+
+    @include responsive(xs) {
+        flex: 1 1 100%;
+    }
+}
+
+.testimonial-photo {
+    background-image: url(/img/img-testimonial.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.bquote {
+    max-width: 500px;
+    margin-top: 96px;
+    margin-left: 72px;
+    padding: 15px 15px 15px 0;
+
+    @include responsive(s) {
+        margin-top: 64px;
+        margin-left: 36px;
+    }
+
+    @include responsive(xs) {
+        margin-top: 48px;
+    }
+}
+
+.dot {
+    margin-left: 270px;
+    margin-bottom: 96px;
+    margin-top: 64px;
+    display: flex;
+
+    @include responsive(s) {
+        margin: 32px 0 64px 140px;
+    }
+}
+
+.dot-item {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+    background-color: $white;
+    opacity: .2;
+}
+
+.active-dot {
+    opacity: 1;
+}
+
+
+// CALL-TO-ACTION
+.cta {
+    padding: 82px 15px;
+    flex-direction: column;
+}
