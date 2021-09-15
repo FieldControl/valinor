@@ -1,6 +1,5 @@
 import React from "react";
 import { IRepository } from "../../config/interfaces";
-import TagItem from "../TagItem";
 
 import dayjs from "dayjs";
 import relativeTimePlugin from "dayjs/plugin/relativeTime";
@@ -12,7 +11,6 @@ import {
   Header,
   Name,
   Description,
-  TagList,
   Footer,
   StarsContainer,
   Star,
@@ -20,7 +18,7 @@ import {
   Updated,
   Issues,
 } from "./styles";
-import { NumberLiteralType } from "typescript";
+import { abbreviateNumber } from "../../utils/format";
 
 dayjs.extend(relativeTimePlugin);
 
@@ -40,14 +38,6 @@ const RepoItem: React.FC<IRepoItem> = ({ repository }) => {
     owner: { login },
   } = repository;
 
-  // const formatNumber = (number: NumberLiteralType) => {
-  //   const NumberToString = number.toString();
-
-  //   if (NumberToString.length > 3) {
-
-  //   }
-  // };
-
   return (
     <Container>
       <BookMarkIcon />
@@ -60,19 +50,10 @@ const RepoItem: React.FC<IRepoItem> = ({ repository }) => {
           <Description>{description}</Description>
         </Header>
 
-        <TagList>
-          <TagItem />
-          <TagItem />
-          <TagItem />
-          <TagItem />
-          <TagItem />
-          <TagItem />
-        </TagList>
-
         <Footer>
           <StarsContainer>
             <Star />
-            {stargazers_count}
+            {abbreviateNumber(stargazers_count)}
           </StarsContainer>
           <Language>{language}</Language>
           <Updated>Updated {dayjs(updated_at).fromNow()}</Updated>

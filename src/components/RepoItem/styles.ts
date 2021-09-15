@@ -18,7 +18,7 @@ export const BookMarkIcon = styled(RiBookMarkLine)`
 `;
 
 export const Container = styled.div`
-  border-top: 1px solid #30363d;
+  border-top: 1px solid #d0d7de;
   display: flex;
   padding: 24px 0;
 `;
@@ -35,7 +35,7 @@ export const Header = styled.div``;
 
 export const Name = styled.a`
   text-decoration: none;
-  color: #58a6ff;
+  color: #0869da;
   line-height: 24px;
 
   &:hover {
@@ -44,14 +44,9 @@ export const Name = styled.a`
 `;
 
 export const Description = styled.p`
-  color: #c9d1d9;
+  color: #24292f;
   margin-bottom: 4px;
   line-height: 21px;
-`;
-
-export const TagList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
 `;
 
 export const Footer = styled.div`
@@ -61,7 +56,7 @@ export const Footer = styled.div`
 `;
 
 export const StarsContainer = styled.button`
-  color: #8b949e;
+  color: #57606a;
   border: none;
   cursor: pointer;
   font-size: 12px;
@@ -84,19 +79,19 @@ export const StarsContainer = styled.button`
 `;
 
 export const Language = styled.p`
-  color: #8b949e;
+  color: #57606a;
   font-size: 12px;
   margin-right: 16px;
 `;
 
 export const Updated = styled.p`
-  color: #8b949e;
+  color: #57606a;
   font-size: 12px;
   margin-right: 16px;
 `;
 
 export const Issues = styled.a`
-  color: #8b949e;
+  color: #57606a;
   text-decoration: none;
   font-size: 12px;
 

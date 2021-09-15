@@ -22,9 +22,13 @@ const GlobalState: React.FC = ({ children }) => {
   });
   const [repositories, setRepositories] = useState<IRepository[]>([]);
   const [totalResults, setTotalResults] = useState<RepositoriesCount>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = useCallback(
     (search: string) => {
+      if (!search.length) return;
+
+      setIsLoading(true);
       axios
         .get("/search/repositories", {
           params: {
@@ -39,22 +43,21 @@ const GlobalState: React.FC = ({ children }) => {
         .then((res) => {
           setRepositories(res.data.items);
           setTotalResults(res.data.total_count);
+          setIsLoading(false);
         })
         .catch((e) => {
           console.log("Não deu certo", { ...e });
+          setIsLoading(false);
         });
     },
     [pagination.itemsPerPage, pagination.page]
   );
+  console.log(isLoading);
 
   const debouncedFetchData = useMemo(
     () => debounce(fetchData, 500),
     [fetchData]
   );
-
-  // const getRepoTags = () => {
-  //   axios.get(` /repos/{owner}/{repo}/tags`)
-  // }
 
   const state = {
     search,
@@ -62,12 +65,14 @@ const GlobalState: React.FC = ({ children }) => {
     pagination,
     repositories,
     totalResults,
+    isLoading,
   };
 
   const setters = {
     setSearch,
     setFilter,
     setPagination,
+    setIsLoading,
   };
 
   const requests = {

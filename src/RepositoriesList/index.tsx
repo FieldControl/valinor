@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import RepoItem from "../../components/RepoItem";
+import RepoItem from "../components/RepoItem";
 
-import GlobalContext from "../../global/GlobalContext";
+import GlobalContext from "../global/GlobalContext";
 
 import ReactPaginate from "react-paginate";
+import Octocat from "../assets/images/octocat.png";
 
 import {
   Container,
@@ -11,8 +12,11 @@ import {
   List,
   Title,
   PaginationContainer,
+  Image,
 } from "./styles";
-import { IPagination } from "../../config/interfaces";
+import { IPagination } from "../config/interfaces";
+import { abbreviateNumber } from "../utils/format";
+import Loader from "../components/Loader";
 
 const RepositioriesList: React.FC = () => {
   const {
@@ -32,15 +36,20 @@ const RepositioriesList: React.FC = () => {
     fetchData(state.search);
   }, [fetchData, state.search]);
 
-  return (
-    <Container>
-      <ContentContainer>
+  const renderRepositories = () =>
+    state.isLoading ? (
+      <Loader />
+    ) : (
+      <>
         <List>
-          <Title>{state.totalResults} repository results</Title>
+          <Title>
+            {abbreviateNumber(state.totalResults)} repository results
+          </Title>
           {state.repositories.map((repository: any) => (
             <RepoItem key={repository.id} repository={repository} />
           ))}
         </List>
+
         <PaginationContainer>
           <ReactPaginate
             previousLabel={"Previous"}
@@ -52,13 +61,24 @@ const RepositioriesList: React.FC = () => {
                 ? state.totalResults / state.pagination.itemsPerPage
                 : 0
             }
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={2}
             onPageChange={handlePageClick}
             containerClassName={"pagination"}
             activeClassName={"active"}
           />
         </PaginationContainer>
+      </>
+    );
+
+  return (
+    <Container>
+      <ContentContainer>
+        {state.repositories.length > 0 ? (
+          renderRepositories()
+        ) : (
+          <Image src={Octocat} />
+        )}
       </ContentContainer>
     </Container>
   );

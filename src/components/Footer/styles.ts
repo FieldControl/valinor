@@ -7,17 +7,16 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 25px 0;
-
   width: 100%;
 `;
 export const Line = styled.div`
   max-width: 1280px;
   width: 100%;
-  border-top: 1px solid #484f58;
+  border-top: 1px solid #d0d7de;
 `;
 export const GithubLogo = styled(FaGithub)`
   margin-top: 25px;
-  fill: #484f58;
+  fill: #8f969e;
   width: 24px;
   height: 24px;
   flex-shrink: 0;

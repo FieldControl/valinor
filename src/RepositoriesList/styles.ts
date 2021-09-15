@@ -5,11 +5,21 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
+export const Image = styled.img`
+  height: 400px;
+  width: auto;
+  max-width: 100%;
+
+  @media (max-width: 418px) {
+    height: auto;
+  }
+`;
 export const ContentContainer = styled.div`
   display: flex;
-  margin: 24px 218px 0px 218px;
+  margin: 34px 218px 34px 218px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media (max-width: 800px) {
     margin: 24px 15px;
@@ -17,20 +27,21 @@ export const ContentContainer = styled.div`
 `;
 
 export const List = styled.div`
-  background-color: #0d1117;
+  background-color: #fff;
   padding-right: 8px;
   padding-left: 8px;
 `;
 
 export const Title = styled.h3`
-  color: #c9d1d9;
+  color: #24292f;
   font-size: 20px;
   padding-bottom: 16px;
 `;
 
 export const PaginationContainer = styled.div`
   .pagination {
-    color: #f0f6fc;
+    font-size: 14px;
+    color: #000;
     margin: 35px auto;
     display: flex;
     list-style: none;
@@ -58,17 +69,20 @@ export const PaginationContainer = styled.div`
   .pagination > .active > span:focus {
     background-color: #1f6feb;
     border-color: #47ccde;
-    outline: none;
+    border-radius: 6px;
     min-width: 32px;
     padding: 5px 10px;
     font-style: normal;
     line-height: 20px;
-    border-radius: 6px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
   }
 
   .pagination > li > a,
   .pagination > li > span {
-    color: #c9d1d9;
+    color: #000;
   }
 
   .pagination > li:first-child > a,
