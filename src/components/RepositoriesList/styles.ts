@@ -6,14 +6,23 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-  height: 400px;
-  width: auto;
+  max-height: 150px;
   max-width: 100%;
+  width: auto;
 
   @media (max-width: 418px) {
     height: auto;
   }
 `;
+
+export const EmptyListText = styled.h3`
+  font-size: 16px;
+  margin-top: 20px;
+  max-width: 300px;
+  line-height: 22px;
+  text-align: center;
+`;
+
 export const ContentContainer = styled.div`
   display: flex;
   margin: 34px 218px 34px 218px;

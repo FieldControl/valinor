@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepoItem should match the snapshot 1`] = `
+<styled.div>
+  <Styled(RiBookMarkLine) />
+  <styled.div>
+    <styled.div>
+      <styled.a
+        href="https://test.repository"
+      >
+        userowner
+        /
+        <strong>
+          Test repository
+        </strong>
+      </styled.a>
+      <styled.p>
+        A repository mock
+      </styled.p>
+    </styled.div>
+    <styled.div>
+      <styled.button>
+        <Styled(RiStarLine) />
+        2.00K
+      </styled.button>
+      <styled.p>
+        Javascript
+      </styled.p>
+      <styled.p>
+        Updated 
+        385 years ago
+      </styled.p>
+      <styled.a
+        href="https://test.repository/issues"
+      >
+        20
+         issues need help
+      </styled.a>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

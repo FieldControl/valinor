@@ -16,12 +16,6 @@ export const GithubLogo = styled(FaGithub)`
   cursor: pointer;
 `;
 
-export const SearchForm = styled.form`
-  width: 100%;
-  padding-left: 16px;
-  background-color: #24292f;
-`;
-
 export const Input = styled.input`
   background-color: #24292f;
   outline: 0;
@@ -31,6 +25,7 @@ export const Input = styled.input`
   width: 210px;
   border: 1px solid #57606a;
   color: #fff;
+  margin-left: 16px;
 
   &:focus {
     background-color: #fff;

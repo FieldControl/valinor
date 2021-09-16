@@ -29,6 +29,7 @@ const GlobalState: React.FC = ({ children }) => {
       if (!search.length) return;
 
       setIsLoading(true);
+
       axios
         .get("/search/repositories", {
           params: {
@@ -45,14 +46,12 @@ const GlobalState: React.FC = ({ children }) => {
           setTotalResults(res.data.total_count);
           setIsLoading(false);
         })
-        .catch((e) => {
-          console.log("Não deu certo", { ...e });
+        .catch(() => {
           setIsLoading(false);
         });
     },
     [pagination.itemsPerPage, pagination.page]
   );
-  console.log(isLoading);
 
   const debouncedFetchData = useMemo(
     () => debounce(fetchData, 500),

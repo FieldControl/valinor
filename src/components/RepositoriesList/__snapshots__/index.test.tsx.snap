@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Repositories should match the snapshot 1`] = `
+<GlobalState>
+  <RepositioriesList>
+    <styled.div>
+      <div
+        className="sc-iqHYmW bpfviY"
+      >
+        <styled.div>
+          <div
+            className="sc-bqyKOL eZzUnP"
+          >
+            <styled.img
+              src="octocat.png"
+            >
+              <img
+                className="sc-crrszt fvrbCA"
+                src="octocat.png"
+              />
+            </styled.img>
+            <styled.h3>
+              <h3
+                className="sc-dQoVA eRYyiZ"
+              >
+                Faça a sua busca por repositórios preenchendo o campo acima
+              </h3>
+            </styled.h3>
+          </div>
+        </styled.div>
+      </div>
+    </styled.div>
+  </RepositioriesList>
+</GlobalState>
+`;

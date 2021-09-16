@@ -1,5 +1,7 @@
 export const abbreviateNumber = (value: number): string => {
-  if (!value) return "";
+  if (isNaN(value)) return "";
+
+  if (value === 0) return "0";
 
   let newValue: number = value;
   let suffixNum: number = 0;

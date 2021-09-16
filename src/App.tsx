@@ -1,9 +1,7 @@
-import React from "react";
-import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import GlobalState from "./global/GlobalState";
-import RepositioriesList from "./RepositoriesList";
+import RepositioriesList from "./components/RepositoriesList";
 import styled from "styled-components";
 
 const Container = styled.div`

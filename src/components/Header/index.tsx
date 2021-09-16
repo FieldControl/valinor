@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useContext } from "react";
 import GlobalContext from "../../global/GlobalContext";
-import { Container, GithubLogo, SearchForm, Input } from "./styles";
+import { Container, GithubLogo, Input } from "./styles";
 
 const Header: React.FC = () => {
   const { state, setters }: any = useContext(GlobalContext);
@@ -12,13 +12,11 @@ const Header: React.FC = () => {
   return (
     <Container>
       <GithubLogo />
-      <SearchForm>
-        <Input
-          value={state.search}
-          onChange={handleInputChange}
-          placeholder="Search GitHub"
-        />
-      </SearchForm>
+      <Input
+        value={state.search}
+        onChange={handleInputChange}
+        placeholder="Search GitHub"
+      />
     </Container>
   );
 };
