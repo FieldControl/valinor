@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;1,200&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+}
+
+a, p, span, blockquote{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+
+} 
+img{
+    max-width: 100%;
+}
+
+/*********** Header ***********/
+header{
+    height: 560px;
+    background: url('imagens/papel-de-parede.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+header:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 0;
+}
+.navegacao{
+    margin: auto;
+    display: block;
+    text-align: center;
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.navegacao nav ul{
+    display: block;
+}
+
+.navegacao nav ul li{
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 35px;
+}
+
+.navegacao nav ul li a{
+    text-transform: uppercase;
+    color: white;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, .4);
+}
+
+header .texto-home {
+    display: block;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header .texto-home *{
+    padding: 10px;
+    color: white;
+}
+
+header .texto-home h1{
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+.btn{
+    display: inline-block;
+    margin: 15px;
+    background: rgba(255, 0, 0, 0.678);
+    transition: .4s;
+    padding: 15px;
+    color: white;
+    border: 1px solid transparent;
+} .btn:hover{
+    color: rgba(255, 0, 0, 0.678);
+    background: white;
+    border-color: #f3f3f3;
+}
+
+/*********** Funcionalidades ***********/
+
+.section-funcionalidade{
+    padding: 60px 0;
+}
+
+.section-funcionalidade .grupo-funcionalidade{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 300px);
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.section-funcionalidade .grupo-funcionalidade .item-funcionalidade{
+    text-align: center;
+}
+
+.section-funcionalidade .grupo-funcionalidade .item-funcionalidade h5{
+    
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+/*********** Galeria ***********/
+
+.section-galeria figure div{
+    position: relative;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.section-galeria figure div:before{
+    content: attr(title) ' - UI Project' ;
+    position: absolute;
+    width: 100%;
+    height: 99%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    top: 50%;
+    font-weight: 600;
+    transform: translate(-50%, -50.6%);
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    background: rgba(255, 0, 0, 0.425);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: .2s;
+    visibility: hidden;
+}
+
+.section-galeria figure div:hover:before{
+    visibility: visible;
+    cursor: pointer;
+}
+
+.section-galeria figure div img{
+    height: 300px;
+}
+
+/*********** Time ***********/
+
+.section-time .grupo-time .integrante-time{
+    text-align: center;
+    padding: 15px 0;
+}
+
+.section-time .grupo-time .integrante-time h5{
+    padding: 10px;
+}
+
+.section-time .grupo-time .integrante-time span{
+    color: rgba(255, 0, 0, 0.548);
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 0px 0 10px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.section-time .grupo-time .integrante-time .icons-time a{
+    padding: 10px 0;
+    display: inline-block;
+}
+
+.section-time .grupo-time .integrante-time .icons-time i{
+    border-radius: 0;
+    color: #c3c3c3;
+    background: white;
+    padding: 15px;
+    border: 1px solid #f3f3f3;
+}
+
+/*********** Depoimentos ***********/
+
+.section-depoimentos{
+    display: block;
+    
+}
+
+.section-depoimentos .imagem-cliente img{
+    width: 100%;
+}
+
+.section-depoimentos .depoimentos{
+    width: 100%;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    margin: auto;
+    top: -4px;
+}
+
+.section-depoimentos .depoimentos article{
+    display: flex;
+    padding: 13px 15px 69px;
+    position: absolute;
+    visibility: hidden;
+    background: blueviolet;
+    top: 0;
+    width: 100%;
+    
+}
+
+.section-depoimentos .depoimentos article blockquote{
+    width: 290px;
+    color: white;
+    font-size: 14px;
+}
+
+
+.section-depoimentos .depoimentos article blockquote cite{
+    display: block;
+    padding-top: 30px;
+    color: white;
+}
+
+.dots-sliders {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 187px;
+}
+
+.dot-slider{
+    border: 1px solid white;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    background: rgba(255, 255, 255, .4);
+    
+}
+
+.dot-slider:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, .4);
+}
+
+
+.depoimentoAtual{
+    display: block;
+    visibility: visible;
+    background: white;
+}
+
+.active{
+    visibility: visible !important;
+    display: block;
+}
+
+/*********** Download ***********/
+
+.section-downloads{
+    padding: 25px;
+
+}
+
+.section-downloads article{
+    text-align: center;
+}
+
+.section-downloads article h5{
+    font-weight: 400;
+}
+
+.section-downloads article p{
+    padding: 10px;
+    font-weight: 600;
+}
+
+/*********** Footer ***********/
+
+footer{
+    background: rgba(36, 53, 107, 0.479);
+}
+
+footer div{
+    text-align: center;
+    padding: 15px;
+}
+
+
+
+footer div h4{
+    color: white;
+    text-transform: uppercase;
+}
+
+footer div p{
+    color: white;
+    padding-top: 10px;
+    font-size: .9em;
+}
+
+footer .icons-footer{
+    padding: 15px;
+}
+
+footer .icons-footer i{
+    border-radius: 0;
+    border: 2px solid white;
+    padding: 15px;
+    color: white;
+}
+
+footer .info-site{
+    background: rgb(32, 32, 70);
+}
+
+footer .info-site p{
+    color: white;
+}
+
+footer .info-site p i{
+    color: red;
+}
+
+footer .info-site p a{
+    color: #c3c3c3;
+}

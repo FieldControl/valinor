@@ -1,0 +1,175 @@
+@media(min-width: 767px){
+
+    header .texto-home {
+        display: block;
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    header .texto-home h1 {
+        font-size: 2.2em;
+        text-transform: uppercase;
+    }
+
+    .section-funcionalidade .grupo-funcionalidade {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 300px);
+        column-gap: 30px;
+        row-gap: 30px;
+    }
+
+    .wrap{
+        width: 624px;
+        margin: auto;
+    }
+
+    .section-galeria figure {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 300px);
+        column-gap: 20px;
+        row-gap: 20px;
+        padding-bottom: 60px;
+    }
+
+    .section-time .grupo-time {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 500px);
+        column-gap: 20px;
+        row-gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    .section-depoimentos {
+        display: flex;
+        margin-top: 55px;
+        background-color: blueviolet;
+    }
+
+    .section-depoimentos .imagem-cliente{
+        width: 50%;
+    }
+
+    .section-depoimentos .imagem-cliente img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .section-depoimentos .depoimentos {
+        width: 50%;
+        padding: 41px 0;
+        overflow: hidden;
+        position: relative;
+        margin: auto;
+        top: 1px;}
+
+    .section-depoimentos .depoimentos article blockquote {
+        width: 100%;
+        color: white;
+        font-size: 1.1em;
+    }
+
+    .section-downloads {
+        padding: 50px;
+    }
+}
+
+@media(min-width: 1024px){
+    .navegacao{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .navegacao nav ul {
+        display: flex;
+    }
+
+    .navegacao nav ul li a{
+    border-top: 1px solid transparent;
+    }
+
+    .wrap{
+        width: 824px;
+    }
+
+    .section-funcionalidade .grupo-funcionalidade {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 300px);
+        column-gap: 30px;
+        row-gap: 30px;
+    }
+
+    .section-galeria figure {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 0px;
+        row-gap: 0px;
+        padding-bottom: 60px;
+    }
+
+    .section-galeria figure div {
+        position: relative;
+        display: inline-block;
+        margin: 0px 0;
+    }
+
+    .section-galeria figure div img {
+        height: 100%;
+    }
+    
+
+    .section-time .grupo-time {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 500px);
+        column-gap: 20px;
+        row-gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    
+
+    footer .info-localizacao {
+        display: flex;
+        margin: auto;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    footer .info-localizacao div:not(.icons-footer) {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+}
+
+@media(min-width: 1440px){
+    .wrap{
+        width: 924px;
+    }
+    .section-depoimentos .depoimentos article blockquote {
+        padding: 0px 40px;
+    }
+}
+
+@media(min-width: 1640px){
+    .wrap{
+        width: 1024px;
+    }
+}
+
+@media(min-width: 1840px){
+    .wrap{
+        width: 1224px;
+    }
+}
