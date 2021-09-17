@@ -1,14 +1,30 @@
 
 
 
+header{
+    background: url('../assets/background.jpg');
+   
+    background-size: cover;
+    position: relative;
+}
 
-main{
+.navbar_style {
+    background: rgba(0, 0, 0, 0.9) !important;
+    color: white !important;
+}
+.navbar_lista li a{
+    color: white !important
+}
+
+
+.box_initial{
     height: 83vh;
-    background-color: #31344f;
     align-items: center; 
     display: flex; 
     flex: 1;
+    background: rgba(0, 0, 0, 0.5);
 }
-main .initial_conteudo {
+.initial_conteudo {
     text-align: center;
+    color: white;
 }
