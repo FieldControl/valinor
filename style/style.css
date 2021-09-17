@@ -1,0 +1,14 @@
+
+
+
+
+main{
+    height: 83vh;
+    background-color: #31344f;
+    align-items: center; 
+    display: flex; 
+    flex: 1;
+}
+main .initial_conteudo {
+    text-align: center;
+}
