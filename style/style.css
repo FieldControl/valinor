@@ -28,3 +28,14 @@ header{
     text-align: center;
     color: white;
 }
+
+.box_funcionalidades{
+    padding: 80px 0 100px 0;
+}
+.funcionalidades_descricao{
+    text-align: center;
+}
+
+.funcionalidades_descricao img{
+    height: 85px;
+}
