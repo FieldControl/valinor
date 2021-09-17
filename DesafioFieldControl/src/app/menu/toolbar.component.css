@@ -1,0 +1,23 @@
+
+
+.navbar{
+  background-color: #333;
+}
+
+.nav-item {
+  margin: 9px;
+}
+
+.search-bar{
+  margin-top: 2px;
+  width: 100%;
+  height: 5%;
+}
+
+span a{
+  text-decoration: none;
+  color: #f0f6fc;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap
+}

@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+table.mat-table {
+  display: table;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  right: 50%; /* or: left: 50%; */
+  margin-top: -50px; /* have of the elements height */
+  margin-right: -50px; /* have of the elements widht */
+}
+
+.rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+td a{
+  text-decoration: none;
+  color: #f0f6fc;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap
+}
