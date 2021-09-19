@@ -39,3 +39,29 @@ header{
 .funcionalidades_descricao img{
     height: 85px;
 }
+
+.box_projetos{
+    display: flex;
+    flex: 1;
+    
+}
+
+.projetos_container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+   
+}
+.projetos_container .figura{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 337px;
+    height: 120px;
+   
+}
+
+.projetos_container .figura img{
+    width: 100%;
+    height: auto;
+}
