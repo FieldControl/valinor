@@ -15,7 +15,7 @@ export function SearchPokemon() {
     async function handleSearchPokemon(event: FormEvent) {
         event.preventDefault();
 
-        if (pokemonInput == '') {
+        if (pokemonInput === '') {
             const pokemons = await getPokemonsInfo();
             setPokemons(pokemons);
             return;
@@ -24,10 +24,6 @@ export function SearchPokemon() {
         try {
             pokeApi.get(`/pokemon/${pokemonInput}`)
                 .then(response => {
-                    console.log(response.status);
-                    if (response.status === 404) {
-                        console.log('deu bó menó');
-                    }
                     const pokemonInfo = [{
                         name: pokemonInput,
                         sprite: response.data.sprites.other['official-artwork'].front_default,
