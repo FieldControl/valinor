@@ -65,3 +65,14 @@ header{
     width: 100%;
     height: auto;
 }
+
+
+
+
+.box_time {
+    padding-top: 50PX;
+}
+
+.box_time .time_descricao img{
+    height: 200px;
+}
