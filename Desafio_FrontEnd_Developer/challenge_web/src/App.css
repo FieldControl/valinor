@@ -1,0 +1,141 @@
+/* importação de fontes */
+
+@font-face {
+    font-family: Raleway;
+    src: url(../src/fonts/Raleway-Regular.ttf)
+}
+
+@font-face {
+    font-family: 'Raleway bold';
+    src: url(../src/fonts/Raleway-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: 'Cardo';
+    src: url(../src/fonts/Cardo-Italic.ttf);
+}
+
+
+/*utilizado para garantir a respnsividade*/
+
+#Features,
+header,
+#Works,
+#OurTeam,
+#testimonials {
+    width: auto;
+    height: max-content;
+}
+
+#Features>div>div>* {
+    margin: 10px 0;
+}
+
+
+/* estilo de backgrounds utilizados */
+
+header {
+    background-image: url('./imgs/background_header.png');
+    font-family: Raleway;
+}
+
+.bg-purple {
+    background-color: rgba(83, 53, 73);
+}
+
+#footerBaseline {
+    background-color: rgb(49, 51, 83);
+}
+
+#footerTop {
+    background-color: rgb(57, 61, 99);
+}
+
+
+/* estilos utilizados nos textos */
+
+p,
+h1 {
+    color: aliceblue;
+}
+
+#description {
+    color: rgb(82, 79, 79);
+    font-size: 14px;
+    font-family: Raleway;
+}
+
+#title {
+    font-weight: 900;
+    font-family: 'Raleway bold';
+    color: black;
+    font-size: 14px;
+}
+
+#Download>*>#title {
+    font-size: 20px;
+    font-weight: 100;
+    font-family: Raleway;
+}
+
+#Download>*>#description {
+    font-size: 10px;
+    font-family: 'Raleway bold';
+}
+
+#font-red {
+    color: rgba(221, 4, 4, 0.74);
+    font-size: 12px;
+    font-family: Raleway;
+    font-weight: 900;
+}
+
+#bLabel {
+    font-size: 10px;
+}
+
+
+/* utilizado para o bloco de citação de clientes*/
+
+#cita {
+    font-family: 'Cardo';
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#Works>div>* {
+    padding: 0 0;
+}
+
+
+/* bloco utilizado para animação de texto em hover no componente works*/
+
+.showText {
+    position: relative;
+    width: 50%;
+}
+
+.showText:hover .overlay {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.overText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
