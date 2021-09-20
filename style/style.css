@@ -1,6 +1,15 @@
-
-
-
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    font-size: 100%;
+    list-style-type: none;
+}
 header{
     background: url('../assets/background.jpg');
    
@@ -46,6 +55,7 @@ header{
     
 }
 
+
 .projetos_container{
     display: flex;
     flex: 1;
@@ -56,11 +66,10 @@ header{
     display: flex;
     flex: 1;
     flex-direction: row;
-    width: 337px;
+    width: 25%;
     height: 120px;
    
 }
-
 .projetos_container .figura img{
     width: 100%;
     height: auto;
