@@ -1,9 +1,10 @@
 # Envio de solução - PokeHub 
 
+Você pode visualizar a aplicação clicando [Aqui](https://pokehub-amber.vercel.app/), mas caso prefira, pode rodar localmente seguindo os passos abaixo:
+
 ## Requisitos
 - [NodeJS](https://nodejs.org/en/download/)
 - Um gerenciador de pacotes de sua preferência: [NPM](https://nodejs.org/en/download/) ou [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
-
 
 ## Preparando o ambiente
 
