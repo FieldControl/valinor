@@ -171,7 +171,7 @@ ol.carousel-indicators {
 
 .box_dados{
     background-color: #3a3e64;
-    padding: 40px 0 60px 0;
+    padding: 60px 0 60px 0;
 }
 .box_dados .dados{
     text-align: center;
@@ -195,4 +195,14 @@ ol.carousel-indicators {
 }
 .box_dados .dados ul li i{
     color: white;
+}
+
+footer{
+    background-color: #313454;
+}
+
+.description_footer {
+    text-align: center;
+    color: white;
+    padding: 20px 0 20px 0;
 }
