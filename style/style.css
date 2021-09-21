@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    list-style-type: none
 }
 body{
     font-size: 100%;
@@ -164,4 +165,34 @@ ol.carousel-indicators {
 
 .cta_conteudo {
     text-align: center;
+    padding-bottom: 80px;
+}
+
+
+.box_dados{
+    background-color: #3a3e64;
+    padding: 40px 0 60px 0;
+}
+.box_dados .dados{
+    text-align: center;
+    color: white;
+}
+.box_dados .dados h5{
+    text-transform: uppercase;
+}
+.box_dados .dados ul{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+.box_dados .dados ul li{
+    color: white;
+    padding: 4px 10px 4px 10px;
+    border: 2px solid white;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.box_dados .dados ul li i{
+    color: white;
 }
