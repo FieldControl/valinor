@@ -85,3 +85,80 @@ header{
 .box_time .time_descricao img{
     height: 200px;
 }
+.box_time .time_descricao .time_description{
+    max-width:200px;
+}
+
+
+.depoimentos_image{
+    max-height: 300px;
+}
+.depoimentos_image figure{
+    height: 300px;
+}
+.depoimentos_image figure img{
+    width: 100%; 
+    height: 250px; 
+    object-fit: cover;
+}
+
+
+.depoimentos_description{
+    height: 250px;
+    background-color: #53354a;
+}
+
+ol.carousel-indicators {
+    position: absolute;
+    bottom: 5px;
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    
+ }
+ 
+ ol.carousel-indicators li,
+ ol.carousel-indicators li.active {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin: 0;
+    border-radius: 50%;
+    border: 0;
+    background: transparent;
+ }
+ 
+ ol.carousel-indicators li {
+    background: rgba(255,255,255,0.39);
+    
+ }
+ 
+ ol.carousel-indicators li.active {
+    background: rgb(255, 255, 255);
+ }
+
+ .depoimentos_description .carousel-item p{
+     color: white;
+     overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical;
+    padding-top: 20%;
+ }
+ .depoimentos_description .carousel-item span{
+     font-size: 13px;
+ }
+ .depoimentos_description .carousel-item{
+     text-align: center;
+     max-width: 250px;
+     color: white;
+     
+ }
+ .depoimentos_description {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+ }
+
