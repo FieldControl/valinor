@@ -18,10 +18,15 @@ header{
     position: relative;
 }
 
+button {
+   width: 230px;
+}
+
 .navbar_style {
     background: rgba(0, 0, 0, 0.9) !important;
     color: white !important;
 }
+
 .navbar_lista li a{
     color: white !important
 }
@@ -89,7 +94,19 @@ header{
 .box_time .time_descricao .time_description{
     max-width:200px;
 }
-
+.icons_time li{
+    padding: 4px 10px 4px 10px;
+    border: 2px solid #c6cacc;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.icons_time ul{
+    display: flex;
+    flex: 1;
+}
+.icons_time li i{
+    color: #c6cacc;
+}
 
 .depoimentos_image{
     max-height: 300px;
@@ -99,13 +116,13 @@ header{
 }
 .depoimentos_image figure img{
     width: 100%; 
-    height: 250px; 
+    height: 300px; 
     object-fit: cover;
 }
 
 
 .depoimentos_description{
-    height: 250px;
+    height: 300px;
     background-color: #53354a;
 }
 
@@ -165,7 +182,7 @@ ol.carousel-indicators {
 
 .cta_conteudo {
     text-align: center;
-    padding-bottom: 80px;
+    padding: 40px 0 80px 0;
 }
 
 
