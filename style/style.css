@@ -18,7 +18,8 @@ header{
     position: relative;
 }
 
-button {
+.initial_conteudo button,
+.cta_conteudo button {
    width: 230px;
 }
 
