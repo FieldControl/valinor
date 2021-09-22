@@ -71,15 +71,15 @@ header{
 }
 .projetos_container .figura{
     display: flex;
-    flex: 1;
     flex-direction: row;
     width: 25%;
-    height: 120px;
+    height: 250px;
    
 }
 .projetos_container .figura img{
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 

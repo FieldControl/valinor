@@ -1,0 +1,26 @@
+
+
+@media (max-width: 964px){
+    
+    #navbarNav {
+        text-align: center;
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 471px){
+    .box_time .time_descricao img {
+        height: 140px;
+    }
+
+    .depoimentos_image figure img {
+        height: 250px;
+    }
+    .depoimentos_description {
+        height: 250px;
+    }
+    ol.carousel-indicators li, ol.carousel-indicators li.active {
+        width: 1rem;
+        height: 1rem;
+    }
+}
