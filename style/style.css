@@ -67,19 +67,26 @@ header{
     display: flex;
     flex: 1;
     flex-direction: column;
-   
+    background-color: #d64242;
 }
 .projetos_container .figura{
     display: flex;
     flex-direction: row;
     width: 25%;
     height: 250px;
+    
    
 }
 .projetos_container .figura img{
     width: 100%;
     height: auto;
     object-fit: cover;
+   
+    transition: .2s;
+}
+.projetos_container .figura img:hover{
+    cursor: pointer;
+    opacity: 0.3;   
 }
 
 

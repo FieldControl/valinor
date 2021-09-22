@@ -23,4 +23,7 @@
         width: 1rem;
         height: 1rem;
     }
+    .projetos_container .figura{
+        height: 100px;
+    }
 }
