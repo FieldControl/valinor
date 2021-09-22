@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
+
+
+/* font-family: 'Raleway', sans-serif; */
 *, 
 *:after,
 *:before {
@@ -7,6 +11,9 @@
     text-decoration: none;
     list-style-type: none
 }
+
+
+/* FONTES E VARIAVEIS DE COR ------------------------------------------------------------------------------------- */
 body{
     font-size: 100%;
     list-style-type: none;
@@ -50,6 +57,13 @@ header{
 }
 .funcionalidades_descricao{
     text-align: center;
+}
+.funcionalidades_descricao h5{
+    font-family: 'Raleway';
+    font-weight: bold;
+}
+.funcionalidades_descricao p{
+    font-family: 'Raleway';
 }
 
 .funcionalidades_descricao img{
@@ -102,6 +116,12 @@ header{
 .box_time .time_descricao .time_description{
     max-width:200px;
 }
+.box_time .time_descricao h5, 
+.box_time .time_descricao p{
+    font-family: 'Raleway';
+}
+
+
 .icons_time li{
     padding: 4px 10px 4px 10px;
     border: 2px solid #c6cacc;
@@ -165,6 +185,9 @@ ol.carousel-indicators {
 
  .depoimentos_description .carousel-item p{
      color: white;
+    font-family: 'Cardo', serif;
+    font-style: italic;
+    font-size: 25px;
      overflow: hidden; 
     text-overflow: ellipsis; 
     display: -webkit-box;
@@ -174,12 +197,12 @@ ol.carousel-indicators {
  }
  .depoimentos_description .carousel-item span{
      font-size: 13px;
+     font-family: 'Raleway';
  }
  .depoimentos_description .carousel-item{
      text-align: center;
      max-width: 250px;
      color: white;
-     
  }
  .depoimentos_description {
     display: flex;
@@ -191,6 +214,18 @@ ol.carousel-indicators {
 .cta_conteudo {
     text-align: center;
     padding: 40px 0 80px 0;
+}
+.title_cta{
+    font-family: 'Raleway';
+    font-weight: lighter;
+}
+.description_cta {
+    font-family: 'Raleway';
+    font-weight: bold;
+}
+.btn_cta{
+    font-family: 'Raleway';
+    font-weight: 600;
 }
 
 
@@ -221,7 +256,14 @@ ol.carousel-indicators {
 .box_dados .dados ul li i{
     color: white;
 }
-
+.dados h5{
+    font-family: 'Raleway';
+    font-weight: bold;
+}
+.dados p{
+    font-family: 'Raleway';
+    
+}
 footer{
     background-color: #313454;
 }
@@ -230,4 +272,8 @@ footer{
     text-align: center;
     color: white;
     padding: 20px 0 20px 0;
+}
+
+.description_footer p{
+    font-family: 'Raleway';
 }
