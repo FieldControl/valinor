@@ -1,0 +1,18 @@
+.btn {
+	background-color: $brand-color;
+	color: $white;
+	font-size: 13px;
+	font-weight: $semibold;
+	border: 0;
+	@include border-radius(2px);
+	display: inline-block;
+	text-transform: uppercase;
+	&:hover,
+	&:focus {
+		background-color: darken($brand-color, 5%);
+		color: $white;
+	}
+	&-large {
+		padding: 15px 40px;
+	}
+}
