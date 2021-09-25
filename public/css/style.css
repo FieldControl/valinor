@@ -1,6 +1,7 @@
 html, body{
     height: 100%;
     font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
 }
 
 .bg-header{
@@ -9,7 +10,8 @@ html, body{
 }
 
 .page-header{
-    margin-top: 4rem;
-    font-size: 1.25rem;
+    margin-top: 13rem;
+    font-size: 0.95rem;
     color: #fff;
+    text-align: center;
 }
