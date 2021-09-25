@@ -1,0 +1,15 @@
+html, body{
+    height: 100%;
+    font-size: 1rem;
+}
+
+.bg-header{
+    background-image: url(../img/bg-header.jpg);
+    height: 750px;
+}
+
+.page-header{
+    margin-top: 4rem;
+    font-size: 1.25rem;
+    color: #fff;
+}
