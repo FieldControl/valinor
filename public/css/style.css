@@ -17,6 +17,11 @@ html, body{
     font-family: 'Cardo', serif;
 }
 
+.page-action{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
 .bg-header{
     background-image: url(../img/bg-header.jpg);
     height: 750px;
