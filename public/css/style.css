@@ -4,13 +4,24 @@ html, body{
     font-family: 'Raleway', sans-serif;
 }
 
+.page-header{
+    margin-top: 13rem;
+    font-size: 0.95rem;
+    color: #fff;
+}
+
+.page-carousel{
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 2rem;
+    font-family: 'Cardo', serif;
+}
+
 .bg-header{
     background-image: url(../img/bg-header.jpg);
     height: 750px;
 }
 
-.page-header{
-    margin-top: 13rem;
-    font-size: 0.95rem;
-    color: #fff;
+.bg-carousel{
+    background-color: #53354a;
 }
