@@ -1,3 +1,23 @@
+@use "../abstracts/variables" as var;
+
 p {
     max-width: 80ch;
+}
+
+.main-title {
+    color: var.$white-color;
+    font: var.$bold 2rem var.$font-secondary;
+    margin: 0 var.$gap-medium;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 480px) {
+        font-size: 4.0625rem;
+    }
+}
+
+.header__description {
+    color: var.$white-color;
+    font-size: 1.375rem;
+    font-weight: var.$light;
+    margin: var.$gap-small var.$gap-large;
 }

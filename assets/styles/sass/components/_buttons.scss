@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as var;
+
+.btn-more {
+    background-color: var.$brand-primary-color;
+    border: none;
+    border-radius: 2px;
+    font-weight: var.$semibold;
+    margin-top: 80px;
+
+    &:hover {
+        background-color: #e52e2e;
+        transition: background-color, color, 0.3s;
+    }
+
+    &__link {
+        color: var.$white-color;
+        display: block;
+        padding: 15px var.$gap-large;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+    }
+}

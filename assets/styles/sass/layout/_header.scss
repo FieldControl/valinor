@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins";
+
+.header {
+    background-image: url("../../img/banner.jpg");
+    background-position: center top;
+    background-size: cover;
+    @include mixins.flex-position(column);
+    padding: 45% 0 150px;
+    text-align: center;
+    width: 100%;
+
+    @media screen and (min-width: 770px) {
+        padding: 20% 80px 150px;
+    }
+}
