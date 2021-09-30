@@ -98,6 +98,21 @@ p {
   }
 }
 
+.scrolled {
+  background-color: #2b2e4a;
+  border: none;
+  margin: 0;
+  max-width: none;
+  padding: 20px 40px;
+  transition: padding 0.3s;
+  width: 100vw;
+}
+@media screen and (max-width: 1020px) {
+  .scrolled {
+    padding: 10px 20px;
+  }
+}
+
 .icon-menu {
   background-color: #e84545;
   border-radius: 50%;

@@ -60,3 +60,17 @@
         margin: 0 var.$gap-large;
     }
 }
+
+.scrolled {
+    background-color: var.$brand-secondary-color;
+    border: none;
+    margin: 0;
+    max-width: none;
+    padding: var.$gap-medium var.$gap-large;
+    transition: padding 0.3s;
+    width: 100vw;
+
+    @media screen and (max-width: 1020px) {
+        padding: var.$gap-small var.$gap-medium;
+    }
+}
