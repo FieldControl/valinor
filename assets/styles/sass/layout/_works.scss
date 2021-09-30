@@ -1,0 +1,55 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins";
+
+.works-section {
+    flex-wrap: wrap;
+    @include mixins.flex-position(row);
+    margin-top: var.$gap-large;
+    padding-top: 85px;
+
+    &__cards {
+        border: 1px solid var.$white-color;
+        color: transparent;
+        height: 350px;
+        @include mixins.flex-position(column);
+        width: 100%;
+
+        img {
+            @include mixins.sizer(100%);
+        }
+
+        &:hover {
+            color: var.$white-color;
+            cursor: pointer;
+
+            .works-section__infos {
+                background: rgba(255, 69, 69, 0.6);
+                transition: background-color, color, 0.3s;
+                width: 100%;
+
+                @media screen and (min-width: 781px) {
+                    width: 50%;
+                }
+
+                @media screen and (min-width: 1200px) {
+                    width: 25%;
+                }
+            }
+        }
+
+        @media screen and (min-width: 781px) {
+            width: 50%;
+        }
+
+        @media screen and (min-width: 1200px) {
+            width: 25%;
+        }
+    }
+
+    &__infos {
+        height: 350px;
+        @include mixins.flex-position(column);
+        position: absolute;
+        text-align: center;
+    }
+}

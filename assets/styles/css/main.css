@@ -190,6 +190,68 @@ p {
   }
 }
 
+.works-section {
+  flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
+  padding-top: 85px;
+}
+.works-section__cards {
+  border: 1px solid #fff;
+  color: transparent;
+  height: 350px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.works-section__cards img {
+  height: 100%;
+  width: 100%;
+}
+.works-section__cards:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.works-section__cards:hover .works-section__infos {
+  background: rgba(255, 69, 69, 0.6);
+  transition: background-color, color, 0.3s;
+  width: 100%;
+}
+@media screen and (min-width: 781px) {
+  .works-section__cards:hover .works-section__infos {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .works-section__cards:hover .works-section__infos {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 781px) {
+  .works-section__cards {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .works-section__cards {
+    width: 25%;
+  }
+}
+.works-section__infos {
+  height: 350px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+}
+
 .icon-menu {
   background-color: #e84545;
   border-radius: 50%;
@@ -248,4 +310,50 @@ p {
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+}
+
+.btn-close-modal {
+  align-items: center;
+  background-color: #e84545;
+  border: 2px solid #2d3033;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  left: 95%;
+  position: absolute;
+  top: -17px;
+}
+@media screen and (max-width: 770px) {
+  .btn-close-modal {
+    left: 90%;
+  }
+}
+
+.modal {
+  background-color: #fff;
+  border: 2px solid #2d3033;
+  border-radius: 5px;
+  padding: 20px;
+  position: fixed;
+  top: 25%;
+  left: 20%;
+  width: 60vw;
+  display: none;
+  z-index: 2;
+}
+.modal img {
+  border: 2px solid #2d3033;
+  width: 100%;
+}
+@media screen and (max-width: 770px) {
+  .modal {
+    left: 0;
+    padding: 10px;
+    width: 100vw;
+  }
 }
