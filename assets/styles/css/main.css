@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #6c7279;
+  font: 400 16px "Raleway", sans-serif;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 1275px;
+}
+
+a:focus,
+button:focus {
+  outline: #e84545 dotted 3px;
+  outline-offset: 0.3em;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+p {
+  max-width: 80ch;
+}

@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as var;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var.$text-secondary-color;
+    font: var.$regular 16px var.$font-primary;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 1275px;
+}
+
+a:focus,
+button:focus {
+    outline: var.$brand-primary-color dotted 3px;
+    outline-offset: 0.3em;
+}
+
+img {
+    object-fit: cover;
+}
