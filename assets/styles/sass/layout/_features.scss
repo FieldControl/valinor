@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins";
+
+.features-section {
+    @include mixins.flex-position(row);
+    flex-wrap: wrap;
+    padding: 100px var.$gap-small var.$gap-large;
+    text-align: center;
+
+    &__cards {
+        @include mixins.flex-position(column);
+        margin: 0 var.$gap-medium;
+        padding-top: var.$gap-large;
+        width: 300px;
+
+        figcaption {
+            font-size: 0.875rem;
+        }
+    }
+
+    @media screen and (max-width: 765px) {
+        flex-direction: column;
+    }
+
+    @media screen and (min-width: 1040px) {
+        justify-content: space-around;
+    }
+}

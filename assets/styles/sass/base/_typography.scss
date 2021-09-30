@@ -21,3 +21,11 @@ p {
     font-weight: var.$light;
     margin: var.$gap-small var.$gap-large;
 }
+
+.secondary-title {
+    color: var.$text-primary-color;
+    font: var.$bold 0.875rem var.$font-primary;
+    line-height: 1.5;
+    margin: var.$gap-medium 0 var.$gap-small;
+    text-transform: uppercase;
+}
