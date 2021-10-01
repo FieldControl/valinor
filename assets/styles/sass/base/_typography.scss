@@ -50,3 +50,9 @@ p {
     font-size: 1.75rem;
     font-weight: var.$light;
 }
+
+.footer__title {
+    font-size: 0.875rem;
+    margin: var.$gap-medium;
+    text-transform: uppercase;
+}

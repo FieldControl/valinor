@@ -84,6 +84,12 @@ p {
   font-weight: 300;
 }
 
+.footer__title {
+  font-size: 0.875rem;
+  margin: 20px;
+  text-transform: uppercase;
+}
+
 .nav-menu {
   align-items: center;
   border-bottom: 1px solid #54595e;
@@ -310,6 +316,67 @@ p {
 }
 .download-section .btn-more {
   margin-top: 20px;
+}
+
+.footer {
+  background-color: #3a3e64;
+  color: #fff;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 40px;
+  text-align: center;
+}
+.footer .infos {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0 40px;
+}
+.footer .infos div {
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 990px) {
+  .footer .infos {
+    flex-direction: row;
+  }
+  .footer .infos div {
+    width: 30%;
+  }
+}
+.footer p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+}
+.footer .social-medias {
+  justify-content: center;
+}
+.footer .social-medias a {
+  border: 2px solid #fff;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.copyright {
+  background-color: #2b2e4a;
+  padding: 20px 0;
+  width: 100%;
+}
+.copyright p {
+  margin: 0 auto;
+}
+.copyright a {
+  color: #fff;
+  text-decoration: none;
+}
+.copyright a:hover {
+  color: #e84545;
+}
+
+.fa-heart {
+  color: #e84545;
 }
 
 .icon-menu {

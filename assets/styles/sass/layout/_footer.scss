@@ -1,0 +1,65 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins";
+
+.footer {
+    background-color: #3a3e64;
+    color: var.$white-color;
+    @include mixins.flex-position(column);
+    padding-top: var.$gap-large;
+    text-align: center;
+
+    .infos {
+        @include mixins.flex-position(column);
+        padding: var.$gap-medium 0 var.$gap-large;
+
+        div {
+            margin-bottom: var.$gap-large;
+        }
+
+        @media screen and (min-width: 990px) {
+            flex-direction: row;
+
+            div {
+                width: 30%;
+            }
+        }
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.875rem;
+    }
+
+    .social-medias {
+        justify-content: center;
+
+        a {
+            border: 2px solid var.$white-color;
+            border-radius: 2px;
+            color: var.$white-color;
+        }
+    }
+}
+
+.copyright {
+    background-color: var.$brand-secondary-color;
+    padding: var.$gap-medium 0;
+    width: 100%;
+
+    p {
+        margin: 0 auto;
+    }
+
+    a {
+        color: var.$white-color;
+        text-decoration: none;
+
+        &:hover {
+            color: var.$brand-primary-color;
+        }
+    }
+}
+
+.fa-heart {
+    color: var.$brand-primary-color;
+}
