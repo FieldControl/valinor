@@ -536,6 +536,11 @@ p {
   height: 100%;
   width: 100%;
 }
+@media screen and (min-width: 770px) {
+  .slider img {
+    width: 50%;
+  }
+}
 .slider__content {
   align-items: center;
   display: flex;

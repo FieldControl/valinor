@@ -4,6 +4,10 @@
 .slider {
     img {
         @include mixins.sizer(100%);
+
+        @media screen and (min-width: 770px) {
+            width: 50%;
+        }
     }
 
     &__content {
