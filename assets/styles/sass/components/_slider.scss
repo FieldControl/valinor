@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins";
+
+.slider {
+    img {
+        @include mixins.sizer(100%);
+    }
+
+    &__content {
+        @include mixins.flex-position(row);
+
+        @media screen and (max-width: 770px) {
+            flex-direction: column;
+        }
+    }
+}

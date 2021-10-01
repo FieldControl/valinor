@@ -29,3 +29,19 @@ p {
     margin: var.$gap-medium 0 var.$gap-small;
     text-transform: uppercase;
 }
+
+.testimonial-section__text {
+    font: italic var.$regular 1.625rem var.$font-testimonial;
+    margin: var.$gap-medium var.$gap-large;
+
+    @media screen and (min-width: 990px) {
+        font-size: 2.25rem;
+    }
+}
+
+.testimonial-section__cite {
+    font-size: 0.8125rem;
+    font-weight: var.$semibold;
+    margin-left: var.$gap-large;
+    text-transform: uppercase;
+}

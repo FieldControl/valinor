@@ -1,0 +1,11 @@
+@use "../abstracts/variables" as var;
+
+.testimonial-section {
+    background-color: #53354a;
+    color: var.$white-color;
+    padding-top: 90px;
+
+    blockquote {
+        padding-bottom: var.$gap-large;
+    }
+}
