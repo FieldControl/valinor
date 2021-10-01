@@ -42,3 +42,23 @@
         left: 90%;
     }
 }
+
+.social-medias {
+    display: flex;
+    margin: var.$gap-small 0 var.$gap-large;
+
+    a {
+        border: 1px solid #c6cacc;
+        color: #c6cacc;
+        font-size: 1.125rem;
+        margin-right: var.$gap-small;
+        padding: var.$gap-small;
+
+        &:hover {
+            background-color: var.$brand-primary-color;
+            border-color: var.$brand-primary-color;
+            color: var.$white-color;
+            transition: background-color, color, 0.3s;
+        }
+    }
+}
