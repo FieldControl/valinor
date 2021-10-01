@@ -79,6 +79,11 @@ p {
   text-transform: uppercase;
 }
 
+.download-section__title {
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+
 .nav-menu {
   align-items: center;
   border-bottom: 1px solid #54595e;
@@ -286,6 +291,25 @@ p {
 }
 .testimonial-section blockquote {
   padding-bottom: 40px;
+}
+
+.download-section {
+  color: #2d3033;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px;
+  padding: 40px;
+  text-align: center;
+}
+.download-section p {
+  font-weight: 600;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+.download-section .btn-more {
+  margin-top: 20px;
 }
 
 .icon-menu {
