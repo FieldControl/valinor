@@ -10,9 +10,11 @@ Desafio feito para o teste da vaga de Front-end Developer Iniciante na empresa [
 
 </div>
 
+![](./assets/img/gif-demo-website.gif)
+
 <div align="center">
   <h3>
-    <a href="#">
+    <a href="https://theslladev.github.io/valinor/">
       Demonstração Ao Vivo
     </a>
     <span> | </span>
@@ -28,7 +30,10 @@ Desafio feito para o teste da vaga de Front-end Developer Iniciante na empresa [
   - [Tabela de Conteúdos](#tabela-de-conteúdos)
   - [Visão Geral](#visão-geral)
     - [Links](#links)
-  - [Em Desenvolvimento...](#em-desenvolvimento)
+  - [Meu processo](#meu-processo)
+    - [Construído com:](#construído-com)
+    - [O que eu aprendi](#o-que-eu-aprendi)
+  - [Versão com melhorias e sugestões](#versão-com-melhorias-e-sugestões)
   - [👷 Author](#-author)
 
 ## Visão Geral
@@ -38,9 +43,36 @@ O desafio proposto é de criar uma landing page com a imagem do layout fornecida
 ### Links
 
 - URL do Desafio: [Desafio Front-end Iniciante](https://github.com/FieldControl/valinor#challenge-frontend-developer-iniciante-challenge)
-- URL do Site em Funcionamento: [ActiveBox](#)
+- URL do Site em Funcionamento: [ActiveBox](https://theslladev.github.io/valinor/)
 
-## Em Desenvolvimento...
+## Meu processo
+
+### Construído com:
+
+- [HTML5](https://www.w3schools.com/tags/default.asp)
+  - Marcação semântica
+- [CSS3](https://www.w3schools.com/w3ss/defaulT.asp)
+  - Flex Box
+  - Mobile-first
+  - Layout responsivo
+  - Pré-processador [SASS](https://sass-lang.com/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - Manipulação do DOM(Document Object Model)
+  - [ES6(ECMAScript)](https://www.w3schools.com/js/js_es6.asp)
+  - Carrossel: [Glider.js](https://nickpiscitelli.github.io/Glider.js/)
+- Sistema de versionamento: [GIT](https://git-scm.com/)
+- Hospedagem: [GitHubPages](https://pages.github.com/)
+- Prefixos de fornecedores: [Autoprefixer](https://github.com/postcss/autoprefixer)
+- [FontAwesome](https://fontawesome.com/)
+- [Google Fonts](https://fonts.google.com/)
+
+### O que eu aprendi
+
+Aprendi a usar o Sass, suas funcionalidades de herança, váriaveis, mixins e o novo sistema de módulos. Também pratiquei o uso do JavaScript para manipular os elementos, capturar eventos como de clicks e etc
+
+## Versão com melhorias e sugestões
+
+Para ver a versão com algumas melhorias que eu sugeri, basta clonar o repositório, juntar a branch "improvements" com a master usando o comando git merge, e acessar usando o navegador, um servidor ou um plugin como o [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 ## 👷 Author
 
