@@ -62,6 +62,15 @@ p {
   text-transform: uppercase;
 }
 
+.works-section__title,
+.works-section__description {
+  font-size: 0.875rem;
+}
+
+.works-section__title {
+  text-transform: uppercase;
+}
+
 .testimonial-section__text {
   font: italic 400 1.625rem "Cardo", Georgia, "Times New Roman", serif;
   margin: 20px 40px;
