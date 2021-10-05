@@ -28,7 +28,7 @@ class Card {
                     <div class="py-1 card-description card-description-truncate">${data.description}</div>
                     <div class="py-1 d-flex justify-content-start h6">
                         <div><i class="fa fa-star-o text-warning" aria-hidden="true"></i> ${data.stargazers_count}</div>
-                        <div class="ps-2"><i class="fa fa-file-code-o text-danger" aria-hidden="true"></i> ${data.language} </div>
+                        ${data.language ? `<div class="ps-2"><i class="fa fa-file-code-o text-danger" aria-hidden="true"></i> ${data.language} </div>` : ''}
                         <div class="ps-3"> ${data.license?.name || ''} </div>
                         <div class="ps-3"> ${data.open_issues} issues precisam de ajuda </div>
                     </div>
