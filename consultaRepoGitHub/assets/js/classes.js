@@ -40,6 +40,7 @@ class Card {
 
 class Comm {
     static async doSearch(search) {
+        console.log(search)
         let response = await fetch(`https://api.github.com/search/repositories${search}&sort=stars`, {
             method: 'GET'
         });
@@ -106,14 +107,16 @@ class Utils {
 
     static pagination(totalCount, currentPage, search) {
         currentPage = currentPage.match(/[^\&]*/)[0];
+        search = search.match(/[^\&]*/)[0];
+        $('.pagination').empty();
         $(orderByStars).attr("href", `${search + '&page=' + currentPage + '&sort=stars'}`)
         $(orderByForks).attr("href", `${search + '&page=' + currentPage + '&sort=forks'}`)
         $(orderByUpdate).attr("href", `${search + '&page=' + currentPage + '&sort=updated'}`)
 
         $('.pagination').prepend(`  <li class="page-item"><a class="page-link" href="#" id="previous">Anterior</a></li>
-        <li class="page-item"><a class="page-link" href="${search + '&page=1'}">1</a></li>
-        <li class="page-item"><a class="page-link" href="${search + '&page=2'}">2</a></li>
-        <li class="page-item"><a class="page-link" href="#" id="next">Próxima</a></li>`);
+        <li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=1'}')">1</div></li>
+        <li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=2'}')">2</div></li>
+        <li class="page-item"><a class="page-link " href="#" id="next">Próxima</a></li>`);
 
         const PAGE_SIZE = 30;
         const PAGINATION_LIMIT = 30;
@@ -125,8 +128,8 @@ class Utils {
 
         let containsLastPage = containPage(lastPage);
         if (!containsLastPage) {
-            $('.pagination').children().last().before(`<li class="page-item"><a class="page-link" href="${search + '&page=' + lastPage}">${lastPage}</a></li>`);
-            if (!containPage(lastPage - 1)) $($('.pagination').find(`:contains("${lastPage}")`)[0]).before(`<li class="page-item"><a class="page-link" href="${search + '&page=' + (lastPage - 1)}">${lastPage - 1}</a></li>`);
+            $('.pagination').children().last().before(`<li class="page-item"><btn class="page-link pointer" onclick="Comm.doSearch('${search + '&page=' + lastPage}')">${lastPage}</btn></li>`);
+            if (!containPage(lastPage - 1)) $($('.pagination').find(`:contains("${lastPage}")`)[0]).before(`<li class="page-item"><btn class="page-link pointer" onclick="Comm.doSearch('${search + '&page=' + (lastPage - 1)}')">${lastPage - 1}</a></li>`);
         }
 
         if (!(containPage(currentPage))) $(containPage(2)).after(`<li class="page-item active"><a class="page-link">${currentPage}</a></li>`);
@@ -138,14 +141,14 @@ class Utils {
             let sidePage = currentPage - index;
             if (sidePage > 0) {
                 if (!containPage(sidePage)) {
-                    $(containPage(sidePage + 1)).before(`<li class="page-item"><a class="page-link" href="${search + '&page=' + sidePage}">${sidePage}</a></li>`);
+                    $(containPage(sidePage + 1)).before(`<li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=' + sidePage}')">${sidePage}</div></li>`);
                     if (index === 2) reachFirst = false;
                 }
             }
             sidePage = parseInt(currentPage) + parseInt(index);
             if (sidePage < lastPage) {
                 if (!containPage(sidePage)) {
-                    $(containPage(sidePage - 1)).after(`<li class="page-item"><a class="page-link" href="${search + '&page=' + sidePage}">${sidePage}</a></li>`);
+                    $(containPage(sidePage - 1)).after(`<li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=' + sidePage}')">${sidePage}</div></li>`);
                     if (index === 2) reachLast = false;
                 }
             }
@@ -165,6 +168,6 @@ class Utils {
         $(totalCounter).text(new Intl.NumberFormat().format(data.total_count) + ' repositórios encontrados')
         $(searchKey).val(decodeURIComponent(search.substring(3).match(/[^\&]*/)[0]));
         this.populatePool(data, '#searchResultPool');
-        this.pagination(data.total_count, page, search.match(/[^\&]*/)[0])
+        this.pagination(data.total_count, page, search)
     }
 }
