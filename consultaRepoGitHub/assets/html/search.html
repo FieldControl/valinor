@@ -40,8 +40,8 @@
     <!-- Options -->
     <!-- --Sort -->
     <div class="dropdown dropend">
-        <button class="border border-dark icons sort-icon pointer" type="button" id="dropdownSort" data-bs-toggle="dropdown"
-            aria-expanded="false">
+        <button class="border border-dark icons sort-icon pointer" type="button" id="dropdownSort"
+            data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-sort" aria-hidden="true"></i>
         </button>
         <ul class="dropdown-menu sort-menu-options pointer" aria-labelledby="dropdownSort">
@@ -84,7 +84,7 @@
         leave.addEventListener('click', () => window.location.href = '/');
         $(searchKey).on('keyup', (event) => {
             if (event.key === 'Enter' && event.target.value !== '') {
-                return window.location.href = '/search?' + 'q=' + encodeURIComponent(event.target.value) + '&page=1';
+                return Comm.doSearch('?q=' + encodeURIComponent(event.target.value) + '&page=1')
             }
         });
 
