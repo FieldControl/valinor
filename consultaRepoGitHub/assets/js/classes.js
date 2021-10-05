@@ -109,14 +109,9 @@ class Utils {
         currentPage = currentPage.match(/[^\&]*/)[0];
         search = search.match(/[^\&]*/)[0];
         $('.pagination').empty();
-        $(orderByStars).attr("href", `${search + '&page=' + currentPage + '&sort=stars'}`)
-        $(orderByForks).attr("href", `${search + '&page=' + currentPage + '&sort=forks'}`)
-        $(orderByUpdate).attr("href", `${search + '&page=' + currentPage + '&sort=updated'}`)
-
-        $('.pagination').prepend(`  <li class="page-item"><a class="page-link" href="#" id="previous">Anterior</a></li>
-        <li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=1'}')">1</div></li>
-        <li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=2'}')">2</div></li>
-        <li class="page-item"><a class="page-link " href="#" id="next">Próxima</a></li>`);
+        $(orderByStars).attr("onclick", `Comm.doSearch('${search + '&page=' + currentPage + '&sort=stars'}')`)
+        $(orderByForks).attr("onclick", `Comm.doSearch('${search + '&page=' + currentPage + '&sort=forks'}')`)
+        $(orderByUpdate).attr("onclick", `Comm.doSearch('${search + '&page=' + currentPage + '&sort=updated'}')`)
 
         const PAGE_SIZE = 30;
         const PAGINATION_LIMIT = 30;
@@ -125,6 +120,11 @@ class Utils {
         if (lastPage <= 1) return $('.pagination').parent().hide();
 
         lastPage = lastPage > PAGINATION_LIMIT ? PAGINATION_LIMIT : lastPage;
+
+        $('.pagination').prepend(`  <li class="page-item"><div class="page-link pointer" onclick="${currentPage > 1 ? `Comm.doSearch('${search + '&page=' + (currentPage - 1)}')` : ''}" id="previous">Anterior</div></li>
+        <li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=1'}')">1</div></li>
+        <li class="page-item"><div class="page-link pointer" onclick="Comm.doSearch('${search + '&page=2'}')">2</div></li>
+        <li class="page-item"><div class="page-link pointer" onclick="${currentPage < lastPage ? `Comm.doSearch('${search + '&page=' + (parseInt(currentPage) + 1)}')` : ''}" id="next">Próxima</div></li>`);
 
         let containsLastPage = containPage(lastPage);
         if (!containsLastPage) {
