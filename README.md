@@ -104,7 +104,7 @@ Os desafios de programação
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-&lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
+<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
 ----------
 
 :exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
@@ -126,7 +126,7 @@ A idéia é que a landing seja responsiva e deve conter todas as seções do PSD
 - Section para call to action
 - Footer
 
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :)
+A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
 
 &lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
 ----------
@@ -135,16 +135,16 @@ Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHu
 
 Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
 
-Você pode usar Twitter Bootstrap, Google Material ou qualquer outro framework de interfaces da sua preferência.
-
-SPA Framework? Aqui usamos bastante AngularJS e Angular, mas use o que você preferir.. React, Vue, BackboneJS (existe ainda?) ou qualquer outro :)
+Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
 
 Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
 
+Um diferencial gigante é o uso de testes unitários e integrados!
+
 URLs úteis:
 
-|  URL  | Descrição      
-|--------|                                  --- |            
+|  URL  | Descrição
+|--------|                                  --- |
 | https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
 | https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
 
