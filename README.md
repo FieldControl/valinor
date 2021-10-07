@@ -86,7 +86,7 @@ const handleModalPersist = async (movie) => {
 
 - Não foi utilizado .env ou similares, para facilitar a avaliação do aplicativo.
 - Considero que la utilização de containers facilita a desenvolvedores criar um ambiente de desenvolvimento sem o tipico problema de "na minha maquina funciona". Assim mesmo facilita a escalabilidade e gerenciamento de nosso aplicativo na nuvem.
-- Foi utilizado React para demostrar meu conhecimento nesta biblioteca e porque há 3 meses que não trabalho com React. Tenho como demostrar outros trabalhos atuales com NestJS e Angular.
+- Foi utilizado React para demostrar meu conhecimento nesta biblioteca e porque há 3 meses que não trabalho com React. Tenho como demostrar outros projetos atuales com NestJS e Angular.
 - Depois de usar TypeScript por um tempo, não consigo parar de usá-lo.
 - Foi necessário utilizar express para tratar erro de CORS.
 - Este projeto atende o conceito de MVP pois tem somente as partes funcionais mas importantes. Há muito por ser melhorado e considero que um desenvolvimento com foco em TDD aportariamuito mais a este aplicativo.
