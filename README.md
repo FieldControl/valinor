@@ -8,9 +8,9 @@ Aplicativo web para pesquisa de filmes que permite salvar favoritos e obter maio
 ## Rodando o Aplicativo
 
 ```
-git clone https://github.com/javi-domi/moviebox-challenge.git
+git clone https://github.com/javi-domi/valinor.git
 
-cd moviebox-challenge
+cd valinor
 
 docker-compose up
 ```
