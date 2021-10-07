@@ -1,0 +1,86 @@
+.modal {
+  background: #303030;
+  padding: 60px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  overflow: auto;
+}
+.movieContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: auto;
+}
+.textContainer {
+  width: 600px;
+}
+.poster {
+  width: 500px;
+}
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+.extra {
+  display: flex;
+  flex-direction: column;
+}
+.extra span:first-child {
+  margin-bottom: 8px;
+}
+h3 {
+  font-size: 4rem;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  margin: 0px 0px 10px;
+}
+p {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  margin-top: 0px;
+}
+.modal span {
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(57, 122, 82);
+  font-weight: 800;
+  margin: 0;
+}
+.ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo {
+  width: 60px;
+  border-radius: none;
+  margin-right: 6px;
+}
+.ratingsSpan {
+  font-weight: 700;
+  color: white;
+
+  align-items: center;
+  margin: 4px;
+}
+button {
+  margin-top: 60px;
+  padding: 12px 20px;
+  background: none;
+  border: 2px solid rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+button:hover {
+  border: 2px solid rgb(201, 82, 82);
+}
