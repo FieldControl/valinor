@@ -1,17 +1,10 @@
 version: "3"
 
 services:
-  backend:
+  client:
     build:
-      context: ./backend
+      context: ./client
       dockerfile: ./Dockerfile
-    image: "backend"
+    image: "client"
     ports:
-      - "8080:8080"
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: ./Dockerfile
-    image: "frontend"
-    ports:
-      - "3000:3000"
+      - "4200:4200"
