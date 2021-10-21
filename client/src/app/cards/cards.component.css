@@ -1,0 +1,37 @@
+#cardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#card {
+  padding: 20px;
+  margin: 10px 0;
+
+  background-color: rgb(43, 42, 42);
+  width: 600px;
+}
+#link {
+  text-decoration: none;
+  color: rgb(46, 46, 243);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2 ease;
+}
+#link:hover {
+  color: rgb(57, 57, 238);
+}
+#description {
+  color: rgb(218, 218, 218);
+  font-size: 1rem;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+#counters {
+  display: flex;
+  flex-direction: row;
+  color: rgb(218, 218, 218);
+  font-size: 0.8rem;
+  font-weight: 300;
+}

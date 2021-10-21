@@ -1,0 +1,11 @@
+<div id="cardsContainer" *ngFor="let item of items">
+    <div id="card">
+        <a id="link" href={{item.html_url}}>{{item.name}}</a>
+        <p id="description">{{item.description}}</p>
+        <div id="counters">
+            <span>Forks: {{item.forks_count}}</span>
+            |
+            <span>Watchers: {{item.watchers_count}}</span>
+        </div>
+    </div>
+</div>

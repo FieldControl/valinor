@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CardsComponent } from './cards/cards.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SearchBarComponent],
+  declarations: [AppComponent, HeaderComponent, SearchBarComponent, CardsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

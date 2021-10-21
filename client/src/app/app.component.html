@@ -1,5 +1,5 @@
 <div>
   <app-header></app-header>
   <app-search-bar (eventSearch)="searchRepositories($event)"></app-search-bar>
-  <div>{{searchTerm}}</div>
+  <app-cards [items]="repositories"></app-cards>
 </div>
