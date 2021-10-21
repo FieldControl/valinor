@@ -1,4 +1,4 @@
-<div id="searchContainer" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-    <input id="searchBar" type="text" formControlName="search" (keydown.enter)="onSubmit()">
+<div id="searchContainer">
+    <input id="searchBar" type="text" #searchTerm (keydown.enter)="newSearch(searchTerm.value)">
     <span id="enterToSearch">Press Enter to search</span>
 </div>

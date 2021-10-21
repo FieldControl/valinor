@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { RepositoriesService } from '../services/repositories.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,24 +6,13 @@ import { RepositoriesService } from '../services/repositories.service';
   styleUrls: ['./search-bar.component.css'],
 })
 export class SearchBarComponent implements OnInit {
-  constructor(private repositoriesService: RepositoriesService) {}
+  constructor() {}
 
-  searchForm: any;
-  searchResult: any;
+  @Output() eventSearch = new EventEmitter<string>();
 
-  ngOnInit(): void {
-    this.searchForm = new FormGroup({
-      search: new FormControl(''),
-    });
-  }
+  ngOnInit(): void {}
 
-  onSubmit(): void {
-    console.log(this.searchForm.value.search);
-    this.repositoriesService
-      .getReposOnSearch(this.searchForm.value.search)
-      .subscribe((res) => {
-        console.log(res);
-        return (this.searchResult = res);
-      });
+  newSearch(value: string) {
+    this.eventSearch.emit(value);
   }
 }
