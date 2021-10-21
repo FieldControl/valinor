@@ -1,0 +1,12 @@
+#header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+  position: sticky;
+}
+#logo {
+  margin-top: 1rem;
+  width: 200px;
+  height: auto;
+}
