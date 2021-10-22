@@ -1,11 +1,11 @@
 <div id="cardsContainer" *ngFor="let item of items">
     <div id="card">
-        <a id="link" href={{item.html_url}}>{{item.name}}</a>
+        <a id="link" href={{item.html_url}}>/{{item.name}}</a>
         <p id="description">{{item.description}}</p>
         <div id="counters">
-            <span>Forks: {{item.forks_count}}</span>
-            |
-            <span>Watchers: {{item.watchers_count}}</span>
+            <span class="counters">Forks: {{item.forks_count}}</span>
+            <span class="counters">Watchers: {{item.watchers_count}}</span>
+            <span class="counters">Open issues: {{item.open_issues_count}}</span>
         </div>
     </div>
 </div>
