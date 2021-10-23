@@ -7,6 +7,9 @@ import { RepositoriesService } from './services/repositories.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  throttle = 0;
+  distance = 2;
+  page: number = 1;
   searchTerm!: string;
   repositories!: [];
 
@@ -16,7 +19,16 @@ export class AppComponent implements OnInit {
     this.searchTerm = searchTerm;
     console.log(searchTerm);
     this.repositoriesService
-      .getReposOnSearch(searchTerm)
+      .getReposOnSearch(searchTerm, this.page)
+      .subscribe((res: any) => {
+        console.log(res.items);
+        this.repositories = res.items;
+        return res;
+      });
+  }
+  onScroll(): void {
+    this.repositoriesService
+      .getReposOnSearch(this.searchTerm, ++this.page)
       .subscribe((res: any) => {
         console.log(res.items);
         this.repositories = res.items;

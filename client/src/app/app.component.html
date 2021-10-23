@@ -1,4 +1,4 @@
-<div>
+<div infiniteScroll [infiniteScrollDistance]="distance" [infiniteScrollThrottle]="throttle" (scrolled)="onScroll()">
   <app-header></app-header>
   <app-search-bar (eventSearch)="searchRepositories($event)"></app-search-bar>
   <app-cards [items]="repositories"></app-cards>

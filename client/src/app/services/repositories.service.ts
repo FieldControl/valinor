@@ -9,9 +9,10 @@ import { environment } from 'src/environments/environment';
 export class RepositoriesService {
   constructor(private httpClient: HttpClient) {}
 
-  getReposOnSearch(query: string): Observable<[]> {
-    return this.httpClient.get<[]>(
-      `${environment.apiURL}/search/repositories?q=${query}`
+  getReposOnSearch(query: string, page: number): any {
+    console.log(page);
+    return this.httpClient.get(
+      `${environment.apiURL}/search/repositories?q=${query}&page=${page}&per_page=10`
     );
   }
 }
