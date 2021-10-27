@@ -1,0 +1,30 @@
+{
+  "name": "authtdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/sever.js --ignore __tests__",
+    "pretest": "set NODE_ENV=test&&sequelize db:migrate",
+    "test": "set NODE_ENV=test&&jest",
+    "posttest": "set NODE_ENV=test&&sequelize db:migrate:undo:all"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "factory-girl": "^5.0.4",
+    "faker": "^5.5.3",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.7.0"
+  },
+  "devDependencies": {
+    "jest": "^27.2.5",
+    "nodemon": "^2.0.13",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.6"
+  }
+}
