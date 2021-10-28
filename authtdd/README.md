@@ -4,9 +4,7 @@
 
 O projeto é uma aplicação back end construída durante meu período de estudos sobre TDD.
 
-A aplicação consiste em uma API para autenticação de usuários, onde o usuário faz uma requisição com seus dados de acesso, as informações fornecidas são consultadas em um banco de dados, se os dados estiverem corretos uma sessão será iniciada e um token JWT será gerado. O processo de autenticação será realizado quando o usuário tentar acessar as rotas restritas da aplicação, se o token do usuário for válido seu acesso será liberado.
-
-O projeto foi construido utilizando a prática do TDD (Desenvolvimento orientado por testes) com testes unitários e de inetgração.
+A aplicação consiste em uma API para autenticação de usuários, o objetivo maior foi desenvolver testes antes de implementar as funcionalidades da aplicação, tornando o fluxo de desenvolvimento orientado a testes. As credenciais, token JWT e permissões do usuário são verificadas apartir de testes unitário e de integração.
 
 # Tecnologias utilizadas
 ## Back end
@@ -17,15 +15,17 @@ O projeto foi construido utilizando a prática do TDD (Desenvolvimento orientado
 - Bcrypt
 ## Testes
 - Jest
-- Supertest
+- Factory Girl
 - Faker
+- Supertest
+- SQLite
 ## Implantação em produção
 - Banco de dados: Postgresql
 
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Node.js 14.17 / Yarn 1.22 / PostgreSQL
+Pré-requisitos: Node.js / Yarn / PostgreSQL
 
 ```bash
 # clonar repositório
