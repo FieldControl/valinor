@@ -12,10 +12,17 @@ export function Header() {
   async function handleSearchData(event) {
     event.preventDefault()
 
+    if (searchText.trim() === '') {
+      setGithubData({ total_count: 0, items: [] })
+      return
+    }
+
     const response = await api.get(`https://api.github.com/search/repositories?q=${searchText}`)
     console.log(response.data)
     if (response.status === 200) {
       setGithubData(response.data)
+    } else {
+      setGithubData({ total_count: 0, items: [] })
     }
   }
 

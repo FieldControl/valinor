@@ -1,0 +1,24 @@
+import { Header } from '../Header'
+import { LeftMenu } from '../LeftMenu';
+
+import { DashboardContainer, MainContent } from './styles'
+
+/**
+ * Página Dashboard
+ * contêm os componentes que aparecem em todas as páginas
+ * @param children componente filho a ser renderizado dentro do dashboard
+ */
+export function Dashboard({ children }) {
+  return (
+    <DashboardContainer>
+      <Header />
+
+      <MainContent>
+        <LeftMenu />
+        <section>
+          {children}
+        </section>
+      </MainContent>
+    </DashboardContainer>
+  );
+}
