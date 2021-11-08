@@ -55,5 +55,18 @@ export const RepositoryCard = styled.div`
       margin-left: 1rem;
     }
   }
-  
+`
+
+export const Pagination = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1rem 0;
+
+  strong + strong {
+    margin-left: 0.5rem;
+  }
 `

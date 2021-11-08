@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { api } from '../services/api'
 
 export const DataContext = createContext({})
@@ -9,6 +9,10 @@ function DataProvider({ children }) {
 
   const [currentPageInParams, setCurrentPageInParams ] = useState(1)
 
+  useEffect(() => {
+    localStorage.clear()
+  }, [])
+
   function currentPage() {
     return currentPageInParams
   }
@@ -18,15 +22,17 @@ function DataProvider({ children }) {
   }
 
   async function getDataRepositories(repositoryName, page = 1) {
+
     if (repositoryName.trim() === "") {
       return;
     }
     
     setCurrentPageInParams(page)
-    const response = await api.get(`https://api.github.com/search/repositories?q=${repositoryName}&per_page=15&page=${page}`)
 
+    const response = await api.get(`https://api.github.com/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
+    
     if (response.status === 200) {
-      const totalPages = Math.ceil(response.data.total_count / 15)
+      const totalPages = Math.ceil(response.data.total_count / 7)
       setData({ ...response.data, totalPages })
       
       return {

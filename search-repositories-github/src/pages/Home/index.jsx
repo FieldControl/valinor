@@ -1,7 +1,9 @@
-import {  useEffect, useState } from 'react/cjs/react.development';
+import {  useEffect, useState } from 'react';
 import { useGithubData } from '../../hooks/DataContext'
 
-import { HomeContainer, RepositoryCard } from "./styles";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+
+import { HomeContainer, RepositoryCard, Pagination } from "./styles";
 
 export function Home() {
   const [ repositoriesData, setRepositoriesData] = useState([])
@@ -37,6 +39,30 @@ export function Home() {
             </RepositoryCard>
           )
         )
+      }
+
+      {
+        data.items.length > 0 ? (
+          <Pagination>
+            <strong>
+              <AiOutlineArrowLeft 
+                size={16}
+                onClick={() => {
+                  // Se a página atual for 1, executa uma função anônima para não fazer nada e
+                  // se for maior que um ele vai diminuir a numerção da página
+                  currentPage() === 1 ? ((() => {})()) : handleSetCurrentPage(currentPage() - 1)
+                }}
+              />
+            </strong>
+            <strong>{`${currentPage()} / ${data.totalPages}`}</strong>
+            <strong>
+              <AiOutlineArrowRight 
+                size={16} 
+                onClick={() => handleSetCurrentPage(currentPage() + 1)}
+              />
+            </strong>
+          </Pagination>
+        ) :( '')
       }
     </HomeContainer>
   );
