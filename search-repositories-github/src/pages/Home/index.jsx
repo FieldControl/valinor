@@ -1,40 +1,47 @@
-import {  useEffect, useState } from 'react';
 import { useGithubData } from '../../hooks/DataContext'
+
+import { BsEye } from 'react-icons/bs'
 
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 
 import { HomeContainer, RepositoryCard, Pagination } from "./styles";
 
 export function Home() {
-  const [ repositoriesData, setRepositoriesData] = useState([])
   const { data, handleSetCurrentPage, currentPage } = useGithubData()
 
   return (
     <HomeContainer>
       {
-        data.items && data.items.map((item, index) => (
-            <RepositoryCard key={index}>
+        data.items && data.items.map((item) => (
+            <RepositoryCard key={item.id}>
               <header>
-                <p>{item.owner.login}/Repository</p>
+                <a href={item.html_url}>{item.owner.login}/{item.name}</a>
                 <p>
-                  <strong>description</strong>
+                  <strong>{item.description}</strong>
                 </p>
               </header>
               <section>
-                <button type="button">Nodejs</button>
-                <button type="button">react</button>
-                <button type="button">Nodejs</button>
-                <button type="button">react</button>
-                <button type="button">Nodejs</button>
-                <button type="button">react</button>
-                <button type="button">Nodejs</button>
-                <button type="button">react</button>
-                <button type="button">Nodejs</button>
-                <button type="button">react</button>
+                {
+                  item.topics.map((topic, index) => (<button key={index} type="button">{topic}</button>))
+                }
               </section>
               <section >
+                <p className="watchers">
+                  <BsEye size={16} />
+                  {item.watchers}
+                </p>
+
                 <p>stars</p>
-                <p>tecnologia</p>
+                
+                <p>
+                  {item.language}
+                </p>
+
+                {
+                  item.license !== null ? (
+                    <p>{item.license.name}</p>
+                  ) : ('')
+                }
               </section>
             </RepositoryCard>
           )
@@ -49,7 +56,7 @@ export function Home() {
                 size={16}
                 onClick={() => {
                   // Se a página atual for 1, executa uma função anônima para não fazer nada e
-                  // se for maior que um ele vai diminuir a numerção da página
+                  // se for maior que um ele vai diminuir a numeração da página
                   currentPage() === 1 ? ((() => {})()) : handleSetCurrentPage(currentPage() - 1)
                 }}
               />

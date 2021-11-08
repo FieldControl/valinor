@@ -8,7 +8,7 @@ export const HomeContainer = styled.main`
 
 export const RepositoryCard = styled.div`
   width: 100%;
-  height: 10rem;
+  min-height: 10rem;
   padding: 1rem;
   border-radius: 1rem;
   
@@ -22,18 +22,25 @@ export const RepositoryCard = styled.div`
   }
 
   header {
+    a {
+      text-decoration: none;
+      color: var(--font-color-primary);
+    }
+
     p {
+      font-size: 0.9rem;
       margin: 0.5rem 0;
     }
   }
 
 
   h3, p {
-    color: #000000;
+    color: var(--font-color-primary);
   }
 
   button {
-    padding: 0.2rem;
+    margin: 0.2rem 0;
+    padding: 0.26rem;
     border-radius: 0.5rem;
     border: none;
     
@@ -50,10 +57,21 @@ export const RepositoryCard = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
+    font-size: 0.8rem;
 
     p + p {
       margin-left: 1rem;
     }
+  }
+
+  section p.watchers {
+    svg {
+      margin-right: 0.25rem;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `
 

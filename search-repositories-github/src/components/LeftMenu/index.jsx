@@ -17,11 +17,6 @@ export function LeftMenu() {
           <span>Code</span>
           <span>0</span>
         </a>
-
-        <a href="/">
-          <span>Issues</span>
-          <span>0</span>
-        </a>
       </nav>
     </LeftMenuContainer>
   );
