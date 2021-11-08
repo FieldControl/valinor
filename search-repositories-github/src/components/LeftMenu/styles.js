@@ -5,11 +5,9 @@ export const LeftMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 20rem;
-    border-radius: 0.5rem;
 
-    & {
-      border: 1px solid #CCC;
-    }
+    border: 1px solid #CCC;
+    border-radius: 0.25rem;
 
     a {
       display: flex;

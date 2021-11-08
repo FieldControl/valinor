@@ -5,6 +5,8 @@ export const DashboardContainer = styled.main`
 `
 
 export const MainContent = styled.div`
+  margin-top: 0.25rem;
+
   width: 100%;
   height: 100%;
 

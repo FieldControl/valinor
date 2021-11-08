@@ -5,6 +5,8 @@ export const DataContext = createContext({})
 
 function DataProvider({ children }) {
   const [data, setData] = useState({ items: [], total_count: 0, totalPages: 0 })
+  const [issuesData, setIssuesData] = useState({ total_count: 0, items: [] })
+
   const [currentPageInParams, setCurrentPageInParams ] = useState(1)
 
   function currentPage() {
@@ -36,13 +38,26 @@ function DataProvider({ children }) {
 
     return;
   }
+
+  async function getIssuesFromRepository(username, repositoryName) {
+    if (repositoryName.trim() === "" || username.trim() === "") {
+      return;
+    }
+
+    const response = await api.get(`/search/issues?q=repo:${username}/${repositoryName}`)
+    
+    if (response.status === 200) {
+      setIssuesData(response.data)
+    }
+  }
   
   return (
     <DataContext.Provider value={{
       data,
       currentPage,
       handleSetCurrentPage,
-      getDataRepositories
+      getDataRepositories,
+      getIssuesFromRepository,
     }}>
       {children}
     </DataContext.Provider>

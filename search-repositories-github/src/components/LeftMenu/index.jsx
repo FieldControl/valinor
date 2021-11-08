@@ -8,12 +8,12 @@ export function LeftMenu() {
   return (
     <LeftMenuContainer>
       <nav>
-        <a href="/">
+        <a href="/" className="focus">
           <span>Repositories</span>
           <span>{data.total_count ? data.total_count : 0}</span>
         </a>
 
-        <a href="/" className="focus">
+        <a href="/">
           <span>Code</span>
           <span>0</span>
         </a>
