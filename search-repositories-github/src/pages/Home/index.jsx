@@ -2,9 +2,8 @@ import { HomeContainer } from "./styles";
 import { useGithubData } from '../../hooks/DataContext'
 
 export function Home() {
-  const { data } = useGithubData()
+  const { data , handleSetCurrentPage, currentPage } = useGithubData()
 
-  console.log(data)
   return (
     <HomeContainer>
       <div>
