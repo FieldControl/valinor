@@ -13,6 +13,11 @@ export function Home() {
   const { data, handleSetCurrentPage, currentPage } = useGithubData()
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
+  const [currentRepositoryInModal, setCurrentRepositoryInModal] = useState({
+    name: '',
+    description: ''
+  })
+
   function handleCloseModal() {
     setModalIsOpen(false)
   }
@@ -26,10 +31,15 @@ export function Home() {
       <RepositoryModal 
         modalIsOpen={modalIsOpen}
         handleCloseModal={handleCloseModal}
+        repositoryData={currentRepositoryInModal}
       />
       {
         data.items && data.items.map((item) => (
-            <RepositoryCard key={item.id} onClick={handleOpenModal}>
+            <RepositoryCard key={item.id} onClick={() => {
+              handleOpenModal()
+              setCurrentRepositoryInModal(item)
+            }}>
+
               <header>
                 <a 
                   target="blank" 
