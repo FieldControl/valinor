@@ -3,8 +3,11 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
 
   :root {
-    --background: #f0f2f5;
+    --background: #F9F9F9;
+    --header-color-primary: #CDF0EA;
     --font-color-primary: #000000;
+    --card-color-primary: #CDF0EA ;
+    --card-topics-color-primary: #C490E4;
   }
 
   * {

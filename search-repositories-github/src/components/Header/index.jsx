@@ -28,7 +28,7 @@ export function Header() {
           type="text"
           onChange={event => setSearchText(event.target.value)}
           value={searchText}
-          placeholder="Digite o nome do repositório"
+          placeholder="Search or jump to..."
         />
       </form>
     </HeaderContainer>

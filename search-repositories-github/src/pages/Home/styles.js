@@ -15,7 +15,7 @@ export const RepositoryCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  background: #ccc;
+  background: var(--card-color-primary);
 
   & + & {
     margin-top: 1rem;
@@ -43,7 +43,8 @@ export const RepositoryCard = styled.div`
     padding: 0.26rem;
     border-radius: 0.5rem;
     border: none;
-    margin-left: 0.25rem;    
+    margin-left: 0.25rem;
+    background: var(--card-topics-color-primary);
   }
 
   button:hover {
