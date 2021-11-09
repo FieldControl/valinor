@@ -5,6 +5,7 @@ import { useGithubData } from '../../hooks/DataContext'
 /**
  * Componente LeftMenu
  * contêm o menu esquerdo com as informações do repositório pesquisado.
+ * @returns LeftMenu React Component
  */
 export function LeftMenu() {
   const { data, topics, commits } = useGithubData()

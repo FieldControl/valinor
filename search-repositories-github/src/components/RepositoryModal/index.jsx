@@ -5,17 +5,24 @@ import { api } from '../../services/api';
 import { AiOutlineClose } from 'react-icons/ai'
 
 import {  ModalContent, ModalHeader, OwnerInfo, RepositoryInfo } from './styles'
+import { useGithubData } from '../../hooks/DataContext';
 
 Modal.setAppElement("#root")
 
 /**
  * Componente RepositoryModal
  * renderiza o modal para exibir as informações do repositório em destaque.
+ * @param {*} modalIsOpen valor booleano contendo se o modal está fechado ou não
+ * @param {*} handleCloseModal função para fechar o modal
+ * @param {*} repositoryData dados do repositório atual
+ * @returns RepositoryModal React Component
  */
 export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData }) {
   const [languages, setLanguages] = useState([])
   const [issuesData, setIssuesData] = useState({ total_count: 0, items: [] })
   
+  const { getLanguages, getIssuesFromRepository } = useGithubData()
+
   const { 
     name,
     description,
@@ -34,29 +41,10 @@ export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData 
   };
   
   useEffect(() => {
-    async function getLanguages(username, repositoryName) {
-      if (repositoryName.trim() === "" || username.trim() === "") {
-        return;
-      }
-      const response = await api.get(`/repos/${username}/${repositoryName	}/languages`)
-      const languagesKeys = Object.keys(response.data)
-      setLanguages(languagesKeys)
-    }
-
-    async function getIssuesFromRepository(username, repositoryName) {
-      if (repositoryName.trim() === "" || username.trim() === "") {
-        return;
-      }
   
-      const response = await api.get(`/search/issues?q=repo:${username}/${repositoryName}`)
-      if (response.status === 200) {
-        setIssuesData({ total_count: response.data.total_count, items: response.data.items })
-      }
-    }
+    getIssuesFromRepository(owner.login, name, setIssuesData)
 
-    getIssuesFromRepository(owner.login, name)
-
-    getLanguages(owner.login, name)
+    getLanguages(owner.login, name, setLanguages)
   }, [repositoryData])
 
   return (

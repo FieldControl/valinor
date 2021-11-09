@@ -18,10 +18,34 @@ function DataProvider({ children }) {
 
   const [currentPageInParams, setCurrentPageInParams ] = useState(1)
 
+  /**
+   * Retorna o número da página atual do repositório
+   * @returns página atual da listagem de repositórios
+   */
   function currentPage() {
     return currentPageInParams
   }
 
+  /**
+   * Recupera todas as linguagens utilizadas por um repositório
+   * @param {*} username nome de usuário do criador do repositório
+   * @param {*} repositoryName nome do repositório
+   * @param {*} setLanguagesState função para setar o estado
+   * @returns void
+   */
+  async function getLanguages(username, repositoryName, setLanguagesState) {
+    if (repositoryName.trim() === "" || username.trim() === "") {
+      return;
+    }
+    const response = await api.get(`/repos/${username}/${repositoryName	}/languages`)
+    const languagesKeys = Object.keys(response.data)
+    setLanguagesState(languagesKeys)
+  }
+
+  /**
+   * Altera o número da página atual
+   * @param {*} page número da nova página (padrão = 1)
+   */
   async function handleSetCurrentPage(page = 1) {
     // Enquanto a requisição não terminar, ele não vai deixar fazer outra chamada
     if (isPossibleCallApi) {
@@ -41,9 +65,14 @@ function DataProvider({ children }) {
     setIsPossibleCallApi(true)
   }
 
+  /**
+   * Buscar todos os dados pelo nome do repositório
+   * @param {*} repositoryName nome do do repositório
+   * @param {*} page página de listagem do repositório (padrão = 1)
+   * @returns void
+   */
   async function getDataRepositories(repositoryName, page = 1) {
 
-    
     if (repositoryName.trim() === "") {
       return;
     }
@@ -72,6 +101,11 @@ function DataProvider({ children }) {
     return;
   }
 
+  /**
+   * Busca todos os tópicos do repositório pelo nome
+   * @param {*} repositoryName nome do repositório
+   * @returns void
+   */
   async function getTopicsFromRepository(repositoryName) {
     if (repositoryName.trim() === "") {
       return;
@@ -85,6 +119,11 @@ function DataProvider({ children }) {
     }
   }
   
+  /**
+   * Buscar todos os commits do repositório pelo nome
+   * @param {*} repositoryName nome do repositório
+   * @returns void
+   */
   async function getCommitsFromRepository(repositoryName) {
     if (repositoryName.trim() === "") {
       return;
@@ -96,6 +135,25 @@ function DataProvider({ children }) {
       return response.data  
     }
   }
+
+    /**
+   * Recupera todas as issues utilizadas por um repositório
+   * @param {*} username nome de usuário do criador do repositório
+   * @param {*} repositoryName nome do repositório
+   * @param {*} setIssuesDataState função para setar o estado
+   * @returns void
+   */
+  async function getIssuesFromRepository(username, repositoryName, setIssuesDataState) {
+    if (repositoryName.trim() === "" || username.trim() === "") {
+      return;
+    }
+
+    const response = await api.get(`/search/issues?q=repo:${username}/${repositoryName}`)
+    if (response.status === 200) {
+      setIssuesDataState({ total_count: response.data.total_count, items: response.data.items })
+    }
+  }
+
   return (
     <DataContext.Provider value={{
       data,
@@ -103,6 +161,8 @@ function DataProvider({ children }) {
       handleSetCurrentPage,
       getDataRepositories,
       topics,
+      getLanguages,
+      getIssuesFromRepository,
       commits
     }}>
       {children}
