@@ -18,15 +18,12 @@ function DataProvider({ children }) {
 
   const [currentPageInParams, setCurrentPageInParams ] = useState(1)
 
-  useEffect(() => {
-    localStorage.clear()
-  }, [])
-
   function currentPage() {
     return currentPageInParams
   }
 
   async function handleSetCurrentPage(page = 1) {
+    console.log(isPossibleCallApi)
     // Enquanto a requisição não terminar, ele não vai deixar fazer outra chamada
     if (isPossibleCallApi) {
       setIsPossibleCallApi(false)
@@ -42,16 +39,17 @@ function DataProvider({ children }) {
       setIsPossibleCallApi(true)
     }
 
+    setIsPossibleCallApi(true)
   }
 
   async function getDataRepositories(repositoryName, page = 1) {
 
-    setIsPossibleCallApi(false)
-
+    
     if (repositoryName.trim() === "") {
       return;
     }
     
+    setIsPossibleCallApi(false)
     setCurrentPageInParams(page)
 
     const response = await api.get(`/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
@@ -63,7 +61,7 @@ function DataProvider({ children }) {
 
       await getTopicsFromRepository(repositoryName)
       await getCommitsFromRepository(repositoryName)
-      
+      setIsPossibleCallApi(true)
       return {
         items: response.data,
         total_count: response.data.total_count,
