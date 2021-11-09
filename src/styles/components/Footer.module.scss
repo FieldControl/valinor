@@ -1,0 +1,26 @@
+.contactFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--black);
+
+    &:hover {
+      transition: 0.3s;
+      transform: translateY(-0.35rem);
+    }
+  }
+
+  i {
+    color: white;
+    align-items: center;
+    margin: 0 1rem 0.35rem 0;
+  }
+}

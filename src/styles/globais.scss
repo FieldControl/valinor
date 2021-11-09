@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #020100;
+  --white: #fcfcff;
+  --light-gray: #cccccc;
+}
+
+@media (max-width: 1080px) {
+  /* TABLET */
+
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  /* CELULAR */
+
+  html {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  font: 400 1rem Poppins, sans-serif;
+  background: #636e72;
+}
+
+body,
+input,
+textarea,
+button {
+  font: 400 1rem Poppins, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
