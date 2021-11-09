@@ -2,12 +2,11 @@ import { useState } from 'react'
 
 import { HeaderContainer } from './styles'
 import { AiFillGithub } from 'react-icons/ai'
-import { api } from '../../services/api'
 import { useGithubData } from '../../hooks/DataContext'
 
 export function Header() {
   const [ searchText, setSearchText ] = useState('')
-  const { getDataRepositories, getIssuesFromRepository } = useGithubData()
+  const { getDataRepositories } = useGithubData()
 
   async function handleSearchData(event) {
     event.preventDefault()
@@ -16,8 +15,7 @@ export function Header() {
       return
     }
 
-    const response = await getDataRepositories(searchText)
-    // console.log(response)
+    await getDataRepositories(searchText)
   }
 
   return (
