@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const ModalContent = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -9,6 +10,13 @@ export const ModalContent = styled.div`
   width: 50rem;
 
   padding: 2rem;
+
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
 `
 
 export const ModalHeader = styled.header`

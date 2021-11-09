@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Modal from 'react-modal'
 import { api } from '../../services/api';
 
+import { AiOutlineClose } from 'react-icons/ai'
+
 import {  ModalContent, ModalHeader, OwnerInfo, RepositoryInfo } from './styles'
 
 Modal.setAppElement("#root")
@@ -61,6 +63,11 @@ export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData 
       style={customStyles}
     >
       <ModalContent>
+        <AiOutlineClose 
+          size={20} 
+          onClick={handleCloseModal}
+        />
+        
         <OwnerInfo>
           <img src={`${owner.avatar_url}`} alt={`Foto de ${owner.login}`} />
           <p>{owner.login}</p>
