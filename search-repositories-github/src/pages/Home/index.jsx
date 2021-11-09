@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { useGithubData } from '../../hooks/DataContext'
 
 import { BsEye } from 'react-icons/bs'
@@ -5,15 +7,29 @@ import { BsEye } from 'react-icons/bs'
 import { AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineStar } from 'react-icons/ai'
 
 import { HomeContainer, RepositoryCard, Pagination } from "./styles";
+import { RepositoryModal } from '../../components/RepositoryModal';
 
 export function Home() {
   const { data, handleSetCurrentPage, currentPage } = useGithubData()
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  function handleCloseModal() {
+    setModalIsOpen(false)
+  }
+
+  function handleOpenModal() {
+    setModalIsOpen(true)
+  }
 
   return (
     <HomeContainer>
+      <RepositoryModal 
+        modalIsOpen={modalIsOpen}
+        handleCloseModal={handleCloseModal}
+      />
       {
         data.items && data.items.map((item) => (
-            <RepositoryCard key={item.id}>
+            <RepositoryCard key={item.id} onClick={handleOpenModal}>
               <header>
                 <a 
                   target="blank" 
