@@ -15,7 +15,8 @@ export function Home() {
 
   const [currentRepositoryInModal, setCurrentRepositoryInModal] = useState({
     name: '',
-    description: ''
+    description: '',
+    owner: ''
   })
 
   function handleCloseModal() {
