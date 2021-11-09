@@ -20,11 +20,15 @@ export function Home() {
                   <strong>{item.description}</strong>
                 </p>
               </header>
-              <section>
-                {
-                  item.topics.map((topic, index) => (<button key={index} type="button">{topic}</button>))
-                }
-              </section>
+              {
+                item.topics.length > 0 ? (
+                <section>
+                  {
+                    item.topics.map((topic, index) => (<button key={index} type="button">{topic}</button>))
+                  }
+                </section>
+                ) : ('')
+              }
               <section >
                 <p className="watchers">
                   <BsEye size={16} />

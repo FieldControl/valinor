@@ -27,7 +27,7 @@ function DataProvider({ children }) {
       setIsPossibleCallApi(false)
       setCurrentPageInParams(page)
 
-      const response = await api.get(`https://api.github.com/search/repositories?q=${currentRepositoryName}&per_page=7&page=${page}`)
+      const response = await api.get(`/search/repositories?q=${currentRepositoryName}&per_page=7&page=${page}`)
       
       if (response.status === 200) {
         const totalPages = Math.ceil(response.data.total_count / 7)
@@ -47,7 +47,7 @@ function DataProvider({ children }) {
     
     setCurrentPageInParams(page)
 
-    const response = await api.get(`https://api.github.com/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
+    const response = await api.get(`/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
     
     if (response.status === 200) {
       const totalPages = Math.ceil(response.data.total_count / 7)
