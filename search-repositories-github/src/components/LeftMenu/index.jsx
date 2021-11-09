@@ -2,10 +2,12 @@ import { LeftMenuContainer } from './styles'
 
 import { useGithubData } from '../../hooks/DataContext'
 
+/**
+ * Componente LeftMenu
+ * contêm o menu esquerdo com as informações do repositório pesquisado.
+ */
 export function LeftMenu() {
   const { data, topics, commits } = useGithubData()
-
-
   return (
     <LeftMenuContainer>
       <nav>

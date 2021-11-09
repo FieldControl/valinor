@@ -3,6 +3,12 @@ import { api } from '../services/api'
 
 export const DataContext = createContext({})
 
+/**
+ * Componente DataProvider
+ * é responsável por obter/fornecer os dados do repositório pesquisado e
+ * realizar as principais chamadas a api.
+ * @param children componente filho a ser envolvido pelo contexto que fornece os dados do repositório e callbacks a api do github.
+ */
 function DataProvider({ children }) {
   const [data, setData] = useState({ items: [], total_count: 0, totalPages: 0 })
   const [topics, setTopics] = useState({ total_count: 0 })
@@ -40,6 +46,8 @@ function DataProvider({ children }) {
 
   async function getDataRepositories(repositoryName, page = 1) {
 
+    setIsPossibleCallApi(false)
+
     if (repositoryName.trim() === "") {
       return;
     }
@@ -63,6 +71,7 @@ function DataProvider({ children }) {
       }
     }
 
+    setIsPossibleCallApi(true)
     return;
   }
 
@@ -85,7 +94,6 @@ function DataProvider({ children }) {
     }
 
     const response = await api.get(`/search/commits?q=${repositoryName}`)
-    console.log(response.data)
     if (response.status === 200) {
       setCommits({ total_count: response.data.total_count })
       return response.data  

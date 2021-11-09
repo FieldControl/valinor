@@ -20,7 +20,6 @@ export const HeaderContainer = styled.header`
     background: #EEE;
     padding: 0.5rem;
   }
-
   input:focus {
     width: 30rem;
   }

@@ -4,6 +4,11 @@ import { HeaderContainer } from './styles'
 import { AiFillGithub } from 'react-icons/ai'
 import { useGithubData } from '../../hooks/DataContext'
 
+/**
+ * Componente Header
+ * contêm o input para a pesquisa dos repositórios. A comunicação com a api
+ * para buscar o repositório é realizada pelo hook useGithubData com o valor do input.
+ */
 export function Header() {
   const [ searchText, setSearchText ] = useState('')
   const { getDataRepositories } = useGithubData()

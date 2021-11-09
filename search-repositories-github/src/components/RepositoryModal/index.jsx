@@ -8,6 +8,10 @@ import {  ModalContent, ModalHeader, OwnerInfo, RepositoryInfo } from './styles'
 
 Modal.setAppElement("#root")
 
+/**
+ * Componente RepositoryModal
+ * renderiza o modal para exibir as informações do repositório em destaque.
+ */
 export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData }) {
   const [languages, setLanguages] = useState([])
   const [issuesData, setIssuesData] = useState({ total_count: 0, items: [] })
