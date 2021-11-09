@@ -25,5 +25,9 @@ export const LeftMenuContainer = styled.div`
 
     }
 
+    @media(max-width: 800px) {
+      display: none;
+    }
+
   }
 `

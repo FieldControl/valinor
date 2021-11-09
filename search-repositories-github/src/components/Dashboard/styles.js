@@ -16,4 +16,5 @@ export const MainContent = styled.div`
     flex: 1;
     height: 100%;
   }
+
 `

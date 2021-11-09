@@ -24,4 +24,11 @@ export const HeaderContainer = styled.header`
   input:focus {
     width: 30rem;
   }
+
+  @media(max-width: 800px) {
+    
+    input {
+      width: 30rem;
+    }
+  }
 `
