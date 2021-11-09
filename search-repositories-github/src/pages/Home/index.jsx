@@ -42,6 +42,10 @@ export function Home() {
                     <p>{item.license.name}</p>
                   ) : ('')
                 }
+
+                <p>
+                  {new Date(item.updated_at).getTime()}
+                </p>
               </section>
             </RepositoryCard>
           )
