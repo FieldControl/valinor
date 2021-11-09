@@ -1,13 +1,10 @@
 import { useState } from 'react'
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 
 import { useGithubData } from '../../hooks/DataContext'
-
-import { BsEye } from 'react-icons/bs'
-
-import { AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineStar } from 'react-icons/ai'
-
-import { HomeContainer, RepositoryCard, Pagination } from "./styles";
 import { RepositoryModal } from '../../components/RepositoryModal';
+import { RepositoryCard } from '../../components/RepositoryCard'
+import { HomeContainer, Pagination } from "./styles";
 
 export function Home() {
   const { data, handleSetCurrentPage, currentPage } = useGithubData()
@@ -34,54 +31,15 @@ export function Home() {
         handleCloseModal={handleCloseModal}
         repositoryData={currentRepositoryInModal}
       />
+      
       {
         data.items && data.items.map((item) => (
-            <RepositoryCard key={item.id} onClick={() => {
-              handleOpenModal()
-              setCurrentRepositoryInModal(item)
-            }}>
-
-              <header>
-                <a 
-                  target="blank" 
-                  href={item.html_url}>
-                    {item.full_name}
-                  </a>
-                <p>
-                  {item.description}
-                </p>
-              </header>
-              {
-                item.topics.length > 0 ? (
-                <section>
-                  {
-                    item.topics.map((topic, index) => (<button key={index} type="button">{topic}</button>))
-                  }
-                </section>
-                ) : ('')
-              }
-              <section>
-                <p className="watchers">
-                  <BsEye size={16} />
-                  {item.watchers}
-                </p>
-
-                <p>
-                  <AiOutlineStar color={'yellow'} size={16} />
-                  {item.stargazers_count}
-                </p>
-                
-                <p>
-                  {item.language}
-                </p>
-
-                {
-                  item.license !== null ? (
-                    <p>{item.license.name}</p>
-                  ) : ('')
-                }
-              </section>
-            </RepositoryCard>
+          <RepositoryCard 
+            item={item}
+            key={item.id}
+            handleOpenModal={handleOpenModal}
+            setCurrentRepositoryInModal={setCurrentRepositoryInModal}
+          />    
           )
         )
       }
