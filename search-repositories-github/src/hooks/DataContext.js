@@ -6,6 +6,7 @@ export const DataContext = createContext({})
 function DataProvider({ children }) {
   const [data, setData] = useState({ items: [], total_count: 0, totalPages: 0 })
   const [topics, setTopics] = useState({ total_count: 0 })
+  const [commits, setCommits] = useState({ total_count: 0 })
   const [currentRepositoryName, setCurrentRepositoryName] = useState('')
   const [isPossibleCallApi, setIsPossibleCallApi] = useState(true)
   const [issuesData, setIssuesData] = useState({ total_count: 0, items: [] })
@@ -54,6 +55,7 @@ function DataProvider({ children }) {
       setCurrentRepositoryName(repositoryName)
 
       await getTopicsFromRepository(repositoryName)
+      await getCommitsFromRepository(repositoryName)
       
       return {
         items: response.data,
@@ -90,6 +92,18 @@ function DataProvider({ children }) {
     }
   }
   
+  async function getCommitsFromRepository(repositoryName) {
+    if (repositoryName.trim() === "") {
+      return;
+    }
+
+    const response = await api.get(`/search/commits?q=${repositoryName}`)
+    console.log(response.data)
+    if (response.status === 200) {
+      setCommits({ total_count: response.data.total_count })
+      return response.data  
+    }
+  }
   return (
     <DataContext.Provider value={{
       data,
@@ -97,7 +111,8 @@ function DataProvider({ children }) {
       handleSetCurrentPage,
       getDataRepositories,
       getIssuesFromRepository,
-      topics
+      topics,
+      commits
     }}>
       {children}
     </DataContext.Provider>

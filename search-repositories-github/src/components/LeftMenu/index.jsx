@@ -3,7 +3,7 @@ import { LeftMenuContainer } from './styles'
 import { useGithubData } from '../../hooks/DataContext'
 
 export function LeftMenu() {
-  const { data, topics } = useGithubData()
+  const { data, topics, commits } = useGithubData()
 
   return (
     <LeftMenuContainer>
@@ -11,6 +11,11 @@ export function LeftMenu() {
         <a href="/" className="focus">
           <span>Repositories</span>
           <span>{data.total_count ? data.total_count : 0}</span>
+        </a>
+
+        <a href="/">
+          <span>Commits</span>
+          <span>{commits.total_count}</span>
         </a>
 
         <a href="/">
