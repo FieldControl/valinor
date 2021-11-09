@@ -27,8 +27,13 @@ export const RepositoryCard = styled.div`
       color: var(--font-color-primary);
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
     p {
       font-size: 0.9rem;
+      font-weight: 500;
       margin: 0.5rem 0;
     }
   }
@@ -45,10 +50,12 @@ export const RepositoryCard = styled.div`
     border: none;
     margin-left: 0.25rem;
     background: var(--card-topics-color-primary);
+    color: #FDFAF6;
+    font-weight: 500;
   }
 
   button:hover {
-    opacity: 0.5;
+    opacity: 0.9;
   }
 
   section:last-child {
@@ -56,6 +63,12 @@ export const RepositoryCard = styled.div`
     justify-content: left;
     align-items: center;
     font-size: 0.8rem;
+
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     p + p {
       margin-left: 1rem;

@@ -5,6 +5,7 @@ import { useGithubData } from '../../hooks/DataContext'
 export function LeftMenu() {
   const { data, topics, commits } = useGithubData()
 
+
   return (
     <LeftMenuContainer>
       <nav>

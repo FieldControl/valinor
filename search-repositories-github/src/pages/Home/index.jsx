@@ -2,7 +2,7 @@ import { useGithubData } from '../../hooks/DataContext'
 
 import { BsEye } from 'react-icons/bs'
 
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+import { AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineStar } from 'react-icons/ai'
 
 import { HomeContainer, RepositoryCard, Pagination } from "./styles";
 
@@ -15,9 +15,13 @@ export function Home() {
         data.items && data.items.map((item) => (
             <RepositoryCard key={item.id}>
               <header>
-                <a href={item.html_url}>{item.owner.login}/{item.name}</a>
+                <a 
+                  target="blank" 
+                  href={item.html_url}>
+                    {item.full_name}
+                  </a>
                 <p>
-                  <strong>{item.description}</strong>
+                  {item.description}
                 </p>
               </header>
               {
@@ -29,13 +33,16 @@ export function Home() {
                 </section>
                 ) : ('')
               }
-              <section >
+              <section>
                 <p className="watchers">
                   <BsEye size={16} />
                   {item.watchers}
                 </p>
 
-                <p>stars</p>
+                <p>
+                  <AiOutlineStar size={16} />
+                  {item.stargazers_count}
+                </p>
                 
                 <p>
                   {item.language}
