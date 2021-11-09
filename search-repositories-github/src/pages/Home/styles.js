@@ -43,10 +43,7 @@ export const RepositoryCard = styled.div`
     padding: 0.26rem;
     border-radius: 0.5rem;
     border: none;
-    
-    & + button {
-      margin-left: 0.25rem;
-    }
+    margin-left: 0.25rem;    
   }
 
   button:hover {
