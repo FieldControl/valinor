@@ -23,9 +23,6 @@ export const LeftMenuContainer = styled.div`
       color: #000;
       font-weight: 500;
 
-      &.focus {
-        background: #bbb;
-      }
     }
 
   }

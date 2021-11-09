@@ -67,7 +67,7 @@ export function Home() {
                 </p>
 
                 <p>
-                  <AiOutlineStar size={16} />
+                  <AiOutlineStar color={'yellow'} size={16} />
                   {item.stargazers_count}
                 </p>
                 
@@ -80,10 +80,6 @@ export function Home() {
                     <p>{item.license.name}</p>
                   ) : ('')
                 }
-
-                <p>
-                  {new Date(item.updated_at).getTime()}
-                </p>
               </section>
             </RepositoryCard>
           )

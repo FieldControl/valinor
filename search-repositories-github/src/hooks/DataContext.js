@@ -9,7 +9,6 @@ function DataProvider({ children }) {
   const [commits, setCommits] = useState({ total_count: 0 })
   const [currentRepositoryName, setCurrentRepositoryName] = useState('')
   const [isPossibleCallApi, setIsPossibleCallApi] = useState(true)
-  const [issuesData, setIssuesData] = useState({ total_count: 0, items: [] })
 
   const [currentPageInParams, setCurrentPageInParams ] = useState(1)
 
@@ -67,18 +66,6 @@ function DataProvider({ children }) {
     return;
   }
 
-  async function getIssuesFromRepository(username, repositoryName) {
-    if (repositoryName.trim() === "" || username.trim() === "") {
-      return;
-    }
-
-    const response = await api.get(`/search/issues?q=repo:${username}/${repositoryName}`)
-    
-    if (response.status === 200) {
-      setIssuesData(response.data)
-    }
-  }
-
   async function getTopicsFromRepository(repositoryName) {
     if (repositoryName.trim() === "") {
       return;
@@ -110,7 +97,6 @@ function DataProvider({ children }) {
       currentPage,
       handleSetCurrentPage,
       getDataRepositories,
-      getIssuesFromRepository,
       topics,
       commits
     }}>

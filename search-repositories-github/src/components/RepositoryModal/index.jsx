@@ -8,6 +8,8 @@ Modal.setAppElement("#root")
 
 export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData }) {
   const [languages, setLanguages] = useState([])
+  const [issuesData, setIssuesData] = useState({ total_count: 0, items: [] })
+  
   const { 
     name,
     description,
@@ -27,10 +29,27 @@ export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData 
   
   useEffect(() => {
     async function getLanguages(username, repositoryName) {
+      if (repositoryName.trim() === "" || username.trim() === "") {
+        return;
+      }
       const response = await api.get(`/repos/${username}/${repositoryName	}/languages`)
       const languagesKeys = Object.keys(response.data)
       setLanguages(languagesKeys)
     }
+
+    async function getIssuesFromRepository(username, repositoryName) {
+      if (repositoryName.trim() === "" || username.trim() === "") {
+        return;
+      }
+  
+      const response = await api.get(`/search/issues?q=repo:facebook/react-native`)
+      console.log(response.data)
+      if (response.status === 200) {
+        setIssuesData({ total_count: response.data.total_count, items: response.data.items })
+      }
+    }
+
+    getIssuesFromRepository(owner.login, name)
 
     getLanguages(owner.login, name)
   }, [repositoryData])
@@ -54,8 +73,27 @@ export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData 
 
         <RepositoryInfo>
           {
-            languages.map((language, index) => (<p key={index}>{language}</p>))
+            languages.map((language, index) => (<p className="focus" key={index}>{language}</p>))
           }
+
+          <section>
+            <h4>Issues</h4>
+            {
+              issuesData.items.map(issue => (
+                <article key={issue.id}>
+                  <p>
+                    <a target="blank" href={`${issue.html_url}`}>
+                      {issue.title}
+                    </a>
+                  </p>
+
+                  <p>
+                    Username: {issue.user.login}
+                  </p>
+                </article>
+              ))
+            }
+          </section>
         </RepositoryInfo>
       </ModalContent>
     </Modal>

@@ -39,4 +39,46 @@ export const RepositoryInfo = styled.div`
     display: inline-block;
     margin-right:  0.5rem;
   }
+
+  p.focus {
+    background: var(--card-topics-color-primary);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-top: 0.25rem;
+  }
+
+  section {
+    margin: 2rem 0;
+    max-height: 4rem;
+
+    h4 {
+      margin: 2rem 0;
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+
+    a {
+      text-decoration: none;
+      color: var(--font-color-primary);
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    p:last-child {
+      margin-top: 0.2rem;
+    }
+  }
+
+  article + article {
+    border-top: 0.05px solid #ccc;
+    margin: 1rem 0;
+  }
 `
