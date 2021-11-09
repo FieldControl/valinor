@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { api } from '../services/api'
+import { calculateTotalPages } from '../utils/calculateTotalPages'
 
 export const DataContext = createContext({})
 
@@ -83,13 +84,16 @@ function DataProvider({ children }) {
     const response = await api.get(`/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
     
     if (response.status === 200) {
-      const totalPages = Math.ceil(response.data.total_count / 7)
+      const totalPages = calculateTotalPages(response.data.total_count / 7)
+
       setData({ ...response.data, totalPages })
       setCurrentRepositoryName(repositoryName)
 
       await getTopicsFromRepository(repositoryName)
       await getCommitsFromRepository(repositoryName)
+
       setIsPossibleCallApi(true)
+      
       return {
         items: response.data,
         total_count: response.data.total_count,
