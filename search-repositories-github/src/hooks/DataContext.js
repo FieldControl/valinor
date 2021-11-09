@@ -23,7 +23,6 @@ function DataProvider({ children }) {
   }
 
   async function handleSetCurrentPage(page = 1) {
-    console.log(isPossibleCallApi)
     // Enquanto a requisição não terminar, ele não vai deixar fazer outra chamada
     if (isPossibleCallApi) {
       setIsPossibleCallApi(false)

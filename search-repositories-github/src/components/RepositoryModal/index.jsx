@@ -48,8 +48,7 @@ export function RepositoryModal({ modalIsOpen, handleCloseModal, repositoryData 
         return;
       }
   
-      const response = await api.get(`/search/issues?q=repo:facebook/react-native`)
-      console.log(response.data)
+      const response = await api.get(`/search/issues?q=repo:${username}/${repositoryName}`)
       if (response.status === 200) {
         setIssuesData({ total_count: response.data.total_count, items: response.data.items })
       }
