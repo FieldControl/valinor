@@ -22,9 +22,9 @@ describe("LeftMenu Component", () => {
   test("deve renderizar o span com o valor Topics", () => {
     render(<LeftMenu />)
 
-    const span = screen.queryByText("Topics")
+    const spanTopics = screen.queryByText("Topics")
 
-    expect(span).toBeInTheDocument()
+    expect(spanTopics).toBeInTheDocument()
   })
 
 })
