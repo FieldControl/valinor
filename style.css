@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@100;200;300;400;500;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*===========variables===========*/
+
+:root{
+    --text-color: #9CA8B4;
+    --header-color: #0f1318;
+    --body-color: #1C2128;
+    --box-shadow: 5px 10px 15px rgba(0,0,0,0.5);
+    
+}
+header{
+    height: 10rem;
+    background-color:var(--header-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    
+}
+a{
+    text-decoration: none;
+    color:#667e94;
+}
+body{
+    background: var(--body-color);
+    color: var(--text-color);
+    
+}
+/*==========logo==================*/
+
+.logo img{
+    height: 12rem;
+    padding-top: 1rem ;
+}
+
+/*========image animate================*/
+main{
+    display:flex;
+    justify-content: center;
+    font-family: 'poppins';
+    
+}
+.container{
+    display: flex;
+    justify-content: center; 
+    margin: 1rem 0;
+}
+.animate{
+    display: grid;
+    place-items: center;
+    width: 30rem;
+    position: relative; 
+     
+    
+}
+.animate img{
+    animation: is-bouncing 85s infinite;
+    position: absolute;
+    top: 0;
+    padding: 0;
+}
+.animate h1{
+    text-align: center;
+    font-weight: 300;
+}
+@keyframes is-bouncing{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+/*============esconde conteudo ao click do botão================*/
+div.hidden{
+    display: none;
+}
+
+/*=========inputs================*/
+
+.input{
+    padding-top: 4rem;
+}
+#input_search{
+    padding: .4rem;
+    background: var(--body-color);
+    color: var(--text-color);
+    border-radius: .4rem;
+    border: none;
+    text-transform: uppercase;
+
+}
+#button_search{
+    padding: .4rem;
+    background:var(--text-color) ;
+    border-radius: .4rem;
+    border: none;
+    text-transform: uppercase;
+    color: var(--header-color);
+    cursor: pointer;
+
+    
+}
+
+/*=========conteudo principal (resultado da sonsulta)============*/
+
+section{
+    width: 90%;
+    height: 15.625rem;
+    margin: .7rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: .5rem;
+    padding: .3rem;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--text-color);
+    border-radius: .4rem;
+
+}
+.result_search{
+    width: 50rem;
+    padding: 2rem 0;
+    
+}
+/*============================*/
+
+
+/*============elements search==================*/
+
+#fullname{
+    border-bottom: 1px solid var(--text-color);
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+#description{
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#stars{
+    border-bottom: 1px solid var(--text-color);
+    border-radius: .4rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#language{
+    border-bottom: 1px solid var(--text-color);
+    border-radius: .4rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#fork{
+    border-radius: .4rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-fork{
+    font-size: 1.5rem;
+}
+
+
+
