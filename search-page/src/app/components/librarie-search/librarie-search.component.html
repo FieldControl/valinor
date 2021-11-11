@@ -1,0 +1,38 @@
+<div class="container search-table">
+  <div class="search-box">
+    <div class="row">
+      <div class="col-md-9">
+        <input
+          type="text"
+          id="myInput"
+          class="form-control"
+          [formControl]="queryField"
+          placeholder="Pesquise"
+          style="color: #eeee;"
+        />
+      </div>
+      <div class="col-auto">
+        <button class="but btn-lg btn-primary" (click)="onSearch()">Pesquisar</button>
+      </div>
+    </div>
+  </div>
+  <div class="search-list">
+    <h3 *ngIf="total != null">{{ total }} bibliotecas encontradas.</h3>
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Versão</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of results$ | async">
+          <td><a href="{{result.latest}}"> {{ result.name }}</a></td>
+          <td>{{ result.description }}</td>
+          <td>{{ result.version }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
