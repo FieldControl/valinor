@@ -1,1 +1,139 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Open Sans", Verdana, Geneva, Tahoma, sans-serif;
+    background: #eee;
+}
+
+.container {
+    text-align: center;
+}
+
+.logo {
+    width: 4%;
+    display: block;
+    margin: 20px auto 0px auto;
+    max-width: 400px;
+}
+
+input[type="text"]{
+    border-radius: 10px;
+    padding: 14px;
+    border: none;
+    display: block;
+    width: 70%;
+    margin: 50px auto 0px auto;
+    max-width: 600px;
+    -webkit-box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+    -moz-box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+    box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+}
+
+.search-message {
+    font-size: 2rem;
+    color: rgb(214, 214, 214);
+    padding-top: 40px;
+    margin: 0px;
+}
+
+.results {
+    width:80%;
+    margin: 120px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.repo {
+    width: 100%;
+    max-width: 400px;
+    padding-top: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    background: rgb(243, 243, 243);
+    -webkit-box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+    -moz-box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+    box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+}
+
+.repo h2 {
+    width: 90%;
+    margin: 0 auto;
+    word-break: break-all;
+}
+
+.repo h2 > a {
+    color: rgb(0, 155, 103);
+}
+
+.errorMessage h2 {
+  color: red;
+}
+.error {
+  padding: 20px;
+  width: 40%;
+  margin: 60px auto;
+  -webkit-box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+  -moz-box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+  box-shadow: 0px 10px 21px 0px rgba(214,214,214,1);
+  border-radius: 10px;
+}
+/**
+    loader
+*/
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 27px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: rgb(253, 85, 183);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(19px, 0);
+    }
+  }
