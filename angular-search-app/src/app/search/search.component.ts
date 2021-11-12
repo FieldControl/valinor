@@ -12,6 +12,7 @@ import {SearchService} from "../search.service";
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  
   public loading: boolean;
   public searchTerm = new Subject<string>();
   public baseUrl = "https://api.github.com/search/repositories";
