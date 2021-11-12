@@ -1,1 +1,44 @@
-<p>search works!</p>
+<section>
+    <form [formGroup]="searchForm">
+        <label>
+           <input type="text" (keyup)="searchTerm.next($event)" formControlName="search" placeholder="Search repos..." />
+        
+           <div *ngIf="loading">
+                <p class="search-message">Searching</p>
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+           </div>
+        </label>    
+
+    </form>
+
+    <div *ngIf="searchResults">
+      <div class="results" >
+        <div class="repo" *ngFor="let result of paginationElements | paginate: { itemsPerPage: 6, currentPage: page }">
+            <div>
+                <img loading="lazy" [attr.src]="result.owner.avatar_url"
+                    width="100"
+                    height="auto"
+                    alt="avatar"
+                />
+                <h2><a href="{{result.clone_url}}" target="_blank">{{ result.full_name }}</a></h2>
+                <p><strong>{{ result.owner.login }}</strong></p>
+                <p><em>Forks</em>: {{ result.forks_count }}</p>
+                <p><em>Issues</em>: {{ result.open_issues_count }}</p>
+                <p><em>Stars</em>:  {{ result.stargazers_count }}</p>
+                <p><em>Descrição</em>:  {{ result.description }}</p>
+
+                
+                
+            </div>  
+        </div>
+    </div>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+   
+    <div *ngIf="errorMessage" class="errorMessage">
+        <h2>Error</h2>
+        <p class="error">{{errorMessage}}</p>
+    </div>
+
+
+</section>
