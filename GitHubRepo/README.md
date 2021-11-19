@@ -20,5 +20,5 @@ http://localhost:4200
 
 <h2>-App</h2>
 
-<img src="src/assets/images/print.png">
+<img src="src/assets/images/PRINT.png">
 <br>
