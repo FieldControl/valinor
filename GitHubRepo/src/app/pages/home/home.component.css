@@ -1,0 +1,128 @@
+.container{
+    
+    margin: 0 30px;
+}
+.search-button{
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #673ab7;
+    box-shadow: 0px 1px 6px #673ab7;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+}
+.search-button:hover{
+    background-color: #7845cf;
+}
+.search{
+    padding: 15px;
+    
+    color: rgb(99, 99, 99);
+    
+    margin:30px 30px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+}
+.container-header h3{
+    
+    color: rgb(99, 99, 99);
+
+}
+.container-result{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.result{
+    padding:  0 15px;
+    margin: 10px;
+    min-width: 400px;
+    max-width: 400px;
+    background-color: white;
+    border-top: 3px solid #673ab7;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgb(187, 187, 187);
+}
+.result-header{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.avatar{
+    background-position: center;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+}
+.result-title{
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 15px;
+    font-size: 17px;
+    color: #673ab7;
+    word-wrap: break-word;
+}
+.result-txt{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(99, 99, 99);
+    margin: 20px 0;
+}
+.result-tags{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+     
+}
+
+.tags{
+    display: block;
+    font-size: 15px;
+    border-radius: 5px;
+    margin:5px;
+    padding: 2px 5px;
+    background-color: #673ab7;
+}
+.result-footer{
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+.result-footer-item{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    background-color: #69f0ae;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+.result-footer-icon{
+    text-align:center;
+    font-size: 21px;
+}
+
+
+mat-paginator {
+    background-color: #673ab7 !important;
+    color: white;
+}
+
+@media(max-width:700px){
+    .result{
+        min-width: 300px;
+    }
+    .container-result{
+        
+        justify-content: center;
+        
+    }
+}

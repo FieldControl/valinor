@@ -1,0 +1,60 @@
+<div>
+    <input type="text" class="search" placeholder="Search GitHub" [(ngModel)]="repoName">
+<button class="search-button" (click)='getRepositories()'>SEARCH</button>
+<div class="container">
+    
+    <div class="container-results" >
+        <div class="container-header">
+            <h1>List of Repositories found</h1>
+            <h3> {{repositories.length}} Respository results</h3>
+        </div>
+        <div class="container-result">
+            <div class="result" *ngFor= " let item of repositories" >
+                <div class="result-header">
+                    <div class="avatar" style="background-image: url({{item.owner.avatar_url}});"></div>
+                    <a href="{{item.html_url}}" class="result-title">{{item.full_name}}</a>
+                </div>
+                <p class="result-txt">{{item.description}}</p>
+                <div class="result-tags">
+                    <div *ngFor="let tag of item.topics">
+                        <span class="tags">#{{tag}}</span>
+                    </div>
+                    
+                    
+                </div>
+                <div class="result-footer">
+                    <div class="result-footer-item">
+                        <mat-icon class="result-footer-icon">star</mat-icon>
+                        <span>{{item.stargazers_count}}</span>
+                    </div>
+                    <div class="result-footer-item">
+                        <mat-icon class="result-footer-icon" >fork_right</mat-icon>
+                        <span>{{item.forks_count}}</span>
+                    </div>
+                    <div class="result-footer-item">
+                        <mat-icon class="result-footer-icon" >visibility</mat-icon>
+                        <span>{{item.watchers_count}}</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+</div>
+</div>
+
+<footer *ngIf="repositories.length>0">
+    
+    <mat-paginator 
+      (page)="handlePageEvent($event)"
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="pageIndex"
+      aria-label="Select page">
+  
+  </mat-paginator>
+</footer>
+      

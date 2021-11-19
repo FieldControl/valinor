@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  background-color: rgb(231, 227, 227)}
+hr{
+    border-color: #ccc;
+    
+}
+input:focus{
+    outline-color: #673ab7;
+}
+app-home{
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
