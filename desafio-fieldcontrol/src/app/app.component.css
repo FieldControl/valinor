@@ -1,0 +1,33 @@
+nav{
+  background-color: #24292F;
+  padding: 0%;
+}
+
+input{
+  background-color: #24292F;
+  border-color: #575757;
+  width: 272px;
+  height: 30px;
+}
+
+input::placeholder{
+  color: #c2c2c2;
+}
+
+#gitLogo{
+  filter: invert(100%) sepia(4%) saturate(177%) hue-rotate(50deg) brightness(119%) contrast(100%);
+}
+
+.container-fluid{
+  padding: 16px 24px;
+}
+
+.navbar-brand{
+  padding: 0%;
+  cursor: pointer;
+}
+
+.search-result{
+  padding: 3%;
+}
+
