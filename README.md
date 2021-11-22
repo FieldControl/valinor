@@ -132,7 +132,7 @@ Minha solução: controlar as requisições com um gerenciamento de estando que 
 
 <h1 id="melhor">O QUE PODERIA TER FEITO MELHOR?</h1>
 
-- Ainda estou estudando como implementar o desenvolvimento guiado pro teste. É algo que pra mim está sendo um processo mais lento por estar habituado a só criar o código de uma vez ao invés de seguir procedimentos guiados a teste. O que poderia ser melhorado seria a parte de testes para manter a aplicação com uma facilidade maior para manutenção.
+- Ainda estou estudando como implementar o desenvolvimento guiado por teste. É algo que pra mim está sendo um processo mais lento por estar habituado a só criar o código de uma vez ao invés de seguir procedimentos guiados a teste. O que poderia ser melhorado seria a parte de testes para manter a aplicação com uma facilidade maior para manutenção.
 
 <h1 id="about">SOBRE O DESENVOLVEDOR</h1>
 
