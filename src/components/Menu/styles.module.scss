@@ -1,0 +1,46 @@
+@import "../../styles/functions";
+
+.menuContainer {
+  min-height: 99vh;
+  width: 200px;
+  border-right: 2px solid rgba(pickHexByTheme("text-light"), $alpha: 0.5);
+  padding: 2rem 0 0 2.4rem;
+  .groupLink {
+    margin-top: 2rem;
+
+    strong {
+      letter-spacing: 0.2rem;
+      opacity: 0.5;
+    }
+    ul {
+      padding-left: 0.5rem;
+
+      li {
+        margin-top: 1.5rem;
+        font-weight: 700;
+        transition: color 0.3s;
+        position: relative;
+        line-height: 1.5rem;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-right: 0.5rem;
+        }
+
+        &:hover,
+        &.isActive {
+          color: pickHexByTheme("hover-and-button");
+          &::after {
+            content: "";
+            background-color: pickHexByTheme("hover-and-button");
+            height: 100%;
+            position: absolute;
+            width: 5px;
+            right: -2px;
+            border-radius: 0.5rem 0 0 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}

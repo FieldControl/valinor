@@ -1,0 +1,18 @@
+.arrowsContainer {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+
+  button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 1px 1px 5px rgba($color: #000, $alpha: 0.1);
+  }
+}

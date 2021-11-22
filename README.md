@@ -1,234 +1,151 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# GNIMES
 
-A empresa
-----------
+<!--ts-->
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos. 
+### Sumário
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+- [Propósito da aplicação](#proposito)
+- [API Utilizada](#api)
+- [Inspirações](#inspiracao)
+- [Telas](#telas)
+- [Tecnologias](#tecnologias)
+    - [Typescript](#typescript) 
+    - [NextJS](#nextjs) 
+    - [SaSS](#sass) 
+    - [Jest](#jest)
+ - [Princípios da Engenharia de Software](#principios)
+ - [Desafios encontrados e como foi solucionados](#desafios)
+ - [Melhorias a serem feitas e seu impacto](#melhorias)
+ - [Sobre](#about)
+ - [Contato](#contato)
 
-Nossa missão é melhorar a prestação de serviços no Brasil. 
+<!--te-->
 
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
+<h1 id="proposito"> Propósito da aplicação</h1>
 
-<p>
-  <img src="assets/fielders.png" width="855"/>
-</p>
+Essa aplicação tem como objetivo tratar arquivos json recebidos de uma REST API e renderizar no lado do cliente utilizando o NextJS Framework.
 
-Origem
-----------
+<h1 id="api">API</h1>
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+Para o projeto foi utilizada [https://aniapi.com/](ANIAPI) onde é servido todos os animes.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
+TOKEN API:
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
+`
+API_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NCIsIm5iZiI6MTYzNjUxMDU1NSwiZXhwIjoxNjM5MTAyNTU1LCJpYXQiOjE2MzY1MTA1NTV9.hvjM1cmWiicUiQUrevsRdXgKyUBU_a0V_83LPBHSxwE `
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.abril.com.br/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
+### Endpoints:
 
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/> 
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/> 
-</p>
+GET
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+---
 
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
+v1/animes
 
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" /> 
-</p>
+v1/animes/:id
 
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
+<h1 id="initial">COMO INICIAR O PROJETO?</h1>
 
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
+Para rodar o projeto é necessários as seguintes etapas.
 
-Oportunidade
-----------
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
+Instale as dependências do projeto com `npm run install`.
 
-Na Field, o seu dia-a-dia será repleto de:
+Caso nao eista uma .env.local crie o arquivo e adicione o token da api acima.
 
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
+Rode `npm run dev`.
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
+acese http://localhost:3000
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
+<h1 id="inspiracao">Inspirações</h1>
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
+Para a tela final busquei inspirações em sites de prototótipos gratuitos como o [https://dribbble.com/](DRIBBBLE)!
 
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
+![Dribbble](https://cdn.dribbble.com/users/5902550/screenshots/15781513/media/ed64345f93aeab5df8f31043a2978b95.png)
+Legenda: Essa foi a referência utilizada.
 
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript 
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
- 
-Os desafios de programação
-----------
+<h1 id="telas">Telas</h1>
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
+### Página inicial - HOME
 
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
+![Imagem home](img/HOME.png)
 
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
+### Página de listagem de todos os animes - ANIMES
 
-<br/>
+![Imagem animes](img/ANIMES.png)
 
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
+### Informações individuais de cada anime - INTERNA
 
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
+![Imagem interna](img/INTERNA.png)
 
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
+<h1 id="tecnologias">🛠 Tecnologias</h1>
 
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [NextJS Framework](https://nextjs.org/)
+- [SaSS](https://sass-lang.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Axios](https://axios-http.com/docs/intro)
 
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
+<h2 id="typescript"> Typescript no projeto</h2>
 
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
+Sempre escolho utilizar Typescript nos meus projetos para deixar a manutenção e organização de tipos bem fáceis e declarativas, e se estiver em uma equipe, a outra pessoa não fica perdida no código.
 
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
+<h2 id="nextjs">NextJs</h2>
 
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
+NextJS é um framework para o ReactJS que veio com o intuito de transformar uma SPA em React em SEO AMIGÁVEL. Como desenvolvo algumas páginas comerciais, é muito importante ter esse recurso, porém, NextJs tem muito mais recursos que acabo escolhendo ele ao invés de uma simples aplicação React.
 
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
+O roteamento das páginas é o caminho dos arquivos residente na pasta `/page` dentro de 'src', isso agiliza muito o processo de roteamento, onde minha preocupação é só a aplicação.
 
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
+NextJS também trouxe umas das funcionalidades que como dito no começo é a principal força desse framework, a geração de arquivos estáticos. Com a geração de arquivos estaticos SSG ( Static site generator), além de ajudar na parte do SEO, a aplicação fica muito mais rapida ao ser renderizada no lado do cliente.
 
-Um diferencial gigante é o uso de testes unitários e integrados!
+Outra funcionalidade que no projeto em si nao acabei utilizando mas que é muito útil é a geração de arquivos pelo lado do servidor. O NextJS trabalha nos dos lados, tanto no lado do cliente quanto no lado do servidor, possibilitanto muitos recursos antes de entregar a tela final para o usuário
 
-URLs úteis:
+<h2 id="sass">SASS</h2>
 
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
+Utilizo SaSS em muito dos meus projetos também por facilitar muito na semântica de códigos css.
 
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
+<h2 id="jest">Jest</h2>
 
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
+O Jest foi utilizado para realização dos teste, onde traz muito recursos que facilitam na hora de testar aplicações React
 
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
+<h1 id="principios">PRINCÍPIOS DA ENGENHARIA DE SOFTWARES UTILIZADOS</h1>
 
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
+### KISS (Keep It Simple, Stupid!)
+Procurei ser o mais simples e aplicar tudo que foi pedido para esse desafio.
 
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
+### (S) OLID - Single Responsibility Principle (SRP)
+Mesmo sabendo que não se trata de uma aplicação com classes e abstrações tentei utilizar um pouco da ideia do "Princípio da Responsabilidade Única", onde cada componente tem sua responsabilidade, e separando isso tornei menos complexo e mais fácil de manter a manutenção.
 
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
 
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
+<h1 id="desafios">ALGUNS PROBLEMAS ENCONTRADOS E COMO FOI RESOLVIDO</h1>
 
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
+No projeto, como faço varias requisições em um curto periodo de tempo a API tem um certo limite.
 
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
+Minha solução: controlar as requisições com um gerenciamento de estando que aguarda a requisão ser completada impossibilitando uma nova requisição pelo usuário.
 
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
+<h1 id="melhorias">FEATURES</h1>
 
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
+- [ ] Uma versão mobile - Atualmente o aplicativo só funciona na versão desktop e isso é bem fácil de implementar e melhoria muito o acesso a aplicação.
 
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
+- [ ] Criar filas para as requisições - Criando filas para as requisões acho que controlaria melhor o tempo delas e evitaria tantas chamadas a api desnecessárias.
 
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+<h1 id="melhor">O QUE PODERIA TER FEITO MELHOR?</h1>
 
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
+- Ainda estou estudando como implementar o desenvolvimento guiado por teste. É algo que pra mim está sendo um processo mais lento por estar habituado a só criar o código de uma vez ao invés de seguir procedimentos guiados a teste. O que poderia ser melhorado seria a parte de testes para manter a aplicação com uma facilidade maior para manutenção.
 
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
+<h1 id="about">SOBRE O DESENVOLVEDOR</h1>
 
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
+Meu nome é Guilherme Vinicius, tenho 22 anos e estou cursando o último semestre em Análise de Desenvolvimento de sistema pela FATEC Rio Preto. Há algum tempo venho me dedicado totalmente ao desenvolvimento frontend onde sou totalmente apaixonado.
 
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+Comecei trabalhando como estágiario dev fullstack na Empro, onde fiquei quase 2 anos trabalhando com Angular, Javascript e PHP e utilizava o PLSQL - Oracle como banco de dados para desenvolvimento de sistemas para prefeitura.
 
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
+Após acabar meu contrato, entrei na w3mídia, onde trabalho atualmente. Trabalho utilizando Laravel framework para o desenvolvimento de sites comercias e atuando como fullstack.
 
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
+Nesse meio tempo senti a necessidade de procurar novos níveis, tentando evoluir profissionalmente. Adquiri o curso da Rockseat - Ignite onde a trilha que segui era o desenvolvimento com ReactJS, e de lá pra cá, venho aprimorando cada vez mais tudo que absolvi do curso.
 
-Avaliação
-----------
+<h1 id="contato">Contato</h1>
 
-Entre os critérios de avaliação estão:
+Whatsapp/Telefone: (17) 991384689
 
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação de código
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+email: guilhermeviiniii@gmail.com 
