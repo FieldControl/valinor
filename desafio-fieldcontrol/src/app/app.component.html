@@ -27,9 +27,36 @@
   <b> Nenhum repositório encontrado para "{{text.value}}" </b>
 </div>
 
-<div *ngIf="usuarioPesquisou && (result.total_count != 0) && !loading" class="d-flex justify-content-center search-result">
-  <b> {{numberWithPoints(result.total_count)}} repositório(s) encontrado(s) </b>
+<div *ngIf="usuarioPesquisou && (result.total_count != 0) && !loading" class="d-flex flex-column justify-content-center search-result">
+  <p id="repoFound"> {{numberWithPoints(result.total_count)}} repositório(s) encontrado(s) </p>
 
-  
+  <ul class="list-group">
+    <li *ngFor="let item of result.items" class="list-group-item d-flex align-items-start">
+
+      <div class="ms-2 me-auto d-flex flex-column">
+        
+        <a [href]="item.svn_url">{{item.full_name}}</a>
+        {{stringWithEmoji(item.description)}}
+        
+        <div class="d-inline">
+          <a *ngFor="let topic of item.topics" class="topic-link" [href]="'https://github.com/topics/' + topic"> {{topic}} </a>
+        </div>
+        
+        <div class="d-inline">
+          <span>
+            <svg aria-label="star" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star">
+              <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
+            </svg>
+            {{item.stargazers_count}}
+          </span>
+          <span> {{item.language}} </span>
+          <span> Atualizado 2 horas atrás </span>
+          <span> 73 issues precisam de ajuda </span>
+        </div>
+        
+      </div>
+
+    </li>
+  </ul>
 
 </div>

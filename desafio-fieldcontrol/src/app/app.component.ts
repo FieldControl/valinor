@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { EmojiConvertor } from 'emoji-js';
 
 type Result = {
   total_count: number,
@@ -32,7 +33,6 @@ export class AppComponent {
       this.loading = true;
 
       this.http.get<Result>(this.url + value).subscribe(data => {
-        console.log(data);
         this.result = data;
         this.usuarioPesquisou = true;
         this.loading = false;
@@ -49,8 +49,21 @@ export class AppComponent {
     this.loading = false;
   }
 
-   numberWithPoints(n: number){
+  numberWithPoints(n: number){
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-   }
+  }
+
+  stringWithEmoji(str: string){
+    if(str != null){
+      var emoji = new EmojiConvertor();
+      emoji.replace_mode = 'unified';
+      emoji.allow_native = true;
+      return emoji.replace_colons(str);
+    }
+    else{
+      return str;
+    }
+    
+  }
 
 }

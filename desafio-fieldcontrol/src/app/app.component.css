@@ -14,8 +14,29 @@ input::placeholder{
   color: #c2c2c2;
 }
 
+a{
+  text-decoration: none;
+}
+
+span{
+  font-size: 12px;
+  color: #57606a;
+  margin-right: 12px;
+}
+
+li{
+  padding: 24px 0;
+  border-left: 0px;
+  border-right: 0px;
+}
+
 #gitLogo{
   filter: invert(100%) sepia(4%) saturate(177%) hue-rotate(50deg) brightness(119%) contrast(100%);
+}
+
+#repoFound{
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .container-fluid{
@@ -31,3 +52,14 @@ input::placeholder{
   padding: 3%;
 }
 
+.topic-link{
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 2em;
+  line-height: 22px;
+  color: #0969da;
+  background-color: #ddf4ff;
+  margin-right: 4px;
+}
