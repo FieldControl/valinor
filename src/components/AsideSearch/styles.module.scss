@@ -1,0 +1,89 @@
+@import "../../styles/functions";
+
+.asideSearchContainer {
+  min-height: 100vh;
+  border-left: 2px solid rgba(pickHexByTheme("text-light"), $alpha: 0.5);
+  padding: 2rem;
+
+  .asideButtonSearch {
+    background-color: pickHexByTheme("background-search");
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      font-size: 24px;
+      margin-right: 0.86rem;
+      color: pickHexByTheme("text-primary");
+    }
+
+    input {
+      font-size: 15px;
+      padding: 0 0.5rem;
+      color: pickHexByTheme("text-primary");
+      height: 2.5rem;
+      background: transparent;
+      border: none;
+    }
+  }
+  .animesSearching {
+    margin: 2rem 0 0;
+
+    h1 {
+      font-size: 1.1rem;
+    }
+    .animeItemContainer {
+      margin-top: 2rem;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .animeItem {
+      cursor: pointer;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      img {
+        width: 80px;
+        height: 120px;
+        object-fit: cover;
+        margin-right: 1rem;
+      }
+      div {
+        display: flex;
+
+        .contentAnimeItem {
+          margin-top: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          span {
+            margin-top: 1rem;
+          }
+        }
+      }
+      & > span {
+        margin-top: 0.5rem;
+        text-align: right;
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 1rem;
+      background: rgba(pickHexByTheme("hover-and-button"), $alpha: 0.8);
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      &:disabled {
+        cursor: progress;
+        background-color: rgba(pickHexByTheme("text-dark"), $alpha: 0.5);
+      }
+    }
+  }
+}

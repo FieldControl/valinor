@@ -1,0 +1,68 @@
+@import "../../styles/functions";
+.watchNowContainer {
+  width: 100%;
+  h1 {
+    font-weight: bold;
+  }
+
+  .arrowsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    h1 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .watchNowList {
+    display: flex;
+    overflow: hidden;
+    gap: 1rem;
+
+    .watchNowItem {
+      position: relative;
+      width: 175px;
+      img {
+        width: 175px;
+        height: 255px;
+        object-fit: cover;
+      }
+      div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        padding: 0.87rem;
+        button {
+          background-color: transparent;
+          border: none;
+          color: #fff;
+          font-weight: bold;
+          padding: 0.87rem;
+
+          &:last-child {
+            background-color: pickHexByTheme("hover-and-button");
+            justify-content: flex-end;
+            align-self: flex-end;
+          }
+          &:first-child {
+            margin-left: 0.5rem;
+            padding: 0.2rem;
+
+            background-color: rgba($color: #636363, $alpha: 0.5);
+            justify-self: flex-end;
+            align-self: flex-start;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

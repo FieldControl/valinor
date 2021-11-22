@@ -1,0 +1,7 @@
+@use "sass:map";
+@import "./variables";
+
+@function pickHexByTheme($value, $nameTheme: "light") {
+  $returnValue: map.get($theme, $nameTheme, $value);
+  @return $returnValue;
+}

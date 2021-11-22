@@ -1,0 +1,52 @@
+.ratedContainer {
+  .arrowsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    h1 {
+      font-size: 1.2rem;
+    }
+  }
+  .ratedAnimeList {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+
+    .ratedAnimeItem {
+      position: relative;
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        position: absolute;
+        height: 264px;
+        top: 0;
+        left: 0;
+      }
+      img {
+        width: auto;
+        height: 264px;
+        object-fit: cover;
+      }
+
+      div {
+        z-index: 3;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+
+        strong {
+          color: #fff;
+          font-size: 1.2rem;
+          span {
+            margin-left: 0.5rem;
+            font-size: 1rem;
+            color: #636363;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+$breakPoints: (
+  "xl": "1200px",
+  "lg": "992px",
+  "md": "768px",
+  "sm": "576px",
+);
+
+$theme: (
+  "light": (
+    "background": #ffffff,
+    "background-search": #e5eaf5,
+    "text-primary": #566080,
+    "text-light": #7b8ba1,
+    "text-dark": #717a95,
+    "hover-and-button": #e71d60,
+  ),
+);
