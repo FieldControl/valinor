@@ -34,7 +34,6 @@ interface AnimeByIdProps {
 }
 
 export default function AnimeById({ animeData }: AnimeByIdProps) {
-  console.log(animeData);
 
   return (
     <div className={styles.animeByIdContainer}>
