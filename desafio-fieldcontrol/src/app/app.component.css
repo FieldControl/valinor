@@ -1,3 +1,5 @@
+@import url("https://quickutils.github.io/language-colors/language-colors.css");
+
 nav{
   background-color: #24292F;
   padding: 0%;
@@ -16,6 +18,10 @@ input::placeholder{
 
 a{
   text-decoration: none;
+}
+
+p{
+  margin-bottom: 4px;
 }
 
 span{
@@ -39,6 +45,11 @@ li{
   font-weight: 600;
 }
 
+#repo-link:hover{
+  text-decoration: underline;
+  color: #0d6efd;
+}
+
 .container-fluid{
   padding: 16px 24px;
 }
@@ -49,7 +60,7 @@ li{
 }
 
 .search-result{
-  padding: 3%;
+  padding: 3% 25%;
 }
 
 .topic-link{
@@ -62,4 +73,46 @@ li{
   color: #0969da;
   background-color: #ddf4ff;
   margin-right: 4px;
+}
+
+.topic-link:hover{
+  color: #ffffff;
+  background-color: #0969da;
+}
+
+.span-link{
+  color: #57606a;
+  font-size: 12px;
+  margin-right: 12px;
+}
+
+.span-link:hover{
+  color: #0969da;
+  fill: #0969da;
+}
+
+.repo-language-color{
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(rgb(27 31 36 / 10%));
+  border-radius: 50%;
+  margin: 0;
+}
+
+.pagination{
+  margin-bottom: 0;
+}
+
+.current{
+  color: white;
+  background-color: #0969da;
+  border-color: transparent;
+}
+
+.current:hover{
+  color: white;
+  background-color: #0969da;
 }
