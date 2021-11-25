@@ -24,5 +24,5 @@ URLs úteis:
 Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
 
 <p>
-  <img src="assets/fielders.png" width="855"/>
+  <img src="" width="855"/>
 </p>
