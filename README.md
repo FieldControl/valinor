@@ -47,6 +47,9 @@ Me chamo Jhonatan, tenho 28 anos e nasci em Paulo de Faria. Comecei a trabalhar 
 
 Mesmo não sabendo React até a semana passada, preferi sair da zona de conforto de trabalhar com Angular que eu já tinha dois anos e meio de experiência e estudar uma nova técnologia para me adaptar as necessidades do projeto e deixa-lo bem feito. Gosto de trazer novas idéias ao time sem medo de precisar aprender coisas novas, muito pelo contrário, vou estar muito empougado para uma nova tecnologia.
 
+Em Angular eu tenho esse CRUD de desenvolvedores usando com Node e MongoDb, está com Docker também então é bem fácil de rodar ele
+https://github.com/jhonatanAlanFerreira/potential-crud
+
 ---
 
 E-mail: jhonatan.alanf@gmail.com
