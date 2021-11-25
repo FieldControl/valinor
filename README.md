@@ -34,9 +34,9 @@ Para desenvolver essa aplicação me inspirei bastante no design do próprio Git
 Para rodar a aplicação é necessário ter o Angular instalado e utilizar o comando "npm install" na pasta "desafio-fieldcontrol". Após isso, é necessário utilizar o comando "ng serve -o" na mesma pasta para iniciar o servidor e abrir a aplicação no navegador.
 
 <p>
-  <img src="assets/print1" width="855"/>
+  <img src="assets/print1.png" width="855"/>
 </p>
 
 <p>
-  <img src="assets/print2" width="855"/>
+  <img src="assets/print2.png" width="855"/>
 </p>
