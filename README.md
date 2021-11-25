@@ -33,10 +33,8 @@ Documentação da API https://developer.github.com/v3/search/#search-issues e ht
 Para desenvolver essa aplicação me inspirei bastante no design do próprio GitHub e utilizei as frameworks frontend Angular (v13.0.2) e Bootstrap (v5.1.3).
 Para rodar a aplicação é necessário ter o Angular instalado e utilizar o comando "npm install" na pasta "desafio-fieldcontrol". Após isso, é necessário utilizar o comando "ng serve -o" na mesma pasta para iniciar o servidor e abrir a aplicação no navegador.
 
-<p>
-  <img src="assets/print1.png" width="855"/>
-</p>
+A imagem abaixo apresenta uma screenshot da aplicação desenvolvida:
 
 <p>
-  <img src="assets/print2.png" width="855"/>
+  <img src="assets/print1.png" width="855"/>
 </p>
