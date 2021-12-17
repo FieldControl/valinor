@@ -13,7 +13,7 @@ Nossa missão é melhorar a prestação de serviços no Brasil.
 Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
 
 <p>
-  <img src="assets/fielders.png" width="855"/>
+  <img src="assets/fielders.jpeg" width="855"/>
 </p>
 
 Origem
