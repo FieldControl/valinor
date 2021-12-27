@@ -1,15 +1,13 @@
 import { useLayoutEffect, useState } from "react";
 import "./style.css";
 
-import { useSelector, useDispatch } from "react-redux";
-import { Creators as repositoriosCreators } from "../../store/ducks/repositorios";
+import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 
 function PaginacaoRepositorios() {
 
     const { pesquisaParametro } = useParams();
-    const dispatch = useDispatch();
     const history = useHistory();
 
     const { listaRepositorios, paginaAtual } = useSelector(state=>state.repositorios);
