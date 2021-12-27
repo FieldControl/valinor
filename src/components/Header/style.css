@@ -1,0 +1,21 @@
+:root {
+    --tamanho-texto-formulario: clamp(13px, 1vw, 1vw);
+}
+
+
+.cabecalho {
+    padding: clamp(10px, 1vw, 1vw);
+    width: 100%;
+    height: clamp(50px, 2vw, 2vw);
+    min-height: 50px;
+    background-color: rgb(22, 28, 37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-cabecalho {
+    width: clamp(30px, 2vw, 2vw);
+    height: clamp(30px, 2vw, 2vw);
+    pointer-events: none;
+}

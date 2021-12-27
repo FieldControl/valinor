@@ -1,0 +1,33 @@
+
+:root {
+    --responsividade-ralativa-a-fonte: clamp(9px, 0.9vw, 0.9vw);
+}
+
+.paginando {
+    padding: clamp(15px, 1vw, 1vw);
+    width: clamp(800px, 30vw, 90%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.paginando div {
+    padding: clamp(4px, 0.5vw, 0.5vw);
+    font-size: clamp(9px, 0.9vw, 0.9vw);
+    cursor: default;
+}
+
+.paginando .pagina {
+    color: #999;
+    cursor: pointer;
+}
+
+.paginando .foco {
+    border: 0.1vw solid #999;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: yellowgreen;
+}
+
+.pagina:hover {
+    color: yellowgreen;
+}

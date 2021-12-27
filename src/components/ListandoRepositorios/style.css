@@ -1,0 +1,95 @@
+
+:root {
+    --tamanho-responsivo-texto: clamp(10px, 1vw, 1vw);
+    
+}
+
+.lista-repositorios {
+    margin-top: clamp(10px, 1vw, 1vw);
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.repositorio-item {
+    margin: var(--tamanho-responsivo-texto) 1vw;
+    padding: var(--tamanho-responsivo-texto);
+    width: clamp(800px, 30vw, 90%);
+    max-width: 90%;
+    word-wrap: break-word;
+
+    border-right: 0.1vw solid #999;
+    border-left: 0.1vw solid #999;
+    box-shadow: 0px 0px 0.5vw rgba(0, 0, 0, 1);
+    border-radius: var(--tamanho-responsivo-texto);
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.repositorio-nome {
+    margin-bottom: calc(var(--tamanho-responsivo-texto) / 1.5);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: calc(var(--tamanho-responsivo-texto) * 1.3);
+    color: rgb(92, 117, 0);
+}
+
+.repositorio-descricao {
+    margin-bottom: var(--tamanho-responsivo-texto);
+    font-size: calc(var(--tamanho-responsivo-texto) * 1.1);
+}
+
+
+
+
+.repositorio-topicos {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.repositorio-topico-item {
+    margin-right: calc(var(--tamanho-responsivo-texto) / 2);
+    margin-bottom: calc(var(--tamanho-responsivo-texto) / 2);
+    padding: calc(var(--tamanho-responsivo-texto) / 2);
+    border-radius: var(--tamanho-responsivo-texto);
+    background-color: rgba(92, 117, 0, 0.5);
+
+    font-size: var(--tamanho-responsivo-texto);
+    cursor: pointer;
+}
+
+
+
+.mais-informacoes-repositorio {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--tamanho-responsivo-texto);
+}
+
+.repositorio-estrelas {
+    margin-right: var(--tamanho-responsivo-texto);
+    display: flex;
+    align-items: center;
+}
+
+.repositorio-estrelas .icone {
+    color: yellow;
+}
+
+.repositorio-estrelas span {
+    text-indent: calc(var(--tamanho-responsivo-texto) / 4);
+}
+
+.repositorio-linguagem {
+    margin-right: var(--tamanho-responsivo-texto);
+}
+
+.repositorio-licenca {
+    margin-right: var(--tamanho-responsivo-texto);
+}

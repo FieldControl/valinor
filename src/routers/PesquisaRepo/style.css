@@ -1,0 +1,25 @@
+.conteudo-da-pesquisa {
+    width: 100%;
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+}
+
+.div-para-responsividade {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.area-de-pesquisa-repo {
+    margin: clamp(10px, 1vw, 1vw);
+    width: clamp(800px, 30vw, 90%);
+}
+
+.area-paginacao-resultados {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

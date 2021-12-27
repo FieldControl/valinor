@@ -1,0 +1,36 @@
+
+
+:root {
+    --tamanho-responsivo-texto: clamp(10px, 1vw, 1vw);
+}
+
+.home {
+    padding-top: clamp(70px, 3vw, 3vw);
+    z-index: 9;
+    width: 100%;
+    height: auto;
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #999;
+}
+
+.area-central {
+    padding: var(--tamanho-responsivo-texto);
+    width: clamp(400px, 50vw, 95%);
+    height: auto;
+    box-shadow: 0px 0px 10px #222;
+}
+
+.mensagem-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:  var(--tamanho-responsivo-texto);
+}
+
+.mensagem-inicial p {
+    text-indent:  var(--tamanho-responsivo-texto);
+    font-size: calc(2 * var(--tamanho-responsivo-texto));
+}

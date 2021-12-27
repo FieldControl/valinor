@@ -1,0 +1,75 @@
+
+@keyframes form-input-text{
+    0% {
+        border-color: #555;
+    }
+
+    50% {
+        border-color: rgb(52, 71, 33);
+    }
+    
+    100% {
+        border-color: #555;
+    }
+}
+
+
+:root {
+    --tamanho-responsivo-texto: clamp(10px, 1vw, 1vw);
+}
+
+
+.inicio-formulario {
+    margin-top:  var(--tamanho-responsivo-texto);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-formulario input[type="text"] {
+    padding: calc(var(--tamanho-responsivo-texto) / 2);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #999;
+
+    font-size: var(--tamanho-responsivo-texto);
+    text-indent: calc(var(--tamanho-responsivo-texto) / 2);
+    border-radius: calc(var(--tamanho-responsivo-texto) / 2);
+    border: clamp(1px, 0.2vw, 0.2vw) solid #555;
+    
+    transition: all ease 0.2s;
+}
+
+.inicio-formulario input[type="text"]:focus {
+    background-color: transparent;
+    animation-name: form-input-text;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.inicio-formulario input[type="button"] {
+    margin-top: calc(var(--tamanho-responsivo-texto) / 2);
+    padding: calc(var(--tamanho-responsivo-texto) / 2);
+    padding-right: var(--tamanho-responsivo-texto);
+    padding-left: var(--tamanho-responsivo-texto);
+
+    border-radius: calc(var(--tamanho-responsivo-texto) / 2);
+    width: min-content;
+    font-size: var(--tamanho-responsivo-texto);
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.inicio-formulario input[type="button"]:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+@media(max-width: 400px) {
+    .inicio-formulario input[type="button"] {
+        width: 100%;
+    }
+}
