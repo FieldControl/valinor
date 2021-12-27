@@ -1,6 +1,6 @@
 # github-repositorios
 
-Esse projeto também está em [meu repositório](https://www.github.com/savioramon/github-repositorios). 
+Esse projeto também está em [meu repositório](https://www.github.com/savioramon/github-repositorio). 
 
 ## Rodando o projeto
 
