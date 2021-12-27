@@ -1,41 +1,56 @@
-## Envio de solução
+# github-repositorios
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
+Esse projeto também está em [meu repositório](https://www.github.com/savioramon/github-repositorio). 
 
-**Framework, linguagem e ferramentas**
+## Rodando o projeto
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+para rodar o projeto é simples, primeiro entre na pasta instale as dependências
 
-**Técnologias X e Y**
+```npm install```
 
-Justifique porque você optou pela tecnologia X e não a Y?
+Inicie o projeto
 
-**Princípios de software**
-
-Quais princípios da engenharia de software que você usou?
-
-**Desafios e problemas**
-
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
-
-**Melhorias e próximas implementações**
-
-O que você entende que pode ser melhorado e como isso pode ser feito?
-
-**Sobre você**
-
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
-
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
+```npm start```
 
 
----
+## Tecnologias utilizadas
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+- React
+- React hooks
+- React-router-dom
+- Redux
+- Redux Saga
+- Github API
+- Fontawesome icons
+
+## Escolhas de tecnologias
+
+Eu sempre opto por usar o combo React + hooks + redux e redux-saga em minhas aplicações pois são as tecnologias que eu mais tenho conhecimento e conforto, mas estou sempre buscando expandir meus conhecimentos em outras linguagens.
+
+## Princípios de software
+
+Ainda não possuo muito conhecimento sobre tais princípios, mas o que tentei ao máximo foi simplificar tudo o que consegui e separar responsabilidades. Eu tenho consciência de que ainda tenho muito a melhorar quanto a isso.
+
+## Desafios e problemas
+
+O maior desafio que tive foi que eu nunca havia usado a api do github antes, então eu tive que me dedicar várias horas estudando a documentação antes de começar a criar o projeto.
+
+## Melhorias no projeto
+
+Infelizmente eu comecei a estudar sobre testes pouco tempo atrás, então acabei pulando essa etapa que ainda precisa ser aplicada.
+
+Outra melhoria seria fazer com que o projeto tivesse mais escalabilidade. Acredito que se faz necessário aqui o uso de alguns design patters e outros recursos e tecnologias para tentar simplificar algumas partes do código. Por exemplo, acho seria interessante o uso de algum pré-processador de css, como o SASS, pois não acho muito escalável uma aplicação com css "puro".
+
+## Sobre mim
+
+Nasci em Governador Dix-Sept Rosado - RN, cidade pequena. Estudo Ciência e tecnologia na UFERSA e não tenho experiência profissional na área até agora.
+
+Descobri minha paixão pela programação em uma aula de algorítmo e lógica de programação na faculdade. No começo achava bem difícil, mas cada dia que passava eu me sintia mais e mais fascinado com tudo novo que aprendia.
 
 
+### Contato
 
+Meu email: savioramon12@gmail.com.
+
+
+#### Até.
