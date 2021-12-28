@@ -24,7 +24,7 @@ function RepositorioDetalhado() {
     const dispatch = useDispatch();
 
     useLayoutEffect(()=>{
-        if(!repositorio) {
+        if(!repositorio || !issues) {
             dispatch(repositoriosCreators.getRepositorioDetalhado(nomeRepoParametro));
         }
     }, []);
@@ -121,7 +121,7 @@ function RepositorioDetalhado() {
                         
                     </div>
 
-                    {issues &&
+                    {issues && issues.length > 0 &&
                         <div className="area-issues">
                             <h2>Issues</h2>
                             
@@ -148,6 +148,14 @@ function RepositorioDetalhado() {
                                     
                                 }
                             </div>
+                        </div>
+                    }
+                    {issues && issues.length === 0 &&
+                        <div className="area-sem-issues">
+                            <h2>Issues</h2>
+                            <span className="sem-issues">
+                                Esse repositório não possui issues :(
+                            </span>
                         </div>
                     }
                     
