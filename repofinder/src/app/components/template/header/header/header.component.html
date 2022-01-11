@@ -1,0 +1,16 @@
+<mat-toolbar class="header mat-elevation-z4" color="primary">
+  <div class="container">
+    <span>
+      <a routerLink="/">
+        <i class="material-icons icon-logo"> language </i>
+        <span class="title-logo">Repofinder</span>
+      </a>
+    </span>
+    <form #headerForm="ngForm" class="header-form" (ngSubmit)="handleSearch(search.value)">
+      <input class="search" type="text" #search placeholder="Digite o repositório" />
+      <button type="submit" mat-flat-button color="accent">
+        <i class="material-icons">search</i>
+      </button>
+    </form>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,23 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1rem;
+}
+
+.footer span {
+  font-weight: 300;
+}
+
+.footer i {
+  color: #c53030;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    justify-content: center;
+  }
+}

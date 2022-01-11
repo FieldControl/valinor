@@ -1,0 +1,34 @@
+<div class="no-data" *ngIf="receiveRepositories.length <= 0 ">
+  <i class="material-icons">
+    view_list
+  </i>
+  <h1>Nenhum dado para exibir!</h1>
+</div>
+
+<div class="data" *ngIf="receiveRepositories.length > 0">
+  <pagination-controls [responsive]="true"
+                       previousLabel="Voltar"
+                       nextLabel="Avançar"
+                       screenReaderPaginationLabel="Paginação"
+                       screenReaderPageLabel="página"
+                       screenReaderCurrentLabel="Você está na página"
+                       (pageChange)="OnPageChange($event)"
+                       class="my-pagination">
+  </pagination-controls>
+
+  <div class="card-container">
+    <mat-card class="card mat-elevation-z3" *ngFor="let repository of receiveRepositories | paginate: config">
+      <mat-card-title-group>
+        <mat-card-title class="card-title">{{ repository.name }}</mat-card-title>
+        <mat-card-subtitle>{{ repository.full_name }}</mat-card-subtitle>
+        <img mat-card-sm-image src="{{ repository.owner.avatar_url }}" >
+      </mat-card-title-group>
+      <mat-card-content class="card-description">
+        {{ repository.description }}
+      </mat-card-content>
+      <div class="card-info">
+        <a mat-stroked-button color="accent" href="{{ repository.html_url }}" target="_blank">Ver mais</a>
+      </div>
+    </mat-card>
+  </div>
+</div>

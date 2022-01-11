@@ -1,0 +1,69 @@
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+}
+
+.my-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-pagination .ngx-pagination .current {
+  background: #FF4081;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 10rem;
+}
+
+.card {
+  width: 70vw;
+  margin-bottom: 2rem;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
+.card-description {
+  font-size: 1rem;
+}
+
+img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .my-pagination {
+    justify-content: flex-start;
+  }
+
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: .8rem;
+  }
+}
