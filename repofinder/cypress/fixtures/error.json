@@ -1,0 +1,11 @@
+{
+  "message": "Validation Failed",
+  "errors": [
+    {
+      "resource": "Search",
+      "field": "q",
+      "code": "missing"
+    }
+  ],
+  "documentation_url": "https://docs.github.com/v3/search"
+}
