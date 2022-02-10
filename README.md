@@ -5,10 +5,6 @@ Este projeto se trata de uma SPA de busca de repositórios utilizando a API do G
 O objetivo desse projeto é a aplicação para vaga de estágio de desenvolvedor front-end na <a href="https://github.com/FieldControl" title="Field Control" target="_blank">Field Control</a>. 
 <br>
 
-## Rodando a aplicação
-- Para rodar a aplicação basta fazer o download da pasta `aplicacao` em sua maquina e abrir o index.html no seu navegador
-- Para rodar os testes basta dar um `npm run test` no terminal 
-
 ## Tecnologias utilizadas
 #### HTML e CSS
 O documento HTML foi feito pensando na semântica, SEO e acessibilidade. O CSS foi feito pensando num layout agradável, com fácil visualização e responsivo
@@ -49,7 +45,6 @@ Optei por utilizar apenas javascript e Json pois ainda estou no processo de apre
 
 ### Testes 
 - Realizei testes pelo input de pesquisa e no console
-- Utilizei o Jestjs para realizar testes automatizados
 
 ## Desafios Enfrentados
 - Gostaria muito de ter utilizado REST API nesse projeto, mas ainda estou em processo de aprendizado
@@ -61,4 +56,5 @@ Optei por utilizar apenas javascript e Json pois ainda estou no processo de apre
 - Input de pesquisa com live search
 - Filtros de pesquisa
 - Utilização de Rest API
+- Implementação de testes 
 - Adicionar informações relevantes aos resultados
