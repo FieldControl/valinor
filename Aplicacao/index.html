@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="src/img/black-logo.png" type="image/x-icon">
+    <script src="main.js" async></script>
+</head>
+<body>
+    <header>
+        <div class="middle-header">
+            <span class="header-left">
+                <a href="#"><img src="src/img/white-logo.png" alt="home page" class="header-logo" tabindex="0"></a>
+            </span>
+
+            <div class="header-right">
+                <h1 class="header-heading">GitHub Repository Search</h1>
+                <span class="search-span">
+                    <input type="text" name="q" id="search-input" class="search-input" placeholder="Search or jump to..." tabindex="1">
+                    <button onclick="getQuery()" name="search button" class="search-button"><img src="src/img/search-white.svg" alt="search button" tabindex="2"></button>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-results">
+        <div id="total-results"></div>
+    </section>
+
+    <section id="section-results">
+        <div class="list"></div>
+    </section>
+
+    <footer>
+        <span class="creator" title="creator">
+            <a href="https://github.com/wesleybertipaglia" target="_blank">Created with 💙 by Wesley Bertipaglia</a>
+        </span>
+    </footer>
+</body>
+</html>
