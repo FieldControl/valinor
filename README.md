@@ -47,7 +47,7 @@ Optei por utilizar apenas javascript e Json pois ainda estou no processo de apre
 - No JavaScript forma utilizadas apenas 3 variáveis, sendo uma global para a url da API e outras 2 de escopo, uma para a query do usuário e outra para a array de resultados
 - No JavaScript também foram utilizadas apenas 4 funções, sendo uma utilizada como controle das demais 
 
-## Testes 
+### Testes 
 - Realizei testes pelo input de pesquisa e no console
 - Utilizei o Jestjs para realizar testes automatizados
 
