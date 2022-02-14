@@ -4,38 +4,39 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+- React
+- React hooks
+- React-router-dom
+- Redux
+- Redux Saga
+- Github API
+- Fontawesome icons
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
+Eu sempre opto por usar o combo React + hooks + redux e redux-saga em minhas aplicações pois são as tecnologias que eu mais tenho conhecimento e conforto, mas estou sempre buscando expandir meus conhecimentos em outras linguagens.
 
 **Princípios de software**
 
-Quais princípios da engenharia de software que você usou?
+ainda não possuo muito conhecimento sobre tais princípios, mas o que tentei ao máximo foi simplificar tudo o que consegui e separar responsabilidades. Eu tenho consciência de que ainda tenho muito a melhorar quanto a isso.
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+o maior desafio que tive foi que eu nunca havia usado a api do github antes, então eu tive que me dedicar várias horas estudando a documentação antes de começar a criar o projeto.
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+Uma melhoria importante seria a adição de testes ao projeto, que eu optei por não fazer pois ainda não possuo conhecimento.
+
+Outra melhoria seria fazer com que o projeto tivesse mais escalabilidade. Acredito que se faz necessário aqui o uso de alguns design patters e outros recursos e tecnologias para tentar simplificar algumas partes do código. Por exemplo, acho seria interessante o uso de algum pré-processador de css, como o SASS, pois não acho muito escalável uma aplicação com css "puro".
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
+Nasci em Governador Dix-Sept Rosado - RN, cidade pequena. Estudo Ciência e tecnologia na UFERSA e não tenho experiência profissional na área até agora.
+Descobri minha paixão pela programação em uma aula de algorítmo e lógica de programação na faculdade. No começo achava bem difícil, mas cada dia que passava eu me sintia mais e mais fascinado com tudo novo que aprendia.
 
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
+### Contato
+Meu email: savioramon12@gmail.com.
 
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
-
-
----
-
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
-
-
+#### Até.
 

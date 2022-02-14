@@ -1,0 +1,15 @@
+.inicio {
+    padding-top: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    --logo-grande: clamp(30px, 4.5vw, 4.5vw);
+    
+}
+
+.logo-grande {
+    font-size: var(--logo-grande);
+    color: var(--color-text);
+}

@@ -1,0 +1,103 @@
+.busca {
+    margin-bottom: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudo-busca {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.lista-repositorios {
+    margin: 0 2vw;
+    width: clamp(500px, 50vw, 95%);
+    list-style-type: none;
+
+    --fonte-grande-itens: clamp(13px, 1.2vw, 1.2vw);
+    --fonte-media-itens: clamp(11px, 1vw, 1vw);
+    --fonte-pequena-itens: clamp(10px, 0.8vw, 0.8vw);
+
+    --espacamento-texto: clamp(4px, 0.4vw, 0.4vw);
+    --espacamento-itens: clamp(20px, 1.5vw, 1.5vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sem-lista {
+    margin-top: var(--espacamento-itens);
+    text-align: center;
+    font-size: calc(var(--fonte-grande-itens) * 1.5);
+}
+
+.repositorio-item {
+    width: 100%;
+    margin: var(--espacamento-itens) 0;
+    padding: var(--espacamento-texto);
+    --largura-borda: clamp(2px, 0.2vw, 0.2vw);
+    border: 0.1vw solid var(--border-color);
+    cursor: pointer;
+    border-radius: 0.5em;
+}
+.repositorio-item:hover {
+    background-color: rgba(255, 136, 0, 0.1);
+    border-color: var(--orange-text);
+}
+
+.repositorio-item h1 {
+    font-size: var(--fonte-grande-itens);
+    color: var(--orange-text);
+}
+
+.item-descricao {
+    margin: calc(var(--espacamento-texto) / 2) 0;
+    font-size: var(--fonte-media-itens);
+    color: var(--color-text);
+}
+
+.lista-topicos-repositorio {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.lista-topicos-repositorio li {
+    margin: calc(var(--espacamento-texto) / 3);
+    padding: var(--espacamento-texto);
+    font-size: var(--fonte-pequena-itens);
+    border-radius: var(--fonte-pequena-itens);
+    border: 0.1vw solid var(--orange-text);
+    color: var(--orange-text);
+    font-weight: bold;
+}
+
+.informacoes-extras {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.informacoes-extras .info {
+    margin-right: calc(var(--espacamento-texto) * 2);
+    display: flex;
+    align-items: center;
+    font-size: var(--fonte-media-itens);
+    color: var(--color-text);
+}
+
+.informacoes-extras .usuario {
+    margin: var(--espacamento-texto) 0;
+    width: 100%;
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+.icone-info {
+    margin-right: calc(var(--espacamento-texto) / 3);
+    color: var(--color-text);
+    font-size: var(--fonte-grande-itens);
+    
+}

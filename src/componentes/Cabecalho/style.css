@@ -1,0 +1,36 @@
+
+#cabecalho {
+    padding: clamp(10px, 0.5vw, 0.5vw);
+    width: 100%;
+    border-bottom: 0.1vw solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: clamp(25px, 2vw, 2vw);
+    color: var(--color-text);
+}
+
+.dark-mode-botao {
+    padding: clamp(3px, 0.3vw, 0.3vw);
+    width: clamp(35px, 4vw, 4vw);
+    background-color: rgba(216, 216, 216, 0.5);
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    border-radius: clamp(10px, 1vw, 1vw);
+    color: rgb(255, 153, 0);
+}
+
+.dark-true {
+    justify-content: flex-end;
+    color: rgb(197, 197, 197);
+}
+
+.icone-dark-mode {
+    font-size: clamp(15px, 1.5vw, 1.5vw);
+    display: flex;
+    justify-content: center;
+}

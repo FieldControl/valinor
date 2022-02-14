@@ -1,0 +1,19 @@
+
+:root {
+    --tamanho-fonte: clamp(11px, 1.1vw, 1.1vw);
+}
+
+.perfil {
+    padding: var(--tamanho-fonte);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sem-perfil {
+    margin-top: var(--espacamento-itens);
+    text-align: center;
+    font-size: calc(var(--tamanho-fonte) * 1.5);
+}

@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: white;
+  --bg-page-list-focus: rgb(255, 153, 0);
+  --bg-page-list-hover: rgba(158, 158, 158, 0.5);
+  --bg-repo-search: rgba(0, 0, 0, 0.1);
+  
+  --color-text: #000;
+  --border-color: #000;
+  --orange-text: rgb(255, 136, 0);
+}
+
+.dark-mode:root {
+  --bg: rgb(14, 14, 14);
+  --bg-page-list-focus: rgb(100, 60, 0);
+  --bg-repo-search: rgba(255, 255, 255, 0.1);
+
+  --color-text: #999;
+  --border-color: #555;
+  --orange-text: rgb(148, 76, 0);
+}
+
+html {
+  background-color: var(--bg);
+  transition: all ease 0.5s;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+}

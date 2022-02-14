@@ -1,0 +1,15 @@
+@keyframes loader-gif-girando {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-gif {
+    margin-top: 3vw;
+    font-size: clamp(40px, 4vw, 4vw);
+    animation: loader-gif-girando infinite 2s linear;
+    color: var(--color-text);
+}

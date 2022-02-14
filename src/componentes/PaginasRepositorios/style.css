@@ -1,0 +1,37 @@
+.area-paginacao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    --fonte-pagina-itens: clamp(14px, 1vw, 1vw);
+}
+
+.paginacao-lista {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.paginacao-lista li {
+    border: 1px solid var(--border-color);
+    padding: calc(var(--fonte-pagina-itens) / 3) calc(var(--fonte-pagina-itens) / 2);
+    line-height: var(--fonte-pagina-itens);
+    font-size: var(--fonte-pagina-itens);
+    color: var(--color-text);
+}
+
+.paginacao-lista .foco {
+    background-color: var(--bg-page-list-focus);
+    cursor: pointer;
+}
+
+.paginacao-lista .sem-foco {
+    cursor: pointer;
+}
+
+.paginacao-lista .sem-foco:hover {
+    background-color: var(--bg-page-list-hover);
+}
+
+.paginacao-lista .reticencia {
+    cursor: default;
+}

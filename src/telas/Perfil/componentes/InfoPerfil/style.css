@@ -1,0 +1,22 @@
+
+.info-basica-perfil {
+    padding: clamp(20px, 3vw, 3vw) 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 0.2vw solid #222;
+}
+
+.imagem-usuario-repositorio {
+    width: clamp(40px, 7vw, 7vw);
+    height: clamp(40px, 7vw, 7vw);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.nome-usuario {
+    margin-top: var(--tamanho-fonte);
+    font-size: var(--tamanho-fonte);
+    color: var(--color-text);
+}
