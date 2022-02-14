@@ -1,6 +1,6 @@
 # search-github
 
-A versão demo do projeto pode ser acessada [aqui](busca-github.web.app)
+A versão demo do projeto pode ser acessada [aqui](https://busca-github.web.app)
 
 ## Rodando o projeto localmente
 
