@@ -1,0 +1,373 @@
+@font-face {
+  font-family: "MK11";
+  src: url("../../assets/fonts/mk11.ttf");
+}
+
+html {
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  font-family: "MK11";
+  height: 100%;
+  background: url("../../assets/background-three.png") no-repeat center center
+    fixed;
+  background-size: cover;
+}
+
+#root {
+  height: 100%;
+}
+
+/**************************************
+************* MAIN PAGE ***************
+**************************************/
+
+.containerMain {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mk11-image {
+  width: 420px;
+  padding: 30px;
+}
+
+.charRows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} /* All character row*/
+
+.charList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} /*Unitary character row*/
+
+.charCard {
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.9;
+  margin-left: 4px;
+} /*Unitary character card*/
+
+.charImage {
+  background-color: #2d2d2d;
+  border: 0.5px solid #ad7b3d;
+  width: 75px;
+} /*Unitary character card image*/
+
+.charCard:hover {
+  opacity: 1;
+}
+
+/**************************************
+********** END OF MAIN PAGE ***********
+**************************************/
+
+
+
+
+
+
+/**************************************
+*********** TEXT STYLES ***************
+**************************************/
+h1,
+h2,
+h3,
+h4,
+button {
+  background: linear-gradient(
+    to bottom,
+    #f8d499 22%,
+    #f8d499 26%,
+    #f8d499 27%,
+    #ffecb3 40%,
+    #ad7b3d 70%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 39px;
+}
+
+h4 {
+  font-size: 30px;
+  margin: 0px;
+}
+/**************************************
+******** END OF TEXT STYLES ***********
+**************************************/
+
+
+
+
+
+
+/**************************************
+********* SELECTED CHAR PAGE **********
+**************************************/
+.selectedCharPage {
+  background: url("../../assets/background-two.png") no-repeat center center
+    fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/******************************
+************HEADER*************
+******************************/
+.header {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.charSelectName {
+  font-size: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -70px;
+}
+
+.charImageInside {
+  margin-top: 50px;
+  width: 680px;
+}
+/******************************
+*********END OF HEADER*********
+******************************/
+
+
+
+/******************************
+******** INFO CONTAINER *******
+******************************/
+.charInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/**********SUBTITLE*********/
+.bonusStuff {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75),
+    rgba(8, 21, 29, 0.75),
+    rgba(0, 0, 0, 0.75)
+  );
+  border: 1px solid #404040;
+  align-items: center;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+.rightSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+/*****TOGGLE BUTTON*****/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Hide default HTML checkbox*/
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background: linear-gradient(315deg, #1b2845 0%, #274060 74%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background: linear-gradient(
+    to bottom,
+    #f8d499 22%,
+    #f8d499 26%,
+    #f8d499 27%,
+    #ffecb3 40%,
+    #ad7b3d 70%
+  );
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ad7b3d;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider {
+  border-radius: 34px;
+}
+
+.slider:before {
+  border-radius: 50%;
+}
+/*****TOGGLE BUTTON*****/
+/*****END OF SUBTITLE******/
+
+
+
+/***********KUSTOM****************
+*****VARIATION CONTAINER*********/
+.kustomVariation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75),
+    rgba(63, 0, 8, 0.75),
+    rgba(0, 0, 0, 0.75)
+  );
+  border: 1px solid #404040;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
+
+.skillsContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: #000;
+  border: 1px solid #404040;
+  margin-top: 15px;
+}
+
+.skillImage {
+  border: 1px solid #786a52;
+}
+/********END OF KUSTOM************
+*****VARIATION CONTAINER*********/
+
+
+
+/********COMBO RENDER*********/
+.allInfoContainer {
+  margin-bottom: 60px;
+}
+
+.unitaryComboContainer {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75),
+    rgba(8, 21, 29, 0.75),
+    rgba(0, 0, 0, 0.75)
+  );
+  border: 1px solid #404040;
+  padding: 30px;
+}
+
+.typeContainer {
+  padding-left: 10px;
+}
+
+.selectedChar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.combosButtons {
+  width: 70%;
+}
+
+.ps4Buttons {
+  height: 45px;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.buttonContainer {
+  bottom: 0;
+  position: fixed;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75),
+    rgba(8, 21, 29, 0.75),
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+
+/***Button to back***/
+.backButton {
+  border: 1px solid #404040;
+  font-family: "MK11";
+  padding: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-size: 30px;
+  justify-content: center;
+  align-content: center;
+}
+/***Button to back***/
+/**************************************
+***** END OF SELECTED CHAR PAGE *******
+**************************************/

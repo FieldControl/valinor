@@ -1,0 +1,1309 @@
+[
+  {
+    "name": "SHANG TSUNG",
+    "image": "shangTsung.png",
+    "imageinside": "shangtsung.png",
+    "variation": [
+      {
+        "firstSkill": "shangSkill1.png",
+        "secondSkill": "shangSkill2.png",
+        "thirdSkill": "shangSkill3.png"
+      }
+    ],
+    "sound": "shangtsung.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["one","one","four","d","b","one","amp","j","one","b","one","one","b","f","four"],
+        "damage": 257
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["f","two","four","d","b","four","amp","three","u","two","d","b","one","amp","b","one","one","b","d","four"],
+        "damage": 378
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","two","four","one","one","one","one","four","d","b","one","amp","four"],
+        "damage": 325
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["four","d","b","four","amp","three","u","two","d","b","one","amp","three","l2","r2"],
+        "damage": 531
+      }
+    ]
+  },
+
+  {
+    "name": "SHAO KAHN",
+    "imageinside": "shaokahn2.png",
+    "image": "shaoKahn.png",
+    "variation": [
+      {
+        "firstSkill": "shaoSkill1.png",
+        "secondSkill": "shaoSkill2.png",
+        "thirdSkill": "shaoSkill3.png"
+      }
+    ],
+    "sound": "shaokahn.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","three","four","b","f","three","amp","b","three","j","two","b","two","d","b","three"],
+        "damage": 355
+      },
+      {
+        "type": "HIGH DAMAGE - 1 BAR",
+        "commands": ["one","four","d","b","four","b","b","three","b","two","b","f","three","amp","four","d","b","three"],
+        "damage": 377
+      },
+      {
+        "type": "CORNER",
+        "commands": ["one","four","d","b","four","b","b","three","b","three","four","b","f","three","amp","four","d","b","three"],
+        "damage": 420
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","three","four","b","f","three","amp","b","three","four","l2","r2"],
+        "damage": 482
+      }
+    ]
+  },
+
+  {
+    "name": "FROST",
+    "image": "frost.png",
+    "imageinside": "frost2.png",
+    "variation": [
+      {
+        "firstSkill": "frostSkill1.png",
+        "secondSkill": "frostSkill2.png",
+        "thirdSkill": "frostSkill3.png"
+      }
+    ],
+    "sound": "frost.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","one","two","d","b","four","amp","b","three","two","d","one","b","f","four"],
+        "damage": 273
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["b","one","two","d","b","four","amp","f","j","two","b","one","two","b","f","one","amp","b","one","two","d","f","two"],
+        "damage": 299
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","three","two","d","one","b","one","two","d","b","four","amp","j","four","one","three","d","f","two","amp"],
+        "damage": 373
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","one","two","d","b","four","amp","f","j","two","b","three","two","d","one","b","one","two","l2","r2"],
+        "damage": 393
+      }
+    ]
+  },
+
+  {
+    "name": "NIGHT WOLF",
+    "image": "nightWolf.png",
+    "imageinside": "nightwolf2.png",
+    "variation": [
+      {
+        "firstSkill": "nightSkill1.png",
+        "secondSkill": "nightSkill2.png"
+      }
+    ],
+    "sound": "nightwolf.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["one","one","one","d","f","two","amp","one","one","one","b","f","four"],
+        "damage": 290
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["one","one","one","d","f","two","amp","three","one","d","f","two","amp","four","b","f","four"],
+        "damage": 366
+      },
+      {
+        "type": "CORNER",
+        "commands": ["one","one","one","d","f","two","amp","four","d","f","two","amp","one","one","one","b","f","four"],
+        "damage": 376
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["one","one","one","d","f","two","amp","three","one","l2","r2"],
+        "damage": 450
+      }
+    ]
+  },
+
+  {
+    "name": "JOKER",
+    "imageinside": "thejoker2.png",
+    "image": "joker.png",
+    "variation": [
+      {
+        "firstSkill": "jokerSkill1.png",
+        "secondSkill": "jokerSkill2.png"
+      }
+    ],
+    "sound": "joker.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","two","one","b","f","two","amp","one","two","one","f","one","four","b","f","two"],
+        "damage": 351
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["f","two","one","l2","r2","f","f","f","one","four","b","f","two","amp","one","two","one","f","two","one","b","f","two"],
+        "damage": 415
+      },
+      {
+        "type": "CORNER",
+        "commands": ["one","two","one","four","two","one","b","f","two","amp","f","one","four","b","f","two"],
+        "damage": 404
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["one","two","one","f","one","four","l2","r2"],
+        "damage": 446
+      }
+    ]
+  },
+
+  {
+    "name": "JOHNNY CAGE",
+    "image": "johnny.png",
+    "sound": "cage.mp3",
+    "imageinside": "johnny2.png",
+    "variation": [
+      {
+        "firstSkill": "johnnySkill1.png",
+        "secondSkill": "johnnySkill2.png",
+        "thirdSkill": "johnnySkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["one","two","b","d","three","amp","one","two","one","d","b","three"],
+        "damage": 255
+      },
+      {
+        "type": "HIGH DAMAGE - 1 BAR",
+        "commands": ["three","four","b","d","three","amp","b","two","f","four","d","b","f","one"],
+        "damage": 321
+      },
+      {
+        "type": "CORNER",
+        "commands": ["three","four","b","d","three","amp","three","four","b","f","two","amp","one","two","one","d","b","f","one"],
+        "damage": 444
+      },
+      {
+        "type": "FATAL BLOW CANCEL",
+        "commands": ["one","two","l2","r2","f","f","three","four","d","d","two","f","three","four","four","d","b","three","amp","b","two","f","four","d","b","f","one"],
+        "damage": 477
+      }
+    ]
+  },
+
+  {
+    "name": "SONYA",
+    "image": "sonya.png",
+    "imageinside": "sonyablade2.png",
+    "variation": [
+      {
+        "firstSkill": "sonyaSkill1.png",
+        "secondSkill": "sonyaSkill2.png",
+        "thirdSkill": "sonyaSkill3.png"
+      }
+    ],
+    "sound": "sonya.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","one","two","three","f","four","one","three","four","b","f","two","amp"],
+        "damage": 358
+      },
+      {
+        "type": "HIGH DAMAGE AIR KRUSHING BLOW - 1 BAR",
+        "commands": ["b","one","two","three","j","b","f","one","amp"],
+        "damage": 367
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","one","two","three","three","three","three","three","three","three","b","f","two","amp"],
+        "damage": 398
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","one","two","three","f","four","one","three","four","l2","r2"],
+        "damage": 490
+      }
+    ]
+  },
+
+  {
+    "name": "CASSIE CAGE",
+    "image": "cassie.png",
+    "sound": "cassie.mp3",
+    "imageinside": "cassiecage2.png",
+    "variation": [
+      {
+        "firstSkill": "cassieSkill1.png",
+        "secondSkill": "cassieSkill2.png",
+        "thirdSkill": "cassieSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["one","one","one","d","b","one","amp","j","two","b","two","four","b","d","three"],
+        "damage": 295
+      },
+      {
+        "type": "HIGH DAMAGE - 1 BAR",
+        "commands": ["b","one","three","four","d","b","one","amp","b","two","four","b","d","three"],
+        "damage": 300
+      },
+      {
+        "type": "CORNER",
+        "commands": ["three","four","d","one","d","b","one","amp","f","four","one","b","d","three"],
+        "damage": 354
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","two","four","d","b","one","amp","four","b","f","three","f","l2","r2"],
+        "damage": 490
+      }
+    ]
+  },
+
+  {
+    "name": "JAX BRIGGS",
+    "image": "jax.png",
+    "imageinside": "jaxbriggs2.png",
+    "sound": "jax.mp3",
+    "variation": [
+      {
+        "firstSkill": "jaxSkill1.png",
+        "secondSkill": "jaxSkill2.png",
+        "thirdSkill": "jaxSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","one","one","d","b","four","amp","d","one","two","d","one","two","d","b","one","one","one","one","one","one","one"],
+        "damage": 303
+      },
+      {
+        "type": "HIGH DAMAGE KRUSHING BLOW - 2 BARS",
+        "commands": ["d","d","three","d","b","four","amp","four","b","f","one","four"],
+        "damage": 422
+      },
+      {
+        "type": "CORNER RESTAND",
+        "commands": ["f","one","one","d","b","four","amp","four","d","one","two","d","b","one","one","one","one","one","one","four"],
+        "damage": 294
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","one","one","d","b","four","amp","four","l2","r2"],
+        "damage": 475
+      }
+    ]
+  },
+
+  {
+    "name": "SPAWN",
+    "image": "spawn.png",
+    "imageinside": "spawn2.png",
+    "sound": "spawn.mp3",
+    "variation": [
+      {
+        "firstSkill": "spawnSkill1.png",
+        "secondSkill": "spawnSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["three","four","b","f","three","amp","two","four","d","b","three"],
+        "damage": 310
+      },
+      {
+        "type": "OPTIMAL - 2 BARS",
+        "commands": ["f","two","one","b","f","three","amp","two","four","b","f","three","amp","d","two"],
+        "damage": 440
+      },
+      {
+        "type": "HIGH DAMAGE - DB4 ACTIVATED, FATAL BLOW OPTIONAL (ON D2)",
+        "commands": ["grab","f","two","one","b","f","three","amp","f","two","b","f","three","amp","d","two"],
+        "damage": 710
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","two","one","b","f","three","amp","two","four","l2","r2"],
+        "damage": 523
+      }
+    ]
+  },
+
+  {
+    "name": "SCORPION",
+    "image": "scorpion.png",
+    "imageinside": "scorpion2.png",
+    "sound": "scorpion.mp3",
+    "variation": [
+      {
+        "firstSkill": "scorpionSkill1.png",
+        "secondSkill": "scorpionSkill2.png"
+      }
+    ],
+    "combos": [
+      {  
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","one","four","d","b","three","amp","f","three","one","one","b","f","one"],
+        "damage": 294
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS ",
+        "commands": ["four","d","b","three","amp","four","d","b","three","amp","four","b","f","one"],
+        "damage": 375
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","one","four","d","b","three","amp","four","four","d","one","one","one","two"],
+        "damage": 370
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["four","d","b","four","amp","three","u","two","d","b","one","amp","three","l2","r2"],
+        "damage": 531
+      }
+    ]
+  },
+
+  {
+    "name": "NOOB SAIBOT",
+    "image": "noob.png",
+    "imageinside": "noob2.png",
+    "sound": "noob.mp3",
+    "variation": [
+      {
+        "firstSkill": "noobSkill1.png",
+        "secondSkill": "noobSkill2.png",
+        "thirdSkill": "noobSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["one","one","three","u","d","amp","one","one","three","b","one","one","three","b","u"],
+        "damage": 398
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["f","one","one","three","u","d","amp","three","f","two","two","one","d","b","one","amp","one","one","three","d","b","one"],
+        "damage": 452
+      },
+      {
+        "type": "CORNER",
+        "commands": ["two","one","two","four","d","b","four","b","one","one","three","u","d","amp","one","one","three","b","f","two"],
+        "damage": 380
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","two","two","one","d","b","one","amp","b","one","one","three","l2","r2"],
+        "damage": 500
+      }
+    ]
+  },
+
+  {
+    "name": "BARAKA",
+    "image": "baraka.png",
+    "imageinside": "baraka2.png",
+    "sound": "baraka.mp3",
+    "variation": [
+      {
+        "firstSkill": "barakaSkill1.png",
+        "secondSkill": "barakaSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER - SPAM CHOP CHOP",
+        "commands": ["one","one","two","b","f","four","amp","four","d","b","three"],
+        "damage": 372
+      },
+      {
+        "type": "KRUSHING BLOW - 1 BAR (HOLD FINAL FOUR)",
+        "commands": ["one","one","two","b","f","four","amp","four","b","f","four"],
+        "damage": 420
+      },
+      {
+        "type": "CORNER - SPAM CHOP CHOP",
+        "commands": ["one","one","two","b","f","four","amp","four","one","one","two","d","b","three"],
+        "damage": 430
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["one","one","two","b","f","four","amp","four","l2","r2"],
+        "damage": 500
+      }
+    ]
+  },
+
+  {
+    "name": "RAIDEN",
+    "image": "raiden.png",
+    "imageinside": "raiden2.png",
+    "sound": "raiden.mp3",
+    "variation": [
+      {
+        "firstSkill": "raidenSkill1.png",
+        "secondSkill": "raidenSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","one","two","d","b","two","amp","f","j","two","f","two","one","two","b","f","three"],
+        "damage": 312
+      },
+      {
+        "type": "HIGH DAMAGE - KRUSHING BLOW D2",
+        "commands": ["d","two","f","three","d","b","two","amp","f","j","two","f","j","three","b","f","three"],
+        "damage": 423
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","one","two","d","b","two","amp","f","j","three","two","four","one","b","f","three"],
+        "damage": 312
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","one","two","d","b","two","amp","f","j","three","f","four","l2","r2"],
+        "damage": 429
+      }
+    ]
+  },
+
+  {
+    "name": "JACQUI BRIGGS",
+    "image": "jacqui.png",
+    "imageinside": "jacqui2.png",
+    "sound": "jacqui.mp3",
+    "variation": [
+      {
+        "firstSkill": "jacquiSkill1.png",
+        "secondSkill": "jacquiSkill2.png",
+        "thirdSkill": "jacquiSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","one","two","d","u","d","b","one","amp","two","f","two","two","f","two","two","f","two","two","f","three","one","four","one","two"],
+        "damage": 340
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["f","one","two","d","u","d","b","one","amp","two","f","one","two","d","u","d","b","one","amp","two","f","two","two","f","two","two","f","two","two","f","three","one","four","one","two"],
+        "damage": 407
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","one","two","d","u","d","b","one","amp","three","f","one","two","d","one","one","one","two","b","f","two"],
+        "damage": 347
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","three","one","d","u","d","b","one","amp","three","f","one","two","l2","r2"],
+        "damage": 412
+      }
+    ]
+  },
+
+  {
+    "name": "SUB-ZERO",
+    "image": "subzero.png",
+    "imageinside": "sub2.png",
+    "sound": "subzero.mp3",
+    "variation": [
+      {
+        "firstSkill": "subSkill1.png",
+        "secondSkill": "subSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","one","four","d","f","one","f","j","three","two","b","one","four","three","b","f","three","amp"],
+        "damage": 290
+      },
+      {
+        "type": "OVERHEAD COMBO - 50/50 WITH 3+2 STARTER",
+        "commands": ["f","two","d","f","one","amp","f","j","three","two","b","one","four","three","b","f","three","amp"],
+        "damage": 290
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","three","two","b","f","one","j","three","two","two","two","two","two","two","one","b","f","three"],
+        "damage": 280
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","one","four","d","f","one","f","j","two","four","l2","r2"],
+        "damage": 408
+      }
+    ]
+  },
+
+  {
+    "name": "KANO",
+    "image": "kano.png",
+    "imageinside": "kano2.png",
+    "variation": [
+      {
+        "firstSkill":"kanoSkill1.png",
+        "secondSkill": "kanoSkill2.png",
+        "thirdSkill": "kanoSkill3.png"
+      }
+    ],
+    "sound": "kano.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["two","four","one","three","amp","one","one","b","two","d","f","b","two"],
+        "damage": 313
+      },
+      {
+        "type": "CORNER UNBLOCKABLE - HOLD BACK AFTER LAST AMP",
+        "commands": ["f","one","two","d","b","one","amp","b","two","one","one","one","one","b","one","d","b","four","amp","b"],
+        "damage": 226
+      },
+      {        
+        "type": "STRONG CORNER SETUP",
+        "commands": ["f","one","two","d","b","one","amp","b","two","one","one","one","one","b","one","d","b","four","amp","b","f","j","two","f","one","two","b","two","d","one","d","b","four"],
+        "damage": 250
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["two","four","one","three","amp","four","l2","r2"],
+        "damage": 436
+      }
+    ]
+  },
+
+  {
+    "name": "KABAL",
+    "image": "kabal.png",
+    "imageinside": "kabal2.png",
+    "variation": [
+      {
+        "firstSkill":"kabalSkill1.png",
+        "secondSkill": "kabalSkill2.png"
+      }
+    ],
+    "sound": "kabal.mp3",
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","one","two","b","f","three","two","three","d","b","two","amp","four","d","b","two"],
+        "damage": 309
+      },
+      {
+        "type": "HIGH DAMAGE - 1 BARS",
+        "commands": ["two","three","d","b","two","amp","f","j","two","b","f","three","two","four","b","f","three","four","d","b","two"],
+        "damage": 397
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","one","two","b","f","three","two","three","d","b","two","amp","f","j","three","b","f","three","one","f","j","two","b","f","three","one","two","two","one"],
+        "damage": 349
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","one","two","b","f","three","two","three","d","b","two","amp","two","three","l2","r2"],
+        "damage": 438
+      }
+    ]
+  },
+
+  {
+    "name": "LIU KANG",
+    "image": "liuKang.png",
+    "imageinside": "liukang2.png",
+    "sound": "liukang.mp3",
+    "variation": [
+      {
+        "firstSkill":"liuSkill1.png",
+        "secondSkill": "liuSkill2.png",
+        "thirdSkill": "liuSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER - STACK KB",
+        "commands": ["f","four","three","b","f","four","amp","amp"],
+        "damage": 232
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["f","three","three","three","three","two","one","two","three","four","b","f","four","amp","amp"],
+        "damage": 311
+      },
+      {
+        "type": "CORNER",
+        "commands": ["one","two","three","d","b","one","amp","one","three","three","b","f","three"],
+        "damage": 337
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","three","three","three","three","three","two","one","two","f","four","three","l2","r2"],
+        "damage": 400
+      }
+    ]
+  },
+
+  {
+    "name": "KITANA",
+    "image": "kitana.png",
+    "imageinside": "kitana2.png",
+    "sound": "kitana.mp3",
+    "variation": [
+      {
+        "firstSkill":"kitanaSkill1.png",
+        "secondSkill": "kitanaSkill2.png",
+        "thirdSkill": "kitanaSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","two","three","one","d","b","two","f","j","two","f","j","two","b","one","three","b","f","three"],
+        "damage": 313
+      },
+      {
+        "type": "HIGH DAMAGE - KRUSHING BLOW",
+        "commands": ["b","one","four","d","b","two","f","j","two","f","j","two","b","one","four","d","f","two"],
+        "damage": 374
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","two","three","one","d","b","two","j","three","b","one","four","d","f","one","one","two","b","f","three","amp"],
+        "damage": 335
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","one","four","d","b","two","f","j","two","three","two","l2","r2"],
+        "damage": 400
+      }
+    ]
+  },
+
+  {
+    "name": "KUNG LAO",
+    "image": "kungLao.png",
+    "imageinside": "kunglao2.png",
+    "sound": "kung.mp3",
+    "variation": [
+      {
+        "firstSkill":"kungSkill1.png",
+        "secondSkill": "kungSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["two","one","two","one","two","d","b","four","two","two","one","d","f","one","f","one","d","f","one","amp","j","three","d","four"],
+        "damage": 345
+      },
+      {
+        "type": "HIGH DAMAGE - NO BARS",
+        "commands": ["two","one","two","one","two","d","b","four","two","f","two","one","d","f","one","f","one","two"],
+        "damage": 314
+      },
+      {
+        "type": "CORNER",
+        "commands": ["two","one","two","one","two","d","b","four","two","f","four","d","f","one","d","one","d","f","one","amp","f","four","d","f","one"],
+        "damage": 381
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","one","three","d","f","one","amp","f","two","one","f","four","l2","r2"],
+        "damage": 444
+      }
+    ]
+  },
+
+  {
+    "name": "JADE",
+    "image": "jade.png",
+    "imageinside": "jade2.png",
+    "sound": "jade.mp3",
+    "variation": [
+      {
+        "firstSkill":"jadeSkill1.png",
+        "secondSkill": "jadeSkill2.png",
+        "thirdSkill": "jadeSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","three","four","three","b","f","two"],
+        "damage": 152
+      },
+      {
+        "type": "HIGH DAMAGE - OVERHEAD",
+        "commands": ["f","two","one","four","b","f","one","amp","b","two","d","f","four"],
+        "damage": 378
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","two","one","four","b","f","one","amp","four","three","b","f","two"],
+        "damage": 376
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","two","one","b","one","four","one","l2","r2"],
+        "damage": 464
+      }
+    ]
+  },
+
+  {
+    "name": "ROBOCOP",
+    "image": "robocop.png",
+    "imageinside": "robocop2.png",
+    "sound": "robocop.mp3",
+    "variation": [
+      {
+        "firstSkill":"robocopSkill1.png",
+        "secondSkill": "robocopSkill2.png",
+        "thirdSkill": "robocopSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","four","two","b","two","f","three","two","f","d","b","two"],
+        "damage": 240
+      },
+      {
+        "type": "MID COMBO",
+        "commands": ["b","two","two","f","three","two","f","d","b","two"],
+        "damage": 378
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","four","two","b","two","four","d","b","one","amp","one","two","one","f","d","b","two"],
+        "damage": 316
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","b","two","f","two","f","three","two","l2","r2"],
+        "damage": 373
+      }
+    ]
+  },
+
+  {
+    "name": "SKARLET",
+    "image": "skarlet.png",
+    "imageinside": "skarlet2.png",
+    "sound": "skarlet.mp3",
+    "variation": [
+      {
+        "firstSkill":"skarletSkill1.png",
+        "secondSkill": "skarletSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","four","three","one","two","four","b","four"],
+        "damage": 279
+      },
+      {
+        "type": "BEST COMBO",
+        "commands": ["two","one","two","two","one","two","four","four","b","f","four","amp"],
+        "damage": 347
+      },
+      {
+        "type": "CORNER",
+        "commands": ["two","one","two","four","b","f","one","amp","four","four","b","f","four"],
+        "damage": 337
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["two","one","two","four","four","l2","r2"],
+        "damage": 450
+      }
+    ]
+  },
+
+  {
+    "name": "ERRON BLACK",
+    "image": "erronBlack.png",
+    "imageinside": "erronBlack2.png",
+    "sound": "erronblack.mp3",
+    "variation": [
+      {
+        "firstSkill":"erronSkill1.png",
+        "secondSkill": "erronSkill2.png",
+        "thirdSkill": "erronSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER ",
+        "commands": ["two","one","two","one","two","b","f","four","d","three","u","f","three","two","b","f","three"],
+        "damage": 304
+      },
+      {
+        "type": "HIGH DAMAGE",
+        "commands": ["two","one","two","one","two","b","f","four","d","three","b","two","two","two","b","f","one","amp"],
+        "damage": 345
+      },
+      {
+        "type": "CORNER",
+        "commands": ["two","one","two","one","two","b","f","four","d","three","u","two","one","two","one","two","one","d","b","one"],
+        "damage": 284
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["two","one","two","one","two","b","f","four","d","three","u","four","l2","r2"],
+        "damage": 464
+      }
+    ]
+  },
+
+  {
+    "name": "D'VORAH",
+    "image": "dvorah.png",
+    "imageinside": "dvorah2.png",
+    "sound": "dvorah.mp3",
+    "variation": [
+      {
+        "firstSkill":"dvoSkill1.png",
+        "secondSkill": "dvoSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER ",
+        "commands": ["f","one","three","d","b","three","amp","d","b","one","f","j","one","f","one","three","b","f","four"],
+        "damage": 300
+      },
+      {
+        "type": "ANT AIR",
+        "commands": ["d","f","two","f","j","one","f","one","three","d","b","one","amp","f","j","four","d","b","three","amp","d","b","one","f","one","three","b","f","four"],
+        "damage": 500
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","one","three","d","b","three","amp","d","b","one","f","j","three","one","four","b","f","four"],
+        "damage": 326
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","one","three","d","b","three","amp","d","b","one","f","j","one","f","one","three","l2","r2"],
+        "damage": 440
+      }
+    ]
+  },
+
+  {
+    "name": "KOTAL KAHN",
+    "image": "kotalKahn.png",
+    "imageinside": "kotalkahn2.png",
+    "sound": "kotal.mp3",
+    "variation": [
+      {
+        "firstSkill":"kotalSkill1.png",
+        "secondSkill": "kotalSkill2.png",
+        "thirdSkill": "kotalSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","two","four","d","f","two","f","three","two","d","b","two","amp"],
+        "damage": 330
+      },
+      {
+        "type": "BEST SAFE COMBO",
+        "commands": ["f","two","four","b","f","three"],
+        "damage": 195
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","two","four","d","f","two","d","one","three","four","d","b","two","amp"],
+        "damage": 367
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","two","four","d","f","two","d","one","f","one","two","l2","r2"],
+        "damage": 455
+      }
+    ]
+  },
+
+  {
+    "name": "SHEEVA",
+    "image": "sheeva.png",
+    "imageinside": "sheeva2.png",
+    "sound": "sheeva.mp3",
+    "variation": [
+      {
+        "firstSkill":"shSkill1.png",
+        "secondSkill": "shSkill2.png",
+        "thirdSkill": "shSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER - STANCE SAFE",
+        "commands": ["b","one","two","two","b","f","one"],
+        "damage": 281
+      },
+      {
+        "type": "BEST COMBO",
+        "commands": ["b","one","two","two","b","f","three","u","f","three","b","one","two","two","b","f","four"],
+        "damage": 281
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","one","two","two","one","d","one","f","four","four","d","b","one","amp","b","one","two","two","b","f","four"],
+        "damage": 357
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["two","one","d","b","one","amp","f","three","b","one","two","two","l2","r2"],
+        "damage": 428
+      }
+    ]
+  },
+
+  {
+    "name": "RAMBO",
+    "image": "rambo.png",
+    "imageinside": "rambo2.png",
+    "sound": "rambo.mp3",
+    "variation": [
+      {
+        "firstSkill":"ramboSkill1.png",
+        "secondSkill": "ramboSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["b","three","three","d","b","three","amp","f","j","two","f","j","two","b","two","two","one","d","b","four"],
+        "damage": 319
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","three","three","d","b","three","amp","j","three","j","three","b","two","two","one","d","b","four"],
+        "damage": 342
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","three","three","d","b","three","amp","f","j","three","b","two","two","one","l2","r2"],
+        "damage": 458
+      }
+    ]
+  },
+
+  {
+    "name": "THE TERMINATOR",
+    "image": "terminator.png",
+    "imageinside": "theterminator2.png",
+    "sound": "terminator.mp3",
+    "variation": [
+      {
+        "firstSkill":"terminatorSkill1.png",
+        "secondSkill": "terminatorSkill2.png",
+        "thirdSkill": "terminatorSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["one","two","one","b","f","one","amp"],
+        "damage": 193
+      },
+      {
+        "type": "LOW COMBO",
+        "commands": ["f","three","two","b","three","one","d","b","f","two"],
+        "damage": 280
+      },
+      {
+        "type": "CORNER",
+        "commands": ["one","two","one","b","f","four","two","d","one","d","one","d","one","one","two","one","d","b","f","two"],
+        "damage": 280
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","three","two","b","three","one","l2","r2"],
+        "damage": 470
+      }
+    ]
+  },
+
+  {
+    "name": "GERAS",
+    "image": "geras.png",
+    "imageinside": "geras2.png",
+    "sound": "geras.mp3",
+    "variation": [
+      {
+        "firstSkill":"gerasSkill1.png",
+        "secondSkill": "gerasSkill2.png",
+        "thirdSkill": "gerasSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER - HOLD LAST BUTTON TO EXTEND",
+        "commands": ["f","two","one","b","f","one","amp","d","two","d","two","f","j","d","two","f","three","b","f","two"],
+        "damage": 303
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["d","b","three","f","two","one","d","b","three","amp","f","three","b","f","one","amp","d","two","d","two","f","three","b","f","two"],
+        "damage": 364
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","two","one","two","three","b","f","one","amp","d","two","d","two","b","j","d","two","f","three","b","f","two"],
+        "damage": 343
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","two","one","b","f","one","amp","d","two","d","two","four","l2","r2"],
+        "damage": 359
+      }
+    ]
+  },
+
+  {
+    "name": "KOLLECTOR",
+    "image": "kollector.png",
+    "imageinside": "kollector2.png",
+    "sound": "kollector.mp3",
+    "variation": [
+      {
+        "firstSkill":"kollectorSkill1.png",
+        "secondSkill": "kollectorSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","one","two","b","f","four","amp","f","j","two","four","four","three","f","j","two","f","two","two","d","b","three"],
+        "damage": 340
+      },
+      {
+        "type": "MID COMBO - NO BARS",
+        "commands": ["four","four","three","d","two","d","one","d","b","one"],
+        "damage": 287
+      },
+      {
+        "type": "CORNER",
+        "commands": ["four","four","three","f","j","two","one","two","b","f","four","amp","j","two","f","four","d","b","three"],
+        "damage": 340
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["four","four","three","f","j","two","f","two","two","l2","r2"],
+        "damage": 404
+      }
+    ]
+  },
+
+  {
+    "name": "SYNDEL",
+    "image": "syndel.png",
+    "imageinside": "syndel2.png",
+    "sound": "syndel.mp3",
+    "variation": [
+      {
+        "firstSkill":"syndelSkill1.png",
+        "secondSkill": "syndelSkill2.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","two","one","d","b","one","amp","b","two","b","three","four","b","f","one"],
+        "damage": 323
+      },
+      {
+        "type": "HIGH DAMAGE - 2 BARS",
+        "commands": ["f","two","one","d","b","one","amp","b","two","two","three","d","b","one","amp","f","four","b","f","one"],
+        "damage": 377
+      },
+      {
+        "type": "CORNER",
+        "commands": ["f","two","one","d","b","one","amp","b","two","two","three","b","f","one"],
+        "damage": 312
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","three","four","d","b","one","amp","b","two","l2","r2"],
+        "damage": 466
+      }
+    ]
+  },
+
+  {
+    "name": "MILEENA",
+    "image": "mileena.png",
+    "imageinside": "mileena2.png",
+    "sound": "mileena.mp3",
+    "variation": [
+      {
+        "firstSkill":"mileenaSkill1.png",
+        "secondSkill": "mileenaSkill2.png",
+        "thirdSkill": "mileenaSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["f","four","three","b","d","four","amp","two","f","one","f","d","b","two"],
+        "damage": 310
+      },
+      {
+        "type": "MID COMBO",
+        "commands": ["f","four","three","b","d","four","amp","d","two","f","one","two","four"],
+        "damage": 323
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","four","three","b","d","four","amp","f","one","b","one","one","l2","r2"],
+        "damage": 423
+      }
+    ]
+  },
+
+  {
+    "name": "CETRION",
+    "image": "cetrion.png",
+    "imageinside": "cetrion2.png",
+    "sound": "cetrion.mp3",
+    "variation": [
+      {
+        "firstSkill":"cetrionSkill1.png",
+        "secondSkill": "cetrionSkill2.png",
+        "thirdSkill": "cetrionSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["two","one","d","b","four","amp","four","d","b","one"],
+        "damage": 209
+      },
+      {
+        "type": "MID COMBO",
+        "commands": ["f","two","three","d","b","four","amp","b","j","four","f","two","d","b","one"],
+        "damage": 228
+      },
+      {
+        "type": "CORNER RESTAND",
+        "commands": ["two","one","d","b","four","amp","b","j","four","f","one","three","one","one","b","f","four"],
+        "damage": 267
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["f","two","three","d","b","four","amp","four","l2","r2"],
+        "damage": 372
+      }
+    ]
+  },
+
+  {
+    "name": "FUJIN",
+    "image": "fujin.png",
+    "imageinside": "fujin2.png",
+    "sound": "fujin.mp3",
+    "variation": [
+      {
+        "firstSkill":"fujinSkill1.png",
+        "secondSkill": "fujinSkill2.png",
+        "thirdSkill": "fujinSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER - NO BAR",
+        "commands": ["one","two","d","b","two","four","two","d","b","four"],
+        "damage": 256
+      },
+      {
+        "type": "BEST COMBO",
+        "commands": ["b","one","one","two","one","two","d","u","amp","d","b","two","four","two","d","b","four"],
+        "damage": 297
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","one","one","two","one","two","d","b","two","four","two","d","b","four"],
+        "damage": 283
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","one","one","two","one","two","d","u","amp","d","b","two","four","two","l2","r2"],
+        "damage": 428
+      }
+    ]
+  },
+
+  {
+    "name": "RAIN",
+    "image": "rain.png",
+    "imageinside": "rain2.png",
+    "sound": "rain.mp3",
+    "variation": [
+      {
+        "firstSkill":"rainSkill1.png",
+        "secondSkill": "rainSkill2.png",
+        "thirdSkill": "rainSkill3.png"
+      }
+    ],
+    "combos": [
+      { 
+        "type": "BREAD N' BUTTER",
+        "commands": ["two","four","two","b","f","four","amp","j","two","two","four","two","d","b","one"],
+        "damage": 298
+      },
+      {
+        "type": "GRAB COMBO",
+        "commands": ["two","four","two","b","f","four","amp","j","two","two","four","two","grab"],
+        "damage": 301
+      },
+      {
+        "type": "CORNER",
+        "commands": ["b","two","one","d","one","b","f","four","amp","j","two","two","four","two","grab"],
+        "damage": 352
+      },
+      {
+        "type": "FATAL BLOW",
+        "commands": ["b","two","one","b","f","four","amp","j","two","two","four","two","l2","r2","f"],
+        "damage": 436
+      }
+    ]
+  }
+]
