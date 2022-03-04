@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  background-color: #24292f;
+  height: 13%;
+}
+
+#search {
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-top: 2%;
+  margin-left: 65%;
+  margin-right: 10px;
+  padding: 5px 10px;
+  padding-right: 30px;
+  color: white;
+  position: absolute;
+}
+
+#search:focus {
+  background-color: white;
+  color: black;
+  border: none;
+  outline: 0;
+}
+
+#search:focus + #iconSearch {
+  color: black;
+}
+
+#iconSearch {
+  position: absolute;
+  margin-top: 2.4%;
+  margin-left: 78.5%;
+  color: white;
+}
+
+#RepoName {
+  color: #0969da;
+  font-weight: bold;
+  font-family: poppins;
+}
+
+#numberOfRepos {
+  background-color: transparent;
+  border: none;
+  font-family: poppins;
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
+}
+
+td {
+  border-top: 1px solid gray;
+  padding: 15px;
+}
+
+.resultsBox {
+  margin-top: 1%;
+  margin-left: 15%;
+}
+
+#logo {
+  font-size: 40px;
+  color: white;
+  margin-left: 5%;
+  display: inline;
+  position: relative;
+  top: 20%;
+}
+
+#controls {
+  visibility: hidden;
+  display: flex;
+  margin-left: 45%;
+  font-size: 20px;
+  margin-top: 5%;
+}
+
+#number {
+  font-family: poppins;
+  padding: 5px 13px;
+  border-radius: 5px;
+  background-color: #0969da;
+  margin-top: -5px;
+  color: white;
+  margin-bottom: 10%;
+  border: none;
+  text-align: center;
+  width: 5rem;
+}
+
+#tbody {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+#schDescription {
+  background-color: transparent;
+  border: none;
+  color: black;
+  width: 40em;
+}

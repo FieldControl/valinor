@@ -1,0 +1,38 @@
+<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+
+<html>
+
+<head>
+    <title>Search - GitHub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel='stylesheet' type='text/css' href='main.css' />
+</head>
+
+<body>
+    <div class='header'>
+        <i class="bi bi-github" id="logo"></i>
+        <input type="text" id="search"> <i class="bi bi-search" id="iconSearch"></i> </input>
+    </div>
+    <div class="resultsBox">
+        <input type="text" id="numberOfRepos" disabled>
+        <br>
+        <table>
+            <tbody id='tbody'>
+            </tbody>
+        </table>
+    </div>
+    <div id='controls'>
+        <div class="first"> <i class="bi bi-chevron-double-left"></i> </div>
+        <div class="prev"> <i class="bi bi-chevron-left"></i> </div>
+        <input id="number" value="1" disabled>
+        </input>
+        <div class="next"> <i class="bi bi-chevron-right"></i> </div>
+        <div class="last"> <i class="bi bi-chevron-double-right"></i> </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
