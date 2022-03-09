@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+}
+
+
+input {
+  width: 25vw;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+button {
+  height: 40px;
+  border-radius: 10px;
+  margin-left: .5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  input {
+    width: 55vw;
+  }
+
+  .title-logo {
+    display: none;
+  }
+}
