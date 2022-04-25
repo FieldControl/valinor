@@ -1,0 +1,1 @@
+{"version":3,"file":"ngx-pagination.d.ts","sources":["ngx-pagination.d.ts"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","sourcesContent":["/**\r\n * Generated bundle index. Do not edit.\r\n */\r\nexport * from './ngx-pagination.module';\r\nexport { DEFAULT_STYLES as ɵb, DEFAULT_TEMPLATE as ɵa } from './template';\r\n"]}

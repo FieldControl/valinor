@@ -1,0 +1,100 @@
+.pesquisa-bloco {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.barra {
+  width: 15%;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 20px;
+  border-style: none;
+  background-color: #fff9fb;
+  box-shadow: 2px 2px 3px #888888;
+  margin-right: 10px;
+  padding: 25px;
+}
+
+.barra:focus {
+  outline: none;
+}
+
+.botao {
+  background-color: #5b7cfd;
+  border-radius: 20px;
+  border-style: none;
+  box-shadow: 2px 2px 3px #888888;
+  font-size: 17px;
+  padding: 25px;
+  color: white;
+}
+
+.botao:hover {
+  background-color: #4258b3;
+  cursor: pointer;
+}
+
+.conteudo {
+  margin-top: 50px;
+  color: #fff9fb;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.tabela {
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.repositorio {
+  color: #333232;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.titulo {
+  text-decoration: none;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #5374f0;
+}
+
+.titulo:hover {
+  text-decoration: underline;
+}
+
+.linguagem {
+  padding: 5px;
+  color: #1cc879;
+}
+
+.informacoes {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.descricao {
+  padding: 5px;
+}
+
+.paginacao ::ng-deep .ngx-pagination .current {
+  background-color: #5b7cfd !important;
+  border-radius: 40%;
+}
+
+.paginacao ::ng-deep .ngx-pagination {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+.paginacao ::ng-deep .ngx-pagination .li {
+  color: #fff9fb;
+}

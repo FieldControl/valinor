@@ -1,0 +1,55 @@
+<body>
+  <form class="form-group">
+    <div class="pesquisa-bloco">
+      <input
+        type="text"
+        class="barra"
+        name="pesquisa"
+        [(ngModel)]="pesquisa"
+        placeholder="Digite o nome do repositório aqui"
+        required
+        autofocus
+      />
+      <input
+        type="button"
+        value="Pesquisar"
+        class="botao"
+        (click)="repositorioRetorna()"
+      />
+    </div>
+  </form>
+  <div class="conteudo">
+    <table
+      class="tabela"
+      *ngFor="
+        let repositorio of repositorios
+          | paginate: { itemsPerPage: 4, currentPage: paginaAtual };
+        let i = index
+      "
+    >
+      <tr>
+        <td class="repositorio">
+          <div class="informacoes">
+            <div class="titulo">
+              <a class="titulo" href="{{ repositorio.html_url }}">
+                📁 {{ repositorio.full_name }}
+              </a>
+            </div>
+            <div class="linguagem">
+              <b> {{ repositorio.language }}</b>
+            </div>
+            <div class="descricao">{{ repositorio.description }}</div>
+            <div>⭐ {{ repositorio.stargazers_count }}</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <footer class="paginacao">
+    <pagination-controls
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="paginaAtual = $event"
+    ></pagination-controls>
+  </footer>
+</body>
