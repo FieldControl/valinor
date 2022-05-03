@@ -1,0 +1,33 @@
+
+.container{
+  width: 100%;
+  min-height: 540px;
+}
+.container .search{
+  margin-left: 5%;
+  margin-top: 2%;
+  width: 34%;
+}
+
+.container button{
+  margin-left: 12px;
+}
+
+.container .repoCard{
+  width: 38%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1.5%;
+}
+
+.container .repoCard a{
+  text-decoration: none;
+}
+
+.container .topics{
+  background: #36cecc;
+  border-radius: 30%;
+  margin-right: 0.5%;
+  width: 28px;
+  color: #fff;
+}

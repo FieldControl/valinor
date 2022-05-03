@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<div class="container">
+  <mat-form-field appearance="outline" class="search">
+    <input matInput type="search" [(ngModel)]="name" name="name" >
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="search()">Buscar</button>
+
+  <mat-card class="repoCard" *ngFor="let item of repositories">
+    <mat-card-title><a href="{{item.html_url}}">{{item.full_name}}</a></mat-card-title>
+    <mat-card-content>{{item.description}}</mat-card-content>
+    <span class="topics" *ngFor="let topic of item.topics"> {{ topic }} </span>
+    <br><span><b>Total de forks:</b> {{ item.forks }} </span>
+    <span><b>Total de star:</b> {{ item.stargazers_count }} </span>
+    <span><b>Issues:</b> {{ item.open_issues }}</span>
+  </mat-card>
+</div>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              (page)="pagination($event)"
+              *ngIf="repositories.length > 0"
+              >
+</mat-paginator>
