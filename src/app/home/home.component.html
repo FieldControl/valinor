@@ -1,0 +1,40 @@
+<body>
+  <div id="container">
+    <header class="Header header-search-wrapper">
+      <mat-form-field appearance="outline" class="search">
+        <input
+          matInput
+          type="search"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Search or jump to..."
+        />
+      </mat-form-field>
+    </header>
+    <button mat-stroked-button color="primary" (click)="search()">
+      Search
+    </button>
+    <ul class="repo-list">
+      <li
+        class="repo-list-item hx_hit-repo d-flex flex-justify-start py-4 public source"
+      >
+        <mat-card class="repositorie-card" *ngFor="let item of repositories">
+          <mat-card-title
+            ><a href="{{ item.url }}">{{ item.name }}</a></mat-card-title
+          >
+          <mat-card-content>{{ item.description }}</mat-card-content>
+          <span class="topics" *ngFor="let topic of item.topics">
+            {{ topic }}
+          </span>
+        </mat-card>
+      </li>
+    </ul>
+    <mat-paginator
+      [length]="100"
+      [pageSize]="10"
+      (page)="paginator($event)"
+      *ngIf="repositories.length > 0"
+    >
+    </mat-paginator>
+  </div>
+</body>

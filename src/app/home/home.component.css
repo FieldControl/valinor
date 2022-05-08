@@ -1,0 +1,142 @@
+
+
+element.style {
+  word-wrap: break-word;
+}
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #c9d1d9;
+  background-color: #161b22;
+  display: block;
+}
+* {
+  box-sizing: border-box;
+}
+#container{
+
+  position: relative !important;
+  padding: 10px;
+  background-color: #161b22;
+
+}
+.Header {
+  z-index: 32;
+  display: flex;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color:rgb(255 255 255 / 70%);
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+input {
+  writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+
+  cursor: text;
+
+  margin: 0em;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+
+  border-image: initial;
+}
+.search{
+  display: table-cell;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: inherit;
+  background: none;
+  box-shadow: none;
+
+}
+#container button{
+  margin-left: 12px;
+  background-color: white !important;
+}
+
+#container .repositorie-card{
+  width: 38%;
+  color: black;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1.5%;
+
+}
+
+#container .repositorie-card a{
+  text-decoration: none;
+}
+
+.repo-list {
+  position: relative;
+}
+ul, ol {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+* {
+  box-sizing: border-box;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+.repo-list-item {
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  list-style: none;
+  border-bottom: 1px solid #21262d;
+
+}
+.d-flex {
+  display: relative ;
+}
+.py-4 {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+.flex-justify-start {
+  justify-content: flex-start !important;
+}
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+.topics {
+  display: inline-block;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 2em;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 22px;
+  color: #58a6ff;
+  background-color: rgb(56 139 253 / 15%);
+  border: 1px solid var(rgb(0 0 0 / 0%), transparent);
+}
