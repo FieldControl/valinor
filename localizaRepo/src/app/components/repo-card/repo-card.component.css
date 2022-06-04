@@ -1,0 +1,134 @@
+.repo-card {
+  width: 380px;
+  height: 180px;
+  background: #ebf2f2;
+  box-shadow: 1.22px 1.22px 1.83px 1.22px rgba(0, 0, 0, 0.25);
+  border-radius: 5.92px;
+  margin-top: 25px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main h1,
+h2,
+.about {
+  width: 200px;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+.image > img {
+  width: 90px;
+  border-radius: 50%;
+  position: relative;
+  top: 5px;
+  left: 2px;
+}
+
+h1.title {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+h2.subtitle {
+  font-family: "Roboto Mono";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 15px;
+  color: #cccccc;
+  mix-blend-mode: normal;
+}
+
+.about {
+  margin-top: 10px;
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 14px;
+  color: #000000;
+  overflow: hidden;
+
+  height: 55%;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  width: 215px;
+  height: 28px;
+  margin-top: 20px;
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 11px;
+}
+
+.card-footer span {
+  padding-right: 10px;
+}
+
+h1.title {
+  margin-top: 10px;
+}
+
+h2.subtitle {
+  margin-top: 2px;
+}
+
+.btn-github {
+  height: 80%;
+  border-radius: 4px;
+  box-shadow: 1.22px 1.22px 1.83px 1.22px rgba(0, 0, 0, 0.25);
+  background-color: #D0F2E7;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-style: none;
+  color: #000;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 760px) {
+  .repo-card {
+    width: 700px;
+  }
+
+  .main h1,
+  h2,
+  .about,
+  .card-footer {
+    width: 350px;
+  }
+
+  .title {
+    margin-bottom: 8px;
+  }
+}

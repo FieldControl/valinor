@@ -1,0 +1,32 @@
+<div
+  class="repo-card"
+  *ngFor="let repos of receiveRepositories | paginate: config"
+>
+  <div class="card-container">
+    <div class="avatar">
+      <div class="image">
+        <img src="{{ repos.owner.avatar_url }}" alt="" />
+      </div>
+    </div>
+    <div class="main">
+      <h1 class="title">{{ repos.name }}</h1>
+      <h2 class="subtitle">{{ repos.full_name }}</h2>
+      <div class="about">
+        <p>
+          {{ repos.description }}
+        </p>
+      </div>
+      <div class="card-footer">
+        <div class="star"></div>
+        <span>
+          <fa-icon [icon]="faStar"></fa-icon>
+          {{ repos.stargazers_count }}
+        </span>
+        <span>{{ repos.language }}</span>
+        <a href="{{ repos.html_url }}" target="_blank" class="btn-github">
+          <span>Github</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

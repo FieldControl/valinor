@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="./assets/localizaRepo.svg" alt="logo" />
+    </div>
+    <div class="search">
+      <div class="input">
+        <input
+          type="text"
+          #search
+          placeholder="Pesquisar"
+          (keydown.enter)="find(search.value)"
+        />
+        <img
+          class="icon-search"
+          src="./assets/magnifying-glass-solid.svg"
+          alt="search"
+          (click)="find(search.value)"
+        />
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,12 @@
+.repo-list {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 90px;
+}
+
+.my-pagination {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}

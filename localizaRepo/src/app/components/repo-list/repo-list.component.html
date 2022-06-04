@@ -1,0 +1,20 @@
+<div class="repo-list">
+  <pagination-controls
+    [responsive]="true"
+    previousLabel="Voltar"
+    nextLabel="Avançar"
+    screenReaderPaginationLabel="Paginação"
+    screenReaderPageLabel="página"
+    screenReaderCurrentLabel="Você está na página"
+    (pageChange)="OnPageChange($event)"
+    class="my-pagination"
+  >
+  </pagination-controls>
+
+  <app-repo-card
+    class="repo-card"
+    [query]="query"
+    [receiveRepositories]="repositories"
+    [config]="config"
+  ></app-repo-card>
+</div>
