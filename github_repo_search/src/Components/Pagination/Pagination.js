@@ -21,9 +21,13 @@ const PontosSpan = styled.span`
 margin: 0 8px;
 `
 
+/*Componente de paginação precisa receber props de total de paginas (paginas), a função
+para setar a página atual (setPaginaAtual) e a página atual (paginaAtual)*/ 
+
 const PaginationComponent = (props)=>{
     const paginas = props.paginas
     
+    //função que define a paginação (setada com 2 "vizinhos")
     const usePagination = (vizinhos)=>{
         const arrayDePaginas = []
         let i=1
@@ -67,7 +71,7 @@ const PaginationComponent = (props)=>{
     }
 
 
-
+    //mapeia e retorna botões de paginação
     const arrayDePaginasMap = usePagination(2).map((pagina)=>{
         if(pagina !== "..."){
             if(pagina === props.paginaAtual){

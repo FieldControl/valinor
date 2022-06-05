@@ -1,3 +1,5 @@
+//Componente para exibir decrição caso exista
+
 import React from "react";
 import styled from "styled-components";
 
@@ -12,6 +14,12 @@ flex-direction: column;
 flex-wrap: wrap;
 
 width: 450px;
+
+@media screen and (max-width: 450px){
+  width: 350px;
+  padding: 5px 0;
+  text-align: center;
+}
 `
 
 const P = styled.p`

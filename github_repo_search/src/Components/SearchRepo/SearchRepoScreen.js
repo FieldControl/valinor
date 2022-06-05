@@ -1,3 +1,5 @@
+//Tela de exibição da página de consulta
+
 import React, {useEffect, useState} from "react";
 import {getRepositories, getTopicDescription} from '../../requests/Requests'
 import { MainDIv, H1, Input, Button } from "../../styles/styles";
@@ -18,18 +20,52 @@ margin-right: 5px;
 }
 `
 
+const Div = styled.div`
+display: flex;
+flex-direction: column;
+max-width: 450px;
+align-items: center;
+
+
+div{
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 450px){
+  width: 350px;
+}
+`
+
 
 const SearchRepoScreen = (props)=>{
-    	
+  
+  //termo de busca
   const [queryString, setQuerystring] = useState('')
+  
+  //erro de busca
   const [searchRepoResultsError, setSearchRepoResultsError] = useState("")
+  
+  //possível descrição do termo de busca
   const [searchRepoResultsDescription, setSearchRepoResultsDescription] = useState({})
+ 
+  //última pesquisa feita
   const [ultimaPesquisa, setUltimaPesquisa] = useState("")
   
+  //ordenação
+  const [sort, setSort] = useState({})
+  
+  //resultados por página
   const [searchRepoResults, setSearchRepoResults] = useState([])
+  
+  //pagina atual da pesquisa
   const [paginaAtual, setPaginaAtual] = useState(1)
+  
+  //total de páginas disponíveis (limite max de repositórios = 1000) 
   const [totalDePaginas, setTotalDePaginas] = useState(0)
+  
+  //qtd de exibição por página
   const [repoPerPage,setRepoPerPage ] = useState(15)
+
   
   useEffect(()=>{
     ultimaPesquisa && procuraRepositorios(ultimaPesquisa)
@@ -38,11 +74,13 @@ const SearchRepoScreen = (props)=>{
   useEffect(()=>{
     paginaAtual===1 || setPaginaAtual(1)
     paginaAtual===1 && procuraRepositorios(ultimaPesquisa)
-  }, [repoPerPage])
+  }, [repoPerPage, sort])
+
 
   const onChangeInputSearchRepo = (event)=>{
     setQuerystring(event.target.value)
   }
+
 
   const lidaComResponseProcuraRepositorios = (response)=>{
     let totalDePaginasAux = 0
@@ -62,14 +100,18 @@ const SearchRepoScreen = (props)=>{
   }
 
   const procuraRepositorios = (string)=>{
-    (queryString || ultimaPesquisa) && getRepositories(string, "", "", paginaAtual, repoPerPage)
-    .then((response)=>{
+    if(queryString || ultimaPesquisa){
+      window.scrollTo(0,0)
+
+      getRepositories(string, sort.sort, sort.order, paginaAtual, repoPerPage)
+      .then((response)=>{
         lidaComResponseProcuraRepositorios(response)
-    })
-    .catch((error)=>{
+      })
+      .catch((error)=>{
         console.log(error)
-      setSearchRepoResultsError('não foi possível fazer a pesquisa, tente novamente em instantes')
-    })
+        setSearchRepoResultsError('não foi possível fazer a pesquisa, tente novamente em instantes')
+      })
+    } 
   }
 
   const procuraDescricaoTopico = ()=>{
@@ -83,15 +125,20 @@ const SearchRepoScreen = (props)=>{
 
   const onClickButtonSearchRepo = ()=>{
     
-    setPaginaAtual(1)
+    if(queryString!== ultimaPesquisa){
+      
+      setPaginaAtual(1)
 
-    queryString && setUltimaPesquisa(queryString)
+      queryString && setUltimaPesquisa(queryString)
+      
+      procuraRepositorios(queryString)    
+      
+      procuraDescricaoTopico()
     
-    procuraRepositorios(queryString)    
+    }
     
-    procuraDescricaoTopico()
-
     setQuerystring("")
+
 
   }
 
@@ -105,14 +152,22 @@ const SearchRepoScreen = (props)=>{
 
 
         <H1>Buscar por repositórios no Github</H1>
-        <div>
-        <Input onKeyDown={onKeyDownInputSearchRepo} placeholder='buscar repositorio' 
-        value={queryString} 
-        onChange={onChangeInputSearchRepo} 
-        autoFocus/> 
-        <ButtonBuscar onClick={onClickButtonSearchRepo} >buscar</ButtonBuscar>
-        <PaginationSelector setRepoPerPage={setRepoPerPage} />
-        </div>
+       
+        <Div>
+          <div>
+
+            <Input onKeyDown={onKeyDownInputSearchRepo} placeholder='buscar repositorio' 
+            value={queryString} 
+            onChange={onChangeInputSearchRepo} 
+            autoFocus/> 
+
+            <ButtonBuscar onClick={onClickButtonSearchRepo} >buscar</ButtonBuscar>
+          </div>
+
+          <PaginationSelector setRepoPerPage={setRepoPerPage} 
+          setSort={setSort}/>
+        
+        </Div>
 
         {searchRepoResultsDescription.name && searchRepoResultsDescription.short_description && <SearchRepoResultsDescription description={searchRepoResultsDescription}/>}
 
@@ -120,6 +175,7 @@ const SearchRepoScreen = (props)=>{
         error={searchRepoResultsError} 
         paginaAtual={paginaAtual} 
         />
+        {console.log("sort",sort)}
 
         {searchRepoResults.length>0 && <PaginationComponent  paginaAtual={paginaAtual}
          setPaginaAtual={setPaginaAtual} 

@@ -1,3 +1,5 @@
+//ealguns estilos globais
+
 import styled from "styled-components";
 
 export const fontColor = "#BDD1D9"
