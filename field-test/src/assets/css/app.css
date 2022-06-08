@@ -3,8 +3,10 @@ body {
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	margin: unset;
+	font-size: 16px;
+	color: #040404;
 }
 
 #app {
-	max-width: 1140px;
 }

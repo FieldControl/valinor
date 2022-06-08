@@ -1,3 +1,29 @@
 .header {
-	color: red;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 0.5rem;
+	background-color: #ef5350;
+}
+
+.search {
+	height: 40px;
+	color: #363636;
+	min-width: 300px;
+	padding-left: 0.5rem;
+	border: unset;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.search::placeholder {
+	color: #686868;
+	font-size: 14px;
+}
+
+.search:focus-visible,
+.search:focus {
+	border: 1px solid #fec91b;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.17);
 }
