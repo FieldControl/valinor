@@ -1,0 +1,349 @@
+
+
+.backgroundcolorNav {
+    background-color: #3B3F46;
+}
+
+.textNav {
+    font-family: 'Nunito', sans-serif;
+    color:white;
+    font-size: 20px;
+        margin: 20px;
+        -webkit-transition: color 1s;
+        transition: color 1s; 
+    }
+    a:hover {
+        color: #F5B301!important;
+}
+
+.nav-item {
+    font-family: 'Nunito', sans-serif;
+    padding: 10px 30px;
+    font-weight: 600;
+}
+
+.navbar {
+    padding: 0px 430px;
+}
+
+.search-bar {
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    max-width: 500px;
+    background-color: #1E2328;
+    display: flex;
+    border-radius: 40px;
+    padding: 10px 40px;
+}
+
+.search{
+    padding: 30px 40px;
+}
+
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 20px;
+    color: white;
+
+}
+
+::placeholder{
+    color: #3B3F46;
+}
+
+.search-bar button img{
+    width: 25px;
+}
+
+.search-bar button{
+    border: 0px;
+    background: transparent;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+}
+
+.divsvg {
+    padding: 10px 30px;
+}
+
+.heightFull {
+    height: 100vh;
+}
+
+.sectionOne {
+    padding: 90px;
+    background-color: #1E2328;
+}
+
+.dropdown-menu {
+    background-color: #3B3F46;
+    border: #3B3F46;
+}
+
+.dropdown-item {
+    color: white;
+    font-weight: 400;
+}
+
+.Box1 {
+    font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+position: absolute;
+width: 800px;
+height: 150px;
+left: 750px;
+top: 200px;
+border: 3px solid #3B3F46;
+border-radius: 10px;
+}
+
+.javas {
+    position: absolute;
+left: 20px;
+top:20px;
+border-radius: 20px;
+
+}
+
+.titleSectionOne {
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    left: 125px;
+    top: 20px;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 25px;
+    color: #FFFFFF;
+    
+}
+
+.SubtitleSectionOne{
+    position: absolute;
+width: 563px;
+height: 40px;
+left: 125px;
+top: 50px;
+font-weight: 400;
+font-size: 18px;
+line-height: 20px;
+
+color: #FFFFFF;
+}
+
+.seetopicOne {
+    position: absolute;
+    background: none;
+    border: none;
+left: 120px;
+top: 100px;
+font-weight: 400;
+font-size: 15px;
+color: #FED054;
+}
+
+.Box2 {
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+position: absolute;
+width: 250px;
+height: 500px;
+left: 450px;
+top: 200px;
+border: 3px solid #3B3F46;
+border-radius: 10px;
+}
+
+.titlesectiontwo {
+    position: absolute;
+width: 75px;
+height: 20px;
+left: 20px;
+top: 20px;
+font-weight: 800;
+font-size: 20px;
+color: #FFFFFF;
+}
+
+.JavascriptbuttonOne {
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 90px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.JavascriptbuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.HTMLbuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 130px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.HTMLbuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.CSSbuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 170px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.CSSbuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.TypeScriptbuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 210px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.TypeScriptbuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.JavabuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 250px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.JavabuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.VuebuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 290px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.VuebuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.PHPbuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 330px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.PHPbuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.PythonbuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 370px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.PythonbuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.RubybuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 410px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.RubybuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.CobuttonOne{
+    font-weight: 600;
+    color: #3B3F46;
+    position: absolute;
+    background: none;
+    left: 5px;
+    top: 450px;
+    width: 235px;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+       
+}
+.CobuttonOne:hover {background-color: #e7e7e70c; 
+}
+
+.Box3{
+    padding: 160px 670px;
+    font-size: 20px;
+    font-weight: 600;
+    top: 10px;
+}
+
+.line1{
+position: absolute;
+width: 800px;
+height: 0px;
+left:750px;
+top: 400px;
+border: 2px solid #3B3F46;
+border-radius: 3px;
+}
