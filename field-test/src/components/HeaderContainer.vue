@@ -1,13 +1,15 @@
 <template>
   <header class="header">
-    <input
-      type="search"
-      name="search"
-      id="search"
-      placeholder="Pesquisar"
-      class="search"
-      @change="searchPokemon($event.target.value)"
-    />
+    <div class="container">
+      <input
+        type="search"
+        name="search"
+        id="search"
+        placeholder="Pesquisar"
+        class="search"
+        @change="searchPokemon($event.target.value)"
+      />
+    </div>
   </header>
 </template>
 
