@@ -4,7 +4,10 @@
   <div class="container">
     <h1 class="page-title">Pokemons</h1>
 
-    <div class="section">
+    <PokemonsContainer />
+
+    <!-- <div class="section">
+      <div>Resultados por página: {{ perPage }}</div>
       <div class="prev-next">
         <button
           type="button"
@@ -34,78 +37,21 @@
       </div>
 
       <h4 class="pokemon__count">Total: {{ total }}</h4>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import HeaderContainer from "./components/HeaderContainer.vue";
-import PokemonItem from "./components/PokemonItem.vue";
+import PokemonsContainer from "./components/PokemonsContainer.vue";
+// import PokemonItem from "./components/PokemonItem.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      pokemons: [],
-      total: 0,
-      offset: 0,
-      limit: 21,
-      prev: "",
-      next: "",
-      search: "",
-    };
-  },
 
   components: {
     HeaderContainer,
-    PokemonItem,
-  },
-
-  mounted() {
-    this.getPokemons();
-  },
-
-  watch: {},
-
-  methods: {
-    async getPokemons() {
-      const {
-        data: { results, count, previous, next },
-      } = await this.axios.get(
-        `https://pokeapi.co/api/v2/pokemon?offset=${this.offset}&limit=${this.limit}`
-      );
-
-      if (this.total !== count) {
-        this.total = count;
-      }
-
-      this.prev = previous;
-      this.next = next;
-
-      if (this.pokemons.length > 0) {
-        this.pokemons = [];
-      }
-
-      results.forEach(async (result) => {
-        const { data } = await this.axios.get(result.url);
-
-        this.pokemons.push(data);
-      });
-    },
-
-    nextPokemons() {
-      this.offset = this.limit;
-      this.limit += this.limit;
-
-      this.getPokemons();
-    },
-
-    prevPokemons() {
-      this.offset = this.limit;
-      this.limit -= this.limit;
-
-      this.getPokemons();
-    },
+    PokemonsContainer,
   },
 };
 </script>
