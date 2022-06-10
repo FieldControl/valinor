@@ -47,6 +47,19 @@ body {
 	color: #757575;
 }
 
+.prev-next {
+	margin: 1rem 0rem;
+	text-align: right;
+}
+
+.button {
+	background-color: transparent;
+	border: unset;
+	font-size: 25px;
+	color: #fec91b;
+	cursor: pointer;
+}
+
 @media (min-width: 600px) {
 	.container {
 		max-width: 1140px;

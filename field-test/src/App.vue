@@ -5,6 +5,24 @@
     <h1 class="page-title">Pokemons</h1>
 
     <div class="section">
+      <div class="prev-next">
+        <button
+          type="button"
+          class="button prev-button"
+          v-if="prev !== null"
+          @click="prevPokemons()"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button
+          type="button"
+          class="button next-button"
+          @click="nextPokemons()"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
       <div class="pokemons">
         <div v-for="pokemon in pokemons" :key="pokemon.name" class="card">
           <PokemonItem
@@ -43,8 +61,8 @@ export default {
     PokemonItem,
   },
 
-  async mounted() {
-    await this.getPokemons();
+  mounted() {
+    this.getPokemons();
   },
 
   watch: {},
@@ -64,11 +82,29 @@ export default {
       this.prev = previous;
       this.next = next;
 
+      if (this.pokemons.length > 0) {
+        this.pokemons = [];
+      }
+
       results.forEach(async (result) => {
         const { data } = await this.axios.get(result.url);
 
         this.pokemons.push(data);
       });
+    },
+
+    nextPokemons() {
+      this.offset = this.limit;
+      this.limit += this.limit;
+
+      this.getPokemons();
+    },
+
+    prevPokemons() {
+      this.offset = this.limit;
+      this.limit -= this.limit;
+
+      this.getPokemons();
     },
   },
 };
