@@ -1,0 +1,116 @@
+.header {
+  background-color: #161b22;
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  .github-img {
+    margin-left: 50px;
+    margin-right: 20px;
+  }
+  h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 3rem;
+    margin: 20px 0px;
+  }
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    .input-search {
+      background-color: #0d1117;
+      outline: none;
+      border: 1px solid #3e4247;
+      border-radius: 6px;
+      width: 300px;
+      height: 20px;
+      padding: 5px 5px 5px 10px;
+      color: white;
+      transition: all 0.5s;
+      &:focus {
+        width: 600px;
+        background-color: #161b22;
+      }
+
+      &::placeholder {
+        color: #3e4247;
+      }
+    }
+    .btn-bar {
+      background-color: transparent;
+      border: 1px solid #3e4247;
+      border-radius: 4px;
+      font-size: 12px;
+      padding-top: 2px;
+      color: rgb(197, 193, 193);
+      position: relative;
+      left: -30px;
+    }
+
+    .list-nav {
+      color: white;
+      font-size: 13px;
+    }
+
+    .types-list {
+      padding-right: 12px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  .list-avatar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    .bell-avatar {
+      margin-right: 10px;
+      cursor: pointer;
+      cursor: pointer;
+    }
+
+    a {
+      font-size: 24px;
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .avatar-img {
+      border-radius: 50%;
+      margin-left: 20px;
+      width: 28px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 13vh;
+
+    .input-container {
+      margin-right: 90px;
+      .list-nav {
+        display: none;
+      }
+      .input-search {
+        width: 300px;
+        height: 32px;
+        &:focus {
+          width: 300px;
+        }
+      }
+      .btn-bar {
+        display: none;
+      }
+    }
+    .list-avatar {
+      display: none;
+    }
+  }
+}

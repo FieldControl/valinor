@@ -1,0 +1,44 @@
+.modal-bg {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: brightness(0.5) blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-ui {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-color: #0d1117;
+    border-radius: 20px;
+    position: relative;
+    color: white;
+    .close-btn {
+      background-color: transparent;
+      padding: 10px;
+      border: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      img {
+        width: 28px;
+        transition: 0.3s;
+      }
+      :hover {
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+    }
+
+    img {
+      width: 200px;
+    }
+  }
+}
