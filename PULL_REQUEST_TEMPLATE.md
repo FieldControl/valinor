@@ -8,9 +8,6 @@ Ultilizei React, Styled Components, Axios, React-Router-DOM e React-Icons.
 
 Usei estas ferramentas por ter maior facilidade em seu manuseio
 
-**Princípios de software**
-
-Quais princípios da engenharia de software que você usou?
 
 **Desafios e problemas**
 
@@ -29,7 +26,6 @@ Sou estudante cursando ADS na Fatec e fazendo Bootcamps na DIO, estou a procura 
 
 **Outros detalhes**
 
-Se quiser enviar alguma informação adicional sobre o desafio..
 
 link do repositorio contendo o codigo do desafio
 
