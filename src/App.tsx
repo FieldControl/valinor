@@ -1,11 +1,21 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Detail from './pages/Detail';
+import Main from './pages/Main';
 
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      <h1>Clean.</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />}/>
+        <Route path="/:id" element={<Detail />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
