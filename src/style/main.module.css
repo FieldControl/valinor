@@ -10,7 +10,7 @@ body{
     align-items: center;
     flex-direction: column;
 }
-.main_header{
+.detail_header{
     background-color: #161b22;
     width: 100vw;
     height: 4em;    

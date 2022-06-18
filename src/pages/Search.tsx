@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import SearchCard from '../components/SearchCard';
+import { useParams } from 'react-router-dom';
+import Card from '../components/Card';
+import Header from '../components/Header';
 import style from '../style/search.module.css'
-
-interface Data {
-  id: number,
-  name: string,
-  full_name: string,
-  description: string,
-  topics: string[],
-  updated_at: string,
-  language: string,
-}
+import { repoData } from '../interfaces';
 
 const Search: React.FC = () => {
-  const [data, setData] = useState<Data[]>([]);
-  const [total, setTotal] = useState<number>(0);
-  const [page, setPage] = useState<number>(1);
-  const [param, setParam] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
 
+  //    CONSUMINDO DADOS DA API NA MONTAGEM DO COMPONENTE E ATRIBUINDO A ESTADOS NA APLICAÇÃO.
   const { query } = useParams<string>();
-  const navigate = useNavigate();
-
-  const currentPage = data.slice((page * 10) - 10, page * 10);
-
+  const [data, setData] = useState<repoData[]>([]);
+  const [total, setTotal] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);  
+  
   async function fetchAPI(param: string | undefined) {
     const response = await fetch(`https://api.github.com/search/repositories?q=${param}`);
     const data = await response.json();
@@ -32,61 +20,43 @@ const Search: React.FC = () => {
     setTotal(data.total_count);
     setLoading(false);
   }
-
+  
   useEffect(() => {
     fetchAPI(query);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
+  //    CONSTRUINDO SISTEMA DE PAGINAÇÃO.
+  const [page, setPage] = useState<number>(1);
+  const currentPage = data.slice((page * 10) - 10, page * 10);
 
-  const refreshData = (): void => {
-    if (param) {
-      setLoading(true);
-      navigate(`/search/${param}`);
-      setData([]);
-      setPage(1);
-      fetchAPI(param);
-    }
+  //    RENDERIZAÇÃO PARA ESPERAR A RESPOSTA DA API.
+  if (loading) {
+    return (
+      <>
+        <Header barVisibily={true} />
+        <div className={style.load_container}>
+          <img className={style.loading} alt="Progress Bar" src={require('../assets/loading.gif')} />
+        </div>
+      </>
+    )
   }
 
-  const Loaded = (
-    <section className={style.loaded_section}>
-      {currentPage.map((data) => (
-        <SearchCard
-          id={data.id}
-          name={data.name}
-          full_name={data.full_name}
-          description={data.description}
-          topics={data.topics}
-          updated_at={data.updated_at}
-          language={data.language}
-        />))}
-
-      <section className={style.page_nav}>
-        <button className={style.page_button} disabled={page === 1} onClick={() => setPage(page - 1)}> {'< Previous'} </button>
-        <p className={style.page_count}>{`  ${page} | ${Math.ceil(data.length / 10)}  `} </p>
-        <button className={style.page_button} disabled={(data.length / page) <= 10} onClick={() => setPage(page + 1)}>{'Next >'}</button>
-      </section>
-
-    </section>
-  );
-
-  const notLoaded = (<img className={style.loading} alt="Progress Bar" src={require('../assets/loading.gif')} />);
-
+  //    RENDERIZAÇÃO COM A RESPOSTA DA API PRONTA.
   return (
     <>
-      <header className={style.detail_header}>
-        <img
-          className={style.header_icon}
-          src={require('../assets/git.png')} alt="GitHub Icon"
-          onClick={() => navigate(`/`)}
-        />
-        <input className={style.header_input} onChange={(event) => setParam(event.target.value)} />
-        <button className={style.header_button} onClick={() => refreshData()} type="button"> Search </button>
-      </header>
+      <Header barVisibily={true} />
 
       <section className={style.mainbar}>
         <h1 className={style.main_title}>{`${total} repository results`}</h1>
-        {!loading ? Loaded : notLoaded}
+        <div className={style.loaded_section}>
+          {currentPage.map((data) => <Card data={data} />)}
+          <div className={style.page_nav}>
+            <button className={style.page_button} disabled={page === 1} onClick={() => setPage(page - 1)}> {'< Previous'} </button>
+            <p className={style.page_count}>{`  ${page} | ${Math.ceil(data.length / 10)}  `} </p>
+            <button className={style.page_button} disabled={(data.length / page) <= 10} onClick={() => setPage(page + 1)}>{'Next >'}</button>
+          </div>
+        </div>
       </section>
     </>
   );

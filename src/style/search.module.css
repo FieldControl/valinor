@@ -96,3 +96,8 @@
     color: #c9d1d9;
     font-family: Helvetica,Arial,sans-serif;
 }
+.load_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
