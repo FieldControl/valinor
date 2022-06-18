@@ -73,7 +73,7 @@
     margin: 0 2em;   
     font-family: Helvetica,Arial,sans-serif;
     font-size: 15px;
-    color: #ffffff;
+    color: #c9d1d9;
 }
 
 .page_button{
@@ -88,4 +88,11 @@
 .page_button:hover{    
     border-color:#484f58;
     cursor: pointer;
+}
+
+.loading{
+    width: 15em;
+    font-size: 80px;    
+    color: #c9d1d9;
+    font-family: Helvetica,Arial,sans-serif;
 }

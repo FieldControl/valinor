@@ -71,7 +71,7 @@ const Search: React.FC = () => {
     </section>
   );
 
-  const notLoaded = (<h1> Loading </h1>);
+  const notLoaded = (<img className={style.loading} alt="Progress Bar" src="https://i.pinimg.com/originals/49/23/29/492329d446c422b0483677d0318ab4fa.gif"/>);
 
   return (
     <>

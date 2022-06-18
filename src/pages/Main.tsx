@@ -24,7 +24,7 @@ const Main: React.FC = () => {
           onClick={ () => navigate(`/`)}
         />
       </header>
-      <main>
+      <main className={ style.main}>
         <h2 className={ style.main_title}> {quote} </h2>
         <section>
           <input className={ style.main_input } onChange={(event) => setParam(event.target.value)} placeholder="Search Github" />
