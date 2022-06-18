@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import style from '../style/main.module.css'
 
 
 const Main: React.FC = () => {
@@ -11,21 +12,23 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     setQuote(quotes[Math.floor(Math.random() * 2)])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <header className='main-header'>
+      <header className={ style.main_header }>
         <img
-          className="header-icon"
+          className={ style.header_icon}
           src="https://cdn.icon-icons.com/icons2/2429/PNG/512/github_logo_icon_147285.png" alt="GitHub Icon"
+          onClick={ () => navigate(`/`)}
         />
       </header>
       <main>
-        <h2 className="main-title"> {quote} </h2>
+        <h2 className={ style.main_title}> {quote} </h2>
         <section>
-          <input className="main-input" onChange={(event) => setParam(event.target.value)} placeholder="Search Github" />
-          <button className="main-button" onClick={() => navigate(`/search/${param}`)} type="button">        Search</button>
+          <input className={ style.main_input } onChange={(event) => setParam(event.target.value)} placeholder="Search Github" />
+          <button className={ style.main_button } onClick={() => { if(param) navigate(`/search/${param}`)}} type="button"> Search</button>
         </section>
       </main>
     </>
