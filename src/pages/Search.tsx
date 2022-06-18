@@ -50,7 +50,6 @@ const Search: React.FC = () => {
 
   const Loaded = (
     <section className={style.loaded_section}>
-
       {currentPage.map((data) => (
         <SearchCard
           id={data.id}
@@ -61,7 +60,7 @@ const Search: React.FC = () => {
           updated_at={data.updated_at}
           language={data.language}
         />))}
-      
+
       <section className={style.page_nav}>
         <button className={style.page_button} disabled={page === 1} onClick={() => setPage(page - 1)}> {'< Previous'} </button>
         <p className={style.page_count}>{`  ${page} | ${Math.ceil(data.length / 10)}  `} </p>
@@ -71,21 +70,20 @@ const Search: React.FC = () => {
     </section>
   );
 
-  const notLoaded = (<img className={style.loading} alt="Progress Bar" src="https://i.pinimg.com/originals/49/23/29/492329d446c422b0483677d0318ab4fa.gif"/>);
+  const notLoaded = (<img className={style.loading} alt="Progress Bar" src="https://i.pinimg.com/originals/49/23/29/492329d446c422b0483677d0318ab4fa.gif" />);
 
   return (
     <>
-      <header className={style.search_header}>
+      <header className={style.detail_header}>
         <img
           className={style.header_icon}
           src="https://cdn.icon-icons.com/icons2/2429/PNG/512/github_logo_icon_147285.png" alt="GitHub Icon"
           onClick={() => navigate(`/`)}
         />
         <input className={style.header_input} onChange={(event) => setParam(event.target.value)} />
-        <button className={style.header_button} onClick={(refreshData)} type="button"> Search </button>
+        <button className={style.header_button} onClick={() => refreshData()} type="button"> Search </button>
       </header>
-
-      <main className={ style.mainbar}>
+      <main className={style.mainbar}>
         <h1 className={style.main_title}>{`${total} repository results`}</h1>
         {!loading ? Loaded : notLoaded}
       </main>
