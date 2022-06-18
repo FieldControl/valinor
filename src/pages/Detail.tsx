@@ -32,7 +32,8 @@ const Detail: React.FC = () => {
 
   const folderArray = data.filter(data => data.type === 'dir');
   const fileArray = data.filter(data =>data.type === 'file');
-  const sortedArr = [...folderArray, ...fileArray];  
+  const sortedArr = [...folderArray, ...fileArray]; 
+  
   return (
     <>
       {sortedArr.map((data) => (
