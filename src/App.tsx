@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Detail from './pages/Detail';
 import Main from './pages/Main';
+import Search from './pages/Search';
 
 
 const App: React.FC = () => {
@@ -13,7 +14,8 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />}/>
-        <Route path="/:id" element={<Detail />}/>
+        <Route path="/search/:query" element={<Search />}/>
+        <Route path="/details/:username/:reponame" element={<Detail />}/>
       </Routes>
     </BrowserRouter>
   );
