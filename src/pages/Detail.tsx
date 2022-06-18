@@ -13,8 +13,8 @@ interface imageIcon {
 }
 
 const sourceImage: imageIcon = {
-  file: 'https://i.ibb.co/Z8XxszW/arquivo.png',
-  dir: 'https://i.ibb.co/1T07b8M/pasta.png'
+  file: require('../assets/file.png'),
+  dir: require('../assets/folder.png')
 }
 
 const Detail: React.FC = () => {
@@ -42,19 +42,20 @@ const Detail: React.FC = () => {
       <header className={style.detail_header}>
         <img
           className={style.header_icon}
-          src="https://cdn.icon-icons.com/icons2/2429/PNG/512/github_logo_icon_147285.png" alt="GitHub Icon"
+          src={require('../assets/git.png')} alt="GitHub Icon"
           onClick={() => navigate(`/`)}
         />
         <input className={style.header_input} onChange={(event) => setParam(event.target.value)} />
         <button className={style.header_button} onClick={() => navigate(`/search/${param}`)} type="button"> Search </button>
       </header>
+
       <section className={style.title_container}>
-        <img src="https://i.ibb.co/dQ7tgZb/repo.png" alt="Repo Icon" />
+        <img src={require('../assets/lib.png')} alt="Repo Icon" />
         <h1 className={style.title}>{username + ' / ' + reponame}</h1>
       </section>
-      <main className={style.main_div}>
 
-        <section className={style.file_dir}>
+      <section className={style.main_div}>
+        <div className={style.file_dir}>
           <div className={style.file_first_container}>
             <p > Repository files. </p>
           </div>
@@ -64,8 +65,8 @@ const Detail: React.FC = () => {
               <p>{data.name}</p>
             </div>
           ))}
-        </section>
-      </main>
+        </div>
+      </section>
     </>
   );
 }

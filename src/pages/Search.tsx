@@ -70,23 +70,24 @@ const Search: React.FC = () => {
     </section>
   );
 
-  const notLoaded = (<img className={style.loading} alt="Progress Bar" src="https://i.pinimg.com/originals/49/23/29/492329d446c422b0483677d0318ab4fa.gif" />);
+  const notLoaded = (<img className={style.loading} alt="Progress Bar" src={require('../assets/loading.gif')} />);
 
   return (
     <>
       <header className={style.detail_header}>
         <img
           className={style.header_icon}
-          src="https://cdn.icon-icons.com/icons2/2429/PNG/512/github_logo_icon_147285.png" alt="GitHub Icon"
+          src={require('../assets/git.png')} alt="GitHub Icon"
           onClick={() => navigate(`/`)}
         />
         <input className={style.header_input} onChange={(event) => setParam(event.target.value)} />
         <button className={style.header_button} onClick={() => refreshData()} type="button"> Search </button>
       </header>
-      <main className={style.mainbar}>
+
+      <section className={style.mainbar}>
         <h1 className={style.main_title}>{`${total} repository results`}</h1>
         {!loading ? Loaded : notLoaded}
-      </main>
+      </section>
     </>
   );
 }

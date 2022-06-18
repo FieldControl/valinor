@@ -20,17 +20,18 @@ const Main: React.FC = () => {
       <header className={ style.main_header }>
         <img
           className={ style.header_icon}
-          src="https://cdn.icon-icons.com/icons2/2429/PNG/512/github_logo_icon_147285.png" alt="GitHub Icon"
+          src={require('../assets/git.png')} alt="GitHub Icon"
           onClick={ () => navigate(`/`)}
         />
       </header>
-      <main className={ style.main}>
+
+      <section className={ style.main}>
         <h2 className={ style.main_title}> {quote} </h2>
-        <section>
+        <div>
           <input className={ style.main_input } onChange={(event) => setParam(event.target.value)} placeholder="Search Github" />
           <button className={ style.main_button } onClick={() => { if(param) navigate(`/search/${param}`)}} type="button"> Search</button>
-        </section>
-      </main>
+        </div>
+      </section>
     </>
   );
 }
