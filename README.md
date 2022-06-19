@@ -35,6 +35,7 @@ git clone [http ou ssh]   // Para clonar o repositório.
 cd /pasta_do_repositório    // Para entrar na pasta do repositório.
 npm install   // Para instalar as dependências.
 npm start   // Após o comando ser executado, acesse: localhost:3000/
+npm test    // Se quiser rodar os testes.
 ```
 
 ### `Além disso, fiz o deploy da aplicação:`       [gitclone-field.netlify.app](https://gitclone-field.netlify.app/) `!`
