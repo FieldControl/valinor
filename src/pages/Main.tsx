@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import style from '../style/main.module.css'
 
 
-const Main: React.FC = () => {
+const Main: React.FC = () =>  {
   
   //    ESTADO E HOOK PARA REDIRECIONAR PARA A PÁGINA QUE O USUÁRIO COLOCAR NO INPUT.
-  const navigate = useNavigate();
+  const history = useHistory();
   const [param, setParam] = useState<string>('');
 
   //    RENDERIZAR UMA FRASE ALEATÓRIA DO ARRAY.
@@ -26,7 +26,7 @@ const Main: React.FC = () => {
         <h2 className={ style.main_title }> { quote } </h2>
         <div>
           <input className={ style.main_input } onChange={(event) => setParam(event.target.value)} placeholder="Search Github" />
-          <button className={ style.main_button } onClick={() => { if(param) navigate(`/search/${param}`)}} type="button"> Search</button>
+          <button className={ style.main_button } onClick={() => { if(param) history.push(`/search/${param}`)}} type="button"> Search</button>
         </div>
       </section>
     </>

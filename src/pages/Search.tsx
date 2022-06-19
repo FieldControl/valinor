@@ -8,7 +8,7 @@ import { repoData } from '../interfaces';
 const Search: React.FC = () => {
 
   //    CONSUMINDO DADOS DA API NA MONTAGEM DO COMPONENTE E ATRIBUINDO A ESTADOS NA APLICAÇÃO.
-  const { query } = useParams<string>();
+  const { query } = useParams<any>();
   const [data, setData] = useState<repoData[]>([]);
   const [total, setTotal] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);  
@@ -49,7 +49,7 @@ const Search: React.FC = () => {
 
       <section className={style.mainbar}>
         <h1 className={style.main_title}>{`${total} repository results`}</h1>
-        <div className={style.loaded_section}>
+        <div data-testid={'api_content'} className={style.loaded_section}>
           {currentPage.map((data) => <Card key={data.full_name} data={data} />)}
           <div className={style.page_nav}>
             <button className={style.page_button} disabled={page === 1} onClick={() => setPage(page - 1)}> {'< Previous'} </button>

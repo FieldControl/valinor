@@ -99,7 +99,8 @@
     flex-direction: column;
 }
 .main_div div{
-    width: 40vw;
+    width: 40vw;    
+    padding: 0 0.4em;
 }
 
 .title_container{    

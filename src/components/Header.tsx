@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import style from '../style/search.module.css'
 import { headerProps } from '../interfaces';
 
@@ -7,11 +7,11 @@ const Header: React.FC<headerProps> = (props) => {
 
   //    ESTADO E HOOK PARA REDIRECIONAR PARA A PÁGINA QUE O USUÁRIO COLOCAR NO INPUT.
   const [param, setParam] = useState<string>('');
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const refreshData = (): void => {
     if (param) {
-      navigate(`/search/${param}`);
+      history.push(`/search/${param}`);
       window.location.reload();
     }
   }
@@ -22,7 +22,7 @@ const Header: React.FC<headerProps> = (props) => {
         <img
           className={style.header_icon}
           src={require('../assets/git.png')} alt="GitHub Icon"
-          onClick={() => navigate(`/`)}
+          onClick={() => history.push(`/`)}
         />
         {props.barVisibily &&
           <>

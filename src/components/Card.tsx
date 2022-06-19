@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import style from '../style/search_card.module.css'
 import { cardProps } from '../interfaces';
 
 const Card: React.FC<cardProps> = (props) => {
   
   //    CARD COM TODAS AS INFORMAÇÕES RECEBIDAS POR PROPS.
-  const navigate = useNavigate();
+  const navigate = useHistory();
   const currentDate = props.data.updated_at.replace(/[A-Za-z]/g, " ").split(' ');
 
   return (
@@ -15,7 +15,7 @@ const Card: React.FC<cardProps> = (props) => {
       <div className={style.card_container} >
         <div className={style.card_header}>
           <img src="https://i.ibb.co/dQ7tgZb/repo.png" alt="Repo Icon" />
-          <h1 className={style.card_title} onClick={() => navigate(`/details/${props.data.full_name}`)} key={props.data.id}>{props.data.full_name}</h1></div>
+          <h1 className={style.card_title} onClick={() => navigate.push(`/details/${props.data.full_name}`)} key={props.data.id}>{props.data.full_name}</h1></div>
         <div className={style.card_body}>
           <p className={style.card_desc}>{props.data.description}</p>
           <ul className={style.card_list}>

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es5",    
+    "types": ["node", "jest"],
     "lib": [
       "dom",
       "dom.iterable",
@@ -20,7 +21,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+  "baseUrl": "./",
+    "paths": {
+        "*": [ "node_modules/@types/*", "*"]
+    }
 }

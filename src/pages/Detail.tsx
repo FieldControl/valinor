@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import style from '../style/detail.module.css'
 import '../style/Detail.css';
 import Header from '../components/Header';
 import { fileDetails, imagePath } from '../interfaces';
 import Readme from '../components/Readme';
+import { useParams } from 'react-router-dom';
 
 const Detail: React.FC = () => {
   
   //    CONSUMINDO DADOS DA API NA MONTAGEM DO COMPONENTE COM OS PARAMETROS DA URL E ATRIBUINDO A ESTADOS NA APLICAÇÃO.
-  let { username, reponame } = useParams<string>();
+  let { username, reponame } = useParams<any>();
   const [data, setData] = useState<fileDetails[]>([]);
   
   async function fetchAPI() {

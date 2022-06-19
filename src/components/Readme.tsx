@@ -29,7 +29,7 @@ const Readme: React.FC<readmeProps> = (props) => {
   return (
     <>
       <section className={style.read_container}>
-        <div className={style.read_title_wrap}><h1 className={style.read_title}>Readme</h1></div>
+        <div className={style.read_title_wrap}><h1 className={style.read_title}>README.md</h1></div>
         <article dangerouslySetInnerHTML={{ __html: readme }}>
         </article>
       </section>
