@@ -32,3 +32,8 @@ export interface cardProps {
     language: string,
   }
 }
+
+export interface readmeProps {
+  user: string | undefined,
+  repo: string | undefined,
+}

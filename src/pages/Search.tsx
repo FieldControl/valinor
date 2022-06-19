@@ -50,7 +50,7 @@ const Search: React.FC = () => {
       <section className={style.mainbar}>
         <h1 className={style.main_title}>{`${total} repository results`}</h1>
         <div className={style.loaded_section}>
-          {currentPage.map((data) => <Card data={data} />)}
+          {currentPage.map((data) => <Card key={data.full_name} data={data} />)}
           <div className={style.page_nav}>
             <button className={style.page_button} disabled={page === 1} onClick={() => setPage(page - 1)}> {'< Previous'} </button>
             <p className={style.page_count}>{`  ${page} | ${Math.ceil(data.length / 10)}  `} </p>

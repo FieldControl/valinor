@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import style from '../style/detail.module.css'
 import '../style/Detail.css';
 import Header from '../components/Header';
-import { fileDetails, imagePath } from '../interfaces'; 
+import { fileDetails, imagePath } from '../interfaces';
+import Readme from '../components/Readme';
 
 const Detail: React.FC = () => {
   
@@ -42,6 +43,10 @@ const Detail: React.FC = () => {
         <h1 className={style.title}>{username + ' / ' + reponame}</h1>
       </section>
 
+      <div className={style.big_dash_wrap}>
+        <div className={style.big_dash}></div>
+      </div>
+
       <section className={style.main_div}>
         <div className={style.file_dir}>
           <div className={style.file_first_container}>
@@ -55,6 +60,8 @@ const Detail: React.FC = () => {
           ))}
         </div>
       </section>
+
+      <Readme user={username} repo={reponame}/>
     </>
   );
 }

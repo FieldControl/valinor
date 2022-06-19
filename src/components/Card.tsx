@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import style from '../style/search_card.module.css'
 import { cardProps } from '../interfaces';
 
-const SearchCard: React.FC<cardProps> = (props) => {
+const Card: React.FC<cardProps> = (props) => {
   
   //    CARD COM TODAS AS INFORMAÇÕES RECEBIDAS POR PROPS.
   const navigate = useNavigate();
@@ -32,4 +32,4 @@ const SearchCard: React.FC<cardProps> = (props) => {
   );
 }
 
-export default SearchCard;
+export default Card;
