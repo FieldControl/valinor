@@ -25,17 +25,7 @@ Com certeza acho posso melhorar/implementar mais testes, fiz poucos em comparaç
 ## Sobre mim
 
 Bom, meu nome é Mauro, sou estudante de desenvolvimento web full stack na Trybe (1 mês pra acabar o curso). Desde pequeno eu curtia criar coisas, logo quando ganhei meu primeiro computador, em pouco tempo eu já estava criando blogs pra meus desenhos favoritos ~~O rei do blogger~~. Esse sentimento de criar algo do zero e ainda estar lá na internet pra qualquer um ver era muito satisfatório pra min. Anos depois, quando fui escolher meu curso na faculdade, não tinha outra, foi pro desenvolvimento, entrei em Engenharia da Computação na UFES. Apesar de que na faculdade as coisas eram BEM lentas, papo de em um semestre inteiro eu ainda estar aprendendo laços. Então, quando juntou a pandemia e a vontade de trabalhar, abracei a oportunidade da Trybe (se não tiver familiarizado, é uma escola de programação. E aqui estou hoje, em busca de uma oportunidade ~~garanto que vocês não irão se arrepnder~~.
-<<<<<<< HEAD
 <br></br>
-
-=======
-
-## Outros detalhes
-
-**email:** mauroac@live.com **telefone:** 073 999862710
-<br></br>
-<br></br>
->>>>>>> ed07ee8afe7279e23580924071a10fcc12ee0872
 ## `Instalação e execução.`
 
 ### No terminal:
@@ -46,7 +36,6 @@ cd /pasta_do_repositório    // Para entrar na pasta do repositório.
 npm install   // Para instalar as dependências.
 npm start   // Após o comando ser executado, acesse: localhost:3000/
 ```
-<<<<<<< HEAD
 
 ### `Além disso, fiz o deploy da aplicação:`       [gitclone-field.netlify.app](https://gitclone-field.netlify.app/) `!`
 <br></br>
@@ -54,5 +43,4 @@ npm start   // Após o comando ser executado, acesse: localhost:3000/
 <div align="center">
   <b>Email: mauroac@live.com | Telefone: 073 999862710</b>
 </div>
-=======
->>>>>>> ed07ee8afe7279e23580924071a10fcc12ee0872
+
