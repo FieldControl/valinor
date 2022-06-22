@@ -1,0 +1,28 @@
+{
+  "name": "valinor-desafio-backend",
+  "version": "1.0.0",
+  "description": "👨‍💻 Vaga para apaixonados por criação de software - API para clone do twitter\r ===========================================",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index",
+    "start": "node src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegofreitas50/valinor-desafio-backend.git"
+  },
+  "keywords": [],
+  "author": "Diego Freitas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegofreitas50/valinor-desafio-backend/issues"
+  },
+  "homepage": "https://github.com/diegofreitas50/valinor-desafio-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
+    "nodemon": "^2.0.16"
+  }
+}
