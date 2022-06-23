@@ -4,10 +4,14 @@
 
 Projeto de aplicação backend baseado na rede social twitter, na qual usuários podem se cadastrar, postar textos, curtir posts, etc.
 
-## Deploy da aplicação [clicando aqui]()
-
+## Deploy da aplicação
+###Swagger
 ```
-https://
+https://valinor-desafio-backend-production.up.railway.app/api-docs/
+```
+###Front-end
+```
+https://valinor-desafio-backend-production.up.railway.app/api-docs/
 ```
 
 ## Para clonar o projeto
