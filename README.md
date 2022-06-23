@@ -70,7 +70,7 @@ Na Field, o seu dia-a-dia será repleto de:
   'Micro services e aplicações distribuídas',
   'Amazon Web Services',
   'PAAS & Cloud Services',
-  'Serverless apps',
+  'Serverless apps', 
   'AngularJS, Angular',
   'REST APIs',
   'GraphQL APIs',
