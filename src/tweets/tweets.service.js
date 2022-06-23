@@ -8,4 +8,16 @@ const findAllTweetsService = () => {
   return Tweet.find().sort({ _id: -1 }).populate("user");
 };
 
-module.exports = { createTweetService, findAllTweetsService };
+const searchTweetService = (message) => {
+  return Tweet.find({
+    message: { $regex: `${message || ""}`, $options: "i" },
+  })
+    .sort({ _id: -1 })
+    .populate("user");
+};
+
+module.exports = {
+  createTweetService,
+  findAllTweetsService,
+  searchTweetService,
+};
