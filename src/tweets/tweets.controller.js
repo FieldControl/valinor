@@ -23,13 +23,46 @@ const createTweetController = async (req, res) => {
 
 const findAllTweetsController = async (req, res) => {
   try {
-    const tweets = await tweetService.findAllTweetsService();
+    let { limit, offset } = req.query;
+
+    limit = Number(limit);
+    offset = Number(offset);
+
+    if (!limit) {
+      limit = 6;
+    }
+
+    if (!offset) {
+      offset = 0;
+    }
+
+    const tweets = await tweetService.findAllTweetsService(offset, limit);
+
+    const total = await tweetService.countTweets();
+
+    const currentUrl = req.baseUrl;
+
+    const next = offset + limit;
+    const nextUrl =
+      next < total ? `${currentUrl}?limit=${limit}&offset=${next}` : null;
+
+    const previous = offset - limit < 0 ? null : offset - limit;
+    const previousUrl =
+      previous != null
+        ? `${currentUrl}?limit=${limit}&offset=${previous}`
+        : null;
 
     if (tweets.length === 0) {
       return res.status(400).send({ message: "Não existem tweets!" });
     }
 
     return res.send({
+      nextUrl,
+      previousUrl,
+      limit,
+      offset,
+      total,
+
       results: tweets.map((tweet) => ({
         id: tweet._id,
         message: tweet.message,
@@ -99,7 +132,9 @@ const retweetTweetController = async (req, res) => {
   const tweetRetweeted = await tweetService.retweetsService(id, userId);
 
   if (tweetRetweeted.lastErrorObject.n === 0) {
-    return res.status(400).send({ message: "Você já deu Retweet neste tweet!" });
+    return res
+      .status(400)
+      .send({ message: "Você já deu Retweet neste tweet!" });
   }
 
   return res.send({
