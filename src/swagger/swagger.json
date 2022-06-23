@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://diegotwitterclone.herokuapp.com",
+      "url": "https://valinor-desafio-backend-production.up.railway.app/",
       "description": "API no Heroku"
     },
     {
