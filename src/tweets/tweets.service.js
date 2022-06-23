@@ -4,4 +4,8 @@ const createTweetService = (message, userId) => {
   return Tweet.create({ message, user: userId });
 };
 
-module.exports = { createTweetService };
+const findAllTweetsService = () => {
+  return Tweet.find().sort({ _id: -1 }).populate("user");
+};
+
+module.exports = { createTweetService, findAllTweetsService };
