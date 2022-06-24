@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 400 14px Roboto, sans-serif;
+    background: #171515 ;
+    -webkit-font-smoothing: antialiased;
+}
+
+input, button {
+    font: 400 18px Roboto, sans-serif;
+}
+
+form input {
+    width: 100%;
+    height: 60px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+    margin: 5px 2px;
+}
+
+.btn-app{
+    width: 100%;
+    height: 59px;
+    background: #008000;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 5px 2px;
+    transition: filter 0.2s;
+}
+
+.btn-app:hover{
+    filter: brightness(90%)
+}
+
+.app {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
+    background:#393b3d;
+}
+
+.app h1{
+    text-align: center;
+    font-size: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+}
+
+.app .content-form{
+    width: 100%;
+    padding: 15px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app form{
+    width: 100%;
+    max-width: 700px;
+}
+
+.app .content-list{
+    width: 100%;
+    margin: 15px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app .content-list .content-list-container{
+    width: 100%;
+    max-width: 700px;
+    margin: 32px auto;
+}
+
+.app .content-list ul{
+    display: grid;
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.app .content-list ul li{
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 0 100px rgb(1 0 0 / 10%);
+}
+
+.app .content-list ul li strong{
+    display: block;
+    margin-bottom: 16px;
+    color: #41414d
+}
+
+.app .content-list ul li strong{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #41414d
+}
+
+.app .content-list ul li p{
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.app .content-list ul li a{
+    height: 30px;
+    padding: 5px;
+    background: #008000;
+    border: 0;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 5px;
+    transition: filter 0.2s;
+}
+
+.app .content-list ul li a:hover{
+    filter: brightness(90%)
+}
