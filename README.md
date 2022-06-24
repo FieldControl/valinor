@@ -9,9 +9,9 @@ Projeto de aplicação backend baseado na rede social twitter, na qual usuários
 ```
 https://valinor-desafio-backend-production.up.railway.app/api-docs/
 ```
-###Front-end
+###Front-end para testar localhost
 ```
-https://valinor-desafio-backend-production.up.railway.app/api-docs/
+https://github.com/diegofreitas50/spa-twitterclone.git
 ```
 
 ## Para clonar o projeto
