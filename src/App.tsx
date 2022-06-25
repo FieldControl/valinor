@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
+import { Repositories } from "./model/repositories";
 import * as services from "./services/apiRequestHttp";
 
-export const App = () => {
+export const App: React.FC = () => {
 
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState<[Repositories]>();
 
-  const repositorie = "node";
+  const repositorie: string = "node";
 
-  const getRepositories = () => {
+  const getRepositories = (): void => {
     services.client.get(`/repositories?q=${repositorie}`)
-    .then(res => setRepositories(res.data))
-    .catch(err => console.log(err.response.data));
+      .then(res => setRepositories(res.data))
+      .catch(err => console.log(err.response.data));
   };
 
   useEffect(() => {
