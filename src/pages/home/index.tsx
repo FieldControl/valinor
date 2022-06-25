@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { Card } from "../../components/card";
 import { Repositories } from "../../model/repositories";
 import * as services from "../../services/apiRequestHttp";
+import { Container } from "./styles";
 
 export const HomePage: React.FC = (): JSX.Element => {
 
@@ -10,7 +12,7 @@ export const HomePage: React.FC = (): JSX.Element => {
 
     const getRepositories = (): void => {
         services.client.get(`/repositories?q=${repositorie}`)
-            .then(res => setRepositories(res.data))
+            .then(res => setRepositories(res.data.items))
             .catch(err => console.log(err.response.data));
     };
 
@@ -20,8 +22,20 @@ export const HomePage: React.FC = (): JSX.Element => {
 
     console.log(repositories);
     return (
-        <div>
+        <Container>
             <h1> Deus seja louvado! </h1>
-        </div>
+            {repositories?.map(
+                repo =>
+                    <Card
+                        key={repo.id}
+                        url={repo.html_url}
+                        description={repo.description}
+                        topics={repo.topics}
+                        stargazers={repo.stargazers_count}
+                        language={repo.language}
+                        pushedAt={repo.pushed_at}
+                    />
+            )}
+        </Container>
     );
 };
