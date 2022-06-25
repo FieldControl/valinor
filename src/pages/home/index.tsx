@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Repositories } from "../../model/repositories";
 import * as services from "../../services/apiRequestHttp";
 
-export const HomePage: React.FC = () => {
+export const HomePage: React.FC = (): JSX.Element => {
 
     const [repositories, setRepositories] = useState<[Repositories]>();
 
