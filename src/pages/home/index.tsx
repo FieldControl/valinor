@@ -21,7 +21,7 @@ export const HomePage: React.FC = () => {
     console.log(repositories);
     return (
         <div>
-            <h1> Deus seja louvado!!! </h1>
+            <h1> Deus seja louvado! </h1>
         </div>
     );
 };

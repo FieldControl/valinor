@@ -1,9 +1,9 @@
-import { HomePage } from "./pages/home";
+import { MainRoutes } from "./routes/routes";
 
-export const App: React.FC = () => {
+export const App: React.FC = (): JSX.Element => {
   return (
     <div>
-      <HomePage/>
+      <MainRoutes/>
     </div>
   );
 };
