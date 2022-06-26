@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
+export const Body = styled.body`
     display: flex;
-    align-items: center;
     flex-direction: column;
+    width: 100vw;
+`;
+
+export const Main = styled.main`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;

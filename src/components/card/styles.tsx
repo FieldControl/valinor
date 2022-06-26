@@ -4,10 +4,12 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 60vw;
+    align-items: flex-start;
+    width: 60%;
     height: auto;
     padding: 16px;
     border-bottom: 1px solid #EAEFED;
+    gap: .5rem;
 `;
 
 export const Topics = styled.div`

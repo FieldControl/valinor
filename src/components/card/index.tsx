@@ -11,7 +11,7 @@ export const Card: React.FC<Props> = ({
 }): JSX.Element => {
     return (
         <Container>
-            <h3>{url.replace("https://github.com/", "")}</h3>
+            <a href={url}><h3>{url.replace("https://github.com/", "")}</h3></a>
             <p>{description}</p>
             <Topics>
                 {topics?.map(topic => <button>{topic}</button>)}

@@ -7,3 +7,11 @@ export interface Repositories {
     language: string,
     pushed_at: string
 };
+
+export type FormData = {
+    repositorie: string;
+};
+
+export type Props = {
+    getRepositories: (data: { repositorie: string }) => void
+};
