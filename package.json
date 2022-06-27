@@ -14,6 +14,7 @@
     "@types/react-dom": "^18.0.5",
     "@types/styled-components": "^5.1.25",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.33.0",
