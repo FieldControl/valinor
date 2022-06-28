@@ -24,7 +24,7 @@ export const HomePage: React.FC = (): JSX.Element => {
 
         const headers = {
             headers: {
-                "Authorization": `Token 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`
+                "Authorization": process.env.REACT_APP_TOKEN as string
             }
         };
 
