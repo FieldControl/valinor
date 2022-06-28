@@ -41,6 +41,9 @@ $ npm install
 $ npm start
 
 ```
+### 📱 Layout 
+![image](https://user-images.githubusercontent.com/89327618/176093738-972c08a3-5909-4d21-bf89-f42c32bbbfc9.png)
+![image](https://user-images.githubusercontent.com/89327618/176093932-1b18e08a-8309-422a-98cb-eaabe4807922.png)
 
 ### Demonstração (Link) 
 [Site](https://caring-touch.surge.sh/)
