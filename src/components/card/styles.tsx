@@ -16,6 +16,17 @@ export const Topics = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
+
+    button {
+        display: flex;
+        text-align: center;
+        border: 1px solid transparent;
+        background: #1f6feb;
+        border-radius: 2em;
+        color: #ffffff;
+        padding: .2rem;
+        cursor: pointer;
+    };
 `;
 
 export const Info = styled.div`

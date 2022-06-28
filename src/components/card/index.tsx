@@ -14,7 +14,11 @@ export const Card: React.FC<Props> = ({
             <a href={url}><h3>{url.replace("https://github.com/", "")}</h3></a>
             <p>{description}</p>
             <Topics>
-                {topics?.map(topic => <button key={topic}>{topic}</button>)}
+                {topics?.map(topic => (
+                    <a key={topic} href={`https://github.com/topics/${topic}`}>
+                        <button>{topic}</button>
+                    </a>
+                ))}
             </Topics>
             <Info>
                 <p>{stargazers}</p>

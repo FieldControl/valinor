@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Card } from "../../components/card";
 import { Header } from "../../components/header";
 import { Pagination } from "../../components/pagination";
 import { Data } from "../../model/repositories";
 import * as services from "../../services/apiRequestHttp";
 import { scrollTop } from "../../utils/scrollTop";
-import { Body, Footer, Main } from "./styles";
+import { Container, Footer, Main } from "./styles";
 
 export const HomePage: React.FC = (): JSX.Element => {
 
@@ -14,9 +14,11 @@ export const HomePage: React.FC = (): JSX.Element => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const perPage: number = 10;
 
+    localStorage.setItem("repositories", JSON.stringify(repositories));
+
     const getRepositories = (data: { repositorie: string }): void => {
 
-        const { repositorie } = data;
+        const repositorie = data.repositorie || "LucianoRib5/LucianoRib5";
 
         const url: string = `/repositories?q=${repositorie}&per_page=${perPage}&page=${currentPage}`;
 
@@ -28,14 +30,15 @@ export const HomePage: React.FC = (): JSX.Element => {
 
         services.client.get(url, headers)
             .then(res => {
+                localStorage.setItem("repositories", JSON.stringify(res.data));
                 setRepositories(res.data);
                 scrollTop();
             })
             .catch(err => console.log(err.response.data));
     };
-    
+
     return (
-        <Body>
+        <Container>
             <Header getRepositories={getRepositories} offset={offset} />
             <Main>
                 {repositories?.items?.map(
@@ -62,6 +65,6 @@ export const HomePage: React.FC = (): JSX.Element => {
                     />
                 }
             </Footer>
-        </Body>
+        </Container>
     );
 };

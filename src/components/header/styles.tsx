@@ -19,7 +19,7 @@ export const Logo = styled.div`
 
     img {
         width: 100%;
-        height: 90%;
+        height: 70%;
     };
 `;
 

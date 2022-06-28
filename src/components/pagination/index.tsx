@@ -1,16 +1,9 @@
-import { Ul } from "./styles";
+import { BtnArrows, BtnPages, Ul } from "./styles";
 import FirstPageRoundedIcon from '@material-ui/icons/FirstPageRounded';
 import LastPageRoundedIcon from '@material-ui/icons/LastPageRounded';
 import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
-
-export interface Props {
-    perPage: number,
-    totalOfItems: number,
-    offset: number,
-    setOffset: React.Dispatch<number>,
-    setCurrentPage: React.Dispatch<number>
-};
+import { Props } from "../../model/pagination";
 
 export const Pagination: React.FC<Props> = ({
     perPage,
@@ -38,41 +31,45 @@ export const Pagination: React.FC<Props> = ({
 
     return (
         <Ul>
-            <button
+            <BtnArrows
                 onClick={() => changePage(1)}
                 disabled={currentPage === 1}
             >
                 <FirstPageRoundedIcon/>
-            </button>
-            <button
+            </BtnArrows>
+            <BtnArrows
                 onClick={() => changePage(currentPage - 1)}
                 disabled={currentPage === 1}
             >
                 <NavigateBeforeRoundedIcon/>
-            </button>
+            </BtnArrows>
             {
                 Array.from({ length: Math.min(totalOfButtons, totalPages) })
                     .map((_, index) => index + firstButton)
                     .map(page => (
                         <li key={page}>
-                            <button onClick={() => changePage(page)}>
+                            <BtnPages 
+                                onClick={() => changePage(page)}
+                                page={page}
+                                currentPage={currentPage}
+                            >
                                 {page}
-                            </button>
+                            </BtnPages>
                         </li>
                     ))
             }
-            <button
+            <BtnArrows
                 onClick={() => changePage(currentPage + 1)}
                 disabled={currentPage === totalPages}
             >
                 <NavigateNextRoundedIcon/>
-            </button>
-            <button
+            </BtnArrows>
+            <BtnArrows
                 onClick={() => changePage(totalPages)}
                 disabled={currentPage === totalPages}
             >
                 <LastPageRoundedIcon/>
-            </button>
+            </BtnArrows>
         </Ul>
     );
 };

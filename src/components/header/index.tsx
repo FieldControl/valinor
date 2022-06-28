@@ -23,12 +23,14 @@ export const Header: React.FC<Props> = ({ getRepositories, offset }): JSX.Elemen
 
     return (
         <Container>
-            <Logo>
-                <img
-                    src={logo}
-                    alt="Logo Github"
-                />
-            </Logo>
+            <a href="https://github.com/">
+                <Logo>
+                    <img
+                        src={logo}
+                        alt="Logo Github"
+                    />
+                </Logo>
+            </a>
             <Form onSubmit={onSubmit}>
                 <input
                     {...register("repositorie")}
@@ -37,13 +39,15 @@ export const Header: React.FC<Props> = ({ getRepositories, offset }): JSX.Elemen
                 />
             </Form>
             <User>
-                <Avatar
-                    src={avatar}
-                    style={{
-                        width: "30px",
-                        height: "30px"
-                    }}
-                />
+                <a href="https://github.com/LucianoRib5">
+                    <Avatar
+                        src={avatar}
+                        style={{
+                            width: "30px",
+                            height: "30px"
+                        }}
+                    />
+                </a>
             </User>
         </Container>
     );
