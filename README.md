@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# Search-in-github
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Teste Técnico vaga Desevolvedor Front-end na Field Control.
 
-## Available Scripts
+### ⚙️ Features
 
-In the project directory, you can run:
+- [x] Buscar por repositórios públicos no Github
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 🛠 Tecnologias
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Ferramentas utilizadas na construção do projeto:
 
-### `npm test`
+- [React.js](https://pt-br.reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Styled-components](https://styled-components.com/)
+- [Material-UI](https://v4.mui.com/pt/)
+- [Axios](https://axios-http.com/docs/intro)
+### Pré-requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [VSCode](https://code.visualstudio.com/)
 
-### `npm run build`
+### 🖥️ Rodando a aplicação
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Clone este repositório
+$ git clone https://github.com/LucianoRib5/search-in-github.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd search-in-github
 
-### `npm run eject`
+# Acesse o projeto via VSCode
+$ code .
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Instale as dependências
+$ npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Execute o script start
+$ npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 📱 Layout 
+![image]()
 
-## Learn More
+### Autor
+---
+<div>
+  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/89327618?v=4" width="100px;" alt=""/></br>
+  <p>Luciano Ribeiro</b></p>
+</div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<div> 
+  <a href="https://www.linkedin.com/in/lucianorib5/">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/> 
+  </a>  
+</div>
