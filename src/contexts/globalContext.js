@@ -14,10 +14,15 @@ export const GlobalProvider = (props) => {
     },[])
 
     const makeRequest = async () => {
-        setLoading(true)
-        const res = await api.get(`/search/repositories?q=${text}`)
-        setResponse(res.data)
-        setLoading(false)
+        try{
+            setLoading(true)
+            const res = await api.get(`/search/repositories?q=${text}`)
+            setResponse(res.data)
+            setLoading(false)
+        }
+        catch(error){
+            alert("A API do GitHub tem um limite de requisições, aguarde um momento para buscar novamente")
+        }
     }
 
     const textModifier = (text) => {

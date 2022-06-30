@@ -12,7 +12,7 @@ export const SearchInput = styled.input`
     height:1rem;
     background-color: #fcf7f0;
     border-radius:24px;
-    padding:16px;   
+    padding:24px;   
     border:0.8px solid gray;
     font-size:14px;
 
@@ -29,11 +29,17 @@ export const TitleMessage = styled.h1`
 `
 
 export const SearchButton = styled.button`
-    padding:8px;   
-    border-radius:16px;
-    background-color: #dbd6d0;
-    cursor:pointer;
-    border:0.8px solid gray;
+    
+    border-radius: 50px; 
+    border: none; 
+    box-shadow: 0 0 10px 
+    rgba(0, 0, 0, 0.15); 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: 700; 
+    padding: 15px 60px; 
+    background-color: #F3CA20; 
+    color: #333;
 
     :hover {
         transform: scale(0.98);

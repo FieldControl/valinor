@@ -4,7 +4,7 @@ export const ContainerRepository = styled.div`
     max-width:100%;
     border-radius:8px;
     padding:24px;
-    background-color: #DDD;
+    background-color: #333;
     margin:16px;
     flex-direction:center;
     align-items:center;
@@ -20,5 +20,12 @@ export const ContainerRepository = styled.div`
 export const StarsInRepository = styled.h2`
     float:right;
     font-weight:700;
-    color:yellow;
+    color:white;
+`
+
+
+
+export const LinkRepository = styled.a`
+    text-decoration:none;
+    color:white;
 `
