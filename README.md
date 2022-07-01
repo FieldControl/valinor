@@ -8,9 +8,9 @@ Esse projeto é uma estrutura para aplicação de conhecimentos que tem como obj
 
 ## ✔️ Tecnologia utilizadas
 
-*ReactJS.
-*Styled-Components.
-*Axios.
+* ReactJS.
+* Styled-Components.
+* Axios.
 
 ## 📁 Acesso ao projeto
 
