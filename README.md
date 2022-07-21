@@ -1,7 +1,7 @@
 
 **Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou**
 
-- Eu usei Angular 14 com typescript e Scss.
+Eu usei Angular 14 com typescript e Scss.
 
 **Porque você optou pela tecnologia X e não a Y**
 
