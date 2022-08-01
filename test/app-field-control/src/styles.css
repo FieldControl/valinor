@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&display=swap');
+
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100vh;
+
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #EC1D24;
+
+}
+
+
+.ngx-pagination {
+  padding-left: 0px !important;
+  background: #AA0000 !important;
+  border: transparent !important;
+  border-radius: 40px !important;
+  color: #fff;
+}
+
+.ngx-pagination .current,
+.btn-info {
+  background: #f80101 !important;
+  border: transparent !important;
+  border-radius: 40px !important;
+  color: #fff;
+}
+
+.ngx-pagination a:hover {
+  background: #f80101 !important;
+  border-radius: 40px !important;
+  border: transparent !important;
+  cursor: pointer;
+}

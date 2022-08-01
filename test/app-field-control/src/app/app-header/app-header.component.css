@@ -1,0 +1,96 @@
+.app-header {
+  font-family: 'Marvel';
+  background-color: #fff;
+}
+
+.app-header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo__img {
+  width: 80px;
+}
+
+.app-header__title {
+  display: flex;
+  justify-content: center;
+}
+
+.title__h1 {
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #DF0000;
+}
+
+.app-header__search {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0;
+}
+
+.search__input {
+  width: 160px;
+  height: 30px;
+  border-radius: 12px;
+  border: 1px solid #444444;
+  align-items: center;
+  text-indent: 5px;
+  font-size: 13px;
+
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .mat-form-field-infix {
+  width: 160px;
+  height: 30px;
+  border-radius: 12px;
+  border: 1px solid #444444;
+  align-items: center;
+  text-indent: 5px;
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 762px) {
+  .title__h1 {
+    font-size: 30px;
+  }
+
+  .logo__img {
+    margin-top: 10px;
+  }
+
+  .app-header__search {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .mat-icon {
+    display: none;
+  }
+}
+
+.search__input--img {
+  width: 30px;
+  height: 30px;
+  border: 0.2px solid #000;
+}
+
+.search__input--b {
+  font-size: 10px;
+  padding-left: 2px;
+}
+
+.row {
+  --bs-gutter-x: 0
+}
+

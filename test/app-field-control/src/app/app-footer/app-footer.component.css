@@ -1,0 +1,15 @@
+
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  color: #6f6f6f;
+  font-size: 15px;
+  max-height: 20px;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+

@@ -1,0 +1,30 @@
+<header class="app-header">
+    <div class="row no-gutters">
+      <div class="app-header__logo col-md-1">
+        <img src="/assets/Marvel_Logo.svg.png" alt="" class="logo__img">
+      </div>
+      <div class="app-header__title col-md-8">
+        <h1 class="title__h1">Personagens</h1>
+      </div>
+      <div class="app-header__search col-md-2">
+        <!-- <input type="text" name="" id="" class="search__input" placeholder="Digite o Nome do Personagem!"> -->
+        <!-- <mat-icon class="search__icon" aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon> -->
+        <mat-form-field >
+          <input matInput placeholder="Search Character" (keyup.enter)="onEnter($event)"  [(ngModel)]="selectedCharacter" [matAutocomplete]="auto"
+            [formControl]="searchCharactersCtrl" placeholder="Min 3 Characters Ex. Ant">
+          <button *ngIf="selectedCharacter" matSuffix mat-icon-button aria-label="Clear" (click)="clearSelection()">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-autocomplete class="search__input" #auto="matAutocomplete" (optionSelected)="onSelected()"
+            [displayWith]="displayWith">
+            <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+            <ng-container *ngIf="!isLoading">
+              <mat-option *ngFor="let character of filteredCharacters" [value]="character">
+                <span><img class="search__input--img" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt=""><b class="search__input--b">{{character.name}}</b></span>
+              </mat-option>
+            </ng-container>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+</header>

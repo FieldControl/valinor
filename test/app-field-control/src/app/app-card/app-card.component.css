@@ -1,0 +1,53 @@
+.app-card {
+  background-color: #FFFFFF;
+  margin: 15px 0px;
+  border-radius: 10px;
+
+  box-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
+}
+
+.app-card__information {
+  padding-top: 5px;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.app-card__container-image {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 40px;
+}
+
+.container-image__image {
+  width: 120px;
+  height: 120px;
+  border: 4px solid #000;
+}
+
+.information__title {
+
+}
+
+.information__description {
+
+}
+
+.information__stories {
+
+}
+
+@media only screen and (max-width: 780px) {
+  .app-card__container-image {
+    justify-content: center;
+    padding-left: 0px;
+  }
+
+  .app-card__information {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+}

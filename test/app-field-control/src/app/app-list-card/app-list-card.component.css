@@ -1,0 +1,17 @@
+:host {
+  width: 90%;
+  padding: 10px 25px;
+
+}
+
+.app-list-card__quantity-for-page {
+  display: flex;
+  justify-content: end;
+}
+
+.quantity-for-page__select {
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.50);
+}

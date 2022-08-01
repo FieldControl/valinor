@@ -1,0 +1,18 @@
+<section class="app-list-card">
+  <div class="app-list-card__quantity-for-page">
+    <select class="quantity-for-page__select" value="{{pageSize}}" (change)="handlePageSizeChange($event)">
+      <option *ngFor="let size of pageSizes" [value]="size">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+  <app-card
+  *ngFor="let character of characters | paginate : {
+    itemsPerPage: pageSize,
+    currentPage: page,
+    totalItems: count
+  }; "
+ [character]="character"></app-card>
+  <pagination-controls class="test" (pageChange)="page = $event"></pagination-controls>
+</section>
+
