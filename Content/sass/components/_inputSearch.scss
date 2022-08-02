@@ -1,0 +1,30 @@
+.box-search {
+  @include flex-element(row, flex-start, center);
+  margin-bottom: 2rem;
+  i {
+    position: absolute;
+    margin-left: 2rem;
+    font-size: 1.8rem;
+    color: #7d7e80;
+    transition: all 0.2s;
+  }
+  .input-search {
+    font-size: 1.8rem;
+    padding: 2rem 2rem 2rem 5.5rem;
+    font-weight: 400;
+    line-height: 150%;
+    color: $color-white;
+    background-color: $color-black-transparent;
+    border-radius: 0.4rem;
+    width: 100%;
+    font-weight: 500;
+    transition: all 0.2s;
+    &:focus {
+      background-color: $color-white;
+      color: #3c3c3c;
+      border-color: #86b7fe;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem #bdceff;
+    }
+  }
+}

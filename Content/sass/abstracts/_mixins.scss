@@ -1,0 +1,44 @@
+@mixin responsive ($screenWidth) {
+    @media(max-width: $screenWidth){
+        @content;
+    }
+}
+
+@mixin flex-element ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin margin-property ($top, $right, $down, $left) {
+    margin: $top $right $down $left;
+}
+
+@mixin style-btn ($textColor, $bgColor, $bdColor, $textColorHover, $bgColorHover, $bdColorHover,  $fontSize, $pdVertical, $pdHorizontal) {
+    @include flex-element(row, space-between, center);
+    color: $textColor;
+    background-color: $bgColor;
+    border: solid 1px $bdColor;
+    transition: all 0.3s;
+    padding: $pdVertical $pdHorizontal;
+    &:hover,:active,:focus{
+        color: $textColorHover;
+        background-color: $bgColorHover;
+        border-color: $bdColorHover;
+    }
+    i {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+    }
+    span{
+        font-size: $fontSize;
+        letter-spacing: -0.05rem;
+        font-weight: 500;
+        line-height: 112%;
+    }
+}
+
+@mixin color-status ($textColor) {
+    color: $textColor;
+}

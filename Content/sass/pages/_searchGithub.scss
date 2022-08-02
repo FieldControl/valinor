@@ -1,0 +1,107 @@
+section {
+  @include flex-element(row, center, center);
+  height: 100vh;
+  background: $color-primary;
+  .container {
+    width: 100%;
+    max-width: 110rem;
+    padding: 0 2.5rem;
+    margin: 0 auto;
+    .box-title {
+      @include flex-element(row, space-between, center);
+      .title-left {
+        @include flex-element(column, center, flex-start);
+        margin-bottom: 4rem;
+        span {
+          font-size: 2rem;
+          color: $color-white;
+          font-weight: 600;
+          border-bottom: solid 3px $color-secondary;
+        }
+        h1 {
+          font-size: 10rem;
+          color: $color-white;
+        }
+        h2 {
+          font-size: 8rem;
+          color: $color-white;
+          background-color: $color-secondary;
+          padding: 0 1rem;
+        }
+      }
+      .text-mode-search {
+        @include flex-element(row, flex-start, center);
+        margin-bottom: 2rem;
+        span {
+          font-size: 2rem;
+          margin-right: 1rem;
+        }
+        h1 {
+          font-size: 4rem;
+          margin-right: 1rem;
+        }
+        h2 {
+          font-size: 4rem;
+        }
+      }
+    }
+    .box-results {
+      margin-bottom: 2rem;
+      span {
+        margin-right: 0.5rem;
+        line-height: 112%;
+        font-weight: 400;
+        color: $color-white;
+        &:first-child {
+          font-weight: 900;
+        }
+      }
+    }
+    .box-repositorys {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding-right: 1rem;
+      height: 42rem;
+      .row {
+        @include flex-element(row, space-between, flex-start);
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      &::-webkit-scrollbar-track {
+        background-color: $transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-secondary;
+        border-radius: 1rem;
+      }
+      &::-webkit-scrollbar {
+        width: 0.8rem;
+      }
+      .search-null {
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 2rem;
+        color: $color-white
+      }
+    }
+    .box-pagination {
+      @include flex-element(row, center, center);
+      margin-top: 2rem;
+      button {
+        background-color: transparent;
+        margin-right: 2rem;
+        i {
+          font-size: 3rem;
+          color:  $color-black-transparent;
+          transition: all 0.2s;
+        }
+        &:hover i {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

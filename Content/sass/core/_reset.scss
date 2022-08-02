@@ -1,0 +1,81 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    font-size: 1.6rem;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    position: relative;
+}
+
+html {
+    font-size: 62.5%;
+
+    @include responsive(1280px) {
+        font-size: 55%;
+    }
+
+    @include responsive(991px) {
+        font-size: 50%;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+
+    &:focus,
+    :focus:not(:focus-visible) {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @include margin-property(0, 0, 0, 0);
+}
+
+h1 {
+    letter-spacing: -0.2rem;
+}
+
+h2 {
+    letter-spacing: -0.15rem;
+}
+
+h3,
+h4 {
+    letter-spacing: -0.1rem;
+}
+
+p {
+    margin: 0;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-flex {
+    display: flex !important;
+}

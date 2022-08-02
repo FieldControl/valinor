@@ -1,0 +1,146 @@
+.card-item-box {
+  @include flex-element(column, flex-start, flex-start);
+  background-color: $color-white;
+  padding: 2rem;
+  width: 100%;
+  height: auto;
+  border-radius: 0.4rem;
+
+  .url-r {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 150%;
+    margin-bottom: 0.5rem;
+    color: $color-black;
+    transition: all 0.2s;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .description-r {
+    font-size: 1.4rem;
+    text-align: left;
+    line-height: 112%;
+    margin-bottom: 1rem;
+    color: $color-primary;
+    font-weight: 400;
+    img {
+      max-width: 1.8rem;
+    }
+  }
+
+  .row > &:last-child {
+    margin-right: 0;
+  }
+
+  .topics-r {
+    @include flex-element(row, flex-start, flex-start);
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+
+    span {
+      background-color: #438bf3;
+      padding: 0.6rem 1.2rem;
+      font-size: 1.2rem;
+      color: $color-white;
+      border-radius: 0.4rem;
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      transition: all 0.2s;
+      &:hover {
+        cursor: pointer;
+        background-color: #005497;
+      }
+    }
+  }
+
+  .footer-r {
+    @include flex-element(row, flex-start, flex-start);
+
+    span {
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .language-r {
+      i {
+        font-size: 1.2rem;
+        &.ruby {
+          color: #701516;
+        }
+        &.go {
+          color: #00add8;
+        }
+        &.scss {
+          color: #c6538c;
+        }
+
+        &.shell {
+          color: #89e051;
+        }
+
+        &.html {
+          color: #e34c26;
+        }
+
+        &.js {
+          color: #f1e05a;
+        }
+
+        &.typescript {
+          color: #3178c6;
+        }
+
+        &.css {
+          color: #563d7c;
+        }
+
+        &.cplus {
+          color: #f34b7d;
+        }
+
+        &.python {
+          color: #3572a5;
+        }
+
+        &.dockerfile {
+          color: #384d54;
+        }
+
+        &.ejs {
+          color: #a91e50;
+        }
+
+        &.java {
+          color: #b07219;
+        }
+        &.php {
+          color: #4f5d95;
+        }
+        &.csharp {
+          color: #178600;
+        }
+      }
+      span {
+        font-size: 1.2rem;
+        color: #333;
+        border-radius: 0.4rem;
+      }
+    }
+    .star-r {
+      i {
+        font-size: 1.5rem;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      span {
+        font-weight: 600;
+        cursor: pointer;
+      }
+      &:hover i {
+        color: #f3c63e;
+      }
+    }
+  }
+}

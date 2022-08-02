@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="Content/css/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="Content/css/app.css" type="text/css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="mask-icon"
+      href="https://github.githubassets.com/pinned-octocat.svg"
+      color="#000000"
+    />
+    <link
+      rel="alternate icon"
+      class="js-site-favicon"
+      type="image/png"
+      href="https://github.githubassets.com/favicons/favicon.png"
+    />
+    <link
+      rel="icon"
+      class="js-site-favicon"
+      type="image/svg+xml"
+      href="https://github.githubassets.com/favicons/favicon.svg"
+    />
+
+    <title>Redesign GitHub Search</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="box-title">
+          <div class="title-left">
+            <span>Redesign</span>
+            <h1>GitHub</h1>
+            <h2>Search</h2>
+          </div>
+        </div>
+        <div class="box-search animate__slow">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            class="input-search"
+            type="search"
+            name="search-repositorys"
+            id="search-repositorys"
+            value=""
+            placeholder="Search a repository "
+          />
+        </div>
+        <div class="box-results"></div>
+        <div class="box-repositorys d-none"></div>
+        <div class="box-pagination d-none">
+          <button type="button" class="prev">
+            <i class="fa-solid fa-circle-left"></i>
+          </button>
+          <button type="button" class="next">
+            <i class="fa-solid fa-circle-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <script src="Content/js/jquery-3.2.1.min.js"></script>
+    <script
+      async
+      src="https://kit.fontawesome.com/e7e17f54af.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="Content/js/Helpers.js"></script>
+    <script src="Content/js/app.js"></script>
+  </body>
+</html>
