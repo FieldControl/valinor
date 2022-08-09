@@ -1,0 +1,49 @@
+<app-poke-header></app-poke-header>
+
+<ng-template [ngIf]="isLoading">
+  <main>
+    <header class="pokemon-card__name">
+      <h4>Nº {{ pokemon[0].id }}</h4>
+      <h1>{{ pokemon[0].name }}</h1>
+
+      <img [src]="pokemon[0].sprites.front_default" [alt]="pokemon[0].name" />
+
+      <ul class="pokemon-card__type">
+        <li
+          *ngFor="let value of pokemon[0].types"
+          [class]="'pokemon-card__type--' + value.type.name"
+        >
+          {{ value.type.name }}
+        </li>
+      </ul>
+    </header>
+
+    <section class="pokemon-card__status">
+      <article class="pokemon-card__status__statistics">
+        <section>
+          <h3>Estatísticas</h3>
+
+          <ol *ngFor="let value of pokemon[0].stats">
+            <li>
+              {{ value.stat.name }}
+              <strong>
+                {{ value.base_stat }}
+              </strong>
+            </li>
+          </ol>
+        </section>
+
+        <a [routerLink]="['']" class="btn"> Voltar </a>
+      </article>
+    </section>
+  </main>
+</ng-template>
+
+<section class="error" *ngIf="apiError">
+  <img
+    src="../../../assets/img/error-psyduck.png"
+    alt="Erro no funcionamento, recarregue e tente novamente..."
+  />
+  <h2>Ops!? Pokedex parou de funcionar</h2>
+  <h3>Recarregue e tente novamente...</h3>
+</section>

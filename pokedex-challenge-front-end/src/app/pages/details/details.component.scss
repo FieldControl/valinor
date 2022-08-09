@@ -1,0 +1,78 @@
+@use "../../../assets/styles/variables" as var;
+@use "../../../assets/styles/mixins" as mix;
+
+:host {
+  main {
+    @include mix.flex-position(column);
+    background-color: var.$white-color;
+    border-radius: 50px;
+    padding: var.$gap-medium;
+    text-transform: capitalize;
+    margin-bottom: var.$gap-medium;
+    max-width: 600px;
+
+    header {
+      @include mix.flex-position(column);
+      width: 100%;
+
+      img {
+        max-width: 300px;
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .pokemon-card__status {
+      width: 100%;
+
+      &__statistics {
+        @include mix.flex-position(column);
+
+        section {
+          align-self: flex-start;
+        }
+      }
+
+      h3 {
+        color: var.$secondary-color;
+        font-style: italic;
+        font-weight: 900;
+        font-size: 2rem;
+        text-decoration: underline;
+      }
+
+      ol {
+        list-style: none;
+
+        strong {
+          margin-left: 10px;
+        }
+      }
+
+      .btn {
+        align-self: center;
+        background-color: var.$secondary-color;
+        border-radius: 10px;
+        color: var.$primary-color;
+        font-size: 1.3rem;
+        display: block;
+        text-align: center;
+        margin-top: var.$gap-medium;
+        padding: var.$gap-small;
+        width: 300px;
+      }
+    }
+  }
+}
+
+.error {
+  color: var.$white-color;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+}
