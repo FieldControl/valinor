@@ -1,3 +1,5 @@
+<app-poke-search-bar (emmitSearch)="getSearch($event)"></app-poke-search-bar>
+
 <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
   <section class="pokemon-card" *ngIf="pokemon.status">
     <a [routerLink]="['details', pokemon.status.id]" class="pokemon-card__info">
