@@ -5,7 +5,6 @@
 :host {
   @include mix.flex-position();
   flex-wrap: wrap;
-  width: 100vw;
 
   .pokemon-card {
     background-color: var.$white-color;
@@ -23,6 +22,7 @@
       color: var.$primary-color;
       text-decoration: none;
       height: 100%;
+      text-transform: capitalize;
 
       h3 {
         color: var.$gray-color;

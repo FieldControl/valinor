@@ -1,56 +1,25 @@
-<section class="pokemon-card">
-  <a href="#" class="pokemon-card__info">
-    <section>
-      <h3>Nº 001</h3>
-      <h2>Bulbasaur</h2>
-      <ul class="pokemon-card__type">
-        <li class="pokemon-card__type--grass">Grass</li>
-        <li class="pokemon-card__type--poison">Poison</li>
-      </ul>
-    </section>
-    <section>
-      <img
-        class="pokemon-card__image"
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
-        alt="nome do pokemon"
-      />
-    </section>
-  </a>
-</section>
-<section class="pokemon-card">
-  <a href="#" class="pokemon-card__info">
-    <section>
-      <h3>Nº 105</h3>
-      <h2>Marowak</h2>
-      <ul class="pokemon-card__type">
-        <li class="pokemon-card__type--ground">Ground</li>
-      </ul>
-    </section>
-    <section>
-      <img
-        class="pokemon-card__image"
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
-        alt="nome do pokemon"
-      />
-    </section>
-  </a>
-</section>
-<section class="pokemon-card">
-  <a href="#" class="pokemon-card__info">
-    <section>
-      <h3>Nº 149</h3>
-      <h2>Dragonite</h2>
-      <ul class="pokemon-card__type">
-        <li class="pokemon-card__type--dragon">Dragon</li>
-        <li class="pokemon-card__type--flying">Flying</li>
-      </ul>
-    </section>
-    <section>
-      <img
-        class="pokemon-card__image"
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
-        alt="nome do pokemon"
-      />
-    </section>
-  </a>
-</section>
+<ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+  <section class="pokemon-card" *ngIf="pokemon.status">
+    <a href="#" class="pokemon-card__info">
+      <section>
+        <h3>Nº {{ pokemon.status.id }}</h3>
+        <h2>{{ pokemon.name }}</h2>
+        <ul
+          class="pokemon-card__type"
+          *ngFor="let value of pokemon.status.types"
+        >
+          <li [class]="'pokemon-card__type--' + value.type.name">
+            {{ value.type.name }}
+          </li>
+        </ul>
+      </section>
+      <section>
+        <img
+          class="pokemon-card__image"
+          [src]="pokemon.status.sprites.front_default"
+          [alt]="pokemon.name"
+        />
+      </section>
+    </a>
+  </section>
+</ng-template>
