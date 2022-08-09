@@ -1,0 +1,7 @@
+@use "../../../assets/styles/variables" as var;
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin: var.$gap-large;
+}
