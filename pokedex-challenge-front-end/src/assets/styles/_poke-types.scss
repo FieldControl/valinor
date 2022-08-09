@@ -1,0 +1,68 @@
+@use "./variables" as var;
+@use "sass:map";
+
+.pokemon-card__type {
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 90px;
+
+  li {
+    border-radius: 10px;
+    padding: var.$gap-small;
+    margin: 5px 0 5px 10px;
+  }
+
+  @each $key, $color in var.$bg-colors-types {
+    &--#{$key} {
+      background: $color;
+    }
+  }
+
+  &--bug,
+  &--dark,
+  &--dragon,
+  &--fighting,
+  &--fire,
+  &--ghost,
+  &--poison,
+  &--psychic,
+  &--rock,
+  &--water {
+    color: var.$white-color;
+  }
+
+  &--electric,
+  &--fairy,
+  &--flying,
+  &--grass,
+  &--ground,
+  &--ice,
+  &--normal,
+  &--steel {
+    color: var.$primary-color;
+  }
+
+  &--dragon {
+    background: linear-gradient(
+      180deg,
+      map.get(var.$bg-colors-types, "dragon") 50%,
+      #f16e57 50%
+    );
+  }
+
+  &--flying {
+    background: linear-gradient(
+      180deg,
+      map.get(var.$bg-colors-types, "flying") 50%,
+      #bdb9b8 50%
+    );
+  }
+
+  &--ground {
+    background: linear-gradient(
+      180deg,
+      map.get(var.$bg-colors-types, "ground") 50%,
+      #ab9842 50%
+    );
+  }
+}
