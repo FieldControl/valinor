@@ -30,6 +30,5 @@ export class PokeListComponent implements OnInit {
     })
 
     this.getAllPokemons = filter;
-    console.log(value);
   }
 }
