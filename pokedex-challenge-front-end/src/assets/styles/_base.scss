@@ -1,0 +1,33 @@
+@use "./variables" as var;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var.$primary-color;
+  background-color: var.$primary-color;
+  font-family: var.$font-stack;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+a:focus,
+button:focus {
+  outline: var.$primary-color dotted 3px;
+  outline-offset: 0.3em;
+}
+
+img {
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}

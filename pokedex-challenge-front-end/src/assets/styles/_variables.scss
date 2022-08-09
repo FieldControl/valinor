@@ -1,0 +1,35 @@
+// COLORS
+$primary-color: #2d3033;
+$secondary-color: #e84545;
+$white-color: #f3f3f3;
+$gray-color: #6c7279;
+
+// BACKGROUND COLORS FOR POKEMON TYPES
+$bg-colors-types: (
+  bug: #729f3f,
+  dark: #707070,
+  dragon: #53a4cf,
+  electric: #eed535,
+  fairy: #fdb9e9,
+  fighting: #d56723,
+  fire: #fd7d24,
+  flying: #3dc7ef,
+  ghost: #7b62a3,
+  grass: #9bcc50,
+  ground: #f7de3f,
+  ice: #51c4e7,
+  normal: #a4acaf,
+  poison: #b97fc9,
+  psychic: #f366b9,
+  rock: #a38c21,
+  steel: #9eb7b8,
+  water: #4592c4,
+);
+
+//  SPACINGS
+$gap-small: 0.625rem; // 10px
+$gap-medium: 1.25rem; // 20px
+$gap-large: 2.5rem; // 40px
+
+// TYPOGRAPHY
+$font-stack: "Roboto", Arial, Helvetica, sans-serif;
