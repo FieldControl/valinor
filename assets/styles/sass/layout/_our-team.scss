@@ -1,9 +1,0 @@
-@use "../abstracts/variables" as var;
-@use "../abstracts/mixins";
-
-.team-section {
-    flex-wrap: wrap;
-    @include mixins.flex-position(row);
-    padding: 80px var.$gap-large 0;
-    width: 100%;
-}
