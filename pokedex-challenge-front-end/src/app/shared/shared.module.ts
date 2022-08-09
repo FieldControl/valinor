@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PokeHeaderComponent } from './poke-header/poke-header.component';
+import { PokeSearchBarComponent } from './poke-search-bar/poke-search-bar.component';
 
 @NgModule({
   declarations: [
-    PokeHeaderComponent
+    PokeHeaderComponent,
+    PokeSearchBarComponent
   ],
   exports: [
-    PokeHeaderComponent
+    PokeHeaderComponent,
+    PokeSearchBarComponent
   ],
   imports: [
     CommonModule

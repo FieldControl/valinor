@@ -1,0 +1,29 @@
+@use "../../../assets/styles/variables" as var;
+@use "../../../assets/styles/mixins" as mix;
+
+:host {
+  width: 100%;
+  padding: var.$gap-medium;
+
+  form {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    @include mix.flex-position();
+    margin: 0 auto;
+    padding: 10px var.$gap-medium;
+    max-width: 600px;
+
+    input {
+      background: transparent;
+      border: none;
+      color: var.$white-color;
+      font-size: 1.125rem;
+      height: 50px;
+      width: 100%;
+
+      &::placeholder {
+        color: var.$white-color;
+      }
+    }
+  }
+}
