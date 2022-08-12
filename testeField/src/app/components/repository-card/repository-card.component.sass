@@ -1,7 +1,18 @@
 div.card
-    background-color: none
+    display: flex
+    flex-direction: row
+    justify-items: between
+    gap: 10px
+    margin-top: 10px
+    border-top: solid 1px #21262d
+    background-color: #161b22
+    border-radius: 0.50rem
+    max-width: 70vw
+
+div.info
+    background-color: #161b22
     width: 100vw
-    height: 8rem
+    height: 20%
     max-width: 80vw
     display: flex
     flex-direction: column
@@ -19,6 +30,15 @@ div.footer
     flex-direction: row
     gap: 10px
     padding: 5px 0
+    margin-top: 5px
+    align-items: center
+    font-size: 12px
+
+div.star-counter
+    display: flex
+    flex-direction: row
+    gap: 2px
+    align-items: center
 
 a.title
     font-size: 16px
@@ -26,3 +46,30 @@ a.title
 
 p.description
     padding: 5px 0
+    font-size: 14px
+
+img.book
+    width: 25px
+    height: 25px
+
+div.not-found
+    margin-top: 20px
+    font-size: 30px
+
+svg.star
+    width: 20px
+    height: 20px
+
+a.stars
+    text-decoration: none
+    color: #c9d1d9
+
+a.stars:hover
+    color: #58a6ff
+
+.ngx-pagination a, .ngx-pagination button
+    color: #c9d1d9 !important
+    display: block !important
+    padding: 0.1875rem 0.625rem !important
+    border-radius: 0 !important
+    background-color: #c9d1d9 !important

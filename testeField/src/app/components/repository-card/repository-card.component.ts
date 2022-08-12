@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { gitRepositoryModel } from 'src/app/Interfaces/gitRepository.interface';
 
 @Component({
   selector: 'app-repository-card',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repository-card.component.sass']
 })
 export class RepositoryCardComponent implements OnInit {
+  @Input() repositorys!: gitRepositoryModel[];
+
+  pag: number = 1;
+  contador: number = 5;
 
   constructor() { }
 

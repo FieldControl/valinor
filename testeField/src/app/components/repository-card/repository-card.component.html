@@ -1,13 +1,80 @@
-<div class="card">
-  <div class="title">
-    <a href="#" class="title">Nodejs</a>
+<div *ngIf="!repositorys" class="not-found">
+  <p>Try to find some repositories...</p>
+</div>
+
+<div *ngIf="repositorys">
+  <div
+    class="card"
+    *ngFor="
+      let repository of repositorys
+        | paginate: { itemsPerPage: contador, currentPage: pag }
+    "
+  >
+    <img src="../../../assets/book.png" alt="book" class="book" />
+    <div class="info">
+      <div class="title">
+        <a href="{{ repository.html_url }}" class="title">
+          {{ repository.full_name }}
+        </a>
+      </div>
+      <p class="description">{{ repository.description }}</p>
+      <div class="topics">
+        <app-topics [topics]="repository.topics"></app-topics>
+      </div>
+      <div class="footer">
+        <div class="star-counter">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 512 512"
+            style="enable-background: new 0 0 512 512"
+            xml:space="preserve"
+            class="star"
+          >
+            <path
+              style="fill: #ffcc67"
+              d="M414.616,512L256.024,391.104L97.4,512l60.592-195.608L0,196.032h195.264L256.024,0l60.736,196.032
+	H512l-157.968,120.36L414.616,512z"
+            />
+            <g style="opacity: 0.3">
+              <path
+                style="fill: #ffffff"
+                d="M256.024,391.104L97.4,512l60.592-195.608L0,196.032h195.264L256.024,0"
+              />
+            </g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+          <a href="{{ repository.stargazers_url }}" class="stars">
+            {{ repository.stargazers_count }}
+          </a>
+        </div>
+        <span class="programing-language"
+          >Language: {{ repository.language }}
+        </span>
+        <span class="watchers">Watchers: {{ repository.watchers }} </span>
+        <span class="issue">Issues: {{ repository.open_issues }} </span>
+      </div>
+    </div>
   </div>
-  <p class="description">Descrição</p>
-  <app-topics></app-topics>
-  <div class="footer">
-    <a href="#" class="stars">Estrelas</a>
-    <span class="programing-language">Linguagem</span>
-    <span class="updated">Atualizado</span>
-    <a href="#" class="issue">Issue</a>
+  <div class="text-right">
+    <pagination-controls (pageChange)="pag = $event"></pagination-controls>
   </div>
 </div>

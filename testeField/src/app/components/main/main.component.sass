@@ -1,7 +1,6 @@
 main
     display: flex
     flex-direction: column
-    justify-items: between
     align-items: center
 
 div.search-area
@@ -11,18 +10,6 @@ div.search-area
     align-items: center
     margin-top: 2rem
     gap: 5px
-
-div.card
-    display: flex
-    flex-direction: row
-    justify-items: between
-    gap: 10px
-    margin-top: 10px
-    border-top: solid 1px #21262d
-
-img.book
-    width: 25px
-    height: 25px
 
 input.search
     border-radius: 0.25rem
@@ -40,3 +27,11 @@ button.search-button
     background-color: #21262d
     color: #c9d1d9
     border: 1px solid
+
+button:active
+    background-color: #c9d1d9
+
+p.error
+    color: red
+    margin-top: 2px
+    font-size: 10px
