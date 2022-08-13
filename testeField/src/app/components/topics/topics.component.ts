@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./topics.component.sass']
 })
 export class TopicsComponent implements OnInit {
+  //Input responsável por trazer informação dos tópicos do elemento pai
   @Input() topics!: any
 
   constructor() { }

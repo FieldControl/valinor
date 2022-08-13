@@ -1,8 +1,6 @@
-<div *ngIf="!repositorys" class="not-found">
-  <p>Try to find some repositories...</p>
-</div>
-
+<!--Verificação para ver se houve dados retornados da busca na API-->
 <div *ngIf="repositorys">
+  <!--For realizado para transformar cada item retornado da API em um componente-->
   <div
     class="card"
     *ngFor="
@@ -19,6 +17,7 @@
       </div>
       <p class="description">{{ repository.description }}</p>
       <div class="topics">
+        <!--Linha de código responsável por enviar os dados de "topics" para o componente filho-->
         <app-topics [topics]="repository.topics"></app-topics>
       </div>
       <div class="footer">
@@ -46,21 +45,6 @@
                 d="M256.024,391.104L97.4,512l60.592-195.608L0,196.032h195.264L256.024,0"
               />
             </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
           </svg>
           <a href="{{ repository.stargazers_url }}" class="stars">
             {{ repository.stargazers_count }}
@@ -74,7 +58,12 @@
       </div>
     </div>
   </div>
-  <div class="text-right">
+  <div class="text-center">
+    <!--Elemento responsável por cirar a paginação-->
     <pagination-controls (pageChange)="pag = $event"></pagination-controls>
   </div>
+</div>
+
+<div class="not-found" *ngIf="!repositorys">
+  <p>Try to find some repositories...</p>
 </div>

@@ -1,3 +1,4 @@
+//Interface criada com TypeScript para estruturar os dados retornados pela busca na API.
 export interface gitRepositoryModel {
   full_name: string;
   html_url: string ;
