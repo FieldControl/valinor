@@ -4,11 +4,11 @@
 A empresa
 ----------
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos. 
+Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
 
 Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
 
-Nossa missão é melhorar a prestação de serviços no Brasil. 
+Nossa missão é melhorar a prestação de serviços no Brasil.
 
 Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
 
@@ -34,9 +34,9 @@ Condições
 Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
 
 <p float="left">
-  <img src="assets/field3.jpeg" width="215"/> 
+  <img src="assets/field3.jpeg" width="215"/>
   <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/> 
+  <img src="assets/field4.jpeg" width="215"/>
 </p>
 
 A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
@@ -44,7 +44,7 @@ A empresa não possui hierarquias e você é convidado e desafiado a colaborar c
 Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
 
 <p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" /> 
+  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
 </p>
 
 Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
@@ -92,13 +92,13 @@ Requisitos principais
  - P R O A T I V I D A D E
  - Sentimento de D O N O
  - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript 
+ - Proficiência em JavaScript e Typescript
  - Experiência com CSS e HTML Semântico
  - Experiência sólida com Angular, Ionic
  - Familiaridade com princípios de UX
  - Familiaridade com APIs REST, GraphQL e WebSockets
  - Ter prática em testar software!
- 
+
 Os desafios de programação
 ----------
 
@@ -153,6 +153,11 @@ Documentação da API https://developer.github.com/v3/search/#search-issues e ht
 A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
 
 Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
+
+#### Requisitos mínimos
+- Usar um framework (de preferencia angular)
+- Lista items de uma API
+- Ter páginação via API
 
 <!-- { "challenge": "Backend Developer 1" } -->
 <!-- ---------- -->
@@ -216,7 +221,6 @@ Entre os critérios de avaliação estão:
 - Código limpo e organização
 - Testes de software (unitários e integrados)
 - Semântica
-- Documentação de código
 - Documentação do projeto (README)
 - Segurança
 
