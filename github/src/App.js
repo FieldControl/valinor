@@ -5,22 +5,31 @@ import {
   InputBase,
   Alert,
   Box,
+  Stack,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { useState, useEffect } from "react";
 import { api } from "./services/api";
 import Card from "./components/Card";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [searchItens, setSearchItens] = useState([]);
+  const [page, setPage] = useState(1);
   const [err, setErr] = useState(null);
-  console.log(searchItens);
+
+  useEffect(() => {
+    if (searchValue) {
+      search(searchValue);
+    }
+  }, [page]);
+
   const search = (value) => {
     api
-      .get(`search/repositories?q=${value}`)
+      .get(`search/repositories?q=${value}&page=${page}`)
       .then((response) => {
-        console.log(response);
         setSearchItens(response.data.items);
         setErr(null);
       })
@@ -59,7 +68,6 @@ function App() {
           <SearchIcon />
         </IconButton>
       </Paper>
-
       {err !== null ? (
         <Box>
           <Alert severity="error">{err.message}</Alert>
@@ -69,6 +77,23 @@ function App() {
           {searchItens.map((item) => (
             <Card key={item.id} item={item} />
           ))}
+          {searchItens.length > 0 ? (
+            <Stack direction="row" spacing={1} justifyContent="center">
+              <IconButton aria-label="next">
+                <KeyboardArrowLeftIcon />
+              </IconButton>
+              <IconButton
+                aria-label="previw"
+                onClick={() => {
+                  setPage(page + 1);
+                }}
+              >
+                <KeyboardArrowRightIcon />
+              </IconButton>
+            </Stack>
+          ) : (
+            <></>
+          )}
         </Container>
       )}
     </Container>
