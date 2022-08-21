@@ -1,3 +1,23 @@
 <div class="container">
     <input [(ngModel)]="searchLine" id="searchBar" type="text" placeholder="Search">
 </div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>html_url</th>
+        <th>full_name</th>
+        <th>language</th>
+        <th>topics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of searchResult.items">
+        
+        <td>{{ result.html_url }}</td>
+        <td>{{ result['full_name'] }}</td>
+        <td>{{ result['language'] }}</td>
+        <td>{{ result['topics'] }}</td>
+      </tr>
+    </tbody>
+  </table>

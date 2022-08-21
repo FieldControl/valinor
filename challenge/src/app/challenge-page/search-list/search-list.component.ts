@@ -19,12 +19,20 @@ export class SearchListComponent implements OnInit {
     this._searchLine = value;
 
     if (this._searchLine != "") {
-      this.searchResult = this.searchListService.getApiData(this._searchLine);
+      this.searchListService.getApiData(this._searchLine).subscribe({
+        next: result => {
+          this.searchResult = result;
+        },
+        error: error => {
+          console.log('error: ' + error)
+        }
+      });
+      
     }
     console.log(this.searchResult)
   }
+
   get searchLine(): any {
-    // console.log(this._searchLine);
     return this._searchLine
   }
 
