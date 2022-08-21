@@ -11,8 +11,8 @@ export class SearchListService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getApiData(searchLine: string): Observable<any>{
-    return this.httpClient.get<any>(this.apiUrl + '?q=' + searchLine)
+  getApiData(searchLine: string, page: number): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl + '?q=' + searchLine + '?page='+ page +'&per_page=5')
   }
 
 }

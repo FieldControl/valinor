@@ -9,30 +9,60 @@ import { SearchListService } from './search-list.service';
 export class SearchListComponent implements OnInit {
 
   _searchLine: string = "";
+  _page: number = 1;
   searchResult: any = null;
 
   constructor(private searchListService: SearchListService) { }
 
   ngOnInit(): void { }
 
-  set searchLine(value: string) {
-    this._searchLine = value;
-
+  searchRepositories() {
     if (this._searchLine != "") {
-      this.searchListService.getApiData(this._searchLine).subscribe({
+      this.searchListService.getApiData(this._searchLine, this._page).subscribe({
         next: result => {
           this.searchResult = result;
         },
         error: error => {
-          console.log('error: ' + error)
+          console.log('error: ' + error);
         }
       });
     }
-    console.log(this.searchResult)
+  }
+
+  nextPage() {
+    this._page = this._page + 1;
+    console.log(this._page);
+    this.searchRepositories();
+  }
+
+  backPage() {
+    if (this._page > 1) {
+      this._page = this._page - 1;
+      this.searchRepositories();
+    }
+  }
+
+  set searchLine(value: string) {
+    this._searchLine = value;
+    this._page = 1;
+    this.searchRepositories();
+
+    console.log(this.searchResult);
   }
 
   get searchLine(): any {
-    return this._searchLine
+    return this._searchLine;
+  }
+
+  getPage(){
+    return this._page
+  }
+  displayButton(){
+    if (this._searchLine != '') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

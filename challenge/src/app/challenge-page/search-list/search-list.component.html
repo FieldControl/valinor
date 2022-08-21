@@ -6,9 +6,15 @@
     <a class="cardAnchor" href="{{ result.html_url }}">
         <div class="card">
             <h2 class="cardRepositoryName">{{ result.full_name }}</h2>
-            <p class="cardDescription" >{{ result.description }}</p>
-            <p class="cardTopics" >{{ result.topics }}</p>
-            <p class="cardLanguage" >{{ result.language }}</p>
+            <p class="cardDescription">{{ result.description }}</p>
+            <p class="cardTopics">{{ result.topics }}</p>
+            <p class="cardLanguage">{{ result.language }}</p>
         </div>
     </a>
+</div>
+
+<div *ngIf="displayButton()" class="rowButtonPage">
+    <a (click)="backPage()" class="buttonPage"> - page </a>
+    <p>{{ getPage() }}</p>
+    <a (click)="nextPage()" class="buttonPage"> + page </a>
 </div>
