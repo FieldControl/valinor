@@ -2,7 +2,7 @@
     border: 2px solid rgb(39, 39, 39);
     border-radius: 7px;
     height: 26px;
-    margin: 10px 20px;
+    margin: 10px 0 0 0;
     width: 70px;
     padding: 5px 10px;
     font-size: 18px;
@@ -12,10 +12,32 @@
 }
 #searchBar:focus{
     width: 500px;
-    text-align: start;
 }
 .container{
     display: flex;
     width: auto;
     align-items: center;
+    justify-content: center;
+}
+.cardAnchor{
+    text-decoration: none;
+    color: white;
+}
+.card{
+    background-color: rgb(40, 40, 40);
+    margin: 20px 30px;
+    padding: 20px 15px;
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.cardRepositoryName{
+    color: aqua;
+}
+.cardDescription{
+    margin: 5px 3px;
+}
+.cardTopics{
+    background-color: rgb(70, 70, 70);
+    padding: 10px 5px;
+    border-radius: 10px;
 }

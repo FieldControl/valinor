@@ -9,7 +9,7 @@ import { SearchListService } from './search-list.service';
 export class SearchListComponent implements OnInit {
 
   _searchLine: string = "";
-  searchResult: any;
+  searchResult: any = null;
 
   constructor(private searchListService: SearchListService) { }
 
@@ -27,7 +27,6 @@ export class SearchListComponent implements OnInit {
           console.log('error: ' + error)
         }
       });
-      
     }
     console.log(this.searchResult)
   }
