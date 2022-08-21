@@ -1,0 +1,21 @@
+#searchBar{
+    border: 2px solid rgb(39, 39, 39);
+    border-radius: 7px;
+    height: 26px;
+    margin: 10px 20px;
+    width: 70px;
+    padding: 5px 10px;
+    font-size: 18px;
+    background: rgb(235, 235, 235);
+    transition: 0.3s;
+    text-align: center;
+}
+#searchBar:focus{
+    width: 500px;
+    text-align: start;
+}
+.container{
+    display: flex;
+    width: auto;
+    align-items: center;
+}
