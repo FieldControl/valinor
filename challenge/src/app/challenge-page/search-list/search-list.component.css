@@ -3,7 +3,7 @@
     border-radius: 7px;
     height: 26px;
     margin: 10px 0 0 0;
-    width: 70px;
+    width: 170px;
     padding: 5px 10px;
     font-size: 18px;
     background: rgb(235, 235, 235);
@@ -25,7 +25,7 @@
 }
 .card{
     background-color: rgb(40, 40, 40);
-    margin: 20px 30px;
+    margin: 20px 100px;
     padding: 20px 15px;
     border-radius: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -37,9 +37,16 @@
     margin: 5px 3px;
 }
 .cardTopics{
-    background-color: rgb(70, 70, 70);
+    display: flex;
+    flex-wrap: wrap;
     padding: 10px 5px;
     border-radius: 10px;
+}
+.cardTopic{
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: rgb(70, 70, 70);
+
 }
 .rowButtonPage{
     display: flex;
@@ -56,4 +63,39 @@
     margin: 0px 5px;
     border-radius: 7px;
     cursor: pointer;
+}
+.cardEndLine{
+    display: flex;
+    align-items: center;
+}
+.cardLanguage{
+    background: aqua;
+    color: black;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+}
+.cardWatchers{
+    margin: 5px 10px;
+}
+.carForks{
+    margin: 5px 10px;
+}
+
+@media (max-width: 1024px) {
+    .card {
+        margin: 20px 60px;
+    }
+}
+
+@media (max-width: 650px){
+    .card {
+        margin: 20px;
+    }
+    #searchBar:focus{
+        width: 300px;
+    }
+    .cardEndLine{
+        justify-content: space-between;
+    }
 }

@@ -7,8 +7,16 @@
         <div class="card">
             <h2 class="cardRepositoryName">{{ result.full_name }}</h2>
             <p class="cardDescription">{{ result.description }}</p>
-            <p class="cardTopics">{{ result.topics }}</p>
-            <p class="cardLanguage">{{ result.language }}</p>
+            <div class="cardTopics">
+                <div class="" *ngFor="let topic of result.topics">
+                    <p class="cardTopic">{{ topic }}</p>
+                </div>
+            </div>
+            <div class="cardEndLine">
+                <p class="cardWatchers">watchers: {{ result.watchers_count }}</p>
+                <p class="cardLanguage">{{ result.language }}</p>
+                <p class="carForks">forks: {{ result.forks_count }}</p>
+            </div>
         </div>
     </a>
 </div>
