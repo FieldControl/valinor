@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Repositories } from 'src/model/repositories.model';
 import { SearchListService } from './search-list.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class SearchListComponent implements OnInit {
 
   _searchLine: string = "";
   _page: number = 1;
-  searchResult: any = null;
+  searchResult: Repositories[] = [];
 
   constructor(private searchListService: SearchListService) { }
 
@@ -20,7 +21,7 @@ export class SearchListComponent implements OnInit {
     if (this._searchLine != "") {
       this.searchListService.getApiData(this._searchLine, this._page).subscribe({
         next: result => {
-          this.searchResult = result;
+          this.searchResult = result.items;
         },
         error: error => {
           console.log('error: ' + error);
@@ -46,8 +47,6 @@ export class SearchListComponent implements OnInit {
     this._searchLine = value;
     this._page = 1;
     this.searchRepositories();
-
-    console.log(this.searchResult);
   }
 
   get searchLine(): any {

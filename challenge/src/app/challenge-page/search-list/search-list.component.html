@@ -2,7 +2,7 @@
     <input [(ngModel)]="searchLine" id="searchBar" type="text" placeholder="Search">
 </div>
 
-<div *ngFor="let result of searchResult.items">
+<div *ngFor="let result of searchResult">
     <a class="cardAnchor" href="{{ result.html_url }}">
         <div class="card">
             <h2 class="cardRepositoryName">{{ result.full_name }}</h2>
