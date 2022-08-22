@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { take } from 'rxjs';
 import { Repositories } from 'src/model/repositories.model';
 import { SearchListService } from './search-list.service';
 
@@ -7,19 +8,17 @@ import { SearchListService } from './search-list.service';
   templateUrl: './search-list.component.html',
   styleUrls: ['./search-list.component.css']
 })
-export class SearchListComponent implements OnInit {
+export class SearchListComponent {
 
-  _searchLine: string = "";
-  _page: number = 1;
+  private _searchLine: string = "";
+  private _page: number = 1;
   searchResult: Repositories[] = [];
 
   constructor(private searchListService: SearchListService) { }
 
-  ngOnInit(): void { }
-
   searchRepositories() {
     if (this._searchLine != "") {
-      this.searchListService.getApiData(this._searchLine, this._page).subscribe({
+      this.searchListService.getApiData(this._searchLine, this._page).pipe(take(1)).subscribe({
         next: result => {
           this.searchResult = result.items;
         },
@@ -29,31 +28,18 @@ export class SearchListComponent implements OnInit {
       });
     }
   }
-
   nextPage() {
     this._page = this._page + 1;
     console.log(this._page);
     this.searchRepositories();
   }
-
   backPage() {
     if (this._page > 1) {
       this._page = this._page - 1;
       this.searchRepositories();
     }
   }
-
-  set searchLine(value: string) {
-    this._searchLine = value;
-    this._page = 1;
-    this.searchRepositories();
-  }
-
-  get searchLine(): any {
-    return this._searchLine;
-  }
-
-  getPage(){
+  getPage(): number{
     return this._page
   }
   displayButton(){
@@ -64,4 +50,13 @@ export class SearchListComponent implements OnInit {
     }
   }
 
+  set searchLine(value: string) {
+    this._searchLine = value;
+    this._page = 1;
+    this.searchRepositories();
+  }
+
+  get searchLine(): string {
+    return this._searchLine;
+  }
 }

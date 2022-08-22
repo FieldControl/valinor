@@ -29,6 +29,7 @@
     padding: 20px 15px;
     border-radius: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.9));
 }
 .cardRepositoryName{
     color: aqua;
@@ -43,8 +44,9 @@
     border-radius: 10px;
 }
 .cardTopic{
-    border-radius: 20px;
+    border-radius: 7px;
     padding: 5px 10px;
+    margin: 5px 5px 0 0;
     background-color: rgb(70, 70, 70);
 
 }
