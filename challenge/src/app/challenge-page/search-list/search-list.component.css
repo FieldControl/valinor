@@ -2,18 +2,15 @@
     border: 2px solid rgb(39, 39, 39);
     border-radius: 7px;
     height: 26px;
-    margin: 10px 0 0 0;
-    width: 170px;
+    width: 400px;
     padding: 5px 10px;
     font-size: 18px;
     background: rgb(235, 235, 235);
     transition: 0.3s;
     text-align: center;
 }
-#searchBar:focus{
-    width: 500px;
-}
 .container{
+    margin: 10px 0 0 0;
     display: flex;
     width: auto;
     align-items: center;
@@ -94,7 +91,7 @@
     .card {
         margin: 20px;
     }
-    #searchBar:focus{
+    #searchBar{
         width: 300px;
     }
     .cardEndLine{

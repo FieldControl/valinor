@@ -1,5 +1,6 @@
 <div class="container">
     <input [(ngModel)]="searchLine" id="searchBar" type="text" placeholder="Search">
+    <a (click)="searchRepositories()" class="buttonPage"> Buscar </a>
 </div>
 
 <div *ngFor="let result of searchResult">
@@ -22,7 +23,7 @@
 </div>
 
 <div *ngIf="displayButton()" class="rowButtonPage">
-    <a (click)="backPage()" class="buttonPage"> - page </a>
+    <a (click)="backPage()" class="buttonPage"> Pagina anterior </a>
     <p>{{ getPage() }}</p>
-    <a (click)="nextPage()" class="buttonPage"> + page </a>
+    <a (click)="nextPage()" class="buttonPage"> Proxima pagina </a>
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { take } from 'rxjs';
 import { Repositories } from 'src/model/repositories.model';
 import { SearchListService } from './search-list.service';
 
@@ -11,6 +10,7 @@ import { SearchListService } from './search-list.service';
 export class SearchListComponent {
 
   private _searchLine: string = "";
+  private _oldResearchLine: string = "";
   private _page: number = 1;
   searchResult: Repositories[] = [];
 
@@ -18,7 +18,11 @@ export class SearchListComponent {
 
   searchRepositories() {
     if (this._searchLine != "") {
-      this.searchListService.getApiData(this._searchLine, this._page).pipe(take(1)).subscribe({
+      if(this._oldResearchLine != this._searchLine){
+        this._page = 1;
+        this._oldResearchLine = this._searchLine;
+      }
+      this.searchListService.getApiData(this._searchLine, this._page).subscribe({
         next: result => {
           this.searchResult = result.items;
         },
@@ -39,11 +43,11 @@ export class SearchListComponent {
       this.searchRepositories();
     }
   }
-  getPage(): number{
+  getPage(): number {
     return this._page
   }
-  displayButton(){
-    if (this._searchLine != '') {
+  displayButton() {
+    if (this.searchResult.length > 4) {
       return true;
     } else {
       return false;
@@ -52,8 +56,6 @@ export class SearchListComponent {
 
   set searchLine(value: string) {
     this._searchLine = value;
-    this._page = 1;
-    this.searchRepositories();
   }
 
   get searchLine(): string {
