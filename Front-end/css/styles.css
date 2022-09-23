@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --ff-primary: 'Poppins', sans-serif;
+    --tertiary-color: #FFFF;
+    --primary-color: #161b22;
+    --second-color: #21262d;
+    --color-button: #1f6feb
+}
+
+html{
+    width: 100%;
+}
+
+body {
+    font-size: 1.6rem;
+    color: var(--tertiary-color);
+    background-color: var(--primary-color);
+}
+
+body * {
+    font-family: var(--ff-primary);
+}
+
+header {
+    display: flex;
+    gap: 2rem;
+    background-color: var(--second-color);
+    padding: 2.5rem;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    background: #06181C;
+    height: 4rem;
+    width: 30rem;
+    border: 0.1rem solid gray;
+    border-radius: .4rem;
+    padding: 0 .8rem;
+    color: var(--tertiary-color);
+}
+
+.button-enter{
+    background-color: var(--primary-color);
+    margin-left: 0.5rem;
+    border-radius: .4rem;
+    height: 4rem;
+    border: none;
+    padding: 0 1rem;
+    color: var(--tertiary-color);
+    text-transform: uppercase;
+    font-weight: bold ;
+  
+    cursor: pointer;
+}
+
+.button-enter:hover{
+    background-color: var(--tertiary-color);
+    color: var(--primary-color)
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.description-system{
+    display: flex;
+    padding: 2rem;
+    width: 70%;
+    height: auto;
+    gap: 2rem;
+    align-items: center;
+    border: 0.1rem solid gray;
+    border-radius: 1rem;
+    color: white;
+}
+
+#logo-github{
+    margin: 1rem;
+}
+
+.img-description{
+    display: flex;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+    color: #065E7C;
+}
+
+#repositories{
+    width: 100%;
+    height: auto;
+    height: auto;
+    gap: 2rem;
+    align-items: center;
+    color: var(--tertiary-color);
+}
+
+.content-repository{
+    width: 100%;
+    padding: 3rem;
+    border-top: 0.1rem solid gray;
+}
+
+.languages{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.languages .language{
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    height: auto;
+    font-size: 1.2rem;
+    border-radius: 10%;
+    background-color: #065E7C;
+}
+
+.languages li:hover{
+    background: #58a6ff;
+}
+
+span{
+    margin-right: 2rem;
+    color: gray;
+}
+
+.data-pagination {
+    font-size: 2rem;
+    margin: 1em auto;
+    text-align: center;
+}
+  
+.data-pagination ul {
+    list-style-type: none;
+    display: inline;
+    padding: .5em;
+}
+  
+.data-pagination ul li {
+    display: inline-block;
+    font-size: 100%;
+    width: auto;
+    border-radius: 0.3rem;
+}
+
+.data-pagination a {
+    color: white;
+    font-size: 100%;
+    padding: .5em;
+}
+  
+.data-pagination a:focus,
+.data-pagination a:hover {
+    background: #58A6FF;
+    border-radius: 0.5rem;
+}
+
+.data-pagination li.current {
+    background: rgba(0,0,0,.1)
+}
+
+footer {
+    display: flex;
+    border-top: 0.1rem solid gray;
+    padding: 2rem;
+    justify-content: center;
+
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 6rem;
+    width: 100%;
+}
+
+/*  */
+
+#paginate {
+    width: 70%;
+
+    margin: 32px auto;
+}
+
+#paginate .item {
+    border-bottom: 1px solid hsl(32, 98%, 12%);
+    padding: 16px 32px;
+}
+
+#paginate .item:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+#paginate .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 8px;
+}
+
+#paginate .controls div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14;
+    margin: 2rem;
+}
+
+#paginate .controls div:not(.numbers),
+#paginate .controls div.numbers div{
+    width: 7rem;
+    height: 5rem;
+}
+
+#paginate .controls div.first:hover,
+#paginate .controls .prev:hover,
+#paginate .controls .next:hover,
+#paginate .controls .last:hover,
+#paginate .controls div.numbers div:hover,
+#paginate .controls div.numbers div.active {
+    border: solid 0.2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--color-button);
+}
+
+footer p{
+    display: flex;
+    margin-left: 1rem;
+}
+
+@media (max-width: 360px){
+
+    #paginate{
+        width: auto;
+    }
+
+    .search input{
+        width: 20rem;
+    }
+
+    .content-repository{
+        width: auto;
+    }
+
+    #paginate .controls div:not(.numbers),
+    #paginate .controls div.numbers div{
+        width: 3rem;
+        height: 2rem;
+    }
+
+    #paginate .controls div{
+        margin: 0.8rem
+    }
+    #paginate .controls .prev:hover,
+    #paginate .controls .next:hover,
+    #paginate .controls .last:hover,
+    #paginate .controls div.first:hover{
+        color: var(--color-button);
+        border: none;
+    }
+}
+
+@media (max-width: 375px){
+
+    .search input{
+        width: 20rem;
+    }
+
+    #paginate .controls div:not(.numbers),
+    #paginate .controls div.numbers div{
+        width: 3rem;
+        height: 2rem;
+    }
+
+    #paginate .controls div{
+        margin: 0.8rem
+    }
+    #paginate .controls .prev:hover,
+    #paginate .controls .next:hover,
+    #paginate .controls .last:hover,
+    #paginate .controls div.first:hover{
+        color: var(--color-button);
+        border: none;
+    }
+}
+
+@media (max-width: 390px){
+
+    .search input{
+        width: 20rem;
+    }
+
+    #paginate .controls div:not(.numbers),
+    #paginate .controls div.numbers div{
+        width: 3rem;
+        height: 2rem;
+    }
+
+    #paginate .controls div{
+        margin: 0.8rem
+    }
+    #paginate .controls .prev:hover,
+    #paginate .controls .next:hover,
+    #paginate .controls .last:hover,
+    #paginate .controls div.first:hover{
+        color: var(--color-button);
+        border: none;
+    }
+}
+
+@media (max-width: 425px){
+
+    .search input{
+        width: 20rem;
+    }
+
+    #paginate .controls div:not(.numbers),
+    #paginate .controls div.numbers div{
+        width: 3rem;
+        height: 2rem;
+    }
+
+    #paginate .controls div{
+        margin: 0.8rem
+    }
+    #paginate .controls .prev:hover,
+    #paginate .controls .next:hover,
+    #paginate .controls .last:hover,
+    #paginate .controls div.first:hover{
+        color: var(--color-button);
+        border: none;
+    }
+}
+
+@media (max-width: 540px){
+
+    .search input{
+        width: 20rem;
+    }
+
+    #paginate .controls div:not(.numbers),
+    #paginate .controls div.numbers div{
+        width: 3rem;
+        height: 2rem;
+    }
+
+    #paginate .controls div{
+        margin: 0.8rem
+    }
+    #paginate .controls .prev:hover,
+    #paginate .controls .next:hover,
+    #paginate .controls .last:hover,
+    #paginate .controls div.first:hover{
+        color: var(--color-button);
+        border: none;
+    }
+}
+

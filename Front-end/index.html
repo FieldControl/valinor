@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <title>Pesquisa por repositório</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  
+  <header>
+    <div class="search">
+      <img id="logo-github" src="/public/logo-github.svg" alt="logo do GitHub">
+      
+      <input class="input-repository" placeholder="Pesquisar repositório">
+      <button class="button-enter">Enter</button>
+    </div>
+  </header>
+  
+  <div class="main">
+    <div class="description-system">
+      <div class="img-description">
+        <img src="/public/logo-card-github.svg" alt="logo do GitHub">
+      </div>
+      
+      <div>
+        <h2>Pesquisa por repositórios</h2>
+        <p>Este sistema tem como objetivo retornar o repositório de acordo com o nome</p>
+      </div>
+    </div>
+
+
+
+    <div id="paginate">
+      <div id="list">
+      </div>
+      <div class="controls">
+        <div class="first"><<</div>
+        <div class="prev"><</div>
+        <div class="numbers">
+        </div>
+        <div class="next">></div>
+        <div class="last">>></div>
+      </div>
+    </div>  
+  </div>
+  
+  <footer>
+
+    <img id="footer-logo-github" src="/public/footer-logo-github.svg" alt="logo do GitHub">
+    
+    <p>GitHub</p>
+
+  </footer>
+
+  </div>
+  
+  <script src="js/index.js" type="module"></script>
+
+</body>
+</html>
