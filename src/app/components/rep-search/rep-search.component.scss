@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap");
+
+input, p, a, .pagination {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.search-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-family: "Poppins", sans-serif;
+    color: #0c1599;
+    width: 50%;
+  }
+
+  .search-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 30px;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    background: #ffff;
+    box-shadow: 0 4px 8px 0 #00000033;
+
+    input {
+      width: 380px;
+      outline: none;
+      border: none;
+      border-radius: 50px;
+      background-color: #fafafa;
+      padding: 0 60px 0 20px;
+      box-shadow: 0 2px 3px 0 #00000033;
+    }
+
+    .search-btn {
+      height: 50px;
+      width: 50px;
+      color: #ffffff;
+      background: #0c1599;
+      border: none;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: -55px;
+      margin-top: 5px;
+    }
+
+    .search-btn:hover{
+      transform: translateY(-2px);
+      width: 55px;
+      height: 55px;
+      transition: 0.3s;
+    }
+  }
+}
+
+.repositories-container {
+  margin: auto;
+  margin-top: 150px;
+  max-width: 750px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 10px;
+  background: #ffff;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 #00000033;
+
+  h2 {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 1.6em;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+  }
+
+  .results {
+    width: 700px;
+    height: auto;
+    word-wrap: break-word;
+    border-bottom: solid 1px #757575;
+    margin-bottom: 15px;
+
+    p, a {
+      margin-left: 30px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    a {
+      font-weight: bold;
+    }
+
+    .icon{
+      margin-right: 5px;
+    }
+  }
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}

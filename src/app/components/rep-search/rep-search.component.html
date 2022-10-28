@@ -1,0 +1,23 @@
+<div class="search-area">
+  <div class="search-box">
+    <h1>Repositórios GitHub</h1>
+    <input type="text" placeholder="Pesquisar repositório..." [formControl]="inputSearchValue"/>
+    <button class="search-btn" (click)="onSearch()">
+      <fa-icon [icon]="searchIcon"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<div class="repositories-container" *ngIf="repositories && repositories.length !== 0">
+  <h2>  🚀 Resultados: </h2>
+    <div class="results" *ngFor="let repository of repositories | paginate: { itemsPerPage: 6, currentPage: page }">
+      <a href="{{repository.html_url}}" target="_blank">{{repository.name}}</a>
+      <p>{{ repository.description }}</p>
+      <p><fa-icon class="icon" [icon]="starIcon"></fa-icon>{{ repository.watchers_count }}</p>
+      <p>{{repository.open_issues}} issues</p>
+    </div>
+</div>
+
+<div class="pagination" *ngIf="repositories && repositories.length !== 0">
+  <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+</div>
