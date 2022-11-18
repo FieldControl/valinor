@@ -1,0 +1,204 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0%;
+  padding: 0;
+}
+/* LOGO DA MARVEL (SPA)*/
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.imagen {
+  margin: auto;
+  max-width: 100%;
+
+}
+
+
+.titulo {
+  margin-top: 10px;
+  text-transform: capitalize;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  text-align: center;
+
+
+
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  padding: 24px 32px 32px 32px;
+  margin-top: 20px;
+  color: darkslategray;
+
+}
+
+.home {
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 25px auto;
+  margin-bottom: 4rem;
+
+}
+
+.cabeçalho {
+  height: 120px;
+  display: flex;
+  background-image: linear-gradient(115deg,
+      rgba(54, 54, 54, 0.8),
+      rgba(136, 136, 206, 0.4)),
+    url(https://www.panambyeducacional.com.br/wp-content/uploads/2020/08/09082020.jpg
+);
+  align-items: center;
+  justify-content: space-around;
+  background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-space-universe-banner-background-universetechnology-backgroundgradient-backgroundgradual-image_54068.jpg);
+
+}
+
+.cabeçalho a {
+  border: 1px solid rgb(8, 5, 5);
+  border-radius: 5px;
+  padding: 3px 6px;
+  font-size: 20px;
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.8);
+  ;
+  background-color: #fff;
+
+}
+
+.linkDetalhes,
+Button {
+  background-color: rgb(53, 36, 112);
+  color: #fff;
+  border-color: black;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 15px;
+  font-size: larger;
+  text-decoration: none;
+
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.hamburguer {
+  display: none;
+
+}
+
+.hambu1 {
+  display: none;
+}
+/* RESPONSIVIDAD*/
+
+@media screen and (max-width: 800px) {
+
+
+  .cabeçalho a {
+    font-size: 15px;
+  }
+
+  .login {
+    display: none;
+  }
+
+  .hamburguer {
+    width: 375px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 120px;
+    gap: 20px;
+    left: 0px;
+    background-color: rgb(25, 1, 63);
+    text-align: center;
+
+
+
+
+  }
+
+
+
+  .hamburguer a {
+    border: none;
+    background-color: transparent;
+    padding: 3px 6px;
+    font-size: 20px;
+    color: white;
+    box-shadow: none;
+
+
+
+  }
+
+  .hambu1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+  }
+
+  .hamb1 {
+
+    height: 10px;
+    width: 80px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .Item-menu2 {
+    height: 80px;
+  }
+
+}
+
+.footer {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px;
+  align-items: center;
+
+  color: rgb(0, 0, 0);
+
+  justify-content: space-around;
+  gap: 80px;
+  justify-content: center;
+  background-color: rgb(53, 36, 112);
+
+
+
+}
+
+.text-foot {
+  height: 70px;
+  width: 500px;
+  color: white;
+  font-size: 20px;
+
+  border-radius: 20px;
+
+  text-align: center;
+  cursor: pointer;
+
+}
