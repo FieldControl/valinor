@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+img
+{
+    width: 120px;
+    height: 95x;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+}
+      

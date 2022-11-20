@@ -1,0 +1,37 @@
+
+  <div class="container">
+    <h3 class="text-center mt-5 mb-5">
+      Séries da Marvel
+    </h3>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Ano</th>
+          <th>Nome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let post of POSTS| paginate: {
+            itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count
+          };
+          let i = index">
+          <th scope="row">{{ post.startYear }}</th>
+          <td>{{ post.title }}</td>
+          <td>
+            <img clas="img" src="{{post.thumbnail.path}}.{{post.thumbnail.extension}}" alt="{{post.name}}">
+          </td>          
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <pagination-controls
+        previousLabel="Anterior"
+        nextLabel="Próxima"
+        (pageChange)="onTableDataChange($event)"
+      >
+      </pagination-controls>
+    </div>
+  </div>
