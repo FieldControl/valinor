@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Footer from "./Footer";
 import HeadComponent from "./Head";
 import Header from "./Header";
 
@@ -14,9 +15,10 @@ const Layout = ({ children }: LayoutProps) => {
         title="Marvel | Field Control"
         description="Site desenvolvido com NextJS e consumo de API da Marvel. Este projeto faz parte do desafio de frontend da Field Control."
       />
-      <main className="container flex gap-4 m-auto justify-between">
+      <main className="container relative h-[1183px] flex gap-4 m-auto justify-between">
         {children}
       </main>
+      <Footer />
     </>
   );
 };

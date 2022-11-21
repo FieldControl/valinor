@@ -3,4 +3,5 @@ export interface Story {
   title: string;
   description: string;
   thumbnail: { path: string; extension: string };
+  modified: string;
 }

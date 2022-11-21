@@ -5,6 +5,7 @@ export const useApi = (
   privatekey: string,
   type: string,
   offset?: number,
+  orderBy?: string,
   nameStartsWith?: string
 ) => {
   const ts = Number(new Date());
@@ -15,6 +16,7 @@ export const useApi = (
     hash: md5(ts + (privatekey as string) + apikey),
     limit: 12,
     offset,
+    orderBy,
     nameStartsWith,
   };
 

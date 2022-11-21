@@ -22,10 +22,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.name}
+            modified={item.modified}
           />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-center">{characters}</ul>;
+      return <ul className="flex flex-wrap justify-between">{characters}</ul>;
     case "comics":
       const comics = (list as Comic[]).map((item, index) => (
         <li
@@ -37,10 +38,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
+            modified={modified}
           />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-center">{comics}</ul>;
+      return <ul className="flex flex-wrap justify-between">{comics}</ul>;
     case "creators":
       const creators = (list as Creator[]).map((item, index) => (
         <li
@@ -54,10 +56,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.fullName}
+            modified={modified}
           />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-center">{creators}</ul>;
+      return <ul className="flex flex-wrap justify-between">{creators}</ul>;
     case "events":
       const events = (list as Event[]).map((item, index) => (
         <li
@@ -69,10 +72,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
+            modified={modified}
           />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-center">{events}</ul>;
+      return <ul className="flex flex-wrap justify-between">{events}</ul>;
     case "series":
       const series = (list as Event[]).map((item, index) => (
         <li
@@ -84,10 +88,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
+            modified={modified}
           />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-center">{series}</ul>;
+      return <ul className="flex flex-wrap justify-between">{series}</ul>;
     case "stories":
       const stories = (list as Event[]).map((item, index) => (
         <li
@@ -99,14 +104,15 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
+            modified={modified}
           />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-center">{stories}</ul>;
+      return <ul className="flex flex-wrap justify-between">{stories}</ul>;
   }
 
   return (
-    <ul className="flex flex-wrap justify-center">
+    <ul className="flex flex-wrap justify-between">
       <li>Não há dados.</li>
     </ul>
   );
