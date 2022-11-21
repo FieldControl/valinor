@@ -1,7 +1,12 @@
 import axios from "axios";
 import md5 from "md5";
 
-export const useApi = (privatekey: string, type: string, offset?: number) => {
+export const useApi = (
+  privatekey: string,
+  type: string,
+  offset?: number,
+  nameStartsWith?: string
+) => {
   const ts = Number(new Date());
   const apikey = process.env.NEXT_PUBLIC_API_KEY;
   const params = {
@@ -10,6 +15,7 @@ export const useApi = (privatekey: string, type: string, offset?: number) => {
     hash: md5(ts + (privatekey as string) + apikey),
     limit: 12,
     offset,
+    nameStartsWith,
   };
 
   return {

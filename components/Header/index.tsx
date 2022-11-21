@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <header className="bg-[#202020] w-full h-16 flex flex-col">
-      <div className="flex flex-col items-center">
+      <div className="container flex flex-col items-center">
         <nav>
           <ul className="flex items-center gap-20 uppercase text-white text-lg">
             <li

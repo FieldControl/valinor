@@ -1,5 +1,5 @@
 export interface Creator {
   id: number;
   fullName: string;
-  thumbnail: string;
+  thumbnail: { path: string; extension: string };
 }
