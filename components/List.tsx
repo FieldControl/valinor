@@ -38,7 +38,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
-            modified={modified}
+            modified={item.modified}
           />
         </li>
       ));
@@ -56,7 +56,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.fullName}
-            modified={modified}
+            modified={item.modified}
           />
         </li>
       ));
@@ -72,7 +72,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
-            modified={modified}
+            modified={item.modified}
           />
         </li>
       ));
@@ -88,7 +88,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
-            modified={modified}
+            modified={item.modified}
           />
         </li>
       ));
@@ -104,7 +104,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
               item.thumbnail.path + "." + item.thumbnail.extension
             }
             title={item.title}
-            modified={modified}
+            modified={item.modified}
           />
         </li>
       ));
