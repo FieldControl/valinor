@@ -1,9 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu-item-style {
+    @apply h-16 text-neutral-500 flex items-center border-b-4 pt-2 border-transparent hover:text-white transition-all
+  }
+}
+
+@font-face {
+  font-family: Marvel;
+  src: url('../assets/fonts/MarvelRegular-Dj83.ttf');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Marvel, Roboto, sans-serif;
 }
 
 a {
