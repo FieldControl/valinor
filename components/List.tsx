@@ -13,11 +13,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
   switch (type) {
     case "characters":
       const characters = (list as Person[]).map((item, index) => (
-        <li key={md5(item.id + item.name + new Date() + index + Math.random())}>
+        <li key={md5(item.id + item.name + new Date() + index + Math.random())} className="w-full">
           <Card img={item.thumbnail && item.thumbnail.path + "." + item.thumbnail.extension} title={item.name} modified={item.modified} />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-between h-auto relative">{characters}</ul>;
+      return <ul className="w-full h-auto flex flex-wrap justify-between relative">{characters}</ul>;
     case "comics":
       const comics = (list as Artefact[]).map((item, index) => (
         <li key={md5(item.id + item.title + new Date() + index + Math.random())}>

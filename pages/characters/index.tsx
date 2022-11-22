@@ -1,11 +1,11 @@
-import { Character } from "../../interfaces/Person";
+import { Person } from "../../interfaces/Person";
 import { useApiCharacters } from "../../libs/useApiCharacters";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
 
 type CharactersProps = {
   privatekey: string;
-  data: Character[];
+  data: Person[];
   total: number;
 };
 

@@ -15,7 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
         title="Marvel | Field Control"
         description="Site desenvolvido com NextJS e consumo de API da Marvel. Este projeto faz parte do desafio de frontend da Field Control."
       />
-      <main className="container relative h-full flex gap-2 md:gap-4 m-auto justify-between">{children}</main>
+      <main className="container relative h-full m-auto justify-between">{children}</main>
       <Footer />
     </>
   );

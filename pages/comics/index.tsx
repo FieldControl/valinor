@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Comic } from "../../interfaces/Comic";
+import { Artefact } from "../../interfaces/Artefact";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
 import { useApiObjects } from "../../libs/useApiObjects";
 
 type ComicsProps = {
   privatekey: string;
-  data: Comic[];
+  data: Artefact[];
   total: number;
 };
 

@@ -147,13 +147,26 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
   };
 
   return (
-    <>
-      <aside className="relative min-h-screen flex flex-col gap-2 w-10 md:w-1/4 overflow-hidden">
-        <h1 className="relative w-full h-12 text-sm md:text-4xl text-center flex items-center justify-center text-white uppercase bg-neutral-800 mt-2 pt-2 md:corner ">
+    <div className="flex gap-2">
+      <aside className="min-h-screen flex flex-col gap-2 w-14 md:w-1/4 overflow-hidden">
+        <h1
+          className="relative w-full h-12 text-sm text-center items-center justify-center text-white uppercase bg-neutral-800 mt-2 pt-1 flex md:hidden "
+          onClick={() => setShowFilter(!showFilter)}
+        >
+          Filters
+        </h1>
+        <h1 className="relative w-full h-12 text-4xl text-center items-center justify-center text-white uppercase bg-neutral-800 mt-2 pt-2 corner hidden md:flex">
           Filters
         </h1>
 
-        <div className={`p-3 bg-neutral-300 h-fit hidden flex-col gap-4 ${showFilter && "flex"}`}>
+        <div className={`p-3 bg-neutral-300 h-fit  flex-col gap-4 transition-all ${showFilter ? "w-2/3 flex absolute z-50" : "hidden md:flex"}`}>
+          <button
+            className="uppercase flex md:hidden justify-evenly bg-neutral-800 text-white rounded p-1 hover:shadow hover:shadow-red-600 active:scale-95"
+            onClick={() => setShowFilter(false)}
+          >
+            <span className="w-5/6">Close Filters</span>
+            <span className="bg-red-600 text-white rounded-full normal-case w-1/6">x</span>
+          </button>
           <label htmlFor="name" className={`flex flex-col mb-10`}>
             <span className="uppercase text-lg">Search by Name: </span>
             <div className="w-full flex justify-between bg-white rounded">
@@ -195,36 +208,36 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
 
         <div className="bg-neutral-800 px-2 h-full w-full flex justify-center items-center text-center text-white">
           <div className="bg-red-600 h-full relative flex flex-col w-fit p-2 text-sm md:text-4xl">
-            <span className=" uppercase text-lg -mb-3">MARVEL</span>
-            <span className="uppercase text-[.5rem]">Field Control</span>
+            <span className=" uppercase text-sm md:text-4xl -mb-3">MARVEL</span>
+            <span className="uppercase text-[.4rem] md:text-base">Field Control</span>
           </div>
-          <span className="text-4xl absolute text-white uppercase -rotate-90">{type}</span>
+          <span className="text-4xl md:text-6xl absolute text-white uppercase -rotate-90">{type}</span>
         </div>
       </aside>
 
-      <section className="w-full mr-2 md:mr-0 md:w-3/4 h-full flex flex-col items-center">
-        <h1 className="relative w-full text-white text-4xl text-center uppercase bg-neutral-800 mt-2 pt-2 corner  ">{type}</h1>
-        <div className="h-full relative">
-          {!loading ? <List type={type} list={list as ContentProps["data"]} /> : <Loading />}
+      <section className="relative w-full pr-2 md:mr-0 md:w-3/4 h-full flex flex-col items-center">
+        <h1 className="relative w-full text-white text-3xl md:text-4xl text-center uppercase bg-neutral-800 mt-2 pt-2 corner  ">{type}</h1>
 
-          <div className="relative bg-neutral-800 m-3 flex flex-col items-center text-white py-3">
-            <div className="text-xl font-bold w-full text-center -mt-1 pb-1 border-b-2 border-red-600">Total: {totalItems}</div>
-            <div className={`flex w-full  items-center px-3 pt-3 justify-around ${list.length === 0 && "hidden"}`}>
-              <button onClick={previous} className={`btnPrevious ${offsetValue - 12 < 0 && "opacity-0"}`} disabled={offsetValue - 12 < 0}>
-                Previous
-              </button>
-              <span className="text-xs md:text-base">
-                {offsetValue + 1}
-                {offsetValue + 12 <= totalItems ? " - " + Number(offsetValue + 12) : " - " + totalItems}
-              </span>
-              <button onClick={next} className={`btnNext ${offsetValue + 12 >= totalItems && "opacity-0"}`} disabled={offsetValue + 12 >= totalItems}>
-                Next
-              </button>
-            </div>
+        {/* List of Items */}
+        <div className="w-full h-full relative ">{!loading ? <List type={type} list={list as ContentProps["data"]} /> : <Loading />}</div>
+
+        <div className="relative w-full bg-neutral-800 flex flex-col items-center text-white p-2 mt-2">
+          <div className="text-xl font-bold w-full text-center -mt-1 pb-1 border-b-2 border-red-600">Total: {totalItems}</div>
+          <div className={`flex w-full  items-center px-3 pt-3 justify-around ${list.length === 0 && "hidden"}`}>
+            <button onClick={previous} className={`btnPrevious ${offsetValue - 12 < 0 && "opacity-0"}`} disabled={offsetValue - 12 < 0}>
+              Previous
+            </button>
+            <span className="text-xs md:text-base">
+              {offsetValue + 1}
+              {offsetValue + 12 <= totalItems ? " - " + Number(offsetValue + 12) : " - " + totalItems}
+            </span>
+            <button onClick={next} className={`btnNext ${offsetValue + 12 >= totalItems && "opacity-0"}`} disabled={offsetValue + 12 >= totalItems}>
+              Next
+            </button>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
