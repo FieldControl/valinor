@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Event } from "../../interfaces/Event";
-import { useApi } from "../../libs/useApi";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
+import { useApiObjects } from "../../libs/useApiObjects";
 
 type SeriesProps = {
   privatekey: string;
@@ -11,14 +11,12 @@ type SeriesProps = {
 };
 
 const Series = ({ privatekey, data, total }: SeriesProps) => {
-  return (
-    <Content type="series" privatekey={privatekey} data={data} total={total} />
-  );
+  return <Content type="series" privatekey={privatekey} data={data} total={total} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const privatekey = process.env.API_PRIVATE_KEY;
-  const api = useApi(privatekey as string, "series");
+  const api = useApiObjects(privatekey as string, "series");
 
   const series = await api.getData();
   const total = series.total;

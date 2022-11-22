@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Event } from "../../interfaces/Event";
-import { useApi } from "../../libs/useApi";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
+import { useApiObjects } from "../../libs/useApiObjects";
 
 type StoriesProps = {
   privatekey: string;
@@ -11,14 +11,12 @@ type StoriesProps = {
 };
 
 const Stories = ({ privatekey, data, total }: StoriesProps) => {
-  return (
-    <Content type="stories" privatekey={privatekey} data={data} total={total} />
-  );
+  return <Content type="stories" privatekey={privatekey} data={data} total={total} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const privatekey = process.env.API_PRIVATE_KEY;
-  const api = useApi(privatekey as string, "stories");
+  const api = useApiObjects(privatekey as string, "stories");
 
   const stories = await api.getData();
   const total = stories.total;

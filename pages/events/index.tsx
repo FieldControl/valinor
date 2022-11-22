@@ -1,24 +1,21 @@
-import Image from "next/image";
-import { Event } from "../../interfaces/Event";
-import { useApi } from "../../libs/useApi";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
+import { Artefact } from "../../interfaces/Artefact";
+import { useApiCharacters } from "../../libs/useApiCharacters";
 
-type CharactersProps = {
+type EnentsProps = {
   privatekey: string;
-  data: Event[];
+  data: Artefact[];
   total: number;
 };
 
-const Events = ({ privatekey, data, total }: CharactersProps) => {
-  return (
-    <Content type="events" privatekey={privatekey} data={data} total={total} />
-  );
+const Events = ({ privatekey, data, total }: EnentsProps) => {
+  return <Content type="events" privatekey={privatekey} data={data} total={total} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const privatekey = process.env.API_PRIVATE_KEY;
-  const api = useApi(privatekey as string, "events");
+  const api = useApiCharacters(privatekey as string, "events");
 
   const events = await api.getData();
   const total = events.total;

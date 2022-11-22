@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Creator } from "../../interfaces/Creator";
-import { useApi } from "../../libs/useApi";
+import { useApiCharacters } from "../../libs/useApiCharacters";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
 
@@ -11,19 +11,12 @@ type CreatorProps = {
 };
 
 const Home = ({ privatekey, data, total }: CreatorProps) => {
-  return (
-    <Content
-      type="creators"
-      privatekey={privatekey}
-      data={data}
-      total={total}
-    />
-  );
+  return <Content type="creators" privatekey={privatekey} data={data} total={total} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const privatekey = process.env.API_PRIVATE_KEY;
-  const api = useApi(privatekey as string, "creators");
+  const api = useApiCharacters(privatekey as string, "creators");
 
   const creators = await api.getData();
   const total = creators.total;

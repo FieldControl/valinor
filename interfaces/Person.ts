@@ -1,6 +1,7 @@
-export interface Story {
+export interface Person {
   id: number;
-  title: string;
+  name: string;
+  fullName: string;
   description: string;
   thumbnail: { path: string; extension: string };
   modified: string;

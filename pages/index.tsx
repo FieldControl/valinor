@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Character } from "../interfaces/Character";
+import { Character } from "../interfaces/Person";
 
 const Home = () => {
   return <section>Pagina Home</section>;

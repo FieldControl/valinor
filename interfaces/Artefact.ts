@@ -1,4 +1,4 @@
-export interface Serie {
+export interface Artefact {
   id: number;
   title: string;
   description: string;
