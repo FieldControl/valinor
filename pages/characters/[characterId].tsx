@@ -26,33 +26,67 @@ type CharacterProps = {
 
 const Character = ({ data }: CharacterProps) => {
   const [character, setCharacter] = useState(data[0]);
-  const thumbnail = character.thumbnail ? character.thumbnail.path + "." + character.thumbnail.extension : imgNotFound;
+  const thumbnail = character.thumbnail
+    ? character.thumbnail.path + "." + character.thumbnail.extension
+    : imgNotFound;
+  const [accordion, setAccordion] = useState("");
+
+  const handleAccordion = (value: string) => {
+    if (value === accordion) setAccordion("");
+    else setAccordion(value);
+  };
+
   return (
     <div className="m-2">
-      <h1 className="relative bg-neutral-800 my-1 uppercase text-center text-white text-2xl pt-1 w-full corner">{character.name}</h1>
+      <h1 className="relative bg-neutral-800 my-1 uppercase text-center text-white text-2xl pt-1 w-full corner">
+        {character.name}
+      </h1>
       <aside className="relative w-full bg-neutral-300 h-72 z-20">
-        <Image src={thumbnail && thumbnail} width={400} height={500} alt={"Image of " + character.name} className="h-72" />
+        <Image
+          src={thumbnail && thumbnail}
+          width={400}
+          height={500}
+          alt={"Image of " + character.name}
+          className="w-full h-full"
+          priority
+        />
       </aside>
-      <section className="my-2">
-        <h6 className="text-xs text-neutral-400 -mt-1 mb-2">Modified: {character.modified.split("T")[0]}</h6>
-        <h2 className="relative bg-neutral-500 h-5 my-2 font-bold uppercase ml-4 before:absolute before:w-10 before:-ml-4 before:h-5 before:bg-red-600 before:-z-10">
-          <span className="text-white">Desc</span>ription:
+      <section className="my-2 overflow-hidden">
+        <h6 className="text-xs text-neutral-400 mb-2">
+          Modified: {character.modified.split("T")[0]}
+        </h6>
+        <article
+          className={`w-full overflow-hidden relative ${
+            accordion === "description" ? "h-auto" : "h-7"
+          } animate-growHeight`}
+        >
+          <h2
+            className="titleOfInfo"
+            onClick={() => handleAccordion("description")}
+          >
+            <span className="text-white">Description:</span>
+          </h2>
+          <p className="my-2 p-2">
+            {character.description === ""
+              ? "There is no description yet for " + character.name
+              : character.description}
+          </p>
+        </article>
+
+        <h2 className="titleOfInfo">
+          <span className="text-white">Comics:</span>
         </h2>
         <p>{character.description}</p>
-        <h2 className="relative bg-neutral-500 h-5 my-2 font-bold uppercase ml-4 before:absolute before:w-10 before:-ml-4 before:h-5 before:bg-red-600 before:-z-10">
-          <span className="text-white">Comi</span>cs:
+        <h2 className="titleOfInfo">
+          <span className="text-white">Events:</span>
         </h2>
         <p>{character.description}</p>
-        <h2 className="relative bg-neutral-500 h-5 my-2 font-bold uppercase ml-4 before:absolute before:w-10 before:-ml-4 before:h-5 before:bg-red-600 before:-z-10">
-          <span className="text-white">Even</span>ts:
+        <h2 className="titleOfInfo">
+          <span className="text-white">Series:</span>
         </h2>
         <p>{character.description}</p>
-        <h2 className="relative bg-neutral-500 h-5 my-2 font-bold uppercase ml-4 before:absolute before:w-10 before:-ml-4 before:h-5 before:bg-red-600 before:-z-10">
-          <span className="text-white">Seri</span>es:
-        </h2>
-        <p>{character.description}</p>
-        <h2 className="relative bg-neutral-500 h-5 my-2 font-bold uppercase ml-4 before:absolute before:w-10 before:-ml-4 before:h-5 before:bg-red-600 before:-z-10">
-          <span className="text-white">Stor</span>ies:
+        <h2 className="titleOfInfo">
+          <span className="text-white">Stories:</span>
         </h2>
         <p>{character.description}</p>
       </section>
@@ -63,7 +97,11 @@ const Character = ({ data }: CharacterProps) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { characterId } = context.query;
   const privatekey = process.env.API_PRIVATE_KEY;
-  const apiById = useApiSearchById(privatekey as string, "characters", Number(characterId));
+  const apiById = useApiSearchById(
+    privatekey as string,
+    "characters",
+    Number(characterId)
+  );
   const character = await apiById.getData();
 
   return {
