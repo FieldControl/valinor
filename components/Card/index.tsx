@@ -10,14 +10,14 @@ type CardProps = {
 
 const Card = ({ img, title, modified }: CardProps) => {
   return (
-    <div className="w-52 h-80 relative m-2 bg-neutral-800 corner">
-      <div className="absolute w-52 z-10 h-[260] overflow-hidden bg-red-600 hover:animate-[growTall_.15s_linear_forwards] hover:transition-all">
+    <div className="w-64 md:w-52 h-80 relative m-2 bg-neutral-800 corner">
+      <div className="absolute w-64 md:w-60 z-10 h-[260] overflow-hidden bg-red-600 hover:animate-[growTall_.15s_linear_forwards] hover:transition-all">
         <Image
           src={img || imgNotFound}
           alt={"Image - " + title}
           width={300}
           height={300}
-          className="w-60 h-[260px] hover:scale-105 transition-all border-b-4 border-red-600"
+          className="w-64 md:w-60 h-[260px] hover:scale-105 transition-all border-b-4 border-red-600"
           priority={true}
         />
       </div>

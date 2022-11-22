@@ -17,7 +17,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
           <Card img={item.thumbnail && item.thumbnail.path + "." + item.thumbnail.extension} title={item.name} modified={item.modified} />
         </li>
       ));
-      return <ul className="flex flex-wrap justify-between">{characters}</ul>;
+      return <ul className="flex flex-wrap justify-between h-auto relative">{characters}</ul>;
     case "comics":
       const comics = (list as Artefact[]).map((item, index) => (
         <li key={md5(item.id + item.title + new Date() + index + Math.random())}>

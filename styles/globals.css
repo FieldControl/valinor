@@ -4,22 +4,25 @@
 
 @layer components {
   .menu-item-style {
-    @apply h-16 text-neutral-500 flex items-center border-b-4 pt-2 border-transparent hover:text-white transition-all
+    @apply text-neutral-500 items-center border-b-4 pt-2 border-transparent hidden md:flex hover:text-white transition-all;
+  }
+  .menu-mobile-item-style {
+    @apply h-16 text-neutral-500 w-full flex items-center justify-center border-b-4 pt-2 border-neutral-700 hover:text-white transition-all;
   }
   .corner {
-    @apply after:-bottom-3 after:absolute after:z-20 after:-right-3 after:w-6 after:h-6 after:rotate-45 after:bg-white
+    @apply after:-bottom-3 after:absolute after:z-20 after:-right-3 after:w-6 after:h-6 after:rotate-45 after:bg-white;
   }
   .btnNext {
-    @apply bg-red-600 font-bold p-2 relative w-20 before:absolute before:-right-[20px] before:bottom-0 before:w-0 before:h-0 before:border-l-[20px] before:border-l-red-600 before:border-t-[20px] before:border-t-transparent before:border-b-[20px] before:border-b-transparent hover:scale-105 active:scale-95 
+    @apply bg-red-600 font-bold px-1 py-[0.45rem] text-right text-xs md:text-base relative w-14 md:w-20 before:absolute before:-right-[15px] before:bottom-0 before:w-0 before:h-0 before:border-l-[15px] before:border-l-red-600 before:border-t-[15px] before:border-t-transparent before:border-b-[15px] before:border-b-transparent hover:scale-105 active:scale-95;
   }
   .btnPrevious {
-    @apply bg-red-600 font-bold p-2 relative w-20 after:absolute after:-left-[20px] after:bottom-0 after:w-0 after:h-0 after:border-r-[20px] after:border-r-red-600 after:border-t-[20px] after:border-t-transparent after:border-b-[20px] after:border-b-transparent hover:scale-105 active:scale-95 
+    @apply bg-red-600 font-bold px-1 py-[0.45rem] text-left text-xs md:text-base relative w-14 md:w-20 after:absolute after:-left-[15px] after:bottom-0 after:w-0 after:h-0 after:border-r-[15px] after:border-r-red-600 after:border-t-[15px] after:border-t-transparent after:border-b-[15px] after:border-b-transparent hover:scale-105 active:scale-95;
   }
 }
 
 @font-face {
   font-family: Marvel;
-  src: url('../assets/fonts/MarvelRegular-Dj83.ttf');
+  src: url("../assets/fonts/MarvelRegular-Dj83.ttf");
 }
 
 html,
