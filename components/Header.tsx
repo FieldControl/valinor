@@ -12,10 +12,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-neutral-800 w-full h-16 flex flex-col">
+    <header className="bg-neutral-800 w-full h-16 flex flex-col min-[2560px]:h-24 overflow-hidden">
       <div className="container flex flex-col items-center w-full m-auto">
         <nav className="w-full">
-          <ul className="flex w-full items-center justify-center md:justify-around uppercase gap-10 lg:gap-10 text-white text-md">
+          <ul className="flex w-full items-center justify-center md:justify-around uppercase gap-8 lg:gap-10 text-white text-md">
             <li className="absolute left-5 md:hidden">
               <Image
                 src={"/favicon.ico"}
@@ -35,10 +35,10 @@ const Header = () => {
             <li className={`menu-item-style  ${params.pathname === "/creators" && "text-white border-red-600"}`}>
               <Link href="/creators">Creators</Link>
             </li>
-            <li className="bg-[#ec1d24] w-[105px]">
+            <li className="bg-[#ec1d24] h-16 w-[80px] min-[2560px]:w-[140px] min-[2560px]:h-24">
               <Link href="/">
-                <h1 className=" text-5xl text-white text-center">MARVEL</h1>
-                <h3 className="text-white text-xl -mt-3 text-center">Field Control</h3>
+                <h1 className=" text-4xl min-[2560px]:text-6xl text-white text-center pt-1">MARVEL</h1>
+                <h3 className="text-white text-base min-[2560px]:text-2xl -mt-3 text-center">Field Control</h3>
               </Link>
             </li>
             <li className={`menu-item-style  ${params.pathname === "/events" && "text-white border-red-600"}`}>
@@ -53,26 +53,43 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-      <div className={`absolute bg-neutral-800 top-16 w-full z-40 overflow-hidden md:hidden ${showMenu ? "h-fit" : "h-0"} transition duration-500`}>
+
+      <div
+        className={`absolute bg-neutral-800 top-16 w-full z-40 overflow-hidden md:hidden  ${
+          showMenu ? "h-[410px] " : "h-0"
+        } transition-all duration-500 ease-in-out`}
+      >
         <nav className="my-3">
-          <ul className="flex flex-col w-full h-full uppercase text-white text-lg">
+          <ul className="flex flex-col w-full h-full uppercase text-white text-lg" onClick={menuMobile}>
             <li className={`menu-mobile-item-style ${params.pathname === "/characters" && "text-white border-red-600"}`}>
-              <Link href="/characters">Characters</Link>
+              <Link href="/characters" className="w-full h-full flex items-center justify-center">
+                Characters
+              </Link>
             </li>
             <li className={`menu-mobile-item-style ${params.pathname === "/comics" && "text-white border-red-600"}`}>
-              <Link href="/comics">Comics</Link>
+              <Link href="/comics" className="w-full h-full flex items-center justify-center">
+                Comics
+              </Link>
             </li>
             <li className={`menu-mobile-item-style ${params.pathname === "/creators" && "text-white border-red-600"}`}>
-              <Link href="/creators">Creators</Link>
+              <Link href="/creators" className="w-full h-full flex items-center justify-center">
+                Creators
+              </Link>
             </li>
             <li className={`menu-mobile-item-style ${params.pathname === "/events" && "text-white border-red-600"}`}>
-              <Link href="/events">Events</Link>
+              <Link href="/events" className="w-full h-full flex items-center justify-center">
+                Events
+              </Link>
             </li>
             <li className={`menu-mobile-item-style ${params.pathname === "/series" && "text-white border-red-600"}`}>
-              <Link href="/series">Series</Link>
+              <Link href="/series" className="w-full h-full flex items-center justify-center">
+                Series
+              </Link>
             </li>
             <li className={`menu-mobile-item-style ${params.pathname === "/stories" && "text-white border-red-600"}`}>
-              <Link href="/stories">Stories</Link>
+              <Link href="/stories" className="w-full h-full flex items-center justify-center">
+                Stories
+              </Link>
             </li>
           </ul>
         </nav>

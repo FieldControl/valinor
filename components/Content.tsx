@@ -22,9 +22,7 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
   const [order, setOrder] = useState("");
   const [showFilter, setShowFilter] = useState(false);
 
-  useEffect(() => {
-    setList(data);
-    setOrder("");
+  const handleOrder = () => {
     switch (type) {
       case "characters":
       case "events":
@@ -40,6 +38,12 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
         setOrder("title");
         break;
     }
+  };
+
+  useEffect(() => {
+    setList(data);
+    setOrder("");
+    handleOrder();
   }, [type]);
 
   const next = async () => {
@@ -124,21 +128,7 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
       const api = useApiObjects(privatekey, type, 0);
       newList = await api.getData();
     }
-    switch (type) {
-      case "characters":
-      case "events":
-        setOrder("name");
-        break;
-      case "creators":
-        setOrder("firstName");
-        break;
-      case "stories":
-        setOrder("id");
-        break;
-      default:
-        setOrder("title");
-        break;
-    }
+    handleOrder();
     setName("");
     setList(newList?.results);
     setTotalItems(newList?.total);
@@ -150,12 +140,12 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
     <div className="flex gap-2">
       <aside className="min-h-screen flex flex-col gap-2 w-14 md:w-1/4 overflow-hidden">
         <h1
-          className="relative w-full h-12 text-sm text-center items-center justify-center text-white uppercase bg-neutral-800 mt-2 pt-1 flex md:hidden "
+          className="relative w-full h-12 text-sm text-center items-center justify-center text-white uppercase bg-neutral-800 pt-1 flex md:hidden "
           onClick={() => setShowFilter(!showFilter)}
         >
           Filters
         </h1>
-        <h1 className="relative w-full h-12 text-4xl text-center items-center justify-center text-white uppercase bg-neutral-800 mt-2 pt-2 corner hidden md:flex">
+        <h1 className="relative w-full h-12 text-4xl text-center items-center justify-center text-white uppercase bg-neutral-800 pt-2 corner hidden md:flex">
           Filters
         </h1>
 
@@ -215,11 +205,11 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
         </div>
       </aside>
 
-      <section className="relative w-full pr-2 md:mr-0 md:w-3/4 h-full flex flex-col items-center">
-        <h1 className="relative w-full text-white text-3xl md:text-4xl text-center uppercase bg-neutral-800 mt-2 pt-2 corner  ">{type}</h1>
+      <section className="relative w-full md:mr-0 md:w-3/4 h-full flex flex-col items-center overflow-hidden">
+        <h1 className="relative w-full text-white text-3xl md:text-4xl text-center uppercase bg-neutral-800 pt-2 corner">{type}</h1>
 
         {/* List of Items */}
-        <div className="w-full h-full relative ">{!loading ? <List type={type} list={list as ContentProps["data"]} /> : <Loading />}</div>
+        <div className="w-full h-full relative -ml-4">{!loading ? <List type={type} list={list as ContentProps["data"]} /> : <Loading />}</div>
 
         <div className="relative w-full bg-neutral-800 flex flex-col items-center text-white p-2 mt-2">
           <div className="text-xl font-bold w-full text-center -mt-1 pb-1 border-b-2 border-red-600">Total: {totalItems}</div>

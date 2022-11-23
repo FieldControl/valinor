@@ -8,16 +8,14 @@ module.exports = {
           from: { height: "260px" },
           to: { height: "320px" },
         },
-      },
-      keyframes: {
         growHeight: {
           from: { height: "0" },
           to: { height: "200px" },
         },
       },
       animation: {
-        growHeight: 'growHeight 0.3s ease-in-out linear'
-      }
+        growHeight: "growHeight 0.3s ease-in-out linear",
+      },
     },
   },
   plugins: [],

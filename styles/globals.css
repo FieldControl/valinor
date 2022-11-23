@@ -9,6 +9,9 @@
   .menu-mobile-item-style {
     @apply h-16 text-neutral-500 w-full flex items-center justify-center border-b-4 pt-2 border-neutral-700 hover:text-white transition-all;
   }
+  .cardResponsive {
+    @apply min-[320px]:w-64 min-[375px]:w-72 min-[425px]:w-[340px] min-[768px]:w-[260px] min-[1024px]:w-[230px] min-[1440px]:w-[280px] min-[2560px]:w-[350px] min-[2560px]:h-[450px] z-20 h-80 relative m-2 bg-neutral-800;
+  }
   .corner {
     @apply after:-bottom-3 after:absolute after:z-20 after:-right-3 after:w-6 after:h-6 after:rotate-45 after:bg-white;
   }
@@ -19,7 +22,10 @@
     @apply bg-red-600 font-bold px-1 py-[0.45rem] text-left text-xs relative w-14 md:w-20 after:absolute after:-left-[15px] after:bottom-0 after:w-0 after:h-0 after:border-r-[15px] after:border-r-red-600 after:border-t-[15px] after:border-t-transparent after:border-b-[15px] after:border-b-transparent hover:scale-105 active:scale-95;
   }
   .titleOfInfo {
-    @apply relative h-5 my-2 pl-8 font-bold uppercase before:absolute before:w-2/6 before:-ml-8 before:h-5 before:bg-red-600 before:-z-10 before:skew-x-[40deg] after:absolute after:w-full after:-ml-6 after:h-5 after:bg-neutral-800 after:border-b-4 after:border-red-600 after:-z-20
+    @apply relative h-7 min-[2560px]:h-14 min-[2560px]:text-4xl tracking-widest min-[2560px]:leading-[4rem] pl-8 font-bold uppercase before:h-full before:absolute before:w-3/6 before:-ml-8 before:bg-red-600 before:-z-10 before:skew-x-[40deg] before:border-t-4 before:border-neutral-800 after:absolute after:w-full after:-ml-10 after:h-full after:bg-neutral-800 after:border-b-4 after:border-red-600 after:-z-20;
+  }
+  .asideItem {
+    @apply relative m-auto w-full bg-neutral-300 h-80 z-20 min-[375px]:h-96  min-[425px]:h-[28rem] min-[768px]:w-2/5 min-[768px]:m-0 min-[768px]:h-[22rem] min-[1024px]:h-[29rem] min-[1440px]:h-[36rem] min-[2560px]:h-[52rem] md:after:w-full md:after:h-full md:after:bg-neutral-800 md:after:absolute;
   }
 }
 
@@ -33,6 +39,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: Marvel, Roboto, sans-serif;
+  background-color: rgb(220 38 38);
 }
 
 a {
@@ -52,15 +59,4 @@ a {
     color: white;
     background: black;
   }
-}
-
-.growHeight {
-  transition: all .3s ease linear;
-  animation: growHeight .3s ease linear;
-}
-
-
-@keyframes growHeight {
-  from { height: "0" }
-  to { height: "auto" }
 }
