@@ -1,0 +1,33 @@
+.no-reposotories{
+    font-family: 'Poppins', sans-serif;
+    color: #FFF;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.container{
+    max-width: 75rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3.25rem;
+    margin-top: 5rem;
+    padding-inline: 1rem;
+
+    @media (max-width: 760px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .repos{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+
+        @media (max-width: 760px) {
+            width: 100%;
+        }
+    }
+}

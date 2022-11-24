@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.input-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+
+    .input{
+        border: 0;
+        outline: none;
+        height: 2.875rem;
+        width: 70%;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.125rem;
+        border-radius: .5rem 0 0 .5rem;
+        padding-left: 1rem;
+
+        &::placeholder{
+            color: #979797;
+        }
+    }
+
+    .button-search{
+        height: 2.875rem;
+        width: 3.25rem;
+        border: 0;
+        border-radius: 0 .5rem .5rem 0;
+        transition: all ease .3s;
+
+        &:hover{
+            filter: brightness(0.9);
+            cursor: pointer;
+        }
+    }
+}

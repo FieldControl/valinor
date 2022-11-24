@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    margin: 1.5rem 0 5rem;
+
+    .buttons-left, .buttons-right{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .button{
+            cursor: pointer;
+            font-family: 'Poppins';
+            color: #FFF;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

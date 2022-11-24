@@ -1,0 +1,139 @@
+@import '../../styles/variables';
+
+.list-repository{
+    border: 2px solid $primary-200;
+    border-radius: .5rem;
+    position: relative;
+    max-width: 40rem;
+    width: 100%;
+    animation: movimento .3s ease-in-out forwards 1;
+
+    @media (max-width: 760px) {
+        max-width: 100%;
+    }
+
+    @media (max-width: 470px) {
+        margin-top: 2rem;
+    }
+
+    .title{
+        position: absolute;
+        top: -1rem;
+        left: .8rem;
+        background: $primary-500;
+        padding: 0.125rem .5rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.125rem;
+        color: #fff;
+
+        @media (max-width: 470px) {
+            top: -5rem;
+            text-align: center;
+        }
+    }
+
+    .list{
+        padding: 1.5rem 0.625rem;
+
+        .repository{
+            padding: 1.625rem;
+
+            & + .repository{
+                border-top: 1px solid #657085;
+            }
+
+            a{
+                text-decoration: none;
+            }
+
+            .title-repo{
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                font-size: 1.125rem;
+                color: $primary-200;
+                margin-bottom: .5rem;
+            }
+
+            .description{
+                font-family: 'Roboto', sans-serif;
+                font-size: 1rem;
+                color: #F3F3F3;
+                word-break: break-all;
+            }
+
+            .topics{
+                display: flex;
+                flex-wrap: wrap;
+                gap: .5rem;
+                margin: .5rem 0 1rem;
+
+                .topic{
+                    background: #738FA757;
+                    width: fit-content;
+                    padding: 0.125rem 0.25rem;
+                    border-radius: 0.25rem;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 300;
+                    font-size: 0.875rem;
+                    transition: all ease .3s;
+
+                    &:hover{
+                        filter: brightness(0.9);
+                    }
+                    
+                    a{
+                        color: $primary-200;
+                    }
+                }
+            }
+
+            .footer-repo{
+                display: flex;
+                justify-content: flex-start;
+                gap: 1.25rem;
+                flex-wrap: wrap;
+                padding-left: .4rem;
+
+                .item-footer{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: .25rem;
+                    width: fit-content;
+
+                    img{
+                        max-width: 1.2rem;
+                        max-height: 1.2rem;
+                        height: 100%;
+                    }
+                    p{
+                        color: #FFF;
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: 300;
+                        font-size: 0.875rem;
+                        width: 100%;
+                        white-space: nowrap;
+                        
+                        a{
+                            text-decoration: none;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes movimento {
+    0% {
+      opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+  }
