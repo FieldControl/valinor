@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Repositories</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <a href="https://github.com/">
+          <img src="./images/github.png" alt="imagem do git" id="gitLogo" />
+        </a>
+        <div id="searchControls">
+          <input
+            id="queryInput"
+            class="glowingControl"
+            name="query"
+            type="text"
+            placeholder="Busca..."
+          />
+          <button id="searchButton" class="glowingControl">
+            <span>Buscar </span
+            ><img src="./images/search.png" alt="search icon" />
+          </button>
+        </div>
+      </header>
+      <main id="resultArea">
+        <div id="welcomeScreen">
+          <h1>Busca de repositórios no GitHub</h1>
+          <h2>por Fábio Faria - Proposto por Field Control</h2>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
