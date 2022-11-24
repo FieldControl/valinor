@@ -9,8 +9,8 @@ const Footer = () => {
           </div>
 
           <div className="w-2/3 flex flex-col">
-            <span className="text-xs md:text-lg lg:text-2xl text-right text-white">Developed by &copy; Adalberto R. Teixeira</span>
-            <span className="text-xs md:text-sm lg:text-xl text-right text-neutral-500">
+            <span className="text-xs md:text-lg lg:text-xl text-right text-white">Developed by &copy; Adalberto R. Teixeira</span>
+            <span className="text-xs md:text-sm lg:text-lg text-right text-neutral-500">
               Data provided by Marvel. © {new Date().getFullYear()} MARVEL
             </span>
           </div>

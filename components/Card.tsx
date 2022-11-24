@@ -1,6 +1,5 @@
 import Image from "next/image";
 import imgNotFound from "../assets/images/image_not_available.jpg";
-// http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg
 
 type CardProps = {
   img: string;
@@ -11,7 +10,7 @@ type CardProps = {
 const Card = ({ img, title, modified }: CardProps) => {
   return (
     <div className="cardResponsive corner overflow-hidden">
-      <div className="absolute w-full z-10 h-full overflow-hidden bg-neutral-800 hover:animate-[growTall_.15s_linear_forwards] hover:transition-all">
+      <div className={`absolute w-full z-10 h-full overflow-hidden bg-neutral-800 hover:transition-all`}>
         <Image
           src={img || imgNotFound}
           alt={"Image - " + title}

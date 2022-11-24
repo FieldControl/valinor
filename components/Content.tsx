@@ -4,7 +4,9 @@ import { Artefact } from "../interfaces/Artefact";
 import { useApiCharacters } from "../libs/useApiCharacters";
 import { useApiObjects } from "../libs/useApiObjects";
 import List from "./List";
-import Loading from "./Loading";
+import NProgress from "nprogress";
+import { handleOrder } from "../utils/getOrder";
+import WireList from "./WireList";
 
 type ContentProps = {
   type: string;
@@ -22,32 +24,17 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
   const [order, setOrder] = useState("");
   const [showFilter, setShowFilter] = useState(false);
 
-  const handleOrder = () => {
-    switch (type) {
-      case "characters":
-      case "events":
-        setOrder("name");
-        break;
-      case "creators":
-        setOrder("firstName");
-        break;
-      case "stories":
-        setOrder("id");
-        break;
-      default:
-        setOrder("title");
-        break;
-    }
-  };
-
   useEffect(() => {
     setList(data);
     setOrder("");
-    handleOrder();
+    setOrder(handleOrder(type));
   }, [type]);
 
   const next = async () => {
     setLoading(true);
+    window.scrollTo(0, 0);
+    NProgress.start();
+    NProgress.done();
     let newList;
     if (offsetValue + 12 <= totalItems) {
       setOffsetValue(offsetValue + 12);
@@ -66,6 +53,9 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
 
   const previous = async () => {
     setLoading(true);
+    window.scrollTo(0, 0);
+    NProgress.start();
+    NProgress.done();
     let newList;
     if (offsetValue - 12 >= 0) {
       setOffsetValue(offsetValue - 12);
@@ -128,7 +118,7 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
       const api = useApiObjects(privatekey, type, 0);
       newList = await api.getData();
     }
-    handleOrder();
+    setOrder(handleOrder(type));
     setName("");
     setList(newList?.results);
     setTotalItems(newList?.total);
@@ -137,7 +127,7 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="w-full flex gap-2">
       <aside className="min-h-screen flex flex-col gap-2 w-14 md:w-1/4 overflow-hidden">
         <h1
           className="relative w-full h-12 text-sm text-center items-center justify-center text-white uppercase bg-neutral-800 pt-1 flex md:hidden "
@@ -209,7 +199,7 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
         <h1 className="relative w-full text-white text-3xl md:text-4xl text-center uppercase bg-neutral-800 pt-2 corner">{type}</h1>
 
         {/* List of Items */}
-        <div className="w-full h-full relative -ml-4">{!loading ? <List type={type} list={list as ContentProps["data"]} /> : <Loading />}</div>
+        <div className="w-full h-full relative -ml-4">{!loading ? <List type={type} list={list as ContentProps["data"]} /> : <WireList />}</div>
 
         <div className="relative w-full bg-neutral-800 flex flex-col items-center text-white p-2 mt-2">
           <div className="text-xl font-bold w-full text-center -mt-1 pb-1 border-b-2 border-red-600">Total: {totalItems}</div>

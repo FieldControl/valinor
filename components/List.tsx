@@ -1,9 +1,10 @@
 import md5 from "md5";
-import { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode, useEffect } from "react";
 import { Person } from "../interfaces/Person";
 import { Artefact } from "../interfaces/Artefact";
 import Card from "./Card";
 import Link from "next/link";
+import NProgress from "nprogress";
 
 type ListProps = {
   type: string;
@@ -32,7 +33,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
           </Link>
         </li>
       ));
-      return <ul className="flex flex-wrap justify-between">{item}</ul>;
+      return <ul className="w-full h-auto flex flex-wrap justify-between relative">{item}</ul>;
     case "creators":
       const creators = (list as Person[]).map((item, index) => (
         <li key={md5(item.id + item.fullName + new Date() + index + Math.random())}>
@@ -41,11 +42,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
           </Link>
         </li>
       ));
-      return <ul className="flex flex-wrap justify-between">{creators}</ul>;
+      return <ul className="w-full h-auto flex flex-wrap justify-between relative">{creators}</ul>;
   }
 
   return (
-    <ul className="flex flex-wrap justify-between">
+    <ul className="w-full h-auto flex flex-wrap justify-between relative">
       <li>Não há dados.</li>
     </ul>
   );
