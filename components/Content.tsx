@@ -127,7 +127,7 @@ const Content = ({ type, privatekey, data, total }: ContentProps) => {
   };
 
   return (
-    <div className="w-full flex gap-2">
+    <div id="content" className="w-full flex gap-2">
       <aside className="min-h-screen flex flex-col gap-2 w-14 md:w-1/4 overflow-hidden">
         <h1
           className="relative w-full h-12 text-sm text-center items-center justify-center text-white uppercase bg-neutral-800 pt-1 flex md:hidden "

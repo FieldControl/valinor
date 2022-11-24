@@ -15,13 +15,13 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="w-full h-screen -m-2 bg-red-600 text-white flex flex-col gap-10 items-center justify-evenly">
+    <section id="homeContent" className="w-full min-h-screen h-auto -m-2 bg-red-600 text-white flex flex-col gap-10 items-center justify-evenly">
       <article className="w-full uppercase text-4xl md:text-6xl  text-center animate-pulse">Welcome!!!</article>
       <article className="border-8 border-white flex flex-col items-center justify-center p-2">
         <span className="uppercase text-8xl">MARVEL</span>
         <span className="text-4xl uppercase -mt-4">Field Control</span>
       </article>
-      <nav>
+      <nav id="links">
         <ul className="w-full flex justify-center flex-wrap gap-4 p-2">
           <li
             className={`flex items-center justify-center p-2 uppercase border-4 border-white w-24 text-2xl ${

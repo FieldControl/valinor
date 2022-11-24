@@ -1,12 +1,11 @@
-import Image from "next/image";
-import { Creator } from "../../interfaces/Creator";
 import { useApiCharacters } from "../../libs/useApiCharacters";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
+import { Person } from "../../interfaces/Person";
 
 type CreatorProps = {
   privatekey: string;
-  data: Creator[];
+  data: Person[];
   total: number;
 };
 

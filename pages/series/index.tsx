@@ -1,12 +1,11 @@
-import Image from "next/image";
-import { Event } from "../../interfaces/Event";
 import { GetServerSideProps } from "next";
 import Content from "../../components/Content";
 import { useApiObjects } from "../../libs/useApiObjects";
+import { Artefact } from "../../interfaces/Artefact";
 
 type SeriesProps = {
   privatekey: string;
-  data: Event[];
+  data: Artefact[];
   total: number;
 };
 

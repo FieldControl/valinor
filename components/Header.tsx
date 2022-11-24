@@ -15,7 +15,7 @@ const Header = () => {
     <header className="w-full h-16 flex flex-col min-[2560px]:h-24 overflow-hidden">
       <div className="fixed z-50 top-0 bg-neutral-800  w-full h-auto flex flex-col">
         <div className="container flex flex-col items-center w-full m-auto">
-          <nav className="w-full">
+          <nav id="menu" className="w-full">
             <ul className="flex w-full items-center justify-center md:justify-around uppercase gap-8 lg:gap-10 text-white text-md">
               <li className="absolute left-5 md:hidden">
                 <Image
@@ -56,11 +56,11 @@ const Header = () => {
         </div>
 
         <div
-          className={`menuMobile absolute bg-neutral-800 top-16 w-full z-40 overflow-hidden md:hidden  ${
+          className={`absolute bg-neutral-800 top-16 w-full z-40 overflow-hidden md:hidden  ${
             showMenu ? "h-[410px] " : "h-0"
           } transition-all duration-500 ease-in-out`}
         >
-          <nav className="my-3">
+          <nav className="my-3" id="menuMobile">
             <ul className="flex flex-col w-full h-full uppercase text-white text-lg" onClick={menuMobile}>
               <li className={`menu-mobile-item-style ${params.pathname === "/characters" && "text-white border-red-600"}`}>
                 <Link href="/characters" className="w-full h-full flex items-center justify-center">

@@ -21,7 +21,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
           </Link>
         </li>
       ));
-      return <ul className="w-full h-auto flex flex-wrap justify-between relative">{characters}</ul>;
+      return <ul className="listFilled w-full h-auto flex flex-wrap justify-between relative">{characters}</ul>;
     case "comics":
     case "events":
     case "series":
@@ -33,7 +33,7 @@ const List = ({ type, list }: ListProps): ReactElement => {
           </Link>
         </li>
       ));
-      return <ul className="w-full h-auto flex flex-wrap justify-between relative">{item}</ul>;
+      return <ul className="listFilled w-full h-auto flex flex-wrap justify-between relative">{item}</ul>;
     case "creators":
       const creators = (list as Person[]).map((item, index) => (
         <li key={md5(item.id + item.fullName + new Date() + index + Math.random())}>
@@ -42,11 +42,11 @@ const List = ({ type, list }: ListProps): ReactElement => {
           </Link>
         </li>
       ));
-      return <ul className="w-full h-auto flex flex-wrap justify-between relative">{creators}</ul>;
+      return <ul className="listFilled w-full h-auto flex flex-wrap justify-between relative">{creators}</ul>;
   }
 
   return (
-    <ul className="w-full h-auto flex flex-wrap justify-between relative">
+    <ul className="listFilled w-full h-auto flex flex-wrap justify-between relative">
       <li>Não há dados.</li>
     </ul>
   );
