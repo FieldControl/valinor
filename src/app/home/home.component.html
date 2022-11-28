@@ -1,7 +1,8 @@
-<h1>{{title}}</h1>
-
+<br>
+<h3 class="text-center">{{title}}</h3>
+<br>
 <div class="box">
-  <div *ngFor="let series of allCharacters | async" class="card" style="width: 18rem;">
+  <div *ngFor="let series of allCharacters | async" class="card" style="width: 200px; height: 250px;">
     <img class="card-img-top" src="{{series.thumbnail.path}}.{{series.thumbnail.extension}}" alt="{{series.name}}">
     <div class="card-body">
       <p class="card-text">{{series.title}}</p>

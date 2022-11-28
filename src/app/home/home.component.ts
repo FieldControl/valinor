@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Home';
+  title = 'Marvel Comics';
 
   constructor(private characterSvc: CharactersApiService) { }
   allCharacters: Observable<any>;
