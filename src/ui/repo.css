@@ -1,0 +1,19 @@
+.repo {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 30px;
+}
+
+.repo img {
+    width: 3%;
+}
+
+.repo a {
+    text-decoration: none;
+    color: #333;
+}
+ 
