@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.container h1 {
+  margin: 40px 0 24px;
+  color: #fff;
+}
+
+.noResearch {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.results {
+  margin-top: 0.5rem;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  background: #1c1c1c;
+  border-radius: 5px;
+  padding: 7px;
+}

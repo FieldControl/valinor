@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.button {
+  height: 3rem;
+  width: 3rem;
+  margin: 0.5rem;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  color: black;
+  font-weight: 700;
+}

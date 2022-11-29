@@ -1,0 +1,53 @@
+a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50.3vw;
+  background-color: #4f4f4f;
+  border-radius: 5px;
+  margin: 8px;
+  color: #fff;
+}
+
+.cards p {
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.subCards {
+  display: flex;
+}
+
+.subCards p {
+  margin: 5px;
+  background-color: #1c1c1c;
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.topic {
+  background: #1c1c1c;
+  border-radius: 5px;
+}
+
+.topic p {
+  font-size: 14px;
+}

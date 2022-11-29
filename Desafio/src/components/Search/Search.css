@@ -1,0 +1,39 @@
+.searchMaster {
+  width: 100%;
+  color: #fff;
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  width: 35%;
+  padding: 24px;
+  border-radius: 5px;
+  border: none;
+  background: #e6e6e6;
+  font-weight: 700;
+}
+
+.search button {
+  width: 15%;
+  padding: 24px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  background: #c0c0c0;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: filter 0.2;
+}
+
+.search button:hover {
+  filter: brightness(0.9);
+}
