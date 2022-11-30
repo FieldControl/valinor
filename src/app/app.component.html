@@ -1,0 +1,3 @@
+<app-searchbar (queryEvent)="setCharactersByQuery($any($event))"></app-searchbar>
+<app-characters (charactersEvent)="setCharacters($any($event))" [characters]="characters"></app-characters>
+<router-outlet></router-outlet>

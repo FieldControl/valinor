@@ -1,0 +1,12 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Raleway", sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    width: 100vw;
+    position: relative;
+    background-color: #333333;
+    overflow-x: hidden;
+}

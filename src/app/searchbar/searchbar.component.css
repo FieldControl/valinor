@@ -1,0 +1,45 @@
+.menu{
+    height: 4rem;
+    background-color: #8257e6;
+    text-align: right;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+img{
+    height: 4.5rem;
+    margin-right: 100%;
+}
+input{
+    border: none;
+    border-radius: 5vh;
+    box-shadow: 3px 3px 10px #00000060;
+    height: 2rem;
+    left: 10%;
+    padding: 0.2rem;
+    position: absolute;
+    top: 1.5rem;
+    width: 50%;
+    margin-left: 10%;
+}
+button{
+    background-color: #000;
+    border: none;
+    border-radius: 0 5vh 5vh 0;
+    height: 2.4rem;
+    position: absolute;
+    right: 29.5%;
+    top: 1.5rem;
+    transition: .3s;
+    width: 4rem;
+}
+button:hover{
+    background-color: #8257e6;
+}
+i{
+    color: #000;
+    font-size: 20px;
+    position: absolute;
+    right: 31%;
+    top: 1.7rem;
+    height: 2.4rem;
+}
