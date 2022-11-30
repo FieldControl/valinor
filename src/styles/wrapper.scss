@@ -1,0 +1,24 @@
+body {
+  background: $dark1;
+  color: $light1;
+  font-family: sans-serif;
+}
+
+#wrapper {
+  margin: auto;
+  width: 60vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $darkTint1;
+
+  > header {
+    flex: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $darkTint1;
+    padding: 0.6em;
+  }
+}

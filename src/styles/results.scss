@@ -1,0 +1,144 @@
+#resultArea {
+  flex: 1;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+#resultsDiv {
+  flex: 0;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $lightTint1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#resultMessage {
+  font-weight: bold;
+  color: $light3;
+  font-size: 1.3em;
+}
+
+#resultDiv > span {
+  display: block;
+  font-weight: normal;
+  font-size: 0.6em;
+  color: $light2;
+}
+
+#pageSize {
+  font-size: 0.8em;
+  color: $lightTint1;
+  > select {
+    padding: 0.3em;
+    margin-left: 0.6em;
+    text-align: center;
+    > option {
+      background-color: rgb(11 27 36);
+    }
+  }
+}
+
+/* prettier-ignore */
+.repo-div {
+    padding-bottom: 1em;
+    border-bottom: 1px solid $lightTint1;
+    margin: 1em 0 1em 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "homeAndName homeAndName homeAndName lang"
+    "stars stars issues issues"
+    "desc desc desc desc"
+    "topics topics topics topics"
+    "dates dates dates license"
+    ;
+  }
+
+.repo-homeAndName {
+  grid-area: homeAndName;
+  height: 2em;
+}
+
+.repo-homepage {
+  float: left;
+  margin-right: 0.3em;
+  > a > img {
+    filter: invert(1);
+    width: 1.3em;
+    height: 1.3em;
+  }
+}
+
+.repo-name {
+  font-size: 1.2em;
+  color: $light3;
+
+  a:hover {
+    border-bottom: 1px solid $light3;
+  }
+
+  .repo-lang {
+    grid-area: lang;
+    text-align: right;
+    font-weight: bold;
+    color: $light2;
+  }
+
+  .repo-stars {
+    grid-area: stars;
+    opacity: 0.5;
+    min-width: 5em;
+    flex: 0;
+    > img {
+      filter: invert(1);
+      width: 0.8em;
+      height: 0.8em;
+      margin-right: 0.3em;
+      float: left;
+    }
+  }
+}
+
+.repo-issues {
+  grid-area: issues;
+  opacity: 0.5;
+  text-align: right;
+}
+
+.repo-desc {
+  grid-area: desc;
+  margin: 0.6em 0 0.6em 0;
+}
+
+.repo-topics {
+  grid-area: topics;
+  margin: 0.6em 0 0.6em 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.3em;
+  flex-wrap: wrap;
+  span {
+    display: inline-block;
+    background-color: $light2;
+    padding: 0.3em 0.6em;
+    border-radius: 1em;
+  }
+}
+
+.repo-license {
+  grid-area: license;
+  text-align: right;
+  color: $lightTint1;
+}
+
+.repo-dates {
+  grid-area: dates;
+  display: flex;
+  flex-direction: row;
+  color: $lightTint1;
+  gap: 1em;
+}

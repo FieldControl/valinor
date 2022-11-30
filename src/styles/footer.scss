@@ -1,0 +1,26 @@
+/*#region footer*/
+#wrapper > footer {
+  flex: 0;
+  background-color: $darkTint1;
+
+  > ul {
+    display: flex;
+    flex-direction: row;
+    gap: 0.1em;
+    justify-content: center;
+    padding: 1em 0;
+  }
+}
+
+.paginationItem {
+  display: inline-block;
+
+  > button {
+    color: $light2;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.3em 0.6em;
+    border: solid 1px rgba(0, 0, 0, 0);
+    border-radius: 0.6em;
+  }
+}
