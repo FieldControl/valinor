@@ -45,7 +45,6 @@ export const RepositoryProvider = ({ children }) => {
         setTopics(res.data.items);
       })
       .catch((err) => console.log(err));
-      console.log(topics)
   };
 
   return (

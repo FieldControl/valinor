@@ -15,7 +15,7 @@ export const RenderResults = ({ item }) => {
 
   return (
     <Box wrap="wrap">
-      <Divider mb="3" />
+      <Divider mb="3"/>
       <Link color="blue.700" href={item.html_url} mb="5">
         {item.full_name}
       </Link>

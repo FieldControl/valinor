@@ -1,36 +1,27 @@
 import { ChevronDownIcon, Icon } from "@chakra-ui/icons";
 import {
-  Box,
   Button,
-  Divider,
   Flex,
   Heading,
   HStack,
   Image,
-  List,
-  ListIcon,
-  ListItem,
   Menu,
   MenuButton,
-  MenuItem,
   MenuItemOption,
   MenuList,
   MenuOptionGroup,
-  Stack,
   Text,
-  useColorModeValue,
   VStack,
   useBoolean,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { FaRegStar } from "react-icons/fa";
 import { CardResults } from "../CardResults";
-import { SelectLanguage} from "../SelectLanguage"
 import { useRepo } from "../../contexts/RepositoryProvider/index";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 export const Card = () => {
-  const { repo, totalCount, topics } = useRepo();
+  const { totalCount, topics } = useRepo();
 
   const totalCountFormated = new Intl.NumberFormat().format(totalCount);
 
@@ -59,37 +50,40 @@ export const Card = () => {
             w="62px"
             h="62px"
           />
-          <VStack align="left" ml="4" mr="4" w="80%">
-            <Heading as="h3" size="lg">
-              Javascript
-            </Heading>
-            <Text fontSize="12px">
-              JavaScript (JS) is a lightweight interpreted programming language
-              with first-class functions
-            </Text>
-            <Button
-              mt="4"
-              color="gray.500"
-              borderWidth="1px"
-              borderColor="gray.400"
-              leftIcon={<FaRegStar />}
-              h="30px"
-              w="50%"
-              fontSize="xs"
-              onClick={setStarOn.toggle}
-              _hover={{
-                bg: "gray.50",
-              }}
-            >
-              {starOn ? "Unstar" : "Star"}
-            </Button>
-          </VStack>
+          {topics.map((item, index) => {
+            return index === 0 ? (
+              <VStack align="left" ml="4" mr="4" w="80%">
+                <Heading as="h3" size="lg" key={index}>
+                  {item.display_name}
+                </Heading>
+                <Text key={item.display_name} fontSize="12px">
+                  {item.short_description}
+                </Text>
+                <Button
+                  mt="4"
+                  color="gray.500"
+                  borderWidth="1px"
+                  borderColor="gray.400"
+                  leftIcon={<FaRegStar />}
+                  h="30px"
+                  w="50%"
+                  fontSize="xs"
+                  onClick={setStarOn.toggle}
+                  _hover={{
+                    bg: "gray.50",
+                  }}
+                >
+                  {starOn ? "Unstar" : "Star"}
+                </Button>
+              </VStack>
+            ) : null;
+          })}
         </Flex>
       ) : (
         <Flex
           py={2}
           px={5}
-          h={["","150px", "160px", "120px"]}
+          h={["", "150px", "160px", "120px"]}
           border="1px"
           mt="5"
           borderRadius="6"
@@ -104,15 +98,17 @@ export const Card = () => {
             w="62px"
             h="62px"
           />
-          <VStack align="left" ml="4" mr="4" w="80%">
-            <Heading as="h3" size="lg">
-              Javascript
-            </Heading>
-            <Text>
-              JavaScript (JS) is a lightweight interpreted programming language
-              with first-class functions
-            </Text>
-          </VStack>
+          {topics.map((item, index) => {
+            return index === 0 ? (
+              <VStack align="left" ml="4" mr="4" w="80%">
+                <Heading as="h3" size="lg" key={index}>
+                  {item.display_name}
+                </Heading>
+                <Text key={item.display_name}>{item.short_description}</Text>
+              </VStack>
+            ) : null;
+          })}
+
           <Button
             color="gray.500"
             borderWidth="1px"
@@ -161,7 +157,6 @@ export const Card = () => {
         </Menu>
       </Flex>
       <CardResults />
-      
     </Flex>
   );
 };

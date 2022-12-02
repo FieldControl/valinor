@@ -1,22 +1,9 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import {
-  Badge,
-  Box,
   Button,
-  Divider,
   Flex,
-  HStack,
-  Icon,
-  IconButton,
-  Link,
-  Stack,
-  Text,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { FaRegStar } from "react-icons/fa";
-import Moment from "react-moment";
 import { useRepo } from "../../contexts/RepositoryProvider/index";
-import { useEffect } from "react";
 import { RenderResults } from "../RenderResults";
 
 export const CardResults = () => {

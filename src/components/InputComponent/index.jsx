@@ -19,6 +19,7 @@ export const InputComponent = () => {
       value={inputValue}
       onChange={handleChange}
       m='1'
+      placeholder='Digite aqui'
     />
     <InputRightElement
       as={"button"}

@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.2.1",
     "add": "^2.0.6",
     "axios": "^1.2.0",
+    "axios-mock-adapter": "^1.21.2",
     "chakra-paginator": "^0.7.3",
     "emotion": "^11.0.0",
     "framer-motion": "^7.6.15",
@@ -50,5 +51,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^29.3.1"
   }
 }
