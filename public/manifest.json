@@ -1,0 +1,42 @@
+{
+  "short_name": "https://github.com/brunodp89",
+  "name": "Projeto Field",
+  "author": "Bruno Silva",
+  "description": "This application contains an from GitHub (partial) website.",
+  "developer": {
+    "name": "Bruno silva",
+    "url": "https://github.com/brunodp89"
+  },
+  "homepage_url": "https://github.com/brunodp89",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "logo1024.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1D1D1D",
+  "background_color": "#fff"
+}
