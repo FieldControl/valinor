@@ -9,6 +9,8 @@ import { MenuComponent } from './menu/menu.component';
 import { ResultsComponent } from './results/results.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { RepositoryResultsComponent } from './repository-results/repository-results.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from'@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { RepositoryResultsComponent } from './repository-results/repository-resu
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     TooltipModule
   ],
   providers: [],

@@ -7,8 +7,9 @@
 
       <div class="collapse navbar-collapse" id="mynavbar">
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input [(ngModel)]="repositoryQuery" name="repository" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          {{repositoryQuery}}
+          <button class="btn btn-outline-success" type="submit" value="submit">Search</button>
         </form>
       </div>
     </div>
