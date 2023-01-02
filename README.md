@@ -17,7 +17,7 @@ Sobre mim: me chamo Nathan tenho 18 anos e moro em São José do Rio Preto, sou 
 
 Contatos:
 Email:n54318879@gmail.com;
-Celular: 17992466108
+Celular: 17992466108;
 
 Link do repositório: 
 https://github.com/Creminin/Test-Field
