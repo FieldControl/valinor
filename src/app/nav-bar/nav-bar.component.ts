@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -24,15 +24,11 @@ export class NavBarComponent implements OnInit {
 
   //console.log(url);
 
-  repositoryQuery:string = '';
+  repositoryQuery:string = 'aa';
 
-  constructor() {
+  constructor() { }
 
-  }
-
-
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 
 

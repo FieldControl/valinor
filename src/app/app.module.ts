@@ -10,7 +10,8 @@ import { ResultsComponent } from './results/results.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { RepositoryResultsComponent } from './repository-results/repository-results.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from'@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { PostService } from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { HttpClientModule } from'@angular/common/http';
     HttpClientModule,
     TooltipModule
   ],
-  providers: [],
+  providers: [ PostService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

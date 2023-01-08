@@ -3,6 +3,11 @@
   <app-menu></app-menu>
   <div class="d-flex-column">
     <app-results></app-results>
+    <ul class="list-group">
+      <li *ngFor="let item of items" class="list-group-item">
+        {{ item.name }}
+      </li>
+    </ul>
     <app-repository-results></app-repository-results>
   </div>
 </div>
