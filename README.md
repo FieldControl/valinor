@@ -1,27 +1,11 @@
 # ProjetoField
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+O projeto foi feito utilizando o framework Angular, conforme a preferência da Field. Foi um desafio bem grande e com muito aprendizado. Há muito o que melhorar, mas estou orgulhoso do projeto.
 
-## Development server
+# Sobre
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Faz parte do processo da Field Control. O objetivo é criar uma pesquisa de repositório, parecido com o GitHub. Possui alguns requisitos como: paginação, nome do repositório, número de watchers/stars, etc.
 
-## Code scaffolding
+# Projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Como meu primeiro projeto real, tive muitos desafios e dificuldades. Criei primeiro o RepositoryList para começar, tive que pesquisar e aprender sobre como fazer a estrutura, possivelmente a parte mais complicada do projeto. Depois criei a SearchBar, que foi relativamente simples. Como tive um tempo eu descobri que podia criar um RepositoryService para colocar a API, pra não ficar dentro do RepositoryList, acho que foi uma boa. Enfim, aprendi bastante com o projeto e estou contente com o resultado.
