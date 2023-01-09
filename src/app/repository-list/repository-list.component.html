@@ -1,0 +1,17 @@
+<ul>
+    <li *ngFor="let repository of searchResultList">
+        <h3><a href="{{repository.html_url}}" target="_blank">{{repository.full_name}}</a></h3>
+        <p><mat-icon class="material-icons-outlined icon">sticky_note_2_outlined</mat-icon>{{repository.description}}
+        </p>
+        <p><mat-icon class="material-icons-outlined icon">star_outlined</mat-icon> {{repository.stargazers_count}}</p>
+        <div class="topic-section" *ngFor="let topic of repository.topics">
+            <button class="topic">{{topic}}</button>
+        </div>
+    </li>
+</ul>
+<div>
+    <button class="page-button" (click)="previousPage()"
+        [disabled]="!hasPreviousPage || searchResultList.length === 0">Anterior</button>
+    <button class="page-button" (click)="nextPage()"
+        [disabled]="!hasNextPage || searchResultList.length === 0">Próxima</button>
+</div>

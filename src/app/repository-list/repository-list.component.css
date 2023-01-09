@@ -1,0 +1,29 @@
+p {
+    color: white;
+}
+
+h3 a {
+    color: white;
+}
+
+.topic-section {
+    display: table-cell;
+}
+
+.topic {
+    height: 40px;
+    min-width: 50px;
+    border-radius: 25px;
+    background-color: lightblue;
+    color: blue;
+    padding: 7px;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline
+}
+
+.icon {
+    font-size: 16px;
+    vertical-align: middle;
+}
