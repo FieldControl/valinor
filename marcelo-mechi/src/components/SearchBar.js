@@ -6,8 +6,10 @@ function SearchBar({ onSubmit }) {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-
+        // Mandando term de volta pro App
         onSubmit(term);
+        // Apagando o username depois de pesquisar
+        setTerm('');
     }
 
     const handleChange = (e) => {
@@ -16,9 +18,9 @@ function SearchBar({ onSubmit }) {
 
     return (
         <div>
-            <form onSubmit={handleFormSubmit}>
-                <input className="border-2" value={term} onChange={handleChange} placeholder='Enter username' spellCheck={false} />
-                <button>Search!</button>
+            <form className="flex" onSubmit={handleFormSubmit}>
+                <input className="border-2 rounded-l" value={term} onChange={handleChange} placeholder='Enter username' spellCheck={false} />
+                <button className="border font-medium p-1.5 bg-gray-200 rounded-r">Search!</button>
             </form>
         </div >
     )
