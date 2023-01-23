@@ -1,9 +1,13 @@
 import SearchBar from "./components/SearchBar";
 import searchRepos from './api';
+import { useState } from "react";
 
 function App() {
-    const handleSubmit = (word) => {
-        console.log(word);
+    const [repos, setRepos] = useState([]);
+
+    const handleSubmit = async (username) => {
+        setRepos(await searchRepos(username));
+        console.log(repos);
     }
 
     return (
