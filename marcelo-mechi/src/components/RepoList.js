@@ -16,7 +16,7 @@ function RepoList({ repos }) {
     })
 
     return (
-        <div className='grid grid-cols-2 gap-x-8 gap-y-2 mt-10 w-4/5'>
+        <div className='grid sm:grid-cols-2 gap-x-8 gap-y-2 mt-10 w-4/5'>
             {renderedRepos}
         </div>
     )

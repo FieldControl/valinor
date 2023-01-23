@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply flex justify-center items-center;
-}
-
 .repo-description {
     font-size: .6rem;
 }
