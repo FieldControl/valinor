@@ -3,7 +3,7 @@ import RepoCard from './RepoCard';
 function RepoList({ repos }) {
     const renderedRepos = repos.map(repo => {
         return (
-            <div className="border p-2 mb-3 rounded" key={repo.id}>
+            <div className="border p-2 mb-3 rounded bg-blue-100" key={repo.id}>
                 <RepoCard
                     name={repo.name}
                     description={repo.description}
@@ -16,7 +16,7 @@ function RepoList({ repos }) {
     })
 
     return (
-        <div className='mt-10'>
+        <div className='mt-10 bg-green-100 w-4/5'>
             {renderedRepos}
         </div>
     )

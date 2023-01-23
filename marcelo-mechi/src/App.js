@@ -12,7 +12,7 @@ function App() {
     }
 
     return (
-        <div className="mt-7">
+        <div className="flex flex-col items-center mt-7">
             {/* Nome do site e barra de pesquisa */}
             <header className="flex flex-col justify-center items-center">
                 <h1 className="mb-5 font-bold text-xl bg-red-100 text-center">GitHub Repo Searcher!</h1>
