@@ -5,3 +5,11 @@
 body {
     @apply flex justify-center items-center;
 }
+
+.repo-description {
+    font-size: .6rem;
+}
+
+.main-title {
+    font-size: 1.8rem
+}
