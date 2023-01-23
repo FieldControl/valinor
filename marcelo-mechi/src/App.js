@@ -11,10 +11,10 @@ function App() {
     }
 
     return (
-        <div className="flex flex-col items-center mt-7">
+        <div className="flex flex-col items-center">
             {/* Nome do site e barra de pesquisa */}
-            <header className="flex flex-col justify-center items-center bg-blue-50 pb-2">
-                <h1 className="main-title mb-5 font-bold bg-red-100 text-center">GitHub Repo Searcher!</h1>
+            <header className="flex flex-col justify-center items-center bg-blue-100 pb-2">
+                <h1 className="main-title mt-7 mb-5 font-bold bg-red-100 text-center">GitHub Repo Searcher</h1>
                 <SearchBar onSubmit={handleSubmit} />
             </header>
 

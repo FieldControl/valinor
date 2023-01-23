@@ -19,8 +19,8 @@ function SearchBar({ onSubmit }) {
     return (
         <div>
             <form className="flex" onSubmit={handleFormSubmit}>
-                <input className="border-2 rounded-l" value={term} onChange={handleChange} placeholder='Enter username' spellCheck={false} />
-                <button className="border font-medium p-1.5 bg-gray-200 rounded-r">Search!</button>
+                <input className="border-2 rounded-l" value={term} onChange={handleChange} placeholder='Escreva um username' spellCheck={false} />
+                <button className="border font-medium p-1.5 hover:text-white bg-blue-300 hover:bg-blue-600 rounded-r">Procurar!</button>
             </form>
         </div >
     )
