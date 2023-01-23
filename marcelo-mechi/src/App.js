@@ -1,7 +1,7 @@
 import SearchBar from "./components/SearchBar";
 import RepoList from "./components/RepoList";
 import searchRepos from './api';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
     const [repos, setRepos] = useState([]);
@@ -9,6 +9,10 @@ function App() {
     const handleSubmit = async (username) => {
         setRepos(await searchRepos(username));
     }
+
+    useEffect(() => {
+        searchRepos();
+    }, []);
 
     return (
         <div className="flex flex-col items-center">

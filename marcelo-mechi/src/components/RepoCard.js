@@ -28,7 +28,7 @@ function RepoCard({ name, description, watchers, repoUrl, stars }) {
                 </section>
 
                 {/* Botão */}
-                <div className="flex flex-row-reverse">
+                <div className="flex flex-row-reverse mt-1">
                     <a className="text-sm font-medium hover:text-white bg-gray-300 hover:bg-gray-600 rounded px-2" href={repoUrl}>
                         Visitar Repo
                     </a>
