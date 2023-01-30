@@ -1,0 +1,139 @@
+body{
+    background-color: white;
+    color: rgb(0, 60, 255);
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 70%;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+}
+
+h1{
+    font-weight: 150px;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h2{
+    font-size: 25px;
+    font-weight: 50px;
+    line-height: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h3{
+    font-size: 20px;
+    font-weight: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#titulo{
+    flex-direction: column;
+    line-height: 10px;
+}
+
+#iconefield{
+    width: 15%;
+    height: 15%;
+}
+/*
+a{
+    padding: 10px;
+    font-weight: 400px;
+    font-size: 15px;
+    color: black;
+    border: 3px solid blue;
+    border-radius: 4px;
+}*/
+
+/*a:hover{
+    color: blue;
+    transition: 0.2s all;
+}*/
+
+#navegator{
+    padding: 10px;
+    font-weight: 400px;
+    font-size: 15px;
+    color: black;
+    border: 2px solid rgb(0, 60, 255);
+    border-radius: 4px;
+}
+#navegator:hover{
+    color: rgb(0, 60, 255);
+    transition: 0.2s all;
+}
+
+#conta{
+    color: black;
+    border: 3px solid rgb(255, 4, 88);
+    padding: 10px;
+    border-radius: 4px;
+}
+#conta:hover{
+    background-color:rgb(255, 4, 88);
+    color:white;
+    transition: 0.2s all;
+}
+
+li{
+    display: inline-block;
+    margin: 10px;
+}
+
+p{
+    color: black;
+    line-height: 20px;
+    max-width: 1500px;
+}
+
+img{
+    width: 450px;
+    border-radius: 50%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+form [type="submit"]{
+    height: 50px;
+    width: 200px;
+    background-color: rgb(0, 60, 255);
+    color: white;
+    font-weight: bold;
+
+}
+form [type="submit"]:hover{
+    cursor: pointer;
+    background-color: rgb(17, 0, 255);
+}
+
+input{
+    margin-top: 20px;
+    padding: 15px;
+    height: 10px;
+    border-radius: 15px;
+    border: 1px solid rgb(0, 60, 255);
+    font-size: 15px;
+}
+
+#icones{
+    cursor: pointer;
+    margin-top: 3%;
+    flex-direction: row;
+    width: 7%;
+    height: 10%;
+}
