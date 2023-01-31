@@ -1,0 +1,28 @@
+Nome: Leonardo Vicentin Missiagia
+E-mail: leomissiagia157@gmail.com
+Telefone/WhatsApp: 17 99649-7945
+
+
+"Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou?"
+
+- Além do que já é utilizado pelo angular (JS, TS, HTML, CSS...) eu usei um pouco de boostrap, tive um pequeno problema com o rxjs e alterei a versão dele
+
+"Porque você optou pela tecnologia X e não a Y?"
+
+- Na verdade, pela pesquisa que eu fiz a grande maioria faz o uso do bootsrap e também era o que eu mais conhecia dentre as opções, então como eu ja estava botando a mão em uma tecnologia "nova" pra mim eu resolvi não "enfeitar" muito na hora de optar por tecnologias ali para complementar meu código.
+
+"Quais princípios da engenharia de software que você usou?"
+
+- Baseando-se no proposto por David Hooker, eu fiz uso e adotei a "filosofia" dos seguintes principios: o primeiro foi o famoso "KISS" tentei manter o código o mais simples possível, por ter sido um dos primeiros contatos com essa tecnlogia eu tentei ser o mais simples e funcional possível. Mantive a visão sobre ele para tentar manter tudo organizado e também lembrei do detalhe que "outras pessoas irão consumir meu código" então eu tentei adicionar observações em todos os locais em que julguei necessário para poder ajudar as pessoas a se localizar
+
+"Desafios e problemas que você enfrentou e como você resolveu"
+
+- Tive bastante dificuldade para entender o esquema do data binding dele e também das diretivas, foi um pouco confuso para mim no inicio, aliás qualquer tecnologia nova é bem confuso no inicio hehe, tentei fazer tudo da maneira mais simples possível, porém ainda sim tive que pesquisar muita coisa e recorrer ao nosso bom e velho Stack Overflow e outros.
+
+"O que você entende que pode ser melhorado e como fazer isso"
+
+- Devido alguns problemas que tive com internet e outros pessoais aqui não conseguir ter tanto tempo disponivel para poder deixar ele uma pouco mais "estiloso" e também queria mostrar uma lista com uma quantidade de resultados para ficar mais dinâmico e facilitar na busca por algo que não temos o nome exato, acredito que com mais algumas horas eu conseguiria fazer essas melhorias
+
+Sobre mim
+
+- Eu me chamo Leonardo, tenho 20 anos e moro em José Bonifácio, cidade próxima de São José do Rio Preto, atualmente estou cursando Ciência da Computação e estou no 5º Periodo, atualmente eu estou trabalhando como Suporte Técnico em uma outra empresa. Comecei a estudar e "ingressar" nessa área de 2019 a 2020, ja estava fazendo algumas calculadoras, uns sites e desde então venho cada vez mais me desafiando. Atualmente eu estou procurando uma oportunidade de emprego como desenvolvedor pra adquirir mais experiencias da área e também quero evoluir nesse ramo, vejo que trabalhando com quem entende do assunto será uma oportunidade incrível de evoluir.
