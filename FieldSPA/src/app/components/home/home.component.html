@@ -1,0 +1,52 @@
+<body>
+  <header>
+    <h1>Searching Tool</h1>
+    <h2>Sejam bem-vindos amigos Filders!</h2>
+  </header>
+    <form class="forms">
+      <div class="pesquisa">
+        <input type="text" 
+          name="pesquisa" 
+          class="barraPesquisa" 
+          [(ngModel)]="search"
+          placeholder= "O que você está prcurando?"
+          autofocus
+          required>
+        <input type="button" 
+          value="Pesquisar" 
+          class="botao"
+          (click)="repositorioResposta()">  
+      </div>
+    </form>
+    <div class="main">
+      <div class="adjust">
+        <table class="tabela" *ngFor="let repositorio of repositorios | paginate: {itemsPerPage: 5, currentPage: homePage}; let i = index">
+          <br>
+          <td class="repositorio">
+            <div class="info">
+              <div class="title">
+                <a href="{{repositorio.html_url}}">
+                  📚{{repositorio.full_name}}
+                </a>    
+              </div>
+              <div class="language">
+                <b>{{repositorio.language}}</b>
+              </div>
+              <div class="description">{{repositorio.description}}</div>
+              <div>⭐{{repositorio.stargazers_count | number}} </div>
+            </div>
+          </td>
+        </table>
+      </div>
+    </div>
+  <footer class="pages">
+    <div class="paginator">
+      <pagination-controls previousLabel="" nextLabel="" (pageChange)="homePage = $event" class="paging"></pagination-controls>
+    </div>
+    <br>
+    <div class="copyright">
+      <p>Developed by<a href="https://www.linkedin.com/in/vinicius-oliveira-026492247/" target="blank">Vinicius Oliveira </a></p>
+    </div>
+  </footer>
+  
+  </body>

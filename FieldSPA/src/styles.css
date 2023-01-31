@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+.ngx-pagination a span, a::after, a::before,.pagination-previous.disabled::before{
+    color: aliceblue;
+    border-radius: 2px;
+}
+   
+.ngx-pagination{
+    text-align: center;
+    position: flex;
+    border: 1px solid rgb(3, 70, 128);
+    padding: 0;
+    margin-top: 2em;
+    margin-bottom: 0rem;
+    background-color: rgb(3, 70, 128);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.ngx-pagination nav{
+    width: 20px;
+}
+
+
+.main{
+    position: flex;
+    min-height: 28.7em;;  
+}
+

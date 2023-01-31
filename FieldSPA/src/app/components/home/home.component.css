@@ -1,0 +1,83 @@
+*{
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+body{
+    background-color: rgb(5, 24, 49);
+    color: aliceblue;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    
+}
+
+.forms, main, .copyright{
+    text-align: center;
+    position: flex;
+    
+}
+
+.pesquisa{
+    width: 100%;
+}
+
+.barraPesquisa{
+    width: 40em;
+    outline: none;
+}
+
+.barraPesquisa:focus{
+    background-color: rgb(231, 233, 255);
+}
+
+.botao{
+    background: rgb(16, 24, 129);
+    border-color: rgba(240, 248, 255, 0);
+    color: aliceblue;
+    cursor: pointer;
+    transition: .2s;
+    
+}
+
+.botao:hover{
+    background: rgb(37, 27, 177) ;
+}
+
+
+h1, h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabela{
+    border: 1px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: -3px;
+    box-shadow: 0 0 5px rgb(6, 17, 31);
+    background-color:rgb(6, 30, 61); ;
+    max-width: 80em;
+}
+
+.adjust{
+    margin-left: 15%;
+    margin-right: 10%;
+    
+}
+
+.pages a, .title a{
+    color: rgb(154, 208, 255);
+    text-decoration: none;
+    transition: .2s;
+    
+}
+
+.pages :hover, .title a:hover, .title a{
+    color: aliceblue;
+}
+
+.paginator {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
