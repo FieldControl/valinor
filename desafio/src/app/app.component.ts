@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GithubService } from './shared/service/github.service';
 import { IRepo } from './shared/model/IRepo';
-import { faStar, faEye, faCircleDot } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faEye, faCircleDot } from '@fortawesome/free-solid-svg-icons'; // importação dos ícones de stars, watchers e issues
 
 
 @Component({
@@ -12,42 +11,23 @@ import { faStar, faEye, faCircleDot } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent{
 
+  // criação dos ícones a ser utilizados para stars, issues e watchers
   faStar = faStar;
   faEye = faEye;
   faCircleDot = faCircleDot;
 
-  repos: IRepo[] = [];
+  repos: IRepo[] = []; // criação de um array do tipo repo (resposta com atributos do repositório) para ser utilizado na chamada no html
 
 
   constructor(public githubSearch: GithubService){}
 
 
-  getRepos(keyword: string){
+  getRepos(keyword: string){ // função que retorna os dados dos repositórios no array criado
     this.githubSearch.searchRepobyKeyword(keyword).subscribe(
       data => {
-        this.repos = data.items;
-        console.log(this.repos)
-        console.log(data)
+        this.repos = data.items; // atribui o valor dos dados ao array
+        console.log(this.repos) // console.log do valor contido no array de repositórios
       }
     )
   }
-
-  /*public async searchRepos(keyword: string){
-
-    this.githubSearch.searchRepobyKeyword(keyword)
-      .subscribe(result=>{
-        console.log(result);
-      });
-  }*/
-
-  /*public async buscaGithub(searchTerm: string){
-    let url : string = `https://api.github.com/search/repositories?q=${searchTerm}`
-
-    const req = this.http.get<any>(url);
-    req.subscribe(result=>{
-      console.log(result)
-    });
-
-  }*/
-
 }

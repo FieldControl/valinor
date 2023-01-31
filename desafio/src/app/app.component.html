@@ -14,6 +14,7 @@
       <div class="container"> <!-- /container -->
         <div class="nav"> <!-- /nav -->
           <div class="input-group p-3"> <!-- /input group -->
+            <!-- aqui é criado o input text para digitar a pesquisa e o botão para chamar a função -->
             <input id="keyword" name="keyword" placeholder="Qual repositório deseja buscar?" #keyword class="form-control">
             <button (click)="getRepos(keyword.value)" class="btn btn-secondary btn-lg">Buscar</button>
           </div> <!-- /input group -->
@@ -21,55 +22,50 @@
       </div> <!-- /container -->
     </header> <!-- /header -->
 
-    <section>
+    <section> <!-- /section -->
+      <!-- nessa section, é utilizado um ngfor para imprimir o número de cards recebidos em resposta para a função
+      getRepos() chamada no clique do botão. Ela retorna um array contendo tipos IRepo (modelo criado para os repositórios)
+      e aqui é colocado para imprimir um card para cada item nesse array -->
+      <!--
+        Não consegui implementar a paginação corretamente, então ele imprime apenas os 30 primeiros resultados :/ )
+      -->
+        <ul *ngFor="let item of repos" class="list-group"> <!-- /ul -->
+          <li class="list-group-item p-2 mb-2"> <!-- /li -->
+            <div class="row p-2 mt-2">  <!-- /row -->
+              <div id="title" class="mt-3 title-bg"> <!-- /title -->
+                <a href="{{ item.html_url }}" style="text-decoration: none;"><h4 class="title-text">{{ item.name }}</h4></a>
+              </div> <!-- /title -->
+            </div> <!-- /row -->
 
-      <!--<div *ngFor="let item of repos">
-          <div class="card">
-            {{ repos.name }}
-            {{ repos.desc }}
-          </div>
-          <div>
-            <p></p>
-          </div>
-        </div> -->
-
-        <ul *ngFor="let item of repos" class="list-group">
-          <li class="list-group-item p-2 mb-2">
-            <div class="row p-2 mt-2">
-              <div id="title" class="mt-3 title-bg">
-                <h4 class="title-text">{{ item.name }}</h4>
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div id="desc" class="text-secondary">
+            <div class="row mt-2"> <!-- /title -->
+              <div id="desc" class="text-secondary">  <!-- /description -->
                 <p>{{ item.description }}</p>
-              </div>
-            </div>
-            <div id="url" class="row link-info mt-2">
+              </div> <!-- /description -->
+            </div> <!-- /title -->
+            <div id="url" class="row link-info mt-2"> <!-- /url -->
               <a href="{{ item.html_url }}">{{ item.html_url }}</a>
-            </div>
-            <div class="row mt-2">
-              <div class="col-md-4 divisor">
+            </div> <!-- /url -->
+            <div class="row mt-2"> <!-- /row -->
+              <div class="col-md-4 divisor"> <!-- /stars -->
                 <span id="stars">
-                  <fa-icon [icon]="faStar"></fa-icon> {{ item.score }}
+                  <fa-icon [icon]="faStar" title="Estrelas"></fa-icon> {{ item.score }}
                 </span>
-              </div>
-              <div class="col-md-4 divisor">
+              </div> <!-- /stars -->
+              <div class="col-md-4 divisor"> <!-- /watchers -->
                 <span id="watchers">
-                  <fa-icon [icon]="faEye"></fa-icon> {{ item.watchers }}
+                  <fa-icon [icon]="faEye" title="Watchers"></fa-icon> {{ item.watchers }}
                 </span>
-              </div>
-              <div class="col-md-4 divisor">
+              </div> <!-- /watchers -->
+              <div class="col-md-4 divisor"> <!-- /issues -->
                 <span id="issues">
-                  <fa-icon [icon]="faCircleDot"></fa-icon> {{ item.open_issues }}
+                  <fa-icon [icon]="faCircleDot" title="Issues"></fa-icon> {{ item.open_issues }}
                 </span>
-              </div>
+              </div> <!-- /issues -->
 
-            </div>
-          </li>
-        </ul>
-    </section>
+            </div> <!-- /row -->
+          </li>  <!-- /li -->
+        </ul> <!-- /ul -->
+    </section> <!-- /section -->
 
 
     <!-- js do bootstrap -->

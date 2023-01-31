@@ -1,29 +1,18 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { IRepo } from '../model/IRepo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubService {
 
-  apiUrl = 'https://api.github.com/search/repositories'
+  apiUrl = 'https://api.github.com/search/repositories' // url da api para busca de respositórios
 
-  /*httpOptions = {
-    headers: new this.httpHeaders({
-      'Content-type': 'Application/json'
-    })
-  };*/
 
   constructor(private httpClient: HttpClient) { }
 
-  searchRepobyKeyword(keyword: string){
-    return this.httpClient.get<any>(`${this.apiUrl}` + `?q=` + keyword);
+  searchRepobyKeyword(keyword: string){ // função de busca de repositórios por palavra chave recebida no input text
+    return this.httpClient.get<any>(`${this.apiUrl}` + `?q=` + keyword); // retorno de um tipo any com vários atributos
   }
-
-  /*public getRepoByKeyword(keyword: string): Observable<responseRepo>{
-    return this.httpClient.get<responseRepo>(this.apiUrl + '?q=' + keyword);
-  }*/
 
 }
