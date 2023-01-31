@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, Aial, sans-serif;
+}
+
+header, section {
+  background: linear-gradient(50deg,#9370DB,#FF8C00);
+}
+
+header {
+  border-bottom: 1px solid gray;
+}
+
+.title-bg{
+  background: #FAEBD7;
+}
+
+.title-text{
+  color: #8b008b;
+}
+
+#url a {
+  color: #4b0082;
+}
+
+#url a:visited {
+  color: #4b0082;
+}
+
+.divisor {
+  border-left: 1px solid gray;
+}
