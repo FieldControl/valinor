@@ -1,13 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
   font-family: Helvetica, Aial, sans-serif;
 }
 
-header, section {
+header, section, footer {
   background: linear-gradient(50deg,#9370DB,#FF8C00);
 }
 

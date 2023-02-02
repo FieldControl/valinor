@@ -66,6 +66,24 @@
           </li>  <!-- /li -->
         </ul> <!-- /ul -->
     </section> <!-- /section -->
+    <footer> <!-- /footer -->
+      <div class="row p-2"> <!-- /row -->
+        <span class="col-md-4"></span>  <!-- /span vazio -->
+        <span class="col-md-1"> <!-- /botão primeira página -->
+          <button (click)="getRepos(keyword.value)" class="btn btn-secondary"><fa-icon [icon]="faCircleChevronLeft" title="Primeira página"></fa-icon></button>
+        </span> <!-- /botão primeira página -->
+        <span class="col-md-1"> <!-- /botão página anterior -->
+          <button (click)="getReposPrevPage(keyword.value)" class="btn btn-secondary"><fa-icon [icon]="faCircleLeft" title="Página anterior"></fa-icon></button>
+        </span> <!-- /botão página anterior -->
+        <span class="col-md-1"> <!-- /botão próxima página -->
+          <button (click)="getReposNextPage(keyword.value)" class="btn btn-secondary"><fa-icon [icon]="faCircleRight" title="Próxima página"></fa-icon></button>
+        </span> <!-- /botão próxima página -->
+        <span class="col-md-1"> <!-- /botão última página -->
+          <button (click)="getReposLastPage(keyword.value)" class="btn btn-secondary"><fa-icon [icon]="faCircleChevronRight" title="Última página"></fa-icon></button>
+        </span> <!-- /botão última página -->
+        <span class="col-md-4"></span>  <!-- /span vazio -->
+      </div> <!-- /row -->
+    </footer> <!-- /footer -->
 
 
     <!-- js do bootstrap -->
