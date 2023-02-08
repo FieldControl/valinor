@@ -1,0 +1,5 @@
+
+<app-search (search)='onSearch($event)'></app-search>
+<app-results *ngIf="items && items.length > 0" [currentPage]="currentPage" [numOfPages]="numOfPages" [sortDirection]="sortDirection" (sort)="onSort($event)" (page)='onPage($event)' [items]='items'></app-results>
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+<!-- <router-outlet></router-outlet> -->

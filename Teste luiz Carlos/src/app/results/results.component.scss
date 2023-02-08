@@ -1,0 +1,47 @@
+.container {
+
+  @media (min-width: 768px) {
+    width: 60%;
+    margin: 5px auto;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  .table {
+    .avatar {
+      cursor: default;
+      width: 100px;
+      @media (min-width: 768px) {
+        width: 200px;
+      }
+    }
+    .sort {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      &.login {
+        width: 160px;
+        @media (min-width: 768px) {
+          max-width: 100%;
+        }
+      }
+      &.type {
+        width: 100px;
+        @media (min-width: 768px) {
+          max-width: 100%;
+        }
+      }
+      img {
+        width: 20px;
+        height: 20px;
+        margin: 5px 30px;
+      }
+    }
+    th {
+      cursor: pointer;
+    }
+  }
+}

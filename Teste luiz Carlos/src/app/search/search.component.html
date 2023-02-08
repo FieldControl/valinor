@@ -1,0 +1,3 @@
+<form (ngSubmit)="onSubmit($event)">
+  <input class="form-control" placeholder="Search" type="text" (input)='onInput($any($event).target.value)' >
+</form>

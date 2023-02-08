@@ -1,0 +1,52 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="avatar">
+          Avatar
+        </th>
+        <th (click)="onSort('login')">
+          <div class="sort login">
+            <div>Login</div>
+            <div>
+              <img *ngIf="!getSortDirection('login')" src='assets/icons/upward.svg'>
+              <img *ngIf="getSortDirection('login')" src='assets/icons/downward.svg'>
+            </div>
+          </div>
+        </th>
+        <th (click)="onSort('type')">
+          <div class="sort type">
+            <div>Type</div>
+            <div>
+              <img *ngIf="!getSortDirection('type')" src='assets/icons/upward.svg'>
+              <img *ngIf="getSortDirection('type')" src='assets/icons/downward.svg'>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>
+          <img [src]='item.avatar_url'>
+        </td>
+        <td>
+          {{ item.login }}
+        </td>
+        <td>
+          {{ item.type }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]='currentPage === 1'><a class="page-link" href="#"
+          (click)="onPrev()">Previous</a></li>
+      <li class="page-item" [class.active]='currentPage === (i + 1)' *ngFor="let page of pages; let i = index;"
+        (click)='onPage(i + 1)'><a class="page-link" href="#">{{ i + 1}}</a></li>
+      <li class="page-item" [class.disabled]='currentPage === pages.length'><a class="page-link" href="#"
+          (click)="onNext()">Next</a></li>
+    </ul>
+  </nav>
+</div>
