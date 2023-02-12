@@ -1,0 +1,46 @@
+version: '3.7'
+
+name: 'Url Analyzer Service'
+
+services:
+  postgres:
+    build: ./docker/postgresql
+    container_name: 'url-analyzer-postgres'
+    environment:
+      POSTGRES_USER: 'url-analyzer'
+      POSTGRES_PASSWORD: 'admin'
+      POSTGRES_DB: 'url-analyzer'
+    volumes:
+      - url-analyzer-postgres-data:/var/lib/postgresql/data
+    expose:
+      - '5432'
+    ports:
+      - '127.0.0.1:3535:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U url-analyzer']
+      interval: 10s
+      timeout: 5s
+    restart: unless-stopped
+
+  redis:
+    image: 'redis/redis-stack-server:latest'
+    container_name: 'url-analyzer-redis'
+    expose:
+      - '6379'
+    ports:
+      - '127.0.0.1:9898:6379'
+    environment:
+      REDIS_ARGS: '--requirepass admin --save 300 1 --appendonly yes'
+    volumes:
+      - 'url-analyzer-redis-data:/data'
+    healthcheck:
+      test: ['CMD-SHELL', 'redis-cli ping']
+      interval: 10s
+      timeout: 5s
+    restart: unless-stopped
+
+volumes:
+  url-analyzer-postgres-data:
+    name: 'url-analyzer-postgres-data'
+  url-analyzer-redis-data:
+    name: 'url-analyzer-redis-data'

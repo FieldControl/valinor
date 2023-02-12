@@ -1,0 +1,28 @@
+{
+	"name": "url_analyzer_client",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"api:dev": "yarn workspace url_analyzer_api run dev",
+		"client:dev": "yarn workspace url_analyzer_app run dev",
+		"start:dev": "yarn api:dev & yarn client:dev",
+		"api:build": "yarn workspace url_analyzer_api run build",
+		"client:build": "yarn workspace url_analyzer_app run build",
+		"build": "yarn api:build && yarn client:build",
+		"lint": "prettier --check . && eslint . ",
+		"format": "prettier --write . && eslint . --fix"
+	},
+	"dependencies": {
+		"kleur": "^4.1.5",
+		"typescript": "4.9.4"
+	},
+	"devDependencies": {
+		"eslint": "8.32.0",
+		"eslint-config-neon": "^0.1.40",
+		"prettier": "^2.8.3"
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"packageManager": "yarn@3.3.0"
+}

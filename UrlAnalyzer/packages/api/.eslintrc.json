@@ -1,0 +1,14 @@
+{
+	"root": true,
+	"parserOptions": {
+		"project": "./tsconfig.eslint.json"
+	},
+	"ignorePatterns": ["**/dist/*"],
+	"env": {
+		"jest": true
+	},
+	"extends": ["../../.eslintrc.json", "neon/common", "neon/node", "neon/typescript", "neon/prettier"],
+	"rules": {
+		"@typescript-eslint/consistent-type-definitions": ["error", "interface"]
+	}
+}

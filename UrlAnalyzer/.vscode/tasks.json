@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "cd",
+			"args": ["packages/api;", "yarn", "build"],
+			"group": "build",
+			"presentation": {
+				"reveal": "always"
+			}
+		}
+	]
+}

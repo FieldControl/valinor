@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;900&display=swap');
+
+:root {
+	background-color: #121212;
+}
+
+.load {
+	animation: load-gauge 1s ease-in-out forwards;
+}
+
+@keyframes load-gauge {
+	from {
+		stroke-dasharray: 0 360;
+	}
+}
+
+@keyframes pulse {
+	50% {
+		opacity: 0.5;
+	}
+}
+.fast-animate-pulse {
+	animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

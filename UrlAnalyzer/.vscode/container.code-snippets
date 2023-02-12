@@ -1,0 +1,20 @@
+{
+	"Sql": {
+		"scope": "typescript",
+		"prefix": "containerSql",
+		"body": ["const sql = container.resolve<Sql<any>>(kSQL);"],
+		"description": "Resolve Sql from the container"
+	},
+	"Redis": {
+		"scope": "typescript",
+		"prefix": "containerRedis",
+		"body": ["const redis = container.resolve<Redis>(kRedis);"],
+		"description": "Resolve Redis from the container"
+	},
+	"Express": {
+		"scope": "typescript",
+		"prefix": "containerExpress",
+		"body": ["const express = container.resolve<Express>(kExpress);"],
+		"description": "Resolve Express from the container"
+	}
+}
