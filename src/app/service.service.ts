@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class apiService {
-  agents = [];
+  agents:any = [];
 
   constructor(private http: HttpClient) {
     this.loadAgents();
@@ -15,7 +15,9 @@ export class apiService {
     const requisicao = await this.http
       .get<any>('https://valorant-api.com/v1/agents')
       .toPromise();
-    this.agents = (requisicao.data);
-    console.log(this.agents)
-  }
+    const agents = (requisicao.data);
+    agents.splice(7,1)
+    this.agents = agents;
+    }
+  
 }
