@@ -1,8 +1,8 @@
-<div>
-  <div *ngFor="let agent of apiService.agents">
+<div class="container">
+  <div class="card" *ngFor="let agent of apiService.agents">
     <img src="{{ agent.displayIcon }}" alt="" srcset="" />
     <h2>{{ agent.displayName }}</h2>
-    <div>
+    <div class="container-role">
         <img src="{{ agent.role.displayIcon }}" alt="" srcset="">
       <h3>{{ agent.role.displayName }}</h3>
     </div>
