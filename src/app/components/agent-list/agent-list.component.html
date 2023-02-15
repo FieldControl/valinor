@@ -3,9 +3,13 @@
     <img src="{{ agent.displayIcon }}" alt="" srcset="" />
     <h2>{{ agent.displayName }}</h2>
     <div class="container-role">
-        <img src="{{ agent.role.displayIcon }}" alt="" srcset="">
+      <img src="{{ agent.role.displayIcon }}" alt="" srcset="" />
       <h3>{{ agent.role.displayName }}</h3>
     </div>
-    <p></p>
+    <div class="agent-skills">
+      <div *ngFor="let abilitie of apiService.agents.abilities">
+          <p>{{ agent.abilities.displayName }}</p>
+      </div>
+    </div>
   </div>
 </div>
