@@ -1,6 +1,11 @@
 <div class="container">
   <div class="card" *ngFor="let agent of apiService.agents">
-    <img src="{{ agent.displayIcon }}" alt="" srcset="" />
-    <h2>{{ agent.displayName }}</h2>
+    <div class="background" style="background-image: url({{agent.background}}) ;">
+      <div class="content">
+      <img src="{{ agent.fullPortrait }}" alt="" srcset="" />
+      <h2>{{ agent.displayName }}</h2>
+      <p>Função: {{ agent.role.displayName }}</p>
+    </div>
+    </div>
   </div>
 </div>

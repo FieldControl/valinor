@@ -1,0 +1,26 @@
+.hidden{
+    opacity: 1;
+}
+
+.picker{
+    padding-top: 5rem;
+    text-align: center;
+    ul{
+        gap: 2rem;
+        margin: 0 20%;
+        padding-top: 5rem;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+    }
+    .card{
+        border-radius: 1.3rem;
+        width: 275px;
+        height: 375px;
+        background-color: #a7a7a7;
+        h2{
+            padding-top: 3rem;
+        }
+    }
+}

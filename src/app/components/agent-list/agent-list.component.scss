@@ -1,21 +1,27 @@
 .container{
+    margin-top: 8rem;
     display: flex;
     flex-wrap: wrap;
 }
-
+.background{
+    opacity: .3;
+    background-size: cover;
+}
 .card{
     max-width: 400;
     max-height: 300;
     border-radius: 1.2rem;
-    background: rgb(50,3,140);
-    background: linear-gradient(90deg, rgba(50,3,110,.8) 0%, rgba(128,15,24,.8) 49%, rgba(255,0,153,.8) 100%);
+    background: rgb(20,140,220);
     text-align: center;
     align-items: center;
     margin: 10px;
     padding: 20px;
     img{
         mix-blend-mode:normal;
-        max-width: 400px;
+        max-width: 200px;
         border-radius: 1rem;
+    }
+    .content{
+        opacity: 1;
     }
 }
