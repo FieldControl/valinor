@@ -7,12 +7,12 @@ import { HttpClient } from '@angular/common/http';
 export class apiService {
   bundles: any = [];
   agents: any = [];
-  weapons: any = [];
+  skins: any = [];
 
   constructor(private http: HttpClient) {
     this.loadBundles();
     this.loadAgents();
-    this.loadWeapons();
+    this.loadSkins();
   }
 
   async loadBundles() {
@@ -30,11 +30,12 @@ export class apiService {
     this.agents = agents;
     console.log(this.agents)
   }
-  async loadWeapons() {
+  async loadSkins() {
     const requisicao = await this.http
-      .get<any>('https://valorant-api.com/v1/bundles/?language=pt-BR')
+      .get<any>('https://valorant-api.com/v1/weapons/skins/?language=pt-BR')
       .toPromise();
-    const weapons = requisicao.data;
-    this.weapons = weapons;
+    const skins = requisicao.data;
+    this.skins = skins;
+    console.log(skins)
   }
 }

@@ -1,0 +1,21 @@
+<div class="container-master">
+    <div class="container">
+      <h1>Agentes</h1>
+      <div class="agents-list">
+        <div class="card" *ngFor="let skin of pageSlice">
+            <div class="content">
+              <h2>{{ skin.displayName }}</h2>
+              <img src="{{ skin.displayIcon }}" alt="" srcset="" />
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-controller">
+      <mat-paginator [length]="this.apiService.skins.length"
+                     [pageSize]="10"
+                     [hidePageSize]="true"
+                     [ngStyle]=""
+                     (page)="OnPageChange($event)">
+      </mat-paginator>
+    </div>
+  </div>

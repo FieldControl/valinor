@@ -11,6 +11,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ChooseComponent } from './components/choose/choose.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SkinListComponent } from './components/skin-list/skin-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BundleListComponent,
     HeaderComponent,
     CarouselComponent,
-    ChooseComponent
+    ChooseComponent,
+    SkinListComponent
   ],
   imports: [
     BrowserModule,
