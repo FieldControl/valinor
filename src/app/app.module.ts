@@ -9,6 +9,8 @@ import { BundleListComponent } from './components/bundle-list/bundle-list.compon
 import { HeaderComponent } from './components/header/header.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ChooseComponent } from './components/choose/choose.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ChooseComponent } from './components/choose/choose.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [apiService],
   bootstrap: [AppComponent]

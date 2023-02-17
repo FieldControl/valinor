@@ -1,8 +1,12 @@
 .container{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
-
+.card-list{
+    display: flex;
+    min-height: 30vh;
+    margin: 0 auto;
+}
 .card{
     max-width: 400;
     max-height: 300;
@@ -18,4 +22,7 @@
         max-width: 400px;
         border-radius: 1rem;
     }
+}
+.page-controller{
+    margin: 0 auto;
 }

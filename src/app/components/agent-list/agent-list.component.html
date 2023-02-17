@@ -1,11 +1,24 @@
-<div class="container">
-  <div class="card" *ngFor="let agent of apiService.agents">
-    <div class="background" style="background-image: url({{agent.background}}) ;">
-      <div class="content">
-      <img src="{{ agent.fullPortrait }}" alt="" srcset="" />
-      <h2>{{ agent.displayName }}</h2>
-      <p>Função: {{ agent.role.displayName }}</p>
+<div class="container-master">
+  <div class="container">
+    <h1>Agentes</h1>
+    <div class="agents-list">
+      <div class="card" *ngFor="let agent of pageSlice">
+        <div class="background" style="background-image: url({{agent.background}}) ;">
+          <div class="content">
+            <img src="{{ agent.fullPortrait }}" alt="" srcset="" />
+            <h2>{{ agent.displayName }}</h2>
+            <p>Função: {{ agent.role.displayName }}</p>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
+  </div>
+  <div class="page-controller">
+    <mat-paginator [length]="this.apiService.agents.length"
+                   [pageSize]="5"
+                   [hidePageSize]="true"
+                   [ngStyle]=""
+                   (page)="OnPageChange($event)">
+    </mat-paginator>
   </div>
 </div>
