@@ -1,0 +1,25 @@
+Resultados para: {{ repo }}
+
+<div ng-repeat="items in resultados">
+   <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a class="panel-title" href=" {{items.html_url}} ">{{ items.full_name }}</a>
+                </div>
+                <div class="panel-body">
+                    <p>Nome: {{ items.full_name }}</p>
+                    
+                    <p>{{ items.description }}</p>
+
+                    <p>Stars:  {{ items.stargazers_count }} Forks: {{items.forks_count }} {{ items.language }}</p>
+                    <p> Issues: {{ items.open_issues_count }} {{ items.license.name }}</p>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+<div>
+    <button ng-click="previous()">Previous page</button> <button ng-click="next()">Next page</button>
+</div>
+
