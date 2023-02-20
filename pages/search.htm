@@ -1,25 +1,37 @@
-Resultados para: {{ repo }}
+
+    <p style="color: whitesmoke">Resultados para: {{ repo }}</p>
 
 <div ng-repeat="items in resultados">
    <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary" style="background-color: rgb(154, 113, 182);">
+                
+                
                 <div class="panel-heading">
-                    <a class="panel-title" target="_blank" href=" {{items.html_url}} ">{{ items.full_name }}</a>
+                    <a class="panel-title" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" target="_blank" href=" {{items.html_url}} ">{{ items.full_name }}</a>
                 </div>
                 <div class="panel-body">
-                    <p>Nome: {{ items.full_name }}</p>
+                    <div style="width: 100%; overflow: hidden;">
+                        <div style="width: 100px;color: lightgray; float: left;"><img src="{{items.owner.avatar_url}}" class=".img-responsive" style="height: 128px"alt="Avatar URL" class="img-circle"></div>
+                        <div style="margin-left: 143px;">
+                            <h4 style="color: lightgray">{{ items.full_name }}</h4>
                     
-                    <p>{{ items.description }}</p>
+                            <p>{{ items.description }}</p>
+        
+                            <p>Stars:  {{ items.stargazers_count }} Forks: {{items.forks_count }} {{ items.language }}</p>
 
-                    <p>Stars:  {{ items.stargazers_count }} Forks: {{items.forks_count }} {{ items.language }}</p>
-                    <p> Issues: {{ items.open_issues_count }} {{ items.license.name }}</p>
+                            <p> Issues: {{ items.open_issues_count }} {{ items.license.name }}</p>
+                        </div>
+                   </div>
+                
                 </div>
             </div>
         </div>
    </div>
 </div>
 <div>
-    <button class="btn btn-warning" id="previousBtn" ng-click="previous()" >Previous page</button> <button class="btn btn-success" ng-click="next()">Next page</button>
+    <ul class="pager">
+        <li><button id="previousBtn" ng-click="previous()" style="width: 100px;">Previous</button></li>
+        <li><button ng-click="next()" style="width: 100px;">Next</button></li>
+      </ul>
 </div>
-
