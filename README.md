@@ -1,14 +1,14 @@
 # Informações Básicas
-Esse projeto foi gerado utilizando [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+Esse projeto foi gerado utilizando AngularJS
 
 ## Iniciar server de desenvolvimento
 
-Para iniciar o server, digitar ng serve no terminal e no navegador carregar o seguinte link: `http://localhost:4200/`.
+Para iniciar o server de desenvolvimento, usamos a extensão do VSCode chamada "Live Server" [ID: ritwickdey.LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
-## Running unit tests
+## Procurar repositório
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para procurar o repositório basta digitar o nome do mesmo na caixa de busca e clicar em Procurar.
+Após clicar você será levado para uma página com os repositórios e dois botões: Next e Previous page.
+Os botões respectivamente te mostram os próximos 30 ou anteriores 30 repositórios pesquisados.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 

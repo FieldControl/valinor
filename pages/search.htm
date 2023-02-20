@@ -5,7 +5,7 @@ Resultados para: {{ repo }}
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a class="panel-title" href=" {{items.html_url}} ">{{ items.full_name }}</a>
+                    <a class="panel-title" target="_blank" href=" {{items.html_url}} ">{{ items.full_name }}</a>
                 </div>
                 <div class="panel-body">
                     <p>Nome: {{ items.full_name }}</p>
@@ -20,6 +20,6 @@ Resultados para: {{ repo }}
    </div>
 </div>
 <div>
-    <button ng-click="previous()">Previous page</button> <button ng-click="next()">Next page</button>
+    <button class="btn btn-warning" id="previousBtn" ng-click="previous()" >Previous page</button> <button class="btn btn-success" ng-click="next()">Next page</button>
 </div>
 
