@@ -30,7 +30,7 @@ repoSearcher.config(function ($routeProvider) {
 //Esse serviço simplesmente seta o valor inicial de repo como vazio
 repoSearcher.service('repoService', function() {
    
-    this.repo = "";
+    this.repo = "teste";
     
 });
 

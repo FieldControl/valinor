@@ -1,26 +1,31 @@
 
     <p style="color: whitesmoke">Resultados para: {{ repo }}</p>
 
+
 <div ng-repeat="items in resultados">
    <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-primary" style="background-color: rgb(154, 113, 182);">
-                
-                
-                <div class="panel-heading">
-                    <a class="panel-title" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" target="_blank" href=" {{items.html_url}} ">{{ items.full_name }}</a>
-                </div>
+            <div class="panel panel-primary" style="background-color: rgba(255, 255, 255,10%); border-color: rgb(255, 255, 255);">
                 <div class="panel-body">
-                    <div style="width: 100%; overflow: hidden;">
-                        <div style="width: 100px;color: lightgray; float: left;"><img src="{{items.owner.avatar_url}}" class=".img-responsive" style="height: 128px"alt="Avatar URL" class="img-circle"></div>
-                        <div style="margin-left: 143px;">
-                            <h4 style="color: lightgray">{{ items.full_name }}</h4>
-                    
-                            <p>{{ items.description }}</p>
-        
-                            <p>Stars:  {{ items.stargazers_count }} Forks: {{items.forks_count }} {{ items.language }}</p>
+                    <div>
+                        <div>
+                            <img src="{{items.owner.avatar_url}}" class="" style="width: 190px; height: auto; float:left;" alt="Avatar URL">
+                        </div>
 
-                            <p> Issues: {{ items.open_issues_count }} {{ items.license.name }}</p>
+                        <div>
+                            <ul class="nav nav-pills nav-stacked" style="margin-left: 220px;">
+                                <li style="background-color: rgba(139, 139, 139, 0%); padding-bottom: 0px" class="">
+                                  <a target="_blank" style="color: rgb(255, 255, 255);"href="{{items.html_url}}">
+                                    <span class="badge pull-right" style="border-radius: 10%;"><span class="glyphicon glyphicon-star"></span> {{ items.stargazers_count }} </span>
+                                    {{ items.full_name }}
+                                  </a>
+                                </li>
+                                <hr style="background-color: grey; width: 100%; border: 2px solid      rgb(126, 128, 126);
+                                border-radius: 2px;">
+                                <li style="color:rgb(255, 255, 255); padding-top: 7px; padding-left: 15px;">{{ items.description }}</li>
+                                <li style="color:rgb(255, 255, 255); font-size: 15px; padding-left: 15px;">Forks: {{items.forks_count }} {{ items.language }}</li>
+                                <li style="color:rgb(255, 255, 255); font-size: 15px; padding-left: 15px;"> Issues: {{ items.open_issues_count }} {{ items.license.name }}</li>
+                            </ul>
                         </div>
                    </div>
                 
