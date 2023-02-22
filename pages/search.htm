@@ -1,53 +1,85 @@
+<!-- First text -->
+<p style="text-align: center;  color: rgb(15, 169, 241); margin-bottom: 20px; margin-top: 75px;">Results to: {{ repo }}</p>
 
-<p style="text-align: center;  color: rgb(15, 169, 241)">Resultados para: {{ repo.toUpperCase() }}</p>
-
-
+<!-- ng-repeat to repeat the 30 results in the same form -->
 <div ng-repeat="items in resultados">
    <div class="row">
         <div class="col-md-12">
+            <!-- Panel -->
             <div class="panel panel-primary" style="background-color: rgba(255, 255, 255, 0%); border-color:rgba(15, 169, 241, 30%); border-radius: 10px;">
                 <div class="panel-body" style="height:150px;">
                     <div>
+                        <!-- User's avatar (who build the repository)-->
                         <div>
-                            <img src="{{items.owner.avatar_url}}" class="" style="width: 120px; height: auto; float:left; border-radius: 10px;" alt="Avatar URL">
+                            <a target="_blank" href="{{items.html_url}}"><img src="{{items.owner.avatar_url}}" class="" style="width: 120px; height: auto; float:left; border-radius: 10px;" alt="Avatar URL"></a>
                         </div>
-
+                        
                         <div>
                             <ul class="nav nav-pills nav-stacked" style="margin-left: 140px;">
+                                <!-- Clickable name from repository -->
                                 <a target="_blank" style="color: rgb(15, 169, 241);"href="{{items.html_url}}">
                                     {{ items.full_name }}
                                 </a>
-                                
+                                <!-- Description from repository -->
                                 <li style="color:rgb(255, 255, 255); padding-top: 5px; font-size: 14px;">
                                     {{ items.description }}
                                 </li>
 
-                                <div><span class="badge pull-left" style="border-radius: 100px; margin: 0 auto; position: absolute;
-                                bottom: 40px; margin-left: 0%">
-                                    <li title="Forks" style="color:rgb(255, 255, 255); font-size: 14px; font-weight: 100;">
-                                         Forks: {{items.forks_count }}
-                                    </li>
-
-                                </span>
+                                <div>
+                                    <!-- Stars count badge with svg and number -->
+                                    <a target="_blank" style="color: rgb(15, 169, 241);"href="{{ items.html_url }}/stargazers">
+                                    <span title="Stars" class="badge pull-left" style="border-radius: 100px; margin: 0 auto; position: absolute;
+                                    bottom: 40px; margin-left: 0%;">
+                                    <img style="display: inline-block; vertical-align: middle;"src="svgs/ic_outline-star-outline.svg">
+                                        <li  style="color:rgb(255, 255, 255); font-size: 14px; font-weight: 100; display: inline-block; vertical-align: middle;">
+                                             {{ items.stargazers_count }}
+                                        </li>
+    
+                                    </span>
+                                </a>
                                 </div>
 
                                 <div>
-                                <span class="badge pull-left" style="border-radius: 100px; margin: 0 auto; position: absolute;
-                                bottom: 40px; margin-left: 10%;">
-                                    <li title="Issues" style="color:rgb(255, 255, 255); font-size: 14px; font-weight: 100;">
-                                        Issues: {{ items.open_issues_count }}
+                                    <!-- Forks count badge with svg and number -->
+                                    <a target="_blank" style="color: rgb(15, 169, 241);"href="{{ items.html_url }}/fork">
+                                    <span title="Forks" class="badge pull-left" style="border-radius: 100px; margin: 0 auto; position: absolute;
+                                bottom: 40px; margin-left: 10%">
+                                    <img style="display: inline-block; vertical-align: middle;"src="svgs/ph_git-fork-light.svg">
+                                    <li  style="color:rgb(255, 255, 255); font-size: 14px; font-weight: 100; display: inline-block; vertical-align: middle;">
+                                         {{items.forks_count }}
                                     </li>
 
                                 </span>
+                            </a>
+                                </div>
+
+                                <div>
+                                    <!-- Issues count badge with svg and number. IMPORTANT: the number showing are not the opened issues counter, but the sum of: open issues and pull requests-->
+                                    <a target="_blank" style="color: rgb(15, 169, 241);"href="{{ items.html_url }}/issues">
+                                        <span title="Issues" class="badge pull-left" style="border-radius: 100px; margin: 0 auto; position: absolute;
+                                        bottom: 40px; margin-left: 20%;">
+                                        <img style="display: inline-block; vertical-align: middle;"src="svgs/octicon_issue-opened-16.svg">
+                                        <li style="color:rgb(255, 255, 255); font-size: 14px; font-weight: 100; display: inline-block; vertical-align: middle;">
+                                             {{ items.open_issues_count }}
+                                        </li>
+        
+                                        </span>
+                                    </a>
                             </div>
 
                             <div>
-                                <span class="badge pull-left" style="border-radius: 100px; margin: 0 auto; position: absolute;
-                                bottom: 40px; margin-left: 20%">
-                                    <li id="output" title="License" style="color:rgb(255, 255, 255); font-size: 14px; font-weight: 100;">
-                                    License: {{ items.license.name }}
-                                    </li>
+                                <!-- License name and svg, if license = null, shows None -->
+                                <a target="_blank" style="color: rgb(15, 169, 241);"href="{{ items.html_url }}/blob/main/LICENSE">
+                                <span title="License" class="badge pull-left" style="border-radius: 100px; margin: 0 auto; position: absolute;
+                                bottom: 40px; margin-left: 30%">
+                                <img style="display: inline-block; vertical-align: middle;"src="svgs/mdi_license.svg">
+                                <li  style="color:rgb(255, 255, 255); font-size: 14px; font-weight: 100; display: inline-block; vertical-align: middle;">
+                                     {{ items.license.name }}
+                                     <!-- Test to items.license.name if null -->
+                                    <span ng-if="!items.license.name">None</span>
+                                </li>
                                 </span>
+                            </a>
                             </div>
                             </ul>
                             </div>
@@ -60,7 +92,9 @@
 
 <div>
     <ul class="pager">
-        <li><button id="previousBtn" ng-click="previous()" style="width: 100px;">Previous</button></li>
-        <li><button ng-click="next()" style="width: 100px;">Next</button></li>
+        <!-- Previous button, only show in the page > 1 -->
+        <li><button id="previousBtn" ng-click="previous()" style="width: 100px; color:rgb(15, 169, 241); background-color: rgb(6, 21, 104); border-radius: 5px;  border-radius: 5px; border-color: rgb(15, 169, 241); border-width: 1px;">Previous</button></li>
+        <!-- Next button. Always shown-->
+        <li><button ng-click="next()" style="width: 100px; color:rgb(15, 169, 241); background-color: rgb(6, 21, 104); border-radius: 5px; border-color: rgb(15, 169, 241); border-width: 1px;">Next</button></li>
       </ul>
 </div>
