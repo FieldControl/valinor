@@ -9,8 +9,9 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class SkinListComponent implements OnInit {
   public pageSlice = this.apiService.skins.slice(0, 10);
+  public value: string = '';
 
-  constructor(public apiService: apiService) {}
+  constructor(public apiService: apiService) { }
   ngOnInit(): void {
     this.OnPageChange({ pageIndex: 0, pageSize: 10 } as PageEvent);
   }
@@ -22,5 +23,17 @@ export class SkinListComponent implements OnInit {
       endIndex = this.apiService.skins.length;
     }
     this.pageSlice = this.apiService.skins.slice(startIndex, endIndex);
+    this.value = ''
+  }
+
+  search(e: Event): any {
+    const target = e.target as HTMLInputElement
+    this.value = (target.value).toLowerCase();
+
+    this.pageSlice = this.apiService.skins.filter((moment: any) =>
+      moment.displayName.toLowerCase().includes(this.value)
+    );
+    return this.value
+
   }
 }

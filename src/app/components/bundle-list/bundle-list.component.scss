@@ -1,28 +1,33 @@
-.container{
+.container {
+    text-align: center;
     display: flex;
     flex-direction: column;
 }
-.card-list{
+
+.card-list {
     display: flex;
     min-height: 30vh;
     margin: 0 auto;
 }
-.card{
+
+.card {
     max-width: 400;
     max-height: 300;
     border-radius: 1.2rem;
-    background: rgb(50,3,140);
-    background: linear-gradient(90deg, rgba(50,3,110,.8) 0%, rgba(128,15,24,.8) 49%, rgba(255,0,153,.8) 100%);
+    background: rgb(50, 3, 140);
+    background: linear-gradient(90deg, rgba(50, 3, 110, .8) 0%, rgba(128, 15, 24, .8) 49%, rgba(255, 0, 153, .8) 100%);
     text-align: center;
     align-items: center;
     margin: 10px;
     padding: 20px;
-    img{
-        mix-blend-mode:normal;
+
+    img {
+        mix-blend-mode: normal;
         max-width: 400px;
         border-radius: 1rem;
     }
 }
-.page-controller{
+
+.page-controller {
     margin: 0 auto;
 }

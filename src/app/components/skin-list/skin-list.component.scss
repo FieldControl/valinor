@@ -1,0 +1,26 @@
+.container-master {
+    text-align: center;
+}
+
+.search-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    gap: 4rem;
+
+    align-items: center;
+    justify-content: center;
+
+    img {
+        max-height: 80px;
+    }
+}
+
+.card {
+    background-color: grey;
+}

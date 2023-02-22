@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>Bundles</h1>
   <div class="card-list">
     <div class="card" *ngFor="let bundle of pageSlice">
       <img src="{{ bundle.displayIcon2 }}" alt="" srcset="" />
@@ -6,13 +7,8 @@
     </div>
   </div>
   <div class="page-controller">
-    <mat-paginator
-      [length]="this.apiService.bundles.length"
-      [pageSize]="4"
-      [hidePageSize]="true"
-      [ngStyle]=""
-      (page)="OnPageChange($event)"
-    >
+    <mat-paginator [length]="this.apiService.bundles.length" [pageSize]="4" [hidePageSize]="true" [ngStyle]=""
+      (page)="OnPageChange($event)">
     </mat-paginator>
   </div>
 </div>
