@@ -1,11 +1,12 @@
-.hidden{
+.hidden {
     opacity: 1;
 }
 
-.picker{
-    padding-top: 5rem;
+.picker {
+    padding-top: 2rem;
     text-align: center;
-    ul{
+
+    ul {
         gap: 2rem;
         margin: 0 20%;
         padding-top: 5rem;
@@ -14,13 +15,31 @@
         justify-content: space-around;
         list-style: none;
     }
-    .card{
-        border-radius: 1.3rem;
+
+    .card {
+        border-radius: .3rem;
         width: 275px;
         height: 375px;
         background-color: #a7a7a7;
-        h2{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+
+        h2 {
             padding-top: 3rem;
         }
+
+        button {
+            margin: 0 auto;
+            padding: 25px;
+            border-radius: 45%;
+        }
+
+
+    }
+
+    .card:hover {
+        transform: translate3d(-50%);
     }
 }
