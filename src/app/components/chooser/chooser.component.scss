@@ -1,0 +1,22 @@
+.picker {
+    margin: 20px auto;
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+
+        li {
+            list-style: none;
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+    }
+
+    .active {
+        border-bottom: 3px solid red;
+    }
+}

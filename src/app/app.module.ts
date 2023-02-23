@@ -12,6 +12,7 @@ import { ChooseComponent } from './components/choose/choose.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { SkinListComponent } from './components/skin-list/skin-list.component';
+import { ChooserComponent } from './components/chooser/chooser.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SkinListComponent } from './components/skin-list/skin-list.component';
     HeaderComponent,
     CarouselComponent,
     ChooseComponent,
-    SkinListComponent
+    SkinListComponent,
+    ChooserComponent
   ],
   imports: [
     BrowserModule,

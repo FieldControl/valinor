@@ -2,24 +2,28 @@
   display: flex;
   flex-direction: column;
 }
+
 .container {
-  margin-top: 8rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
+
 .agents-list {
   display: flex;
   min-height: 35vh;
 }
+
 .page-controller {
   margin: 0 auto;
 }
+
 .background {
   background-size: cover;
 }
+
 .card {
   width: 15vw;
   max-height: 300px;
@@ -30,12 +34,14 @@
   justify-content: center;
   margin: 10px;
   padding: 20px;
+
   .background {
     img {
       max-width: 200px;
       border-radius: 1rem;
     }
   }
+
   .content {
     opacity: 1;
   }

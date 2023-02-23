@@ -1,21 +1,24 @@
 <div>
-  <div class="picker">
-    <h1>O que deseja ver?</h1>
-    <ul>
+  <div [ngSwitch]="active">
+    <app-agent-list *ngSwitchCase="'Agents'"></app-agent-list>
+    <app-bundle-list *ngSwitchCase="'Bundles'"></app-bundle-list>
+    <app-skin-list *ngSwitchCase="'Weapons'"></app-skin-list>
+    <div *ngSwitchDefault="'Default'" class="picker">
+      <h1>O que deseja ver?</h1>
+      <ul>
         <li class="card">
-            <h2>Agents</h2>
+          <h2>Agents</h2>
+          <button (click)="active = 'Agents'">Ver</button>
         </li>
         <li class="card">
-            <h2>Bundles</h2>
+          <h2>Bundles</h2>
+          <button (click)="active = 'Bundles'">Ver</button>
         </li>
         <li class="card">
-            <h2>Weapons </h2>
+          <h2>Weapons </h2>
+          <button (click)="active = 'Weapons'">Ver</button>
         </li>
-    </ul>
-  </div>
-  <div class="hidden">
-    <app-agent-list></app-agent-list>
-    <app-bundle-list></app-bundle-list>
-    <app-skin-list></app-skin-list>
+      </ul>
+    </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 <div class="container-master">
+  <app-chooser></app-chooser>
   <div class="container">
     <h1>Agentes</h1>
     <div class="agents-list">
@@ -14,11 +15,8 @@
     </div>
   </div>
   <div class="page-controller">
-    <mat-paginator [length]="this.apiService.agents.length"
-                   [pageSize]="5"
-                   [hidePageSize]="true"
-                   [ngStyle]=""
-                   (page)="OnPageChange($event)">
+    <mat-paginator [length]="this.apiService.agents.length" [pageSize]="5" [hidePageSize]="true" [ngStyle]=""
+      (page)="OnPageChange($event)">
     </mat-paginator>
   </div>
 </div>

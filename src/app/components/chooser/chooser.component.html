@@ -1,0 +1,16 @@
+<div class="picker">
+    <ul>
+        <li class="items">
+            <a [class.active]="this.ChooseComponent.active == 'Agents'"
+                (click)="this.ChooseComponent.active = 'Agents'">Agents</a>
+        </li>
+        <li class="items">
+            <a [class.active]="this.ChooseComponent.active == 'Bundles'"
+                (click)="this.ChooseComponent.active = 'Bundles'">Bundles</a>
+        </li>
+        <li class="items">
+            <a [class.active]="this.ChooseComponent.active == 'Weapons'"
+                (click)="this.ChooseComponent.active = 'Weapons'">Weapons</a>
+        </li>
+    </ul>
+</div>
