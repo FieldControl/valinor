@@ -3,15 +3,22 @@
   <div class="container">
     <h1>Agentes</h1>
     <div class="agents-list">
+
+
+
       <div class="card" *ngFor="let agent of pageSlice">
-        <div class="background" style="background-image: url({{agent.background}}) ;">
+        <div class="background card"
+          style="background-image: linear-gradient(#{{agent.backgroundGradientColors[0]}} , #{{agent.backgroundGradientColors[1]}})">
           <div class="content">
-            <img src="{{ agent.fullPortrait }}" alt="" srcset="" />
+            <img src="{{ agent.displayIcon }}" alt="" srcset="" />
             <h2>{{ agent.displayName }}</h2>
-            <p>Função: {{ agent.role.displayName }}</p>
+            <h5>{{ agent.role.displayName }}</h5>
           </div>
+          <p>{{agent.description}}</p>
         </div>
       </div>
+
+
     </div>
   </div>
   <div class="page-controller">

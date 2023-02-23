@@ -18,17 +18,22 @@
 
 .page-controller {
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 .background {
   background-size: cover;
+
+  p {
+    margin-top: 1.2rem;
+    text-align: start;
+  }
 }
 
 .card {
   width: 15vw;
-  max-height: 300px;
+  height: 500px;
   border-radius: 1.2rem;
-  background: rgba(11, 79, 124, 0.34);
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -37,12 +42,13 @@
 
   .background {
     img {
-      max-width: 200px;
-      border-radius: 1rem;
+      max-width: 80px;
+      border-radius: 50%;
     }
   }
 
   .content {
+    padding-top: 1rem;
     opacity: 1;
   }
 }

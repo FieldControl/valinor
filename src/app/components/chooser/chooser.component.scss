@@ -1,3 +1,7 @@
+* {
+    transition: .2s all;
+}
+
 .picker {
     margin: 20px auto;
 
@@ -8,10 +12,12 @@
         gap: 5rem;
 
         li {
+
             list-style: none;
         }
 
         li:hover {
+            color: red;
             cursor: pointer;
         }
     }
