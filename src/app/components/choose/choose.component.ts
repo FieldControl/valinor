@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 @Component({
   selector: 'app-choose',
@@ -7,14 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooseComponent implements OnInit {
   active: string = 'Default';
-
   ngOnInit(): void {
     this.active = 'Default';
   }
 
-  constructor() {
-    const consoleLog = () => {
-      console.log(this.active)
-    }
-  }
+  constructor(public CarouselComponent: CarouselComponent) { }
 }

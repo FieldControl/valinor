@@ -2,6 +2,12 @@
     opacity: 1;
 }
 
+.choose-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
 .picker {
     padding-top: 2rem;
     text-align: center;

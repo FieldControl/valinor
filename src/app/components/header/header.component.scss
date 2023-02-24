@@ -1,15 +1,16 @@
-.header{
+.header {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 10px 0;
-    background-color: #f2f2f2;
-    ul{
+
+    ul {
         display: flex;
         list-style: none;
         gap: 3rem
     }
-    li:hover{
+
+    li:hover {
         cursor: pointer;
     }
 }

@@ -3,16 +3,19 @@
 }
 
 .picker {
-    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px;
 
     ul {
         display: flex;
+        gap: 5rem;
         align-items: center;
         justify-content: center;
-        gap: 5rem;
+
 
         li {
-
+            text-align: center;
             list-style: none;
         }
 
@@ -22,6 +25,15 @@
             transform: translate(3%, -3%);
 
         }
+
+
+    }
+
+    a:hover {
+        color: red;
+        cursor: pointer;
+        transform: translate(3%, -3%);
+
     }
 
     .active {

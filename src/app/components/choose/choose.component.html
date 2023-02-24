@@ -4,7 +4,11 @@
     <app-bundle-list *ngSwitchCase="'Bundles'"></app-bundle-list>
     <app-skin-list *ngSwitchCase="'Weapons'"></app-skin-list>
     <div *ngSwitchDefault="'Default'" class="picker">
-      <h1>O que deseja ver?</h1>
+      <div class="choose-header">
+        <a (click)="CarouselComponent.active='main'">Voltar</a>
+        <h1>O que deseja ver?</h1>
+        <p></p>
+      </div>
       <ul>
         <li class="card">
           <h2>Agents</h2>

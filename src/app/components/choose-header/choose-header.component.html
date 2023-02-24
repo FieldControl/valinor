@@ -1,4 +1,5 @@
 <div class="picker">
+    <a [class.active]="this.ChooseComponent.active == ''" (click)="this.ChooseComponent.active = ''">Back</a>
     <ul>
         <li class="items">
             <a [class.active]="this.ChooseComponent.active == 'Agents'"
@@ -13,4 +14,5 @@
                 (click)="this.ChooseComponent.active = 'Weapons'">Weapons</a>
         </li>
     </ul>
+    <p></p>
 </div>

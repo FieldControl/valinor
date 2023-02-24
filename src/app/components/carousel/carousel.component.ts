@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { apiService } from 'src/app/service.service';
 
 @Component({
@@ -6,6 +6,12 @@ import { apiService } from 'src/app/service.service';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent {
-  constructor(public apiService: apiService){}
+export class CarouselComponent implements OnInit {
+  active: string = 'main';
+
+  ngOnInit(): void {
+    this.active = 'main';
+  }
+
+  constructor(public apiService: apiService) { }
 }
