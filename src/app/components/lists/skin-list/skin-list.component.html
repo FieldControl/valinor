@@ -1,27 +1,34 @@
 <div class="container-master">
   <app-choose-header></app-choose-header>
+
   <div class="container">
     <h1>Skins</h1>
     <div class="search-header">
-      <div class="container-search">
-        <form>
+      <div class="inside-search">
+        <form class="input-form">
           <input type="text" placeholder="Busque pela arma ou coleção" (input)="search($event)">
         </form>
-      </div>
-      <div class="page-controller">
-        <mat-paginator [length]="this.apiService.skins.length" [pageSize]="10" [hidePageSize]="true" [ngStyle]=""
-          (page)="OnPageChange($event)">
+        <mat-paginator class="paginator" [length]="this.apiService.skins.length" [pageSize]="10" [hidePageSize]="true"
+          [ngStyle]="" (page)="OnPageChange($event)">
         </mat-paginator>
       </div>
     </div>
 
-    <div class="agents-list">
-      <div class="card" *ngFor="let skin of pageSlice">
-        <div class="content">
+    <div class="skin-list-container">
+      <!-- <ul class="skin-list">
+        <li class="skin" *ngFor="let skin of pageSlice">
           <h2>{{ skin.displayName }}</h2>
           <img src="{{ skin.displayIcon }}" alt="" srcset="" />
-        </div>
-      </div>
+        </li>
+      </ul> -->
+      <table class="skin-list">
+        <tr *ngFor="let skin of pageSlice">
+          <td>
+            <h2>{{ skin.displayName }}</h2>
+          </td>
+          <td><img src="{{ skin.displayIcon }}" alt="" srcset="" /></td>
+        </tr>
+      </table>
     </div>
   </div>
 

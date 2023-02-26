@@ -2,10 +2,12 @@
   <app-choose-header></app-choose-header>
   <div class="container">
     <h1>Agentes</h1>
+    <div class="page-controller">
+      <mat-paginator [length]="this.apiService.agents.length" [pageSize]="4" [hidePageSize]="true" [color]=""
+        (page)="OnPageChange($event)">
+      </mat-paginator>
+    </div>
     <div class="agents-list">
-
-
-
       <div class="card" *ngFor="let agent of pageSlice">
         <div class="background card"
           style="background-image: linear-gradient(#{{agent.backgroundGradientColors[0]}} , #{{agent.backgroundGradientColors[1]}})">
@@ -17,13 +19,7 @@
           <p>{{agent.description}}</p>
         </div>
       </div>
-
-
     </div>
   </div>
-  <div class="page-controller">
-    <mat-paginator [length]="this.apiService.agents.length" [pageSize]="5" [hidePageSize]="true" [ngStyle]=""
-      (page)="OnPageChange($event)">
-    </mat-paginator>
-  </div>
+
 </div>

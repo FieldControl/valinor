@@ -5,22 +5,22 @@
     <app-skin-list *ngSwitchCase="'Weapons'"></app-skin-list>
     <div *ngSwitchDefault="'Default'" class="picker">
       <div class="choose-header">
-        <a (click)="CarouselComponent.active='main'">Voltar</a>
+        <button class="back button" (click)="CarouselComponent.active='main'">Voltar</button>
         <h1>O que deseja ver?</h1>
-        <p></p>
+        <button class="back invisible" (click)="CarouselComponent.active='main'">Voltar</button>
       </div>
       <ul>
-        <li class="card">
-          <h2>Agents</h2>
-          <button (click)="active = 'Agents'">Ver</button>
+        <li class="card agents-card">
+          <h2>Agentes</h2>
+          <button class="button" (click)="active = 'Agents'">Ver</button>
         </li>
-        <li class="card">
-          <h2>Bundles</h2>
-          <button (click)="active = 'Bundles'">Ver</button>
+        <li class="card bundles-card">
+          <h2>Pacotes</h2>
+          <button class="button" (click)="active = 'Bundles'">Ver</button>
         </li>
-        <li class="card">
-          <h2>Weapons </h2>
-          <button (click)="active = 'Weapons'">Ver</button>
+        <li class="card weapons-card">
+          <h2>Skins</h2>
+          <button class="button" (click)="active = 'Weapons'">Ver</button>
         </li>
       </ul>
     </div>

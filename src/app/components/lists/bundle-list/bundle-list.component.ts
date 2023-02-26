@@ -8,11 +8,11 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./bundle-list.component.scss']
 })
 export class BundleListComponent {
-  public pageSlice = this.apiService.bundles.slice(0, 4);
+  public pageSlice = this.apiService.bundles.slice(0, 9);
 
-  constructor(public apiService: apiService) {}
+  constructor(public apiService: apiService) { }
   ngOnInit(): void {
-    this.OnPageChange({ pageIndex: 0, pageSize: 4 }as PageEvent);
+    this.OnPageChange({ pageIndex: 0, pageSize: 9 } as PageEvent);
   }
 
   OnPageChange(event: PageEvent) {

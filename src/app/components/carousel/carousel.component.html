@@ -1,11 +1,10 @@
 <div class="container" [ngSwitch]="active">
-    <div *ngSwitchCase="'main'">
-        <app-header></app-header>
+    <div class="main-container" *ngSwitchCase="'main'">
         <div class="main-content">
             <img src="{{ apiService.agents[12].fullPortrait }}" alt="">
             <div class="content-text">
                 <h2>Iniciar!</h2>
-                <button (click)="active='app'"></button>
+                <button class="button" (click)="active='app'">></button>
             </div>
         </div>
     </div>

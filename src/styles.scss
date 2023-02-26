@@ -1,9 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-*{
+
+@keyframes zoom {
+    0% {
+        font-size: 2rem;
+    }
+
+    50% {
+        font-size: 1.5rem;
+
+    }
+
+    100% {
+        font-size: 2rem;
+
+    }
+}
+
+* {
     padding: 0;
     margin: 0;
     font-family: 'Poppins';
     box-sizing: border-box;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100vh;
+}
+
+.invisible {
+    opacity: 0;
+    z-index: -10;
+}
+
+.button {
+    padding: 1rem 2rem;
+    border-radius: .2rem;
+    height: 6rem;
+    width: 12rem;
+    cursor: pointer;
+    transition: .3s all ease;
+}
+
+.button:hover {
+    border: 5px solid #cc3d4b;
+    background-color: #dc3d4b;
+}
+
+body {
+    font-family: "Poppins", "Helvetica Neue", sans-serif;
+    background-color: #fa4454;
+
+}
+
+.page-controller {
+    margin: 0 auto;
+    margin-top: 50px;
+
+    mat-paginator {
+        border-radius: 3rem;
+        color: black;
+        background-color: rgba($color: #FFFFFF, $alpha: 1);
+
+        :host :ng-deep.mat-paginator {
+            color: white;
+        }
+    }
+
+}

@@ -1,7 +1,30 @@
+@keyframes flutuar {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
 .container {
   min-height: 100vh;
-  background-color: white;
-  text-align: center;
+  background-image: url('https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt084d55ffe1da593b/5fac3843c1502b76a169ba09/Valorant_Dev_Diary_24_Banner.jpg');
+  background-size: auto;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
 }
 
 .main-content {
@@ -10,13 +33,37 @@
   align-items: center;
   display: flex;
 
+
   img {
     max-width: 100%;
     max-height: 60vh;
+    animation: flutuar 1.5s ease-in-out infinite;
   }
 
   button {
+    color: white;
     padding: 10px;
-    border-radius: 50%;
+    font-size: 2rem;
+    border: 5px solid #dc3d4b;
+    background-color: #fa4454;
+    transition: .3s all ease;
+    cursor: pointer;
+
+
   }
+
+  button:hover {
+    font-size: 2.6rem;
+    border: 5px solid #cc3d4b;
+    background-color: #dc3d4b;
+    animation: zoom 1.5s ease infinite;
+  }
+
+}
+
+
+h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: white
 }

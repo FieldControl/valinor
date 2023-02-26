@@ -8,11 +8,11 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./agent-list.component.scss'],
 })
 export class AgentListComponent implements OnInit {
-  public pageSlice = this.apiService.agents.slice(0, 5);
+  public pageSlice = this.apiService.agents.slice(0, 4);
 
-  constructor(public apiService: apiService) {}
+  constructor(public apiService: apiService) { }
   ngOnInit(): void {
-    this.OnPageChange({ pageIndex: 0, pageSize: 5 }as PageEvent);
+    this.OnPageChange({ pageIndex: 0, pageSize: 4 } as PageEvent);
   }
 
   OnPageChange(event: PageEvent) {
@@ -23,5 +23,5 @@ export class AgentListComponent implements OnInit {
     }
     this.pageSlice = this.apiService.agents.slice(startIndex, endIndex);
   }
-  
+
 }

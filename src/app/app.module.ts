@@ -1,6 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { apiService } from './service.service';
@@ -29,7 +31,8 @@ import { ChooserComponent } from './components/choose-header/choose-header.compo
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    CarouselModule
   ],
   providers: [apiService],
   bootstrap: [AppComponent]
