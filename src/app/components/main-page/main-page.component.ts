@@ -3,8 +3,8 @@ import { apiService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss'],
+  templateUrl: './main-page.component.html',
+  styleUrls: ['./main-page.component.scss'],
 })
 export class CarouselComponent implements OnInit{
   active: string = 'main';

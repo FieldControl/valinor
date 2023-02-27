@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarouselComponent } from '../carousel/carousel.component';
+import { CarouselComponent } from '../main-page/main-page.component';
 
 @Component({
   selector: 'app-choose',

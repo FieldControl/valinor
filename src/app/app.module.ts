@@ -8,7 +8,7 @@ import { apiService } from './service.service';
 import { AgentListComponent } from './components/lists/agent-list/agent-list.component';
 import { BundleListComponent } from './components/lists/bundle-list/bundle-list.component';
 import { HeaderComponent } from './components/header/header.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselComponent } from './components/main-page/main-page.component';
 import { ChooseComponent } from './components/choose/choose.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
