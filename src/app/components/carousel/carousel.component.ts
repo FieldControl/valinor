@@ -19,7 +19,6 @@ export class CarouselComponent implements OnInit{
   public generateRandomNumberWithDelay(): void {
 
     const randomNumber = Math.floor(Math.random() * 20);
-    console.log(randomNumber);
     this.random = randomNumber;
 
     setTimeout(() => {
