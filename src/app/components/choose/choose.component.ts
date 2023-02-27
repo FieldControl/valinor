@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarouselComponent } from '../main-page/main-page.component';
+import { MainPageComponent } from '../main-page/main-page.component';
 
 @Component({
   selector: 'app-choose',
@@ -12,5 +12,5 @@ export class ChooseComponent implements OnInit {
     this.active = 'Default';
   }
 
-  constructor(public CarouselComponent: CarouselComponent) { }
+  constructor(public MainPageComponent: MainPageComponent) { }
 }

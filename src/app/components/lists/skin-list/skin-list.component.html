@@ -6,9 +6,7 @@
     <div class="search-header">
       <div class="inside-search">
         <form class="input-form">
-          <input type="text" placeholder="Busque pela arma ou coleção" (input)="search($event)">
-          <button type="submit"></button>
-        </form>
+          <input type="text" placeholder="Busque pela arma ou coleção" (input)="search($event)">        </form>
         <mat-paginator class="paginator" [length]="this.apiService.skins.length" [pageSize]="10" [hidePageSize]="true"
           [ngStyle]="" (page)="OnPageChange($event)">
         </mat-paginator>
