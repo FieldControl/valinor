@@ -25,7 +25,6 @@ export class SkinListComponent implements OnInit {
     this.pageSlice = this.apiService.skins.slice(startIndex, endIndex);
     this.value = ''
   }
-
   search(e: Event): any {
     const target = e.target as HTMLInputElement
     this.value = (target.value).toLowerCase();
@@ -36,4 +35,6 @@ export class SkinListComponent implements OnInit {
     return this.value
 
   }
+
+  
 }

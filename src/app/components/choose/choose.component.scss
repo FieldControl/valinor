@@ -42,6 +42,11 @@
         display: flex;
         justify-content: space-around;
         list-style: none;
+        li{
+            -webkit-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+        }
     }
 
     .card {

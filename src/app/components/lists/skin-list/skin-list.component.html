@@ -7,6 +7,7 @@
       <div class="inside-search">
         <form class="input-form">
           <input type="text" placeholder="Busque pela arma ou coleção" (input)="search($event)">
+          <button type="submit"></button>
         </form>
         <mat-paginator class="paginator" [length]="this.apiService.skins.length" [pageSize]="10" [hidePageSize]="true"
           [ngStyle]="" (page)="OnPageChange($event)">
@@ -22,7 +23,7 @@
         </li>
       </ul> -->
       <table class="skin-list">
-        <tr *ngFor="let skin of pageSlice">
+        <tr class="skin" *ngFor="let skin of pageSlice">
           <td>
             <h2>{{ skin.displayName }}</h2>
           </td>
