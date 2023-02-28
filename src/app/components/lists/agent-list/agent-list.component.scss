@@ -1,0 +1,55 @@
+.container-master {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    margin-top: 1.2rem;
+    color: white
+  }
+
+  .agents-list {
+    display: flex;
+    min-height: 35vh;
+
+    .background {
+      background-size: cover;
+
+      p {
+        margin-top: 1.2rem;
+        text-align: start;
+      }
+    }
+
+    .card {
+      width: 18vw;
+      height: 500px;
+      border-radius: 1.2rem;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      padding: 20px;
+
+      .background {
+        img {
+          max-width: 80px;
+          border-radius: 50%;
+        }
+      }
+
+      .content {
+        padding-top: 1rem;
+        opacity: 1;
+      }
+    }
+  }
+
+}

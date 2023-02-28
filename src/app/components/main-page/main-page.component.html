@@ -1,0 +1,14 @@
+<div class="container" [ngSwitch]="active">
+    <div class="main-container" *ngSwitchCase="'main'">
+        <div class="main-content">
+            <img src="{{ apiService.agents[random].fullPortrait }}" alt="">
+            <div class="content-text">
+                <h2>Iniciar!</h2>
+                <button class="button" (click)="active='app'">></button>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'app'">
+        <app-choose></app-choose>
+    </div>
+</div>

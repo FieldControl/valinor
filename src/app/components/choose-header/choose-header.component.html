@@ -1,0 +1,22 @@
+<div>
+    <div class="picker">
+        <button class="back button" [class.active]=" this.ChooseComponent.active==''"
+            (click)=" this.ChooseComponent.active=''">Voltar</button>
+        <ul>
+            <li class=" items">
+                <a class="header-buttons" [class.active]="this.ChooseComponent.active == 'Agents'"
+                    (click)="this.ChooseComponent.active = 'Agents'">Agentes</a>
+            </li>
+            <li class="items">
+                <a class="header-buttons" [class.active]="this.ChooseComponent.active == 'Bundles'"
+                    (click)="this.ChooseComponent.active = 'Bundles'">Pacotes</a>
+            </li>
+            <li class="items">
+                <a class="header-buttons" [class.active]="this.ChooseComponent.active == 'Weapons'"
+                    (click)="this.ChooseComponent.active = 'Weapons'">Skins</a>
+            </li>
+        </ul>
+        <button class="back button invisible" [class.active]=" this.ChooseComponent.active==''"
+            (click)=" this.ChooseComponent.active=''">Voltar</button>
+    </div>
+</div>

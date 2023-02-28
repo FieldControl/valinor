@@ -1,0 +1,118 @@
+.hidden {
+    opacity: 1;
+}
+
+.choose-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0 3rem;
+
+    h1 {
+        color: white
+    }
+}
+
+.back {
+    transition: .3 all ease;
+    padding: 0;
+    background-color: #fa4454;
+    border: 2px solid #dc3d4b;
+    width: 120px;
+    height: 50px;
+}
+
+.back:hover {
+    cursor: pointer;
+    color: white;
+    transition: .3 all ease;
+
+}
+
+.picker {
+    padding-top: 2rem;
+    text-align: center;
+
+    ul {
+        margin: 0 20%;
+        gap: 5rem;
+        margin-top: 5rem;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        li{
+            -webkit-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+        }
+    }
+
+    .card {
+        border-radius: .3rem;
+        opacity: 1;
+        width: 350px;
+        height: 475px;
+        background-color: #364966;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transition: opacity .3s ease;
+        transition: .3s all ease;
+
+
+        h2 {
+            font-size: 1.8rem;
+            color: white;
+            padding-top: 3rem;
+        }
+
+        button {
+            font-size: 1.3rem;
+            margin: 0 auto;
+            padding: 25px;
+            color: white;
+            border: 2px solid #dc3d4b;
+            background-color: #fa4454;
+        }
+
+        button:hover {
+            background-color: rgba($color: #000000, $alpha: .4);
+        }
+
+
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+    }
+
+    ul:hover>li:not(:hover) {
+        opacity: .6;
+    }
+}
+
+.agents-card {
+    background-image: url('https://cdn1.dotesports.com/wp-content/uploads/2021/06/04070110/E23__2EVEAMXuBH-1536x864-1.jpg');
+    background-size: cover;
+}
+
+.bundles-card {
+    background-image: url('https://imageio.forbes.com/specials-images/imageserve/6124eb471a4d068e78d58199/The-Recon-skin-Bundle-in-Valorant/960x0.jpg?format=jpg&width=960');
+    background-size: cover;
+    background-position: -100px;
+    background-repeat: no-repeat;
+}
+
+.weapons-card {
+    background-image: url('https://staticg.sportskeeda.com/editor/2022/09/27064-16624690274648-1920.jpg');
+    background-size: cover;
+    background-position: -160px;
+    background-repeat: no-repeat;
+}
+
+.invisible {
+    opacity: 0;
+    z-index: -10;
+}
