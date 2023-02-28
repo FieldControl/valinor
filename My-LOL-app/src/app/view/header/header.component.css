@@ -1,0 +1,26 @@
+.container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container > a{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+}
+
+.container > a > img{
+  width: 200px;
+}
+
+span{
+  color: #f1ad00;
+  font-size: 30px;
+}
+
+.logo{
+  width: 400px;
+}
+

@@ -1,0 +1,38 @@
+<a routerLink="/champion"><div class="button"><button>Back</button></div></a>
+<div class="container">
+<img class="image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{ champObject.name }}_0.jpg">
+<div class="content">
+  <h1 class="title">{{ champObject.title }}</h1>
+  <div class="skills">
+    <img src="http://ddragon.leagueoflegends.com/cdn/13.3.1/img/passive/{{ champObject.passiveimage }}"(click)="showSkillDescription(4)">
+    <img *ngFor="let spell of champObject.spellsid; let i = index"
+    src="http://ddragon.leagueoflegends.com/cdn/13.3.1/img/spell/{{ spell }}.png"
+    (click)="showSkillDescription(i)">
+  </div>
+  <div [ngSwitch]="skill">
+    <span *ngSwitchCase="4" class="skill_description">
+      <h3>{{ champObject.passivename }} (P)</h3>
+      <p>{{ champObject.passivedescription }}</p>
+    </span>
+    <span *ngSwitchCase="0" class="skill_description">
+      <h3>{{ champObject.spellsname[0]}} (Q)</h3>
+      <p>{{ champObject.spellsdescription[0]}}</p>
+    </span>
+    <span *ngSwitchCase="1" class="skill_description">
+      <h3>{{ champObject.spellsname[1] }} (W)</h3>
+      <p>{{ champObject.spellsdescription[1] }}</p>
+    </span>
+    <span *ngSwitchCase="2" class="skill_description">
+      <h3>{{ champObject.spellsname[2] }} (E)</h3>
+      <p>{{ champObject.spellsdescription[2] }}</p>
+    </span>
+    <span *ngSwitchCase="3" class="skill_description">
+      <h3>{{ champObject.spellsname[3] }} (R)</h3>
+      <p>{{ champObject.spellsdescription[3] }}</p>
+    </span>
+  </div>
+  <div class="lore"><h1>Lore</h1>
+    <p>{{ champObject.lore }}</p>
+  </div>
+</div>
+</div>

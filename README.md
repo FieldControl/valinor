@@ -1,238 +1,112 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# Projeto Liga das Lendas
+<div>
+   <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white">
+   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
+   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white">
+   <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white">
+   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
+   <img src="https://img.shields.io/badge/Railway-131415?style=for-the-badge&logo=railway&logoColor=white">
+</div>
 
-A empresa
-----------
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+### Tópicos
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+- [Descrição do projeto](#descrição)
+- [API Utilizada](#api)
+- [Iniciar o projeto](#iniciar)
+- [Funcionalidades](#funcionalidades)
+   - [Visualizar campeões](#visualizar)
+   - [Buscar campeões](#busca)
+   - [Visualizar detalhes do campeão](#detalhes)
+   - [Visualizar skins](#skins)
+- [Tecnologias](#tecnologias)
+   - [Front-end](#front)
+   - [Back-end](#back)
+   - [Banco de dados](#banco)
+ - [Princípios da Engenharia de Software](#principios)
+ - [Desafios encontrados](#desafios)
+ - [Melhorias a serem feitas](#melhorias)
+ - [Sobre](#sobre)
+ - [Contato](#contato)
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
-
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
-
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
-
-Origem
-----------
-
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
-
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
-
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
-
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
-
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
-
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
-
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
-
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
-
-Oportunidade
-----------
-
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
-
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
-
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
-
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
-
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
-
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
-
-Os desafios de programação
-----------
-
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
-
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
-
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
-
-<br/>
-
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
-
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
-
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
-
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
-
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
-
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
-
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
-
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
-
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
-
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
-
-Um diferencial gigante é o uso de testes unitários e integrados!
-
-URLs úteis:
-
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
-
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
-
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
-
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
-
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
-
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
-
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
-
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
-
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
-
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
-
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
-
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
-
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
  
-<!-- { "challenge": "Backend Developer" }
-----------
+<h1 id="descrição">Descrição do projeto</h1>
+Este projeto consiste em mostrar todos os campeões do jogo League of Legends, assim como suas habilidades, sua história e todas as suas skins.
 
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
+<h1 id="api">API utilizada</h1>
+Neste projeto eu utilizei a API da <a href="https://developer.riotgames.com">Riot Games</a> para ter acesso aos campeões e seus detalhes.
 
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+#<h1 id="iniciar">Iniciar o projeto</h1>
+ - Faça o download do projeto
+ - Abra um terminal na pasta backend e outro na pasta My-LOL-app
+ - Instale as dependências do projeto utilizando este comando em cada terminal
+```
+npm install
+```
+ - Utilize esse comando para inicar o projeto
+ ```
+ npm start
+ ```
+ - Abra seu navegador neste endereço
+ ```
+ http://localhost:4200
+ ````
+<h1 id="funcionalidades">Funcionalidades</h1>
+<h2 id="visualizar">Visualizar campeões</h2>
+Nesta pagina podemos visualizar os campeões e suas especialidades com paginação de 10 campeões por página.
+<img src="./img/View-Campeoes.png">
 
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
+<h2 id="busca">Buscar campeões</h2>
+Nete campo podemos buscar o campeão pelo nome e mostrar.
+<img width="1000px" src="./img/busca.gif">
 
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
+<h2 id="detalhes">Visualizar detalhes do campeão</h2>
+Após clicar no campeão desejado podemos visualizar sua passiva, todas suas habilidades e sua história.
+<img width="1000px" src="./img/detalhes.gif">
 
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
+<h2 id="skins">Visualizar skins</h2>
+Após clicar no icone de skins somos direcionados para uma pagina que contem todas as skins de todos os campeões, a paginação faz com que a cada página tenhamos todas as skins de apenas um campeão, e nela tambem podemos buscar algum campeão específico.
+<img width="1000px" src="./img/skins.gif">
 
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+<h1 id="tecnologias">Tecnologias</h1>
+ <h2 id="front">Front end</h2>
+ <ul>
+ <li>Angular</li>
+ <li>TypeScript</li>
+ <li>CSS</li>
+ </ul>
+ <h2 id="back">Back end</h2>
+ <ul>
+ <li>NodeJS</li>
+ <li>Jest</li>
+ </ul>
+ <h2 id="banco">Banco de dados</h2>
+ <ul>
+ <li>Postgres</li>
+ <li>Railway</li>
+ </ul>
 
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
+<h1 id="principios">Princípios da engenharia de Software</h1>
+ <p>[S]ingle Responsibility Principle: Princípio da responsabilidade única. Com a componentização do Angular busquei dar uma responsabilidade para cada componente.</p>
 
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
+<h1 id="desafios">Desafios encontrados</h1>
+<p>Primeiramente eu fiz o projeto apenas com front-end, fazendo as requisições com axios, mas isso me gerou problemas pelo caminho e um código muito grande, então decidi criar um back-end para tratar os dados e armazená-los no banco de dados, assim eu saberia exatamente o que recebo em cada requisição.
+Outro desafio foi que a url onde pego as informações dos campeões continha o nome do campeão, então para conseguir armazenar essas informações de cada campeão criei um loop para buscar o nome do campeão e depois fazer a requisição com esse nome.</p>
 
-Avaliação
-----------
+<h1 id="melhorias">Melhorias a serem feitas</h1>
+<p>Eu implementei testes no back end utilizando JEST, mas foi minha primeira vez fazendo testes, estou aprofundando meus estudos em testes para conseguir ter uma cobertura de 100% em testes.
+Também estou aprofundando meus conhecimentos em Angular pois sei que esse framework tem muitas possibilidades que ainda são desconhecidas pra mim.</p>
+<p>Minha idéia é expandir esse projeto para englobar outros coisas do jogo como itens, feitiços,runas e também implementar uma versão mobile para facilitar a pequisa.</p>
 
-Entre os critérios de avaliação estão:
+<h1 id="sobre">Sobre mim</h1>
+<p>Meu nome é Pedro Henrique, tenho 25 anos, estou atualmente cursando o segundo semestre em Análise e desenvolvimento de sistemas na FATEC de São José do Rio Preto,ao entrar na faculdade eu entrei de cabeça direto no mundo de desenvolvimento web, pois queria fazer algo e conseguir ver com facilidade o que estava fazendo e poder mostrar para outras pessoas.</p>
+<p>Por conversas na faculdade com professores e alunos eu conheci os videos do professor Guanabara e com eles comecei a desenvolver, depois de alguns meses consegui entrar no programa ONE que é uma parceria da Alura com a Oracle e consegui acesso na plataforma Alura, fiz diversos cursos na Alura, também fiz alguns cursos da Udemy e DIO e até fiz alguns projetos pessoais.</p>
+<p>E então veio o Field Academy, ele foi e esta sendo um divisor na minha carreira, sentar com as pessoas, discutir sobre os códigos, poder falar sobre programação e tirar dúvidas tem sido muito bom para o meu desenvolvimento, eu acredito que consegui evoluir muito e espero continuar evoluindo.</p>
 
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+<h1 id="contato">Contato</h1>
+   <div>
+     <a href = "https://web.whatsapp.com/send?phone=5567999001114"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" target="_blank"></a>
+      <a href="https://www.linkedin.com/in/pedro-henrique-678618218/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+     <a href = "mailto:pedrohva.pba@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">        </a>
+   </div>

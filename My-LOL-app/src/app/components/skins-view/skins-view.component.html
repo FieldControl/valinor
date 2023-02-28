@@ -1,0 +1,14 @@
+
+<div class="paginator">
+  <mat-paginator (page)="handlePageEvent($event)" [length]="pageLength" [pageSizeOptions]="[1]" [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+  <input class="search" type="text" (input)="championSearch($event)" placeholder="Pesquisa">
+</div>
+<div class="container" *ngFor="let champ of championList">
+  <div class="champion" *ngFor="let skinID of champ.skins, let i = index">
+    <img
+      src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{ champ.name }}_{{ skinID }}.jpg">
+    <span class="champName">{{ champ.skinsname[i] }}</span>
+  </div>
+</div>

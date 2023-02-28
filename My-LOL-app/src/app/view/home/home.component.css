@@ -1,0 +1,30 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+  background-color: rgba(0, 0, 0, 0.631);
+  border-radius: 10px;
+  text-align: center;
+}
+
+h1{
+  color: black;
+}
+
+.container > a > img{
+  width: 270px;
+}
+
+.frontend{
+  color: rgba(255, 0, 0, 0.738);
+}
+
+.backend{
+  color: green;
+}
+
+.database{
+  color: blue;
+}

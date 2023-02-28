@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Friz';
+  src: url('../../../assets/fonts/Friz.ttf')
+  format('truetype')
+}
+
+.paginator{
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 20px;
+  font-size: 25px;
+  font-family: 'Marcellus SC', serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 5px 15px;
+  background: #1e2328;
+  color: #cdbe91;
+  box-shadow: inset 0 0 2px #000000;
+  border-image: linear-gradient(to bottom, #c8aa6d, #7a5c29);
+  border-image-slice: 1;
+  border-width: 2px;
+}
+
+.search{
+  font-size: 25px;
+  background-color: #1e2328;
+  border-image: linear-gradient(to bottom, #c8aa6d, #7a5c29);
+  border-image-slice: 1;
+  border-width: 2px;
+}
+
+.search:focus {
+  outline: none;
+  text-shadow: none;
+  box-shadow: none;
+  color: #cdbe91;
+}
+
+.container{
+  display: flex;
+  margin: auto;
+  width: 1500px;
+  flex-wrap: wrap;
+}
+
+.champion{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  align-items: center;
+}
+
+.champion > img{
+  width: 200px;
+}
+
+.champName{
+  background-color: black;
+  color: #e0c379;
+  width: 200px;
+  text-align: center;
+  font-family: 'friz';
+  font-size: 25px;
+  margin-bottom: 30px;
+  border-radius: 0 0 10px 10px;
+}

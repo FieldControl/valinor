@@ -1,0 +1,11 @@
+<div class="container" *ngIf="url == '/champion' || url == '/skins'">
+  <a routerLink="/champion">
+    <img [src]="imgSrcChampion">
+    <span>Campeões</span>
+  </a>
+  <img class="logo" src="../../../assets/images/lol-league-of-Legends-logo.png">
+  <a routerLink="/skins">
+    <img id="skin" [src]="imgSrcSkin">
+    <span>Skins</span>
+  </a>
+</div>
