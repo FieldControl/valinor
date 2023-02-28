@@ -93,6 +93,7 @@ Após clicar no icone de skins somos direcionados para uma pagina que contem tod
 <h1 id="desafios">Desafios encontrados</h1>
 <p>Primeiramente eu fiz o projeto apenas com front-end, fazendo as requisições com axios, mas isso me gerou problemas pelo caminho e um código muito grande, então decidi criar um back-end para tratar os dados e armazená-los no banco de dados, assim eu saberia exatamente o que recebo em cada requisição.
 Outro desafio foi que a url onde pego as informações dos campeões continha o nome do campeão, então para conseguir armazenar essas informações de cada campeão criei um loop para buscar o nome do campeão e depois fazer a requisição com esse nome.</p>
+<p>Também tive problemas para colocar o meu banco de dados postgres na nuvem de forma gratuita, consegui localizar alguns sites que tem esse serviço mas depois de testar percebi que tinha lentidão no meu front, então decidi utilizar o Railway que na forma gratuiuta me disponibiliza 200horas para deixar meu banco de dados na nuvem por mês, estou pesquisando para encontrar uma solução gratuita que mantenha minha aplicação funcionando por mais tempo.</p>
 
 <h1 id="melhorias">Melhorias a serem feitas</h1>
 <p>Eu implementei testes no back end utilizando JEST, mas foi minha primeira vez fazendo testes, estou aprofundando meus estudos em testes para conseguir ter uma cobertura de 100% em testes.
