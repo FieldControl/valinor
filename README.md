@@ -15,6 +15,12 @@ Esse projeto tem como base buscar algumas informações sobre o jogo Valorant, d
 - Ver os pacotes de skins de forma individual
 - Ver as skins de forma individual, e buscar por cada uma
 
+### Exemplo de utilização
+- Clique no botão inicial para começar
+- Na aba "Agentes" você pode ver cada agente, sua foto e sua descrição
+- Na aba "Pacotes" você pode ver cada pacote de skins do jogo, junto com seu nome e sua foto
+- Na aba "Skins" você pode ver cada skin individualmente do jogo, e tambem pode buscar por alguma especifica(Ex: Se digitar Vandal, verá todas as skins da arma Vandal. Enquanto se digitar Glitchpop, verá todas as armas da coleção Glitchpop)
+
 ## Respostas
 ### 1-Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou?
 Foi feito todo em Angular com algumas adições como o Paginator(ngx-paginator)
