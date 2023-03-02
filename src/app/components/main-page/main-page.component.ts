@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { apiService } from 'src/app/service.service';
+import { ChooseComponent } from '../choose/choose.component';
 
 @Component({
   selector: 'app-main-page',
