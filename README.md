@@ -4,12 +4,23 @@ Telefone: (17) 99224-3257 <br>
 Email: leogomes.pereira03@gmail.com <br>
 Linkedin: https://www.linkedin.com/in/leonardo-gomes03/
 
+## Documentação do projeto
+### Valorant API
+
+### Api para busca de informações sobre o jogo Valorant
+Esse projeto tem como base buscar algumas informações sobre o jogo Valorant, dentre as informações recebidas estão: Os agentes disponiveis para jogar, Os pacotes lançados e as Skins individuais de cada arma e coleção.
+
+### Funcionalidades do projeto
+- Ver os agentes e suas descrições
+- Ver os pacotes de skins de forma individual
+- Ver as skins de forma individual, e buscar por cada uma
+
 ## Respostas
 ### 1-Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou?
-Foi feito todo em framework com algumas adições como o Paginator(ngx-paginator)
+Foi feito todo em Angular com algumas adições como o Paginator(ngx-paginator)
 
 ### 2-Porque você optou pela tecnologia X e não a Y?
-Optei por usar angular por ser a tecnologia ja utilizada pela Field, e por ser o meu primeiro framework que aprendi
+Optei por usar Angular por ser a tecnologia ja utilizada pela Field, e por ser o meu primeiro framework que aprendi
 
 ### 3-Quais princípios da engenharia de software que você usou?
 Tentei ao máximo deixar o codigo o mais legivel possivel para quem pegar ele pra ler e tentar fazer modificações, assim como tentar deixar o melhor possivel para quando voltar daqui um tempo, ainda entender de forma mais simplificada possivel, seja organizando os arquivos atraves de pastas, colocando bons nomes de variaveis, e sempre tentando deixar cada vez mais otimizado
@@ -18,7 +29,7 @@ Tentei ao máximo deixar o codigo o mais legivel possivel para quem pegar ele pr
 A maior parte dos desafios que encontrei foi por conta de inexperiencia, porem consegui resolver os principais com pesquisas e indo estudar dedicadamente pra isso, os principais foram a paginação, que após entender o conceito base, fui pra uma biblioteca que ja facilitava o modo de utilizar, e o outro, foi entender como organizar a parte de UX/UI pra deixar tudo da maneira mais agradavel possivel.
 
 ### 5- O que você entende que pode ser melhorado e como fazer isso?
-Acredito que a maior parte das mudanças podem vir atraves de features novas, as já implementadas estão funcionando corretamente apesar de poder ter eventuais falhas na UX. Mas ainda sim, ficar relendo o codigo com o intuito de achar mais coisas para expandir, ir atrás de funcionalidades novas e entender como pode ser aplicada nesse projeto, me deixou cada vez mais motivado a continuar
+Acredito que a maior parte das mudanças podem vir atraves de features novas, as já implementadas estão funcionando corretamente apesar de poder ter eventuais falhas na UX. Mas ainda sim, ficar relendo o codigo com o intuito de achar mais coisas para expandir, ir atrás de funcionalidades novas e entender como pode ser aplicada nesse projeto, me deixou cada vez mais motivado a continuar. Na parte técnica entendo que a inclusão de mais testes unitarios são necessarios, e tentei fazer o melhor nesse quesito.
 
 ## Um pouco sobre mim
 - Estou participando do Field Academy atualmente, e está sendo muito bom fazer parte de tudo isso, um aprendizado que é sem palavras pra descrever o quanto a minha produtividade e vontade de aprender aumentaram quando entrei aqui.
