@@ -35,7 +35,7 @@ export class SkinsViewComponent implements OnInit {
 
   pageEvent: PageEvent = new PageEvent;
 
-  handlePageEvent(e: PageEvent) {
+  onPageChange(e: PageEvent) {
     this.pageEvent = e;
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;

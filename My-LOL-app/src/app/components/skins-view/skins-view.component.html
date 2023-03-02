@@ -1,8 +1,6 @@
 
 <div class="paginator">
-  <mat-paginator (page)="handlePageEvent($event)" [length]="pageLength" [pageSizeOptions]="[1]" [pageIndex]="pageIndex"
-    aria-label="Select page">
-  </mat-paginator>
+  <app-paginator (pageChange)="onPageChange($event)"></app-paginator>
   <input class="search" type="text" (input)="championSearch($event)" placeholder="Pesquisa">
 </div>
 <div class="container" *ngFor="let champ of championList">

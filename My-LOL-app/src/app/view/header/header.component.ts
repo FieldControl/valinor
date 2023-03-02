@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
       this.imgSrcChampion = '../../../assets/images/champion.webp'
       this.imgSrcSkin = '../../../assets/images/skinDefault.png'
     }
-    console.log(this.url == '/champion')
   }
 
   imgSrcChampion = '../../../assets/images/championDefault.webp'

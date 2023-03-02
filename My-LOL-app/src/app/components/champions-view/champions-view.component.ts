@@ -1,7 +1,7 @@
 import { Champion } from '../shared/champion.model';
 import { PageEvent } from '@angular/material';
 import { ChampionService } from '../shared/champion.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-champions-view',
@@ -33,7 +33,7 @@ export class ChampionsViewComponent implements OnInit {
 
   pageEvent: PageEvent = new PageEvent;
 
-  handlePageEvent(event: PageEvent) {
+  onPageChange(event: PageEvent) {
     this.pageEvent = event;
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;

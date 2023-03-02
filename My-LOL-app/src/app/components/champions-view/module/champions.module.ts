@@ -1,13 +1,12 @@
-import { ChampionsViewComponent } from './../champions-view.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { ChampionsViewComponent } from './../champions-view.component';
 import { MatListModule } from '@angular/material/list';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-
 import { ChampionsRoutingModule } from './champions-routing.module';
-
+import { PaginatorModule } from '../../shared/paginator/module/paginator.module';
 
 @NgModule({
   declarations: [
@@ -16,11 +15,11 @@ import { ChampionsRoutingModule } from './champions-routing.module';
   imports: [
     CommonModule,
     ChampionsRoutingModule,
-    MatPaginatorModule,
     MatTooltipModule,
     MatIconModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    PaginatorModule
   ]
 })
 export class ChampionsModule { }

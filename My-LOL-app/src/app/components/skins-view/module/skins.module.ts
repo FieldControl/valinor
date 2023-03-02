@@ -7,12 +7,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
+import { PaginatorModule } from '../../shared/paginator/module/paginator.module';
 
 
 @NgModule({
   declarations: [
     SkinsViewComponent,
-
   ],
   imports: [
     CommonModule,
@@ -21,7 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTooltipModule,
     MatIconModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    PaginatorModule
   ]
 })
 export class SkinsModule { }
