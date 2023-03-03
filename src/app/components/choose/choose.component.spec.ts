@@ -1,4 +1,7 @@
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MainPageComponent } from '../main-page/main-page.component';
 
 import { ChooseComponent } from './choose.component';
 
@@ -8,7 +11,8 @@ describe('ChooseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChooseComponent ]
+      declarations: [ ChooseComponent ],
+      providers: [ChooseComponent, MainPageComponent, HttpClient, HttpHandler, CommonModule]
     })
     .compileComponents();
 

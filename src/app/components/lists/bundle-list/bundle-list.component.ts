@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { apiService } from 'src/app/service.service';
 import { PageEvent } from '@angular/material/paginator';
 
@@ -7,7 +7,7 @@ import { PageEvent } from '@angular/material/paginator';
   templateUrl: './bundle-list.component.html',
   styleUrls: ['./bundle-list.component.scss']
 })
-export class BundleListComponent {
+export class BundleListComponent implements OnInit{
   public pageSlice = this.apiService.bundles.slice(0, 9);
 
   constructor(public apiService: apiService) { }

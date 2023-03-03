@@ -1,18 +1,23 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
-export class apiService {
+export class apiService implements OnInit {
   bundles: any = [];
   agents: any = [];
   skins: any = [];
-
+  
   constructor(private http: HttpClient) {
     this.loadBundles();
     this.loadAgents();
     this.loadSkins();
+  }
+  ngOnInit(): void {
+    this.bundles;
+    this.agents;
+    this.skins;
   }
 
   async loadBundles() {

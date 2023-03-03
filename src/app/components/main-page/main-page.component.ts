@@ -1,11 +1,11 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { apiService } from 'src/app/service.service';
-import { ChooseComponent } from '../choose/choose.component';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
+  template: ''
 })
 export class MainPageComponent implements OnInit{
   active: string = 'main';

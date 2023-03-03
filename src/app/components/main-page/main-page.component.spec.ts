@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { MainPageComponent } from './main-page.component';
+import { apiService } from 'src/app/service.service';
 
 describe('MainPageComponent', () => {
   let component: MainPageComponent;
@@ -8,7 +10,9 @@ describe('MainPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainPageComponent ]
+      declarations: [ MainPageComponent],
+      imports: [HttpClientTestingModule],
+      providers: [apiService]
     })
     .compileComponents();
 

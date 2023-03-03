@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { apiService } from 'src/app/service.service';
 import { PageEvent } from '@angular/material/paginator';
-
 @Component({
   selector: 'app-agent-list',
   templateUrl: './agent-list.component.html',

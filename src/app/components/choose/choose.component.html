@@ -1,28 +1,30 @@
 <div>
-  <div [ngSwitch]="active">
+  <ng-container [ngSwitch]="active">
     <app-agent-list *ngSwitchCase="'Agents'"></app-agent-list>
     <app-bundle-list *ngSwitchCase="'Bundles'"></app-bundle-list>
     <app-skin-list *ngSwitchCase="'Weapons'"></app-skin-list>
-    <div *ngSwitchDefault="'Default'" class="picker">
-      <div class="choose-header">
-        <button class="back button" (click)="MainPageComponent.active='main'">Voltar</button>
-        <h1>O que deseja ver?</h1>
-        <button class="back invisible" (click)="MainPageComponent.active='main'">Voltar</button>
+    <ng-container *ngSwitchDefault>
+      <div class="picker">
+        <div class="choose-header">
+          <button class="back button" (click)="MainPageComponent.active='main'">Voltar</button>
+          <h1>O que deseja ver?</h1>
+          <button class="back invisible" (click)="MainPageComponent.active='main'">Voltar</button>
+        </div>
+        <ul>
+          <li class="card agents-card">
+            <h2>Agentes</h2>
+            <button class="button" (click)="active = 'Agents'">Ver</button>
+          </li>
+          <li class="card bundles-card">
+            <h2>Pacotes</h2>
+            <button class="button" (click)="active = 'Bundles'">Ver</button>
+          </li>
+          <li class="card weapons-card">
+            <h2>Skins</h2>
+            <button class="button" (click)="active = 'Weapons'">Ver</button>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li class="card agents-card">
-          <h2>Agentes</h2>
-          <button class="button" (click)="active = 'Agents'">Ver</button>
-        </li>
-        <li class="card bundles-card">
-          <h2>Pacotes</h2>
-          <button class="button" (click)="active = 'Bundles'">Ver</button>
-        </li>
-        <li class="card weapons-card">
-          <h2>Skins</h2>
-          <button class="button" (click)="active = 'Weapons'">Ver</button>
-        </li>
-      </ul>
-    </div>
-  </div>
+    </ng-container>
+  </ng-container>
 </div>

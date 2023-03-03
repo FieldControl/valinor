@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MainPageComponent } from '../main-page/main-page.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-choose',
@@ -10,7 +11,6 @@ export class ChooseComponent implements OnInit {
   active: string = 'Default';
   ngOnInit(): void {
     this.active = 'Default';
-  }
-
+  } 
   constructor(public MainPageComponent: MainPageComponent) { }
 }

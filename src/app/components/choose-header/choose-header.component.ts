@@ -4,9 +4,10 @@ import { ChooseComponent } from '../choose/choose.component';
 @Component({
   selector: 'app-choose-header',
   templateUrl: './choose-header.component.html',
-  styleUrls: ['./choose-header.component.scss']
+  styleUrls: ['./choose-header.component.scss'],
+  template: ''
 })
-export class ChooserComponent {
+export class ChooseHeaderComponent {
   constructor(public ChooseComponent: ChooseComponent) { }
 
 }
