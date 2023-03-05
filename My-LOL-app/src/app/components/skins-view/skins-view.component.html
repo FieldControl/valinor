@@ -1,7 +1,8 @@
 
 <div class="paginator">
-  <app-paginator (pageChange)="onPageChange($event)"></app-paginator>
-  <input class="search" type="text" (input)="championSearch($event)" placeholder="Pesquisa">
+  <app-paginator (pageChange)="onPageChange($event)" [pageLength]="pageLength" [pageIndex]="pageIndex" [pageSizeOptions]="1">
+  </app-paginator>
+  <input data-test="searchText" class="search" type="text" [(ngModel)]="searchText" (input)="championSearch()" placeholder="Pesquisa">
 </div>
 <div class="container" *ngFor="let champ of championList">
   <div class="champion" *ngFor="let skinID of champ.skins, let i = index">

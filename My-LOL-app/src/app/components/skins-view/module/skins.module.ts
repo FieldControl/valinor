@@ -8,6 +8,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { PaginatorModule } from '../../shared/paginator/module/paginator.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { PaginatorModule } from '../../shared/paginator/module/paginator.module'
     MatIconModule,
     MatListModule,
     MatIconModule,
-    PaginatorModule
+    PaginatorModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SkinsModule { }

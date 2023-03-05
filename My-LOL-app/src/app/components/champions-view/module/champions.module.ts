@@ -7,6 +7,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { ChampionsRoutingModule } from './champions-routing.module';
 import { PaginatorModule } from '../../shared/paginator/module/paginator.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,8 @@ import { PaginatorModule } from '../../shared/paginator/module/paginator.module'
   imports: [
     CommonModule,
     ChampionsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatTooltipModule,
     MatIconModule,
     MatListModule,

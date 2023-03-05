@@ -4,6 +4,10 @@
   format('truetype')
 }
 
+*{
+  font-family: Friz;
+}
+
 .paginator{
   display: flex;
   justify-content: center;

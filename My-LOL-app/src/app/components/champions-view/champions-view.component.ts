@@ -1,7 +1,7 @@
 import { Champion } from '../shared/champion.model';
 import { PageEvent } from '@angular/material';
 import { ChampionService } from '../shared/champion.service';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-champions-view',
@@ -12,6 +12,7 @@ export class ChampionsViewComponent implements OnInit {
 
   constructor(private championsService: ChampionService) { }
 
+  searchText = ''
   searchNode: boolean = true
   championList: Champion[] = []
   championSearchList: Champion[] = []
@@ -25,9 +26,9 @@ export class ChampionsViewComponent implements OnInit {
     })
   }
 
-  pageLength = 162
+  @Output() pageLength = 162
   pageSize = 10;
-  pageIndex = 0;
+  @Output() pageIndex = 0;
   pageSizeOptions1 = [1, 11, 21, 31, 41, 51, 61, 71, 81, 91, 101, 111, 121, 131, 141, 151, 161];
   pageSizeOptions2 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 162];
 
@@ -49,23 +50,21 @@ export class ChampionsViewComponent implements OnInit {
     }
   }
 
-  championSearch(event: Event) {
-    let target = event.target as HTMLButtonElement
-    let inputText = target.value
-    if (inputText == '') {
-      this.championsService.getChampions(0, 10).subscribe(champions => {
-        this.championList = champions
-        this.pageLength = 162
-        this.searchNode = true
-      })
-    } else {
+  championSearch() {
+    if (this.searchText !== '') {
       this.pageIndex = 0
-      this.championsService.findChampion(inputText).subscribe(champions => {
+      this.championsService.findChampion(this.searchText).subscribe(champions => {
         this.championSearchList = champions
         this.championList = this.championSearchList.slice(0, 10)
         this.pageLength = this.championSearchList.length
         this.searchNode = false
       })
+      return
     }
+    this.championsService.getChampions(0, 10).subscribe(champions => {
+      this.championList = champions
+      this.pageLength = 162
+      this.searchNode = true
+    })
   }
 }

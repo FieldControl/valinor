@@ -3,6 +3,7 @@ import { Champion } from '../shared/champion.model';
 import { ChampionService } from '../shared/champion.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-skins-view',
   templateUrl: './skins-view.component.html',
@@ -12,6 +13,7 @@ export class SkinsViewComponent implements OnInit {
 
   constructor(private championsService: ChampionService) { }
 
+  searchText = ''
   searchNode: boolean = true
   championList: Champion[] = []
   championSearchList: Champion[] = []
@@ -50,26 +52,21 @@ export class SkinsViewComponent implements OnInit {
     }
   }
 
-  championSearch(event: Event) {
-    let target = event.target as HTMLButtonElement
-
-    let inputText = target.value
-
-    if (inputText == '') {
-      this.championsService.getChampions(0, 1).subscribe(champions => {
-        this.championList = champions
-        this.pageLength = 162
-        this.searchNode = true
-        this.pageIndex = 0
-      })
-    } else {
+  championSearch() {
+    if (this.searchText !== '') {
       this.pageIndex = 0
-      this.championsService.findChampion(inputText).subscribe(champions => {
+      this.championsService.findChampion(this.searchText).subscribe(champions => {
         this.championSearchList = champions
         this.championList = this.championSearchList.slice(0, 1)
         this.pageLength = this.championSearchList.length
         this.searchNode = false
       })
+      return
     }
+    this.championsService.getChampions(0, 1).subscribe(champions => {
+      this.championList = champions
+      this.pageLength = 162
+      this.searchNode = true
+    })
   }
 }
