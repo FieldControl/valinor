@@ -40,7 +40,6 @@ Acredito que a maior parte das mudanças podem vir atraves de features novas, as
 ### 6 - BONUS
 Deixei o desafio ja hospedado na vercel para melhor visualização da versão final: <a href="https://valinor-fieldcontrol.vercel.app/" target="_blank">Clique Aqui!</a> <br>
 Ou aqui o link caso não funncione: https://valinor-fieldcontrol.vercel.app/ <br>
-Recomendações: Usar em desktop com resoluções acima de 720p (900p ou superior é mais recomendado)(não fiz o design mobile, porem nos meus projetos dos meus repoisitorios, a maioria tem versao mobile)
 
 ## Um pouco sobre mim
 - Estou participando do Field Academy atualmente, e está sendo muito bom fazer parte de tudo isso, um aprendizado que é sem palavras pra descrever o quanto a minha produtividade e vontade de aprender aumentaram quando entrei aqui.
