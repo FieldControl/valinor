@@ -1,0 +1,82 @@
+
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    
+}
+.tittle a{
+   display: flex;
+}
+.tittle{
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Mynerve';
+    color: white;
+}
+.tittle h1{
+    color: white;
+}
+span{
+    color: rgb(191, 215, 104);
+    margin: 15px;
+    font-size: 20px;
+}
+
+.search{
+    flex: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.search input,button{
+    padding: 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+  
+}
+.search input{
+    min-width: 400px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    font-family: 'mynerve';  
+}
+
+.search input:focus{
+    background-color: rgb(203, 198, 198);
+    color: white;
+}
+
+.search button{
+    width: 150px;
+    background-color:rgb(191, 215, 104) ;
+    color: white;
+    font-weight: bold;
+    cursor: pointer; 
+    
+}
+
+.search button:hover{
+    background-color: rgb(122, 137, 67);
+}
+
+.toHome{
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 1015px){
+    .nav-bar{
+        flex-direction: column;
+    }
+    .search input{
+        width: 300px;
+    }
+}

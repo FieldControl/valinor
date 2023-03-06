@@ -1,0 +1,16 @@
+
+<div class="main">
+
+
+    <div  class="card" >
+
+        <p>{{char?.name}}</p>
+        <img src="{{char?.image}}">
+        <p> {{ char?.gender }} </p>
+        <p> {{char?.species}}</p>
+        <p> {{char?.created | date}}</p>
+
+    </div>
+
+    <button routerLink="/list" routerLinkActive="active" ariaCurrentWhenActive="page" >Back</button>
+</div>

@@ -1,0 +1,54 @@
+
+.card{
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 10px rgb(108, 108, 105);
+    background-color:#e3ffe766;
+    width: 240px;
+    height: 400px;
+    text-align: center;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+}
+p{
+    font-size: 13px;
+    background-color: rgb(151, 155, 155);
+    border-radius: 15px;
+    padding: 9px;
+    display: flex;
+    align-items: center;
+    font-family: 'Mynerve';
+}
+.card img{
+    width: 260px;
+    height: 260px;
+}
+.alive {
+    height: 0.5rem;
+    width: 0.5rem;
+    margin-right: 0.375rem;
+    background: rgb(85, 204, 68);
+    border-radius: 50%;
+    
+}
+
+.dead {
+    height: 0.5rem;
+    width: 0.5rem;
+    margin-right: 0.375rem;
+    background: rgb(206, 98, 79);
+    border-radius: 50%;
+    
+}
+.unk {
+    height: 0.5rem;
+    width: 0.5rem;
+    margin-right: 0.375rem;
+    background: rgb(157, 231, 244);
+    border-radius: 50%;
+    
+}

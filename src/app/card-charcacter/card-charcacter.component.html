@@ -1,0 +1,5 @@
+<article  class="card">
+    <h1>{{name}}</h1>
+    <a routerLink="/details/{{id}}" ><img [src] = "image" [alt]="name"> </a>
+    <p> <span [class.alive]= "status === 'Alive'" [class.dead]="status === 'Dead'" [class.unk]="status === 'unknown'"></span> {{ status }} </p>
+</article>

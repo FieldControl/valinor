@@ -1,0 +1,67 @@
+@import '../home/animation.css';
+
+.main{
+    text-align: center;
+    background-color: #0d1117;
+    color: white;
+    font-size: 20px;
+    
+    
+}        
+.info-text{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.tittle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: 'Mynerve', cursive; 
+}
+.main p{
+    width: 500px;
+}
+.btn-start{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 70px;
+}
+img{
+    height: 400px;
+}
+button{
+    border: none;
+    background-color: rgb(33, 241, 64);
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: 800;
+    color:rgb(255, 255, 255);
+    width: 400px;
+    cursor: pointer;
+    font-family: 'mynerve';
+}
+button:hover{
+    padding: 17px;
+}
+.pic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    text-align: center;
+}
+

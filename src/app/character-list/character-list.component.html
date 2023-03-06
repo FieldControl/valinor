@@ -1,0 +1,29 @@
+
+<app-header-app (input)="search($event)" (click)="onClickSearch($event)"></app-header-app>
+
+<div class="lista">
+
+    <app-card-charcacter 
+            *ngFor="let char of characters | paginate: { itemsPerPage: 20, currentPage: page }"
+            [name]="char.name"
+            [image] = "char.image"
+            [status] = "char.status"
+            [id]= "char.id"
+    ></app-card-charcacter>
+ 
+</div>
+
+<div class="pagination">
+    <pagination-controls  class="my-pagination" (pageChange)="page = $event"></pagination-controls>
+</div>
+
+
+<!--
+<div class="pagination-bar">
+    
+    <button class='btn'[disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">Anterior</button>
+    <span>{{ currentPage }}</span>
+    <button class='btn' [disabled]="currentPage === 42" (click) ="goToPage(currentPage + 1)">Proxima</button>
+    
+</div>
+-->
