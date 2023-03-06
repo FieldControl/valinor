@@ -38,8 +38,8 @@ A maior parte dos desafios que encontrei foi por conta de inexperiencia, porem c
 Acredito que a maior parte das mudanças podem vir atraves de features novas, as já implementadas estão funcionando corretamente apesar de poder ter eventuais falhas na UX. Mas ainda sim, ficar relendo o codigo com o intuito de achar mais coisas para expandir, ir atrás de funcionalidades novas e entender como pode ser aplicada nesse projeto, me deixou cada vez mais motivado a continuar. Na parte técnica entendo que a inclusão de mais testes unitarios são necessarios, e tentei fazer o melhor nesse quesito.
 
 ### 6 - BONUS
-Deixei o desafio ja hospedado na vercel para melhor visualização da versão final: <a href="https://valinor-xi.vercel.app/" target="_blank">Clique Aqui!</a> <br>
-Ou aqui o link caso não funncione: https://valinor-xi.vercel.app/ <br>
+Deixei o desafio ja hospedado na vercel para melhor visualização da versão final: <a href="https://valinor-fieldcontrol.vercel.app/" target="_blank">Clique Aqui!</a> <br>
+Ou aqui o link caso não funncione: https://valinor-fieldcontrol.vercel.app/ <br>
 Recomendações: Usar em desktop com resoluções acima de 720p (900p ou superior é mais recomendado)(não fiz o design mobile, porem nos meus projetos dos meus repoisitorios, a maioria tem versao mobile)
 
 ## Um pouco sobre mim
