@@ -17,6 +17,7 @@
 
   .agents-list {
     display: flex;
+    flex-wrap: wrap;
     min-height: 35vh;
 
     .background {
@@ -29,8 +30,9 @@
     }
 
     .card {
-      width: 18vw;
-      height: 500px;
+      width: clamp(350px, 18vw, 800px);
+      min-height: 500px;
+      height: fit-content;
       border-radius: 1.2rem;
       text-align: center;
       align-items: center;
@@ -52,4 +54,10 @@
     }
   }
 
+}
+
+@media (max-width:650px){
+  .card{
+    flex-direction: row;
+  }
 }
