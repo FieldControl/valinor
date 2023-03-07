@@ -1,27 +1,22 @@
-# AngularNovo
+# Projeto Rick and Morty
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+O projeto foi desenvolvido em angular, para o desenvolvimento do projeto foi utilizada a API do rick and morty, nessa API se encontra dados dos personagens, episodios e localização dos personagens.
 
-## Development server
+## Funcionalidades presente no Projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<ul>
+  <li>Acesso a todos os personagens presente na série via paginação ou busca.</li>
+  <li>caracteristicas dos personagens na tela principal.</li>
+  <li>caracteristicas expecificas do personagem ao clicar na imagem do mesmo.</li>
+</ul>
 
-## Code scaffolding
+## Utilização do projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<ol>
+  <li>Ao iniciar o projeto clique em START para ir a pagina dos personagens.</li>
+  <li>Na pagina principal clique no campo de texto e digite o personagem que deseja.</li>
+  <li>Ao descer na pagina os resultados estarão todos paginados caso o personagem em questao possua varias formas.</li>
+  <li>Para voltar a pagina de Home basta clicar no Titulo RICK AND MORTY.</li>
+</ol>
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
