@@ -1,0 +1,25 @@
+<div class="backgroundHeader">
+    <div class="header">
+        <div id="logo-group">
+            <a routerLink="/">
+                <img id="logo-icon" src="../../assets/logo3.svg">
+                <span id="logo-text">The One Project</span>
+            </a>
+        </div>
+    <nav>
+        <div class="mobileMenu" (click)="toggleMenu()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
+        <ul class="navList" [class.active]="activeMenu">
+            <li><a class="navListItem" routerLink="/">Home</a></li>
+            <li><a class="navListItem" routerLink="/movies">Movies</a></li>
+            <li><a class="navListItem" routerLink="/books">Books</a></li>
+            <li><a class="navListItem" routerLink="/characters">Character</a></li>
+            <li><a class="navListItem" routerLink="/links">Link</a></li>
+        </ul>
+    </nav>
+    </div>
+</div>

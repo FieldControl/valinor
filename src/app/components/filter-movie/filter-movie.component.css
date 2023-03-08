@@ -1,0 +1,61 @@
+.containerFilterMovie {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem;
+}
+
+.containerFilterMovie h1 {
+  color: var(--ring);
+}
+
+.filterGroup {
+  gap: 0.625rem;
+  display: flex;
+}
+
+.searchMovie {
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+}
+
+.btn-search {
+  cursor: pointer;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  background-color: var(--ring);
+  color: #000;
+}
+
+@media (max-width: 999px) {
+  .containerFilterMovie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem;
+  }
+
+  .containerFilterMovie h1 {
+    display: none;
+  }
+
+  .filterGroup {
+    gap: 0.625rem;
+    display: flex;
+  }
+
+  .searchMovie {
+    width: 9.375rem;
+    height: 1.975rem;
+    padding: 0.625rem;
+  }
+
+  .btn-search {
+    cursor: pointer;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+    background-color: var(--ring);
+    color: #000;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

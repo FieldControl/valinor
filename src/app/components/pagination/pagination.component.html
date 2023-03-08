@@ -1,0 +1,18 @@
+<div class="containerPaginationBook">
+    <button *ngIf="this.page > 1" (click)="previous()" class="btnPagination" type="button">
+        <img src="../../../assets/esquerda.svg">
+    </button>
+
+
+    <ul>
+        <li class="pageListBook">
+            <p>{{page}}</p>
+            <img src="../../../assets/meio2.svg">
+            <p>{{totalPage}}</p>
+        </li>
+    </ul>
+
+    <button *ngIf="this.page != this.totalPage" (click)="next()" class="btnPagination" type="button">
+        <img src="../../../assets/direita.svg">
+    </button>
+</div>

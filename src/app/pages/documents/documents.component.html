@@ -1,0 +1,9 @@
+<div class="containerDocuments">
+    <ng-container *ngFor="let item of cardList">
+        <app-card-link 
+            [title]="item.title"
+            [link]="item.link"
+            [icon]="item.icon"
+        ></app-card-link>
+    </ng-container>
+</div>

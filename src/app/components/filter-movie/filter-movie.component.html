@@ -1,0 +1,11 @@
+<div class="containerFilterMovie">
+  <h1> Movies </h1>
+  <div class="filterGroup">
+    <input type="text" class="searchMovie" id="name" name="name" placeholder="Search movie title ..."
+      [(ngModel)]="name" (keyup.enter)="filterMovie()">
+
+    <button class="btn-search" type="button" (click)="filterMovie()">
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </button>
+  </div>
+</div>

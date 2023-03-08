@@ -1,0 +1,66 @@
+.btnCardLink {
+    text-decoration: none;
+}
+
+.cardContainerLink {
+    width: 18.75rem;
+    height: 18.75rem;
+    background-color: var(--background);
+    border-radius: 10%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardContainerLink h1 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    font-family: 'Arial';
+    color: var(--ring);
+}
+
+.logoIcon {
+    max-width: 80px;
+}
+
+.cardContainerLink p {
+    color: white;
+    max-width: 250px;
+    padding-top: 2rem;
+}
+
+@media (max-width: 999px) {
+  .btnCardLink {
+    text-decoration: none;
+}
+
+.cardContainerLink {
+    max-width: 10.75rem;
+    max-height: 10.75rem;
+    background-color: var(--background);
+    border-radius: 10%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardContainerLink h1 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    font-family: 'Arial';
+    color: var(--ring);
+    font-size: 1rem;
+}
+
+.logoIcon {
+    max-width: 3rem;
+}
+
+.cardContainerLink p {
+    color: white;
+    max-width: 250px;
+    font-size: small;
+}
+}

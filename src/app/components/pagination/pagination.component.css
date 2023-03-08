@@ -1,0 +1,76 @@
+.containerPaginationBook {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 0;
+
+}
+
+.btnPagination {
+  cursor: pointer;
+  background-color: transparent;
+  border: transparent;
+}
+
+.btnPagination img {
+  width: 2.125rem;
+}
+
+.pageListBook {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.pageListBook p {
+  padding: 0 0.625rem;
+  text-decoration: none;
+  margin: 0.3125rem;
+  font-weight: bolder
+}
+
+.pageListBook img {
+  width: 2.125rem;
+}
+
+
+@media (max-width: 999px) {
+
+  .containerPaginationBook {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 1.25rem;
+    font-size: 11px;
+
+  }
+
+  .btnPagination {
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+  }
+
+  .btnPagination img {
+    width: 2.125rem;
+  }
+
+  .pageListBook {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .pageListBook p {
+    padding: 0.625rem;
+    text-decoration: none;
+    margin: 0.3125rem;
+    font-weight: bolder
+  }
+
+  .pageListBook img {
+    width: 2.125rem;
+  }
+}

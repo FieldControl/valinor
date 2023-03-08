@@ -1,0 +1,22 @@
+<div class="containerCharacters">
+  <div class="filter">
+    <app-filter-character (filter)="handleFilter($event)"></app-filter-character>
+  </div>
+  <div class="card">
+    <ng-container *ngFor="let item of characters">
+      <app-card-character 
+        [name]="item.name" 
+        [height]="item.height" 
+        [race]="item.race" 
+        [gender]="item.gender"
+        [birth]="item.birth" 
+        [spouse]="item.spouse" 
+        [death]="item.death" 
+        [realm]="item.realm" 
+        [hair]="item.hair"
+        [wikiUrl]="item.wikiUrl">
+      </app-card-character>
+    </ng-container>
+  </div>
+  <app-pagination [totalPage]="totalPages" (currentPage)="handleCurrentPage($event)"></app-pagination>
+</div>

@@ -1,0 +1,10 @@
+<details class="collapse">
+  <summary class="title" (click)="getChapters()"><strong>{{name}}</strong></summary>
+  <div class="description">
+    <ul>
+      <ng-container *ngFor="let item of chapters; let i = index">
+        <li><strong>Chapter {{i + 1}}: </strong>{{item.chapterName}}</li>
+      </ng-container>
+    </ul>
+  </div>
+</details>

@@ -1,0 +1,83 @@
+.card {
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin:30px;
+
+    max-width: 300px;
+
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 250px 20px;
+    grid-template-areas: "image" "text";
+
+    border-radius: 18px;
+    background: #1d1d1d;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: justify;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+  }
+
+  .rgb::after {
+    content:"";
+    background: linear-gradient(45deg,
+    #640000 0%,
+    #890a04 10%,
+    #ae1309 20%,
+    #d21d0d 30%,
+    #f72711 40%,
+    #E9190F 50%,
+    #FE4F00 60%,
+    #FE4F00 70%,
+    #FE4F00 80%,
+    #FF0000 90%,
+    #AA0000 100%  )
+    repeat 0% 0% / 300% 100%;
+    position: absolute;
+    inset: -3px;
+    border-radius: 16px;
+    filter: blur(8px);
+    transform: translateZ(-1px);
+    animation: rgb 6s linear infinite;
+  }
+
+  @keyframes rgb {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .card-image img {
+    width: 300px;
+    height:210px;
+    grid-area: image;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+
+  .card-text {
+    grid-area: text;
+    margin: 25px;
+  }
+  .card-text .date {
+    color: red;
+    font-size:13px;
+  }
+  .card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+  }
+  .card-text h5 {
+    margin-top:0px;
+    font-size:28px;
+    font-family: "Uncial Antiqua", cursive;
+    color: var(--ring);
+    font-weight:normal;
+  }
+
+  .card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }

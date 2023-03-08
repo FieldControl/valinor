@@ -1,0 +1,43 @@
+.collapse {
+  margin: 0.625rem;
+}
+
+.title {
+  padding: 1rem;
+  color: var(--ring);
+  background-color: var(--background);
+  border-radius: 0.625rem;
+  height: auto;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.description {
+  margin: 0.625rem;
+  padding: 0.625rem;
+  background-color: #808080;
+  border-radius: 0.625rem;
+
+}
+
+@media (max-width: 999px) {
+
+  .title {
+    padding: 1rem;
+    color: var(--ring);
+    background-color: var(--background);
+    border-radius: 0.625rem;
+    height: auto;
+    font-size: 0.625rem;
+    cursor: pointer;
+  }
+
+  .description {
+    margin: 0.625rem;
+    padding: 0.625rem;
+    background-color: #808080;
+    border-radius: 0.625rem;
+    color: black;
+    font-size: 0.625rem;
+  }
+}

@@ -1,0 +1,24 @@
+.containerDocuments{
+    width: 80vw;
+    min-height: calc(100vh - 6rem);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+@media (max-width: 999px) {
+  .containerDocuments{
+    width: calc(100vw - 11rem);
+    min-height: calc(100vh - 5.25rem);
+
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem;
+    align-items: center;
+}
+}

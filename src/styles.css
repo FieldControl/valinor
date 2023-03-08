@@ -1,0 +1,28 @@
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+
+
+
+
+  :root{
+    --background: #23272A;
+    --background-gray: #696969;
+    --ring: #FFA500;
+    --navbar: #23272A;
+
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+}
+
+body{
+
+  overflow-x: hidden;
+}
+

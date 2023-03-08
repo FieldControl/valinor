@@ -1,0 +1,140 @@
+.backgroundHeader {
+  background-color: var(--ring);
+  height: 6rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  background-color: var(--navbar);
+
+  height: 5.25rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#logo-icon {
+  width: 40px;
+}
+
+#logo-group a {
+  text-decoration: none;
+}
+
+#logo-text {
+  font-family: "Uncial Antiqua", cursive;
+  font-size: 3.125rem;
+  color: var(--ring);
+}
+
+.mobileMenu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobileMenu div {
+  width: 2rem;
+  height: 0.125rem;
+  background-color: #fff;
+  margin: 0.5rem;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.625rem;
+  padding: 1.25rem;
+}
+
+.navListItem {
+  color: var(--ring);
+  text-decoration: none;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+  transition: 0.4s;
+}
+
+.navListItem:hover {
+  background-color: var(--ring);
+  color: black;
+  transition: 0.4s;
+}
+
+@media (max-width: 999px) {
+  .backgroundHeader {
+    background-color: var(--ring);
+    height: 6rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .header {
+    background-color: var(--navbar);
+
+    height: 5.25rem;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #logo-icon {
+    max-width: 20px;
+  }
+
+  #logo-text {
+    font-size: 20px;
+  }
+
+  .navList {
+    position: absolute;
+    top: 5rem;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    gap: 3rem;
+    height: 100vh;
+    background-color: var(--navbar);
+
+    transform: translateX(100%);
+
+  }
+
+  .navList:active {
+    transform: translateX(0%);
+  }
+
+  .navListItem {
+    width: 150px;
+    margin-left: 0;
+    color: var(--ring);
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 0;
+    transition: 0.4s;
+  }
+
+  .navListItem:hover {
+    background-color: var(--navbar);
+    color: black;
+    transition: 0.4s;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .navList.active{
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,32 @@
+<div class="filterCharacterContainer">
+  <h1>Characters</h1>
+  <div class="filterCharacterName">
+    <input type="text" class="searchCharacterName" id="name" name="name" placeholder="Search character"
+      [(ngModel)]="name" (keyup.enter)="filterCharacter()" />
+
+      <div class="container">
+        <form class="form">
+          <div class="formGroup">
+            <select id="race" name="race" data-dropdown  [(ngModel)]="race">
+              <option value="Human">Human</option>
+              <option value="Elf">Elf</option>
+              <option value="Hobbit">Hobbit</option>
+              <option value="Orc">Orc</option>
+              <option value="Goblin">Goblin</option>
+              <option value="Dwarf">Dwarf</option>
+              <option value="Maiar">Maiar</option>
+              <option value="Dragon">Dragon</option>
+              <option value="Ent">Ent</option>
+              <option value="Eagle">Eagle</option>
+              <option value="Balrog">Balrog</option>
+           </select>
+          </div>
+        </form>
+      </div>
+
+    <button class="btn-search-character" type="button" (click)="filterCharacter()">
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </button>
+
+  </div>
+</div>

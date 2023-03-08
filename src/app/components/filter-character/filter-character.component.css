@@ -1,0 +1,74 @@
+select{
+  width: 150px;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+}
+
+.filterCharacterContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem;
+}
+
+.filterCharacterContainer h1 {
+  color: var(--ring);
+}
+
+.filterCharacterName {
+  gap: 0.625rem;
+  display: flex;
+}
+
+.searchCharacterName {
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+}
+
+.btn-search-character {
+  cursor: pointer;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  background-color: var(--ring);
+  color: #000;
+}
+
+@media (max-width: 999px) {
+
+  select{
+    width: 9.375rem;
+    height: 1.975rem;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+  }
+  .filterCharacterContainer {
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .filterCharacterContainer h1 {
+    display: none;
+  }
+
+  .filterCharacterName {
+    gap: 0.625rem;
+    display: flex;
+  }
+
+  .searchCharacterName {
+    width: 9.375rem;
+    height: 1.975rem;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+  }
+
+  .btn-search-character {
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 0.625rem;
+    background-color: var(--ring);
+    color: #000;
+    padding: 0.625rem;
+  }
+}

@@ -1,0 +1,17 @@
+.containerMovies{
+    padding-top: 30px;
+    width: 80vw;
+    min-height: calc(100vh - 6rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.card{
+    min-height: 42.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+}

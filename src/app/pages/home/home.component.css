@@ -1,0 +1,163 @@
+.containerHome {
+  min-height: calc(100vh - 6rem);
+  width: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  /* background-color: #0B0B13; */
+}
+
+#section1 {
+  padding: 0;
+  margin: 0;
+  background-image: url(../../../assets/backgroundhomesection11.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 100%;
+  min-height: calc(100vh - 6rem);
+}
+
+#section2 {
+  padding-top: 10rem;
+  color: black;
+  width: auto;
+  height: auto;
+  background-color: blueviolet;
+  background-color: #0b0b13;
+}
+
+.section2ContainerTextImg {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.section2ContainerText {
+  text-align: justify;
+  max-width: 50rem;
+  max-height: 6.25rem;
+  color: #a9a9a9;
+  font-size: 1.3rem;
+}
+
+.section2ContainerText span {
+  color: var(--ring);
+  font-size: 3rem;
+  font-family: "Uncial Antiqua", cursive;
+}
+
+.section2ContainerTextImg img {
+  max-width: 31.25rem;
+  max-height: 18.7rem;
+  border-radius: 0.9375rem 3.125rem;
+}
+
+.cardMapContainer {
+  padding-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardMapContainer span {
+  color: var(--ring);
+  font-size: 3rem;
+  font-family: "Uncial Antiqua", cursive;
+}
+
+.cardMap {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 999px) {
+  .containerHome {
+    min-height: calc(100vh - 6rem);
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #section1 {
+    background-image: url(../../../assets/backgroundhomesection11.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100vw;
+  }
+
+  #section2 {
+    padding: 2rem 0;
+
+    color: black;
+
+    width: 100vw;
+    height: auto;
+  }
+
+  .section2ContainerTextImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .section2ContainerText {
+    text-align: justify;
+    max-width: 20rem;
+    max-height: 35rem;
+    color: #a9a9a9;
+    font-size: 1rem;
+  }
+
+  .section2ContainerText span {
+    color: var(--ring);
+    font-size: 1.5rem;
+    font-family: "Uncial Antiqua", cursive;
+  }
+
+  .section2ContainerTextImg img {
+    width: 20rem;
+    max-height: 18.7rem;
+    border-radius: 0.9375rem 3.125rem;
+  }
+
+  .cardMapContainer {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardMapContainer span {
+    color: var(--ring);
+    font-size: 2rem;
+    font-family: "Uncial Antiqua", cursive;
+  }
+
+  .cardMap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+}
