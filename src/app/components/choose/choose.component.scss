@@ -6,9 +6,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
     text-align: center;
-    margin: 0 3rem;
 
+    .choose-header > :first-child {
+        align-self: flex-start;
+      }
     h1 {
         color: white
     }
@@ -31,7 +34,6 @@
 }
 
 .picker {
-    padding-top: 2rem;
     text-align: center;
 
     ul {
@@ -44,8 +46,8 @@
         list-style: none;
         li{
             -webkit-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
+            box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
         }
     }
 
@@ -71,7 +73,6 @@ box-shadow: 10px 10px 61px 25px rgba(0,0,0,0.75);
         button {
             font-size: 1.3rem;
             margin: 0 auto;
-            padding: 25px;
             color: white;
             border: 2px solid #dc3d4b;
             background-color: #fa4454;

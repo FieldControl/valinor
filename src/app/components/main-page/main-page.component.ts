@@ -21,7 +21,6 @@ export class MainPageComponent implements OnInit{
 
     const randomNumber = Math.floor(Math.random() * 20);
     this.random = randomNumber;
-
     setTimeout(() => {
       this.generateRandomNumberWithDelay();
     }, 5000);

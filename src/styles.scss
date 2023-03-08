@@ -69,13 +69,12 @@ body {
 
 }
 
-@media (max-width: 650px) {
+@media (max-width: 850px) {
     *{
+        text-align: center;
         justify-content: center;
-        align-items: center;
         flex-direction: row;
         flex-wrap: wrap;
-        max-width: 100%;
     }
     
 

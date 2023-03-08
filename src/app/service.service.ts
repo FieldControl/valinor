@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BundleListComponent } from './components/lists/bundle-list/bundle-list.component';
 
 @Injectable({
   providedIn: 'root',
@@ -26,14 +27,15 @@ export class apiService implements OnInit {
       .toPromise();
     const bundles = requisicao.data;
     this.bundles = bundles;
+    return requisicao.data
   }
-  async loadAgents() {
+  loadAgents = async () => {
     const requisicao = await this.http
       .get<any>('https://valorant-api.com/v1/agents/?isPlayableCharacter=true&language=pt-BR')
       .toPromise();
     const agents = requisicao.data;
     this.agents = agents;
-    console.log(this.agents)
+    return requisicao.data
   }
   async loadSkins() {
     const requisicao = await this.http
@@ -42,5 +44,9 @@ export class apiService implements OnInit {
     const skins = requisicao.data;
     this.skins = skins;
     console.log(skins)
+  }
+
+  loadTest() {
+    return this.http.get('https://valorant-api.com/v1/agents/?isPlayableCharacter=true&language=pt-BR')
   }
 }
