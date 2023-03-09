@@ -31,7 +31,7 @@ Esse projeto tem como base buscar algumas informações sobre o jogo Valorant, d
 - Na aba "Pacotes" você pode ver cada pacote de skins do jogo, junto com seu nome e sua foto
 - Na aba "Skins" você pode ver cada skin individualmente do jogo, e tambem pode buscar por alguma especifica(Ex: Se digitar Vandal, verá todas as skins da arma Vandal. Enquanto se digitar Glitchpop, verá todas as armas da coleção Glitchpop)
 
-</h2 id="images">Imagens do projeto</h2>
+<h2 id="images">Imagens do projeto</h2>
 
 # Tela principal
 ![alt](img/telaPrincipal.png)
