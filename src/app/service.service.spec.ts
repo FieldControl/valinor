@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { apiService } from './service.service';
-import { ɵɵresolveBody } from '@angular/core';
 
 describe('apiService', () => {
   let service: apiService;
@@ -29,15 +28,12 @@ describe('apiService', () => {
   });
 
 
-  it('1234', async () => {
+  it('Getting from API', async () => {
     const dados = service.loadTest()
     dados.subscribe((users: any) => {
       expect(users).toBeTruthy()
     })
     const mockReq = httpMock.expectOne('https://valorant-api.com/v1/agents/?isPlayableCharacter=true&language=pt-BR')
     expect(mockReq.request.method).toBe('GET')
-    mockReq.flush({ 
-      data:JSON.stringify(Object.values)
-    })
   })
 })

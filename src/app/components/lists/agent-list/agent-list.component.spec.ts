@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { apiService } from 'src/app/service.service';
 import { ChooseHeaderComponent } from '../../choose-header/choose-header.component';
 import { ChooseComponent } from '../../choose/choose.component';
