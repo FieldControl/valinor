@@ -24,4 +24,7 @@ describe('ChooseComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy(); 
   });
+  it('should be default', () => {
+    expect(component.active).toBe('Default')
+  })
 });

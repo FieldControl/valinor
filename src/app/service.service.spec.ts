@@ -1,18 +1,23 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { apiService } from './service.service';
+import { ContentObserver } from '@angular/cdk/observers';
+import { Data } from '@angular/router';
 
 describe('apiService', () => {
   let service: apiService;
-  let httpMock: HttpTestingController;
+  let HttpClient1: HttpClient
+  let HttpTestingControlle: HttpTestingController;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [apiService],
-    }); 
+    });
     service = TestBed.inject(apiService);
-    httpMock = TestBed.inject(HttpTestingController);
+    HttpClient1 = TestBed.inject(HttpClient) 
+    HttpTestingControlle = TestBed.inject(HttpTestingController);
 
 
   });
@@ -22,18 +27,13 @@ describe('apiService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be created', () => {
-    const service: apiService = TestBed.get(apiService);
+  it('should be created', async () => {
+    const service: apiService = await TestBed.get(apiService);
     expect(service).toBeTruthy();
   });
 
-
-  it('Getting from API', async () => {
-    const dados = service.loadTest()
-    dados.subscribe((users: any) => {
-      expect(users).toBeTruthy()
-    })
-    const mockReq = httpMock.expectOne('https://valorant-api.com/v1/agents/?isPlayableCharacter=true&language=pt-BR')
+  it('Getting from API', () => {
+    const mockReq =  HttpTestingControlle.expectOne(service.agentsUrl)
     expect(mockReq.request.method).toBe('GET')
   })
 })

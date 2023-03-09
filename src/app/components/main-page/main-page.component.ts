@@ -19,7 +19,7 @@ export class MainPageComponent implements OnInit{
 
   public generateRandomNumberWithDelay(): void {
 
-    const randomNumber = Math.floor(Math.random() * 20);
+    const randomNumber = Math.floor(Math.random() * 21);
     this.random = randomNumber;
     setTimeout(() => {
       this.generateRandomNumberWithDelay();

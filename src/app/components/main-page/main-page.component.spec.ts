@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { MainPageComponent } from './main-page.component';
 import { apiService } from 'src/app/service.service';
+import { generate } from 'rxjs';
 
 describe('MainPageComponent', () => {
   let component: MainPageComponent;
@@ -24,4 +25,11 @@ describe('MainPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should be main', ()=> {
+    expect(component.active).toBe('main')
+  })
+  it('should be between 0-21', async () => {
+    console.log(component.random)
+    expect(component.random >= 0 && component.random <= 21).toBeTrue()
+  })
 })

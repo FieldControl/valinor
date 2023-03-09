@@ -29,4 +29,9 @@ describe('SkinListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be empty', async() => {
+    console.log(component.value)
+    expect(component.value).toBe("")
+  })
 });
