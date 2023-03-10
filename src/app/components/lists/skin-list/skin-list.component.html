@@ -6,7 +6,8 @@
     <div class="search-header">
       <div class="inside-search">
         <form class="input-form">
-          <input type="text" placeholder="Busque pela arma ou coleção" (input)="search($event)">        </form>
+          <input type="text" placeholder="Busque pela arma ou coleção" (input)="search($event)">
+        </form>
         <mat-paginator class="paginator" [length]="this.apiService.skins.length" [pageSize]="10" [hidePageSize]="true"
           [ngStyle]="" (page)="OnPageChange($event)">
         </mat-paginator>
@@ -14,20 +15,20 @@
     </div>
 
     <div class="skin-list-container">
-      <!-- <ul class="skin-list">
+      <ul class="skin-list">
         <li class="skin" *ngFor="let skin of pageSlice">
           <h2>{{ skin.displayName }}</h2>
           <img src="{{ skin.displayIcon }}" alt="" srcset="" />
         </li>
-      </ul> -->
-      <table class="skin-list">
+      </ul>
+      <!-- <table class="skin-list">
         <tr class="skin" *ngFor="let skin of pageSlice">
           <td>
             <h2>{{ skin.displayName }}</h2>
           </td>
           <td><img src="{{ skin.displayIcon }}" alt="" srcset="" /></td>
         </tr>
-      </table>
+      </table> -->
     </div>
   </div>
 

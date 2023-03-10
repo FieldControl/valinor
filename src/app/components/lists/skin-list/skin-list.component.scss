@@ -24,6 +24,7 @@
       .inside-search {
         border: 5px solid white;
         border-radius: 2rem;
+        max-width: 100%;
         display: flex;
         margin: 0 auto;
         padding: 0 1.2rem;
@@ -32,6 +33,7 @@
     }
 
     .input-form input {
+      max-width: 80%;
       font-size: 16px;
       border: none;
       padding: 16px;
@@ -42,17 +44,43 @@
     }
   }
 
-  .skin-list {
+  .skin-list-container {
     margin: 0 auto;
 
-    td h2 {
-      color: white;
-      text-align: left;
+    ul {
+      align-items: center;
+      justify-content: center;
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          color: white;
+        }
+
+        img {
+          min-height: 70px;
+          max-height: 70px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .skin-list {
+    flex-direction: column;
+  }
+
+  li {
+    gap: 0rem;
+
+    img {
+      max-height: 100%;
     }
 
-    td img {
-      min-height: 70px;
-      max-height: 70px;
-    }
+    flex-direction: column;
   }
 }
