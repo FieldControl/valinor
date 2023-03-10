@@ -14,12 +14,12 @@ describe('SkinListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkinListComponent, ChooseHeaderComponent ],
+      declarations: [SkinListComponent, ChooseHeaderComponent],
       imports: [HttpClientTestingModule],
-      providers: [apiService,  ChooseComponent, MainPageComponent],
+      providers: [apiService, ChooseComponent, MainPageComponent],
       schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SkinListComponent);
     component = fixture.componentInstance;
@@ -30,8 +30,7 @@ describe('SkinListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be empty', async() => {
-    console.log(component.value)
+  it('should be empty', async () => {
     expect(component.value).toBe("")
   })
 });

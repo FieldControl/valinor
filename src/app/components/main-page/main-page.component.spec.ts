@@ -11,11 +11,11 @@ describe('MainPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainPageComponent],
+      declarations: [MainPageComponent],
       imports: [HttpClientTestingModule],
       providers: [apiService]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MainPageComponent);
     component = fixture.componentInstance;
@@ -25,11 +25,10 @@ describe('MainPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should be main', ()=> {
+  it('should be main', () => {
     expect(component.active).toBe('main')
   })
-  it('should be between 0-21', async () => {
-    console.log(component.random)
+  it('should be between 0-21', () => {
     expect(component.random >= 0 && component.random <= 21).toBeTrue()
   })
 })

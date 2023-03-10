@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ export class apiService {
   bundlesUrl: string = 'https://valorant-api.com/v1/bundles/?language=pt-BR';
   agentsUrl: string = 'https://valorant-api.com/v1/agents/?isPlayableCharacter=true&language=pt-BR';
   skinsUrl: string = 'https://valorant-api.com/v1/weapons/skins/?language=pt-BR';
+
   constructor(private http: HttpClient) {
     this.loadBundles();
     this.loadAgents();
@@ -19,27 +21,19 @@ export class apiService {
   }
 
   async loadBundles() {
-    const requisicao = await this.http
-      .get<any>('https://valorant-api.com/v1/bundles/?language=pt-BR')
-      .toPromise();
-    const bundles = requisicao.data;
-    this.bundles = bundles;
+    const apiGet = this.http.get<any>(this.bundlesUrl)
+    const req = await firstValueFrom(apiGet)
+    this.bundles = req.data;
   }
   async loadAgents() {
-    const requisicao = await this.http
-      .get<any>('https://valorant-api.com/v1/agents/?isPlayableCharacter=true&language=pt-BR')
-      .toPromise();
-    const agents = requisicao.data;
-    this.agents = agents;
-    console.log(this.agents)
+    const apiGet = this.http.get<any>(this.agentsUrl)
+    const req = await firstValueFrom(apiGet)
+    this.agents = req.data;
   }
   async loadSkins() {
-    const requisicao = await this.http
-      .get<any>('https://valorant-api.com/v1/weapons/skins/?language=pt-BR')
-      .toPromise();
-    const skins = requisicao.data;
-    this.skins = skins;
-    console.log(skins)
+    const apiGet = this.http.get<any>(this.skinsUrl)
+    const req = await firstValueFrom(apiGet)
+    this.skins = req.data;
   }
 
 }

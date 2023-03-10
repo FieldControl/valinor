@@ -29,11 +29,6 @@ describe('apiService', () => {
     const service: apiService = await TestBed.get(apiService);
     expect(service).toBeTruthy();
   });
-  it('teste', async () => {
-    const res = await service.loadAgents()
-    console.log(res)
-    expect(res).toBeTruthy()
-  });
 
   it('Getting from API', () => {
     const mockReq = HttpTestingControlle.expectOne(service.agentsUrl)
