@@ -9,6 +9,9 @@ export class apiService {
   agents: any = [];
   skins: any = [];
 
+  bundlesUrl: string = 'https://valorant-api.com/v1/bundles/?language=pt-BR';
+  agentsUrl: string = 'https://valorant-api.com/v1/agents/?isPlayableCharacter=true&language=pt-BR';
+  skinsUrl: string = 'https://valorant-api.com/v1/weapons/skins/?language=pt-BR';
   constructor(private http: HttpClient) {
     this.loadBundles();
     this.loadAgents();
