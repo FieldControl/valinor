@@ -1,9 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { apiService } from './service.service';
-import { ContentObserver } from '@angular/cdk/observers';
-import { Data } from '@angular/router';
 
 describe('apiService', () => {
   let service: apiService;
@@ -16,7 +13,7 @@ describe('apiService', () => {
       providers: [apiService],
     });
     service = TestBed.inject(apiService);
-    HttpClient1 = TestBed.inject(HttpClient) 
+    HttpClient1 = TestBed.inject(HttpClient)
     HttpTestingControlle = TestBed.inject(HttpTestingController);
 
 
@@ -31,9 +28,14 @@ describe('apiService', () => {
     const service: apiService = await TestBed.get(apiService);
     expect(service).toBeTruthy();
   });
+  it('teste', async () => {
+    const res = await service.loadAgents()
+    console.log(res)
+    expect(res).toBeTruthy()
+  });
 
   it('Getting from API', () => {
-    const mockReq =  HttpTestingControlle.expectOne(service.agentsUrl)
+    const mockReq = HttpTestingControlle.expectOne(service.agentsUrl)
     expect(mockReq.request.method).toBe('GET')
   })
 })
