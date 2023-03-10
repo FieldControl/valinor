@@ -1,0 +1,98 @@
+<div class="containerSearchComponent">
+    <form class="searchBar" (ngSubmit)="searchPlayer()">
+        <input [formControl]="searchValue" placeholder="Busque por um invocador" type="text">
+    </form>
+    <div *ngIf="noContant === true"class="loading">
+        <img src="https://news-a.akamaihd.net/public/images/pages/2017/march/eu_spaf/moocow.gif" alt="Computer man">
+        <h1>Alistar Esperando Você Pesquisar</h1>
+    </div>
+    <div *ngIf="player && noContant === false" class="background">
+        <div class="mainProfileInfos">
+            <div class="left">
+                <div class="icon">
+                    <img src="https://opgg-static.akamaized.net/images/profile_icons/profileicon{{player.profileIconId}}.jpg?image=q_auto,f_webp,w_auto&v=1678078753492"
+                        alt="">
+                    <h1>{{player.summonerLevel}}</h1>
+                </div>
+                <div class="titles">
+                    <div class="name">
+                        <h1>{{player.name}}</h1>
+                    </div>
+                    <div class="nivel">
+                    </div>
+                    <div class="elo">
+                        <h1>Ranked Solo/Duo</h1>
+                        <div *ngIf="player.leagues.length && player.leagues[0].tier" class="eloContainer">
+                            <div class="eloIcon">
+                                <img  src="https://opgg-static.akamaized.net/images/medals_new/{{player.leagues[0].tier}}.png?image=q_auto,f_webp,w_144&v=1678078753492"
+                                alt="">
+                                
+                            </div>
+                            <div class="eloInfos">
+                                <h1>{{player.leagues[0].tier}} {{player.leagues[0].rank}}</h1>
+                                <p>LP {{player.leagues[0].leaguePoints}}</p>
+                            </div>
+                            <div class="winRate">
+                                <p>{{player.leagues[0].wins}}W {{player.leagues[0].losses}}L</p>
+                                <p>Win Rate {{player.leagues[0].winRate}}%</p>
+                            </div>
+                        </div>
+                        <div *ngIf="!player.leagues.length" class="eloContainer">
+                        <div class="eloIcon">
+                            <img  
+                            src="https://lolg-cdn.porofessor.gg/img/s/league-icons-v3/160/0.png?v=8"
+                            alt=""> 
+                        </div>
+                        <div class="eloInfos">
+                            <h1>Unranked</h1>
+                        </div>
+                       
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="bar">
+                
+            </div><div class="right">
+                
+                <div class="topChampionsContainer">
+                    <div class="topChampionsTitle">
+                     <h1>Campeões mais jogados</h1>
+                    </div>
+                    <div class="topChampions">
+                        <div *ngIf="player.topChampions.length && champions.length"  class="championInfos">
+                            <div class="fade">
+                                <h1>{{champions[0].id}}</h1>
+                                <img src="https://www.elorapido.com.br/wp-content/themes/elorapido/assets/images/tiers/m{{player.topChampions[0].championLevel}}.png" alt="">
+                                <p>{{player.topChampions[0].championPoints | number}}</p>
+                            </div>
+                            <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champions[0].id}}_0.jpg" alt="">
+                        </div>
+                        <div *ngIf="champions.length" class="championInfos">
+                            <div class="fade">
+                                <h1>{{champions[1].id}}</h1>
+                                <img src="https://www.elorapido.com.br/wp-content/themes/elorapido/assets/images/tiers/m{{player.topChampions[1].championLevel}}.png" alt="">
+                                <p>{{player.topChampions[1].championPoints | number}}</p>
+                            </div>
+                            <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champions[1].id}}_0.jpg" alt="">
+                        </div>
+                        <div *ngIf="champions.length" class="championInfos">
+                            <div class="fade">
+                                <h1>{{champions[2].id}}</h1>
+                                <img src="https://www.elorapido.com.br/wp-content/themes/elorapido/assets/images/tiers/m{{player.topChampions[2].championLevel}}.png" alt="">
+                                <p>{{player.topChampions[2].championPoints | number}}</p>
+                            </div>
+                            <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champions[2].id}}_0.jpg" alt="">
+                        </div>
+                        <div *ngIf="champions.length === null"  class="championInfos">
+                            <h1>Sem Jogos Recentes :/</h1>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

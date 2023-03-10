@@ -1,0 +1,64 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+.toTop{
+    position: fixed;
+    z-index: 99;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: all .2s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    width: 40px;
+    height: 40px;
+    background-color: aliceblue;
+}
+
+.toTop:hover {
+    
+    scale: 1.3;
+    box-shadow: solid 4px white;
+}
+.header{
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    height: 40px;
+    z-index: 9999;
+}
+.container{
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/910170255372683203/57145AF7CBF72AAE24980B83B1EBCBB8778D42BB/");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding-bottom: 150px;
+    min-height: 900px;
+    overflow: hidden;
+}
+.container img{
+    height: 100%;
+    min-width: 100%;
+}
+
+body{
+    margin: 0px;
+}
+
+@media screen and (max-width: 1400px){
+    .container{
+        min-height: 800px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container{
+        max-width: 100%;
+        padding-bottom: 100px;
+    }
+}

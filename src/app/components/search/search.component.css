@@ -1,0 +1,320 @@
+@import url(//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold);
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Kaushan+Script&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    margin: 0;
+    font-family: "BeaufortforLOL-Bold" , Arial ;
+}
+.loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    opacity: 1;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+
+}
+.containerSearchComponent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.left{
+    width:50%;
+    display: flex;
+}
+.right{
+    width: 50%;
+    display: flex;
+}
+.searchBar{
+    padding-top: 80px;
+    padding-bottom: 12px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBar input{
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 30px;
+    transition: all 0.2s linear;
+}
+.searchBar input:hover, input:focus{
+    scale: 1.1;
+}
+.background{
+    width: 80%;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.779);
+    display: flex;
+    justify-content: space-between;    
+}
+.mainProfileInfos{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    color: white;
+}
+.titles{
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.icon{
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    justify-content: center;
+}
+.icon h1{
+    padding: 0px 8px;
+    background-color: rgb(32, 45, 55);
+    border-radius: 20px;
+    bottom: -17px;
+    position: absolute;
+}
+
+.icon img{
+    border: solid 1px white;
+    width: 330px;
+    height: 330px;
+}
+.name h1{
+    padding-left: 0;
+    font-size: 60px;
+    text-align: left;
+}
+.eloContainer{
+    margin-top: 20px;
+    width: 310px;
+    max-width: 310px;
+    border-radius: 12px;
+    border: solid 1px white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+.eloContainer p{
+    font-size: 12px;
+}
+.elo h1{
+    font-size: 20px;
+}
+.eloIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    background-color: rgba(31, 31, 31, 0.61);
+    border-radius: 9999px;
+}
+.eloIcon img{
+    width: 85%;
+    height: 85%;
+}
+.eloInfos{
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+    gap: 12px;
+    max-width: 70%;
+}
+.eloInfos h1{
+    font-size: 16px;
+}
+.winRate{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 12px;
+    padding-left: 12px;
+}
+.bar{
+    align-self: center;
+    justify-self: center;
+    right: 0;
+    height: 330px;
+    border: solid 1px white;
+}
+.topChampionsContainer{
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.topChampions{
+    width: 100%;
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+.fade{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 236px;
+    background-color: rgba(0, 0, 0, 0.322);
+    position: absolute;
+    opacity: 0;
+    transition: all .3s linear;
+}
+.fade h1{
+    font-family: "BeaufortforLOL-Bold";
+}
+.championInfos{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.championInfos img{
+    width: 130px;
+}
+.championInfos:hover .fade{
+    opacity: 1;
+    cursor: none;
+}
+.championName{
+    position: absolute;
+    z-index: 5;
+    top: -5px;
+}
+.championPosition{
+    position: absolute;
+    bottom: -5px;
+}
+@media screen and (max-width: 2100px) {
+   
+    .searchBar input{
+        height: 40px;
+        width: 400px;
+        text-align: center;
+        font-size: 1em;
+        border-radius: 30px;
+        transition: all 0.2s linear;
+    }
+}
+@media screen and (max-width: 1500px){
+   
+    .searchBar input{
+        height: 40px;
+        width: 260px;
+        text-align: center;
+        font-size: 1em;
+        border-radius: 30px;
+        transition: all 0.2s linear;
+    }
+    .icon{
+        width: 100px;
+        height: 100px;
+        align-items: flex-end;
+    }
+    .icon h1{
+        bottom: -10px;
+        font-size: 20px;
+    }
+    .icon img{
+        width: 100px;
+        height: 100px;
+    }
+    .topChampions{
+        gap: 25px;
+    }
+    .championInfos img{
+        width: 100px;
+    }
+    .fade{
+        width: 100%;
+        height: 100%;
+    }
+    .elo{
+        position: absolute;
+        left: 105px;
+        top: 330px;
+    }
+   
+}
+@media screen and (max-width: 450px) {
+    .loading img{
+        width: 300px;
+        height: 300px;
+    }
+    .containerSearchComponent{
+        box-sizing: content-box;
+    }
+    .searchBar{
+        padding-top: 80px;
+    }
+    .mainProfileInfos{
+        display: flex;
+        flex-direction: column;
+        height: 650px;
+    }
+    .icon{
+        left: -10px;
+        width: 110px;
+        height: 110px;
+    }
+    .icon img{
+        width: 110px;
+        height: 110px;
+    }
+    .name h1{
+        font-size: 30px;
+    }
+    .background{
+       height: 80%;
+    }
+    .left{
+        width:100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .elo{
+        position: absolute;
+        width: 90%;
+        flex-direction: column;
+        transform: translateY(20px);
+        left: 9%;
+        margin-right: 0;
+        align-items: center;
+    }
+    .eloContainer{
+        width: 83%;
+        margin-right: 0;
+        margin: 0px 0px ;
+        display: flex;
+    }
+    .bar{
+        width: 90%;
+        height: 0px;
+        transform: translateY(220px);
+    }
+    .right{
+        width: 100%;
+        transform: translateY(250px);
+    }
+    .topChampionsTitle h1{
+        font-size: 1.6em;
+    }
+    .topChampions img{
+        width: 90px;
+    }
+
+}

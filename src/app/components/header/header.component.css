@@ -1,0 +1,163 @@
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #f9f9f9;
+    text-transform: uppercase;
+}
+.linksButton{
+    display: none;
+}
+
+
+.menuButton{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 20px;
+}
+.lineButton{
+    cursor: pointer;
+    width: 85%;
+    height: 4px;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+}
+.header{
+    justify-content: space-between;
+    height: 60px;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: #111;
+    box-shadow: 1 1 1px black;
+    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    box-shadow: 0 3px 5px rgba(36, 39, 44, 0.3);
+}
+
+
+.logoLol img{
+    height: 60px;
+    width: auto;
+}
+.gitHub img{
+    border-radius: 9999px;
+    height: 35px;
+    width: auto;
+}
+.links{
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row nowrap;
+    gap: 30px;
+    height: 20px;
+    width: 40%;
+}
+.links{
+    transform: translateY(-150px);
+    transition: all .3s linear;
+    background-color: #1d1c1c;
+    width: 350px;
+    height: 120px;
+    padding-top: 160px;
+    left: 0;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    position: absolute;
+    z-index: -1;
+    gap: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 1px 1px 15px black;
+}
+.links.showOn{
+    transform: translateY(30px);
+}
+.links h1{
+    padding: 0;
+    font-size: 1.1em;
+    align-items: left;
+}
+.links h1{
+    transition: all .2s linear;
+}
+.links h1:hover {
+    border-bottom: solid 3px red ;
+    cursor: pointer;
+}
+@media screen and (max-width: 1400px){
+    .logoLol img{
+        height: 50px;
+        width: auto;
+    }
+    .header{
+        height: 40px;
+    }
+    .links h1{
+        font-size: 15px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .header{
+        justify-content: space-between;
+        gap: 30px;
+
+    }
+    .menuButton{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 40px;
+        height: 20px;
+    }
+    .lineButton{
+        width: 85%;
+        height: 4px;
+        border-radius: 12px;
+        background-color: rgb(255, 255, 255);
+    }
+    .gitHub{
+        padding: 0;
+    }
+    .logoLol img{
+        height: 40px;
+    }
+    .links{
+        transform: translateY(-150px);
+        transition: all .3s linear;
+        background-color: #1d1c1c;
+        width: 100%;
+        height: 70px;
+        padding-top: 110px;
+        left: 0;
+        padding-left: 20px;
+        padding-bottom: 15px;
+        position: absolute;
+        z-index: -1;
+        gap: 10px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: end;
+        flex-wrap: wrap;
+        box-shadow: 1px 1px 15px black;
+    }
+    .links.showOn{
+        transform: translateY(30px);
+    }
+    .links h1{
+        padding: 0;
+        font-size: .8em;
+        align-items: left;
+    }
+
+}

@@ -1,0 +1,301 @@
+@import url(//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold);
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Kaushan+Script&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    margin: 0px;
+    font-family: "BeaufortforLOL-Bold" , Arial;
+}
+.pageTitle{
+    z-index: 45;
+    font-size: 1.4em;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+    text-shadow: 2px 2px 5px black;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 1000px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.carrossel{
+   
+   box-shadow: 10px 21px 78px 3px rgb(0, 0, 0);
+   height: 717px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+}
+.list{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 1215px;
+    max-height: 717px;
+    position: relative;
+}
+.fullScreenImages{
+    height: 800px;
+    width: 100%;
+    max-width: 1215px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: auto;
+}
+.fullScreen {
+    transition: all .7s ease;
+    transform: translateZ(50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    width: 1215px;
+    opacity: 0;
+}
+.fullScreen::after{
+    scale: 2;
+}
+.fullScreen img{
+    
+    max-height: 717px;
+    width: auto;
+}
+.fullScreen.showOn{
+    transform: translateZ(0px);
+    opacity: 1;
+}
+.titles{
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(9,9,121,0) 100%);
+    height: 717px;
+    width: 1215px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+}
+.infoGroup h1{
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}
+.infoGroup h2{
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgb(208, 168, 92);
+    font-weight: bold;
+}
+.championName{
+
+    padding-bottom: 130px;
+    height: 100px;
+    top: 12px;
+    font-size: 3em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.championTitle{
+    padding-top: 20px;
+    color: white;
+    font-size: .8em;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.infoGroup{
+    width: 300px;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    position: absolute;
+}
+.tagsGroup{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+.tags{
+    display: flex;
+    padding-bottom: 5px;
+
+}
+.tag img{
+    width: 48px;
+    height: auto;
+    object-fit: cover;
+}
+.difficultyGroup{
+    display: flex;
+    justify-content: right;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
+.difficulty{
+    display: inline-block;
+    width: 12px;
+    height: 15px;
+    padding-right: 3px;
+    opacity: .4;
+    color: rgba(8, 215, 247, 0);
+    background-color: rgb(8, 215, 247);
+    background-clip: content-box;
+    transform: skewX(-40deg);
+}
+.difficulty.showOn{
+    opacity: 1;
+}
+.difficultyIcons{
+    padding-bottom: 6.5px;
+}
+
+.icons{
+    z-index: 3;
+    bottom: 0px;
+    height: 200px;
+    gap: 25px;
+    width: 1215px;
+    position: absolute;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.icon{
+    bottom: 0;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.icon img{
+    max-width: 100px;
+    max-height: 100px;
+    opacity: .3;
+    transition: all .2s ease-out;
+}
+.icon img:hover{
+    margin-bottom: 20px;
+    padding-bottom: 2px;
+    border-bottom: solid 3px rgb(218, 217, 217);
+    opacity: 1;
+    cursor: pointer;
+}
+.icon.selectedIcon img{
+    margin-bottom: 20px;
+    padding-bottom: 2px;
+    border-bottom: solid 3px rgb(218, 217, 217);
+    opacity: 1;
+}
+.icons::-webkit-scrollbar {
+    width: 4px;  
+    height: 10px;           
+  }
+  
+  .icons::-webkit-scrollbar-track {
+    background: rgba(128, 128, 128, 0.37);    
+  }
+  
+  .icons::-webkit-scrollbar-thumb {
+    background-color: rgb(12, 11, 11);   
+    border-radius: 20px;      
+    border: none;  
+  }
+
+  @media screen and (max-width: 1400px){
+    
+    .container{
+        height: 600px;
+    }
+    .carrossel{
+        scale: .6;
+    }
+  }
+  
+
+@media screen and (max-width: 450px){
+    *{
+        max-width: 100%;
+    }
+    .carrossel{
+        height: 700px;
+        max-width: 600px;
+        width: 600px;
+
+    }
+    img{
+    
+        object-fit: cover;
+    }
+    .titles{
+        width: 100%;
+        height: 100%;
+    }
+    .fullScreen{
+        width: 100%;
+    }
+    .championName{
+        padding-bottom: 35px;
+        font-size: 1.5em;
+    }
+    .championTitle{
+        padding-top: 12px;
+        font-size: .8em;
+    }
+    .list{
+        width: 100%
+    }
+    .fullScreenImages{
+        width: 600px;
+    }
+    .fullScreenImage{
+        height: 700px;
+        width: 100%;
+    }
+    .icons{
+        max-width: 100%;
+        height: 135px;
+        gap: 20px;
+    }
+    .icon{
+        scale: .7;
+    }
+    .pageTitle{
+        font-size: .8em;
+        left: 15px;
+        top: 15px;
+        position: absolute;
+    }
+    .pageTitle h1{
+        max-width: 85%;
+    }
+    .container{
+        top: 80px;
+    }
+}   

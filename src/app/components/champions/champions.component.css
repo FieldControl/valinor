@@ -1,0 +1,232 @@
+@import url(//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold);
+*{
+    margin: 0px;
+    font-family: "BeaufortforLOL-Bold" , Arial;
+}
+img {
+    display: inline-block;
+}
+.container{
+    min-height: 800px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5em;
+}
+.championSplashArt{
+    display: flex;
+    gap: 5%;
+    position: relative;
+    width: 350px;
+    height: auto;
+    max-width: 350px;
+    max-height: 668px;
+    transition: all 0.2s linear;
+    overflow: hidden;
+    
+}
+.championSplashArt:hover{
+    
+    box-shadow: -1 -1 20px rgb(187, 113, 23);
+    border: solid 1px rgb(187, 113, 23);
+    scale: 1.05;
+    
+   
+}
+
+.sprite{
+    width: 100%;
+    height: 100%;
+}
+.sprite img{
+    width: 100%;
+}
+
+.fade{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.972),#0000, rgba(0, 0, 0, 0));
+}
+.titles{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    align-items: center;
+    position: absolute;
+    z-index: 6;
+    padding-bottom: 33%;
+    flex-direction: column;
+    
+}
+.championDescription{
+    
+    font-size: 80%;
+    max-width: 90%;
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+    font-weight: 400;
+    font-style: italic;
+    text-transform: uppercase;
+    color: azure;
+    flex-wrap: wrap;
+
+    
+}
+  
+.nameChampion{
+    max-width: 100%;
+    max-block-size: 100%;
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 2px 2px 12px #35343464;
+    justify-content: center;
+    color: rgb(187, 113, 23);
+    width: 100%;
+    padding-top: 8%;
+    background-size: cover;
+    
+
+    font-size: 1.5em;
+
+    
+}
+.tags{
+    padding: 0px;
+    z-index: 8;
+    position: absolute;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    gap: 10%;
+    padding-bottom: 8%;
+    width: 100%;
+}
+.tag{
+
+    padding: 0px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    height: 20%;
+    width: 20%;
+}
+.tag img{
+    z-index: 6;
+    height: 100%;
+    width: 100%;
+}
+.tag img title{
+    text-decoration-style: none;
+}
+.info{
+    display: flex;
+    position: absolute;
+    z-index: 6;
+    height: 8%;
+    width: 8%;
+    justify-self: flex-start;
+    align-items: flex-start;
+    padding: 2%;
+}
+.info img{
+    position: absolute;
+    z-index: 6;
+    width: 100%;
+
+}
+.paginator{
+    height: 80px;
+    padding-top: 40px;
+}
+.searchBar{
+    padding-top: 80px;
+    padding-bottom: 12px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBar input{
+    height: 30px;
+    width: 400px;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 30px;
+    transition: all 0.2s linear;
+}
+.searchBar input:hover, input:focus{
+    scale: 1.1;
+}
+.loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+}
+.loading.showOn{
+    opacity: 1;
+}
+@media screen and (max-width: 2100px) {
+   
+    .nameChampion{
+        font-size: 3em;
+    }
+    .searchBar input{
+        height: 40px;
+        width: 400px;
+        text-align: center;
+        font-size: 1em;
+        border-radius: 30px;
+        transition: all 0.2s linear;
+    }
+    .championDescription{
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 1400px){
+    .nameChampion{
+        font-size: 1.8em;
+    }
+    .searchBar input{
+        height: 40px;
+        width: 260px;
+        text-align: center;
+        font-size: 1em;
+        border-radius: 30px;
+        transition: all 0.2s linear;
+    }
+    .championDescription{
+        font-size: .8em;
+    }
+    .championSplashArt{
+        width: 189px;
+        max-width: 189px;
+        height: 343px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .searchBar{
+        padding-top: 80px;
+    }
+    .container{
+        
+        display: flex;
+        justify-self: center;
+        flex-wrap: wrap;
+    }
+    .championSplashArt{
+        width: 214px;
+        max-width: 214px;
+        height: 389px;
+    }
+    
+}

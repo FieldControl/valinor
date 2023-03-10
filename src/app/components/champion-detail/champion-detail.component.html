@@ -1,0 +1,121 @@
+<div class="body">
+  <div *ngIf="champion" class="container">
+    <div class="championDetails">
+      <div class="splashArt">
+        <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champion.id}}_{{0}}.jpg" alt="">
+      </div>
+      <div class="championInfos">
+        <div class="championName">
+          <h1>{{champion.name}}</h1>
+        </div>
+        <div>
+          <h2 class="title">{{champion.title}}</h2>
+        </div>
+        <div class="lore">
+          <h1>Historia:</h1>
+          <p>{{champion.lore}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="spells">
+      <h1>Habilidades:</h1>
+      <div class="spellImage">
+        <div class="spellDetail">
+          <h1>P</h1>
+          <img (click)="showSpellDesc('p')"
+            src="https://ddragon.leagueoflegends.com/cdn/13.4.1/img/passive/{{champion.passive.image.full}}" 
+            title="{{champion.passive.name}}">
+        </div>
+        <div class="spellDetail">
+          <h1>Q</h1>
+          <img (click)="showSpellDesc('q')"
+            src="http://ddragon.leagueoflegends.com/cdn/13.4.1/img/spell/{{champion.spells[0].id}}.png"
+            title="{{champion.spells[0].name}}" alt="">
+        </div>
+        <div class="spellDetail">
+          <h1>W</h1>
+          <img (click)="showSpellDesc('w')"
+            src="http://ddragon.leagueoflegends.com/cdn/13.4.1/img/spell/{{champion.spells[1].id}}.png"
+            title="{{champion.spells[1].name}}" alt="">
+        </div>
+        <div class="spellDetail">
+          <h1>E</h1>
+          <img (click)="showSpellDesc('e')"
+            src="http://ddragon.leagueoflegends.com/cdn/13.4.1/img/spell/{{champion.spells[2].id}}.png"
+            title="{{champion.spells[2].name}}" alt="">
+        </div>
+        <div class="spellDetail">
+          <h1>R</h1>
+          <img (click)="showSpellDesc('r')"
+            src="http://ddragon.leagueoflegends.com/cdn/13.4.1/img/spell/{{champion.spells[3].id}}.png"
+            title="{{champion.spells[3].name}}" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="spellDescriptions">
+      <div class="spell" [ngClass]="{'showOn': spellSelected === 'p'}">
+        <h1 class="spellName">{{champion.passive.name}}</h1>
+        <p [innerHTML]="champion.passive.description"></p>
+        <video [muted]="true" autoplay loop src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/{{idForUrl()}}/ability_{{idForUrl()}}_P1.webm" type="webm" ></video>
+      </div>
+      <div [ngClass]="{'showOn': spellSelected === 'q'}" class="spell">
+        <h1 class="spellName">{{champion.spells[0].name}}</h1>
+        <p [innerHTML]="champion.spells[0].description"></p>
+        <video [muted]="true" autoplay loop src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/{{idForUrl()}}/ability_{{idForUrl()}}_Q1.webm" type="webm"  ></video>
+      </div>
+      <div [ngClass]="{'showOn': spellSelected === 'w'}" class="spell">
+        <h1 class="spellName">{{champion.spells[1].name}}</h1>
+        <p [innerHTML]="champion.spells[1].description"></p>
+        <video [muted]="true" autoplay loop src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/{{idForUrl()}}/ability_{{idForUrl()}}_W1.webm" type="webm"  ></video>
+      </div>
+      <div [ngClass]="{'showOn': spellSelected === 'e'}" class="spell">
+        <h1 class="spellName">{{champion.spells[2].name}}</h1>
+        <p [innerHTML]="champion.spells[2].description"></p>
+        <video [muted]="true" autoplay loop src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/{{idForUrl()}}/ability_{{idForUrl()}}_E1.webm" type="webm"  ></video>
+      </div>
+      <div [ngClass]="{'showOn': spellSelected === 'r'}" class="spell">
+        <h1 class="spellName">{{champion.spells[3].name}}</h1>
+        <p [innerHTML]="champion.spells[3].description"></p>
+        <video [muted]="true" autoplay loop src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/{{idForUrl()}}/ability_{{idForUrl()}}_R1.webm" type="webm"  ></video>
+      </div> 
+    </div>
+
+    <div class="skinsContainer">
+      <div class="skinFullScreen">
+        <div class="skinFull-Fade">
+          <div class="fade">
+
+          </div>
+          <img
+            id="skinFull"
+            src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champion.id}}_{{champion.skins[0].num}}.jpg"
+            class="skinFull-active" alt="">
+        </div>
+      </div>
+      <div class="skins">
+        <div class="divTitle">
+          <h1>Skins Disponiveis</h1>
+        </div>
+        <div class="skinsList">
+          <ul class="skinsButtons">
+            <li *ngFor="let skin of champion.skins">
+              <button class=".bnt">
+                <div class="skinListDetail" (click)="skinCarrossel(skin.num)">
+                  <div>
+                    <img 
+                      (click)="skinCarrossel(skin.num)"
+                      class="skinIcons"
+                      src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champion.id}}_{{skin.num}}.jpg"
+                      alt="">
+                  </div>
+                  <h1 class="skinName">{{skin.name}}</h1>
+                </div>
+              </button>
+            </li>
+          </ul>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>

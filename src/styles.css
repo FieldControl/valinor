@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.mat-mdc-paginator {
+    display: inline!important;
+
+}
+.mat-mdc-paginator-container {
+    background-image: linear-gradient(rgba(7, 7, 7, 0.302), rgba(0, 0, 0, 0.292), rgba(7, 7, 7, 0.302));
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+
+}
+.mat-mdc-paginator {
+    font-size: large!important;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--mdc-typography-caption-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+    font-size: var(--mdc-typography-caption-font-size, 12px);
+    line-height: var(--mdc-typography-caption-line-height, 20px);
+    font-weight: var(--mdc-typography-caption-font-weight, 400);
+    letter-spacing: var(--mdc-typography-caption-letter-spacing, 0.0333333333em);
+    -webkit-text-decoration: var(--mdc-typography-caption-text-decoration, inherit);
+    text-decoration: var(--mdc-typography-caption-text-decoration, inherit);
+    text-transform: var(--mdc-typography-caption-text-transform, none);
+
+}

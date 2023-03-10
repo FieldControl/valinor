@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="pageTitle">
+    <h1>Rotação de Campeões Gratuitos da semana</h1>
+  </div>
+  <div class="carrossel">
+    <div class="list">
+      <div class="fullScreenImages">
+        
+        <div class="fullScreen" *ngFor="let champion of champions"
+          [ngClass]="{'showOn' : champion.id === selectedChampion}">
+          <img class="fullScreenImage" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champion.id}}_0.jpg" alt="">
+          <div class="titles">
+            <div class="championName">
+              <h1>{{champion.name}}</h1>
+            </div>
+            <div class="championTitle">
+              <h1>{{champion.title}}</h1>
+
+            </div>
+
+          </div>
+          <div class="infoGroup">
+            <div class="tagsGroup">
+              <div class="tags">
+                <div *ngIf="champion.tags[0]" class="tag">
+                  <img src="https://universe.leagueoflegends.com/images/role_icon_{{champion.tags[0] | lowercase}}.png" alt="">
+                </div>
+              </div>
+              <h1>Função</h1>
+              <h2>{{champion.tags[0]}}</h2>
+            </div>
+            <div class="difficultyGroup">
+              <div class="difficultyIcons">
+                <span class="difficulty" [ngClass]="{'showOn': champion.info.difficulty > 0}">.</span>
+                <span class="difficulty" [ngClass]="{'showOn': champion.info.difficulty > 3}">.</span>
+                <span class="difficulty" [ngClass]="{'showOn' : champion.info.difficulty > 7}">.</span>
+              </div>
+              <h1>DIFICULDADE</h1>
+              <h2 *ngIf="champion.info.difficulty > 6">Alta</h2>
+              <h2 *ngIf="champion.info.difficulty > 3 && champion.info.difficulty < 7">Moderada</h2>
+              <h2 *ngIf="champion.info.difficulty < 4">Baixa</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="icons">
+        <div class="icon" [ngClass]="{'selectedIcon' : selectedChampion === champion.id}" *ngFor="let champion of champions" (click)="selectClick(champion.id)">
+          <img src="http://ddragon.leagueoflegends.com/cdn/13.4.1/img/champion/{{champion.id}}.png" alt="">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,515 @@
+@import url(//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold);
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    color: rgb(187, 113, 23);
+    margin: 0px;
+    font-family: "BeaufortforLOL-Bold" , Arial;
+}
+ul{
+    list-style-type: none;
+}
+.body{
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.767);
+    width: 70%;
+    border-radius: 12px;
+    padding: 20px;
+}
+.carrossel{
+    max-width: 25%;
+    position: relative;
+    padding: 15px;
+    margin: 0 auto;
+}
+.championDetails{
+    display: flex;
+    width: 100%;
+}
+.splashArt{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 15px;
+    padding: 10px;
+    max-width: 100%;
+    flex-direction: fixed;
+    align-self: center;
+}
+.gallery-wrapper{
+    overflow-x: auto;
+}
+.gallery{
+    flex-direction: row;
+    display: flex;
+    flex-flow:nowrap;
+}
+.splashArt img{
+    box-shadow: 0 0 10px rgb(187, 113, 23);
+    border: solid white 0.5px;
+    width: auto;
+    max-width: 100%;
+}
+.championInfos{
+    display: block;
+    padding: 10px;
+    width: 100%;
+}
+.championName h1{
+    font-size: 2.5em;
+    font-weight: bold;
+    
+}
+.lore{
+    padding-top: 10px;
+    max-height: 20%;
+}
+.lore p{
+    text-align: justify;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    font-size: 0.75em;
+}
+.spellName{
+    text-align: left;
+}
+.spells{
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.spellImage {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 25px;
+    display: flex;
+}
+.spellImage img{
+    
+    border: solid 3px;
+    border-radius: 300000px;
+}
+.spellDetail:hover img{
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(187, 113, 23);
+    scale: 1.1;
+}
+.spellDetail{
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s linear;
+}
+.spellDetail h1{
+    font-size: 1.2em;
+}
+.test{
+    background-color: brown;
+    width: 500px;
+}
+.gallery-wrapper{
+    border: solid 1px white;
+}
+.divTitle{
+    z-index: 5;
+    position: absolute;
+    padding: 20px;
+    margin: 20px 20px 0px;
+    width: 40%;
+    max-width: 40%;
+    border-bottom: solid 1px ;
+}
+.divTitle h1{
+    font-size: 3em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: italic;
+    flex-wrap: wrap;
+}
+.skins{
+    position: absolute;
+    height: 95%;
+    width: 100%;
+    max-height: 100%;
+    max-width: 98%;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+.skinsContainer{
+    padding: 15px;
+    position: relative;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    height: 900px;
+    width: 100%;
+    max-width: 98%;
+    transition: all 3s linear;
+}
+#skinFull img{
+    transition: all 3s linear;
+}
+.fade{
+    box-shadow: 0 0 20px rgb(187, 113, 23);
+    border: solid white 0.5px;
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.918), transparent, transparent );
+}
+.skinFull-Fade{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 3s linear;
+}
+.skinsButtons{
+    height: 100%;
+    max-width: 100%;
+}
+.skinsList{
+    bottom: 25%;
+    margin: 20px 20px 0;
+    z-index: 5;
+    position: absolute;
+    padding-top: 0px;
+    margin-top: 0px;
+    overflow-x: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    justify-self: flex-start;
+    width: 548px;
+    height: 70%;
+    max-height: 60%;
+    max-width: 548px;
+    inset: -2px -50px 50px 6px rgba(33,33,33,0.57);
+    border-bottom: solid 1px rgb(187, 113, 23);
+}
+  
+.skinIcons{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.skinListDetail{
+    padding-top: 35px;
+    padding-bottom: 8px;
+    gap: 20px;
+    display: flex;
+    color: white;
+    justify-content: left;
+    align-items: center;
+    opacity: 0.3;
+    transition: all .2s ease-in-out;
+}
+.skinListDetail h1{
+
+    max-width: 300px;
+}
+
+.skinListDetail:hover {
+    
+    opacity: 1;
+    padding-left: 60px;
+    transform: scale( 1.25);
+}
+.skinListDetail:hover img{
+    border: solid 1px rgb(187, 113, 23);
+}
+
+.skinListDetail:hover h1{
+    opacity: 1;
+    color: #EDB852;
+}
+.skinName{
+    font-size: 1em;
+    font-weight: 200;
+    text-transform: uppercase;
+    text-align: left;
+    color: white;
+}
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.skinsList::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+  }
+  
+  .skinsList::-webkit-scrollbar-track {
+    background: none;        /* color of the tracking area */
+  }
+  
+  .skinsList::-webkit-scrollbar-thumb {
+    background-color: rgb(12, 11, 11);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: none;  /* creates padding around scroll thumb */
+  }
+.skinFull{
+    object-fit: contain;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+.skinFull-active{
+    height: auto;
+    width: 100%;
+    z-index: 0;
+}
+.skinFull img{
+    height: auto;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+.skinFullScreen{
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+}
+.spellDescriptions{
+    
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    margin-top: 20px;
+}
+.spell{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+}
+.spell:focus .lore{
+    display: none;
+}
+.spell {
+    display: none;
+}
+
+.spell.showOn {
+    display: flex;
+}
+
+.spell h1{
+    padding-bottom: 8px;
+    font-size: 2em;
+}
+
+.loading{
+    background-color: black;
+    width: 400px;
+    height: 400px;
+    display: none;
+}
+.loading.showOn{
+    display: flex;
+}
+video{
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 0 20px rgb(187, 113, 23);
+    border: solid white 0.5px;
+    margin: 20px;
+}
+@media screen and (max-width: 2100px){
+   
+    .splashArt img{
+        width: 550px;
+        
+    }
+    .championName{
+        font-size: 40px;
+    }
+    .spells h1, .lore h1{
+        font-size: 45px;
+    }
+    h2{
+        font-size: 1.8em;
+        font-style: italic;
+        color: #EDB852;
+        
+    }
+    .lore{
+        font-size: 1.5em;
+    }
+    .spellImage {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        display: flex;
+    }
+    .spellImage img:focus .lore{
+        display: none;
+    }
+    .spellImage h1{
+        font-size: 30px;
+    }
+
+}
+
+@media screen and (max-width: 1400px) {
+    .body{
+        display: flex;
+        justify-content: center;
+        padding-top: 120px;
+    }
+    
+    .skinsList{
+        margin-bottom: 284px;
+        position: absolute;
+        margin: 20px 20px 0;
+        padding-top: 0;
+        margin-top: 0;
+        overflow-x: auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        justify-self: flex-start;
+        max-height: 250px;
+        width: 300px;
+    }
+    .skinListDetail{
+        max-width: 200px!important;
+    }
+    .skinListDetail:hover{
+        padding-left: 40px;
+    }
+    .skinListDetail img{
+        height: 55px;
+        width: 55px;
+    }
+    .skinListDetail h1{
+        font-size: .65em;
+    }
+    
+    .skinsButtons{
+        height: 50%;
+    }
+    .divTitle{
+        padding: 0;
+        font-size: .9em;
+    }
+    .skin{
+        width: 300px;
+        position: relative;
+    }
+    
+}
+@media screen and (max-width: 450px){
+    .body{
+        display: flex;
+        justify-content: center;
+        padding-top: 100px;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .championDetails{
+        flex-direction: column;
+        align-items: center;
+    }
+    .championName h1{
+        font-size: 1.5em;
+    }
+    .divTitle h2{
+        font-size: .8em;
+    }
+    .spellImage{
+        flex-flow: wrap;
+    }
+    
+    .divTitle h1{
+        font-size: 2em;
+    }
+    .divTitle{
+        margin: 0;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+        max-width: 90%;
+    }
+    .skinsList{
+        position: relative;
+        padding: 0;
+        margin: 0;
+        height: 200px;
+        width: 100%;
+        max-width: 100%;
+        bottom: 0;
+        
+    }
+    .skins{
+        transform: translateY(-29px);
+    }
+    .skinsContainer{
+        height: 450px;
+    }
+    .skinFullScreen{
+        transform: translateY(-15px);
+        position: relative;
+        height: unset;
+    }
+    .skinListDetail img{
+        width: 45px;
+        height: 45px;
+    }
+    .skinListDetail{
+        max-width: 160px!important;
+    }
+    .skinListDetail h1{
+        font-size: .8em;
+    }
+    .skinListDetail:hover {
+        max-width: 240px;
+        opacity: 1;
+        padding-left: 40px;
+    }
+    
+    .skinListDetail:hover h1{
+        opacity: 1;
+        color: #EDB852;
+    }
+    
+    .skins{
+        width: 95%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        height: 500px;
+    }
+    .skinsContainer{
+        
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: unset;
+        align-items: center;
+    }
+}

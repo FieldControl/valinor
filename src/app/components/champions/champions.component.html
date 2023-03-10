@@ -1,0 +1,64 @@
+<div>
+    <div>
+        <a routerLink="search">search</a>
+    </div>
+    <div class="searchBar">
+        <form class="input">
+            <input 
+            data-test="search-input"
+            class="form-control"
+            type="text" 
+            placeholder="Busque por um Campeão"
+            [formControl]="searchText">
+        </form>
+    </div>
+
+    <div class="container">
+        <div *ngIf="loading === true" [ngClass]="{'showOn': loading === true}" class="loading">
+            <img src="https://news-a.akamaihd.net/public/images/pages/2017/march/eu_spaf/moocow.gif" alt="Computer man">
+            <img src="https://sonobel.com.br/assets/img/carregando1.gif" alt="">
+        </div>
+        <div class="championSplashArt" *ngFor="let champion of champions">
+            <div class="info">
+                <a routerLink="/{{champion.id}}">
+                    <img src="https://www.sparda-bw.de/internetauftritt/bilder/allgemein/info-icon-grau_365w.png" class="item" alt="">
+                </a>
+            </div>
+            <div class="titles">
+                <label data-test="nameDisplay" class="nameChampion">{{champion.name}}</label>
+                <label class="championDescription">{{champion.title}}</label>
+            </div>
+            <img  class ="sprite" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champion.id}}_0.jpg" alt="">
+            <div class="tags">
+                <div *ngIf="champion.tags[0] != null" class="tag">
+                    <img 
+                    src="https://universe.leagueoflegends.com/images/role_icon_{{champion.tags[0] | lowercase}}.png"  
+                    alt="{{champion.tags[0]}}" 
+                    title="{{champion.tags[0]}}"
+                    >
+                </div>
+                
+                <div *ngIf="champion.tags[1] != null" class="tag" title="">
+                    <img 
+                        src="https://universe.leagueoflegends.com/images/role_icon_{{champion.tags[1] | lowercase}}.png"  
+                        alt="{{champion.tags[1]}}" 
+                        data-title="{{champion.tags[0]}}"
+                    >
+                </div>
+            </div>
+            <div class="fade">
+            </div>
+        </div>
+        
+    </div>
+    <div class="paginator">
+        <mat-paginator class="paginatonor"
+        [length]="maxCount"
+        [pageSizeOptions]="[8, 16, 24]"
+        [pageSize]="8"
+        aria-label="Select page"
+        [pageIndex]="pageIndex"
+        (page)="pageEvent = $event; listChampions(pageEvent.pageIndex, pageEvent.pageSize)">
+        </mat-paginator>
+    </div>
+</div>
