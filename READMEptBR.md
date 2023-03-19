@@ -6,7 +6,7 @@
 <div align="center">
 
 ## Idiomas Disponíveis
-[Versão em inglês :us:](https://github.com/GiovanniVINI/NarutoCharactersSearcher/blob/master/README.md)
+[Versão em inglês :us:](https://github.com/GiovanniVINI/valinorNaruto/blob/master/README.md)
 </div>
 
 <br>
