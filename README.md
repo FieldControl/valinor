@@ -76,7 +76,7 @@ That's for you to decide :smile:
 # Inspirations :art:
 
 As inspiration, I looked for visual elements from the API website I'm using: https://www.narutoql.com/explorer.
-<img src="src/assets/inspirations.png">
+<img src="Naruto_Characters_Searcher/src/assets/inspirations.png">
 </div>
 <br>
 
@@ -87,14 +87,14 @@ As inspiration, I looked for visual elements from the API website I'm using: htt
 <div align="center">
 <h3>Mobile</h3>
 <br>
-<img src="src/assets/mobile.png" width="200px"> 
-<img src="src/assets/mobilewhite.png" width="200px">
+<img src="Naruto_Characters_Searcher/src/assets/mobile.png" width="200px"> 
+<img src="Naruto_Characters_Searcher/src/assets/mobilewhite.png" width="200px">
 
 <br>
 <h3>Desktop</h3>
 <br>
-<img src="src/assets/desktopdark.png" width="600px">
-<img src="src/assets/desktopwhite.png" width="600px">
+<img src="Naruto_Characters_Searcher/src/assets/desktopdark.png" width="600px">
+<img src="Naruto_Characters_Searcher/src/assets/desktopwhite.png" width="600px">
 </div>
 </div>
 
