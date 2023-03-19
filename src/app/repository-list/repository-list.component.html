@@ -1,0 +1,57 @@
+<app-search-repositories (emmitSearch)="getSearch($event)">
+</app-search-repositories>
+
+<main>
+
+  <section *ngFor="let repository of repositoryList | paginate: { itemsPerPage: 5, currentPage: currentPage }; let i = index">
+
+    <ul>
+      <!--nome do repositório-->
+      <a href="{{ repository.html_url }}">
+        <h3>
+          {{ repository.name }}
+        </h3>
+      </a>
+      <!--descrição do repositório-->
+      <li class="description">
+        {{ repository.description }}
+      </li>
+
+      <article class="forks-stars-issues">
+        <!--forks-->
+        <li class="fsi">
+          <img src="../../assets/icons/fork.svg" alt="fork">:
+          {{ repository.forks }}
+        </li>
+        <!--estrelas-->
+        <li class="fsi">
+          <img src="../../assets/icons/star.svg" alt="star">:
+          {{ repository.stargazers_count }}
+        </li>
+        <!--issues-->
+        <li class="fsi">
+          Issues: {{ repository.open_issues }}
+        </li>
+
+      </article>
+      <!--tópicos-->
+      <article class="topics">
+
+        <li class="topics-tag" *ngFor="let topic of repository.topics">
+          {{ topic }}
+        </li>
+
+      </article>
+
+    </ul>
+
+  </section>
+  <!--paginação-->
+  <pagination-controls class="my-pagination" (pageChange)="currentPage = $event" previousLabel="Anterior" nextLabel="Próximo">
+  </pagination-controls>
+
+</main>
+
+
+
+

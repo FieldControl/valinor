@@ -1,0 +1,75 @@
+main{
+  display: inline-block;
+  text-align: left;
+  width: 310px;
+}
+
+section{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(41, 41, 41);
+
+}
+
+h3{
+  margin-bottom: 10px;
+  color: #3178c6;
+}
+
+a:hover {
+  text-decoration-line: underline;
+  text-decoration-color: #3178c6;
+}
+
+.description{
+  color: whitesmoke;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.forks-stars-issues{
+  display: flex;
+}
+
+.fsi{
+  color: #656565;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.topics{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.topics-tag{
+  display: inline;
+  font-size: 11px;
+  color: #3178c6;
+  background-color: #3179c62c;
+  border-radius: 100px;
+  padding: 5px;
+  margin: 2px;
+}
+
+img{
+  height: 15px;
+  transform:translateY(2px)
+}
+
+.my-pagination ::ng-deep .ngx-pagination span {
+  color: white;
+}
+
+.my-pagination ::ng-deep .ngx-pagination span:hover {
+  color: black;
+}
+
+@media (min-width: 720px){
+  main{
+    width: 690px;
+  }
+}
+
+
