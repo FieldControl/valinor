@@ -88,14 +88,14 @@ Como inspiração, busquei de elementos visuais do próprio site da API que esto
 <div align="center">
 <h3>Mobile</h3>
 <br>
-<img src="src/assets/mobile.png" width="200px"> 
-<img src="src/assets/mobilewhite.png" width="200px">
+<img src="Naruto_Characters_Searcher/src/assets/mobile.png" width="200px"> 
+<img src="Naruto_Characters_Searcher/src/assets/mobilewhite.png" width="200px">
 
 <br>
 <h3>Desktop</h3>
 <br>
-<img src="src/assets/desktopdark.png" width="600px">
-<img src="src/assets/desktopwhite.png" width="600px">
+<img src="Naruto_Characters_Searcher/src/assets/desktopdark.png" width="600px">
+<img src="Naruto_Characters_Searcher/src/assets/desktopwhite.png" width="600px">
 </div>
 </div>
 
