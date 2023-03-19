@@ -30,7 +30,7 @@
 * [Desafios, Problemas e Soluções](#challenges)
 * [Melhorias](#improvements)
 * [Sobre o Desenvolvedor](#aboutTheDev)
-* [Contato](#functionalities)
+* [Contato](#contact)
 
 <br>
 
