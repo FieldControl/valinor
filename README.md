@@ -6,7 +6,7 @@
 <div align="center">
 
 ## Available Languages
-[Portuguese version :brazil:](https://github.com/GiovanniVINI/NarutoCharactersSearcher/blob/master/READMEptBR.md)
+[Portuguese version :brazil:](https://github.com/GiovanniVINI/valinorNaruto/blob/master/READMEptBR.md)
 </div>
 
 <br>
@@ -30,7 +30,7 @@
 * [Challenges, Problems and Solutions](#challenges)
 * [Improvements](#improvements)
 * [About The Developer](#aboutTheDev)
-* [Contact](#functionalities)
+* [Contact](#contact)
 
 <br>
 
