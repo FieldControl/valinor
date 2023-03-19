@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: #3c3939;
+}
+
+li {
+  list-style: none;
+  line-height: 1.5rem; 
+}
+
+p {
+  padding-top: 10px;
+  line-height: 25px;
+}
+
+html, body { height: 100%; }
+

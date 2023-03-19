@@ -1,0 +1,17 @@
+<div class="containerDialog">
+  <img [src]="data.character.avatarSrc" alt="" />
+  <div class="card-info-character">
+    <h1> <b>Name:</b> {{ data.character.name }}</h1>
+    <p> <b>Village:</b> {{ data.character.village }} </p>
+    <p> <b>Rank:</b> {{ data.character.rank }} </p>
+    <p [innerHTML]="'<b>Description:</b>' + ' ' + data.character.description"></p>
+    <p> <b>Notable Features:</b> {{ data.character.notableFeatures }}</p>
+    <p
+      > <b>First Anime Appearance:</b> {{ data.character.firstAnimeAppearance }}
+    </p>
+    <p
+      > <b>First Manga Appearance:</b> {{ data.character.firstMangaAppearance }}
+    </p>
+    <p> <b>Name Meaning:</b> {{ data.character.nameMeaning }}</p>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<app-header (searchTermChanges)="search($event)" class="header"></app-header>
+<main main_content>
+  <div class="results">
+    <div class="darkModeMangekyou" (click)="switchTheme()"></div>
+    <div class="filters">
+      <div>
+        <h2>Village</h2>
+        <form [formGroup]="form">
+          <ng-container formGroupName="villages">
+            <li><input formControlName="cloud" type="checkbox" /> cloud</li>
+            <li><input formControlName="grass" type="checkbox" /> grass</li>
+            <li><input formControlName="springs" type="checkbox" /> springs</li>
+            <li><input formControlName="leaf" type="checkbox" /> leaf</li>
+            <li><input formControlName="mist" type="checkbox" /> mist</li>
+            <li><input formControlName="flower" type="checkbox" /> flower</li>
+            <li><input formControlName="rain" type="checkbox" /> rain</li>
+            <li><input formControlName="sand" type="checkbox" /> sand</li>
+            <li><input formControlName="sound" type="checkbox" /> sound</li>
+            <li><input formControlName="star" type="checkbox" /> star</li>
+            <li><input formControlName="rock" type="checkbox" /> rock</li>
+            <li>
+              <input formControlName="waterfall" type="checkbox" /> waterfall
+            </li>
+            <li><input formControlName="tides" type="checkbox" /> tides</li>
+          </ng-container>
+        </form>
+        <h2>Ranks</h2>
+        <form [formGroup]="form">
+          <ng-container formGroupName="ranks">
+            <li><input formControlName="chuunin" type="checkbox" /> chuunin</li>
+            <li><input formControlName="genin" type="checkbox" /> genin</li>
+            <li><input formControlName="jounin" type="checkbox" /> jounin</li>
+            <li><input formControlName="kage" type="checkbox" /> kage</li>
+            <li><input formControlName="unknown" type="checkbox" /> unknown</li>
+          </ng-container>
+        </form>
+      </div>
+    </div>
+    <div
+      infinite-scroll
+      [infiniteScrollDistance]="3"
+      [infiniteScrollThrottle]="450"
+      (scrolled)="onScroll()"
+      [scrollWindow]="true"
+      class="cards_section"
+    >
+      <div
+        (click)="onOpenDialogClick(character)"
+        class="card"
+        *ngFor="let character of filteredCharacters"
+      >
+        <img src="{{ character.avatarSrc }}" />
+        <h1><b>Name:</b> {{ character.name }}</h1>
+        <p><b>Village:</b> {{ character.village }}</p>
+        <p><b>Rank:</b> {{ character.rank }}</p>
+        <p
+          [innerHTML]="
+            '<b>Description:</b>' + ' ' + character.description.slice(0, 65) + '...'
+          "
+        ></p>
+      </div>
+    </div>
+  </div>
+</main>

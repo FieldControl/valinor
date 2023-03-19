@@ -1,0 +1,119 @@
+.results {
+  margin-left: 250px;
+}
+
+.main_content {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.filters {
+  position: fixed;
+  display: block;
+  padding: 20px;
+  width: 200px;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  border-right: 1px solid #d6d6d6;
+  letter-spacing: 1.1px;
+}
+
+.filters h2 {
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.cards_section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+  position: relative;
+  top: 50px;
+  padding: 20px;
+  padding-left: 10px;
+}
+
+.card {
+  background-color: rgba(189, 175, 175, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  cursor: context-menu;
+}
+
+.card h1 {
+  font-weight: 200;
+  font-size: 17px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.card:hover {
+  -webkit-box-shadow: 1px 9px 12px 6px rgba(102, 101, 102, 0.5);
+  -moz-box-shadow: 1px 9px 12px 6px rgba(102, 101, 102, 0.5);
+  box-shadow: 1px 6px 12px 6px rgba(102, 101, 102, 0.5);
+}
+
+body.theme-dark {
+  background-color: #2e2f32;
+}
+
+body.theme-dark .filters {
+  color: rgb(207, 207, 200);
+  border-right: 1px solid #454141;
+}
+
+body.theme-dark .search-bar {
+  background-color: rgb(238, 238, 230);
+}
+
+body.theme-dark .Nav_header {
+  background-color: #202123;
+  border: none;
+}
+
+body.theme-dark #github_icon {
+  filter: invert();
+}
+
+body.theme-dark .card {
+  background-color: #e4e2e2;
+}
+
+body.theme-dark .card:hover {
+  box-shadow: 1px 5px 10px 5px rgba(3, 3, 3, 0.8);
+}
+
+.darkModeMangekyou {
+  cursor: pointer;
+  border: none;
+  position: fixed;
+  bottom: 65px;
+  right: 25px;
+  background-size: contain;
+  background-image: url(../assets/pngegg.png); /*Mangekyou icon, author: ShounenSuki, origin: Narutpedia, picked in: Wikipédia*/
+  background-position: center center;
+  background-clip: content-box;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: 110;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+}
+
+.darkModeMangekyou:hover {
+  animation: spin 2.5s ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}
