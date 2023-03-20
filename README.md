@@ -1,11 +1,8 @@
 ## Envio de solução
 
-![desktop](https://user-images.githubusercontent.com/92489038/226201005-aa95538f-6d1b-4912-bc4f-500cf2523835.png#center)
+![desktop](https://user-images.githubusercontent.com/92489038/226201005-aa95538f-6d1b-4912-bc4f-500cf2523835.png#center) | ![mobile](https://user-images.githubusercontent.com/92489038/226201013-93a66254-ce8c-4a48-a80e-93c6210dd797.png#center)
 
 ***
-
-![mobile](https://user-images.githubusercontent.com/92489038/226201013-93a66254-ce8c-4a48-a80e-93c6210dd797.png#center)
-
 
 **Link do App:**
 https://challenge-field-control.vercel.app/
