@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../../bundles/angular-fire-compat-firestore.umd.js",
+  "module": "../../fesm2015/angular-fire-compat-firestore.js",
+  "es2015": "../../fesm2015/angular-fire-compat-firestore.js",
+  "esm2015": "../../esm2015/compat/firestore/angular-fire-compat-firestore.js",
+  "fesm2015": "../../fesm2015/angular-fire-compat-firestore.js",
+  "typings": "angular-fire-compat-firestore.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/compat/firestore"
+}

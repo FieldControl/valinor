@@ -1,0 +1,11 @@
+footer {
+    position: fixed;
+    z-index: 5;
+    width: 100vw;
+    height: 35px;
+    left: 0px;
+    bottom: 0px;
+    text-align: center;
+    line-height: 2;
+    background: linear-gradient(45deg,#0a141eee 20%,#ff4654ee),url(../../assets/images/home-api-bg.jpg) center center no-repeat;
+}

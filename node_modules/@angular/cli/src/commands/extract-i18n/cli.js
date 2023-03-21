@@ -1,0 +1,21 @@
+"use strict";
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExtractI18nCommandModule = void 0;
+const architect_command_module_1 = require("../../command-builder/architect-command-module");
+class ExtractI18nCommandModule extends architect_command_module_1.ArchitectCommandModule {
+    constructor() {
+        super(...arguments);
+        this.multiTarget = false;
+        this.command = 'extract-i18n [project]';
+        this.describe = 'Extracts i18n messages from source code.';
+    }
+}
+exports.ExtractI18nCommandModule = ExtractI18nCommandModule;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2xpLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvYW5ndWxhci9jbGkvc3JjL2NvbW1hbmRzL2V4dHJhY3QtaTE4bi9jbGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7R0FNRzs7O0FBRUgsNkZBQXdGO0FBR3hGLE1BQWEsd0JBQ1gsU0FBUSxpREFBc0I7SUFEaEM7O1FBSUUsZ0JBQVcsR0FBRyxLQUFLLENBQUM7UUFDcEIsWUFBTyxHQUFHLHdCQUF3QixDQUFDO1FBQ25DLGFBQVEsR0FBRywwQ0FBMEMsQ0FBQztJQUV4RCxDQUFDO0NBQUE7QUFSRCw0REFRQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQgeyBBcmNoaXRlY3RDb21tYW5kTW9kdWxlIH0gZnJvbSAnLi4vLi4vY29tbWFuZC1idWlsZGVyL2FyY2hpdGVjdC1jb21tYW5kLW1vZHVsZSc7XG5pbXBvcnQgeyBDb21tYW5kTW9kdWxlSW1wbGVtZW50YXRpb24gfSBmcm9tICcuLi8uLi9jb21tYW5kLWJ1aWxkZXIvY29tbWFuZC1tb2R1bGUnO1xuXG5leHBvcnQgY2xhc3MgRXh0cmFjdEkxOG5Db21tYW5kTW9kdWxlXG4gIGV4dGVuZHMgQXJjaGl0ZWN0Q29tbWFuZE1vZHVsZVxuICBpbXBsZW1lbnRzIENvbW1hbmRNb2R1bGVJbXBsZW1lbnRhdGlvblxue1xuICBtdWx0aVRhcmdldCA9IGZhbHNlO1xuICBjb21tYW5kID0gJ2V4dHJhY3QtaTE4biBbcHJvamVjdF0nO1xuICBkZXNjcmliZSA9ICdFeHRyYWN0cyBpMThuIG1lc3NhZ2VzIGZyb20gc291cmNlIGNvZGUuJztcbiAgbG9uZ0Rlc2NyaXB0aW9uUGF0aD86IHN0cmluZyB8IHVuZGVmaW5lZDtcbn1cbiJdfQ==

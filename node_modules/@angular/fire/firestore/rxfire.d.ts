@@ -1,0 +1,10 @@
+import { collectionChanges as _collectionChanges, collection as _collection, sortedChanges as _sortedChanges, auditTrail as _auditTrail, collectionData as _collectionData, doc as _doc, docData as _docData, snapToData as _snapToData, fromRef as _fromRef } from 'rxfire/firestore';
+export declare const collectionChanges: typeof _collectionChanges;
+export declare const collectionSnapshots: typeof _collection;
+export declare const sortedChanges: typeof _sortedChanges;
+export declare const auditTrail: typeof _auditTrail;
+export declare const collectionData: typeof _collectionData;
+export declare const docSnapshots: typeof _doc;
+export declare const docData: typeof _docData;
+export declare const snapToData: typeof _snapToData;
+export declare const fromRef: typeof _fromRef;

@@ -1,0 +1,123 @@
+.filter-bar {
+    width: calc(100vw - 250px);
+    height: 60px;
+    background: #0d1b29;
+}
+
+.search-bar {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+
+.shadow {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+input {
+    position: relative;
+    bottom: 8px;
+    width: 350px;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    color: black;
+}
+
+.search-icon {
+    position: relative;
+    top: 1px;
+    right: 10px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.down-arrow-icon {
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    width: 31px;
+    cursor: pointer;
+}
+
+.up-arrow {
+    transform: rotate(180deg);
+}
+
+.open-filter {
+    position: relative;
+    z-index: -1;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 250px);
+    height: 60px;
+    background: #0e1924ee;
+}
+
+.timeline-filter form{
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-title {
+    position: absolute;
+    top: -40px;
+    color: white;
+}
+
+.gender-filter form{
+    position: absolute;
+    top: 35px;
+    right: 750px;
+    display: flex;
+    flex-direction: row;
+}
+
+.gender-title {
+    position: absolute;
+    top: -40px;
+    color: white;
+}
+
+input[type=checkbox] {
+    position: relative;
+    top: -1px;
+    width: 15px;
+    height: 15px;
+}
+
+.option {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 450px) {
+    .filter-bar{
+        position: relative;
+        top: 60px;
+    }
+
+    .search-bar {
+        position: absolute;
+        top: unset;
+        right: unset;
+        width: 100vw;
+        height: 60px
+    }
+
+    .search-icon {
+        visibility: hidden;
+        transform: translateX(-100%);
+    }
+
+    input {
+        position: absolute;
+        top: 10px;
+        right: calc((100vw - 352) / 2);
+        width: 85vw;
+    }
+}

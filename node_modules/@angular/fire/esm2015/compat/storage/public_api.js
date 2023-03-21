@@ -1,0 +1,7 @@
+export * from './ref';
+export * from './storage';
+export * from './task';
+export * from './observable/fromTask';
+export * from './storage.module';
+export * from './pipes/storageUrl.pipe';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9jb21wYXQvc3RvcmFnZS9wdWJsaWNfYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQWMsT0FBTyxDQUFDO0FBQ3RCLGNBQWMsV0FBVyxDQUFDO0FBQzFCLGNBQWMsUUFBUSxDQUFDO0FBQ3ZCLGNBQWMsdUJBQXVCLENBQUM7QUFDdEMsY0FBYyxrQkFBa0IsQ0FBQztBQUNqQyxjQUFjLHlCQUF5QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi9yZWYnO1xuZXhwb3J0ICogZnJvbSAnLi9zdG9yYWdlJztcbmV4cG9ydCAqIGZyb20gJy4vdGFzayc7XG5leHBvcnQgKiBmcm9tICcuL29ic2VydmFibGUvZnJvbVRhc2snO1xuZXhwb3J0ICogZnJvbSAnLi9zdG9yYWdlLm1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL3BpcGVzL3N0b3JhZ2VVcmwucGlwZSc7XG4iXX0=

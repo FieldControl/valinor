@@ -1,0 +1,11 @@
+{
+  "name": "rxfire/database",
+  "browser": "index.esm.js",
+  "main": "index.cjs.js",
+  "module": "index.esm.js",
+  "typings": "index.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0 || ~2.1.0"
+  }
+}

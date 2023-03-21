@@ -1,0 +1,74 @@
+import { NgModule, Optional, NgZone, InjectionToken, Injector } from '@angular/core';
+import { AuthInstances } from '@angular/fire/auth';
+import { ɵgetDefaultInstanceOf, ɵAngularFireSchedulers, VERSION } from '@angular/fire';
+import { Firestore, FirestoreInstances, FIRESTORE_PROVIDER_NAME } from './lite';
+import { FirebaseApps, FirebaseApp } from '@angular/fire/app';
+import { registerVersion } from 'firebase/app';
+import { AppCheckInstances } from '@angular/fire/app-check';
+import * as i0 from "@angular/core";
+export const PROVIDED_FIRESTORE_INSTANCES = new InjectionToken('angularfire2.firestore-lite-instances');
+export function defaultFirestoreInstanceFactory(provided, defaultApp) {
+    const defaultFirestore = ɵgetDefaultInstanceOf(FIRESTORE_PROVIDER_NAME, provided, defaultApp);
+    return defaultFirestore && new Firestore(defaultFirestore);
+}
+export function firestoreInstanceFactory(fn) {
+    return (zone, injector) => {
+        const firestore = zone.runOutsideAngular(() => fn(injector));
+        return new Firestore(firestore);
+    };
+}
+const FIRESTORE_INSTANCES_PROVIDER = {
+    provide: FirestoreInstances,
+    deps: [
+        [new Optional(), PROVIDED_FIRESTORE_INSTANCES],
+    ]
+};
+const DEFAULT_FIRESTORE_INSTANCE_PROVIDER = {
+    provide: Firestore,
+    useFactory: defaultFirestoreInstanceFactory,
+    deps: [
+        [new Optional(), PROVIDED_FIRESTORE_INSTANCES],
+        FirebaseApp,
+    ]
+};
+export class FirestoreModule {
+    constructor() {
+        registerVersion('angularfire', VERSION.full, 'lite');
+    }
+}
+FirestoreModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.3", ngImport: i0, type: FirestoreModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+FirestoreModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.3", ngImport: i0, type: FirestoreModule });
+FirestoreModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.3", ngImport: i0, type: FirestoreModule, providers: [
+        DEFAULT_FIRESTORE_INSTANCE_PROVIDER,
+        FIRESTORE_INSTANCES_PROVIDER,
+    ] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.3", ngImport: i0, type: FirestoreModule, decorators: [{
+            type: NgModule,
+            args: [{
+                    providers: [
+                        DEFAULT_FIRESTORE_INSTANCE_PROVIDER,
+                        FIRESTORE_INSTANCES_PROVIDER,
+                    ]
+                }]
+        }], ctorParameters: function () { return []; } });
+export function provideFirestore(fn, ...deps) {
+    return {
+        ngModule: FirestoreModule,
+        providers: [{
+                provide: PROVIDED_FIRESTORE_INSTANCES,
+                useFactory: firestoreInstanceFactory(fn),
+                multi: true,
+                deps: [
+                    NgZone,
+                    Injector,
+                    ɵAngularFireSchedulers,
+                    FirebaseApps,
+                    // Firestore+Auth work better if Auth is loaded first
+                    [new Optional(), AuthInstances],
+                    [new Optional(), AppCheckInstances],
+                    ...deps,
+                ]
+            }]
+    };
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGl0ZS5tb2R1bGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9zcmMvZmlyZXN0b3JlL2xpdGUvbGl0ZS5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsTUFBTSxFQUFFLGNBQWMsRUFBdUIsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBRTFHLE9BQU8sRUFBRSxhQUFhLEVBQUcsTUFBTSxvQkFBb0IsQ0FBQztBQUNwRCxPQUFPLEVBQUUscUJBQXFCLEVBQUUsc0JBQXNCLEVBQUUsT0FBTyxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ3ZGLE9BQU8sRUFBRSxTQUFTLEVBQUUsa0JBQWtCLEVBQUUsdUJBQXVCLEVBQUUsTUFBTSxRQUFRLENBQUM7QUFDaEYsT0FBTyxFQUFFLFlBQVksRUFBRSxXQUFXLEVBQUUsTUFBTSxtQkFBbUIsQ0FBQztBQUM5RCxPQUFPLEVBQUUsZUFBZSxFQUFFLE1BQU0sY0FBYyxDQUFDO0FBQy9DLE9BQU8sRUFBRSxpQkFBaUIsRUFBRSxNQUFNLHlCQUF5QixDQUFDOztBQUU1RCxNQUFNLENBQUMsTUFBTSw0QkFBNEIsR0FBRyxJQUFJLGNBQWMsQ0FBYyx1Q0FBdUMsQ0FBQyxDQUFDO0FBRXJILE1BQU0sVUFBVSwrQkFBK0IsQ0FBQyxRQUF1QyxFQUFFLFVBQXVCO0lBQzlHLE1BQU0sZ0JBQWdCLEdBQUcscUJBQXFCLENBQW9CLHVCQUF1QixFQUFFLFFBQVEsRUFBRSxVQUFVLENBQUMsQ0FBQztJQUNqSCxPQUFPLGdCQUFnQixJQUFJLElBQUksU0FBUyxDQUFDLGdCQUFnQixDQUFDLENBQUM7QUFDN0QsQ0FBQztBQUVELE1BQU0sVUFBVSx3QkFBd0IsQ0FBQyxFQUE2QztJQUNwRixPQUFPLENBQUMsSUFBWSxFQUFFLFFBQWtCLEVBQUUsRUFBRTtRQUMxQyxNQUFNLFNBQVMsR0FBRyxJQUFJLENBQUMsaUJBQWlCLENBQUMsR0FBRyxFQUFFLENBQUMsRUFBRSxDQUFDLFFBQVEsQ0FBQyxDQUFDLENBQUM7UUFDN0QsT0FBTyxJQUFJLFNBQVMsQ0FBQyxTQUFTLENBQUMsQ0FBQztJQUNsQyxDQUFDLENBQUM7QUFDSixDQUFDO0FBRUQsTUFBTSw0QkFBNEIsR0FBRztJQUNuQyxPQUFPLEVBQUUsa0JBQWtCO0lBQzNCLElBQUksRUFBRTtRQUNKLENBQUMsSUFBSSxRQUFRLEVBQUUsRUFBRSw0QkFBNEIsQ0FBRTtLQUNoRDtDQUNGLENBQUM7QUFFRixNQUFNLG1DQUFtQyxHQUFHO0lBQzFDLE9BQU8sRUFBRSxTQUFTO0lBQ2xCLFVBQVUsRUFBRSwrQkFBK0I7SUFDM0MsSUFBSSxFQUFFO1FBQ0osQ0FBQyxJQUFJLFFBQVEsRUFBRSxFQUFFLDRCQUE0QixDQUFFO1FBQy9DLFdBQVc7S0FDWjtDQUNGLENBQUM7QUFRRixNQUFNLE9BQU8sZUFBZTtJQUMxQjtRQUNFLGVBQWUsQ0FBQyxhQUFhLEVBQUUsT0FBTyxDQUFDLElBQUksRUFBRSxNQUFNLENBQUMsQ0FBQztJQUN2RCxDQUFDOzs0R0FIVSxlQUFlOzZHQUFmLGVBQWU7NkdBQWYsZUFBZSxhQUxmO1FBQ1QsbUNBQW1DO1FBQ25DLDRCQUE0QjtLQUM3QjsyRkFFVSxlQUFlO2tCQU4zQixRQUFRO21CQUFDO29CQUNSLFNBQVMsRUFBRTt3QkFDVCxtQ0FBbUM7d0JBQ25DLDRCQUE0QjtxQkFDN0I7aUJBQ0Y7O0FBT0QsTUFBTSxVQUFVLGdCQUFnQixDQUFDLEVBQTZDLEVBQUUsR0FBRyxJQUFXO0lBQzVGLE9BQU87UUFDTCxRQUFRLEVBQUUsZUFBZTtRQUN6QixTQUFTLEVBQUUsQ0FBQztnQkFDVixPQUFPLEVBQUUsNEJBQTRCO2dCQUNyQyxVQUFVLEVBQUUsd0JBQXdCLENBQUMsRUFBRSxDQUFDO2dCQUN4QyxLQUFLLEVBQUUsSUFBSTtnQkFDWCxJQUFJLEVBQUU7b0JBQ0osTUFBTTtvQkFDTixRQUFRO29CQUNSLHNCQUFzQjtvQkFDdEIsWUFBWTtvQkFDWixxREFBcUQ7b0JBQ3JELENBQUMsSUFBSSxRQUFRLEVBQUUsRUFBRSxhQUFhLENBQUU7b0JBQ2hDLENBQUMsSUFBSSxRQUFRLEVBQUUsRUFBRSxpQkFBaUIsQ0FBRTtvQkFDcEMsR0FBRyxJQUFJO2lCQUNSO2FBQ0YsQ0FBQztLQUNILENBQUM7QUFDSixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmdNb2R1bGUsIE9wdGlvbmFsLCBOZ1pvbmUsIEluamVjdGlvblRva2VuLCBNb2R1bGVXaXRoUHJvdmlkZXJzLCBJbmplY3RvciB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgRmlyZXN0b3JlIGFzIEZpcmViYXNlRmlyZXN0b3JlIH0gZnJvbSAnZmlyZWJhc2UvZmlyZXN0b3JlL2xpdGUnO1xuaW1wb3J0IHsgQXV0aEluc3RhbmNlcyAgfSBmcm9tICdAYW5ndWxhci9maXJlL2F1dGgnO1xuaW1wb3J0IHsgybVnZXREZWZhdWx0SW5zdGFuY2VPZiwgybVBbmd1bGFyRmlyZVNjaGVkdWxlcnMsIFZFUlNJT04gfSBmcm9tICdAYW5ndWxhci9maXJlJztcbmltcG9ydCB7IEZpcmVzdG9yZSwgRmlyZXN0b3JlSW5zdGFuY2VzLCBGSVJFU1RPUkVfUFJPVklERVJfTkFNRSB9IGZyb20gJy4vbGl0ZSc7XG5pbXBvcnQgeyBGaXJlYmFzZUFwcHMsIEZpcmViYXNlQXBwIH0gZnJvbSAnQGFuZ3VsYXIvZmlyZS9hcHAnO1xuaW1wb3J0IHsgcmVnaXN0ZXJWZXJzaW9uIH0gZnJvbSAnZmlyZWJhc2UvYXBwJztcbmltcG9ydCB7IEFwcENoZWNrSW5zdGFuY2VzIH0gZnJvbSAnQGFuZ3VsYXIvZmlyZS9hcHAtY2hlY2snO1xuXG5leHBvcnQgY29uc3QgUFJPVklERURfRklSRVNUT1JFX0lOU1RBTkNFUyA9IG5ldyBJbmplY3Rpb25Ub2tlbjxGaXJlc3RvcmVbXT4oJ2FuZ3VsYXJmaXJlMi5maXJlc3RvcmUtbGl0ZS1pbnN0YW5jZXMnKTtcblxuZXhwb3J0IGZ1bmN0aW9uIGRlZmF1bHRGaXJlc3RvcmVJbnN0YW5jZUZhY3RvcnkocHJvdmlkZWQ6IEZpcmViYXNlRmlyZXN0b3JlW118dW5kZWZpbmVkLCBkZWZhdWx0QXBwOiBGaXJlYmFzZUFwcCkge1xuICBjb25zdCBkZWZhdWx0RmlyZXN0b3JlID0gybVnZXREZWZhdWx0SW5zdGFuY2VPZjxGaXJlYmFzZUZpcmVzdG9yZT4oRklSRVNUT1JFX1BST1ZJREVSX05BTUUsIHByb3ZpZGVkLCBkZWZhdWx0QXBwKTtcbiAgcmV0dXJuIGRlZmF1bHRGaXJlc3RvcmUgJiYgbmV3IEZpcmVzdG9yZShkZWZhdWx0RmlyZXN0b3JlKTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGZpcmVzdG9yZUluc3RhbmNlRmFjdG9yeShmbjogKGluamVjdG9yOiBJbmplY3RvcikgPT4gRmlyZWJhc2VGaXJlc3RvcmUpIHtcbiAgcmV0dXJuICh6b25lOiBOZ1pvbmUsIGluamVjdG9yOiBJbmplY3RvcikgPT4ge1xuICAgIGNvbnN0IGZpcmVzdG9yZSA9IHpvbmUucnVuT3V0c2lkZUFuZ3VsYXIoKCkgPT4gZm4oaW5qZWN0b3IpKTtcbiAgICByZXR1cm4gbmV3IEZpcmVzdG9yZShmaXJlc3RvcmUpO1xuICB9O1xufVxuXG5jb25zdCBGSVJFU1RPUkVfSU5TVEFOQ0VTX1BST1ZJREVSID0ge1xuICBwcm92aWRlOiBGaXJlc3RvcmVJbnN0YW5jZXMsXG4gIGRlcHM6IFtcbiAgICBbbmV3IE9wdGlvbmFsKCksIFBST1ZJREVEX0ZJUkVTVE9SRV9JTlNUQU5DRVMgXSxcbiAgXVxufTtcblxuY29uc3QgREVGQVVMVF9GSVJFU1RPUkVfSU5TVEFOQ0VfUFJPVklERVIgPSB7XG4gIHByb3ZpZGU6IEZpcmVzdG9yZSxcbiAgdXNlRmFjdG9yeTogZGVmYXVsdEZpcmVzdG9yZUluc3RhbmNlRmFjdG9yeSxcbiAgZGVwczogW1xuICAgIFtuZXcgT3B0aW9uYWwoKSwgUFJPVklERURfRklSRVNUT1JFX0lOU1RBTkNFUyBdLFxuICAgIEZpcmViYXNlQXBwLFxuICBdXG59O1xuXG5ATmdNb2R1bGUoe1xuICBwcm92aWRlcnM6IFtcbiAgICBERUZBVUxUX0ZJUkVTVE9SRV9JTlNUQU5DRV9QUk9WSURFUixcbiAgICBGSVJFU1RPUkVfSU5TVEFOQ0VTX1BST1ZJREVSLFxuICBdXG59KVxuZXhwb3J0IGNsYXNzIEZpcmVzdG9yZU1vZHVsZSB7XG4gIGNvbnN0cnVjdG9yKCkge1xuICAgIHJlZ2lzdGVyVmVyc2lvbignYW5ndWxhcmZpcmUnLCBWRVJTSU9OLmZ1bGwsICdsaXRlJyk7XG4gIH1cbn1cblxuZXhwb3J0IGZ1bmN0aW9uIHByb3ZpZGVGaXJlc3RvcmUoZm46IChpbmplY3RvcjogSW5qZWN0b3IpID0+IEZpcmViYXNlRmlyZXN0b3JlLCAuLi5kZXBzOiBhbnlbXSk6IE1vZHVsZVdpdGhQcm92aWRlcnM8RmlyZXN0b3JlTW9kdWxlPiB7XG4gIHJldHVybiB7XG4gICAgbmdNb2R1bGU6IEZpcmVzdG9yZU1vZHVsZSxcbiAgICBwcm92aWRlcnM6IFt7XG4gICAgICBwcm92aWRlOiBQUk9WSURFRF9GSVJFU1RPUkVfSU5TVEFOQ0VTLFxuICAgICAgdXNlRmFjdG9yeTogZmlyZXN0b3JlSW5zdGFuY2VGYWN0b3J5KGZuKSxcbiAgICAgIG11bHRpOiB0cnVlLFxuICAgICAgZGVwczogW1xuICAgICAgICBOZ1pvbmUsXG4gICAgICAgIEluamVjdG9yLFxuICAgICAgICDJtUFuZ3VsYXJGaXJlU2NoZWR1bGVycyxcbiAgICAgICAgRmlyZWJhc2VBcHBzLFxuICAgICAgICAvLyBGaXJlc3RvcmUrQXV0aCB3b3JrIGJldHRlciBpZiBBdXRoIGlzIGxvYWRlZCBmaXJzdFxuICAgICAgICBbbmV3IE9wdGlvbmFsKCksIEF1dGhJbnN0YW5jZXMgXSxcbiAgICAgICAgW25ldyBPcHRpb25hbCgpLCBBcHBDaGVja0luc3RhbmNlcyBdLFxuICAgICAgICAuLi5kZXBzLFxuICAgICAgXVxuICAgIH1dXG4gIH07XG59XG4iXX0=

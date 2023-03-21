@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/angular-fire-app.umd.js",
+  "module": "../fesm2015/angular-fire-app.js",
+  "es2015": "../fesm2015/angular-fire-app.js",
+  "esm2015": "../esm2015/app/angular-fire-app.js",
+  "fesm2015": "../fesm2015/angular-fire-app.js",
+  "typings": "angular-fire-app.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/app"
+}

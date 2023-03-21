@@ -1,0 +1,13 @@
+{
+  "peerDependencies": {},
+  "firebaseFunctionsDependencies": {
+    "firebase-admin": {
+      "dev": false,
+      "version": "^9.11.1"
+    },
+    "firebase-functions": {
+      "dev": false,
+      "version": "^3.6.0"
+    }
+  }
+}

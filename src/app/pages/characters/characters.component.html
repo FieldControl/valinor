@@ -1,0 +1,45 @@
+<main>
+    <app-filter-bar (emmitSearch)="getSearch($event)"></app-filter-bar>
+    <div class="content">
+        <ng-template ngFor let-character [ngForOf]="charactersByPage">
+            <details (click)="closeDetails()">
+                <summary>
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="char-background" src="{{ character.background }}">
+                            <img class="char-image" src="{{ character.fullPortrait }}">    
+                        </div>
+                        <div class="information">
+                            <p class="card-name">{{ character.displayName }}</p>
+                            <hr>
+                            <p class="card-name"><img src="{{ character.role.displayIcon }}">{{ character.role.displayName}}</p>
+                        </div>
+                    </div>
+                </summary>
+                <aside>
+                    <app-character-information
+                    [role] = character.role.displayName
+                    [ability1] = character.abilities[0].displayName
+                    [ability1Image] = character.abilities[0].displayIcon
+                    [ability1Description] = character.abilities[0].description
+                    [ability2] = character.abilities[1].displayName
+                    [ability2Image] = character.abilities[1].displayIcon
+                    [ability2Description] = character.abilities[1].description
+                    [ability3] = character.abilities[2].displayName
+                    [ability3Image] = character.abilities[2].displayIcon
+                    [ability3Description] = character.abilities[2].description
+                    [ability4] = character.abilities[3].displayName
+                    [ability4Image] = character.abilities[3].displayIcon
+                    [ability4Description] = character.abilities[3].description
+                    >
+                    </app-character-information>
+                </aside>
+            </details>
+        </ng-template>
+    </div>
+    <div class="pagination">
+        <img class="left-arrow" [class.invisible]="actualPage == 1" (click)="previousPage()" src="../../assets/images/arrow.png">
+        <p class="count">{{ actualPage }} / {{ lastPage }}</p>
+        <img class="right-arrow" [class.invisible]="actualPage == lastPage" (click)="nextPage()" src="../../assets/images/arrow.png">
+    </div>
+</main>

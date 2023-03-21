@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/angular-fire-database.umd.js",
+  "module": "../fesm2015/angular-fire-database.js",
+  "es2015": "../fesm2015/angular-fire-database.js",
+  "esm2015": "../esm2015/database/angular-fire-database.js",
+  "fesm2015": "../fesm2015/angular-fire-database.js",
+  "typings": "angular-fire-database.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/database"
+}

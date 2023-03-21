@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../../bundles/angular-fire-compat-storage.umd.js",
+  "module": "../../fesm2015/angular-fire-compat-storage.js",
+  "es2015": "../../fesm2015/angular-fire-compat-storage.js",
+  "esm2015": "../../esm2015/compat/storage/angular-fire-compat-storage.js",
+  "fesm2015": "../../fesm2015/angular-fire-compat-storage.js",
+  "typings": "angular-fire-compat-storage.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/compat/storage"
+}

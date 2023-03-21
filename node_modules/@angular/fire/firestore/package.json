@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/angular-fire-firestore.umd.js",
+  "module": "../fesm2015/angular-fire-firestore.js",
+  "es2015": "../fesm2015/angular-fire-firestore.js",
+  "esm2015": "../esm2015/firestore/angular-fire-firestore.js",
+  "fesm2015": "../fesm2015/angular-fire-firestore.js",
+  "typings": "angular-fire-firestore.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/firestore"
+}

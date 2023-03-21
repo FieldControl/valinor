@@ -1,0 +1,17 @@
+export * from 'firebase/storage';
+import { connectStorageEmulator as _connectStorageEmulator, deleteObject as _deleteObject, getBlob as _getBlob, getBytes as _getBytes, getDownloadURL as _getDownloadURL, getMetadata as _getMetadata, getStorage as _getStorage, getStream as _getStream, list as _list, listAll as _listAll, ref as _ref, updateMetadata as _updateMetadata, uploadBytes as _uploadBytes, uploadBytesResumable as _uploadBytesResumable, uploadString as _uploadString } from 'firebase/storage';
+export declare const connectStorageEmulator: typeof _connectStorageEmulator;
+export declare const deleteObject: typeof _deleteObject;
+export declare const getBlob: typeof _getBlob;
+export declare const getBytes: typeof _getBytes;
+export declare const getDownloadURL: typeof _getDownloadURL;
+export declare const getMetadata: typeof _getMetadata;
+export declare const getStorage: typeof _getStorage;
+export declare const getStream: typeof _getStream;
+export declare const list: typeof _list;
+export declare const listAll: typeof _listAll;
+export declare const ref: typeof _ref;
+export declare const updateMetadata: typeof _updateMetadata;
+export declare const uploadBytes: typeof _uploadBytes;
+export declare const uploadBytesResumable: typeof _uploadBytesResumable;
+export declare const uploadString: typeof _uploadString;

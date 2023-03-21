@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/package.schema.json",
+  "main": "../../bundles/angular-fire-compat-auth-guard.umd.js",
+  "module": "../../fesm2015/angular-fire-compat-auth-guard.js",
+  "es2015": "../../fesm2015/angular-fire-compat-auth-guard.js",
+  "esm2015": "../../esm2015/compat/auth-guard/angular-fire-compat-auth-guard.js",
+  "fesm2015": "../../fesm2015/angular-fire-compat-auth-guard.js",
+  "typings": "angular-fire-compat-auth-guard.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/compat/auth-guard"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/angular-fire-auth-guard.umd.js",
+  "module": "../fesm2015/angular-fire-auth-guard.js",
+  "es2015": "../fesm2015/angular-fire-auth-guard.js",
+  "esm2015": "../esm2015/auth-guard/angular-fire-auth-guard.js",
+  "fesm2015": "../fesm2015/angular-fire-auth-guard.js",
+  "typings": "angular-fire-auth-guard.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/auth-guard"
+}

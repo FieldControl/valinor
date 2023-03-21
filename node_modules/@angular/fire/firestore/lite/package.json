@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/package.schema.json",
+  "main": "../../bundles/angular-fire-firestore-lite.umd.js",
+  "module": "../../fesm2015/angular-fire-firestore-lite.js",
+  "es2015": "../../fesm2015/angular-fire-firestore-lite.js",
+  "esm2015": "../../esm2015/firestore/lite/angular-fire-firestore-lite.js",
+  "fesm2015": "../../fesm2015/angular-fire-firestore-lite.js",
+  "typings": "angular-fire-firestore-lite.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/firestore/lite"
+}

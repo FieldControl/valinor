@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+}
+
+.information-card{
+    position: relative;
+    top: 85px;
+    height: 450px;
+    width: 400px;
+    background-color: rgba(13,27,41,0.9);
+}
+
+.abilities {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ability {
+    margin: auto;
+}
+
+.image {
+    margin-top: 25px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 75px;
+}
+
+.ability-image {
+    padding: 25px;
+    width: 100px;
+}
+
+.ability-name {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 26px;
+}
+
+.description {
+    position: absolute;
+    line-height: 1.4;
+    text-align: justify;
+    padding: 20px;
+    top: -120px;
+    left: -380px;
+    width: 360px;
+    background-color: rgba(13,27,41,0.9);
+    border-style:solid;
+    border-image:linear-gradient(#ff4654ee, transparent) 1;
+    border-bottom:0;
+}
+
+.desc1, .desc2, .desc3, .desc4 {
+    visibility: hidden;
+}
+
+.ab1:hover .desc1 {
+    visibility: visible;
+}
+
+.ab2:hover .desc2 {
+    visibility: visible;
+}
+
+.ab3:hover .desc3 {
+    visibility: visible;
+}
+
+.ab4:hover .desc4 {
+    visibility: visible;
+}
+
+@media screen and (max-width: 1510px) {
+
+    .information-card{
+        border-radius: 20px;
+    }
+
+    .description {
+        top: unset;
+        bottom: 450px;
+        left: -3px;
+    }
+}

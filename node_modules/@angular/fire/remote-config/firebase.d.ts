@@ -1,0 +1,14 @@
+export * from 'firebase/remote-config';
+import { activate as _activate, ensureInitialized as _ensureInitialized, fetchAndActivate as _fetchAndActivate, fetchConfig as _fetchConfig, getAll as _getAll, getBoolean as _getBoolean, getNumber as _getNumber, getRemoteConfig as _getRemoteConfig, getString as _getString, getValue as _getValue, setLogLevel as _setLogLevel } from 'firebase/remote-config';
+export { isSupported } from './overrides';
+export declare const activate: typeof _activate;
+export declare const ensureInitialized: typeof _ensureInitialized;
+export declare const fetchAndActivate: typeof _fetchAndActivate;
+export declare const fetchConfig: typeof _fetchConfig;
+export declare const getAll: typeof _getAll;
+export declare const getBoolean: typeof _getBoolean;
+export declare const getNumber: typeof _getNumber;
+export declare const getRemoteConfig: typeof _getRemoteConfig;
+export declare const getString: typeof _getString;
+export declare const getValue: typeof _getValue;
+export declare const setLogLevel: typeof _setLogLevel;

@@ -1,0 +1,74 @@
+{
+  "name": "rxfire",
+  "version": "6.0.3",
+  "private": false,
+  "description": "Firebase JavaScript library RxJS",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "license": "Apache-2.0",
+  "homepage": "https://firebase.google.com/",
+  "browser": "index.esm.js",
+  "main": "index.cjs.js",
+  "module": "index.esm.js",
+  "typings": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.esm.js",
+      "require": "./index.cjs.js"
+    },
+    "./auth": {
+      "import": "./auth/index.esm.js",
+      "require": "./auth/index.cjs.js"
+    },
+    "./database": {
+      "import": "./database/index.esm.js",
+      "require": "./database/index.cjs.js"
+    },
+    "./firestore": {
+      "import": "./firestore/index.esm.js",
+      "require": "./firestore/index.cjs.js"
+    },
+    "./firestore/lite": {
+      "import": "./firestore/lite/index.esm.js",
+      "require": "./firestore/lite/index.cjs.js"
+    },
+    "./functions": {
+      "import": "./functions/index.esm.js",
+      "require": "./functions/index.cjs.js"
+    },
+    "./performance": {
+      "import": "./performance/index.esm.js",
+      "require": "./performance/index.cjs.js"
+    },
+    "./remote-config": {
+      "import": "./remote-config/index.esm.js",
+      "require": "./remote-config/index.cjs.js"
+    },
+    "./storage": {
+      "import": "./storage/index.esm.js",
+      "require": "./storage/index.cjs.js"
+    }
+  },
+  "sideEffects": false,
+  "keywords": [
+    "authentication",
+    "database",
+    "Firebase",
+    "firebase",
+    "realtime",
+    "storage",
+    "rxjs",
+    "notifications"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firebaseextended/rxfire.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "tslib": "^1.9.0 || ~2.1.0"
+  },
+  "peerDependencies": {
+    "firebase": "^9.0.0",
+    "rxjs": "^6.0.0 || ^7.0.0"
+  }
+}

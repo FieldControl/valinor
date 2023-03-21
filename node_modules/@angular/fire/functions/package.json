@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/angular-fire-functions.umd.js",
+  "module": "../fesm2015/angular-fire-functions.js",
+  "es2015": "../fesm2015/angular-fire-functions.js",
+  "esm2015": "../esm2015/functions/angular-fire-functions.js",
+  "fesm2015": "../fesm2015/angular-fire-functions.js",
+  "typings": "angular-fire-functions.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/functions"
+}

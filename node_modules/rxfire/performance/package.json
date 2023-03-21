@@ -1,0 +1,8 @@
+{
+  "name": "rxfire/performance",
+  "browser": "index.esm.js",
+  "main": "index.cjs.js",
+  "module": "index.esm.js",
+  "typings": "index.d.ts",
+  "sideEffects": false
+}

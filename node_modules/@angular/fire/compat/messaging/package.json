@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../../bundles/angular-fire-compat-messaging.umd.js",
+  "module": "../../fesm2015/angular-fire-compat-messaging.js",
+  "es2015": "../../fesm2015/angular-fire-compat-messaging.js",
+  "esm2015": "../../esm2015/compat/messaging/angular-fire-compat-messaging.js",
+  "fesm2015": "../../fesm2015/angular-fire-compat-messaging.js",
+  "typings": "angular-fire-compat-messaging.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/compat/messaging"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/angular-fire-compat.umd.js",
+  "module": "../fesm2015/angular-fire-compat.js",
+  "es2015": "../fesm2015/angular-fire-compat.js",
+  "esm2015": "../esm2015/compat/angular-fire-compat.js",
+  "fesm2015": "../fesm2015/angular-fire-compat.js",
+  "typings": "angular-fire-compat.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/compat"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "main": "../../bundles/angular-fire-compat-remote-config.umd.js",
+  "module": "../../fesm2015/angular-fire-compat-remote-config.js",
+  "es2015": "../../fesm2015/angular-fire-compat-remote-config.js",
+  "esm2015": "../../esm2015/compat/remote-config/angular-fire-compat-remote-config.js",
+  "fesm2015": "../../fesm2015/angular-fire-compat-remote-config.js",
+  "typings": "angular-fire-compat-remote-config.d.ts",
+  "sideEffects": false,
+  "name": "@angular/fire/compat/remote-config"
+}
