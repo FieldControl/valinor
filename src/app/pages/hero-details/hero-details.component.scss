@@ -1,0 +1,300 @@
+.hero-details-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    // background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(116, 1, 1, 0.2) 100%);
+    background-color: rgba(0, 0, 0, 0.9);
+
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(45,45,45,0.75);
+    -moz-box-shadow: 0px 0px 30px 3px rgba(45,45,45,0.75);
+    box-shadow: 0px 0px 30px 3px rgba(45,45,45,0.75);
+
+    width: 1440px;
+    height: 100%;
+}
+
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+
+    margin-top: 20px;
+
+    width: 100%;
+    height: 100%
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly ;
+
+    width: 50%;
+    height: 700px;
+
+    h3 {
+        font-size: 2.2rem;
+        color: white;
+        letter-spacing: 3px;
+
+        text-transform: uppercase;
+    }
+
+    h3:nth-of-type(2) {
+        margin-bottom: -30px;
+    }
+
+    .abilities-container {
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow: auto;
+        justify-content: flex-start;
+        row-gap: 20px;
+
+        padding-top: 20px;
+        
+        padding-left: 10px;
+
+        height: 400px;
+        width: 60%;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            border-radius: 5px;
+        }
+
+        .img-ability {
+            display: flex;
+            align-items: center;
+
+            column-gap: 70px;
+            width: 400px;
+
+            img {
+                width: 70px;
+                height: 70px;
+
+                border: 2px darkgray solid;
+                border-radius: 5px;
+
+                -webkit-box-shadow: 0px 0px 6px 2px rgba(94, 92, 92, 0.75);
+                -moz-box-shadow: 0px 0px 6px 2px rgba(94, 92, 92, 0.75);
+                box-shadow: 0px 0px 6px 2px rgba(94, 92, 92, 0.75);
+            }
+
+            h4 {
+                font-size: 1.5rem;
+                color: darkgray;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .attributes-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        width: 500px;
+        height: 30px;
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        img{
+            width: 30px;
+        }
+
+        .gain-attr {
+            font-size: 1.2rem;
+            color: darkgray;
+        }
+    }
+
+    .roles {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        column-gap: 30px;
+
+        font-size: 1.3rem;
+        color: darkgrey;
+
+        margin-top: -20px;
+
+        width: 80%;
+    }
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+
+
+    width: 50%;
+    height: 700px;
+
+    video {
+        width: 550px;
+    }
+
+    .types-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        width: 400px;
+
+        span {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            
+            color: darkgray;
+            text-transform: capitalize;
+            font-size: 1.3rem;
+
+            img {
+                width: 30px;
+            }
+        }
+    }
+
+    h2 {
+        font-size: 3rem;
+        color: white;
+        letter-spacing: 3px;
+
+        text-transform: uppercase;
+    }
+
+}
+
+.bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    width: 100%;
+    height: 200px;
+
+    button {
+        cursor: pointer;
+
+        background-color: transparent;
+
+        border: none;
+        border-radius: 10px;
+
+        font-size: 1.5rem;
+        color: white;
+
+    } 
+
+    .all-hero {
+        background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//icons/language.svg);
+
+        width: 30px;
+        height: 30px;
+    }
+        
+    
+}
+
+
+@media screen and (max-width: 376px) {
+    .hero-details-container {
+        justify-content: space-evenly;
+
+        width: 375px;
+        height: 1300px;
+
+        background-size: cover;
+    }
+
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+
+        gap: 70px;
+
+        .right-container {
+            width: 100%;
+            height: 600px;
+
+            h3 {
+                font-size: 1.5rem;
+                margin: 0;
+            }
+
+            .abilities-container {
+                .img-ability {
+
+                    width: 100%;
+
+                    img {
+                        width: 60px;
+                        height: 60px;
+                    }
+    
+                    h4 {
+                        font-size: 1rem;
+                        margin-left: -30px;
+                    }
+                }
+                
+               
+            }
+
+            .attributes-container {
+                width: 100%;
+                margin-bottom: 20px;
+
+                .gain-attr {
+                    font-size: 0.9rem;
+                }
+            }
+
+            .roles {
+                flex-wrap: wrap;
+                font-size: 1rem;   
+                
+                margin-bottom: 20px;
+            }
+        }
+
+        .left-container {
+            width: 100%;
+            height: 400px;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            video {
+                width: 300px;
+            }
+
+            .types-container{
+                width: 100%;
+            }
+        }
+    }
+
+}

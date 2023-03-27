@@ -1,0 +1,31 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 1440px;
+    height: 100px;
+
+    margin-top: 25px;
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        img {
+            width: 235px;
+
+            cursor: pointer;
+        }
+    }
+}
+
+
+@media screen and (max-width: 376px) {
+    .header-container {
+        width: 100%;
+    }
+}
+

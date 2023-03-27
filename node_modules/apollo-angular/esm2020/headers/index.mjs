@@ -1,0 +1,16 @@
+import { HttpHeaders } from '@angular/common/http';
+import { ApolloLink } from '@apollo/client/core';
+export const httpHeaders = () => {
+    return new ApolloLink((operation, forward) => {
+        const { getContext, setContext } = operation;
+        const context = getContext();
+        if (context.headers) {
+            setContext({
+                ...context,
+                headers: new HttpHeaders(context.headers),
+            });
+        }
+        return forward(operation);
+    });
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9oZWFkZXJzL3NyYy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUMsV0FBVyxFQUFDLE1BQU0sc0JBQXNCLENBQUM7QUFDakQsT0FBTyxFQUFDLFVBQVUsRUFBc0IsTUFBTSxxQkFBcUIsQ0FBQztBQUVwRSxNQUFNLENBQUMsTUFBTSxXQUFXLEdBQUcsR0FBRyxFQUFFO0lBQzlCLE9BQU8sSUFBSSxVQUFVLENBQUMsQ0FBQyxTQUFvQixFQUFFLE9BQWlCLEVBQUUsRUFBRTtRQUNoRSxNQUFNLEVBQUMsVUFBVSxFQUFFLFVBQVUsRUFBQyxHQUFHLFNBQVMsQ0FBQztRQUMzQyxNQUFNLE9BQU8sR0FBRyxVQUFVLEVBQUUsQ0FBQztRQUU3QixJQUFJLE9BQU8sQ0FBQyxPQUFPLEVBQUU7WUFDbkIsVUFBVSxDQUFDO2dCQUNULEdBQUcsT0FBTztnQkFDVixPQUFPLEVBQUUsSUFBSSxXQUFXLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQzthQUMxQyxDQUFDLENBQUM7U0FDSjtRQUVELE9BQU8sT0FBTyxDQUFDLFNBQVMsQ0FBQyxDQUFDO0lBQzVCLENBQUMsQ0FBQyxDQUFDO0FBQ0wsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtIdHRwSGVhZGVyc30gZnJvbSAnQGFuZ3VsYXIvY29tbW9uL2h0dHAnO1xuaW1wb3J0IHtBcG9sbG9MaW5rLCBPcGVyYXRpb24sIE5leHRMaW5rfSBmcm9tICdAYXBvbGxvL2NsaWVudC9jb3JlJztcblxuZXhwb3J0IGNvbnN0IGh0dHBIZWFkZXJzID0gKCkgPT4ge1xuICByZXR1cm4gbmV3IEFwb2xsb0xpbmsoKG9wZXJhdGlvbjogT3BlcmF0aW9uLCBmb3J3YXJkOiBOZXh0TGluaykgPT4ge1xuICAgIGNvbnN0IHtnZXRDb250ZXh0LCBzZXRDb250ZXh0fSA9IG9wZXJhdGlvbjtcbiAgICBjb25zdCBjb250ZXh0ID0gZ2V0Q29udGV4dCgpO1xuXG4gICAgaWYgKGNvbnRleHQuaGVhZGVycykge1xuICAgICAgc2V0Q29udGV4dCh7XG4gICAgICAgIC4uLmNvbnRleHQsXG4gICAgICAgIGhlYWRlcnM6IG5ldyBIdHRwSGVhZGVycyhjb250ZXh0LmhlYWRlcnMpLFxuICAgICAgfSk7XG4gICAgfVxuXG4gICAgcmV0dXJuIGZvcndhcmQob3BlcmF0aW9uKTtcbiAgfSk7XG59O1xuIl19

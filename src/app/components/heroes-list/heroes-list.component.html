@@ -1,0 +1,36 @@
+<div class="search-container">
+    <div class="search">
+        <form action="/">
+            <input type="text" placeholder="Search..." name="search" [(ngModel)]='searchHero'/>
+        </form>
+    </div>
+
+    <div class="attribute-container">
+        <span>attributes</span>
+        <div class="button-container">
+            <button class="btn-str" title="Força" (click)="filterHeroes('strength')"></button>
+            <button class="btn-agi" title="Agilidade" (click)="filterHeroes('agility')"></button>
+            <button class="btn-int" title="Inteligência" (click)="filterHeroes('intelligence')"></button>
+            <button class="btn-all" title="All" (click)="filterHeroes('all')"></button>
+        </div>
+    </div>    
+</div>
+
+
+<div class="card-container">
+        <a class="card" *ngFor="let hero of pagedHero" [routerLink]="['/heroes', hero.new_Id ]">
+            <img [src]="'https://cdn.cloudflare.steamstatic.com/' + hero.img" alt={{hero.localized_name}} srcset="">
+            <img class="hero-attr" [src]="'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_' + hero.primary_attr + '.png'" alt="">
+            <span>
+                {{hero.localized_name}}
+            </span>
+        </a>
+</div>
+
+<mat-paginator
+    (page)="onPageChange($event)"
+    [length]="filteredHero.length"
+    [pageSize]="8"
+    hidePageSize>
+</mat-paginator>
+

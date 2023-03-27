@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../../packages/compiler-cli/ngcc/index.ts"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAQA,SAAQ,SAAS,YAAW;AAC5B,SAAQ,qBAAoB;AAatB,SAAU,QAAQ,SAAyC;AAC/D,gBAAc,IAAI,iBAAgB,CAAE;AACpC,SAAO,SAAS,OAAO;AACzB;AAIA,IAAM,oBAAoB,QAAQ,cAAc,YAAY,GAAG,CAAC;AAQzD,IAAM,mBAAmB,KAAK,mBAAmB,gBAAgB;",
+  "names": []
+}

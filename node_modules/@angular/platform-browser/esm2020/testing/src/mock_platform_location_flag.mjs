@@ -1,0 +1,17 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Controls whether the `MockPlatformLocation` class should be used
+ * as the `PlatformLocation` implementation when the `BrowserTestingModule`
+ * is imported.
+ *
+ * In v16, the value of this flag will be switched to `true` to enable
+ * the `MockPlatformLocation` by default.
+ */
+export const ENABLE_MOCK_PLATFORM_LOCATION = false;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibW9ja19wbGF0Zm9ybV9sb2NhdGlvbl9mbGFnLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvcGxhdGZvcm0tYnJvd3Nlci90ZXN0aW5nL3NyYy9tb2NrX3BsYXRmb3JtX2xvY2F0aW9uX2ZsYWcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUg7Ozs7Ozs7R0FPRztBQUNILE1BQU0sQ0FBQyxNQUFNLDZCQUE2QixHQUFHLEtBQUssQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG4vKipcbiAqIENvbnRyb2xzIHdoZXRoZXIgdGhlIGBNb2NrUGxhdGZvcm1Mb2NhdGlvbmAgY2xhc3Mgc2hvdWxkIGJlIHVzZWRcbiAqIGFzIHRoZSBgUGxhdGZvcm1Mb2NhdGlvbmAgaW1wbGVtZW50YXRpb24gd2hlbiB0aGUgYEJyb3dzZXJUZXN0aW5nTW9kdWxlYFxuICogaXMgaW1wb3J0ZWQuXG4gKlxuICogSW4gdjE2LCB0aGUgdmFsdWUgb2YgdGhpcyBmbGFnIHdpbGwgYmUgc3dpdGNoZWQgdG8gYHRydWVgIHRvIGVuYWJsZVxuICogdGhlIGBNb2NrUGxhdGZvcm1Mb2NhdGlvbmAgYnkgZGVmYXVsdC5cbiAqL1xuZXhwb3J0IGNvbnN0IEVOQUJMRV9NT0NLX1BMQVRGT1JNX0xPQ0FUSU9OID0gZmFsc2U7XG4iXX0=

@@ -1,0 +1,47 @@
+<div class="hero-details-container">
+    <da-header></da-header>
+    <div class="main-container">
+        <div class="left-container">
+            <h2>{{hero?.localized_name}}</h2>
+
+            <div class="types-container">
+                <span><img class="hero-attr" [src]="'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_' + hero?.primary_attr + '.png'" alt="">{{hero?.primary_attr}}</span>
+                <span><img [src]="'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/' + hero?.attack_type + '.svg'" alt="" class="hero-attack">{{hero?.attack_type}}</span>
+            </div>
+
+            <video [src]="'https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + hero?.name + '.webm'" autoplay="" preload="auto" loop="" playsinline="">
+            </video>
+            
+        </div>
+        
+        <div class="right-container">
+
+            <h3>Attributes</h3>
+
+            <div class="attributes-container">
+                <span><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png" alt=""><span class="gain-attr">{{hero?.base_str}}</span></span>
+                <span><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" alt=""><span class="gain-attr">{{hero?.base_agi}}</span></span>
+                <span><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png" alt=""><span class="gain-attr">{{hero?.base_int}}</span></span>
+            </div>
+
+            <div class="roles">
+                <span *ngFor="let role of hero?.roles">{{role}}</span>
+            </div>
+
+            <h3>Skills</h3>
+           
+            <div class="abilities-container">
+                <div class="img-ability" *ngFor="let ability of hero?.abilities; let i = index">
+                    <img [src]="'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/' + ability + '.png'" alt="">
+                    <h4>{{ hero?.name_abilities?.[i] }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-container">
+        <button (click)="previous()" class="previous-hero" title="Previous">&#60;&#60;</button>
+        <a href="/heroes"><button class="all-hero" title="All"></button></a>
+        <button (click)="next()" class="next-hero" title="Next">&#62;&#62;</button>
+    </div>
+</div>

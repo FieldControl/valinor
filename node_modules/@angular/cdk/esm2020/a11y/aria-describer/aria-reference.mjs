@@ -1,0 +1,44 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/** IDs are delimited by an empty space, as per the spec. */
+const ID_DELIMITER = ' ';
+/**
+ * Adds the given ID to the specified ARIA attribute on an element.
+ * Used for attributes such as aria-labelledby, aria-owns, etc.
+ */
+export function addAriaReferencedId(el, attr, id) {
+    const ids = getAriaReferenceIds(el, attr);
+    if (ids.some(existingId => existingId.trim() == id.trim())) {
+        return;
+    }
+    ids.push(id.trim());
+    el.setAttribute(attr, ids.join(ID_DELIMITER));
+}
+/**
+ * Removes the given ID from the specified ARIA attribute on an element.
+ * Used for attributes such as aria-labelledby, aria-owns, etc.
+ */
+export function removeAriaReferencedId(el, attr, id) {
+    const ids = getAriaReferenceIds(el, attr);
+    const filteredIds = ids.filter(val => val != id.trim());
+    if (filteredIds.length) {
+        el.setAttribute(attr, filteredIds.join(ID_DELIMITER));
+    }
+    else {
+        el.removeAttribute(attr);
+    }
+}
+/**
+ * Gets the list of IDs referenced by the given ARIA attribute on an element.
+ * Used for attributes such as aria-labelledby, aria-owns, etc.
+ */
+export function getAriaReferenceIds(el, attr) {
+    // Get string array of all individual ids (whitespace delimited) in the attribute value
+    return (el.getAttribute(attr) || '').match(/\S+/g) || [];
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXJpYS1yZWZlcmVuY2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvY2RrL2ExMXkvYXJpYS1kZXNjcmliZXIvYXJpYS1yZWZlcmVuY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsNERBQTREO0FBQzVELE1BQU0sWUFBWSxHQUFHLEdBQUcsQ0FBQztBQUV6Qjs7O0dBR0c7QUFDSCxNQUFNLFVBQVUsbUJBQW1CLENBQUMsRUFBVyxFQUFFLElBQXNCLEVBQUUsRUFBVTtJQUNqRixNQUFNLEdBQUcsR0FBRyxtQkFBbUIsQ0FBQyxFQUFFLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFDMUMsSUFBSSxHQUFHLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxFQUFFLENBQUMsVUFBVSxDQUFDLElBQUksRUFBRSxJQUFJLEVBQUUsQ0FBQyxJQUFJLEVBQUUsQ0FBQyxFQUFFO1FBQzFELE9BQU87S0FDUjtJQUNELEdBQUcsQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLElBQUksRUFBRSxDQUFDLENBQUM7SUFFcEIsRUFBRSxDQUFDLFlBQVksQ0FBQyxJQUFJLEVBQUUsR0FBRyxDQUFDLElBQUksQ0FBQyxZQUFZLENBQUMsQ0FBQyxDQUFDO0FBQ2hELENBQUM7QUFFRDs7O0dBR0c7QUFDSCxNQUFNLFVBQVUsc0JBQXNCLENBQUMsRUFBVyxFQUFFLElBQXNCLEVBQUUsRUFBVTtJQUNwRixNQUFNLEdBQUcsR0FBRyxtQkFBbUIsQ0FBQyxFQUFFLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFDMUMsTUFBTSxXQUFXLEdBQUcsR0FBRyxDQUFDLE1BQU0sQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsSUFBSSxFQUFFLENBQUMsSUFBSSxFQUFFLENBQUMsQ0FBQztJQUV4RCxJQUFJLFdBQVcsQ0FBQyxNQUFNLEVBQUU7UUFDdEIsRUFBRSxDQUFDLFlBQVksQ0FBQyxJQUFJLEVBQUUsV0FBVyxDQUFDLElBQUksQ0FBQyxZQUFZLENBQUMsQ0FBQyxDQUFDO0tBQ3ZEO1NBQU07UUFDTCxFQUFFLENBQUMsZUFBZSxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQzFCO0FBQ0gsQ0FBQztBQUVEOzs7R0FHRztBQUNILE1BQU0sVUFBVSxtQkFBbUIsQ0FBQyxFQUFXLEVBQUUsSUFBWTtJQUMzRCx1RkFBdUY7SUFDdkYsT0FBTyxDQUFDLEVBQUUsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRSxDQUFDLENBQUMsS0FBSyxDQUFDLE1BQU0sQ0FBQyxJQUFJLEVBQUUsQ0FBQztBQUMzRCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbi8qKiBJRHMgYXJlIGRlbGltaXRlZCBieSBhbiBlbXB0eSBzcGFjZSwgYXMgcGVyIHRoZSBzcGVjLiAqL1xuY29uc3QgSURfREVMSU1JVEVSID0gJyAnO1xuXG4vKipcbiAqIEFkZHMgdGhlIGdpdmVuIElEIHRvIHRoZSBzcGVjaWZpZWQgQVJJQSBhdHRyaWJ1dGUgb24gYW4gZWxlbWVudC5cbiAqIFVzZWQgZm9yIGF0dHJpYnV0ZXMgc3VjaCBhcyBhcmlhLWxhYmVsbGVkYnksIGFyaWEtb3ducywgZXRjLlxuICovXG5leHBvcnQgZnVuY3Rpb24gYWRkQXJpYVJlZmVyZW5jZWRJZChlbDogRWxlbWVudCwgYXR0cjogYGFyaWEtJHtzdHJpbmd9YCwgaWQ6IHN0cmluZykge1xuICBjb25zdCBpZHMgPSBnZXRBcmlhUmVmZXJlbmNlSWRzKGVsLCBhdHRyKTtcbiAgaWYgKGlkcy5zb21lKGV4aXN0aW5nSWQgPT4gZXhpc3RpbmdJZC50cmltKCkgPT0gaWQudHJpbSgpKSkge1xuICAgIHJldHVybjtcbiAgfVxuICBpZHMucHVzaChpZC50cmltKCkpO1xuXG4gIGVsLnNldEF0dHJpYnV0ZShhdHRyLCBpZHMuam9pbihJRF9ERUxJTUlURVIpKTtcbn1cblxuLyoqXG4gKiBSZW1vdmVzIHRoZSBnaXZlbiBJRCBmcm9tIHRoZSBzcGVjaWZpZWQgQVJJQSBhdHRyaWJ1dGUgb24gYW4gZWxlbWVudC5cbiAqIFVzZWQgZm9yIGF0dHJpYnV0ZXMgc3VjaCBhcyBhcmlhLWxhYmVsbGVkYnksIGFyaWEtb3ducywgZXRjLlxuICovXG5leHBvcnQgZnVuY3Rpb24gcmVtb3ZlQXJpYVJlZmVyZW5jZWRJZChlbDogRWxlbWVudCwgYXR0cjogYGFyaWEtJHtzdHJpbmd9YCwgaWQ6IHN0cmluZykge1xuICBjb25zdCBpZHMgPSBnZXRBcmlhUmVmZXJlbmNlSWRzKGVsLCBhdHRyKTtcbiAgY29uc3QgZmlsdGVyZWRJZHMgPSBpZHMuZmlsdGVyKHZhbCA9PiB2YWwgIT0gaWQudHJpbSgpKTtcblxuICBpZiAoZmlsdGVyZWRJZHMubGVuZ3RoKSB7XG4gICAgZWwuc2V0QXR0cmlidXRlKGF0dHIsIGZpbHRlcmVkSWRzLmpvaW4oSURfREVMSU1JVEVSKSk7XG4gIH0gZWxzZSB7XG4gICAgZWwucmVtb3ZlQXR0cmlidXRlKGF0dHIpO1xuICB9XG59XG5cbi8qKlxuICogR2V0cyB0aGUgbGlzdCBvZiBJRHMgcmVmZXJlbmNlZCBieSB0aGUgZ2l2ZW4gQVJJQSBhdHRyaWJ1dGUgb24gYW4gZWxlbWVudC5cbiAqIFVzZWQgZm9yIGF0dHJpYnV0ZXMgc3VjaCBhcyBhcmlhLWxhYmVsbGVkYnksIGFyaWEtb3ducywgZXRjLlxuICovXG5leHBvcnQgZnVuY3Rpb24gZ2V0QXJpYVJlZmVyZW5jZUlkcyhlbDogRWxlbWVudCwgYXR0cjogc3RyaW5nKTogc3RyaW5nW10ge1xuICAvLyBHZXQgc3RyaW5nIGFycmF5IG9mIGFsbCBpbmRpdmlkdWFsIGlkcyAod2hpdGVzcGFjZSBkZWxpbWl0ZWQpIGluIHRoZSBhdHRyaWJ1dGUgdmFsdWVcbiAgcmV0dXJuIChlbC5nZXRBdHRyaWJ1dGUoYXR0cikgfHwgJycpLm1hdGNoKC9cXFMrL2cpIHx8IFtdO1xufVxuIl19

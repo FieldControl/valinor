@@ -1,0 +1,9 @@
+import { FileSystem } from '../../../src/ngtsc/file_system';
+import { Logger } from '../../../src/ngtsc/logging';
+import { EntryPointFinder } from '../entry_point_finder/interface';
+import { EntryPointJsonProperty } from '../packages/entry_point';
+import { AnalyzeEntryPointsFn } from './api';
+/**
+ * Create the function for performing the analysis of the entry-points.
+ */
+export declare function getAnalyzeEntryPointsFn(logger: Logger, finder: EntryPointFinder, fileSystem: FileSystem, supportedPropertiesToConsider: EntryPointJsonProperty[], typingsOnly: boolean, compileAllFormats: boolean, propertiesToConsider: string[], inParallel: boolean): AnalyzeEntryPointsFn;
