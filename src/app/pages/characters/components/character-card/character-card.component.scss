@@ -1,0 +1,56 @@
+.card {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20.00px), calc(100% - 20.00px) 100%, 0 100%);
+  background-color: hsl(0, 0%, 13%);
+  color: white;
+  font-family: 'Bangers', cursive;
+  font-size: 16px;
+  letter-spacing: 3px;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover>.name_wrapper {
+    background-position: 0 -100%;
+  }
+
+
+  .img_wrapper {
+    width: auto;
+    height: 14rem;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      object-position: left;
+
+    }
+  }
+
+
+  .name_wrapper {
+    border-top: solid 5px rgb(49, 79, 177);
+    padding: 1.5rem;
+    background-size: 100% 200%;
+    background-image: linear-gradient(to bottom, hsl(0, 0%, 13%) 50%, rgb(49, 79, 177) 50%);
+    transition: background-position 1s;
+    height: 30%;
+
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .img_wrapper {
+    height: 17rem !important;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .img_wrapper {
+    height: 16rem;
+  }
+
+}
+

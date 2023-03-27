@@ -1,238 +1,71 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# Projeto Marvel API
 
-A empresa
-----------
+![image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/2560px-Marvel_Logo.svg.png)
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+# Funcionalidades
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+### Lista de Personagens
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+A aplicação inicia na lista de personagens, com design baseado em cards, que renderizam nome e imagem do personagem provindas da API oficial da Marvel.
 
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
+<img width="1000px" src="./demo/pagina-inicial.png">
 
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
+### Busca de personagem por nome
 
-Origem
-----------
+No topo da página, há uma barra de pesquisa onde pode ser buscado um personagem pelo nome, utilizando um parâmeto da API.
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+<img width="1000px" src="./demo/busca-por-nome.gif">
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
+### Modal contendo detalhes do personagem
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
+Ao clicar em um card, um modal contendo nome, imagem, descrição e quadrinhos nos quais o personagem aparece renderiza na tela do usuário. Modal foi feito utilizando a biblioteca de UI do próprio Angular, o Angular Material. 
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
+<img width="1000px" src="./demo/detalhes-dos-personagens.gif">
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
+Ao clicar no "MORE" o usuario sera redirecionado ao site da marvel apresentando mais quadrinhos referente ao personagem buscado.
 
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
+# Tecnologias utilizadas para o desenvolvimento do projeto
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+![image](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![image](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![image](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![image](https://img.shields.io/badge/Jasmine-8A4182?style=for-the-badge&logo=Jasmine&logoColor=white)
 
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
+# Projeto está na vercel 
 
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
+O projeto está hospedado na vercel, <a href="https://valinor-marvel-api.vercel.app/" target="_blank">clicando aqui</a>, você será redirecionado ao projeto final. Caso não funcione, aqui está o link: https://valinor-marvel-api.vercel.app/
 
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
+# Princípios de Engenharia de Software 
 
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
+Neste projeto, utilizei o princípio de SRP - (Single Responsibility Principle), buscando dar a cada componente do Angular uma única responsabilidade, facilitando o uso e deixando o código organizado.
 
-Oportunidade
-----------
+# Porque você optou pela tecnologia X e não a Y
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
+Optei por fazer o projeto em Angular, pois foi a minha primeira framework aprendida junto ao Field Academy e também pela própria Field Control já fazer uso dela.
 
-Na Field, o seu dia-a-dia será repleto de:
+# Desafios encontrados e como foi resolvido 
 
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
+No percurso do projeto foram encontradas algumas dificuldades das quais com o desenvolvimento foram se amenizando. Primeiramente, iniciei o projeto logo no começo dos estudos com Angular. Após isso, obtive uma certa dificuldade nos components, o qual após bastante prática e dedicação, consegui ultrapassar essa barreira e comecei a organizar os components. Logo depois, tive dificuldade na parte da conexão com a API da Marvel, pois ela exige que o dev utilize uma hash MD5 para acessar os dados, porém com algumas pesquisas e leitura da documentação da API, consegui fazer a conexão. Ademais, não foi preciso fazer requisição à API por ID pois no JSON inicial já vem todas as informações, algo que foi benéfico, uma vez que quanto menos for preciso fazer requisição melhor. 
+Outro problema encontrado foi o modal para apresentar os detalhes dos personagens, utilizado com o Angular Material, algo que ainda faz parte do meu processo de aprendizado, cujo conhecimento foi absorvido no curso de Angular da Udemy – indicado durante o treinamento do Field Academy – e diversas pesquisas por fora. Já os testes foram bem complexos para mim, uma vez que a implementação não fazia parte do meu processo habitual, mas consegui implementar da melhor maneira possível com o Jasmine do Angular.
+ Enfrentei vários desafios durante o projeto. Contudo, com o impulso dado no Field Academy, com dedicação e pratica, eu consegui superar as objeções e possíveis duvidas apresentadas no processo de criação. Em suma, quero registrar que essas dificuldades me fizeram perceber que com os estudos e pratica as minhas ações serão capazes de resolver os futuros impasses durante as minhas criações e desenvolvimentos.
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
+# O que pode ser melhorado e como fazer 
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
+Por meio dos meus estudos eu percebi a abrangente possibilidade que o Angular traz para o projeto. Contudo, mesmo com essas amplas opções, eu optei fazer algo mais simples mas que atendesse aos pedidos do desafio de maneira excepcional e que o código ficasse organizado. Para além do que já foi feito, planejo fazer uma paginação mais adequada  – colocando uma página inicial que separa melhor os personagens – , planejo colocar as informações por página, diferente do modelo que eu utilizei que foi a SPA e pretendo colocar alguns estilos em CSS mais complexos, deixando o projeto mais harmonioso e com uma melhor responsividade. 
 
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
 
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
+# Sobre mim 
 
-Os desafios de programação
-----------
+Meu nome é Victor Job, tenho 22 anos e atualmente estou no último ano do curso de Engenharia da Computação na Faculdade UNILAGO. Desde criança, tinha apreço pela tecnologia e com 10 anos, sob influência do meu pai, quando tinha algum problema eu já mexia com as peças dos meus computadores para tentar resolver e as formatações eram feitas por mim. Pelo que eu me lembro, nunca levei um computador para uma loja de informática, pois quaisquer problemas que surgiam eu conseguia resolver, mesmo que alguns fossem mais difíceis. 
+Ao entrar na faculdade, eu comecei a conhecer um mundo novo de possibilidades com a programação, mas como trabalhei como técnico de informática no meu segundo e terceiro ano, não consegui progredir muito com meus estudos na área de desenvolvimento. Além disso, no meu último semestre foi quando eu tive mais contato com a programação na faculdade e fui gostando ainda mais da área. Por isso, tive que tomar a difícil decisão de parar de trabalhar como técnico para focar meus estudos na programação, que é o meu sonho.
+Depois disso, veio o Field Academy, que foi um divisor de águas na minha vida, tanto profissional como pessoal e que agregou muito nos meus estudos e me proporcionou ter a capacidade de fazer este projeto. Por fim, mesmo após a finalização do treinamento, eu estou corriqueiramente estudando e evoluindo cada dia a mais e me desafiando a buscar o melhor possível para que eu possa entregar os melhores projetos.
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
+# Contatos
 
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
-
-<br/>
-
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
-
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
-
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
-
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
-
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
-
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
-
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
-
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
-
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
-
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
-
-Um diferencial gigante é o uso de testes unitários e integrados!
-
-URLs úteis:
-
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
-
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
-
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
-
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
-
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
-
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
-
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
-
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
-
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
-
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
-
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
-
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
-
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
-
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
-
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
-
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
-
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
-
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
-
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+<ul>
+  <li>E-mail: victorsimon553@gmail.com</li>
+  <li>Linkedin: https://www.linkedin.com/in/victor-job-2017b01ab/</li>
+</ul>

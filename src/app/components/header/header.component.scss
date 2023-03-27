@@ -1,0 +1,14 @@
+header {
+  background-color: hsl(0, 0%, 13%);
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo-container {
+    height: 2.5rem;
+    width: 5.5rem;
+    background-image: url('../../../assets/img/Marvel_Logo.svg.png');
+    background-size: 100% 100%;
+  }
+}

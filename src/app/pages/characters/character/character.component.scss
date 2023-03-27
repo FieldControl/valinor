@@ -1,0 +1,55 @@
+.card {
+  background-color: hsl(0, 0%, 13%);
+  color: white;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+  padding: 1.5rem;
+
+
+  .img_name_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+
+    h1 {
+      font-size: 20px;
+      margin: auto;
+    }
+  }
+
+
+  .img_wrapper {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .description {
+    border-top: solid 5px rgb(49, 79, 177);
+    font-size: 14px;
+    padding-top: 1.25rem;
+
+    p a {
+      color: rgb(49, 79, 177); text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .img_name_container {
+    flex-direction: column !important;
+
+    h1 {
+      margin-top: 1rem !important;
+    }
+  }
+
+}
+
+

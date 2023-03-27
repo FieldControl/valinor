@@ -1,0 +1,118 @@
+.search_wrapper {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .input_icon_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    input {
+      background-color: hsl(0, 0%, 13%);
+      color: white;
+      height: 40px;
+      padding: 1.5rem 50px 1.5rem 25px;
+      border-radius: 8rem;
+      width: 40%;
+      font-family: 'Bangers', cursive;
+      letter-spacing: 5px;
+      box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+      border: 1px solid hsl(0, 0%, 50%);
+
+      &::placeholder {
+        font-size: 17px;
+      }
+
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-left: -41px;
+      background-color: rgb(49, 79, 177);
+      cursor: pointer;
+
+      .search_icon {
+        background-image: url('../../../../assets/img/magnifying-glass-solid.svg');
+        background-repeat: no-repeat;
+        width: 18px;
+        height: 18px;
+        filter: invert(99%) sepia(70%) saturate(255%) hue-rotate(241deg) brightness(110%) contrast(100%);
+      }
+    }
+  }
+
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  gap: 1rem;
+}
+
+
+@media screen and (max-width: 480px) {
+  ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(20, 1fr);
+
+  }
+
+  .input_icon_container input {
+    width: 100% !important;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+}
+
+
+@media screen and (min-width:481px) and (max-width: 768px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .input_icon_container input {
+    width: 100% !important;
+
+  }
+}
+
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .input_icon_container input {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+
+
+  .input_icon_container input {
+    width: 70% !important;
+  }
+}
+
+
+
+
+
+
+
+
+

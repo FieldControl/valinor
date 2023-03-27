@@ -1,0 +1,13 @@
+<div class="search_wrapper">
+  <div class="input_icon_container">
+    <input (keyup.Enter)="searchCharacter()" placeholder="Digite aqui o personagem que deseja" type="search" [formControl]="search">
+    <button role="search" (click)="searchCharacter()"><i class="search_icon"></i></button>
+  </div>
+</div>
+<ul *ngIf="characters$ | async as characters">
+  <li *ngFor="let character of characters">
+    <app-character-card [character]="character" (click)="openCharacterDialog(character)"></app-character-card>
+  </li>
+</ul>
+<mat-paginator style="margin-top: 1rem; box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;" [pageSize]="pageSize" [length]="totalCharacters" (page)="onPageChange($event)">
+</mat-paginator>

@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="img_name_container">
+    <div class="img_wrapper" style="background-image: url('{{data.thumbnail.path}}.{{data.thumbnail.extension}}');"></div>
+    <h1>{{data.name}}</h1>
+  </div>
+  <div class="description">
+    <p style="margin-bottom: 1.25rem;">{{data.description ? data.description : 'There is no description available for this character'}}</p>
+    <p *ngIf="comics.length > 0; else noResults">
+      {{data.name}} appears on {{comics.join(', ')}} and
+      <a target="_blank" href="{{comicsUrl}}">more</a>
+    </p>
+    <ng-template #noResults>This character doesn't appear on any comics.</ng-template>
+  </div>
+</div>
