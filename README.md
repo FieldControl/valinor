@@ -2,6 +2,12 @@
 
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 15.2.4.
 
+## Pré requisitos
+
+Execute `npm install -g @angular/cli` e `npm install @angular-devkit/build-angular` para instalar o angular e suas dependencias.
+
+Ao executar os testes e2e via `ng e2e` instale o Cypress.
+
 ## Servidor de desenvolvimento
 
 Execute `ng serve` para um servidor de desenvolvimento. Navegue até `http://localhost:4200/`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
