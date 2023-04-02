@@ -1,5 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+/* angular material */
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +10,10 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        MatToolbarModule,
+        MatIconModule
+      ]
     }).compileComponents();
   });
 
@@ -16,16 +23,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'vanilor'`, () => {
+  /* Além de ser algo que já vem padrão, eu realmente acho importante testar se ninguém alterou o título sem querer */
+  it(`should have as title 'marvel'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('vanilor');
+    expect(app.title).toEqual('Marvel');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('vanilor app is running!');
+    expect(compiled.querySelector('.mat-toolbar span')?.textContent).toContain('Marvel');
   });
 });
