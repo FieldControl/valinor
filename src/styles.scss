@@ -16,22 +16,31 @@ body {
   flex: 1 1 auto;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
-.justify-space-between{
-    justify-content: space-between;
+.justify-space-between {
+  justify-content: space-between;
 }
 
 .rotate {
   transform: rotate(180deg);
 }
 
-.background-transparent{
-    background-color: transparent;
+.background-transparent {
+  background-color: transparent;
 }
 
-.no-borders{
-    border: none;
+.round {
+  border-radius: 50%;
+  padding: 0pt;
+
+  // Inclui os estilos da classe .background-transparent
+  @extend .background-transparent;
+}
+
+.no-borders {
+  border: none;
+}
+
+/* usei, deixei de usar, mas acho bom manter aqui */
+.justify-center {
+  justify-content: center;
 }
