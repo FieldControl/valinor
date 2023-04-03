@@ -1,14 +1,37 @@
 /* Você pode adicionar estilos globais a este arquivo e também importar outros arquivos de estilo */
+@import "theming.scss";
 
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.spacer{
-    flex: 1 1 auto;
+/* Stilo padrão */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.justify-center{
-    justify-content: center;
+/* Estilos padrões relacionados a espaçamento */
+.spacer {
+  flex: 1 1 auto;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between{
+    justify-content: space-between;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.background-transparent{
+    background-color: transparent;
+}
+
+.no-borders{
+    border: none;
 }

@@ -1,0 +1,50 @@
+/* Arquivo de personalização do tema */
+
+@import '@angular/material/theming';
+
+@include mat-core();
+
+// Define as paletas para o tema claro
+$my-app-primary: mat-palette($mat-indigo);
+$my-app-accent:  mat-palette($mat-pink);
+
+// Define a estrutura de dados do tema claro
+$my-app-light-theme: mat-light-theme((
+  color: (
+    primary: $my-app-primary,
+    accent: $my-app-accent,
+  )
+));
+
+// Define as paletas para o tema escuro
+$my-app-dark-primary: mat-palette($mat-grey);
+
+// Cria uma paleta de cores personalizada mesclando a paleta rosa com a paleta cinza
+$mat-pink-grey: map-merge($mat-pink, $mat-grey);
+// Ajusta manualmente as cores na paleta para torná-la mais escura
+$mat-pink-grey: map-merge($mat-pink-grey, (
+  50: #e0e0e0,
+  100: #bdbdbd,
+  200: #9e9e9e
+));
+
+// Define a cor de destaque do tema escuro usando a paleta de cores personalizada
+$my-app-dark-accent: mat-palette($mat-pink-grey);
+
+// Define a estrutura de dados do tema escuro
+$my-app-dark-theme: mat-dark-theme((
+  color: (
+    primary: $my-app-dark-primary,
+    accent: $my-app-dark-accent,
+  )
+));
+
+// Inclui os estilos do tema claro
+.light-theme {
+  @include angular-material-theme($my-app-light-theme);
+}
+
+// Inclui apenas os estilos de cor do tema escuro
+.dark-theme {
+  @include all-component-colors($my-app-dark-theme);
+}
