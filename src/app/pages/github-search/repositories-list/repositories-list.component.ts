@@ -12,7 +12,7 @@ import { Repositories } from '../../../models/repositories.model';
 export class RepositoriesListComponent implements OnInit {
 
   public searchTerm: string = "Bootstrap";
-  public repositorios!: Repositories;
+  public repositorios: Repositories = {} as Repositories;
 
   length = 0;
   pageSize = 0;

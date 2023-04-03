@@ -32,7 +32,7 @@ export class GithubService {
   }
 
   getIssues(username:string, reponame:string, page:number) : Observable<Issues> {
-    let url = `${this._BASE_URL}issues?q=repo:${username}/${reponame}`;
+    let url = `${this._BASE_URL}issues?q=repo:${username}/${reponame}&page=${page}`;
     return this.httpClient.get<Issues>(url)
       .pipe(catchError(this.handleError));
   }

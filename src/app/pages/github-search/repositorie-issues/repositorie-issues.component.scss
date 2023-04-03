@@ -1,0 +1,39 @@
+.header-issues {
+    display: flex;
+    justify-content: space-around;
+}
+
+.paginator {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.resultados-busca {
+    height: 65vh;
+    padding: 1rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.card {
+    padding: 10px;
+    margin: 1rem;
+    align-items: start;
+    text-align: start;
+}
+
+.icon-user {
+    max-width: 20px;
+    max-height: 20px;
+    width: auto;
+    height: auto;
+}
+
+.labels {
+    margin: 5px;
+}
+
+a {
+    all: unset;
+}
