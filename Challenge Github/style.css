@@ -1,0 +1,133 @@
+body {
+    background-color: #0D1117;
+}
+
+.repository-list {
+    list-style-type: none;
+    color: white;
+}
+
+.custom-btn {
+    background-color: rgb(91, 162, 180);
+    border-color: rgb(91, 162, 180);
+}
+
+.infos, .infos a {
+    color: #6C7680;
+}
+
+.btn-topics {
+    width: 5% auto;
+    margin-right: 5px;
+    margin-top: 5px;
+    font-size: 11px;
+    background-color: #13233A;
+    border-color: #13233A;
+}
+
+.btn-topics a {
+    color:rgb(91, 162, 180);
+    /* 336BB9 */
+    text-decoration: none;
+}
+
+.btn-search {
+    background-color:#2a2f3e;
+    border-color: #2a2f3e;
+    color: white;
+}
+
+.btn-pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-pagination-container li {
+    display: inline-block;
+    padding: 5px 5px;
+    margin: 0 5px;
+}
+
+.btn-pagination-container a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-pagination-container a:hover {
+    border-color: #ccc;
+}
+
+.btn-pagination-container a.active {
+  background-color: #1F6FEB;
+  color: #fff;
+  border-color: #333;
+}
+
+.btn-next {
+    margin: 0 5px;
+    text-align: center;
+}
+
+.btn-previous {
+    display: inline-block;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.custom-input {
+    width: 30%;
+    margin: 30px auto;
+}
+
+.input-background {
+    background-color: #161B22;
+}
+
+.searchBar {
+    background-color: #0D1117;
+    color: white;
+    border: 1px solid rgb(100, 100, 100);
+}
+
+.searchBar:focus {
+    background-color: #0D1117;
+    color: white;
+    outline: none;
+}
+
+.stars {
+    text-decoration: none;
+}
+
+.stars svg path {
+    fill: grey;
+}
+
+.list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 450px;
+    padding-right: 200px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+img.emoji {
+    width: 20px;
+    height: 20px;
+}
