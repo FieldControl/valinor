@@ -1,0 +1,56 @@
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.search-bar {
+    display: block ruby;
+}
+
+.resultados-busca {
+    height: 65vh;
+    padding: 1rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.card {
+    padding: 10px;
+    margin: 1rem;
+    align-items: start;
+    text-align: start;
+}
+
+.icon-user {
+    max-width: 20px;
+    max-height: 20px;
+    width: auto;
+    height: auto;
+}
+
+.repositories-informations {
+    padding: 15px;
+}
+
+.topics {
+    margin: 5px;
+}
+
+.paginator {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.row-informations mat-icon {
+    vertical-align: bottom;
+}
+
+a {
+    all: unset;
+}
