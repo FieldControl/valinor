@@ -1,14 +1,16 @@
-<mat-toolbar color="accent" class="spacer justify-space-between">
-  <img src="./assets/img/logo/logo.ico" alt="Logo" class="logo img-fluid rounded" />
-  <span class="fs-1">Marvel</span>
-  <button
-    (click)="toggleTheme()"
-    class="buttonToggleTheme background-transparent no-borders"
-  >
-    <img
-      class="theme-icon background-transparent"
-      src="./assets/img/icons/day-and-night-icon.ico"
-      alt="Day and Night"
-    />
-  </button>
-</mat-toolbar>
+<header>
+  <mat-toolbar color="accent" class="spacer justify-space-between">
+    <img src="./assets/img/logo/logo.ico" alt="Logo" class="logo img-fluid rounded" />
+    <span class="fs-1">{{title}}</span>
+    <button
+      (click)="toggleTheme()"
+      class="buttonToggleTheme background-transparent no-borders"
+    >
+      <img
+        class="theme-icon background-transparent"
+        src="./assets/img/icons/day-and-night-icon.ico"
+        alt="Day and Night"
+      />
+    </button>
+  </mat-toolbar>
+</header>
