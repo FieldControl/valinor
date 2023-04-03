@@ -1,2 +1,52 @@
-<p>repositories-list works!</p>
-<button (click)="chamaAPI()">Trocar de página</button>
+<div class="search-bar">        
+    <mat-form-field class="form full-width">
+        <mat-label>Busque por um assunto</mat-label>
+        <input matInput placeholder="Ex. Bootstrap" [(ngModel)]="searchTerm">
+    </mat-form-field>
+
+    <button mat-mini-fab color="primary" (click)="preencheLista(1)" aria-label="Busca por repositório">
+        <mat-icon>search</mat-icon>
+    </button>
+</div>
+<mat-divider></mat-divider>
+
+<div class="resultados-busca">
+    <mat-card class="card" *ngFor="let item of repositorios.items">
+        <mat-card-header>
+            <mat-card-title>
+                <img class="icon-user" src="{{item.owner.avatar_url}}" alt="avatar">
+                {{item.full_name}}
+            </mat-card-title>
+            <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content *ngIf="item.topics.length > 0">
+            <mat-chip class="topics" color="primary" *ngFor="let topic of item.topics">
+                {{ topic }}
+            </mat-chip>
+        </mat-card-content>
+        <mat-card-footer class="repositories-informations">
+            <div class="row-informations">
+                <mat-icon matTooltip="Línguagem utilizada">terminal</mat-icon> {{ item.language }}
+                <mat-icon matTooltip="Quantidade de estrelas">star</mat-icon> {{item.stargazers_count}}
+                <mat-icon matTooltip="Issues reportadas">bug_report</mat-icon> {{item.open_issues}}
+                <mat-icon matTooltip="Forks realizados">device_hub</mat-icon> {{item.forks}}
+            </div>
+        </mat-card-footer>
+        <mat-card-actions>
+            <button mat-button><a href="{{item.html_url}}" target="_blank">Repositório</a></button>
+            <button mat-button (click)="issuesReportadas(item.owner.login,item.name)">Issues</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div class="paginator">
+    <mat-paginator #paginator
+                   (page)="handlePageEvent($event)"
+                   [length]="length"
+                   [pageSize]="pageSize"
+                   [disabled]="disabled"
+                   [showFirstLastButtons]="showFirstLastButtons"
+                   [hidePageSize]="hidePageSize"
+                   [pageIndex]="pageIndex"
+                   aria-label="Select page">
+    </mat-paginator>
+</div>
