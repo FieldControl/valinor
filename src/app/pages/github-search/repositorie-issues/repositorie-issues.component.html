@@ -1,1 +1,44 @@
-<p>repositorie-issues works!</p>
+<div class="header-issues">
+    <button mat-button color="primary" [routerLink]="['/list']">
+        <mat-icon>arrow_back_ios</mat-icon>
+        Voltar
+    </button>
+
+    <h2>{{username}}/{{reponame}}</h2>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="resultados-busca">
+    <mat-card class="card" *ngFor="let item of issues.items">
+        <mat-card-header>
+            <mat-card-title>
+                <img class="icon-user" src="{{item.user.avatar_url}}" alt="avatar">
+                {{item.user.login}}
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{item.title}}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content *ngIf="item.labels.length > 0">
+            <mat-chip class="labels" color="primary" *ngFor="let label of item.labels">
+                {{ label.name }}
+            </mat-chip>
+        </mat-card-content>
+        <mat-card-actions>
+            <a href="{{item.html_url}}" target="_blank"><button mat-button>Issue</button></a>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="paginator">
+    <mat-paginator #paginator 
+                   (page)="handlePageEvent($event)" 
+                   [length]="length" [pageSize]="pageSize"        
+                   [disabled]="disabled" 
+                   [showFirstLastButtons]="showFirstLastButtons" 
+                   [hidePageSize]="hidePageSize"
+                   [pageIndex]="pageIndex" 
+                   aria-label="Select page">
+    </mat-paginator>
+</div>

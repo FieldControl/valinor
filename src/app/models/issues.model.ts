@@ -16,7 +16,7 @@ interface Item {
     number: number,
     title: string,
     user: User,
-    labels: string[],
+    labels: Label[],
     state: string,
     locked: boolean,
     assignee: string,
@@ -76,4 +76,14 @@ interface Reactions {
     heart: number,
     rocket: number,
     eyes: number
+}
+
+interface Label {
+    id: number,
+    node_id: string,
+    url: string,
+    name: string,
+    color: string,
+    default: boolean,
+    description: string
 }

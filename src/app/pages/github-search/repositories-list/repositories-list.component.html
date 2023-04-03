@@ -33,8 +33,8 @@
             </div>
         </mat-card-footer>
         <mat-card-actions>
-            <button mat-button><a href="{{item.html_url}}" target="_blank">Repositório</a></button>
-            <button mat-button (click)="issuesReportadas(item.owner.login,item.name)">Issues</button>
+            <a href="{{item.html_url}}" target="_blank"><button mat-button>Repositório</button></a>
+            <button [disabled]="item.open_issues == 0" mat-button (click)="issuesReportadas(item.owner.login,item.name)">Issues</button>
         </mat-card-actions>
     </mat-card>
 </div>
