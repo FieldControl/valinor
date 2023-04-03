@@ -31,16 +31,13 @@ body {
 .round {
   border-radius: 50%;
   padding: 0pt;
-
-  // Inclui os estilos da classe .background-transparent
-  @extend .background-transparent;
+  // caso tenha uma imagem deixar transparente para que a imagem seja destacada
+  &:has(> img) {
+    // Inclui os estilos da classe .background-transparent para deixar o fundo transparente
+    @extend .background-transparent;
+  }
 }
 
 .no-borders {
   border: none;
-}
-
-/* usei, deixei de usar, mas acho bom manter aqui */
-.justify-center {
-  justify-content: center;
 }
