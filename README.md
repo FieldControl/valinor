@@ -4,9 +4,17 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 
 ## Pré requisitos
 
+### Angular Cli
 Execute `npm install -g @angular/cli` e `npm install @angular-devkit/build-angular` para instalar o angular e suas dependencias.
 
+### Cypress
 Ao executar os testes e2e via `ng e2e` instale o Cypress.
+
+### Bootstrap
+Instale o pacote do Bootstrap via npm: `npm install bootstrap --save`
+
+### ngx-bootstrap
+Instale o `npm install ngx-bootstrap` para trabalhar com o bootstrap de forma componentizada. (Saiba mais em https://valor-software.com/ngx-bootstrap/#/components)
 
 ## Servidor de desenvolvimento
 
