@@ -43,6 +43,20 @@ body {
   border: none;
 }
 
+$margin: 5pt;
+
+.default-margin{
+  margin: $margin $margin $margin $margin;
+}
+
+.maxwidth {
+  width: 100%;
+}
+
+.default-margin.maxwidth {
+  width: calc(100% - (2*$margin));
+}
+
 .no-margin{
   margin: 0 0 0 0;
 }
