@@ -1,8 +1,14 @@
 <header>
   <mat-toolbar color="accent" class="spacer justify-space-between">
-    <img src="./assets/img/logo/android-chrome-384x192.png" alt="Logo" class="logo img-fluid rounded" />
-    <span class="fs-1">{{title}}</span>
+    <img
+      id="imgLogo"
+      src="./assets/img/logo/android-chrome-384x192.png"
+      alt="Logo"
+      class="logo img-fluid rounded"
+    />
+    <h1 id="h1Title" class="fs-1">{{ title }}</h1>
     <button
+      id="buttonDarkMode"
       (click)="toggleTheme()"
       class="buttonToggleTheme circular no-borders"
     >
