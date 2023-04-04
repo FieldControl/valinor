@@ -42,3 +42,13 @@ body {
 .no-borders {
   border: none;
 }
+
+.no-margin{
+  margin: 0 0 0 0;
+}
+
+/* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
+  ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
+h1.no-margin{
+  @extend .no-margin;
+}
