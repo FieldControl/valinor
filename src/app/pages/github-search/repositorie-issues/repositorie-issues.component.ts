@@ -44,9 +44,6 @@ export class RepositorieIssuesComponent implements OnInit {
     if (this.username != null && this.reponame != null) {
       this.service.getIssues(this.username!, this.reponame!, page).subscribe(res => {
         this.issues = res;
-        this.issues.items.forEach(el => {
-          console.log(el.labels)
-        })
         //A Api só retorna os primeiros 1000 resultados
         this.length = this.issues.total_count > 1000 ? 1000 : this.issues.total_count;
         //O tamanho da página será proporcional a quantidade de repositórios encontratados

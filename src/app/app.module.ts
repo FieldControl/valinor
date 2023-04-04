@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +39,8 @@ import { RepositorieIssuesComponent } from './pages/github-search/repositorie-is
     MatCardModule,
     MatChipsModule,
     MatPaginatorModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
