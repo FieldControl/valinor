@@ -28,13 +28,9 @@ Execute `ng generate component component-name` para gerar um novo componente. Vo
 
 Execute `ng build` para construir o projeto. Os artefatos de construção serão armazenados no diretório `dist/`.
 
-## Executando testes unitários
-
-Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
-
 ## Executando testes de ponta a ponta
 
-Execute `ng e2e` para executar os testes de ponta a ponta através de uma plataforma de sua escolha. Para usar este comando, você precisa primeiro adicionar um pacote que implemente recursos de teste de ponta a ponta.
+Execute `ng e2e` para executar os testes de ponta a ponta através do CyPress. Para usar este comando, você precisa primeiro adicionar instalar o Cypress.
 
 # Cypress
 por que escolhi cypress?
