@@ -1,6 +1,11 @@
 /* Você pode adicionar estilos globais a este arquivo e também importar outros arquivos de estilo */
 @import "theming.scss";
 
+/* constantes */
+$padding: 5pt;
+$margin: 5pt;
+$midmargin: 5pt;
+
 /* Stilo padrão */
 html,
 body {
@@ -19,6 +24,19 @@ body {
 .justify-space-between {
   justify-content: space-between;
 }
+
+.display-flex{
+  display: flex;
+}
+
+.align-items-center{
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 
 .rotate {
   transform: rotate(180deg);
@@ -43,7 +61,9 @@ body {
   border: none;
 }
 
-$margin: 5pt;
+.default-padding{
+  padding: $padding $padding $padding $padding;
+}
 
 .default-margin{
   margin: $margin $margin $margin $margin;
@@ -53,14 +73,32 @@ $margin: 5pt;
   width: 100%;
 }
 
+/* Mais especifico, sobrescreve o css do slider */
+mat-slider.maxwidth {
+  @extend .maxwidth;
+}
+
 .default-margin.maxwidth {
   width: calc(100% - (2*$margin));
 }
 
+.default-mid-margin{
+  margin: $midmargin $midmargin $midmargin $midmargin;
+}
+
+/* Mais especifico, sobrescreve o css do slider */
+mat-slider.default-mid-margin {
+  @extend .default-mid-margin;
+}
+
+.default-mid-margin.maxwidth {
+  width: calc(100% - (2*$midmargin));
+}
+
+
 .no-margin{
   margin: 0 0 0 0;
 }
-
 /* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
   ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
 h1.no-margin{
