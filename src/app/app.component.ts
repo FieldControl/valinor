@@ -35,21 +35,4 @@ export class AppComponent {
       if (themeIcon) themeIcon.classList.remove('rotate');
     }
   }
-
-  formatLabel(value: number): string {
-    switch (value) {
-      case 1:
-        return '5';
-      case 2:
-        return '10';
-      case 3:
-        return '20';
-      case 4:
-        return '50';
-      case 5:
-        return '100';
-      default:
-        return '';
-    }
-  }
 }
