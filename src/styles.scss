@@ -2,7 +2,6 @@
 @import "theming.scss";
 
 /* constantes */
-$padding: 5pt;
 $margin: 5pt;
 $midmargin: 5pt;
 
@@ -17,19 +16,15 @@ body {
 }
 
 /* Estilos padrões relacionados a espaçamento */
-.spacer {
-  flex: 1 1 auto;
-}
-
 .justify-space-between {
   justify-content: space-between;
 }
 
-.display-flex{
+.display-flex {
   display: flex;
 }
 
-.align-items-center{
+.align-items-center {
   align-items: center;
 }
 
@@ -37,10 +32,63 @@ body {
   justify-content: center;
 }
 
+/* Relacionados a margem */
 
+.default-margin {
+  margin: $margin $margin $margin $margin;
+}
+
+.default-mid-margin {
+  margin: $midmargin $midmargin $midmargin $midmargin;
+}
+
+/* Mais especifico, sobrescreve o css do slider */
+mat-slider.default-mid-margin {
+  @extend .default-mid-margin;
+}
+
+.no-margin {
+  margin: 0 0 0 0;
+}
+/* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
+  ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
+h1.no-margin {
+  @extend .no-margin;
+}
+
+/* Relacionados ao tamanho do elemento */
+
+.full-width {
+  width: 100%;
+}
+
+.full-width.default-margin {
+  width: calc(100% - (2 * $margin));
+}
+
+/* Mais especifico, sobrescreve o css do slider */
+mat-slider.full-width {
+  @extend .full-width;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.full-height.default-margin {
+  height: calc(100% - (2 * $margin));
+}
+
+.full-width.default-mid-margin {
+  width: calc(100% - (2 * $midmargin));
+}
+
+/* Estilos relacionados ao estado do elemento */
 .rotate {
   transform: rotate(180deg);
 }
+
+/* Relacionados a como o elemento se apresenta na tela */
 
 .background-transparent {
   background-color: transparent;
@@ -59,48 +107,4 @@ body {
 
 .no-borders {
   border: none;
-}
-
-.default-padding{
-  padding: $padding $padding $padding $padding;
-}
-
-.default-margin{
-  margin: $margin $margin $margin $margin;
-}
-
-.maxwidth {
-  width: 100%;
-}
-
-/* Mais especifico, sobrescreve o css do slider */
-mat-slider.maxwidth {
-  @extend .maxwidth;
-}
-
-.default-margin.maxwidth {
-  width: calc(100% - (2*$margin));
-}
-
-.default-mid-margin{
-  margin: $midmargin $midmargin $midmargin $midmargin;
-}
-
-/* Mais especifico, sobrescreve o css do slider */
-mat-slider.default-mid-margin {
-  @extend .default-mid-margin;
-}
-
-.default-mid-margin.maxwidth {
-  width: calc(100% - (2*$midmargin));
-}
-
-
-.no-margin{
-  margin: 0 0 0 0;
-}
-/* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
-  ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
-h1.no-margin{
-  @extend .no-margin;
 }
