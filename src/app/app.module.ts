@@ -9,7 +9,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSliderModule} from '@angular/material/slider';
-import { SearchOptionsComponentComponent } from './search-options-component/search-options-component.component';
+import {SearchOptionsComponentComponent} from './search-options-component/search-options-component.component';
 
 @NgModule({
   declarations: [
