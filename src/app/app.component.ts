@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'Marvel';
 
   DarkTheme = false;
-
+  
   constructor() {
     (window as any).appComponent = this;
     this.applyTheme();

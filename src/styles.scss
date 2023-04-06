@@ -1,5 +1,6 @@
 /* Você pode adicionar estilos globais a este arquivo e também importar outros arquivos de estilo */
 @import "theming.scss";
+@import "webkit.scss";
 
 /* constantes */
 $margin: 5pt;
@@ -27,9 +28,13 @@ body {
 .align-items-center {
   align-items: center;
 }
+mat-button-toggle-group.align-items-center {
+  @extend .align-items-center;
+}
 
 .justify-center {
   justify-content: center;
+  @extend .display-flex;
 }
 
 /* Relacionados a margem */
@@ -94,6 +99,12 @@ body {
   border: none;
 }
 
+.scroll-container {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 /* Estilos especificos para sobrescrever estilos padrões */
 
 /* Mais especifico, sobrescreve o css do slider */
@@ -106,6 +117,6 @@ mat-slider.default-mid-margin {
 
 /* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
   ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
-  h1.no-margin {
-    @extend .no-margin;
-  }
+h1.no-margin {
+  @extend .no-margin;
+}

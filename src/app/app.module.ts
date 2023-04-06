@@ -10,11 +10,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSliderModule} from '@angular/material/slider';
 import {SearchOptionsComponentComponent} from './search-options-component/search-options-component.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ResultFilterComponentComponent } from './result-filter-component/result-filter-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchOptionsComponentComponent
+    SearchOptionsComponentComponent,
+    ResultFilterComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,9 @@ import {SearchOptionsComponentComponent} from './search-options-component/search
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    MatCardModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

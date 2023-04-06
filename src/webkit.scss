@@ -1,0 +1,16 @@
+/* Estilo para melhorar visualização do scroll */
+.scroll-container::-webkit-scrollbar {
+  height: 3pt;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
