@@ -44,6 +44,12 @@ describe('App', () => {
       });
   });
 
+  /* Verifica se o Ligth Theme está funcionando conforme esperado */
+  it('should have the correct background color for light theme', () => {
+    cy.get('mat-toolbar')
+      .should('have.css', 'background-color', 'rgb(233, 30, 99)');
+  });
+
   /* Verifica se o Dark Theme está funcionando conforme esperado */
   it('should have the correct background color for dark theme', () => {
     cy.get('#buttonDarkMode').click();
@@ -51,8 +57,10 @@ describe('App', () => {
       .should('have.css', 'background-color', 'rgb(158, 158, 158)');
   });
 
-  /* Verifica se o Ligth Theme está funcionando conforme esperado */
+  /* Verifica se o Ligth Theme está funcionando conforme esperado, mesmo após clicar duas vezes no botão */
   it('should have the correct background color for light theme', () => {
+    cy.get('#buttonDarkMode').click();
+    cy.get('#buttonDarkMode').click();
     cy.get('mat-toolbar')
       .should('have.css', 'background-color', 'rgb(233, 30, 99)');
   });

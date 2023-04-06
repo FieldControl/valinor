@@ -42,18 +42,8 @@ body {
   margin: $midmargin $midmargin $midmargin $midmargin;
 }
 
-/* Mais especifico, sobrescreve o css do slider */
-mat-slider.default-mid-margin {
-  @extend .default-mid-margin;
-}
-
 .no-margin {
   margin: 0 0 0 0;
-}
-/* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
-  ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
-h1.no-margin {
-  @extend .no-margin;
 }
 
 /* Relacionados ao tamanho do elemento */
@@ -64,11 +54,6 @@ h1.no-margin {
 
 .full-width.default-margin {
   width: calc(100% - (2 * $margin));
-}
-
-/* Mais especifico, sobrescreve o css do slider */
-mat-slider.full-width {
-  @extend .full-width;
 }
 
 .full-height {
@@ -108,3 +93,19 @@ mat-slider.full-width {
 .no-borders {
   border: none;
 }
+
+/* Estilos especificos para sobrescrever estilos padrões */
+
+/* Mais especifico, sobrescreve o css do slider */
+mat-slider.full-width {
+  @extend .full-width;
+}
+mat-slider.default-mid-margin {
+  @extend .default-mid-margin;
+}
+
+/* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
+  ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
+  h1.no-margin {
+    @extend .no-margin;
+  }
