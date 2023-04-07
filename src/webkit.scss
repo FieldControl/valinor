@@ -1,16 +1,17 @@
 /* Estilo para melhorar visualização do scroll */
-.scroll-container::-webkit-scrollbar {
-  height: 3pt;
+body::-webkit-scrollbar, .scroll-container::-webkit-scrollbar {
+  height: 5pt;
+  width: 5pt;  
 }
 
-.scroll-container::-webkit-scrollbar-track {
+body::-webkit-scrollbar-thumb:hover, .scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body::-webkit-scrollbar-track, .scroll-container::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-.scroll-container::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, .scroll-container::-webkit-scrollbar-thumb {
   background: #888;
-}
-
-.scroll-container::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }

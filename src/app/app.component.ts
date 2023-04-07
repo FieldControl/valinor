@@ -60,9 +60,6 @@ export class AppComponent {
       if (themeIcon) themeIcon.classList.add('rotate');
       components.forEach((component) => {
         component.classList.add('dark-theme');
-        component.querySelectorAll('*').forEach((child) => {
-          child.classList.add('dark-theme');
-        });
       });
     } else {
       document.body.classList.add('light-theme');
@@ -71,9 +68,6 @@ export class AppComponent {
       if (themeIcon) themeIcon.classList.remove('rotate');
       components.forEach((component) => {
         component.classList.remove('dark-theme');
-        component.querySelectorAll('*').forEach((child) => {
-          child.classList.remove('dark-theme');
-        });
       });
     }
   }

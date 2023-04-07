@@ -49,8 +49,13 @@ $my-app-dark-theme: mat-dark-theme((
   @include all-component-colors($my-app-dark-theme);
 }
 
-.dark-theme{
+.theme-switcher.dark-theme{
   background-color: #424242 !important;
   border-color: #303030 !important;
   color: var(--bs-gray-400) !important;
+  div{
+    background-color: #424242 !important;
+    border-color: #303030 !important;
+    color: var(--bs-gray-400) !important;
+  }
 }

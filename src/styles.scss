@@ -95,11 +95,8 @@ body {
 
 .scroll-container {
   /* outros estilos legais estão em webkit.scss */
+  overflow-x: auto;
   overflow-y: auto;
-}
-
-body{
-  @extend .scroll-container;
 }
 
 /* Estilos especificos para sobrescrever estilos padrões */
