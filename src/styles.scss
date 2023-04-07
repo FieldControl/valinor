@@ -111,20 +111,24 @@ header{
 }
 
 /* Estilos relacionados a cores */
-.btn-link{
-  text-decoration: none;
-  &.dark-theme {
-      color: rgb(250, 250, 103);
-  }
-}
-
-.dark-theme .btn-link, a{
-  @extend .btn-link;
-  color: rgb(250, 250, 103);
+a{
+  color:white;
 }
 
 a:hover{
-  color: white;
+  color: wheat;
+}
+
+.btn-link, a{
+  text-decoration: none;
+  &.dark-theme {
+      color: wheat;
+  }
+}
+
+.dark-theme .btn-link, .dark-theme a:hover{
+  @extend .btn-link;
+  color: rgb(250, 250, 103);
 }
 
 /* Relacionados a posicionamento */
