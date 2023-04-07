@@ -46,17 +46,17 @@ export class MarvelService {
         break;
       case 'events':
         resultObservable = this.getMarvelData<ResultEvents>(
-          `events?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
+          `/events?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
         );
         break;
       case 'series':
         resultObservable = this.getMarvelData<ResultSeries>(
-          `series?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
+          `/series?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
         );
         break;
       case 'creators':
         resultObservable = this.getMarvelData<ResultCreators>(
-          `creators?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
+          `/creators?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
         );
         break;
     }

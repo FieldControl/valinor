@@ -20,7 +20,7 @@
       />
     </button>
   </mat-toolbar>
-  <app-search-options-component></app-search-options-component>
-  <app-result-filter-component></app-result-filter-component>
-  <app-result-view></app-result-view>
+  <app-search-options-component (searchChange)="onSearchChanged($event)" (optionsChange)="onOptionsChange($event)"></app-search-options-component>
+  <app-result-filter-component (selectionChange)="onSelectionChange($event)"></app-result-filter-component>
+  <app-result-view [selectedType]="selectedType" [resultsPerPage]="resultsPerPage" [searchText]="searchText"></app-result-view>
 </header>

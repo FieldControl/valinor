@@ -3,10 +3,20 @@
   <div class="col-sm-12 col-md-10">
     <mat-card class="tabs-section default-margin">
       <accordion class="default-margin theme-switcher">
-        <accordion-group class="default-margin" heading="title">
-          content
+        <accordion-group
+          class="default-margin"
+          *ngFor="let item of results"
+          heading="{{ item.title || item.name || item.fullName }}"
+        >
+          {{ item.description }}
         </accordion-group>
       </accordion>
+      <mat-paginator
+        [length]="totalResults"
+        [pageSize]="resultsPerPage"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator>
     </mat-card>
   </div>
 </div>

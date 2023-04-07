@@ -7,7 +7,7 @@
           mat-tab-link
           *ngFor="let tabs of tabsOfMvtabsToggle"
           [active]="activeLink == tabs.value"
-          (click)="activeLink = tabs.value"
+          (click)="toggleMvTabsToggle(tabs.value)"
         >
           {{ tabs.text }}
         </a>

@@ -13,6 +13,7 @@
           showTickMarks
           discrete
           [displayWith]="formatLabel"
+          (change)="optionChanged($event)"
         >
           <input matSliderThumb />
         </mat-slider>
@@ -21,7 +22,7 @@
     <div class="col-sm-12 col-md-7 d-flex justify-content-center">
       <mat-form-field class="default-margin full-width">
         <mat-label>Buscar</mat-label>
-        <input matInput placeholder="Digite sua pesquisa aqui" />
+        <input matInput placeholder="Digite sua pesquisa aqui" (input)="searchChanged($event)"/>
       </mat-form-field>
     </div>
   </div>

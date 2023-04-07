@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
+
 /* angular material */
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -15,6 +17,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {ResultFilterComponentComponent} from './result-filter-component/result-filter-component.component';
 import {ResultViewComponent} from './result-view/result-view.component';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -32,7 +36,8 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
     MatSliderModule,
     MatCardModule,
     MatTabsModule,
-    AccordionModule
+    AccordionModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
