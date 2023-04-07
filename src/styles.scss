@@ -3,14 +3,19 @@
 @import "webkit.scss";
 
 /* constantes */
-$margin: 5pt;
-$midmargin: 5pt;
+$defaultMargin: 5pt;
+$midMargin: 10pt;
 
 /* Stilo padrão */
 html,
 body {
   overflow-x: hidden;
   height: 100%;
+  header, main, footer{
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 body {
   margin: 0;
@@ -34,11 +39,11 @@ body {
 /* Relacionados a margem */
 
 .default-margin {
-  margin: $margin $margin $margin $margin;
+  margin: $defaultMargin $defaultMargin $defaultMargin $defaultMargin;
 }
 
 .default-mid-margin {
-  margin: $midmargin $midmargin $midmargin $midmargin;
+  margin: $midMargin $midMargin $midMargin $midMargin;
 }
 
 .no-margin {
@@ -50,17 +55,17 @@ body {
 .full-width {
   width: 100%;
   &.default-margin{
-    width: calc(100% - (2 * $margin));
+    width: calc(100% - (2 * $defaultMargin));
   }
   &.default-mid-margin {
-    width: calc(100% - (2 * $midmargin));
+    width: calc(100% - (2 * $midMargin));
   }
 }
 
 .full-height {
   height: 100%;
   &.default-margin {
-    height: calc(100% - (2 * $margin));
+    height: calc(100% - (2 * $defaultMargin));
   }
 }
 
