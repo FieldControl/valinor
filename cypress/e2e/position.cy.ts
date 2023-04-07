@@ -6,11 +6,11 @@ describe('App', () => {
   /* Verifica se a imagem tá a esquerda */
   it('should position the logo image on the left', () => {
     cy.get('#imgLogo').then(($img) => {
-      expect($img.position().left).to.be.closeTo(0, 30);
+      expect($img.position().left).to.be.closeTo(0, 49);
     });
     cy.viewport('iphone-6');
     cy.get('#imgLogo').then(($img) => {
-      expect($img.position().left).to.be.closeTo(0, 40);
+      expect($img.position().left).to.be.closeTo(0, 49);
     });
   });
 

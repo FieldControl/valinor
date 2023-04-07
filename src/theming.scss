@@ -59,3 +59,17 @@ $my-app-dark-theme: mat-dark-theme((
     color: var(--bs-gray-400) !important;
   }
 }
+
+.color-accent{
+  background-color: mat-color($my-app-accent) !important;
+  &.theme-switcher.dark-theme{
+    background-color: mat-color($my-app-dark-accent) !important;
+  }
+}
+
+.color-primary{
+  background-color: mat-color($my-app-primary) !important;
+  &.theme-switcher.dark-theme{
+    background-color: mat-color($my-app-dark-primary) !important;
+  }
+}

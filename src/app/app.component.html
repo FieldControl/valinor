@@ -1,28 +1,47 @@
-<header>
-  <mat-toolbar color="accent" class="justify-space-between">
-    <img
-      id="imgLogo"
-      src="./assets/img/logo/android-chrome-384x192.png"
-      alt="Logo"
-      class="logo img-fluid rounded full-height default-margin"
-    />
-    <h1 id="h1Title" class="fs-1 no-margin">{{ title }}</h1>
-    <button
-      id="buttonDarkMode"
-      (click)="toggleTheme()"
-      class="buttonToggleTheme circular no-borders"
-    >
+<div class="color-accent theme-switcher">
+  <header>
+    <mat-toolbar color="accent" class="justify-space-between">
       <img
-        id="imgDarkMode"
-        class="theme-icon"
-        src="./assets/img/icons/day-and-night-icon.ico"
-        alt="Day and Night"
+        id="imgLogo"
+        src="./assets/img/logo/android-chrome-384x192.png"
+        alt="Logo"
+        class="logo img-fluid rounded full-height default-margin"
       />
-    </button>
-  </mat-toolbar>
-</header>
+      <h1 id="h1Title" class="fs-1 no-margin">{{ title }}</h1>
+      <button
+        id="buttonDarkMode"
+        (click)="toggleTheme()"
+        class="buttonToggleTheme circular no-borders"
+      >
+        <img
+          id="imgDarkMode"
+          class="theme-icon"
+          src="./assets/img/icons/day-and-night-icon.ico"
+          alt="Day and Night"
+        />
+      </button>
+    </mat-toolbar>
+  </header>
+</div>
 <main>
-  <app-search-options-component (searchChange)="onSearchChanged($event)" (optionsChange)="onOptionsChange($event)"></app-search-options-component>
-  <app-result-filter-component (selectionChange)="onSelectionChange($event)"></app-result-filter-component>
-  <app-result-view [selectedType]="selectedType" [resultsPerPage]="resultsPerPage" [searchText]="searchText"></app-result-view>
+  <app-search-options-component
+    (searchChange)="onSearchChanged($event)"
+    (optionsChange)="onOptionsChange($event)"
+  ></app-search-options-component>
+  <app-result-filter-component
+    (selectionChange)="onSelectionChange($event)"
+  ></app-result-filter-component>
+  <app-result-view
+    [selectedType]="selectedType"
+    [resultsPerPage]="resultsPerPage"
+    [searchText]="searchText"
+  ></app-result-view>
 </main>
+<div class="bottom color-primary theme-switcher">
+  <footer>
+    <!-- mv-footer-card.component.html -->
+    <mat-toolbar color="primary" class="justify-center">
+      <a href="https://developer.marvel.com/" id="h1Title" class="fs-5 no-margin">Dados fornecidos pela api da Marvel</a>
+    </mat-toolbar>
+  </footer>  
+</div>

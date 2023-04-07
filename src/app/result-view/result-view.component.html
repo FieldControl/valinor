@@ -8,7 +8,9 @@
           *ngFor="let item of results"
           heading="{{ item.title || item.name || item.fullName }}"
         >
-          {{ item.description }}
+          <article>
+            {{ item.description }}
+          </article>
         </accordion-group>
       </accordion>
       <mat-paginator

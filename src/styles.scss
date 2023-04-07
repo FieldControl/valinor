@@ -22,9 +22,18 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* Acho que fica mais bonito um pouco mais ao centro */
+header{
+  padding-left:  3%;
+  padding-right: 3%;
+}
+
 /* Estilos padrões relacionados a espaçamento */
 .justify-space-between {
   justify-content: space-between;
+}
+.justify-center{
+  justify-content: center;
 }
 
 .display-flex {
@@ -32,7 +41,7 @@ body {
 }
 
 .flex-justify-center {
-  justify-content: center;
+  @extend .justify-center;
   @extend .display-flex;
 }
 
@@ -102,30 +111,43 @@ body {
 }
 
 /* Estilos relacionados a cores */
-.btn-link {
+.btn-link{
   text-decoration: none;
   &.dark-theme {
       color: rgb(250, 250, 103);
   }
 }
 
-.dark-theme .btn-link{
+.dark-theme .btn-link, a{
   @extend .btn-link;
   color: rgb(250, 250, 103);
 }
 
+a:hover{
+  color: white;
+}
+
+/* Relacionados a posicionamento */
+.bottom {
+  position: sticky;
+  bottom: 0;
+}
+
 /* Estilos especificos para sobrescrever estilos padrões */
 
-/* Mais especifico, sobrescreve o css do slider */
-mat-slider.full-width {
-  @extend .full-width;
-}
-mat-slider.default-mid-margin {
-  @extend .default-mid-margin;
-}
+  /* Mais especifico, sobrescreve o css do slider */
+  mat-slider.full-width {
+    @extend .full-width;
+  }
+  mat-slider.default-mid-margin {
+    @extend .default-mid-margin;
+  }
 
-/* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
-  ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
-h1.no-margin {
-  @extend .no-margin;
-}
+  /* para torna-lo mais especifico que o CSS do typografy e ajustar para tirar a margem que ele coloca no h1.
+    ( não é o mais elegante, mas resolve o problema de forma simples, priorizo o entendimento do código sempre ) */
+  h1.no-margin {
+    @extend .no-margin;
+  }
+  a.no-margin{
+    @extend .no-margin;
+  }
