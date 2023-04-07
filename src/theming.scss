@@ -48,3 +48,9 @@ $my-app-dark-theme: mat-dark-theme((
 .dark-theme {
   @include all-component-colors($my-app-dark-theme);
 }
+
+.dark-theme{
+  background-color: #444 !important;
+  border-color: #222 !important;
+  color: #fff !important;
+}
