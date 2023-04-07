@@ -9,6 +9,7 @@ $midmargin: 5pt;
 /* Stilo padrão */
 html,
 body {
+  overflow-x: hidden;
   height: 100%;
 }
 body {
@@ -93,16 +94,15 @@ body {
 }
 
 .scroll-container {
-  overflow-x: auto;
-  max-width: 100%;
+  /* outros estilos legais estão em webkit.scss */
+  overflow-y: auto;
+}
+
+body{
+  @extend .scroll-container;
 }
 
 /* Estilos especificos para sobrescrever estilos padrões */
-
-/* classes do angular material que tem overflow hiden precisam disso para funcionar o scroll */
-.scroll-container > .scrollable{
-  @extend .scroll-container;
-}
 
 /* Mais especifico, sobrescreve o css do slider */
 mat-slider.full-width {

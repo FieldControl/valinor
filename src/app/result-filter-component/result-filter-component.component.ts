@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./result-filter-component.component.css']
 })
 export class ResultFilterComponentComponent {
-  buttonsOfMvButtonToggle = [
+  activeLink = 'characters';
+  tabsOfMvtabsToggle = [
     {value: 'characters', text: 'Personagens'},
     {value: 'events', text: 'Eventos'},
     {value: 'series', text: 'Séries'},

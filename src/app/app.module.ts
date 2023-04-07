@@ -11,8 +11,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSliderModule} from '@angular/material/slider';
 import {SearchOptionsComponentComponent} from './search-options-component/search-options-component.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { ResultFilterComponentComponent } from './result-filter-component/result-filter-component.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {ResultFilterComponentComponent} from './result-filter-component/result-filter-component.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { ResultFilterComponentComponent } from './result-filter-component/result
     MatInputModule,
     MatSliderModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
