@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { ResultCharacter, DataCharacter } from './models/marvel-character';
-import { map } from 'rxjs/operators';
+import { Observable, of, forkJoin } from 'rxjs';
+import { ResultCharacter } from './models/marvel-character';
+import { map, switchMap } from 'rxjs/operators';
 import { ResultComics } from './models/marvel-comics';
 import { ResultEvents } from './models/marvel-events';
 import { ResultSeries } from './models/marvel-series';
@@ -65,12 +65,54 @@ export class MarvelSearchService {
    }
 
    // Função genérica, para trazer os dados já no formato correto.
-   private getMarvelData<T>(urlRoute:string):Observable<{results:T[],totalResults:number}>{
-     return this.http.get<{ data:{results:T[],total:number}}>(environment.apiUrl + urlRoute)
-      .pipe(// Função que canaliza dos dados
-        // Mapeia cada elemento
-        map(response=>({results:response.data.results,
-                        totalResults:response.data.total}))
+   private getMarvelData<T>(urlRoute: string): Observable<{ results: T[], totalResults: number }> {
+    return this.http.get<{ data: { results: T[], total: number } }>(environment.apiUrl + urlRoute)
+      .pipe(
+        switchMap((response: { data: { results: T[], total: number } }) => {
+          const results = response.data.results;
+          const totalResults = response.data.total;
+  
+          // Mapeia cada elemento
+          return forkJoin(
+            results.map((item: T) => {
+              const description = (item as any).description;
+              if (description) {
+                // Traduz a descrição
+                return this.translate(description).pipe(
+                  map(translatedDescription => {
+                    // Atualiza a descrição com a tradução
+                    (item as any).description = translatedDescription;
+                    return item;
+                  })
+                );
+              } else {
+                return of(item);
+              }
+            })
+          ).pipe(
+            map(translatedResults => ({ results: translatedResults, totalResults }))
+          );
+        })
       );
-   }
+  }
+  
+  private translate(text: string): Observable<string> {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=pt&dt=t&q=${encodeURIComponent(text)}`;
+  
+    return this.http.get<any[][]>(url).pipe(
+      map(response => {
+        let translatedText = '';
+  
+        if (Array.isArray(response[0])) {
+          for (const item of response[0]) {
+            if (Array.isArray(item)) {
+              translatedText += item[0];
+            }
+          }
+        }
+  
+        return translatedText;
+      })
+    );
+  }
 }
