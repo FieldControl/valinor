@@ -9,7 +9,14 @@
           heading="{{ item.title || item.name || item.fullName }}"
         >
           <article>
-            {{ item.description }}
+            <div class="row">
+              <div class="col-sm-12 col-md-6 default-margin">
+                <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="{{item.title || item.name || item.fullName}}" class="img-fluid">
+              </div>
+              <div class="col-sm-12 col-md-6 default-margin">
+                {{ item.description }}
+              </div>
+            </div>
           </article>
         </accordion-group>
       </accordion>
