@@ -13,12 +13,15 @@ import {SearchOptionsComponentComponent} from './search-options-component/search
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ResultFilterComponentComponent} from './result-filter-component/result-filter-component.component';
+import {ResultViewComponent} from './result-view/result-view.component';
+import {AccordionModule} from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchOptionsComponentComponent,
-    ResultFilterComponentComponent
+    ResultFilterComponentComponent,
+    ResultViewComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import {ResultFilterComponentComponent} from './result-filter-component/result-f
     MatInputModule,
     MatSliderModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
