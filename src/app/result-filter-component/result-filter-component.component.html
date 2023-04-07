@@ -2,7 +2,7 @@
   <div class="col-sm-12 col-md-1 d-flex"></div>
   <div class="col-sm-12 col-md-10">
     <mat-card class="tabs-section default-margin">
-      <nav mat-tab-nav-bar id="botoesDeFiltro" aria-label="Filtros">
+      <nav mat-tab-nav-bar id="botoesDeFiltro" aria-label="Filtros" [tabPanel]="tabPanel">
         <a
           mat-tab-link
           *ngFor="let tabs of tabsOfMvtabsToggle"
@@ -12,6 +12,7 @@
           {{ tabs.text }}
         </a>
       </nav>
+      <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
     </mat-card>
   </div>
 </div>
