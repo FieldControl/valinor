@@ -49,22 +49,19 @@ body {
 
 .full-width {
   width: 100%;
-}
-
-.full-width.default-margin {
-  width: calc(100% - (2 * $margin));
+  &.default-margin{
+    width: calc(100% - (2 * $margin));
+  }
+  &.default-mid-margin {
+    width: calc(100% - (2 * $midmargin));
+  }
 }
 
 .full-height {
   height: 100%;
-}
-
-.full-height.default-margin {
-  height: calc(100% - (2 * $margin));
-}
-
-.full-width.default-mid-margin {
-  width: calc(100% - (2 * $midmargin));
+  &.default-margin {
+    height: calc(100% - (2 * $margin));
+  }
 }
 
 /* Estilos relacionados ao estado do elemento */
@@ -97,6 +94,19 @@ body {
   /* outros estilos legais estão em webkit.scss */
   overflow-x: auto;
   overflow-y: auto;
+}
+
+/* Estilos relacionados a cores */
+.btn-link {
+  text-decoration: none;
+  &.dark-theme {
+      color: rgb(250, 250, 103);
+  }
+}
+
+.dark-theme .btn-link{
+  @extend .btn-link;
+  color: rgb(250, 250, 103);
 }
 
 /* Estilos especificos para sobrescrever estilos padrões */
