@@ -1,0 +1,217 @@
+.search {
+    background-color: rgb(112, 108, 108);
+    padding: 2rem;
+    min-height: 80vh;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#repository {
+    width: 30%;
+    margin: 0;
+    padding: 0.1rem;
+    height: 2rem;
+    border: none;
+    height: 1rem;
+    border-radius: 3px 0px 0px 3px;
+    transition: 0.4s;
+}
+
+#repository:focus {
+    outline: none; /* tira a borda preta interna */
+}
+
+
+#btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: wheat;
+    min-width: 10%;
+    transition: 0.4s;
+    border: 0.5px solid black;
+    cursor: pointer;
+    border-radius: 0px 3px 3px 0px;
+}
+
+#btn:hover {
+    background-color: black;
+    color: white;
+}
+
+#btn:focus {
+    border-color: orange;
+}
+
+#qtd {
+    display: none;
+}
+
+#loading {
+    margin: 10rem;
+    max-width: 5rem;
+}
+
+#qtd_order {
+    margin: 1rem 1rem 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#order {
+    display: none;
+    margin-left: 1rem;
+}
+
+#order > select {
+    border-radius: 10px 0 10px 0;
+}
+
+#order > select:hover{
+    cursor: pointer;
+}
+
+.dados {
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, black, rgb(82, 80, 80));
+    text-align: left;
+    animation: opacity 2s ease-in-out  alternate;
+}
+
+@keyframes opacity {
+    0% {
+      opacity: 0;;
+    }
+    100% {
+      opacity: 1;;
+    }
+}
+
+.dados h2, p , img{
+    margin: 0.5rem;
+    min-width: 15px;
+}
+
+.repository_img > a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.repository_img > a {
+    display: flex;
+}
+
+.repository_img > a > img {
+    background-color: white;
+    border-radius: 20px;
+    margin: 0;
+    margin-right: 1rem;
+    padding: 0.1rem;
+    min-width: 15px;
+}
+
+.description {
+    width: 100%;
+    max-height: 7rem;
+    overflow-y: auto;
+    display: flexbox;
+    align-items: center;
+    word-wrap: break-word;
+}
+
+.container_star {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.container_star > a {
+    display: flex;
+    border-radius: 20px;
+    color: white;
+}
+
+.container_star > a:visited {
+    color: aqua;
+}
+
+.container_star > a:hover {
+    color: black;
+}
+
+#paginate {
+    display: none;
+}
+
+button {
+    border: 1px solid black;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#paginas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30px;
+}
+
+#paginas > a {
+    margin: 0 0.05rem;
+}
+
+#paginas > a:hover {
+    transform: scale(1.1);
+}
+
+#list_paginate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+
+#list_paginate a {
+    margin: 0 0.04rem;
+    
+}
+
+@media (max-width: 1000px) {
+    #qtd_order {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 610px) {
+    /* * {
+        font-size: xx-small;
+    } */
+    #list_paginate {
+       margin: 1rem;
+    }
+    .search {
+        padding: 1rem 0 0 0;
+        margin: 0;
+    }
+    .dados {
+        margin: 0.5rem;
+    }
+    
+}
