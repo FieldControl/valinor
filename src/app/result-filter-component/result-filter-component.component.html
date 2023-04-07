@@ -1,24 +1,24 @@
 <div class="row">
-    <div class="col-sm-12 col-md-1 d-flex"></div>
-    <div class="col-sm-12 col-md-10">
-      <mat-card class="button-section default-margin">
-        <div class="scroll-container">
-          <mat-button-toggle-group
-            id="botoesDeFiltro"
-            class="button-group"
-            #group="matButtonToggleGroup"
-            aria-label="Filtros"
-            value="favoritos"
+  <div class="col-sm-12 col-md-1 d-flex"></div>
+  <div class="col-sm-12 col-md-10">
+    <mat-card class="button-section default-margin">
+      <div class="scroll-container flex-justify-center">
+        <mat-button-toggle-group
+          id="botoesDeFiltro"
+          class="button-group scrollable"
+          #group="matButtonToggleGroup"
+          aria-label="Filtros"
+          value="favoritos"
+        >
+          <!-- usando ngFor para criar os botões -->
+          <mat-button-toggle
+            *ngFor="let button of buttonsOfMvButtonToggle"
+            [value]="button.value"
+            >{{ button.text }}</mat-button-toggle
           >
-            <!-- usando ngFor para criar os botões -->
-            <mat-button-toggle
-              *ngFor="let button of buttonsOfMvButtonToggle"
-              [value]="button.value"
-              >{{ button.text }}</mat-button-toggle
-            >
-            <!-- fim do ngFor -->
-          </mat-button-toggle-group>
-        </div>
-      </mat-card>
-    </div>
+          <!-- fim do ngFor -->
+        </mat-button-toggle-group>
+      </div>
+    </mat-card>
   </div>
+</div>

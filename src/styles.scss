@@ -25,14 +25,7 @@ body {
   display: flex;
 }
 
-.align-items-center {
-  align-items: center;
-}
-mat-button-toggle-group.align-items-center {
-  @extend .align-items-center;
-}
-
-.justify-center {
+.flex-justify-center {
   justify-content: center;
   @extend .display-flex;
 }
@@ -100,9 +93,13 @@ mat-button-toggle-group.align-items-center {
 }
 
 .scroll-container {
-  display: block;
-  max-width: 100%;
   overflow-x: auto;
+  max-width: 100%;
+}
+
+/* classes do angular material que tem overflow hiden precisam disso para funcionar o scroll */
+.scroll-container > .scrollable{
+  @extend .scroll-container;
 }
 
 /* Estilos especificos para sobrescrever estilos padrões */
