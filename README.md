@@ -1,238 +1,58 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# react-api-github-vite
+<h2>Tecnologias</h2>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img style="width: 10%; height: 50px;" src='https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'>
+    <img style="width: 10%; height: 50px;" src='https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg'>
+    <img style="width: 10%; height: 50px;" src='https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg'>
+    <img style="width: 10%; height: 50px;" src='https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg'>
+</div>
 
-A empresa
-----------
+-------------------------------------------------------------------------------------------------------------------
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+<strong>Projeto feito na biblioteca React.js e inicializado com vite.</strong>
+Utilizando componentização, Hooks( useEffect, useState, useContext) para concluir o projeto.
+Escolhi o React pois quando fui tentar aprender angular, pelo menos pra mim senti muita dificuldade na época, já que não tinha tido contato com nenhum framework parecido ou a biblioteca React e descobri sobre o React e vi que era mais simples, mas mesmo assim complicado, mas logo de cara percebi que conseguiria compreender mais nele por não ser tão complexo quanto angular. E o que o React entrega sinto que é sensacional e supre o que eu necessito agora.
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+<strong>Integração com a API</strong>
+Utilizei a biblioteca <strong>Axios</strong> para utilizar o método "get" para buscar dados da API.
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+<strong>Funções</strong>
 
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
+<strong>async: </strong> Utilizando uma função assíncrona para tentar tentar buscar os dados e caso não consiga, ela retorne um erro.
 
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
+<strong>map: </strong>Utilizando o map do JavaScript para percorrer cada item do json que a API trás.
 
-Origem
-----------
+-------------------------------------------------------------------------------------------------------------------
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+<strong>Princípios da engenharia de software utilizados?</strong>
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
+KISS (Keep It Simple, Stupid!) E What You Produce, Others Will Consume. 
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
+O primeiro foi utilizado visando a maior clareza na hora de código, para que qualquer um consiga ler e entender e para ajudar nessa parte caso necessário, fiz comentários em partes do código para facilitar o compreendimento. 
+O segundo foi utilizado visando que uma hora ou outra alguém vai pelo menos acabar utilizando, mesmo nesse projeto não tendo muitas funcionalidades, desenvolvi pensando nessas partes, ainda mais de um site intuitivo.
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
+-------------------------------------------------------------------------------------------------------------------
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
+<strong>Dificuldades e como encontrei a solução </strong>
 
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
+Tive mais dificuldades na parte dos botões, pois nunca fiz um array com os botões com funcionalidades e dependendo da botão que está "focado/clicado" o demais botões da paginação muda.  
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+Mas como um todo foi um experiência nova, pois nunca havia consumido uma api e muito menos feito uma paginação dependendo da quantidade de items do array . 
 
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
+Para resolver dúvidas sobre problemas que eu sabia que eu tinha que fazer eu ia atrás das informação, por exemplo, não sabia como mostrar de uma quantidade 'x' do array até a quantidade 'y', pesquisei e estudei, agora sei que com o "slice" da para fazer isso. Basicamente nas dúvidas que tive foi resolvido assim, buscando o conhecimento, não só a resposta.
 
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
+-------------------------------------------------------------------------------------------------------------------
 
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
+<strong>O que eu entendo que pode ser melhorado e como? </strong>
 
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
+Ao meu ponto de vista não vejo o que pode ser melhorado, mas não duvido que possa ter algo, mas uma pessoa mais experiente poderia/pode me apontar isso para que eu possa melhorar. Mas de primeira vista é isso.
 
-Oportunidade
-----------
+-------------------------------------------------------------------------------------------------------------------
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
+<strong>OBSERVAÇÃO:</strong>
 
-Na Field, o seu dia-a-dia será repleto de:
+Não foi requisitado o modo dark ou light mode, mas decidi fazer para dar uma interação há mais no projeto.
 
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
+Gostei muito de ir atrás de como consumir a API pela documentação, e acredito que para todas API seja basicamente o mesmo conceito. Adquiri muito conhecimento, me "estressei" muito também, mas quando eu conseguia resolver era uma felicidade gigantesca, então no fim compensa tudo passado para conseguir concluir o projeto. 
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
-
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
-
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
-
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
-
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
-
-Os desafios de programação
-----------
-
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
-
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
-
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
-
-<br/>
-
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
-
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
-
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
-
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
-
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
-
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
-
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
-
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
-
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
-
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
-
-Um diferencial gigante é o uso de testes unitários e integrados!
-
-URLs úteis:
-
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
-
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
-
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
-
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
-
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
-
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
-
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
-
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
-
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
-
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
-
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
-
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
-
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
-
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
-
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
-
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
-
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
-
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
-
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+-------------------------------------------------------------------------------------------------------------------
