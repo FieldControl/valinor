@@ -1,3 +1,5 @@
+// Créditos a quem merece, feito via "https://app.quicktype.io/"
+
 // To parse this data:
 //
 //   import { Convert, MarvelComics } from "./file";
