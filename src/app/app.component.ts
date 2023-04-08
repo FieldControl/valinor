@@ -32,12 +32,12 @@ export class AppComponent {
 
       length = Math.max(length, 0);
 
-      const startIndex = page * pageSize;
 
-      // If the start index exceeds the list length, do not try and fix the end index to the end.
-      const endIndex = startIndex < length ?
-        Math.min(startIndex + pageSize, length) :
-        startIndex + pageSize;
+      // Se exceder o tamanho máximo joga em zero (ao dar switch de tipos)
+      const startIndex = page * pageSize > length ? 0 : page * pageSize;
+
+      // Se o tamanho final exceder colocar o tamanho máximo possível
+      const endIndex = startIndex + pageSize > length ? length : startIndex + pageSize;
 
       return `${startIndex + 1} - ${endIndex} de ${length}`;
     }
