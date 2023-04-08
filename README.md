@@ -7,13 +7,23 @@ Utilizei a API da marvel.
 
 ### Tecnologias
 As tecnologias utilizadas foram Angular, Angular Material, Cypress para testes e Bootstrap (com ngx-bootstrap junto).
+# Cypress
+por que escolhi Cypress e não outro?
+- Cypress é construído especificamente para testes de front-end e oferece uma experiência de teste rápida e confiável.
+- Cypress tem uma arquitetura única que permite testes em tempo real e depuração fácil.
+- Cypress oferece recursos úteis como capturas de tela e vídeos automáticos para ajudar a entender o comportamento do teste.
+- Cypress tem uma ampla base de usuários e documentação abrangente que pode ajudá-lo a começar rapidamente.
+# ngx-bootstrap
+por que escolhi usar ele?
+- Já tenho experiencia com o uso de Bootstrap, mas achei importante usar uma biblioteca pronta, já no formato do angular para o uso de componentes mais elaborados (como os que usei para agrupar os resultados).
 
 ### Link do projeto
-Pode acessar pelo [link](link)
-link
+Pode acessar pelo a aplicação rodando pelo [link](https://valinor-8bykigy5e-jean-paulo-public.vercel.app/)
+https://valinor-8bykigy5e-jean-paulo-public.vercel.app/
+ou baixar do meu GitHub e rodar manualmente => https://github.com/Jean-Paulo-Public/valinor
 
 ### Desafios enfrentados
-Deixei os commits publicos, e cada desafio que tive eu fui marcando nos commits, a maior parte foi relacionado a estilização, sou do "backend" então até pegar as manhas apanhei um pouco, apanhei um pouco para fazer o teste automatizado também.
+Deixei os commits publicos, e cada desafio que tive eu fui marcando nos commits, a maior parte foi relacionado a estilização, sou do "backend" então até pegar as manhas apanhei um pouco, apanhei um pouco para fazer o teste automatizado também. Outro desafio também foi me aprofundar mais em Typescript para conseguir fazer e entender o código (e não só copiar da internet, podendo gerar bugs que eu não saiba resolver depois).
 
 ### Melhorias possíveis
 Posso fazer o que já tinha feito em um repositório de estudo e criar um servidor backend para não deixar minha chave exposta, fazer cacheamento e tratamento de dados. Posso também explorar mais coisas da API da marvel, ela possibilita uma infinidade de coisas.
@@ -45,10 +55,3 @@ Execute `ng build` para construir o projeto. Os artefatos de construção serão
 ## Executando testes de ponta a ponta
 
 Execute `ng e2e` para executar os testes de ponta a ponta através do CyPress. Para usar este comando, você precisa primeiro adicionar instalar o Cypress.
-
-# Cypress
-por que escolhi cypress?
-- Cypress é construído especificamente para testes de front-end e oferece uma experiência de teste rápida e confiável.
-- Cypress tem uma arquitetura única que permite testes em tempo real e depuração fácil.
-- Cypress oferece recursos úteis como capturas de tela e vídeos automáticos para ajudar a entender o comportamento do teste.
-- Cypress tem uma ampla base de usuários e documentação abrangente que pode ajudá-lo a começar rapidamente.
