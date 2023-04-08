@@ -1,5 +1,47 @@
 # Vanilor
 
+# Projeto Valinor 
+## Desafio: Frontend Developer
+
+### Projeto
+----------
+
+O principal objetivo do projeto era a criação de uma SPA que o usuário pudesse usar para pesquisar repositórios e suas Issues.
+
+As APIs utilizadas para consumo deste SPA foram
+
+- https://api.github.com/search/repositories?q=searchTerm 
+- https://api.github.com/search/issues?q=repo:username/reponame 
+
+### Tecnologias utilizadas
+----------
+
+As principais tecnologias utilizadas foram Angular de framework, com a biblioteca Material UI. Jasmine para criação de testes e claro, Html, Scss e TypeScript!
+
+### Link do projeto
+----------
+
+Você pode acessar o projeto de duas formas, claro, clonando este repositório, para isso, no seu terminal, você precisa rodar os seguintes comandos:
+
+```
+$ git clone https://github.com/ArthurDeBellis/valinor.git
+
+$ cd valinor
+
+$ npm install
+
+$ ng s
+```
+
+Ou então, pode acessar pelo [link do site](https://valinor-eight.vercel.app/list)!
+https://valinor-eight.vercel.app/list
+
+### Desafios enfrentados
+Deixei os commits publicos, e cada desafio que tive eu fui marcando nos commits, a maior parte foi relacionado a estilização, sou do "backend" então até pegar as manhas apanhei um pouco, apanhei um pouco para fazer o teste automatizado também.
+
+### Melhorias possíveis
+Posso fazer o que já tinha feito em um repositório de estudo e criar um servidor backend para não deixar minha chave exposta, fazer cacheamento e tratamento de dados. 
+
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 15.2.4.
 
 ## Pré requisitos
