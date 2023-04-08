@@ -24,8 +24,11 @@ ou baixar do meu GitHub e rodar manualmente => https://github.com/Jean-Paulo-Pub
 
 ### Desafios enfrentados
 Deixei os commits publicos, e cada desafio que tive eu fui marcando nos commits, a maior parte foi relacionado a estilização, sou do "backend" então até pegar as manhas apanhei um pouco, apanhei um pouco para fazer o teste automatizado também. Outro desafio também foi me aprofundar mais em Typescript para conseguir fazer e entender o código (e não só copiar da internet, podendo gerar bugs que eu não saiba resolver depois).
+Também não sei muito bem como deveriam ser feito os testes, qual o melhor padrão para isso, então tentei fazer de várias formas diferentes e centralizando tudo no CyPress.
 
 ### Melhorias possíveis
+Percebi de ultima hora que ele não reseta o paginator ao mudar o tipo de consulta, é um bug bem díficil de notar, mas acontece, mesmo após a entrega pretendo corrigi-lo e aproveitar esse projeto para já ser um layout para outros sites que eu queira fazer, como um blog por exemplo.
+Quero também adicionar mais testes no CyPress.
 Posso fazer o que já tinha feito em um repositório de estudo e criar um servidor backend para não deixar minha chave exposta, fazer cacheamento e tratamento de dados. Posso também explorar mais coisas da API da marvel, ela possibilita uma infinidade de coisas.
 
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 15.2.4.
@@ -55,3 +58,5 @@ Execute `ng build` para construir o projeto. Os artefatos de construção serão
 ## Executando testes de ponta a ponta
 
 Execute `ng e2e` para executar os testes de ponta a ponta através do CyPress. Para usar este comando, você precisa primeiro adicionar instalar o Cypress.
+
+Contato: jeanpauloriopreto.code@gmail.com
