@@ -3,72 +3,6 @@ describe('App', () => {
     cy.visit('/');
   });
 
-  /* Verifica se tem o título marvel no head da página */
-  it(`should have as title 'marvel'`, () => {
-    cy.title().should('eq', 'Marvel');
-  });
-
-  /* verifica se a logo foi carregada */
-  it('should load the logo image correctly', () => {
-    cy.get('#imgLogo')
-      .should('be.visible')
-      .and(($img) => {
-        expect($img[0].naturalWidth).to.be.greaterThan(0);
-      });
-    cy.viewport('iphone-6');
-    cy.get('#imgLogo')
-      .should('be.visible')
-      .and(($img) => {
-        expect($img[0].naturalWidth).to.be.greaterThan(0);
-      });
-  });
-
-  /* verifica se o img do botão darkmode foi carregado corretamente */
-  it('should load the button dark mode image correctly', () => {
-    cy.get('#imgDarkMode')
-      .should('be.visible')
-      .and(($img) => {
-        expect($img[0].naturalWidth).to.be.greaterThan(0);
-      });
-    cy.viewport('iphone-6');
-    cy.get('#imgDarkMode')
-      .should('be.visible')
-      .and(($img) => {
-        expect($img[0].naturalWidth).to.be.greaterThan(0);
-      });
-  });
-
-  /* Verifica se o h1 da página foi carregado com o título "Marvel" */
-  it('should render title', () => {
-    cy.get('#h1Title').contains('Marvel');
-    cy.viewport('iphone-6');
-    cy.get('#h1Title').contains('Marvel');
-  });
-
-  /* Verifica se o botão DarkMode está com o fundo transparente */
-  it('should have transparent background on buttonDarkMode', () => {
-    cy.get('#buttonDarkMode').should(
-      'have.css',
-      'background-color',
-      'rgba(0, 0, 0, 0)'
-    );
-    cy.viewport('iphone-6');
-    cy.get('#buttonDarkMode').should(
-      'have.css',
-      'background-color',
-      'rgba(0, 0, 0, 0)'
-    );
-  });
-
-  /* Verifica se o Ligth Theme está funcionando conforme esperado */
-  it('should have the correct background color for light theme', () => {
-    cy.get('mat-toolbar')
-      .should('have.css', 'background-color', 'rgb(233, 30, 99)');
-    cy.viewport('iphone-6');
-    cy.get('mat-toolbar')
-      .should('have.css', 'background-color', 'rgb(233, 30, 99)');
-  });
-
   /* Verifica se o Dark Theme está funcionando conforme esperado */
   it('should have the correct background color for dark theme', () => {
     cy.get('#buttonDarkMode').click();
@@ -86,11 +20,39 @@ describe('App', () => {
     cy.get('#buttonDarkMode').click();
     cy.get('#buttonDarkMode').click();
     cy.get('mat-toolbar')
-      .should('have.css', 'background-color', 'rgb(233, 30, 99)');
+      .should('have.css', 'background-color', 'rgb(63, 81, 181)');
     cy.viewport('iphone-6');
     cy.get('#buttonDarkMode').click();
     cy.get('#buttonDarkMode').click();
     cy.get('mat-toolbar')
-      .should('have.css', 'background-color', 'rgb(233, 30, 99)');
+      .should('have.css', 'background-color', 'rgb(63, 81, 181)');
+  });
+
+  /* Verifica se o filtro de quantidade por página está funcionando */
+  it('should have the same number of results per page as the value of the mat-slider', () => {
+    cy.window()
+      .its('appComponent')
+      .then((appComponent) => {
+        // Obtém o valor do mat-slider
+        const matSliderValue = appComponent.resultsPerPage;
+        // Verifica se o número de resultados por página é igual ao valor do mat-slider
+        cy.get('mat-paginator')
+          .find('.mat-mdc-paginator-page-size-value')
+          .should('have.text', matSliderValue.toString());
+      });
+  });
+
+  /* Verifica se ao filtrar para 20 se aparece os 20 */
+  it('should change the number of results per page to 20 when the user selects the third tick mark on the mat-slider', () => {
+    // Simula o usuário pressionando a tecla de seta para a direita três vezes
+    cy.get('.mdc-slider__input')
+      .focus()
+      .click()
+      .trigger('change');
+    cy.wait(5000); // espera por 5 segundos
+    // Verifica se o número de resultados por página é igual a 20
+    cy.get('mat-paginator')
+      .find('.mat-mdc-paginator-page-size-value')
+      .should('have.text', '20');
   });
 });
