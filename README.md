@@ -18,8 +18,8 @@ por que escolhi usar ele?
 - Já tenho experiencia com o uso de Bootstrap, mas achei importante usar uma biblioteca pronta, já no formato do angular para o uso de componentes mais elaborados (como os que usei para agrupar os resultados).
 
 ### Link do projeto
-Pode acessar pelo a aplicação rodando pelo [link](https://valinor-8bykigy5e-jean-paulo-public.vercel.app/)
-https://valinor-8bykigy5e-jean-paulo-public.vercel.app/
+Pode acessar pelo a aplicação rodando pelo [link](https://valinor-phi.vercel.app/)
+https://valinor-phi.vercel.app/
 ou baixar do meu GitHub e rodar manualmente => https://github.com/Jean-Paulo-Public/valinor
 
 ### Desafios enfrentados
