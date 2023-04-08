@@ -27,6 +27,7 @@ ou baixar do meu GitHub e rodar manualmente => https://github.com/Jean-Paulo-Pub
 ### Desafios enfrentados
 Deixei os commits publicos, e cada desafio que tive eu fui marcando nos commits, a maior parte foi relacionado a estilização, sou do "backend" então até pegar as manhas apanhei um pouco, apanhei um pouco para fazer o teste automatizado também. Outro desafio também foi me aprofundar mais em Typescript para conseguir fazer e entender o código (e não só copiar da internet, podendo gerar bugs que eu não saiba resolver depois).
 Também não sei muito bem como deveriam ser feito os testes, qual o melhor padrão para isso, então tentei fazer de várias formas diferentes e centralizando tudo no CyPress.
+Eu tinha feito push forçado e sobrecrevi as mudanças, aí ao fazer o pull request tive que fazer o rebase, por isso o horário da entrega ser as meia noite (planejei otimizar o máximo possível antes de enviar).
 
 ### Melhorias possíveis
 Percebi de ultima hora que ele não reseta o paginator ao mudar o tipo de consulta, é um bug bem díficil de notar, mas acontece, mesmo após a entrega pretendo corrigi-lo e aproveitar esse projeto para já ser um layout para outros sites que eu queira fazer, como um blog por exemplo.
