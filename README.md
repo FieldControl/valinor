@@ -2,6 +2,8 @@
 
 ## Desafio: Frontend Developer
 
+![Projeto rodando!](projetorodando.png)
+
 ### Projeto
 Utilizei a API da marvel.
 
