@@ -19,7 +19,7 @@ por que escolhi usar ele?
 
 ### Link do projeto
 Pode acessar pelo a aplicação rodando pelo [link](https://valinor-phi.vercel.app/)
-https://valinor-phi.vercel.app/
+https://valinor-phi.vercel.app/ (caso esse link não funcione => https://valinor-osiovylky-jean-paulo-public.vercel.app/)
 ou baixar do meu GitHub e rodar manualmente => https://github.com/Jean-Paulo-Public/valinor
 
 ### Desafios enfrentados
