@@ -5,6 +5,7 @@
 /* constantes */
 $defaultMargin: 5pt;
 $midMargin: 10pt;
+$footer-height: 45pt;
 
 /* Stilo padrão */
 html,
@@ -133,8 +134,18 @@ a:hover{
 
 /* Relacionados a posicionamento */
 .bottom {
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+footer {
+  height: $footer-height;
+}
+
+main {
+  margin-bottom: $footer-height;
 }
 
 /* Estilos especificos para sobrescrever estilos padrões */
