@@ -1,0 +1,33 @@
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.about-img {
+  flex: 1;
+  max-width: 30%;
+}
+
+.about-img img {
+  max-width: 100%;
+  height: auto;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 50%;
+  padding: 0 50px;
+}
+
+.about-text h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.5;
+}

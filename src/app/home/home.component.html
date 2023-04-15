@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Livros do Google Books</h1>
+</div>
+<section class="articles">
+  <article *ngFor="let book of books">
+    <div class="article-wrapper">
+      <figure>
+        <img [src]="book.thumbnail" alt="{{ book.title }}" />
+      </figure>
+      <div class="article-body">
+        <h2>{{ book.title }}</h2>
+        <a href="https://books.google.com.br/books?id={{ book.id }}" target="_blank" class="read-more">
+          Saiba mais<span class="sr-only">{{ book.title }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+</section>
+<div class="pagination-container">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="onPageChange(currentPage - 1)">Anterior</a>
+    </li>
+    <ng-container *ngFor="let page of getPagesArray()">
+      <li class="page-item" [class.active]="page === currentPage">
+        <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+      </li>
+      <li class="page-item" *ngIf="page === currentPage + 10 && currentPage + 10 < totalPages">
+        <a class="page-link">...</a>
+      </li>
+    </ng-container>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" (click)="onPageChange(currentPage + 1)">Próximo</a>
+    </li>
+  </ul>
+</div>
