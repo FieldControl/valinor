@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
 })
 export class MarvelSearchService {
   constructor(private http: HttpClient) {}
-  getResults(type: string, searchText: string, limit: number = 5, pageIndex?: number): Observable<{ results: ResultCharacter[] | 
+  getResults(type: string, limit: number = 5, pageIndex?: number, searchText?: string): Observable<{ results: ResultCharacter[] | 
                                                                                          ResultComics[] | 
                                                                                          ResultEvents[] | 
                                                                                          ResultSeries[] | 
@@ -33,31 +33,22 @@ export class MarvelSearchService {
       totalResults: number;
     }> = of({ results: [], totalResults: limit });
 
+    const url = `/`+type+`?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}` + (searchText ? `&titleStartsWith=${searchText}` : '');
     switch (type) {
       case 'characters':
-        resultObservable = this.getMarvelData<ResultCharacter>(
-          `/characters?nameStartsWith=${searchText}&apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
-        );
+        resultObservable = this.getMarvelData<ResultCharacter>(url);
         break;
       case 'comics':
-        resultObservable = this.getMarvelData<ResultComics>(
-          `/comics?titleStartsWith=${searchText}&apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
-        );
+        resultObservable = this.getMarvelData<ResultComics>(url);
         break;
       case 'events':
-        resultObservable = this.getMarvelData<ResultEvents>(
-          `/events?nameStartsWith=${searchText}&apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
-        );
+        resultObservable = this.getMarvelData<ResultEvents>(url);
         break;
       case 'series':
-        resultObservable = this.getMarvelData<ResultSeries>(
-          `/series?titleStartsWith=${searchText}&apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
-        );
+        resultObservable = this.getMarvelData<ResultSeries>(url);
         break;
       case 'creators':
-        resultObservable = this.getMarvelData<ResultCreators>(
-          `/creators?nameStartsWith=${searchText}&apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
-        );
+        resultObservable = this.getMarvelData<ResultCreators>(url);
         break;
     }
 

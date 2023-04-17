@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { MarvelService } from '../marvel.service';
 import { MarvelSearchService } from '../marvel-search.service';
 import { PageEvent } from '@angular/material/paginator';
 
@@ -17,7 +16,6 @@ export class ResultViewComponent {
   results: any[] = [];
 
   constructor(
-    private marvelService: MarvelService,
     private marvelSearchService: MarvelSearchService
   ) {}
 
@@ -37,7 +35,7 @@ export class ResultViewComponent {
     if (this.selectedType) {this.searchText
       if (this.searchText) {
         this.marvelSearchService
-        .getResults(this.selectedType, this.searchText, this.resultsPerPage , pageIndex)
+        .getResults(this.selectedType, this.resultsPerPage, pageIndex, this.searchText)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
           .subscribe( ({results,totalResults}) => {
             this.results = results;
@@ -45,8 +43,8 @@ export class ResultViewComponent {
             this.totalResults = totalResults;
           });
       } else {
-        this.marvelService
-        .getResults(this.selectedType,this.resultsPerPage , pageIndex)
+        this.marvelSearchService
+        .getResults(this.selectedType, this.resultsPerPage , pageIndex)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
           .subscribe( ({results,totalResults}) => {
             this.results = results;
