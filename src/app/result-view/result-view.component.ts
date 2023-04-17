@@ -51,7 +51,7 @@ export class ResultViewComponent {
 
     if (this.selectedType) {
       if (this.searchText) {
-        if( (this.selectedType != this.oldSelectedType) || (this.oldSearchType == TypeOfSearch.searchAll) || (this.searchText != this.oldSearchText) )
+        if( (this.selectedType == this.oldSelectedType) || (this.oldSearchType == TypeOfSearch.searchAll) || (this.searchText != this.oldSearchText) )
           this.firstPagePaginator(); 
         this.marvelSearchService
         .getResults(this.selectedType, this.resultsPerPage, pageIndex, this.searchText)
