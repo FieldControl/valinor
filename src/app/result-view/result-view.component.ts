@@ -63,7 +63,7 @@ export class ResultViewComponent {
           });
         this.oldSearchType = TypeOfSearch.searchByText;
         this.oldSearchText = this.searchText;
-        this.selectedType  = this.oldSelectedType;
+        this.oldSelectedType  = this.selectedType;
       } else {
         if(this.oldSearchType == TypeOfSearch.searchByText)
           this.firstPagePaginator();
