@@ -39,7 +39,7 @@ export class ResultViewComponent {
     this.updateResults();
   }
 
-  firstPagePaginator() {
+  setFirstPageOfPaginator() {
     if (this.paginator)
       this.paginator.firstPage();
   }
@@ -51,8 +51,8 @@ export class ResultViewComponent {
 
     if (this.selectedType) {
       if (this.searchText) {
-        if( (this.selectedType == this.oldSelectedType) || (this.oldSearchType == TypeOfSearch.searchAll) || (this.searchText != this.oldSearchText) )
-          this.firstPagePaginator(); 
+        if((this.searchText != this.oldSearchText) || (this.oldSearchType == TypeOfSearch.searchAll) )
+          this.setFirstPageOfPaginator(); 
         this.marvelSearchService
         .getResults(this.selectedType, this.resultsPerPage, pageIndex, this.searchText)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
@@ -63,10 +63,9 @@ export class ResultViewComponent {
           });
         this.oldSearchType = TypeOfSearch.searchByText;
         this.oldSearchText = this.searchText;
-        this.oldSelectedType  = this.selectedType;
       } else {
-        if(this.oldSearchType == TypeOfSearch.searchByText)
-          this.firstPagePaginator();
+        if( (this.selectedType != this.oldSelectedType) || (this.oldSearchType == TypeOfSearch.searchByText) )
+          this.setFirstPageOfPaginator(); 
         this.marvelSearchService
         .getResults(this.selectedType, this.resultsPerPage, pageIndex)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
@@ -76,6 +75,7 @@ export class ResultViewComponent {
             this.totalResults = totalResults;
           });
         this.oldSearchType = TypeOfSearch.searchAll;
+        this.oldSelectedType  = this.selectedType;
       }
     }
   }
