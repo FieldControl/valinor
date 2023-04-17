@@ -25,6 +25,7 @@ export class ResultViewComponent {
 
   oldSearchType: TypeOfSearch = TypeOfSearch.searchAll;
   oldSearchText: string = '';
+  oldSelectedType: string = '';
 
   constructor(
     private marvelSearchService: MarvelSearchService
@@ -50,7 +51,7 @@ export class ResultViewComponent {
 
     if (this.selectedType) {
       if (this.searchText) {
-        if( (this.oldSearchType == TypeOfSearch.searchAll) || (this.searchText != this.oldSearchText) )
+        if( (this.selectedType != this.oldSelectedType) || (this.oldSearchType == TypeOfSearch.searchAll) || (this.searchText != this.oldSearchText) )
           this.firstPagePaginator(); 
         this.marvelSearchService
         .getResults(this.selectedType, this.resultsPerPage, pageIndex, this.searchText)
@@ -62,6 +63,7 @@ export class ResultViewComponent {
           });
         this.oldSearchType = TypeOfSearch.searchByText;
         this.oldSearchText = this.searchText;
+        this.selectedType  = this.oldSelectedType;
       } else {
         if(this.oldSearchType == TypeOfSearch.searchByText)
           this.firstPagePaginator();
