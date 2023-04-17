@@ -24,6 +24,7 @@ export class ResultViewComponent {
   results: any[] = [];
 
   oldSearchType: TypeOfSearch = TypeOfSearch.searchAll;
+  oldSearchText: string = '';
 
   constructor(
     private marvelSearchService: MarvelSearchService
@@ -37,10 +38,9 @@ export class ResultViewComponent {
     this.updateResults();
   }
 
-  clearPaginator() {
-    if (this.paginator) {
+  firstPagePaginator() {
+    if (this.paginator)
       this.paginator.firstPage();
-    }
   }
 
   updateResults(pageIndex?: number) {
@@ -50,8 +50,8 @@ export class ResultViewComponent {
 
     if (this.selectedType) {
       if (this.searchText) {
-        if(this.oldSearchType == TypeOfSearch.searchAll)
-          this.clearPaginator(); 
+        if( (this.oldSearchType == TypeOfSearch.searchAll) || (this.searchText != this.oldSearchText) )
+          this.firstPagePaginator(); 
         this.marvelSearchService
         .getResults(this.selectedType, this.resultsPerPage, pageIndex, this.searchText)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
@@ -61,9 +61,10 @@ export class ResultViewComponent {
             this.totalResults = totalResults;
           });
         this.oldSearchType = TypeOfSearch.searchByText;
+        this.oldSearchText = this.searchText;
       } else {
         if(this.oldSearchType == TypeOfSearch.searchByText)
-          this.clearPaginator();
+          this.firstPagePaginator();
         this.marvelSearchService
         .getResults(this.selectedType, this.resultsPerPage, pageIndex)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
