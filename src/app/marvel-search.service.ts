@@ -33,7 +33,7 @@ export class MarvelSearchService {
       totalResults: number;
     }> = of({ results: [], totalResults: limit });
 
-    const url = `/`+type+`?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}` + (searchText ? `&titleStartsWith=${searchText}` : '');
+    const url = `/`+type+`?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}` + (searchText ? `&`+((type == 'comics' || type == 'series')?'title':'name')+`StartsWith=${searchText}` : '');
     switch (type) {
       case 'characters':
         resultObservable = this.getMarvelData<ResultCharacter>(url);

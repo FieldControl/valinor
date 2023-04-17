@@ -1,6 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { MarvelSearchService } from '../marvel-search.service';
 import { PageEvent } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
+import { ViewChild } from '@angular/core'
+
+enum TypeOfSearch {
+  searchAll,
+  searchByText
+}
 
 @Component({
   selector: 'app-result-view',
@@ -11,9 +18,12 @@ export class ResultViewComponent {
   @Input() selectedType: string = 'characters';
   @Input() resultsPerPage: number = 5;
   @Input() searchText: string = '';
+  @ViewChild('paginator') paginator!: MatPaginator;
 
   totalResults: number = 0;
   results: any[] = [];
+
+  oldSearchType: TypeOfSearch = TypeOfSearch.searchAll;
 
   constructor(
     private marvelSearchService: MarvelSearchService
@@ -27,13 +37,21 @@ export class ResultViewComponent {
     this.updateResults();
   }
 
+  clearPaginator() {
+    if (this.paginator) {
+      this.paginator.firstPage();
+    }
+  }
+
   updateResults(pageIndex?: number) {
     if (!pageIndex) {
       pageIndex = 0;
     }
 
-    if (this.selectedType) {this.searchText
+    if (this.selectedType) {
       if (this.searchText) {
+        if(this.oldSearchType == TypeOfSearch.searchAll)
+          this.clearPaginator(); 
         this.marvelSearchService
         .getResults(this.selectedType, this.resultsPerPage, pageIndex, this.searchText)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
@@ -42,15 +60,19 @@ export class ResultViewComponent {
             // atualiza o valor da propriedade total results com base no valor retornado pelo serviço
             this.totalResults = totalResults;
           });
+        this.oldSearchType = TypeOfSearch.searchByText;
       } else {
+        if(this.oldSearchType == TypeOfSearch.searchByText)
+          this.clearPaginator();
         this.marvelSearchService
-        .getResults(this.selectedType, this.resultsPerPage , pageIndex)
+        .getResults(this.selectedType, this.resultsPerPage, pageIndex)
           // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
           .subscribe( ({results,totalResults}) => {
             this.results = results;
             // atualiza o valor da propriedade total results com base no valor retornado pelo serviço
             this.totalResults = totalResults;
           });
+        this.oldSearchType = TypeOfSearch.searchAll;
       }
     }
   }
