@@ -1,0 +1,23 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+  width: 100%;
+  background-color: #333;
+  padding: 1rem;
+
+  h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    background-color: #333;
+  }
+
+  input {
+    width: 15rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+  }
+}

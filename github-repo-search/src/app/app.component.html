@@ -1,0 +1,10 @@
+<div class="main">
+  <app-navbar (searchChanged)="onSearchChanged($event)"></app-navbar>
+  <app-card [repositories]="repositories"></app-card>
+  <app-pagination
+    (newRepositories)="onNewRepositories($event)"
+    [currentPage]="currentPage"
+    [totalPages]="100"
+    [search]="search"
+  ></app-pagination>
+</div>

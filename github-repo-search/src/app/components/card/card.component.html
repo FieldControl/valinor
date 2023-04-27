@@ -1,0 +1,22 @@
+<div class="main-card">
+  <div class="card-container" *ngFor="let repository of repositories">
+    <div class="title">
+      <img [src]="repository.owner.avatar_url" alt="user image" />
+      <a [href]="repository.html_url" target="_blank">{{
+        repository.name | titlecase
+      }}</a>
+    </div>
+    <h2>{{ repository.description }}</h2>
+    <div class="topics" *ngIf="repository.topics.length > 1">
+      <div *ngFor="let topic of repository.topics">
+        {{ topic }}
+      </div>
+    </div>
+    <div class="footer-card">
+      <span>
+        {{ repository.language }} · Stars: {{ repository.stargazers_count | number }} ·
+        {{ repository.updated_at | date }}</span
+      >
+    </div>
+  </div>
+</div>
