@@ -2,13 +2,13 @@
 
 .root {
   @include large-and-up {
-    @include z-index("space");
+    z-index: 100000 !important;
     position: fixed;
     width: 100%;
   }
 
   nav {
-    @include z-index("space");
+    z-index: 100000 !important;
     background: $color-background;
     box-shadow: 0 1px 15px $color-shadow;
     height: 60px;
