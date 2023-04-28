@@ -1,0 +1,15 @@
+<div [class]="getClass()">
+  <div class="header" (click)="toggle()">
+    <div>
+      <ng-content select="[header]"></ng-content>
+    </div>
+
+    <div *ngIf="showSVG" class="icon" [class.icon--open]="isOpen">
+      <i class="fa fa-chevron-down" [class]="theme"></i>
+    </div>
+  </div>
+
+  <div class="content" [@openClose]="state">
+    <ng-content select="[content]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,212 @@
+@import "/src/app/scss/includes.scss";
+
+.card {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  background: $color-background;
+  border: 1px solid rgba($color-grey, 0.1) !important;
+
+  @include large-and-down {
+    height: 500px;
+  }
+
+  &:before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s ease-in-out;
+    background: $color-grey-bg;
+    clip-path: circle(420px at 80% 20%);
+
+    @include large-and-down {
+      clip-path: circle(300px at 80% -20%);
+      background: $color-primary;
+    }
+  }
+
+  &:after {
+    top: 30%;
+    left: -20%;
+    position: absolute;
+  }
+
+  &:hover {
+    .profile-img {
+      top: 10%;
+      transform: translateY(0%);
+      border-radius: 50% !important;
+
+      @include large-and-down {
+        top: 0%;
+      }
+    }
+
+    .profile-content {
+      height: 185px;
+
+      @include large-and-down {
+        height: 260px;
+      }
+
+      .buttons {
+        @include center;
+
+        @include large-and-down {
+          display: block;
+        }
+      }
+
+      .principal {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.5s;
+      }
+
+      .secondary {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.6s;
+      }
+
+      app-button {
+        opacity: 1;
+        transition-delay: 0.75s;
+        transform: translateY(0px);
+      }
+
+      p {
+        display: none;
+      }
+
+      h2 {
+        color: $color-primary !important;
+      }
+    }
+
+    &::before {
+      clip-path: circle(300px at 80% -20%);
+      background: $color-primary;
+    }
+  }
+
+  .profile {
+    width: 30%;
+    margin: 24px;
+    z-index: 10000;
+
+    p,
+    a {
+      text-align: left;
+    }
+
+    i {
+      margin-right: 6px;
+    }
+
+    .link {
+      cursor: pointer;
+    }
+  }
+
+  .profile-img {
+    top: 50%;
+    width: 100%;
+    height: 220px;
+    z-index: 1000;
+    transition: 0.5s;
+    position: absolute;
+    transform: translateY(-50%);
+
+    @include large-and-down {
+      top: 0%;
+      transform: translateY(0%);
+      border-radius: 50% !important;
+    }
+
+    img {
+      top: 50%;
+      left: 50%;
+      width: 230px;
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(-50%, -60%);
+
+      @include large-and-down {
+        width: 150px;
+      }
+    }
+  }
+
+  .profile-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+
+    @include large-and-down {
+      height: 260px;
+    }
+
+    app-button {
+      opacity: 0;
+      transition: 0.5s;
+      margin-top: 10px;
+      transform: translateY(50px);
+
+      @include large-and-down {
+        opacity: 1;
+        transition-delay: 0.75s;
+        transform: translateY(0px);
+      }
+    }
+
+    h2 {
+      margin: 0;
+      font-weight: 600;
+      position: relative;
+      letter-spacing: 1px;
+      color: $color-text !important;
+    }
+
+    p {
+      margin: 0.5rem 4rem 1rem 4rem;
+      color: $color-text !important;
+    }
+
+    .principal,
+    .secondary {
+      opacity: 0;
+      display: flex;
+      padding-top: 0;
+      transition: 0.5s;
+      padding-bottom: 0;
+      visibility: hidden;
+      align-items: center;
+      justify-content: center;
+
+      @include large-and-down {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.5s;
+      }
+
+      h3 {
+        color: $color-white;
+        font-weight: 300;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="item">
+  <div class="label" [class.label--spacement]="spacement" [ngClass]="labelFontSize">
+    {{ label }}
+  </div>
+
+  <div *ngIf="type === 'standard' && !isIcon" class="value" [ngClass]="valueFontSize">
+    {{ value || '-' }}
+  </div>
+
+  <div *ngIf="type === 'standard' && isIcon" class="value" [ngClass]="valueFontSize">
+    <i [class]="value"></i>
+  </div>
+
+  <div *ngIf="type === 'currency'" class="value" [ngClass]="valueFontSize">
+    {{ value | currency: "BRL" }}
+  </div>
+
+  <div *ngIf="type === 'cpf'" class="value" [ngClass]="valueFontSize">
+    {{ value | cpf }}
+  </div>
+
+  <div *ngIf="type === 'cnpj'" class="value" [ngClass]="valueFontSize">
+    {{ value | cnpj }}
+  </div>
+
+  <div *ngIf="type === 'account'" class="value" [ngClass]="valueFontSize">
+    {{ value | account }}
+  </div>
+
+  <div *ngIf="type === 'percent'" class="value" [ngClass]="valueFontSize">
+    {{ value | percent }}
+  </div>
+</div>

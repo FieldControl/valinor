@@ -1,0 +1,81 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+    @include grid(32);
+
+    .container {
+        @include grid-column-span(32);
+        margin-bottom: 32px;
+        margin-top: 32px;
+
+        .content {
+            padding: 64px;
+            border-radius: 0.8rem;
+            margin: 24px 0 24px 0;
+            border: 0px !important;
+            background: $color-background;
+            box-shadow: 2px 4px 8px 0 $color-shadow;
+
+            .text {
+                margin-bottom: 1rem;
+
+                .title {
+                    font-weight: bold;
+                    color: $color-primary !important;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+                }
+            }
+
+            .item {
+                @include start;
+                margin-bottom: 5px;
+
+                .label {
+                    @include start;
+                    margin-left: 5px;
+                    font-weight: bold;
+                    color: $color-primary;
+
+                    &.loading {
+                        margin-top: 10px;
+                    }
+                }
+
+                img {
+                    width: 18px;
+                    height: 18px;
+                    margin-right: 4px;
+                }
+            }
+
+            .bar {
+                margin: 2rem 0 2rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+            }
+
+            @include large-and-down {
+                padding: 32px;
+            }
+
+            i {
+                font-size: 18px;
+                color: $color-primary !important;
+            }
+
+            .fa-clone {
+                cursor: pointer;
+                font-size: 16px;
+                margin-left: 12px;
+            }
+
+            pre {
+                @include between;
+                margin: 12px 0 12px 0;
+                white-space: inherit;
+                background: $color-grey-bg;
+                padding: 15px;
+                border-radius: 3px;
+            }
+        }
+    }
+}

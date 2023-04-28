@@ -1,0 +1,146 @@
+@mixin small-and-down {
+    @media screen and (max-width: #{$breakpoint-small}) {
+      @content;
+    }
+  }
+  
+  @mixin small-and-up {
+    @media screen and (min-width: #{$breakpoint-small}) {
+      @content;
+    }
+  }
+  
+  @mixin only-small {
+    @media (min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-medium}) {
+      @content;
+    }
+  }
+  
+  @mixin medium-and-down {
+    @media screen and (max-width: #{$breakpoint-medium}) {
+      @content;
+    }
+  }
+  
+  @mixin medium-and-up {
+    @media screen and (min-width: #{$breakpoint-medium}) {
+      @content;
+    }
+  }
+  
+  @mixin only-medium {
+    @media (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large}) {
+      @content;
+    }
+  }
+  
+  @mixin large-and-down {
+    @media screen and (max-width: #{$breakpoint-large}) {
+      @content;
+    }
+  }
+  
+  @mixin large-and-up {
+    @media screen and (min-width: #{$breakpoint-large}) {
+      @content;
+    }
+  }
+
+  @mixin large-and-wide {
+    @media screen and (max-width: #{$breakpoint-wide}) {
+      @content;
+    }
+  }
+  
+  @mixin only-large {
+    @media (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge}) {
+      @content;
+    }
+  }
+  
+  @mixin xlarge-and-down {
+    @media screen and (max-width: #{$breakpoint-xlarge}) {
+      @content;
+    }
+  }
+  
+  @mixin xlarge-and-up {
+    @media screen and (min-width: #{$breakpoint-xlarge}) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-header {
+    @media screen and (max-width: #{$breakpoint-header}) {
+      @content;
+    }
+  }
+  
+  @mixin grid($columns-columns: $grid-columns, $GAP: 0) {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: unquote(repeater("1fr ", $columns-columns));
+    grid-gap: $GAP;
+    grid-template-columns: repeat($columns-columns, 1fr);
+    position: relative;
+    width: 100%;
+  }
+  
+  @mixin grid-column-start($cols) {
+    -ms-grid-column: $cols;
+    grid-column-start: $cols;
+  }
+  
+  @mixin grid-column-span($cols: $grid-columns) {
+    grid-column-end: span $cols;
+    -ms-grid-column-span: $cols;
+  }
+  
+  @mixin grid-row-start($rows) {
+    -ms-grid-row: $rows;
+    grid-row-start: $rows;
+  }
+  
+  @mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  @mixin start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  @mixin between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @mixin around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  @mixin z-index($type) {
+    @if ($type == "hell") {
+      z-index: -1 !important;
+    } @else if ($type == "floor") {
+      z-index: 1 !important;
+    } @else if ($type == "sky") {
+      z-index: 5 !important;
+    } @else if ($type == "space") {
+      z-index: 1000 !important;
+    } @else {
+      @error $type + 'is not a valid type';
+    }
+  }

@@ -1,0 +1,29 @@
+<div class="root" [@appeard]="state">
+  <div class="container">
+    <div class="content">
+
+      <div class="text">
+        <h1 id="colors-title" class="title">Colors</h1>
+        <p>Abaixo a paleta de cores disponível</p>
+      </div>
+
+      <div class="row" *ngIf="show" [@listAnimation]="colors.length">
+        <div class="col-12" *ngFor="let color of colors">
+          <div (click)="clip(color)" class="container-color">
+
+            <div 
+              class="color" 
+              [ngClass]="color.name" 
+              matTooltipPosition="left" 
+              matTooltip="Clique para copiar">
+            </div>
+
+            <h4 [id]="color.name" class="name">${{ color.name }}</h4>
+            <span id="{{ 'hex-' + color.name }}" class="hex">{{ color.hex }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

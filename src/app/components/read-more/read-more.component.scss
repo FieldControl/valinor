@@ -1,0 +1,10 @@
+@import "/src/app/scss/includes.scss";
+
+.button-more {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-primary;
+    border-color: transparent;
+    background-color: transparent;
+}

@@ -1,0 +1,97 @@
+<div class="root" [@appeard]="state">
+  <div class="container">
+    <div class="content">
+
+      <div class="text">
+        <h1 class="title">Buttons</h1>
+        <p>Abaixo os botões</p>
+      </div>
+
+      <div class="row" *ngIf="show" [@listAnimation]="buttons.length">
+        <div class="col-6 mb-3" *ngFor="let item of buttons">
+          <div class="label">{{ item.label }}</div>
+
+          <app-button 
+            [icon]="item.icon"
+            [theme]="item.theme" 
+            [label]="item.label" 
+            [disabled]="item.disabled">
+          </app-button>
+
+          <pre>
+            {{ item.code }}
+
+            <i 
+              class="fa fa-clone"
+              (click)="clip(item.code)"
+              matTooltipPosition="above" 
+              matTooltip="Clique para copiar">
+            </i>
+          </pre>
+        </div>
+      </div>
+
+      <div class="bar"></div>
+
+      <div class="row" *ngIf="show" [@listAnimation]="sections.length">
+        <div class="col-12 mb-3" *ngFor="let section of sections">
+          <div class="label">{{ section.name }}</div>
+
+          <div class="section" [class.section--primary]="section.theme === 'primary'">
+            <ng-container *ngFor="let collapsible of section.collapsibles">
+
+              <app-collapsible [theme]="section.theme" [group]="collapsible.group">
+                <div header>
+                  <span>{{ collapsible.header }}</span>
+                </div>
+
+                <div content>
+                  <p>{{ collapsible.content }}</p>
+                </div>
+              </app-collapsible>
+
+            </ng-container>
+          </div>
+
+          <pre>
+              {{ section.code }}
+  
+              <i 
+                class="fa fa-clone"
+                (click)="clip(section.code)"
+                matTooltipPosition="above" 
+                matTooltip="Clique para copiar">
+              </i>
+          </pre>
+
+        </div>
+      </div>
+
+      <div class="bar"></div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="label">Read More</div>
+
+          <app-read-more 
+            [content]="loremIpsum" 
+            [limit]="300" 
+            [completeWords]="true">
+          </app-read-more>
+
+          <pre>
+            {{ getReadMoreCode() }}
+
+            <i 
+              class="fa fa-clone"
+              (click)="clip(getReadMoreCode())"
+              matTooltipPosition="above" 
+              matTooltip="Clique para copiar">
+            </i>
+          </pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

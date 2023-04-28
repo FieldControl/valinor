@@ -1,0 +1,73 @@
+<div class="root" [@appeard]="state">
+  <div class="container">
+    <div class="content">
+
+      <div class="text">
+        <h1 class="title">Inputs</h1>
+        <p>Abaixo os inputs</p>
+      </div>
+
+      <div class="row" *ngIf="show" [@listAnimation]="inputs.length">
+        <div class="col-6 mb-3" *ngFor="let item of inputs">
+
+          <ng-container *ngIf="!item.isSearch">
+            <div class="label">{{ item.name }}</div>
+
+            <app-input 
+              [form]="form" 
+              [type]="item.type" 
+              [label]="item.label" 
+              [control]="item.control" 
+              [required]="item.required"
+              [disabled]="item.disabled"
+              [placeholder]="item.placeholder">
+            </app-input>
+
+            <pre>
+              {{ item.code }}
+
+              <i 
+                class="fa fa-clone" 
+                (click)="clip(item.code)"
+                matTooltipPosition="above" 
+                matTooltip="Clique para copiar">
+              </i>
+            </pre>
+          </ng-container>
+
+          <ng-container *ngIf="item.isSearch">
+            <div class="label">{{ item.name }}</div>
+
+            <div class="search">
+              <i class="fa fa-search me-3"></i>
+    
+              <app-input 
+                [form]="form" 
+                [type]="item.type" 
+                [label]="item.label"
+                [control]="item.control" 
+                [required]="item.required" 
+                [disabled]="item.disabled"
+                [placeholder]="item.placeholder">
+              </app-input>
+            </div>
+
+            <p *ngIf="searchText">Pesquisando por '{{ searchText }}'</p>
+
+            <pre>
+              {{ item.code }}
+
+              <i 
+                class="fa fa-clone" 
+                (click)="clip(item.code)"
+                matTooltipPosition="above" 
+                matTooltip="Clique para copiar">
+              </i>
+            </pre>
+          </ng-container>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

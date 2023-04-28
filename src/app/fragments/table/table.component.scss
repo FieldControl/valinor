@@ -1,0 +1,40 @@
+@import "/src/app/scss/includes.scss";
+
+div {
+  padding: 1rem;
+}
+
+.full-width-table {
+  width: 100%;
+
+  .profile-table {
+    @include start;
+
+    img {
+      width: 10%;
+      border-radius: 50%;
+    }
+  }
+
+  .mat-column-name {
+    width: 25%;
+  }
+
+  .mat-column-description {
+    width: 50%;
+  }
+
+  .mat-column-forks {
+    width: 10%;
+    padding-left: 8px;
+  }
+
+  .mat-column-language {
+    width: 10%;
+  }
+
+  .mat-column-url {
+    width: 5%;
+    cursor: pointer;
+  }
+}

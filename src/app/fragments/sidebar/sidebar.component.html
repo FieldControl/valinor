@@ -1,0 +1,10 @@
+<nav class="main-menu" *ngIf="!isMobile && !scrolled">
+  <ul [@listAnimation]="content.length">
+    <li *ngFor="let item of content" routerLinkActive="li-highlight">
+      <a [routerLink]="item.route" routerLinkActive="text-highlight">
+        <i [class]="item.icon"></i>
+        <span class="nav-text">{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

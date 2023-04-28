@@ -1,0 +1,15 @@
+@import "/src/app/scss/includes.scss";
+
+button {
+  span {
+    font-family: $font-montserrat !important;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.primary {
+  background: $color-primary !important;
+}

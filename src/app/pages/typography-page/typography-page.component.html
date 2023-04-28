@@ -1,0 +1,30 @@
+<div class="root" [@appeard]="state">
+  <div class="container">
+    <div class="content">
+
+      <div class="text">
+        <h1 id="typography-title" class="title">Typography</h1>
+        <p>Abaixo os textos</p>
+      </div>
+
+      <div class="row" *ngIf="show" [@listAnimation]="typography.length">
+        <div class="col-6" *ngFor="let item of typography">
+          <h1 *ngIf="item.name === 'Título'" [id]="item.id" class="title">Título</h1>
+          <div *ngIf="item.name !== 'Título'" [id]="item.id" [innerHTML]="item.code"></div>
+
+          <pre>
+            {{ item.code }}
+
+            <i 
+              class="fa fa-clone"
+              (click)="clip(item.code)"
+              matTooltipPosition="above" 
+              matTooltip="Clique para copiar">
+            </i>
+          </pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

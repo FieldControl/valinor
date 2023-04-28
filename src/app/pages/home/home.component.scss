@@ -1,0 +1,54 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+    @include grid(32);
+
+    .container {
+        @include grid-column-span(32);
+        margin-bottom: 32px;
+        margin-top: 32px;
+
+        .content {
+            padding: 64px;
+            border-radius: 0.8rem;
+            margin: 24px 0 24px 0;
+            border: 0px !important;
+            background: $color-background;
+            box-shadow: 2px 4px 8px 0 $color-shadow;
+
+            @include large-and-down {
+                padding: 32px;
+            }
+
+            h1 {
+                margin: 0 0 4px;
+                text-align: center;
+            }
+
+            p {
+                margin: 0;
+                text-align: center;
+            }
+
+            .row {
+                text-align: center;
+                margin-top: 4px;
+            }
+
+            .icon {
+                color: $color-primary;
+                font-size: 65px;
+            }
+
+            .text {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .bar {
+                margin: 2rem 0 2rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+            }
+        }
+    }
+}

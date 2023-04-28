@@ -1,0 +1,30 @@
+<div class="root" [@appeard]="state">
+  <div class="container">
+    <div class="content">
+
+      <div class="text-center mb-3">
+        <i class="icon fa fa-pencil-square me-3"></i>
+      </div>
+
+      <h1 id="home-title">Bem-vindo ao Styleguide!</h1>
+      <p>Navegue pelo menu para acessar os componentes</p>
+
+      <div class="bar"></div>
+
+      <p class="mb-3">Clique no botão abaixo para acessar o projeto</p>
+
+      <div class="row" *ngIf="show">
+        <div class="col-12">
+          <app-button 
+            id="gh-search-button"
+            theme="primary" 
+            label="GitHub Search" 
+            icon="fa fa-github" 
+            routerLink="/gh-search">
+          </app-button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
