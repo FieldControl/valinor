@@ -1,0 +1,134 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+    @include grid(32);
+
+    .container {
+        @include grid-column-span(32);
+        margin-bottom: 32px;
+        margin-top: 32px;
+
+        .content {
+            padding: 64px;
+            border-radius: 0.8rem;
+            margin: 24px 0 24px 0;
+            border: 0px !important;
+            background: $color-background;
+            box-shadow: 2px 4px 8px 0 $color-shadow;
+
+            .text {
+                margin-bottom: 1rem;
+
+                .title {
+                    font-weight: bold;
+                    color: $color-primary !important;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+
+                    p {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+
+            @include large-and-down {
+                padding: 32px;
+            }
+
+            i {
+                font-size: 18px;
+            }
+
+            pre {
+                margin: 12px 0 0 0;
+                white-space: inherit;
+                background: $color-grey-bg;
+                padding: 15px;
+                border-radius: 3px;
+            }
+        }
+
+        .container-color {
+            @include start;
+            cursor: pointer;
+            margin-top: 0.3rem;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: translateX(10px);
+            }
+
+            .name {
+                font-weight: bold;
+                margin: 0 0 0 15px !important;
+            }
+
+            .hex {
+                margin-left: 15px;
+                font-size: 12px;
+                color: $color-grey;
+                font-style: italic;
+                text-align: right;
+            }
+
+            .color {
+                padding: 20px;
+                border-radius: 50px;
+                width: fit-content;
+                border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+
+                &.color-primary {
+                    background-color: $color-primary;
+                }
+
+                &.color-secondary {
+                    background-color: $color-secondary;
+                }
+
+                &.color-terciery {
+                    background-color: $color-terciery;
+                }
+
+                &.color-primary-hover {
+                    background-color: $color-primary-hover;
+                }
+
+                &.color-white {
+                    background-color: $color-white;
+                }
+
+                &.color-black {
+                    background-color: $color-black;
+                }
+
+                &.color-grey-bg {
+                    background-color: $color-grey-bg;
+                }
+
+                &.color-green {
+                    background-color: $color-green;
+                }
+
+                &.color-red {
+                    background-color: $color-red;
+                }
+
+                &.color-danger {
+                    background-color: $color-danger;
+                }
+
+                &.color-yellow {
+                    background-color: $color-yellow;
+                }
+
+                &.color-blue {
+                    background-color: $color-blue;
+                }
+
+                &.color-grey {
+                    background-color: $color-grey;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<div *ngFor="let repo of data" [@appeard]="state">
+  <div class="content">
+    <div class="name">
+      <app-item label="Nome" value="{{ repo.name ? repo.name : '-' }}" type="standard"></app-item>
+    </div>
+    
+    <div class="description">
+      <app-item label="Descrição" value="{{ repo.description ? repo.description : '-' }}" type="standard"></app-item>
+    </div>
+
+    <div class="forks">
+      <app-item label="Forks" [value]="repo.forks" type="standard"></app-item>
+    </div>
+
+    <div class="language">
+      <app-item label="Linguagem" value="{{ repo.language ? repo.language : '-' }}" type="standard"></app-item>
+    </div>
+
+    <div class="url">
+      <app-item *ngIf="repo.html_url" [isIcon]="true" label="URL" value="fa fa-external-link" type="standard" (click)="goTo(repo.html_url)"></app-item>
+    </div>
+  </div>
+</div>

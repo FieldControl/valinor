@@ -1,238 +1,139 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# Styleguide
 
-A empresa
-----------
+Bem-vindo ao Styleguide! Neste projeto foi implementado um buscador de usuários do GitHub, mas a ideia do projeto é ser algo além de um 'repo-search'. Foi implementado um menu de componentes úteis para que o projeto possa ser usado como modelo de laboratório para implementações de estilos, testes de bibliotecas, implementações de testes unitários e e2e, aplicações de boas práticas e padrões de projetos.
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+## Tecnologias utilizadas
+O projeto foi desenvolvido com o _framework_ Angular na versão 15.
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+"Por baixo dos panos" foram utilizadas outras tecnologias como: 
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+* HTML, CSS, SASS, JavaScript e TypeScript
+* Bootstrap, Font Awesome, Angular Material e Sweet Alert
+* Jasmine e Cypress
 
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
+## Informações gerais
+O projeto está hospedado no Netlify, ou seja, caso queria acessá-lo por uma URL pública, abra [https://mmanhaes-styleguide.netlify.app/home](https://mmanhaes-styleguide.netlify.app/home) em seu navegador.
 
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
+Caso prefira rodar localmente na sua máquina, siga os procedimentos abaixo.
 
-Origem
-----------
+## Inicialização da SPA
+Clone o repositório usando o comando abaixo:
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
-
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
-
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
-
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
-
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
-
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
-
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
-
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
-
-Oportunidade
-----------
-
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
-
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
+```sh
+git clone https://github.com/momanhaes/valinor
 ```
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
+Instale as dependências do projeto rodando o comando abaixo:
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
+```sh
+npm install
+```
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
+Suba o projeto rodando o comando abaixo:
 
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
+```sh
+npm start
+```
 
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
+Abra [http://localhost:4200](http://localhost:4200) em seu navegador.
 
-Os desafios de programação
-----------
+## Documentação das features
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
+### Rotas públicas da aplicação
 
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
+`/home`
 
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
+* Página inicial de apresentação do projeto.
 
-<br/>
+`/gh-search`
 
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
+* Página de acesso ao projeto do buscador de repositórios do GitHub.
 
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
+`/typography`
 
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
+* Página do _styleguide_ referente a tipografia do projeto.
 
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
+`/colors`
 
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
+* Página do _styleguide_ referente a paleta de cores do projeto.
 
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
+`/inputs`
 
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
+* Página do _styleguide_ referente aos _inputs_ do projeto.
 
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
+`/buttons`
 
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
+* Página do _styleguide_ referente aos botões do Angular Material implementados no projeto.
 
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
+`/tables`
 
-Um diferencial gigante é o uso de testes unitários e integrados!
+* Página do _styleguide_ referente às tabelas do Angular Material implementadas no projeto.
 
-URLs úteis:
+`/items`
 
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
+* Página do _styleguide_ referente aos itens _(label + value)_ do projeto.
 
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
+`/icons`
 
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
+* Página do _styleguide_ referente aos ícones do font-awesome, de svgs e de imagens do projeto.
 
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
+`/pipes`
 
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
+* Página do _styleguide_ referente aos _pipes_ do Angular implementados no projeto.
 
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
+`/**`
 
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
+* Página _default_ para erros 404 _(not found)_ a fim lidar com rotas não programadas do sistema.
 
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
+## Testes
 
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
+Foram implementados alguns testes unitários com Jasmine e alguns testes _end-to-end_ com Cypress. Para rodar os testes unitários digite o comando abaixo:
 
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
+```sh
+npm run test
+```
 
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
+E para abrir o painel do Cypress e rodar os testes e2e, siga os procedimentos a seguir.
 
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
+Rode o comando abaixo:
 
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
+```sh
+npm run cypress
+```
 
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
+Escolha a opção "E2E Testing", depois escolha um navegador (Chrome, por exemplo) para rodar os testes e finalmente clique em "Start E2E Testing in Chrome".
 
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+O painel do Cypress irá exibir o diretório de testes. Clicar no teste que deseja executar é o suficiente pra fazê-lo rodar. É possível acompanhar o andamento do teste automatizado pela instância do navegador que o Cypress abre.
 
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
+Caso queira rodar o projeto em container 'headless', ou seja, rodar os testes sem precisar abrir o painel interativo do Cypress, use o comando abaixo:
 
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
+```sh
+npm run cypress:run
+```
 
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
+## Chamadas HTTP
 
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+Pra tornar o projeto possível, foi consumida a API pública do GitHub para buscar usuários e seus respectivos repositórios. Foi usada a URL `https://api.github.com/users` com chamadas para os seguintes _endpoints_:
 
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
+* /{user}
+* /{user}/repos
 
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
+## Desafios e problemas
 
-Avaliação
-----------
+Um dos maiores desafios da aplicação é fazer com que o projeto funcione na versão mais recente, tanto o framework em si quanto as dependências. Fazer com que o Angular funcione normalmente com as bibliotecas de estilo implementadas, com os testes unitários, boas práticas e princípios de arquitetura limpa. Foram muitos erros no console até o projeto rodar 100%.
 
-Entre os critérios de avaliação estão:
+## Melhorias e próximas implementações
 
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
+* Fazer com que a aplicação fique 100% responsiva.
+* Implementar mais testes unitários e e2e.
 
-Entrega
-----------
+## Sobre mim
 
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
+Tive meu primeiro contato com programação em 2010, virei desenvolvedor de software profissional em 2019, mas sou entusiasta de tecnologia desde que me entendo por gente. Tenho experiência com várias tecnologias como JavaScript, TypeScript, HTML, CSS, SASS, Angular, Jasmine, Cypress, NodeJS, RestAPIs, GraphQL, Ionic, entre outras. Sou bacharel em Sistemas de Informação e adoro fazer parte de projetos da comunidade e hackathons. Fui campeão do 2º hackathon da Universidade Unigranrio com o projeto MARIA, vice-campeão do 3º hackathon da Universidade Unigranrio com o projeto Toque do Bem e 3º lugar no 2º evento IoT Talks da Universidade Unigranrio com o projeto Magic Weld. Ah, também amo aprender coisas novas, ouvir boa música e assistir filmes cult.
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
+## Outras informações
 
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+* O projeto foi construído considerando boas práticas do Clean Code e conceitos como Single Responsiblity Principle do SOLID, aproveitando o máximo dos recursos do paradigma da programação reativa ao lidar com _observables_ da biblioteca RxJS.
+* As transições de tela possuem animações feitas a partir do módulo nativo do Angular para tornar a navegação do usuário mais fluida.
+* As páginas foram desenvolvidas visando responsividade e usabilidade.
+* Os fluxos possuem tratamento de erro e _loading_.

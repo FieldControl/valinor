@@ -1,0 +1,33 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+    @include grid(32);
+    padding: 5rem 0 5rem 0;
+
+    @include large-and-up {
+        padding: 15rem 0 15rem 0;
+    }
+
+    .container-root {
+        @include grid-column-span(32);
+
+        .title {
+            color: $color-primary !important;
+            text-transform: uppercase;
+            padding-bottom: 1rem;
+            text-align: center;
+            font-weight: 400;
+            font-size: 2rem;
+            max-width: 90%;
+            margin: auto;
+
+            @include large-and-up {
+                font-size: 2.2rem;
+            }
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+    }
+}

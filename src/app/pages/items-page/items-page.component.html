@@ -1,0 +1,33 @@
+<div class="root" [@appeard]="state">
+  <div class="container">
+    <div class="content">
+
+      <div class="text">
+        <h1 class="title">Items</h1>
+        <p>Abaixo os itens (label + value)</p>
+      </div>
+
+      <div class="row" *ngIf="show" [@listAnimation]="items.length">
+        <div class="col-6" *ngFor="let item of items">
+            <app-item 
+              [label]="item.label" 
+              [value]="item.value" 
+              [type]="item.type">
+            </app-item>
+
+            <pre>
+              {{ item.code }}
+  
+              <i 
+                class="fa fa-clone"
+                (click)="clip(item.code)"
+                matTooltipPosition="above" 
+                matTooltip="Clique para copiar">
+              </i>
+            </pre>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

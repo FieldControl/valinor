@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <mat-form-field appearance="outline" [class.error]="hasError" [class.disabled]="disabled">
+    <mat-label [class.disabled]="disabled">{{ label }}</mat-label>
+    <input
+      [placeholder]="placeholder"
+      [formControlName]="control"
+      [class.disabled]="disabled"
+      [class.error]="hasError"
+      [required]="required"
+      [type]="type"
+      matInput
+    />
+  </mat-form-field>
+</form>
+
+<p *ngIf="hasError" [@appeard]="state">
+  <span *ngIf="isRequiredError" class="error">
+    {{ label }} é obrigatório.
+  </span>
+  
+  <span *ngIf="!isRequiredError && isEmailError" class="error">
+    Preencha com um e-mail válido.
+  </span>
+</p>

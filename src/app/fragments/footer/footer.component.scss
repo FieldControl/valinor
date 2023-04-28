@@ -1,0 +1,37 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+  @include grid(32);
+
+  .container {
+    @include grid-column-span(32);
+    margin-bottom: 2rem;
+
+    .content {
+      @include center;
+      font-size: 12px;
+      margin-top: 3px;
+
+      @include large-and-up {
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      span {
+        margin: 0 4px 0 4px;
+      }
+
+      a {
+        margin-left: 7px;
+
+        @include large-and-up {
+          margin-left: 5px;
+
+          &:hover {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}

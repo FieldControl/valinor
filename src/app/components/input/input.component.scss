@@ -1,0 +1,19 @@
+@import "/src/app/scss/includes.scss";
+
+mat-form-field {
+  width: 100%;
+}
+
+.error {
+  color: $color-error !important;
+}
+
+.disabled {
+  color: $color-disabled !important;
+
+  @include large-and-up {
+    &:hover {
+      cursor: no-drop !important;
+    }
+  }
+}

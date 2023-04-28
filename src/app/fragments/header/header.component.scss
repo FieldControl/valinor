@@ -1,0 +1,56 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+  @include large-and-up {
+    z-index: 100000 !important;
+    position: fixed;
+    width: 100%;
+  }
+
+  nav {
+    z-index: 100000 !important;
+    background: $color-background;
+    box-shadow: 0 1px 15px $color-shadow;
+    height: 60px;
+
+    .content {
+      @include start;
+
+      .link {
+        @include start;
+        cursor: pointer;
+        margin-right: 1.5rem;
+
+        transition: transform 0.2s;
+        transform: scale(1);
+
+        @include large-and-up {
+          &:hover {
+            @include z-index("sky");
+            transform: scale(1.1);
+            color: $color-primary;
+            font-weight: bold;
+          }
+        }
+
+        i {
+          font-size: 20px;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    a {
+      color: $color-text;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+
+  .highlight {
+    color: $color-primary;
+    font-weight: bold;
+  }
+}

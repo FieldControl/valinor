@@ -1,0 +1,40 @@
+<div class="root" [@appeard]="state">
+  <div class="container">
+    <div class="content">
+
+      <div class="text">
+        <h1 class="title">Pipes</h1>
+        <p>Abaixo os pipes</p>
+      </div>
+
+      <div class="row" *ngIf="show" [@listAnimation]="pipes.length">
+        <div class="col-4" *ngFor="let item of pipes">
+          <h4 class="label">{{ item.name }}</h4>
+
+          <div>
+            <p *ngIf="item.type === 'cpf'">{{ item.value | cpf }}</p>
+            <p *ngIf="item.type === 'cnpj'">{{ item.value | cnpj }}</p>
+            <p *ngIf="item.type === 'currency'">{{ item.value | currency: "BRL":"symbol" }}</p>
+            <p *ngIf="item.type === 'date'">{{ item.value | date:"MM/dd/yyyy" }}</p>
+            <p *ngIf="item.type === 'percent'">{{ item.value | percent }}</p>
+            <p *ngIf="item.type === 'account'">{{ item.value | account }}</p>
+            <p *ngIf="item.type === 'cep'">{{ item.value | cep }}</p>
+            <p *ngIf="item.type === 'cel'">{{ item.value | cel }}</p>
+            <p *ngIf="item.type === 'tel'">{{ item.value | tel }}</p>
+            
+            <pre>
+              {{ item.usage }}
+  
+              <i 
+                class="fa fa-clone"
+                (click)="clip(item.usage)"
+                matTooltipPosition="above" 
+                matTooltip="Clique para copiar">
+              </i>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

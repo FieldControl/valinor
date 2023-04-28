@@ -1,0 +1,39 @@
+@import "/src/app/scss/includes.scss";
+
+.collapsible {
+    position: relative;
+    border-radius: 4px;
+    padding: 1rem;
+
+    &--no-padding {
+        padding: 0;
+    }
+
+    .header {
+        @include between;
+        cursor: pointer;
+
+        .icon {
+            padding: 10px;
+            transform: rotate(0deg);
+            transition: all 0.4s cubic-bezier(0.51, 0.31, 0, 1.01);
+
+            &--open {
+                transform: rotate(180deg);
+            }
+
+            i.primary {
+                color: $color-white;
+            }
+
+            i.outline {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .content {
+        overflow: hidden;
+        font-size: 14px;
+    }
+}

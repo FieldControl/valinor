@@ -1,0 +1,43 @@
+@import "/src/app/scss/includes.scss";
+
+.toasty-container {
+  @include z-index("space");
+  display: flex;
+  position: fixed;
+
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  justify-content: center;
+  align-items: flex-end;
+
+  .toasty {
+    @include z-index("space");
+    color: $color-white;
+    background: $color-primary;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    font-family: $font-montserrat;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    margin: 24px;
+    max-width: 33vw;
+    min-width: 344px;
+    padding: 14px 16px;
+    min-height: 48px;
+    transform-origin: center;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+
+    transform: scale(0);
+    opacity: 0;
+
+    &--active {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

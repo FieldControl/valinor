@@ -1,0 +1,29 @@
+@import "/src/app/scss/includes.scss";
+
+.content {
+  @include grid(32);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $color-primary;
+
+  .name {
+    @include grid-column-span(32);
+  }
+
+  .description {
+    @include grid-column-span(32);
+  }
+
+  .forks {
+    @include grid-column-span(12);
+  }
+
+  .language {
+    @include grid-column-span(16);
+  }
+
+  .url {
+    @include grid-column-span(4);
+  }
+}

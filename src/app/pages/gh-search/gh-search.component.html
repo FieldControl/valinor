@@ -1,0 +1,77 @@
+<div class="root">
+    <div class="container">
+        <div class="content" [@appeard]="state">
+            <div class="core" *ngIf="!isRepo" [@appeard]="state">
+                <div class="text">
+                    <h1>Buscador de Repositórios</h1>
+                    <p>
+                        Digite um usuário do
+                        <strong>GitHub</strong>
+                        <i class="fa fa-github ms-1"></i>
+                    </p>
+                </div>
+
+                <div class="input">
+                    <i class="fa fa-search me-3"></i>
+
+                    <app-input 
+                        id="input-usuario"
+                        [form]="userForm" 
+                        label="Usuário" 
+                        placeholder="Pesquisar usuário..." 
+                        control="userControl" 
+                        type="text"
+                        [required]="false">
+                    </app-input>
+                </div>
+            </div>
+
+            <div class="core" *ngIf="isRepo" [@appeard]="state">
+                <div class="text">
+                    <h1>{{ 'Repositórios de ' + person.name }}</h1>
+                    <p><a style="cursor: pointer;" (click)="goProfile()">
+                        <i class="fa fa-undo me-2"></i> <strong>Clique aqui</strong>
+                        </a><span> para voltar ao perfil de </span>'{{ person.login }}'
+                    </p>
+                </div>
+
+                <div class="input">
+                    <i class="fa fa-search me-3"></i>
+
+                    <app-input 
+                        [form]="repoForm"
+                        label="Repositórios" 
+                        placeholder="Pesquisar repositórios..." 
+                        control="repoControl" 
+                        type="text"
+                        [required]="false">
+                    </app-input>
+                </div>
+            </div>
+
+            <div class="profile" *ngIf="person?.id && !isUserLoading && !isRepo">
+                <app-profile 
+                    [profile]="person"
+                    [isLoading]="isRepoLoading" 
+                    (isRepoEvent)="goRepos($event)">
+                </app-profile>
+            </div>
+
+            <div class="profile-table" *ngIf="isRepo && !isMobile">
+                <app-table [showPagination]="showPagination" [data]="repos"></app-table>
+            </div>
+            
+            <div class="profile-list" *ngIf="isRepo && isMobile">
+                <app-list [data]="repos"></app-list>
+            </div>
+
+            <div class="loading">
+                <app-spinner
+                    *ngIf="isUserLoading"
+                    label="Carregando usuário..."
+                    [size]="1.3">
+                </app-spinner>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+@import "/src/app/scss/includes.scss";
+
+.content {
+  margin-top: 8px;
+
+  @include large-and-down {
+    margin-top: 10px;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner {
+    animation: rotate 0.6s linear infinite;
+  }
+
+  .label {
+    font-size: 16px;
+    margin-left: 6px;
+    color: $color-text !important;
+  }
+}

@@ -1,0 +1,48 @@
+// Breakpoints
+$breakpoint-xsmall: 0;
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-wide: 1025px;
+$breakpoint-header: 1079px;
+$breakpoint-xlarge: 1200px;
+$breakpoint-table: 1246px;
+
+// Colors
+$color-primary: #004d40;
+$color-secondary: #fff9c4;
+$color-terciery: #c89666;
+$color-primary-hover: #00796B;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-grey: #717171;
+$color-grey-button: #9a9a99;
+$color-light-grey: #cecece;
+$color-grey-bg: #f1f1f1;
+$color-light-pink: #ffb7b7;
+$color-light-yellow: #ffffcc;
+$color-light-black: #1f272e;
+$color-medium-black: #282828;
+$color-green: #28c18d;
+$color-yellow: #f9cc54;
+$color-red: #ff0000;
+$color-blue: #457ff0;
+$color-error: #d23b3b;
+$color-red-tomato: #ff6347;
+$color-light-red: #ff7573;
+$color-danger: #e73f5d;
+$color-danger-hover: #d73754;
+$color-disabled: #cbcbcb;
+$color-background: $color-white;
+$color-background-secondary: #f5f5ef;
+$color-card: #313a46;
+$color-text: #323232;
+$color-shadow: rgba(0, 0, 0, 0.2);
+
+// Grid
+$grid-columns: 12;
+
+// Fonts
+$font-roboto: Roboto, "Helvetica Neue", sans-serif;
+$font-montserrat: "Montserrat", sans-serif;
+$font-lato: "Lato", sans-serif;
