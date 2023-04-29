@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Colors variables */
+$background: "#141D2F";
+$themeBtn: "#fff";
+$card: "#1E2A47";
+$textNorm: "#fff";
+$textBolded: "#FFF";
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body,
+input,
+button,
+textarea,
+select {
+  font-family: 'Space Mono', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
