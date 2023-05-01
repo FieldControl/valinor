@@ -10,7 +10,7 @@
           "style": "scss"
         }
       },
-      "root": "",
+      "root": "./",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -25,10 +25,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets/**/*"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/scss/index.scss"
             ],
             "scripts": []
           },
