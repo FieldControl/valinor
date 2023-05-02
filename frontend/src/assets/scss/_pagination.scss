@@ -1,0 +1,34 @@
+.pagination-card ::ng-deep .ngx-pagination .current {
+  background: #fff;
+  color: #1e2a47;
+  border-radius: 1rem;
+}
+
+.pagination-card ::ng-deep .ngx-pagination a {
+  border-radius: 1rem;
+  color: #fff;
+}
+
+.pagination-card ::ng-deep .ngx-pagination a:hover {
+  color: #1e2a47;
+}
+
+.pagination-card ::ng-deep .ngx-pagination {
+  margin-top: 3.6rem;
+  border-radius: 1.5rem;
+  background: #1e2a47;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.7rem 0.7rem 1.6rem;
+  transition: height 0.3s ease;
+  position: relative;
+  font-size: 1.7rem;
+
+  @media (min-width: 768px) {
+    height: 5rem;
+  }
+}
