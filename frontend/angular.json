@@ -29,6 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
+              "src/assets/scss/_variables.scss",
+              "src/assets/scss/_pagination.scss",
               "src/assets/scss/index.scss"
             ],
             "scripts": []
