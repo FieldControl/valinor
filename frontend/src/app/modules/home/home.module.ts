@@ -17,11 +17,11 @@ import { NgxPaginationModule } from "ngx-pagination";
       HttpClientModule,
       ReactiveFormsModule,
       BrowserModule,
-      NgxPaginationModule
+      NgxPaginationModule,
     ],
     declarations: [
       ResultListComponent,
       HomeComponent
-    ],
+    ]
 })
 export class HomeModule {}
