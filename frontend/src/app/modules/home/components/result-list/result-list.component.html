@@ -1,0 +1,50 @@
+<section class="repositories">
+  <img [src]="repos.owner?.avatar_url" alt="pfp" class="repositories__pfp-desktop">
+  <div class="repositories__wrapper">
+
+    <!-- Top Area -->
+    <main class="repositories__list">
+      <!-- img -->
+      <img
+        [src]="repos.owner?.avatar_url"
+        alt="img"
+        class="repositories__pfp-mobile"
+      >
+
+      <div class="repositories__info">
+        <strong class="repositories__name">
+            <a [href]="repos.html_url" target="_blank">
+              {{repos.name | titlecase}}
+            </a>
+        </strong>
+        <!-- <span class="repositories__username">
+          topics
+        </span> -->
+
+        <span class="repositories__lastUpdate">
+          {{ repos.language }}
+        </span>
+      </div>
+    </main>
+    <p class="repositories__bio">{{ repos.description }}</p>
+
+    <!--Start Area -->
+    <div class="repositories__card">
+      <li class="repositories__data">
+        <span>Stars</span>
+        <strong>{{ repos.stargazers_count | number }}</strong>
+      </li>
+
+      <li class="repositories__data">
+        <span>Issues</span>
+        <strong>{{ repos.open_issues | number }}</strong>
+      </li>
+
+      <li class="repositories__data">
+        <span>Updated</span>
+        <strong>{{ repos.updated_at | date }}</strong>
+      </li>
+    </div>
+  </div>
+</section>
+
