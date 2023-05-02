@@ -20,7 +20,7 @@ Projeto desenvolvido com o objetivo de fazer buscas de reposítorios, utilizando
 Clone do projeto:
 
 ```sh
-git clone https://github.com/Fabricio-Lima/valinor/frontend
+git clone https://github.com/Fabricio-Lima/valinor/tree/master/frontend
 ```
 
 Instale as dependências do projeto:
