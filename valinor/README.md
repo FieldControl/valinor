@@ -1,27 +1,22 @@
-# Valinor
+Nesse Projeto Foi utilizado o Framework Angular na versão 15, com a ultilização do bootstrap, o material App e css puro tambem.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
 
-## Development server
+Com base em requisições Http para o github API para duas url´s HTTPs, a de respositories e de Issues.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### TECNOLOGY ## 
+- Angular
+- Bootstrap
+- MaterialUI
+- RXJS
+- Testes Unitários
 
-## Code scaffolding
+### MOTIVOS PARA TER UTILIZADOS AS TECNOLOGIAS ###
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+O motivo foi por o FrameWork solicitado foi o Angular, e para facilitar  a utilização de frameworks de estilização utilizei o materialUi e o Bootstrap. O Material por ter familiaridade com o Angular e o Bootstrap para utilização da paginação e algumas outras funcionalidades; Com o Principio de clean code e componentização de código para organizar a arquitetura e o principio mobile first consegui finalizar o projeto.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### DESAFIOS ENCONTRADOS ###
 
-## Running unit tests
+O maior desafio encontrado nesse projeto com toda certeza foi os testes unitários, pois já havia um tempo que eu não colocava em prática o conhecimento de testes unitários. Também quando fui utilizar o pipe criado por mim mesmo em vários componentes. Porém depois de muitas tentativas consegui, tive que apagar o pipe e importar no lugar correto e exportar para o lugar correto.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
