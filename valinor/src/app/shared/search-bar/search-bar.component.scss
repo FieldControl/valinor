@@ -1,0 +1,39 @@
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid #cdcdcd;
+  border-radius: 0.5rem;
+
+  .search_icon {
+    margin: 0rem auto;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.6rem;
+    img {
+      width: 60%;
+    }
+  }
+
+  input {
+    width: 70%;
+    margin: 0rem auto;
+    height: 3rem;
+    background: none;
+    border: none;
+
+    font-size: 1rem;
+
+    color: white;
+
+    &::placeholder {
+      color: white;
+    }
+  }
+}

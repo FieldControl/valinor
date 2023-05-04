@@ -1,0 +1,71 @@
+<header>
+  <div class="search-bar">
+    <app-search-bar [search]="search" (searchTermChange)="onSearchTermEvent($event)"
+      (searchResult)="searchData($event)"></app-search-bar>
+  </div>
+
+</header>
+<main>
+  <div class="side_bar">
+
+    <ul class="menu">
+
+      <li>
+        <a (click)="requestByType('repositories')">
+          <mat-icon>book</mat-icon>
+          Repositories
+        </a>
+      </li>
+      <li>
+        <a (click)="requestByType('issues')">
+          <mat-icon>settings_input_svideo</mat-icon>
+          Issues
+        </a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="content">
+
+    <mat-spinner class="mat-spinner" *ngIf="loading"></mat-spinner>
+
+    <div class=" container" *ngIf="reporesult">
+
+      <div class="header">
+        <p class="info"> {{ total_result | shortNumber}} results</p>
+      </div>
+
+      <div class="main" *ngFor="let repo of reporesult">
+
+
+        <app-card-repo *ngIf="type == 'repositories'" [repo]="repo"></app-card-repo>
+        <app-card-issue *ngIf="type == 'issues'" [repo]="repo"></app-card-issue>
+
+      </div>
+
+      <div class="paginator">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+
+              <a class="page-link" (click)="previous()" style="display:flex;align-items: center;">
+                <mat-icon>keyboard_arrow_left</mat-icon>Previous</a>
+
+            </li>
+
+            <li class="page-item"><a class="page-link" (click)="next()" style="display:flex;align-items: center;">Next
+                <mat-icon>keyboard_arrow_right</mat-icon></a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+
+
+    <div class="nohaveresult" *ngIf="!reporesult">
+      <mat-icon>report_problem</mat-icon>
+      <h3>Não existe repositórios!</h3>
+    </div>
+  </div>
+</main>

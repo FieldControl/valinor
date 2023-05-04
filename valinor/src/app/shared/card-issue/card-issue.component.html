@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <mat-icon style="color:#1bc50b; margin-right: 1rem;">settings_input_svideo</mat-icon>
+    <span><a [href]="repo.html_url" target="_blank">{{repo?.title}}</a></span>
+  </div>
+  <div class="card_body">
+
+    <p class="desc" style="color: #fff;">{{repo?.body}}</p>
+  </div>
+  <div class="desc-foot" style="color: #fff;">
+    <img [src]="repo?.user?.avatar_url ? repo.user.avatar_url : '../../../assets/defalut_img.jpeg' " alt=""
+      class="image_issues">
+
+    <span>
+      {{repo?.user?.login ?repo?.user?.login : '' }} .
+    </span>
+
+    <span>Updated {{!repo?.created_at ? '' : repo?.created_at | date}}</span>
+
+    <span style="margin-left: 1rem;">#{{repo?.number}}</span>
+  </div>
+
+</div>

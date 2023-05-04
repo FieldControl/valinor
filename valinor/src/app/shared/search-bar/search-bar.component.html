@@ -1,0 +1,10 @@
+<div class="search_bar">
+  <form>
+    <div class="search_icon">
+      <img src="../../../assets/search.svg" alt=""  (click)="emitSearch()" >
+    </div>
+    <input type="text" [(ngModel)]="search" (input)="onInputChange($event)" [ngModelOptions]="{standalone: true}"
+      (keyup.enter)="emitSearch()"placeholder="Pesquise um repositório...">
+  </form>
+
+</div>
