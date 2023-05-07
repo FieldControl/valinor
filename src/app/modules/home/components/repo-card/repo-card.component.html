@@ -1,0 +1,56 @@
+<div class="flex flex-col w-full border border-slate-300 rounded-lg px-6 py-5 space-y-4 dark:border-slate-700">
+  <div class="flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <img class="h-6 rounded-lg" [src]="repository?.owner!.avatarUrl" [alt]="repository?.owner!.userUrl" srcset="">
+      <span class="font-medium !mt-0 h-full">
+        <a href="{{repository?.htmlUrl}}" target="_blank" class="text-blue-700 hover:underline dark:text-blue-400">
+          {{ repository?.fullName }}
+        </a>
+      </span>
+    </div>
+    <div class="flex items-center" *ngIf="repository?.hasIssues">
+      <a href="{{repository?.htmlUrl}}/issues" target="_blank"
+        class="flex justify-center rounded-xl bg-slate-800 px-3 py-1.5 text-sm font-semibold leading-6 text-slate-200 shadow-sm space-x-2 transform ease-in-out transition duration-300 hover:transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-950 dark:bg-green-600 dark:hover:bg-green-700">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+        </svg>
+
+        <span class="text-sm">View Issues</span>
+      </a>
+    </div>
+  </div>
+  <p *ngIf="repository?.description; else noDescription">
+    {{ formattedDescription }}
+  </p>
+  <ng-template #noDescription>
+    <p class="text-sm italic">
+      No description
+    </p>
+  </ng-template>
+  <div class="flex items-center space-x-2 text-slate-400 text-sm">
+    <div>
+      {{ repository?.language }}
+    </div>
+    <span *ngIf="repository?.language">
+      .
+    </span>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+      </svg>
+    </div>
+    <div>
+      {{starsCount}}
+    </div>
+    <span>
+      .
+    </span>
+    <div>
+      Updated {{updatedAgo}}
+    </div>
+  </div>
+</div>

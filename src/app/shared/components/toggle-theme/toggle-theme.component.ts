@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ThemeService } from '@core/services/theme.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-toggle-theme',
+  templateUrl: './toggle-theme.component.html',
+  styleUrls: ['./toggle-theme.component.scss'],
 })
-export class HeaderComponent {
+export class ToggleThemeComponent {
   constructor(public themeService: ThemeService) {}
 }

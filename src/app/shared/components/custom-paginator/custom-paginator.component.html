@@ -1,0 +1,59 @@
+<pagination-template #p="paginationApi" (pageChange)="pageChange($event)">
+  <div class="flex flex-1 justify-between sm:hidden">
+    <a *ngIf="!p.isFirstPage()"
+      class="relative inline-flex items-center rounded-md border border-slate-300 bg-slate-200 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-300 dark:bg-slate-700 dark:border-slate-900 dark:text-slate-200 dark:hover:bg-slate-600"
+      (click)="p.previous()">
+      Anterior
+    </a>
+    <div class="page-info px-4 py-2">
+      <p class="text-sm">
+        {{ p.getCurrent() }} / {{ p.getLastPage() }}
+      </p>
+    </div>
+    <a *ngIf="!p.isLastPage()"
+      class="relative ml-3 inline-flex items-center rounded-md border border-slate-300 bg-slate-200 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-300 dark:bg-slate-700 dark:border-slate-900 dark:text-slate-200 dark:hover:bg-slate-600"
+      (click)="p.next()">
+      Próximo
+    </a>
+  </div>
+  <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-end">
+    <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm flex-wrap cursor-pointer" aria-label="Pagination">
+      <div class="prev-button" *ngIf="!p.isFirstPage()">
+        <a (click)="p.previous()"
+          class="relative inline-flex items-center rounded-l-md border border-slate-300 bg-slate-200 px-2 py-2 text-sm font-medium text-gray-800 hover:bg-gray-300 focus:z-20 dark:bg-slate-700 dark:border-slate-900 dark:text-slate-200 dark:hover:bg-slate-600">
+          <span class="sr-only">Previous</span>
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+
+      <div *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+        <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value"
+          class="relative inline-flex items-center border border-slate-300 bg-slate-200 px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-300 focus:z-20 dark:bg-slate-700 dark:border-slate-900 dark:text-slate-200 dark:hover:bg-slate-600">
+          {{ page.label }}
+        </a>
+        <a *ngIf="p.getCurrent() === page.value" aria-current="page"
+          class="relative z-10 inline-flex items-center border border-slate-800 bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200 focus:z-20 dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-950">
+          {{page.label }}
+        </a>
+      </div>
+
+      <div class="next-button" *ngIf="!p.isLastPage()">
+        <a (click)="p.next()"
+          class="relative inline-flex items-center rounded-r-md border border-slate-300 bg-slate-200 px-2 py-2 text-sm font-medium text-gray-800 hover:bg-gray-300 focus:z-20 dark:bg-slate-700 dark:border-slate-900 dark:text-slate-200 dark:hover:bg-slate-600">
+          <span class="sr-only">Next</span>
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</pagination-template>

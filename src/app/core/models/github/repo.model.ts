@@ -3,10 +3,13 @@ import { GitHubOwner } from '@core/models/github/owner.model';
 export interface GitHubRepo {
   name: string;
   fullName: string;
+  language: string;
+  description: string;
   owner: GitHubOwner;
-  issuesUrl: string;
-  updatedAt: string;
-  starsAmount: number;
+  htmlUrl: string;
+  pushedAt: string;
   hasIssues: boolean;
+  issuesUrl: string;
+  starsAmount: number;
   openIssuesAmount: number;
 }

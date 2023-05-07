@@ -1,1 +1,73 @@
-<p>home works!</p>
+<div class="flex w-full mt-[2%]">
+  <div class="flex flex-col space-y-12 w-full mb-12">
+    <!-- Title -->
+    <h1 class="text-6xl font-extrabold">Search repositories</h1>
+
+    <!-- Search Input -->
+    <div class="flex flex-col w-full space-y-4">
+      <div
+        class="flex flex-grow relative w-full text-slate-400 focus-within:text-slate-500 dark:focus-within:text-slate-200">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <input type="text" id="search" autofocus [(ngModel)]="querySearch" (keyup.enter)="onSearchRepos()"
+          class="block w-full pl-10 p-2.5 bg-slate-200 border border-slate-300 text-slate-800 text-sm rounded-xl placeholder-slate-400 focus:border-slate-500 focus:ring-0 focus:outline-none focus-within:placeholder-slate-400 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200 dark:focus:border-slate-700"
+          placeholder="Search for repositories..." />
+      </div>
+
+      <!-- Storting Options -->
+      <div class="flex items-center text-sm">
+        <div class="px-3 py-1.5 rounded-l-xl border border-slate-300 font-medium dark:border-slate-700">
+          Sort by:
+        </div>
+        <div class="flex px-3 py-1.5 rounded-r-xl border border-slate-300 space-x-4 dark:border-slate-700">
+          <div class="flex items-center">
+            <input checked (change)="onCheckSortingType(sortingType.BestMatch)" id="radio-best-match" type="radio"
+              value="" name="radio-group" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500">
+            <label for="radio-best-match" class="ml-2 text-sm">
+              Best match
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input (change)="onCheckSortingType(sortingType.MostStars)" id="radio-most-stars" type="radio" value=""
+              name="radio-group" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500">
+            <label for="radio-most-stars" class="ml-2 text-sm">
+              Most stars
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input (change)="onCheckSortingType(sortingType.MostForks)" id="radio-most-forks" type="radio" value=""
+              name="radio-group" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500">
+            <label for="radio-most-forks" class="ml-2 text-sm">
+              Most forks
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input (change)="onCheckSortingType(sortingType.RecentlyUpdated)" id="radio-recently-updated" type="radio"
+              value="" name="radio-group" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500">
+            <label for="radio-recently-updated" class="ml-2 text-sm">
+              Recently updated
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-center items-center space-y-4">
+      <app-repo-card class="w-full" [repository]="item"
+        *ngFor="let item of repositories | paginate : { itemsPerPage: 30, currentPage: page, totalItems: handleTotalCount }">
+      </app-repo-card>
+    </div>
+
+    <div class="flex justify-center" *ngIf="totalCount">
+      <app-custom-paginator (changePage)="changePage($event)" [currentPage]="page" [itemsPerPage]="30">
+      </app-custom-paginator>
+    </div>
+
+  </div>
+</div>
