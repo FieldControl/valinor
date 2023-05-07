@@ -1,27 +1,48 @@
-# Valinor
+# Valinor Challenge - Field Control (by Matheus Adami)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+![image](https://user-images.githubusercontent.com/59755164/236682170-2fed68a9-228c-4dca-99d3-353bb263da36.png)
 
-## Development server
+## Sobre o projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Web Site para pesquisa, filtragem e visualização de repositórios GitHub com possibilidade de troca de temas (claro e escuro), acesso ao código fonte do projeto e visualização das issues de um determinado repositório via GitHub.
 
-## Code scaffolding
+## Tecnologias utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<table align="center">
+  <tr>
+    <td valign="top">
+      <img height="120" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" />
+    </td>
+    <td valign="top">
+      <img height="120" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
+    </td>
+    <td valign="top">
+      <img height="120" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/karma/karma-original.svg" />
+    </td>
+    <td valign="top">
+      <img height="120" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jasmine/jasmine-plain.svg" />
+    </td>
+  </tr>
+</table>
 
-## Build
+## Hospedagem
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O projeto se encontra hospedado na plataforma Vercel. <a href="https://valinor-ten.vercel.app/" target="_blank">Clique aqui</a> para acessá-lo.
 
-## Running unit tests
+## Como executar localmente?
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Projeto
 
-## Running end-to-end tests
+O projeto pode ser executado através do comando abaixo. Após isso, o mesmo deverá estar disponível no endereço http://localhost:4200:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+ng serve
+```
 
-## Further help
+### Testes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Os testes do projeto podem ser executados através do comando abaixo:
+
+```bash
+ng test
+```
