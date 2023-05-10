@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon ios="logo-github" md="logo-github" color = "dark"></ion-icon>
+    </button>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems()" placeholder = "Search..." ></ion-searchbar>
+    
+    <ion-buttons end>
+      <button ion-button icon-only right (click)="filter()">
+        <ion-icon ios="ios-funnel" md="md-funnel" end rigth></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12  col-xl-2>
+        <ion-card>
+          <ion-card-header>
+            Filter by
+          </ion-card-header>
+        
+          <ion-list>
+            <button ion-item>
+              <ion-icon ios="ios-bookmarks" md="md-bookmarks"></ion-icon>
+              Repositries
+            </button>
+        
+            <button ion-item>
+              <ion-icon ios="ios-disc" md="md-disc"></ion-icon>
+              Issues
+            </button>
+        
+            <button ion-item>
+              <ion-icon ios="ios-git-pull-request" md="md-git-pull-request"></ion-icon>
+              Pull requests
+            </button>
+        
+            <button ion-item>
+              <ion-icon ios="ios-copy" md="md-copy" ></ion-icon>
+              Discussions
+            </button>
+        
+            <button ion-item>
+              <ion-icon ios="ios-people" md="md-people"></ion-icon>
+              Users
+            </button>
+        
+            <button ion-item>
+              <ion-icon ios="ios-git-commit" md="md-git-commit"></ion-icon>
+              Commits
+            </button>
+        
+          </ion-list>
+        </ion-card>
+        <ion-list no-lines>
+          <ion-item *ngFor="let item of items">
+            {{ item.language }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-12 col-xl-7>
+
+        <ion-list no-lines>
+          
+          <ion-item *ngFor="let item of items.slice((currentPage-1)*pageSize, currentPage*pageSize)">
+            <ion-card  (click) = "openRepositorio()">
+              <ion-item>
+                <ion-avatar item-start>
+                  <ion-icon ios="logo-nodejs" md="logo-nodejs"></ion-icon>
+                </ion-avatar>
+                {{ item.name }}
+                <ion-buttons right top>
+                    <p>Star <ion-icon ios="ios-star" md="md-star"></ion-icon></p>
+                </ion-buttons>
+              </ion-item> 
+              <ion-card-content>
+                <p>{{item.msg}}</p>
+              </ion-card-content> 
+              <ion-row>
+                <ion-col>
+                  <button ion-button icon-start clear small >
+                    <ion-icon ios="ios-alert" md="md-alert"></ion-icon>
+                      {{ item.language }}
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button class="button star-center" ion-button icon-start clear small>
+                    <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
+                    <div>{{ item.randomNumber }}K</div>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-item>  
+        </ion-list>
+        <div>
+          <button (click) = "previousPage()" ion-button icon-start clear color = "dark" [disabled]="currentPage == 1">Previous</button>
+          <button (click) = "nextPage()" ion-button icon-end clear color = "dark" [disabled]="currentPage == totalPages">Next ></button>
+        </div>
+      </ion-col>
+      <ion-col col-12 col-xl-3>
+        <ion-card>        
+          <ion-item>
+            <ion-icon ios="logo-nodejs" md="logo-nodejs"></ion-icon>
+            <h2>Node.js</h2>
+          </ion-item>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node.js is a tool for executing JavaScript in a variety of environments.</p>
+            
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-icon ios="ios-bug" md="md-bug"></ion-icon>    
+          </ion-item> 
+          <h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sponsor open source projects you depend on</h2>
+          <p>Contributors are working behind the scenes to make 
+            open source better for everyone—give them the help and
+            recognition they deserve.</p>
+          <ion-item>
+            <button ion-button icon-start clear item-end>
+              <ion-icon name="navigate"></ion-icon>
+              Explore sponsorable projects
+            </button>
+          </ion-item>   
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+</ion-content> 
