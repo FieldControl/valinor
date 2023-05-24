@@ -1,17 +1,21 @@
-<div>
+<div class="container-header">
     <input type="text" [(ngModel)]="query" placeholder="Digite o nome do repositório">
-    <button (click)="searchRepositories()">Pesquisar</button>
+    <button class="btn btn-success" (click)="searchRepositories()">Pesquisar</button>
 </div>
 
-<ul>
-    <li *ngFor="let repository of repositories$ | async">
-        <h3>{{ repository.node.name }}</h3>
-        <p>{{ repository.node.description }}</p>
-        <p>Watchers: {{ repository.node.watchers.totalCount }}</p>
-        <p>Estrelas: {{ repository.node.stargazers.totalCount }}</p>
-        <p>Issues: {{ repository.node.issues.totalCount }}</p>
-        <a [href]="repository.node.url" target="_blank">Ver detalhes</a>
-    </li>
-</ul>
+<section>
+    <ul class="list-repos">
+        <li *ngFor="let repository of repositories$ | async">
+            <h6>{{ repository.node.name }}</h6>
+            <p>{{ repository.node.description }}</p>
+            <p>Watchers: {{ repository.node.watchers.totalCount }}</p>
+            <p>Estrelas: {{ repository.node.stargazers.totalCount }}</p>
+            <p>Issues: {{ repository.node.issues.totalCount }}</p>
+            <a class="pointer" [href]="repository.node.url" target="_blank">Ver detalhes</a>
+        </li>
+    </ul>
 
-<button *ngIf="pageInfo?.hasNextPage" (click)="loadMoreRepositories()">Carregar mais</button>
+    <button class="btn btn-primary" *ngIf="pageInfo?.hasNextPage" (click)="loadMoreRepositories()">
+        Carregar mais
+    </button>
+</section>

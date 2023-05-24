@@ -42,12 +42,16 @@ export class GitRepoService {
     query: string,
     first: number,
     after?: string
-  ): Observable<SearchResponse> {
+  ): Observable<any> {
     return this.apollo
-      .watchQuery<SearchResponse>({
+      .watchQuery({
         query: SEARCH_REPOSITORIES_QUERY,
         variables: { query, first, after },
       })
-      .valueChanges.pipe(map((result) => result.data));
+      .valueChanges.pipe(
+        map((result: any) =>
+          result.data.search.edges.map((edge: any) => edge.node)
+        )
+      );
   }
 }

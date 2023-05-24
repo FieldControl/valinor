@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { GitRepoService } from 'src/services/service-repo-git.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -16,14 +17,18 @@ export class HomePageComponent {
   constructor(private githubRepoService: GitRepoService) {}
 
   searchRepositories() {
-    this.repositories$ = this.githubRepoService
+    if (!this.query || this.query.trim().length === 0) {
+      return;
+    }
+
+    console.log(this.query);
+
+    this.githubRepoService
       .searchRepositories(this.query, 10)
-      .pipe(
-        tap((response) => {
-          this.pageInfo = response.pageInfo;
-          console.log(response);
-        })
-      );
+      .subscribe((repositories) => {
+        console.log(repositories);
+        this.repositories$ = of(repositories);
+      });
   }
 
   loadMoreRepositories() {
