@@ -1,14 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpLink } from 'apollo-angular/http';
 import { AppComponent } from './app.component';
-import { ComponentHomeComponent } from './components/component-home/component-home.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { GitRepoService } from 'src/services/service-repo-git.service';
+import { Apollo, ApolloModule } from 'apollo-angular';
+import { InMemoryCache } from '@apollo/client/core';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, ComponentHomeComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  declarations: [AppComponent, HomePageComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ApolloModule,
+    AppRoutingModule,
+  ],
+  providers: [GitRepoService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(apollo: Apollo, httpLink: HttpLink) {
+    const uri = 'https://api.github.com/search/repositories?q';
+
+    apollo.create({
+      link: httpLink.create({
+        uri,
+      }),
+      cache: new InMemoryCache(),
+    });
+  }
+}
