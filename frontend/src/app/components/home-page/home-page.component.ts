@@ -21,12 +21,9 @@ export class HomePageComponent {
       return;
     }
 
-    console.log(this.query);
-
     this.githubRepoService
       .searchRepositories(this.query, 10)
       .subscribe((repositories) => {
-        console.log(repositories);
         this.repositories$ = of(repositories);
       });
   }

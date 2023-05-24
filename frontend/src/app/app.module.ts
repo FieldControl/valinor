@@ -24,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 })
 export class AppModule {
   constructor(apollo: Apollo, httpLink: HttpLink) {
-    const uri = 'https://api.github.com/search/repositories?q=';
+    const uri = 'https://api.github.com/graphql';
 
     apollo.create({
       link: httpLink.create({
