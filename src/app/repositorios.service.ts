@@ -17,11 +17,6 @@ export class ProjetosService {
   getProjeto(): Observable<ProjetosData[]> {
     return this.http.get<any>(this.apiUrl).pipe(map((response: any) => response.items));
   }
-  
-  contadorRepositorios() {
-    this.http.get(this.apiUrl).subscribe((data: any) => {return this.contador = data.items.length; });
-  }
-
 }
   
 
