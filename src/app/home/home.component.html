@@ -22,10 +22,10 @@
         <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
             <div class="repositorios container-child" style="order: 2;">
                 <div class="repositorio" *ngFor="let repo of repositoriosData | paginate: { itemsPerPage: contador, currentPage: pagina }">
-                    <a href="" class="starLink"><div class="estrela">
+                    <div class="estrela">
                         <p><i class="fa-regular fa-star"></i></p>
-                        <p>Star</p>
-                    </div></a>
+                        <p> Star</p>
+                    </div>
                     <div class="repositorioNome">
                         <img [src]="repo.avatar_url" alt="">
                         <h3><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h3>
