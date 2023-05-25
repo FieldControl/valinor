@@ -111,3 +111,58 @@ body {
 .repositoriosInfo span{
     margin: 0 10px;
 }
+
+.resultadoNumero{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.resultadoFiltro {
+    display: flex;
+    justify-content: end;
+    text-align: end;
+    font-size: 0.8em;
+    margin-bottom: 0;
+}
+
+.resultadoFiltro p{
+    display: block;
+    background-color: rgb(33, 38, 45);
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.resultadoFiltro p i{
+   padding-right: 5px;
+}
+
+.resultadoFiltro p:not(:last-child){
+    margin-right: 10px;
+}
+
+.resultadoFiltro p font{
+    font-size: 2em;
+    color: #fff;
+    font-weight: 600;
+}
+
+.resultadoNumero p font{
+    color: #fff;
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+.p0 {
+    padding: 0;
+}
+
+.pt20 {
+    padding-top: 20px;
+}
+
+.paginacao {
+    color: #fff;
+}
