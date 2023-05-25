@@ -1,0 +1,37 @@
+<div class="container full">
+    <div class="row">
+        <div class="col-md-2">
+            <app-filtros></app-filtros>
+        </div>
+        <div class="col-md-7">
+            <div class="repositorio">
+                <div *ngIf="resultados">
+                        <div class="repositorio" *ngFor="let repositorio of resultados| paginate: { itemsPerPage: contador, currentPage: pagina }">
+                        <div class="repositorioNome">
+                            <img [src]="repositorio.avatar_url" alt="">
+                            <h3><a href="{{ repositorio.html_url }}" target="_blank">{{ repositorio.name }}</a></h3>
+                        </div>
+                        <p class="descricao">{{ repositorio.description }}</p>
+                        <div class="topicos">
+                            <ul class="topic">
+                                <li *ngFor="let topic of repositorio.topics">{{ topic }}</li>
+                            </ul>
+                        </div>
+                        <div class="repositoriosInfo">
+                            <p><i class="fa-solid fa-circle"></i>{{ repositorio.language }}</p>
+                            <span>&#8226;</span>
+                            <p>{{ repositorio.created_at | date:'dd MMMM yyyy' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <app-topicos></app-topicos>
+        </div>
+    </div>
+</div>
+
+<div class="text-center paginacao">
+    <pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+</div>

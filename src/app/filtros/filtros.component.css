@@ -1,0 +1,88 @@
+.filtro {
+    overflow-y: hidden;
+    overflow-y:scroll;
+    min-width: 180px;
+}
+
+.filtro ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.filtro ul li{
+    list-style: none;
+}
+
+.filtro ul li a{
+    text-decoration: none;
+    color: #9ca2a8;
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.filtro ul li a i{
+    margin-right: 10px;
+}
+
+.filtro h3 {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.filtro h4 {
+    font-size: 0.9em;
+    color: rgb(121, 127, 134);
+    margin-bottom: 10px;
+}
+
+.filtro .filtroClasses,
+.filtro .filtroLinguagem, 
+.filtro .filtroAvançado{
+    border-bottom: 1px solid rgba(157,157,157,0.25);
+    width: 100%;
+    margin-bottom: 30px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.filtro .filtroClasses .filtroItem,
+.filtro .filtroClasses .filtroItems {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.filtro .filtroClasses .filtroItem li:last-child{
+    display: block;
+    background-color: rgba(110, 118, 129, 0.4);
+    color: rgb(201, 209, 217);
+    padding: 1px 8px;
+    border-radius: 20px;
+}
+
+.filtro .filtroClasses .filtroItem:hover,
+.filtro .filtroClasses .filtroItems:hover,
+.filtro .filtroLinguagem ul li:hover,
+.filtro .filtroAvançado ul li:hover{
+    background-color: rgba(110, 118, 129, 0.4);
+    border-radius: 5px;
+}
+
+.filtro p a{
+    text-decoration: none;
+    color: rgb(88, 166, 255);
+}
+
+.filtro p a i {
+    margin-right: 10px;
+}
+
+
+@media all and (max-width: 1137px) {
+    .filtro {
+        display: none;
+    }
+}

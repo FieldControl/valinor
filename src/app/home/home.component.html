@@ -1,0 +1,55 @@
+<div class="container full pt20">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+            <div class="resultadoNumero">
+                <p>{{numeroDeRepositorios}} results <font>(30ms)</font></p>
+                <div class="resultadoFiltro">
+                    <p>Sort by: <font>Best match <i class="fa fa-caret-down"></i></font></p>
+                    <p><i class="fa fa-caret-down"></i>Save</p>
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container full">
+    <div class="row">
+        <div class="col-lg-2 col-md-2">
+            <app-filtros></app-filtros>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+            <div class="repositorios container-child" style="order: 2;">
+                <div class="repositorio" *ngFor="let repo of repositoriosData | paginate: { itemsPerPage: contador, currentPage: pagina }">
+                    <a href="" class="starLink"><div class="estrela">
+                        <p><i class="fa-regular fa-star"></i></p>
+                        <p>Star</p>
+                    </div></a>
+                    <div class="repositorioNome">
+                        <img [src]="repo.avatar_url" alt="">
+                        <h3><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h3>
+                    </div>
+                    <p class="descricao">{{ repo.description }}</p>
+                    <div class="topicos">
+                        <ul class="topic">
+                            <li *ngFor="let topic of repo.topics">{{ topic }}</li>
+                        </ul>
+                    </div>
+                    <div class="repositoriosInfo">
+                        <p><i class="fa-solid fa-circle"></i>{{ repo.language }}</p>
+                        <span>&#8226;</span>
+                        <p>{{ repo.created_at | date:'dd MMMM yyyy' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <app-topicos></app-topicos>
+        </div>
+    </div>
+</div>
+
+<div class="text-center paginacao">
+    <pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+</div>

@@ -1,0 +1,113 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+    background-color: #0d1117;
+}
+
+.full { max-width: 100%; width: 100%; }
+
+.js { color: rgb(241, 224, 90)}
+.ts {color: rgb(49, 120, 198);}
+.html { color: rgb(227, 76, 38);}
+.css{ color: rgb(86, 61, 124); }
+.cmais{ color: rgb(243, 75, 125); }
+.ejs {color: rgb(169, 30, 80); }
+.python { color: rgb(53, 114, 165); }
+.shell {color: rgb(137, 224, 81) }
+.docker { color: rgb(56, 77, 84); }
+.java {color: rgb(176, 114, 25);}
+
+.repositorio,
+.secaoTopico,
+.secaoPatrocinador,
+.secaoFeedback{  
+    border: 1px solid rgba(157,157,157,0.25);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 100%;
+    min-width:100%;
+}
+
+.repositorio {
+    position: relative;
+}
+
+.repositorios a {
+    text-decoration: none;
+}
+
+.estrela{
+    text-decoration: none;
+    display: flex;
+    color: #fff;
+    background-color: rgb(33, 38, 45);
+    position: absolute;
+    right: 15px;
+    padding: 4px 7px;
+    z-index: -3;
+    border: 1px solid rgba(157,157,157,0.25);
+    border-radius: 8px;
+}
+
+.estrela p {
+    margin-bottom: 0;
+}
+.repositorioNome {
+    display: flex;
+    text-decoration: none;
+}
+
+.repositorioNome h3{
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+.repositorioNome h3 a{
+    text-decoration: none;
+    color: rgb(88, 166, 255);
+}
+
+.repositorio .descricao {
+    font-size: 0.9em;
+    color: #fff;
+    width: 90%;
+}
+
+.repositorio .topicos ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.repositorio .topicos ul li{
+    cursor: pointer;
+    background-color: #002f53;
+    margin: 5px 5px 10px 0;
+    padding: 2px 10px;
+    border-radius:30px;
+    color: rgb(88, 166, 255);
+    font-size: 0.8em;
+}
+
+.repositorio .topicos ul li:hover{
+    background-color: rgb(28, 145, 255);
+    color: #fff;
+}
+
+.repositoriosInfo {  
+    display: flex;
+    font-size: 0.8em;
+    color: #7B949E;
+}
+
+.repositoriosInfo .fa-circle{
+    margin-right: 10px;
+}
+
+.repositoriosInfo span{
+    margin: 0 10px;
+}

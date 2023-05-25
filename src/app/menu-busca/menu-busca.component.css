@@ -1,0 +1,66 @@
+.menuBusca {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    padding: 20px 25px;
+    background-color: #161b22;
+    margin: 0;
+    position: relative;
+}
+
+.menuBusca input {
+    width: 90%;
+    height: 40px;
+    border: 1px solid #2c3e50;
+    background-color: #161b22;
+    color: #fff;
+    padding-left: 35px;
+}
+.menuBusca input::placeholder{
+    color: #fff;
+}
+
+
+.menuBusca .fa-magnifying-glass {
+    position:absolute;
+    top:30px; left:85px;
+    font-size: 1.5em;
+    z-index:10;
+    border:none;
+    background:transparent;
+    outline:none;
+    color: #fff;
+}
+
+.menuPerfil {
+    display: flex;
+    margin: 0 20px 0 10px;
+}
+
+.menuBusca .menuPerfil img {
+    width: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0;
+}
+ 
+.fa-github{
+    color: #fff;
+    font-size: 2.5em;
+    padding-right: 15px;
+}
+.fa-bell {
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 10px 0;
+}
+.fa-plus,
+.menuPerfil .fa-caret-down {
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 3px 0;
+}
+
+.menuIcones {
+    display: flex;
+}

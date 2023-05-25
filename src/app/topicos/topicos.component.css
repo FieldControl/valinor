@@ -1,0 +1,97 @@
+.secaoTopico,
+.secaoPatrocinador {
+    padding: 15px;
+}
+
+.secaoTopico p{
+    display: block;
+    padding: 5px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+
+.secaoTopico p:hover{
+    background-color: rgba(133, 133, 133,0.5);
+}
+
+.secaoTopico h4,
+.secaoTopico p {
+    font-size: 0.8em;
+    color: rgb(139, 148, 158);
+}
+
+.secaoTopico p a {
+    text-decoration: none;
+    color: rgb(88, 166, 255);
+}
+.secaoTopico .topico a{
+    color: rgb(139, 148, 158);
+}
+
+.secaoTopico:last-child{
+    text-decoration: none;
+    color: rgb(87, 100, 114);
+}
+
+.secaoTopico .topicoNome{ 
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.secaoTopico .topicoNome h3{ 
+    color: rgb(201, 209, 217);
+    font-size: 1.1em !important;
+    padding: 0 10px;
+}
+
+.secaoPatrocinador img {
+    margin-bottom: 10px;
+}
+
+.secaoPatrocinador h4{
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.secaoPatrocinador p{
+    color: rgb(201, 209, 217);
+    font-size: 0.9em;
+}
+.secaoPatrocinador p a{
+    color: rgb(88, 166, 255);
+    font-size: 0.9em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.secaoFeedback {
+    padding: 5px 15px;
+}
+.secaoFeedback p{
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 0.9em;
+}
+.secaoFeedback p a{
+    color: rgb(88, 166, 255);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.secaoDica {
+    font-size: 0.8em;
+    color: rgb(139, 148, 158);
+}
+
+.secaoDica p font {
+    color: rgb(210, 153, 34);
+}
+
+
+@media all and (min-width: 992px) {
+    .secaoTopico{
+        order: 1;
+    }
+}
