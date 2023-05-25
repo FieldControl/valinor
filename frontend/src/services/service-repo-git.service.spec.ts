@@ -59,7 +59,7 @@ describe('GitRepoService', () => {
 
     apolloSpy.watchQuery.and.returnValue(queryRef);
 
-    const result$ = service.searchRepositories(query, first, after);
+    const result$ = service.searchRepositories(query, first, 1);
 
     expect(apolloSpy.watchQuery).toHaveBeenCalledWith({
       query: SEARCH_REPOSITORIES_QUERY,
@@ -107,7 +107,7 @@ describe('GitRepoService', () => {
 
     apolloSpy.watchQuery.and.returnValue(queryRef);
 
-    const result$ = service.searchRepositories(query, first, after);
+    const result$ = service.searchRepositories(query, first, 1);
 
     result$.subscribe((result: any[]) => {
       expect(result.length).toBe(2);
