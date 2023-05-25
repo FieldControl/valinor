@@ -19,7 +19,11 @@
         font-family: sans-serif
 
 .list-repos
-    width: 50%
+    width: 96%
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    gap: 22px
 
     li
         list-style: none
@@ -31,7 +35,7 @@
         border-width: 1px
         border-style: solid
         padding: 16px
-        width: 100%
+        width: 48%
         max-width: 100%
 
     h6
@@ -44,9 +48,14 @@
         font-style: normal
         font-weight: 600
         font-size: 14px
+        color: #fff
 
 .pointer
     cursor: pointer
     text-decoration: none
     color: #3381f3
     font-size: 14px
+
+.pagination
+    li
+        cursor: pointer

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { SEARCH_REPOSITORIES_QUERY } from '../query/graphql-query';
+import { HttpClient } from '@angular/common/http';
 
 interface Repository {
   name: string;
@@ -36,22 +35,20 @@ interface SearchResponse {
   providedIn: 'root',
 })
 export class GitRepoService {
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private http: HttpClient) {}
 
   searchRepositories(
-    query: string,
-    first: number,
-    after?: string
-  ): Observable<any> {
-    return this.apollo
-      .watchQuery({
-        query: SEARCH_REPOSITORIES_QUERY,
-        variables: { query, first, after },
-      })
-      .valueChanges.pipe(
-        map((result: any) =>
-          result.data.search.edges.map((edge: any) => edge.node)
-        )
-      );
+    repo: string,
+    page: number,
+    perPage: number
+  ): Observable<Object> {
+    const params = {
+      q: repo,
+      page: page,
+      per_page: perPage,
+    };
+    return this.http.get('https://api.github.com/search/repositories', {
+      params,
+    });
   }
 }
