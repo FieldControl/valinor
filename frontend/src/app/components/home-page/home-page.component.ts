@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { GitRepoService } from 'src/services/service-repo-git.service';
 import { of } from 'rxjs';
 
@@ -13,6 +12,7 @@ export class HomePageComponent {
   query: string = '';
   repositories$: Observable<any>;
   pageInfo: any;
+  page: number = 1;
 
   constructor(private githubRepoService: GitRepoService) {}
 
@@ -22,22 +22,29 @@ export class HomePageComponent {
     }
 
     this.githubRepoService
-      .searchRepositories(this.query, 10)
-      .subscribe((repositories) => {
-        this.repositories$ = of(repositories);
+      .searchRepositories(this.query, this.page, 5)
+      .subscribe((repositories: any) => {
+        this.repositories$ = of(repositories.items);
       });
   }
 
   loadMoreRepositories() {
     this.githubRepoService
-      .searchRepositories(this.query, 10, this.pageInfo.endCursor)
-      .subscribe((response) => {
-        this.repositories$ = this.repositories$.pipe(
-          tap((repositories: any) => {
-            repositories.edges = [...repositories.edges, ...response.edges];
-            this.pageInfo = response.pageInfo;
-          })
-        );
+      .searchRepositories(this.query, this.page, 5)
+      .subscribe((response: any) => {
+        this.repositories$ = of(response.items);
       });
+  }
+
+  previousPage() {
+    if (this.page > 1) {
+      this.page--;
+      this.loadMoreRepositories();
+    }
+  }
+
+  nextPage() {
+    this.page++;
+    this.loadMoreRepositories();
   }
 }
