@@ -6,16 +6,21 @@
 <section>
     <ul class="list-repos">
         <li *ngFor="let repository of repositories$ | async">
-            <h6>{{ repository.node.name }}</h6>
-            <p>{{ repository.node.description }}</p>
-            <p>Watchers: {{ repository.node.watchers.totalCount }}</p>
-            <p>Estrelas: {{ repository.node.stargazers.totalCount }}</p>
-            <p>Issues: {{ repository.node.issues.totalCount }}</p>
-            <a class="pointer" [href]="repository.node.url" target="_blank">Ver detalhes</a>
+            <h6><i class="fas fa-signature"></i>{{ repository.full_name }}</h6>
+            <p>{{ repository.description }}</p>
+            <p><i class="fas fa-swatchbook"></i> Watchers: {{ repository.watchers_count }}</p>
+            <p><i class="fas fa-star"></i> Estrelas: {{ repository.stargazers_count }}</p>
+            <p><i class="fas fa-box-tissue"></i> Issues: {{ repository.open_issues }}</p>
+            <a class="pointer" [href]="repository.svn_url" target="_blank">Ver detalhes</a>
         </li>
     </ul>
 
-    <button class="btn btn-primary" *ngIf="pageInfo?.hasNextPage" (click)="loadMoreRepositories()">
-        Carregar mais
-    </button>
+    <nav aria-label="Page navigation example" *ngIf="repositories$ | async">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" (click)="previousPage()"><a class="page-link">Voltar</a></li>
+            <li class="page-item"><a class="page-link">{{ page }}</a></li>
+            <li class="page-item" (click)="nextPage()"><a class="page-link">Próximo</a></li>
+        </ul>
+    </nav>
+
 </section>
