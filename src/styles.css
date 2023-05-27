@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Definir o estilo global */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color:  #2a3036;
+}
+
+header{
+    padding: 15px;
+}
+
+h1 {
+    font-size: 85px;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  
+.search-bar input {
+    width: 500px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .search-bar input:focus{
+    transform: scale(1.03);
+    transition: 0.2s ease-in-out;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    
+  }
+.search-bar button {
+    margin-left: 8px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #0366d6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover{
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.repositorio {  
+  margin: 0px 50px;
+  padding:25px 0px;
+  border: #fff solid 2px;
+}
+
+a{
+  color: blue;
+  font-size: 2em;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover{
+  text-decoration: underline; 
+}
+
+.repositorio-info{
+  background-color: #24292e;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 10px 4px 10px;
+  margin: auto;
+  margin-bottom: 15px;
+  width: 80%;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.paginacao button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0366d6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.paginacao button:hover{
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.paginacao button:first-child,
+.paginacao button:last-child {
+  margin: 0;
+}
+
+.paginacao button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+span{
+  margin: 10px;
+}
+footer{
+  height: 100px;
+}
