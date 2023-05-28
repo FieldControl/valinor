@@ -6,8 +6,8 @@
         <button (click)="searchRepositories()">Pesquisar</button>
         <p *ngIf="isError">Por favor, digite um repositório</p>
     </div>
-
 </header>
+
 <main class="lista-repositorio">
     <div *ngIf="isSearched; else welcomeMessage">
         <div *ngIf="repositories.length; else notFound">
@@ -28,13 +28,15 @@
             </div>
         </div>
 
-        <ng-template class="mensagens" #notFound>
-            Repositórios não encontrados.
-        </ng-template>
-    </div>
+        
+            <ng-template #notFound>
+                <p class="mensagens">Repositórios não encontrados.</p> 
+            </ng-template>
+        </div>
 
-    <ng-template class="mensagens" #welcomeMessage>
-        <p>Olá Seja Bem-Vindo, para começar digite algo</p>
-    </ng-template>
+        <ng-template #welcomeMessage>
+            <p class="mensagens">Olá Seja Bem-Vindo, para começar digite algo</p>
+        </ng-template>
+   
 </main>
 <footer></footer>

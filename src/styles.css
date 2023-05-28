@@ -23,6 +23,7 @@ h1 {
 .search-bar {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 16px;
     justify-content: center;
     padding-bottom: 20px;
@@ -59,7 +60,8 @@ h1 {
 }
 
 .search-bar p{
-  display: block;
+  flex-basis: 100%;
+  text-align: center;
 }
 
 .repositorio {  
