@@ -6,34 +6,34 @@
         <button (click)="searchRepositories()">Pesquisar</button>
         <p *ngIf="isError">Por favor, digite um repositório</p>
     </div>
-    
+
 </header>
 <main class="lista-repositorio">
     <div *ngIf="isSearched; else welcomeMessage">
-    <div *ngIf="repositories.length; else notFound">
-        <ul class="repositorio">
-            <li class="repositorio-info" *ngFor="let repository of repositories">
-                <a [href]="repository.html_url">{{ repository.name }}</a>
-                <p>{{ repository.description }}</p>
-                <p>Watchers: {{ repository.watchers_count }}</p>
-                <p>Stars: {{ repository.stargazers_count }}</p>
-                <p>Issues: {{ repository.open_issues_count }}</p>
-            </li>
-        </ul>
+        <div *ngIf="repositories.length; else notFound">
+            <ul class="repositorio">
+                <li class="repositorio-info" *ngFor="let repository of repositories">
+                    <a [href]="repository.html_url">{{ repository.name }}</a>
+                    <p>{{ repository.description }}</p>
+                    <p>Watchers: {{ repository.watchers_count }}</p>
+                    <p>Stars: {{ repository.stargazers_count }}</p>
+                    <p>Issues: {{ repository.open_issues_count }}</p>
+                </li>
+            </ul>
 
-        <div class="paginacao">
-            <button [disabled]="isFirstPage()" (click)="goToPreviousPage()">Voltar</button>
-            <span>Página {{ currentPage }} de {{ totalPages }}</span>
-            <button [disabled]="isLastPage()" (click)="goToNextPage()">Próxima</button>
+            <div class="paginacao">
+                <button [disabled]="isFirstPage()" (click)="goToPreviousPage()">Voltar</button>
+                <span>Página {{ currentPage }} de {{ totalPages }}</span>
+                <button [disabled]="isLastPage()" (click)="goToNextPage()">Próxima</button>
+            </div>
         </div>
-    </div>
 
-        <ng-template #notFound>
+        <ng-template class="mensagens" #notFound>
             Repositórios não encontrados.
         </ng-template>
     </div>
-    
-    <ng-template #welcomeMessage>
+
+    <ng-template class="mensagens" #welcomeMessage>
         <p>Olá Seja Bem-Vindo, para começar digite algo</p>
     </ng-template>
 </main>
