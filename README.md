@@ -24,6 +24,13 @@ A escolha da tecnologia para este projeto foi baseada em uma combinação de fat
 - Suporte da comunidade: O Angular tem uma comunidade ativa e engajada, o que significa que há muitos recursos, tutoriais e fóruns disponíveis para ajudar a resolver problemas e obter suporte.
 - Sugestão da empresa: A empresa sugeriu o uso do Angular.
 
+## Instalação Para Uso
+
+-Tenha o Node.js já instalado na sua máquina.
+-Crie um clone desse repositório.
+-No terminal, execute o comando npm install (npm i) para que sejam instaladas as dependências necessárias.
+-Utilize no terminal o comando ng serve para iniciar o servidor.
+-Após a utilização do ng serve, será fornecido o endereço http://localhost:4200/. Acesse-o para ter a aplicação no seu navegador padrão.
 
 ## Princípios da Engenharia de Software Utilizados
 
@@ -46,7 +53,7 @@ Com base no desenvolvimento deste aplicativo, eu faria a melhoria de:
 
 - Adicionar mais recursos, como filtragem avançada, exibição de informações do perfil do usuário e exibição de detalhes adicionais de um repositório.
 
-**Sobre Mim**
+## Sobre Mim
 
 Olá! Meu nome é Gustavo Ferreira da Silva e estou muito animado com à vaga de estágio em Desenvolvimento na Field Control.
 
@@ -61,3 +68,9 @@ Além disso, tenho um perfil proativo e gosto de colaborar com a equipe, apresen
 Estou realmente entusiasmado em fazer parte da equipe de desenvolvimento da Field e contribuir para o sucesso da empresa. Sou uma pessoa comprometida, com facilidade de aprendizado e sempre em busca de novos desafios. Tenho certeza de que posso trazer minhas habilidades e experiência para ajudar a equipe a atingir seus objetivos.
 
 Agradeço antecipadamente pela consideração da minha candidatura. Ficarei muito grato se puder agendar uma entrevista para discutirmos mais sobre minha experiência e habilidades.
+
+## Informações Para Contato
+
+-Telefone/Whatsapp: (17) 98187-2004
+-E-mail: gustavoferrs09@gmail.com
+-LinkedIn: https://www.linkedin.com/in/gustavoferrs/
