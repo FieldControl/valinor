@@ -20,7 +20,7 @@ Este é um aplicativo de página única (SPA) desenvolvido com o framework Angul
 
 A escolha da tecnologia para este projeto foi baseada em uma combinação de fatores, incluindo a solicitação da empresa e minha familiaridade com a tecnologia. Optei por utilizar o Angular como framework de desenvolvimento devido aos seguintes motivos:
 
-- Experiência prévia: Eu já tinha algum conhecimento e experiência com o Angular, o que me permitiu começar o projeto com uma base sólida.
+- Experiência prévia: Eu já tinha algum conhecimento com o Java, foi mais tranquilo de entender o funcionamento do Angular, já que os dois semelhanças como: Classes, Construtores e Tipagem.
 - Suporte da comunidade: O Angular tem uma comunidade ativa e engajada, o que significa que há muitos recursos, tutoriais e fóruns disponíveis para ajudar a resolver problemas e obter suporte.
 - Sugestão da empresa: A empresa sugeriu o uso do Angular.
 
@@ -36,7 +36,6 @@ A escolha da tecnologia para este projeto foi baseada em uma combinação de fat
 
 Durante o desenvolvimento deste aplicativo, foram aplicados os seguintes princípios da engenharia de software:
 
-- Modularidade: O aplicativo foi dividido em componentes reutilizáveis e independentes para facilitar a manutenção e o desenvolvimento futuro.
 - Separation of Concerns: A lógica de negócios, a apresentação e as requisições HTTP foram separadas em diferentes camadas do aplicativo, seguindo o padrão MVC (Model-View-Controller).
 
 ## Desafios e Problemas Enfrentados
@@ -52,6 +51,7 @@ Durante o desenvolvimento deste aplicativo, alguns desafios e problemas foram en
 Com base no desenvolvimento deste aplicativo, eu faria a melhoria de:
 
 - Adicionar mais recursos, como filtragem avançada, exibição de informações do perfil do usuário e exibição de detalhes adicionais de um repositório.
+- Implementação dos testes unitário e de integração.
 
 ## Sobre Mim
 
