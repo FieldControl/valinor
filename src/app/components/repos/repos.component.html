@@ -1,0 +1,24 @@
+<div class="container-fluid bg-light">
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label>SEARCH BY:</label>
+                <input type="text" name="search" [(ngModel)]='repoName' (keyup)="findRepo()">
+            </div>
+        </form>
+
+        <div *ngIf="repoitems" >
+            <div class="card" *ngFor='let item of repoitems'>
+                <div class="card-body" appHighlight>
+                    <a href="{{item.html_url}}" target="_blank"><strong>{{item.name}}</strong></a>
+                    <p><strong>Created:</strong> {{item.created_at|dateAgo}}</p>
+                    <p><strong>Created by:</strong> {{item.owner.login}}</p>
+                    <p><strong>Language used:</strong> {{item.language}}</p>
+                    <p>{{item.description}}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,51 @@
+.btn{
+    margin: 2%;
+}
+
+
+h3 {
+    color: blue;
+}
+
+form {
+    padding: 2%;
+}
+
+img{
+  object-fit: contain;
+}
+
+.user{
+ font-family: Carlito;
+  font-size: 40px;
+}
+
+label{
+  color: #ffffff;
+}
+
+.card{
+  background-color: #4a1564;
+}
+
+h3{
+  color: #ffffff;
+}
+
+p{
+  color: #ffffff;
+}
+
+.card-header{
+  color: #ffffff;
+}
+
+.deck{
+  background-color: red;
+}
+
+input{
+  border-radius: 2rem;
+  margin-left:1%;
+  border: 5px solid #ffffff;
+}
