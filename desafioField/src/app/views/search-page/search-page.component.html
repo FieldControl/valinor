@@ -1,1 +1,10 @@
-<p>search-page works!</p>
+<div>
+    <input [(ngModel)]="search" placeholder="Digite o nome do projeto">
+    <button (click)="searchProject()">Pesquisar</button>
+  </div>
+  <li *ngFor="let project of projects">
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.description }}</p>
+  </li>
+  
+

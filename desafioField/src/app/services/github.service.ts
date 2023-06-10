@@ -8,19 +8,17 @@ import { Observable } from 'rxjs';
 
 export class GithubService {
     constructor(private httpClient: HttpClient) { }
-    
-    // Sets the github api url
-    private githubApi = 'https://api.github.com';
 
     // Method search repositories
     searchProjects(projectQuery:string): Observable<any> {
-        const url = "${this.githubApi}/search/repositories?q=${projectQuery}";
+        const url = "https://api.github.com/search/repositories?q="+projectQuery;
         return this.httpClient.get<any>(url)
+        console.log(url);
     }
 
     // Method search issues
     searchIssues(issueQuery:string): Observable<any> {
-        const url = "${this.githubApi}/search/issues?q=repo:${this.issueQuery}";
+        const url = "https://api.github.com/search/issues?q=repo:"+issueQuery;
         return this.httpClient.get<any>(url)
     }
 
