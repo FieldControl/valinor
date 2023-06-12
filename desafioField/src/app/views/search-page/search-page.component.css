@@ -1,0 +1,151 @@
+/* Presentation */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+.title h1 {
+    font-size: 70px;
+    color: #0054FF;
+    font-weight: bolder;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Search bar */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+  
+.search input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    width: 50vw;
+}
+
+/* Search Button */
+.search button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0054FF;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+  
+.search button:hover {
+    background-color: #135AC0;
+}
+  
+.search button:active {
+    background-color: #3e8e41;
+}
+
+
+/* Projects cards */
+.projects-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.project-card {
+    display: flex;
+    flex-direction: row;
+    width: 55vw;
+    margin: 15px 0;
+    border: 0.5px solid #484848;
+    border-radius: 12px;
+}
+.card-text h3 {
+    color: #0054FF;
+}
+.card-text a {
+    text-decoration: none;
+}
+.card-text a:hover {
+    text-decoration: underline;
+}
+.card-info {
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-icons {
+    display: flex;
+    flex-direction: row;
+}
+.card-language {
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-stars {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+.card-stars p {
+    padding-left: 2px;
+}
+.card-forks {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+.card-forks p {
+    padding-left: 2px;
+}
+.card-views {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+.card-views p {
+    padding-left: 2px;
+}
+
+
+/* Project Image */
+.project-image {
+    width: 150px; 
+    height: 150px; 
+    padding: 10px;
+    padding-left: 15px;
+}
+  
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
+
+
+/* Issues */
+.issue-itens {
+    display: flex;
+}
+.issue-icon {
+    padding-right: 5px;
+    padding-top: 3px;
+}
+.modal-itens {
+    padding: 15px 0;
+}
+.issue-text a {
+    color: #0054FF;
+    text-decoration: none;
+}
+.issue-text a:hover {
+    text-decoration: underline;
+}

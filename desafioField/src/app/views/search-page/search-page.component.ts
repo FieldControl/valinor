@@ -6,19 +6,20 @@ import { GithubService } from '../../services/github.service'
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.css']
-  
+
 })
 
 export class SearchPageComponent {
-  
+
   // Variables >:O
-  projects : any[] = [];
+  projects: any[] = [];
+  issues: any[] = [];
   search: string = '';
 
   // Constructor
-  constructor(private githubService : GithubService) {}
+  constructor(private githubService: GithubService) { }
 
-  // Get the query and put all the stuff inside the projects array
+  // Take the input, get the json from api and store in a var
   searchProject(): void {
     this.githubService.searchProjects(this.search).subscribe(
       (data) => {
@@ -27,7 +28,19 @@ export class SearchPageComponent {
       (error) => {
         console.log(error);
       }
-      );
+    );
+  }
+
+  // Get the issues by the project name, get the json from api and puts in a var
+  searchIssues(issue: any): void {
+    this.githubService.searchIssues(issue).subscribe(
+      (data) => {
+        this.issues = data.items;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }

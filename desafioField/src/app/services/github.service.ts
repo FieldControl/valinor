@@ -13,7 +13,6 @@ export class GithubService {
     searchProjects(projectQuery:string): Observable<any> {
         const url = "https://api.github.com/search/repositories?q="+projectQuery;
         return this.httpClient.get<any>(url)
-        console.log(url);
     }
 
     // Method search issues
