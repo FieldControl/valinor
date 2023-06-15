@@ -18,8 +18,7 @@
     align-items: center;
     justify-content: center;
     margin: 20px 0;
-}
-  
+} 
 .search input {
     padding: 10px;
     font-size: 16px;
@@ -38,14 +37,12 @@
     border-radius: 12px;
     margin-left: 10px;
     cursor: pointer;
-}
-  
+} 
 .search button:hover {
     background-color: #135AC0;
-}
-  
+} 
 .search button:active {
-    background-color: #3e8e41;
+    background-color: #2600ff;
 }
 
 
@@ -60,7 +57,7 @@
     flex-direction: row;
     width: 55vw;
     margin: 15px 0;
-    border: 0.5px solid #484848;
+    /* border: 0.5px solid #0054FF; */ 
     border-radius: 12px;
 }
 .card-text h3 {
@@ -88,40 +85,27 @@
     justify-content: center;
     align-items: center;
 }
-.card-stars {
+.card-item {
     display: flex;
     align-items: center;
-    padding-right: 10px;
+    padding-right: 15px;
 }
-.card-stars p {
-    padding-left: 2px;
+.card-item p {
+    padding-left: 3px;
 }
-.card-forks {
-    display: flex;
-    align-items: center;
-    padding-right: 10px;
-}
-.card-forks p {
-    padding-left: 2px;
-}
-.card-views {
-    display: flex;
-    align-items: center;
-    padding-right: 10px;
-}
-.card-views p {
-    padding-left: 2px;
+.issues-item {
+    color: #0054FF;
+    text-decoration: underline;
 }
 
 
 /* Project Image */
 .project-image {
-    width: 150px; 
+    min-width: 150px; 
     height: 150px; 
     padding: 10px;
     padding-left: 15px;
-}
-  
+} 
 .project-image img {
     width: 100%;
     height: 100%;
@@ -140,7 +124,7 @@
     padding-top: 3px;
 }
 .modal-itens {
-    padding: 15px 0;
+    padding:0;
 }
 .issue-text a {
     color: #0054FF;
@@ -149,3 +133,12 @@
 .issue-text a:hover {
     text-decoration: underline;
 }
+
+
+
+/* para ficar responssivel no mobile = vulgo não ficar inutilizavel  */
+@media only screen and (max-width: 600px) {
+    .project-card { 
+        width: 80vw;
+    }
+  }

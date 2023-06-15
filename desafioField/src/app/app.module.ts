@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SearchPageComponent } from './views/search-page/search-page.component';
 import { GithubService } from './services/github.service'
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
   ],
   providers: [GithubService],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { GithubService } from '../../services/github.service'
 
 
@@ -11,19 +11,32 @@ import { GithubService } from '../../services/github.service'
 
 export class SearchPageComponent {
 
+
+  issuesPage = 1;
+  totalIssues = 0;
+  currentIssue= '';
+
   // Variables >:O
   projects: any[] = [];
   issues: any[] = [];
   search: string = '';
 
+  // Pagination
+  currentPage : number =1;
+  pageCount : number = 0;
+
   // Constructor
   constructor(private githubService: GithubService) { }
 
-  // Take the input, get the json from api and store in a var
-  searchProject(): void {
-    this.githubService.searchProjects(this.search).subscribe(
+  // Take the input of user and gets the resuts of teh api
+  searchProject(newQuery: boolean): void {
+    if (newQuery) {
+      this.currentPage=  1;
+    } 
+    this.githubService.searchProjects(this.search,this.currentPage).subscribe(
       (data) => {
         this.projects = data.items;
+        this.pageCount = data.total_count;
       },
       (error) => {
         console.log(error);
@@ -31,11 +44,13 @@ export class SearchPageComponent {
     );
   }
 
-  // Get the issues by the project name, get the json from api and puts in a var
-  searchIssues(issue: any): void {
-    this.githubService.searchIssues(issue).subscribe(
+  // Get the issues of the project
+  searchIssue(issue: string): void {
+    this.githubService.searchIssues(issue,this.issuesPage).subscribe(
       (data) => {
         this.issues = data.items;
+        this.totalIssues = data.total_count;
+        this.currentIssue =issue;
       },
       (error) => {
         console.log(error);
@@ -43,4 +58,18 @@ export class SearchPageComponent {
     );
   }
 
+
+  // *** If you search up to 1000 results the API show the message: "Only the first 1000 search results are available" :C
+
+  // pagination event to render again wen the user change pages
+  renderProjects(event: number) {
+    this.currentPage = event;
+    this.searchProject(false) 
+  }
+  
+  // Pagination event that render again wen the user change the issues page
+  renderIssues(event: number) {
+    this.issuesPage = event;
+    this.searchIssue(this.currentIssue);
+  }
 }

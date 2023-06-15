@@ -1,87 +1,138 @@
 
 <div class="search-page">
+
   <!-- Presentation text -->
   <div class="title">
     <h1>Desafio Field</h1>
   </div>
+
   <!-- Search -->
   <div class="search">
-    <input [(ngModel)]="search" placeholder="Pesquise por um projeto">
-    <button (click)="searchProject()">Pesquisar</button>
+    <input [(ngModel)]="search" (keyup.enter)="searchProject(true)" placeholder="Pesquise por um projeto">
+    <button (click)="searchProject(true)">Pesquisar</button>
   </div>
+
   <!-- Projects -->
-  <div *ngFor="let project of projects" class="projects-cards">
+  <div *ngFor="let project of projects | paginate : {
+                                         itemsPerPage: 10,
+                                         currentPage: currentPage,
+                                         totalItems: pageCount,
+                                         id:'search' }"
+                                         class="projects-cards">
     <!-- Card -->
     <div class="project-card">
+
       <!-- card Img -->
       <div class="project-image">
         <img src="{{project.owner.avatar_url}}" alt="">
       </div>
+
       <!-- Card Info -->
       <div class="card-info">
+
         <!-- Card Text -->
         <div class="card-text">
-          <h3><a href="{{project.html_url}}">{{project.full_name}}</a></h3>
+          <h3><a href="{{project.html_url}}" target="_blank">{{project.full_name}}</a></h3>
           <p>{{project.description}}</p>
         </div>
+
         <!-- Card icons -->
         <div class="card-icons">
+          
+          <!-- Card itens -->
           <div class="card-language">
               <p>{{project.language}}</p>
           </div>
-          <div class="card-stars">
+          <div class="card-item">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z"/></svg>
             <p>{{project.stargazers_count}}</p>
           </div>
-          <div class="card-forks">
+          <div class="card-item">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 32.8-19.7 61-48 73.3V192c0 17.7 14.3 32 32 32H304c17.7 0 32-14.3 32-32V153.3C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3V192c0 53-43 96-96 96H256v70.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3V288H144c-53 0-96-43-96-96V153.3C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm208 24a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM248 432a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></svg>
             <p>{{project.forks_count}}</p>
           </div>
-          <div class="card-views">
+          <div class="card-item">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"/></svg>
             <p>{{project.watchers_count}}</p>
           </div>
+
           <!-- Button trigger modal -->
-          <button (click)="searchIssues(project.full_name)" type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#' + project.id">
-            Issues {{project.open_issues}}
-          </button>
+          <div class="card-item issues-item">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256-96a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+            <p (click)="searchIssue(project.full_name)" type="button"  data-bs-toggle="modal" [attr.data-bs-target]="'#' + project.id">Issues {{project.open_issues}}</p>
+          </div>
                       
           <!-- Modal Stuff -->
           <div class="modal fade" id="{{project.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="{{project.id}}">Issues</h1>
+                  <h1 class="modal-title fs-5" id="{{project.id}}">Open Issues</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
+                <!-- Modal body -->
                 <div class="modal-body">
-                  <!-- Modal body -->
-                  <div *ngFor="let issue of issues" class="modal-itens">
-                    <div class="issue-itens">
-                      <div class="issue-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256-96a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>  
-                      </div>
-                      <div class="issue-text">
-                          <a href="{{issue.url}}">
-                            <h3>{{issue.title}}</h3>
-                          </a>
-                        <p>#{{issue.number}}</p>
+                  <div *ngFor="let issue of issues | paginate: {
+                                                     itemsPerPage: 10,
+                                                     currentPage: issuesPage,
+                                                     totalItems: totalIssues,
+                                                     id: 'issues'}"
+                                                     class="modal-itens">
+                    <div *ngIf="issue.state == 'open'">
+                      <div class="issue-itens">
+                        <div class="issue-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256-96a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>  
+                        </div>
+                        <div class="issue-text">
+                            <a href="{{issue.html_url}}" target="_blank">
+                              <h3>{{issue.title}}</h3>
+                            </a>
+                          <p>#{{issue.number}}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <!--  -->
+                  <!-- Pagination Controls -->
+                  <div class="d-flex justify-content-center pagination-controller">
+                      <pagination-controls id='issues'
+                      (pageChange)="renderIssues($event)"
+                      previousLabel="Voltar"
+                      nextLabel="Próximo"
+                      ></pagination-controls>
+                  </div>
+                  <div class="d-flex justify-content-center pagination-controller">
+                    <p>
+                      Obs: A quantidade de páginas de "open issues" da API não coincide com as realmente abertas, então as últimas páginas não irão funcionar... Exemplo: 
+                      <a href="https://i.ibb.co/KGq5m7g/Screenshot-2023-06-15-085814.png" target="_blank">aqui</a>
+                    </p>                    
+                  </div>
                 </div>
+
+                <!-- Modal button -->
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div>     
       </div>
     </div>
   </div>
+
+  <!-- Pagination controls -->
+  <div class="d-flex justify-content-center">
+    <div *ngIf="projects.length > 0">
+      <pagination-controls id='search'
+      (pageChange)="renderProjects($event)"
+       previousLabel="Voltar"
+       nextLabel="Próximo"
+      ></pagination-controls>
+    </div>
+  </div>
+
 </div>
 
 
