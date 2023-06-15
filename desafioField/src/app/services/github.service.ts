@@ -24,14 +24,14 @@ export class GithubService {
         // .set('Authorization', `Bearer ${this.token}`)
         // .set('Accept', 'application/vnd.github.v3+json');
 
-        const url = this.api+"repositories?q="+projectQuery+"&per_page=10&page="+page;
+        const url = this.api+"repositories?q="+projectQuery+"&per_page=20&page="+page;
         return this.httpClient.get<any>(url   /*, { headers } */)
     }
 
     // Method search issues , it dont need auth becouse it not accep { headers }
     searchIssues(issueQuery:string, page:number): Observable<any> {
 
-        const url = this.api+"issues?q=repo:"+issueQuery+"&per_page=10&page="+page;
+        const url = this.api+"issues?q=repo:"+issueQuery+"&per_page=30&page="+page;
         return this.httpClient.get<any>(url)
     }
 

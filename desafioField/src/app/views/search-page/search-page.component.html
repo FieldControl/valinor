@@ -14,7 +14,7 @@
 
   <!-- Projects -->
   <div *ngFor="let project of projects | paginate : {
-                                         itemsPerPage: 10,
+                                         itemsPerPage: 20,
                                          currentPage: currentPage,
                                          totalItems: pageCount,
                                          id:'search' }"
@@ -74,7 +74,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                   <div *ngFor="let issue of issues | paginate: {
-                                                     itemsPerPage: 10,
+                                                     itemsPerPage: 30,
                                                      currentPage: issuesPage,
                                                      totalItems: totalIssues,
                                                      id: 'issues'}"
