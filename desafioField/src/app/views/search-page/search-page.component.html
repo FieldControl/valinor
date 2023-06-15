@@ -102,7 +102,7 @@
                       nextLabel="Próximo"
                       ></pagination-controls>
                   </div>
-                  <div class="d-flex justify-content-center pagination-controller">
+                  <div class="d-flex justify-content-center">
                     <p>
                       Obs: A quantidade de páginas de "open issues" da API não coincide com as realmente abertas, então as últimas páginas não irão funcionar... Exemplo: 
                       <a href="https://i.ibb.co/KGq5m7g/Screenshot-2023-06-15-085814.png" target="_blank">aqui</a>
@@ -123,7 +123,7 @@
   </div>
 
   <!-- Pagination controls -->
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center pagination-controller">
     <div *ngIf="projects.length > 0">
       <pagination-controls id='search'
       (pageChange)="renderProjects($event)"
