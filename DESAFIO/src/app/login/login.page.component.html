@@ -1,0 +1,32 @@
+<div class="login-content">
+  <app-card-simple size="login">
+    <div class="card-content">
+      <div class="login-container">
+        <div class="image-column">
+          <!-- Aqui você pode adicionar sua imagem -->
+          <img src="../../assets/imgs/login.png" alt="Imagem de Login">
+        </div>
+
+        <div class="form-column">
+          <h1>Login</h1>
+
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input [(ngModel)]="username" type="text" name="username"
+                placeholder="Enter your username"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input [(ngModel)]="password" type="password" name="password" placeholder="Enter your password"
+                (keyup.enter)="login()"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-button expand="full" (click)="login()">Login</ion-button>
+        </div>
+      </div>
+    </div>
+  </app-card-simple>
+</div>

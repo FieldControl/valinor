@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-item *ngIf="currentRoute !== '/'">
+        <app-navigate-button (click)="navigateToHome()" label="Home"></app-navigate-button>
+      </ion-item>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-item *ngIf="currentRoute !== '/'">
+        <app-navigate-button (click)="logout()" label="Logout"></app-navigate-button>
+      </ion-item>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,59 @@
+<div class="menu-container">
+  <div class="menu-content">
+
+    <div class="table-container" *ngIf="marvelOn">
+      <app-link-menu-button colorClass="marvel" label="Marvel"></app-link-menu-button>
+      <ion-searchbar placeholder="Pesquisar" animated class="custom-searchbar" [(ngModel)]="searchTerm"
+        (input)="filterRows()"></ion-searchbar>
+      <table>
+        <thead>
+          <tr>
+            <th>Personagem</th>
+            <th>Descrição</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of filteredRows | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+            <td>{{ row.Personagem }}</td>
+            <td>{{ row.Descricao }}</td>
+            <td>
+              <img class="thumbnail-img" [src]="row.Imagem" alt="Imagem do Personagem">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button [disabled]="currentPage === 1" (click)="previousPage()">Anterior</button>
+        <span>{{ currentPage }} de {{ totalPages }}</span>
+        <button [disabled]="currentPage === totalPages" (click)="nextPage()">Próximo</button>
+      </div>
+    </div>
+
+    <div class="table-container" *ngIf="starWarsOn">
+      <app-link-menu-button colorClass="starwarsMenu" label="Star Wars"></app-link-menu-button>
+      <ion-searchbar placeholder="Pesquisar" animated class="custom-searchbar" [(ngModel)]="searchTerm"
+        (input)="filterRows()"></ion-searchbar>
+      <table>
+        <thead>
+          <tr>
+            <th>Personagem</th>
+            <th>Descrição</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of filteredRows">
+            <td>{{ row.Personagem }}</td>
+            <td>{{ row.Descricao }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button (click)="previousPage()">Anterior</button>
+        <span>{{ currentPage }} de {{ totalPages }}</span>
+        <button (click)="nextPage()">Próximo</button>
+      </div>
+    </div>
+  </div>
+</div>

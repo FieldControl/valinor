@@ -1,0 +1,56 @@
+.login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-content.login {
+  padding: 20px;
+}
+
+.card-content {
+  background-color: #1B1B1B;
+  border-radius: 10px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 15%;
+    margin-left: 10%;
+    border-radius: 20px;
+  }
+}
+
+.form-column {
+  flex: 1;
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  ion-list {
+    ion-item {
+      margin-bottom: 10px;
+    }
+  }
+
+  ion-button {
+    margin-top: 20px;
+  }
+}

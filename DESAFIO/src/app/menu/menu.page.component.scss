@@ -1,0 +1,91 @@
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.menu-content {
+  width: 80%;
+}
+
+.table-container {
+  border: 1px solid #ccc;
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 80px;
+  max-height: calc(110vh - 250px);
+  /* Ajuste o valor conforme necessário */
+  overflow-y: scroll;
+}
+
+.custom-searchbar {
+  --background: #f2f2f2;
+  --color: black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  margin-top: 0px;
+  color: black;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #f2f2f2;
+  color: black;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  margin: 0 10px;
+}
+
+.thumbnail-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.custom-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  --background: #f2f2f2;
+  --color: black;
+  width: 200px;
+}

@@ -1,0 +1,38 @@
+.my-button-navigate {
+  background-color: transparent;
+  padding: 5px 10px;
+  border: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+}
+
+.my-button-navigate.primary {
+  color: rgb(0, 162, 255);
+}
+
+.my-button-navigate.yellow {
+  color: rgb(234, 226, 104);
+}
+
+.my-button-navigate.red {
+  color: rgb(255, 0, 0);
+}
+
+.my-button-navigate:hover,
+.my-button-navigate.primary:hover,
+.my-button-navigate.yellow:hover,
+.my-button-navigate.red:hover {
+  background-color: transparent;
+  zoom: 110%;
+}
+
+.my-button-navigate:active,
+.my-button-navigate.primary:active,
+.my-button-navigate.yellow:active,
+.my-button-navigate.red:active {
+  background-color: transparent;
+}

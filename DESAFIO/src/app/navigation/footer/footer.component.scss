@@ -1,0 +1,11 @@
+ion-footer {
+  ion-toolbar {
+    background-color: #1B1B1B; // Cor de fundo do footer
+    // Espaçamento interno do footer
+    text-align: center; // Alinhamento do conteúdo no centro
+
+    ion-button {
+      margin: 0 5px; // Espaçamento horizontal entre os botões no footer
+    }
+  }
+}

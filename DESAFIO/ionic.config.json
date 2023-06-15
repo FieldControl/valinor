@@ -1,0 +1,7 @@
+{
+  "name": "OAK-BARBERSHOP-FRONT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

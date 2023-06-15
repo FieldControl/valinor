@@ -1,0 +1,27 @@
+<div class="home-content">
+  <div class="card-column">
+    <app-card-simple>
+      <div class="card-content">
+        <div class="image-container">
+          <img src="../../assets/imgs/marvel.jpg" (click)="navigateToMarvel()" data-image-id="image1" class="responsive-image">
+          <div class="button-wrapper">
+            <app-link-menu-button colorClass="marvel"  label="Marvel"></app-link-menu-button>
+          </div>
+        </div>
+      </div>
+    </app-card-simple>
+  </div>
+
+  <div class="card-column">
+    <app-card-simple>
+      <div class="card-content">
+        <div class="image-container">
+          <img src="../../assets/imgs/starwars.jpg" (click)="navigateToStarWars()" data-image-id="image2" class="responsive-image">
+          <div class="button-wrapper">
+            <app-link-menu-button colorClass="starwars"  label="Star Wars"></app-link-menu-button>
+          </div>
+        </div>
+      </div>
+    </app-card-simple>
+  </div>
+</div>

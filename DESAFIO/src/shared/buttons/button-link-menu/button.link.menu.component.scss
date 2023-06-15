@@ -1,0 +1,47 @@
+
+
+.my-button-link-menu {
+  background-color: transparent;
+  padding: 5px 10px;
+  border: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+}
+
+.starwars {
+ zoom: 1100%;
+ font-family: "Star Wars", Arial, sans-serif;
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.796);
+  background-color: transparent;
+}
+
+.starwarsMenu {
+  zoom: 500%;
+  font-family: "Star Wars", Arial, sans-serif;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(to right, #003e7c, #cbc7c7, #0068ad);
+  background-color: transparent;
+}
+
+
+.marvel {
+  zoom: 1000%;
+  font-family: "Marvel", Impact;
+   border-radius: 20px;
+   color: rgba(255, 0, 0, 0.796);
+   background-color: transparent;
+ }
+
+.my-button-link-menu:hover {
+  background-color: transparent;
+}
+
+.my-button-link-menu:active {
+  background-color: transparent;
+}

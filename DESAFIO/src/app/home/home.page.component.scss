@@ -1,0 +1,34 @@
+.home-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajuste o valor conforme necessário */
+}
+
+app-card-simple {
+  max-width: 60%; /* Ajuste o valor conforme necessário */
+  width: 100%;
+  height: 50%;
+  margin: auto;
+}
+
+.responsive-image {
+  margin-top: 10%;
+  max-width: 100%;
+  height: 600px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+}
+
+.button-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Ajuste o valor conforme necessário */
+  max-width: 300px; /* Ajuste o valor máximo conforme necessário */
+}
