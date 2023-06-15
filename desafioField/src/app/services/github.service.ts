@@ -11,16 +11,21 @@ export class GithubService {
 
     // Api
     private api = "https://api.github.com/search/";
-    private token = "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"
+
+    
+    //* github revogou o token >C */
+    // private token = "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"
     
     // Method search repositories
     searchProjects(projectQuery:string, page: number): Observable<any> {
-        const headers = new HttpHeaders()
-        .set('Authorization', `Bearer ${this.token}`)
-        .set('Accept', 'application/vnd.github.v3+json');
+
+        // ***** GitHub revogou o Token :C
+        // const headers = new HttpHeaders()
+        // .set('Authorization', `Bearer ${this.token}`)
+        // .set('Accept', 'application/vnd.github.v3+json');
 
         const url = this.api+"repositories?q="+projectQuery+"&per_page=10&page="+page;
-        return this.httpClient.get<any>(url, { headers })
+        return this.httpClient.get<any>(url   /*, { headers } */)
     }
 
     // Method search issues , it dont need auth becouse it not accep { headers }

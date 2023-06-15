@@ -12,6 +12,7 @@
     font-family: 'Raleway', sans-serif;
 }
 
+
 /* Search bar */
 .search {
     display: flex;
@@ -26,6 +27,7 @@
     border: 1px solid #ccc;
     width: 50vw;
 }
+
 
 /* Search Button */
 .search button {
@@ -133,7 +135,6 @@
 .issue-text a:hover {
     text-decoration: underline;
 }
-
 
 
 /* para ficar responssivel no mobile = vulgo não ficar inutilizavel  */
