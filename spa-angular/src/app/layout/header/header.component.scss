@@ -1,0 +1,25 @@
+mat-toolbar {
+    background: #161b22;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    img {
+        width: 50px;
+    }
+
+    .my-input {
+        border-radius: 30px;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 270px;
+
+        &:focus {
+            outline: none;
+            border-color: #e6e6e6;
+            box-shadow: 0 0 5px rgba(231, 231, 231, 0.3);
+        }
+    }
+}
