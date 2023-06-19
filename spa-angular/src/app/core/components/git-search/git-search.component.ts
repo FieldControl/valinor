@@ -35,9 +35,9 @@ export class GitSearchComponent implements OnInit {
       }
     });
   }
-  ngOnInit(): void {
-    console.log('d', this.allRepos);
+  ngOnInit(): void {   
   }
+  
   public async getSearchRepo(repoName: string, pageNumber: number, pageSize: number) {
     if (this.repoName) {
       const reponse = await this.gitserviceService.getSearchReposGitHub(repoName, pageNumber, pageSize).toPromise();

@@ -17,4 +17,10 @@ ng test // para rodar os testes
 
 
 
+# Token
 
+Lembre de pegar seu proprio token do github.
+
+Passo a passo para pegar o token
+
+Settings > Developer settings > Personal access tokens > tokens (classic)

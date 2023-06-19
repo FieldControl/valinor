@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_URL_REPO: 'https://api.github.com',
-  API_TOKEN: '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'
+  API_TOKEN: 'SEU TOKEN AQUI'
 };
 
 /*
