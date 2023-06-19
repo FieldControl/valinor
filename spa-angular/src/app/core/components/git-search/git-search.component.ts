@@ -11,7 +11,6 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 export class GitSearchComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild('searchInput', { static: false }) searchInput!: ElementRef;
 
   public allRepos: Array<gitModel> = [];
 
