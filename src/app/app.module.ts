@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponentComponent } from './components/search-component/search-component.component';
 import { RepositoriosComponentComponent } from './components/repositorios-component/repositorios-component.component';
+import { PaginasComponentComponent } from './components/paginas-component/paginas-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponentComponent,
-    RepositoriosComponentComponent
+    RepositoriosComponentComponent,
+    PaginasComponentComponent
     
   ],
   imports: [
