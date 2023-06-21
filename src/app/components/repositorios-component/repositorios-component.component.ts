@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-repositorios-component',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./repositorios-component.component.css']
 })
 export class RepositoriosComponentComponent {
-
+  @Input() repositorios: any = {}
+  @Input() pagina: number = 0
 }

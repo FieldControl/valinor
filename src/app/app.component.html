@@ -1,1 +1,2 @@
-<app-search-component (mudar_nome_repositorio)="mudar_nome_repositorio($event)"></app-search-component>
+<app-search-component (mudar_nome_repositorio)="mudar_nome_repositorio($event, 0)"></app-search-component>
+<app-repositorios-component *ngIf="repositorios.total_count > 0" [repositorios]="repositorios" [pagina]="pagina"></app-repositorios-component>

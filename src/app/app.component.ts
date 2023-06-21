@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { RepositoriosService } from './services/repositorios.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { RepositoriosService } from './services/repositorios.service';
 })
 export class AppComponent {
   nome_repositorio: string = ''
-  repositorios = []
+  repositorios: any = {}
   mensagem_erro: string = ''
   pagina: number = 0
 
@@ -23,9 +23,9 @@ export class AppComponent {
       }else{
         if(resultado.total_count === 0){
           this.mensagem_erro = 'Não achamos esse repositório'
-          this.repositorios = []
+          this.repositorios = {}
         }else{
-          this.repositorios = resultado.items
+          this.repositorios = resultado
           }
         }
       })

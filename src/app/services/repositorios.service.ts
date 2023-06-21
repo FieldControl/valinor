@@ -12,7 +12,7 @@ export class RepositoriosService {
   constructor(private http: HttpClient) { }
 
   pegar_repositorios(nome_repositorio: string, pagina: number): Observable<any>{
-    return this.http.get(this.url_api+nome_repositorio+'?page='+pagina+'per_page=10').pipe(
+    return this.http.get(this.url_api+nome_repositorio+'&page='+pagina+'&per_page=10').pipe(
       catchError((error) => {
         const mensagem_erro = error.error.message;
         return of(mensagem_erro)

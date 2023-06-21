@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.titulo{
+    color: white;
+    font-weight: bold;
+    font-size: 27pt;
+    width: 50vw;
+    margin: 2.5em 0 1em 0;
+}
+.repositorio{
+    width: 50vw;
+    height: 13em;
+    background-color: #0d1117;
+    border-radius: 1em;
+    color: white;
+    font-size: 12pt;
+    overflow: hidden;
+    padding: 1em;    
+    border-left: 0.35em solid;
+    border-left-color: #65ff82;
+    margin: 1em 5em;
+}
+.repositorio h1{
+    width: 40vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+.repositorio h2{
+    width: 40vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+.baixo-direita{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.baixo-direita span{
+    fill: white;
+    padding-left: 1.3em;
+}
