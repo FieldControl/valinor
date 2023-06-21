@@ -14,6 +14,10 @@ export class AppComponent {
 
   constructor(private repositorioservice: RepositoriosService) {} 
 
+  resetar_mensagem_erro(): void{
+    this.mensagem_erro = ''
+  }
+
   mudar_nome_repositorio(nome_repositorio: string, pagina: number): void{
     this.pagina = pagina
     this.nome_repositorio = nome_repositorio
@@ -23,7 +27,7 @@ export class AppComponent {
         this.repositorios = []
       }else{
         if(resultado.total_count === 0){
-          this.mensagem_erro = 'Não achamos esse repositório'
+          this.mensagem_erro = 'Não encontramos este repositório: '+nome_repositorio
           this.repositorios = {}
         }else{
           this.repositorios = resultado

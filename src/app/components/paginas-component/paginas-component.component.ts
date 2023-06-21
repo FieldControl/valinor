@@ -22,7 +22,7 @@ export class PaginasComponentComponent {
   }
   
   cria_list_paginacao(){
-    if(this.pagina === 0){
+    if(this.pagina === 1){
       if(this.quantidade_paginas > 30){
         return [0, 1, 2]
       }else if(this.quantidade_paginas > 20){
@@ -30,7 +30,7 @@ export class PaginasComponentComponent {
       }else{
         return []
       }
-    }else if(this.pagina > 0 && this.pagina < this.pagina_final && this.quantidade_paginas > 30){
+    }else if(this.pagina > 1 && this.pagina < this.pagina_final && this.quantidade_paginas > 30){
         return [-1, 0, 1]
     }else{
       return [-2, -1, 0]
@@ -42,7 +42,7 @@ export class PaginasComponentComponent {
     if(this.pagina+mudar_para > 99){
       this.nova_pagina.emit(100)
     }else if(this.pagina+mudar_para < 0){
-      this.nova_pagina.emit(0)
+      this.nova_pagina.emit(1)
     }else{
       this.nova_pagina.emit(this.pagina+mudar_para)
     }

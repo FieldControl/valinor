@@ -1,5 +1,5 @@
 <div class="paginas" *ngIf="quantidade_paginas > 10">
     <button class="pagina-primeira" *ngIf="cria_list_paginacao().length > 2" (click)="mudar_pagina(-100)">Primeira</button>
-    <button class="numeros" [ngStyle]="{'color': pagina === pagina + numero_list ? '#65ff82': 'white'}" *ngFor="let numero_list of cria_list_paginacao()" (click)="mudar_pagina(numero_list)">{{numero_list+pagina+1}}</button>
+    <button class="numeros" [ngStyle]="{'color': pagina === pagina + numero_list ? '#65ff82': 'white'}" *ngFor="let numero_list of cria_list_paginacao()" (click)="mudar_pagina(numero_list)">{{numero_list+pagina}}</button>
     <button class="pagina-ultima" *ngIf="cria_list_paginacao().length > 2" (click)="mudar_pagina(100)">Última</button>
 </div>

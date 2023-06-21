@@ -20,9 +20,11 @@
     transform: translate(50%, 50%);
     border-radius: 3em;
 }
-.h1-erro{
+.span-erro{
     padding: 1em;
     height: 5em;
+    font-size: 19pt;
+    font-weight: bold;
     width: 90%;
     overflow-wrap: anywhere;
     -webkit-box-orient: vertical;

@@ -1,4 +1,4 @@
-<app-search-component (mudar_nome_repositorio)="mudar_nome_repositorio($event, 0)"></app-search-component>
+<app-search-component (mudar_nome_repositorio)="mudar_nome_repositorio($event, 1)"></app-search-component>
 <app-repositorios-component *ngIf="repositorios.total_count > 0" [repositorios]="repositorios" [pagina]="pagina"></app-repositorios-component>
 <app-paginas-component (nova_pagina)="mudar_nome_repositorio(nome_repositorio, $event)" [quantidade_paginas]="repositorios.total_count" [pagina]="pagina"></app-paginas-component>
-<app-mensagem-erro-component></app-mensagem-erro-component>
+<app-mensagem-erro-component *ngIf="mensagem_erro !== ''" [mensagem_erro]="mensagem_erro" (resetar_mensagem_erro)="resetar_mensagem_erro()"></app-mensagem-erro-component>
