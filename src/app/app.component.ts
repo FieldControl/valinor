@@ -15,8 +15,9 @@ export class AppComponent {
   constructor(private repositorioservice: RepositoriosService) {} 
 
   mudar_nome_repositorio(nome_repositorio: string, pagina: number): void{
+    this.pagina = pagina
     this.nome_repositorio = nome_repositorio
-    this.repositorioservice.pegar_repositorios(this.nome_repositorio, this.pagina).subscribe((resultado) =>{
+    this.repositorioservice.pegar_repositorios(this.nome_repositorio, pagina).subscribe((resultado) =>{
       if(typeof resultado === 'string'){
         this.mensagem_erro = resultado; 
         this.repositorios = []
