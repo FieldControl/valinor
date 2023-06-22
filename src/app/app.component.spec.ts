@@ -34,7 +34,7 @@ describe('AppComponent', () => {
   fixture = TestBed.createComponent(AppComponent);
   appcomponent = fixture.componentInstance;
   fixture.detectChanges();
-
+  
 })
 
   it('should create the app', () => {
@@ -72,7 +72,31 @@ describe('AppComponent', () => {
     
     fixture.detectChanges()
 
-    expect(fixture.debugElement.query(By.directive(MensagemErroComponentComponent))).not.toBeTruthy();
+    expect(fixture.debugElement.query(By.directive(MensagemErroComponentComponent))).not.toBeTruthy()
+  })
+
+  it('Verifica se mensagem reseta', () => {
+    spyOn(appcomponent, 'resetar_mensagem_erro').and.callThrough()
+    appcomponent.mensagem_erro = 'Erro'
+    fixture.detectChanges()
+
+    const mensagemErroComponent = fixture.debugElement.query(By.directive(MensagemErroComponentComponent))
+    expect(mensagemErroComponent).toBeTruthy()
+    
+    mensagemErroComponent.componentInstance.resetar_mensagem()
+    
+    expect(appcomponent.resetar_mensagem_erro).toHaveBeenCalled()
+    expect(appcomponent.mensagem_erro).toEqual('')
+  })
+
+  it('Verifica se repositórios aparecem', () => {
+    appcomponent.repositorios = {"total_count": 3, "items":[{'name': 'teste1'}, {'name': 'teste2'}, {'name': 'teste3'}]}
+    fixture.detectChanges()
+
+    const repositoriosComponent = fixture.debugElement.query(By.directive(RepositoriosComponentComponent))
+    expect(repositoriosComponent).toBeTruthy()
+       
+    expect(repositoriosComponent.componentInstance.repositorios.items[0].name).toEqual('teste1')
   })
 
 });
