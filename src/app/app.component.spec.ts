@@ -1,23 +1,20 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-
-
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { Component, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from './app-routing.module';
+import { By } from '@angular/platform-browser';
 import { SearchComponentComponent } from './components/search-component/search-component.component';
 import { RepositoriosComponentComponent } from './components/repositorios-component/repositorios-component.component';
 import { PaginasComponentComponent } from './components/paginas-component/paginas-component.component';
 import { MensagemErroComponentComponent } from './components/mensagem-erro-component/mensagem-erro-component.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
+  let appcomponent: AppComponent
+  let fixture: ComponentFixture<AppComponent>;
 
-
-  beforeEach(() => TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
     declarations: [
       AppComponent,
       SearchComponentComponent,
@@ -28,16 +25,54 @@ describe('AppComponent', () => {
     ],
     imports: [
       BrowserModule,
-      AppRoutingModule,
       FormsModule,
       HttpClientModule
     ],
     providers: []
-  }).compileComponents());
+  }).compileComponents()
+
+  fixture = TestBed.createComponent(AppComponent);
+  appcomponent = fixture.componentInstance;
+  fixture.detectChanges();
+
+})
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+
+  it('Repositorios existe', () => {
+    appcomponent.repositorios = {'total_count': 100}
+    
+    fixture.detectChanges()
+
+    expect(fixture.debugElement.query(By.directive(RepositoriosComponentComponent))).toBeTruthy();
+  })
+
+  it('Repositorios não existe', () => {
+    appcomponent.repositorios = {'total_count': 0}
+    
+    fixture.detectChanges()
+
+    expect(fixture.debugElement.query(By.directive(RepositoriosComponentComponent))).not.toBeTruthy();
+  })
+
+  it('Alerta de erro existe', () => {
+    appcomponent.mensagem_erro = 'erro'
+    
+    fixture.detectChanges()
+
+    expect(fixture.debugElement.query(By.directive(MensagemErroComponentComponent))).toBeTruthy();
+  })
+
+  it('Alerta de erro não existe', () => {
+    appcomponent.mensagem_erro = ''
+    
+    fixture.detectChanges()
+
+    expect(fixture.debugElement.query(By.directive(MensagemErroComponentComponent))).not.toBeTruthy();
+  })
+
 });
