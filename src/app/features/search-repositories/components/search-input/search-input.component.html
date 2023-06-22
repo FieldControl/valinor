@@ -1,0 +1,12 @@
+<div class="container">
+  <input
+    class="search-input"
+    type="text"
+    placeholder="Pesquisar repositórios"
+    matInput
+    #searchInput
+  />
+  <button class="search-button" (click)="onClick(searchInput.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>

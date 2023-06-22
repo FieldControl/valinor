@@ -1,0 +1,25 @@
+.list-container {
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+
+    .search-input {
+      width: 40%;
+    }
+  }
+
+  .description-line {
+    height: 32px;
+    margin: 0 50px;
+    padding-left: 20px;
+    font-weight: bold;
+    background-color: #d9d9d9;
+  }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    margin: 200px;
+  }
+}

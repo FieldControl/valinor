@@ -1,0 +1,12 @@
+<div class="paginator-container">
+  <mat-paginator
+    [length]="totalItems"
+    [pageSize]="10"
+    [hidePageSize]="true"
+    [pageIndex]="pageIndex"
+    [showFirstLastButtons]="true"
+    (page)="onPageChange($event)"
+    aria-label="Páginas"
+  >
+  </mat-paginator>
+</div>

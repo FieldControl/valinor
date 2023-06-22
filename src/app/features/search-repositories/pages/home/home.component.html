@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="logo-container">
+    <img [src]="octocatBase64 | base64Image" />
+  </div>
+  <div class="title-container">
+    <h1 class="title">Buscador de Repositórios do GitHub</h1>
+  </div>
+  <div class="search-container">
+    <app-search-input (searchEvent)="onSearch($event)"></app-search-input>
+  </div>
+</div>

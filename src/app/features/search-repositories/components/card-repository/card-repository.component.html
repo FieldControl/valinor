@@ -1,0 +1,48 @@
+<div class="card-container">
+  <mat-card class="card">
+    <mat-card-header class="card-header">
+      <mat-card-title-group class="title-group">
+        <mat-card-title>{{ repositoryName }}</mat-card-title>
+        <mat-card-subtitle>{{ repositoryOwner }}</mat-card-subtitle>
+        <img class="profile-pic" [src]="userPic" alt="Foto do usuário" />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      {{ repositoryDescription || "Projeto sem descrição" }}
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <mat-chip-listbox class="chips-container" aria-label="repository-info">
+        <mat-chip class="chip">
+          <div class="chip-content">
+            <mat-icon color="primary">star</mat-icon>
+            {{ repositoryStars }}
+          </div>
+        </mat-chip>
+        <mat-chip class="chip">
+          <div class="chip-content">
+            <mat-icon>remove_red_eye</mat-icon>
+            {{ repositoryWatchers }}
+          </div>
+        </mat-chip>
+      </mat-chip-listbox>
+      <button mat-raised-button (click)="onViewProfile()">
+        Ver Repositório
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<!-- <mat-card-header class="card-header">
+  <div class="container-profile-pic">
+    <img class="profile-pic" [src]="userPic" alt="Foto do usuário" />
+  </div>
+</mat-card-header>
+<mat-card-content class="card-content">
+  <div class="description">
+    <h3>Projeto: {{ repositoryName }}</h3>
+    <h4>Desenvolvido por: {{ repositoryOwner }}</h4>
+
+    <p>{{ repositoryDescription }}</p>
+  </div>
+
+</mat-card-content> -->

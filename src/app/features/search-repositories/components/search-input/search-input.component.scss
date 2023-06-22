@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .search-input {
+    width: 35%;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 6px;
+    padding-left: 10px;
+  }
+
+  .search-button {
+    padding: 10px;
+    height: 46px;
+    color: #ffffff;
+    background-color: #454545;
+    border-radius: 4px;
+    border: none;
+
+    &:hover {
+      background-color: #454545cc;
+    }
+  }
+}

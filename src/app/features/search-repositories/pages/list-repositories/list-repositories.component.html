@@ -1,0 +1,48 @@
+<div class="list-container">
+  <mat-grid-list cols="3" rowHeight="2:1.5">
+    <mat-grid-tile-header class="grid-header">
+      <div class="search-container">
+        <app-search-input
+          class="search-input"
+          (searchEvent)="onSearch($event)"
+        ></app-search-input>
+      </div>
+    </mat-grid-tile-header>
+
+    <div class="description-line">
+      <h2 *ngIf="currentSearch">
+        Resultados da busca por: {{ currentSearch }}
+      </h2>
+    </div>
+
+    <ng-container
+      class="loading-template"
+      *ngIf="isLoading$ | async; else loading"
+    >
+      <div class="spinner-container">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      <mat-grid-tile *ngFor="let repository of repositoriesData$ | async">
+        <app-card-repository
+          [userPic]="repository.owner.avatar_url"
+          [repositoryName]="repository.name"
+          [repositoryOwner]="repository.owner.login"
+          [repositoryLink]="repository.html_url"
+          [repositoryStars]="repository.stargazers_count"
+          [repositoryWatchers]="repository.watchers_count"
+          [repositoryDescription]="repository.description"
+        >
+        </app-card-repository>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3" class="paginator">
+        <app-paginator
+          (pageChanged)="onPageChange($event)"
+          [totalItems]="totalItems"
+          [pageIndex]="paginator"
+        ></app-paginator>
+      </mat-grid-tile>
+    </ng-template>
+  </mat-grid-list>
+</div>
