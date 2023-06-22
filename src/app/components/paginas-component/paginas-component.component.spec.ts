@@ -42,7 +42,7 @@ describe('PaginasComponentComponent', () => {
 
   it('Muda pagina', () => {
     component.pagina = 100    
-    
+
     spyOn(component, 'mudar_pagina').and.callThrough()
     spyOn(component.nova_pagina, 'emit')
 
