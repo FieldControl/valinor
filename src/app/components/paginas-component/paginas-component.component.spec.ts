@@ -25,16 +25,18 @@ describe('PaginasComponentComponent', () => {
     component.pagina_final = 0
 
     component.define_pagina_final()
+    
     expect(component.pagina_final).toBeTruthy()
     expect(component.pagina_final).toEqual(100)
     });
   
   it('Cria list para a paginacao', () => {
-    component.pagina = 0
+    component.pagina = 1
     component.quantidade_paginas = 100
-
-    spyOn(component, 'cria_list_paginacao').and.returnValue([0, 1, 2])
-    const resultado = component.cria_list_paginacao()
+    let resultado = []
+    
+    spyOn(component, 'cria_list_paginacao').and.callThrough()
+    resultado = component.cria_list_paginacao()
 
     expect(component.cria_list_paginacao).toHaveBeenCalled()
     expect(resultado).toEqual([0, 1, 2])
