@@ -41,7 +41,7 @@ export class PaginasComponentComponent {
     this.define_pagina_final()
     if(this.pagina+mudar_para > 99){
       this.nova_pagina.emit(100)
-    }else if(this.pagina+mudar_para < 0){
+    }else if(this.pagina+mudar_para < 1){
       this.nova_pagina.emit(1)
     }else{
       this.nova_pagina.emit(this.pagina+mudar_para)
