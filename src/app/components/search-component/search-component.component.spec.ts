@@ -19,4 +19,16 @@ describe('SearchComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Mudar nome do repositório', () => {
+    component.nome_repositorio = 'teste'
+    spyOn(component, 'enviar_nome_repositorio').and.callThrough()
+    spyOn(component.mudar_nome_repositorio, 'emit')
+
+    component.enviar_nome_repositorio()
+
+    expect(component.enviar_nome_repositorio).toHaveBeenCalled()
+    expect(component.mudar_nome_repositorio.emit).toHaveBeenCalled()
+    expect(component.mudar_nome_repositorio.emit).toHaveBeenCalledWith(component.nome_repositorio)
+  })
 });
