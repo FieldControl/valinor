@@ -39,3 +39,11 @@
 4. Verifique se as portas 4200 e 3000 estão disponíveis
 5. Digite: npm start
 6. Acesse http://localhost:4200/
+
+## Como testar a aplicação 
+1. Após a instalação do Angular e das dependências do projeto, digite em um terminal "npm start"
+2. Após a conclusão, abra um segundo terminal e digite "npm t" ou "ng t"
+3. Aguarde o karma abrir o navegador com os resultados dos testes
+   
+email: matheushenriquedemacedobarreto@gmail.com
+telefone: 17 992862586
