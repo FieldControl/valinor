@@ -1,0 +1,30 @@
+<app-search (emmitSearch)="getSearch($event)"></app-search>
+
+<section class="list">
+
+    <div *ngFor="let pokemon of getAllPokemons | paginate: { itemsPerPage: limit, currentPage: page, totalItems: totalDocs }">
+        <a class="pokemon" *ngIf="pokemon.status">
+            <section class="pokemon-status">
+                <h2>{{pokemon.name}}</h2>
+
+                <ul>
+                    <li *ngFor="let value of pokemon.status.types">{{value.type.name}}</li>
+                </ul>
+            </section>
+
+            <section class="pokemon-image">
+                <img [src]="pokemon.status.sprites.other.dream_world.front_default" [alt]="pokemon.name">
+            </section>
+        </a>
+    </div>
+
+    <ng-template [ngIf]="apiError">
+        <img src="assets/img/error.png" alt="Deu erro, tente mais tarde!">
+    </ng-template>
+</section>
+
+<section>
+    <div class="paginator-style">
+        <pagination-controls class="p-2" (pageChange)="pageChange($event)" previousLabel="" nextLabel=""></pagination-controls>
+    </div>
+</section>

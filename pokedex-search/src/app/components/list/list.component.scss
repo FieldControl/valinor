@@ -1,0 +1,90 @@
+:host {
+  .list {
+    display: grid;
+    justify-content: space-between;
+    gap: 1em;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
+
+    .pokemon {
+      cursor: pointer;
+      height: 13.313rem;
+      border: 2px solid var(--white);
+      color: white;
+      text-decoration: none;
+      position: relative;
+      display: flex;
+      border-radius: 0.625rem;
+      padding: 1.25rem;
+      top: 2em;
+      margin-bottom: 50px;
+      background-color: var(--grey);
+      transition: 0.3s;
+
+      &:hover {
+        transition: 0.3s;
+        top: 40px;
+        box-shadow: 6px 14px 20px 6px #000000;
+      }
+    }
+
+    .pokemon-status {
+      h2 {
+        font-size: 1.375rem;
+        font-style: italic;
+        font-weight: 900;
+        text-transform: capitalize;
+        margin-bottom: 0.625rem;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+      }
+
+      li {
+        background-color: var(--primary-color);
+        font-size: 0.83rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3.125rem;
+        width: 3.75rem;
+        margin-bottom: 0.313rem;
+        padding: 0.313rem;
+      }
+    }
+
+    .pokemon-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      height: 5.625rem;
+      width: 7.625rem;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      background: url(../../../assets/icon/Bolinhas.svg) no-repeat;
+
+      img {
+        width: 3.75rem;
+      }
+    }
+
+
+  }
+
+  @media (min-width: 540px) and (max-width: 768px) {
+    .list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 260px) and (max-width: 540px) {
+    .list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import "./config-scss/variables.scss";
+@import "./config-scss/reset.scss";
+@import "./config-scss/rem-calc.scss";
+@import "./config-scss/btn.scss";
+
+@font-face {
+  font-family: "roboto";
+  font-weight: 900;
+  src: url(./assets/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "roboto";
+  font-weight: 400;
+  src: url(./assets/fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: "roboto";
+  font-weight: 100;
+  src: url(./assets/fonts/Roboto-Light.ttf);
+}
+
+html {
+  font-family: "roboto", sans-serif;
+  background-color: var(--primary-color);
+}
+
+main {
+  max-width: 50em;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0em 1em;
+}
+
+.paginator-style {
+  padding: 1.3em;
+  display: flex;
+  justify-content: center;
+
+  .ngx-pagination {
+    .current {
+      color: var(--grey-ligth);
+      background-color: var(--primary-color) !important;
+    }
+    a {
+      color: var(--white);
+
+      &:hover{
+        background-color: var(--grey);
+      }
+    }
+  }
+}
