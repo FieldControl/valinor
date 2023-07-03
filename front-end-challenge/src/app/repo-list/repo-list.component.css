@@ -1,0 +1,156 @@
+    
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .repo-title {
+    margin-bottom: 100px;
+    font-size: 40px;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    
+  }
+  
+  .form-select {
+    width: 300px; 
+  }
+  
+  .repo-item {
+    margin-bottom: 20px;
+  }
+  
+  .repo-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .repo-name {
+    margin: 0;
+  }
+  
+  .repo-image {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .repo-description {
+    margin: 0;
+  }
+  
+  
+  .nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .repo-name {
+    margin: 0;
+  }
+  
+
+.repo-list {
+  margin-top: 100px;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .repo-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color:#C0C0C0;
+    border-radius: 5px;
+    text-align: left;
+  }
+  
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navbar-items {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-items a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  .navbar-items a:hover {
+    text-decoration: underline;
+  }
+  
+  .repo-link {
+    text-decoration: none;
+    color: #0000ff; 
+  }
+  
+  .repo-link:hover {
+    text-decoration: underline;
+  }
+
+  .nav {
+    margin-bottom: 10px; 
+  }
+  
+  .nav button {
+    margin-right: 10px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+  }
+  
+  .pagination button.active {
+    font-weight: bold;
+  }
+  
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .logo-container {
+    margin-right: 10px;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .title {
+    margin: 0;
+  }

@@ -1,0 +1,46 @@
+1. Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+r:
+
+Angular: Como a proposta do desafio dizia que projetos em Angular teriam prioridade dei preferencia para utilizar esse framework de desenvolvimento de aplicações web em TypeScript. Foi utilizado para criar a estrutura do projeto, gerenciar os componentes, serviços, roteamento e outras funcionalidades do lado do cliente.
+
+Angular Material: É uma biblioteca de componentes de interface de usuário baseada no Material Design. Foi utilizado para fornecer estilos e componentes reutilizáveis, como botões, listas e ícones.
+
+HTML e CSS: Foram usadas para criar a estrutura e o estilo do aplicativo.
+
+GitHub API: Foi utilizada para obter os dados dos repositórios do GitHub.
+
+Git: Foi utilizado para versionar e gerenciar o código-fonte do projeto.
+
+2.Porque você optou pela tecnologia X e não a Y
+
+r:poderia ter feito em c# utilizando asp.net que é mais minha area de conforto mas busquei seguir a proposta do desafio por isso fiz utilizando o angular.
+
+3.Quais princípios da engenharia de software que você usou?
+
+r:
+Modularidade: O projeto foi dividido em módulos e componentes independentes para facilitar a manutenção, reutilização e testabilidade do código.
+
+Separação de responsabilidades: Foram utilizados princípios de arquitetura MVC (Model-View-Controller)para separar as responsabilidades e garantir a coesão e o baixo acoplamento entre os diferentes componentes.
+
+Testabilidade: Foram criados testes unitários para verificar o correto funcionamento das funcionalidades implementadas. Esses testes ajudam a identificar problemas precocemente e fornecem uma forma de validar o comportamento esperado do software.
+
+Versionamento de código: Foi utilizado o sistema de controle de versão Git para gerenciar e versionar o código-fonte do projeto. Isso permite o rastreamento das alterações, colaboração em equipe e a possibilidade de reverter para versões anteriores se necessário.
+
+Princípio KISS: O código foi mantido o mais simples possível, evitando complexidade desnecessária e seguindo boas práticas de programação para garantir a legibilidade e manutenibilidade do código.
+
+Boas práticas de programação: Foram seguidas boas práticas de programação, como nomenclatura adequada de variáveis e funções, uso consistente de indentação e formatação
+
+4.Desafios e problemas que você enfrentou e como você resolveu
+
+r:
+Meu principal dessafio foi nunca ter trabalhado muito pouco com angular então n conhecer o framework me atrasou muito no desenvolvimento, consegui superar vendo muitos tutoriais no youtube, perdi muito assistindo tutoriais crinado projetos que acabei n usando no final
+mas tuto valeu como aprendizado e tenho certeza que melhorei
+
+fora isso tive alguns problemas mais especificos como a integração com o git hub, resolvi lendo a documentação da api para ter mais clareza do que estava tentando fazer
+
+tive problema também com tratamento de erros, durante o desenvolvimento ocoreram inumeros erros que fui resolvendo pesquisando no google ou procurando uma forma diferente de fazer.
+
+5.O que você entende que pode ser melhorado e como fazer isso
+r: 
+Acredito que a questão da paginação dedicxou um pouco a desejar, poderia ter sido melhor eu vi formas de fazer usando o ngx-pagination mas eu n consegui aplicar.
+a questão dos testes unitarios acredito que faltou um pouco também com um pouco mais de estudo conserteza conseguiria fazer algo melhor.

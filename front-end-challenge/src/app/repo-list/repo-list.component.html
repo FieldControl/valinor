@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listagem De Tepositório</title>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="title">Listagem De Repositórios</h1>
+  </header>
+
+    <div class="container">
+
+
+<ul class="repo-list">
+    <li *ngFor="let repo of repos">
+      <div class="repo-item">
+        <div class="repo-header">
+          <img class="repo-image" [src]="repo.owner.avatar_url" alt="Imagem do repositório">
+          <a class="repo-link" [href]="repo.html_url" target="_blank">
+            <h3 class="repo-name">{{ repo.name }}</h3>
+          </a>
+        </div>
+        <div class="repo-description">
+          <p>{{ repo.description }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+  
+
+<div class="nav">
+  <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+  <button class="btn" *ngIf="currentPage > 2" (click)="goToPage(currentPage - 2 )">{{ currentPage - 2 }}</button>
+  <button class="btn" *ngIf="currentPage > 1" (click)="previousPage()">{{ currentPage - 1 }}</button>
+  <button class="btn btn-primary">{{ currentPage}}</button>
+  <button class="btn" (click)="nextPage()">{{ currentPage + 1 }}</button>
+  <button class="btn" (click)="goToPage(currentPage + 2)">{{ currentPage + 2 }}</button>
+  <button class="btn btn-primary" (click)="nextPage()">Próxima</button>
+
+  <select class="form-select" aria-label="Select itens per page" [(ngModel)]="selectedItemsPerPage" (change)="loadRepos()">
+    <option value="10">10 itens por página</option>
+    <option value="20">20 itens por página</option>
+    <option value="50">50 itens por página</option>
+  </select>
+  
+</div>
+
+
+</div>
+
+
+
+<link rel="stylesheet" href="./repo-list.component.css">
+    
+</body>
+</html>
