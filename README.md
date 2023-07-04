@@ -236,3 +236,38 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 - Quais princípios da engenharia de software que você usou?
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
+
+
+
+Entrega by Heitor A Soares
+----------
+- "Utilizei o Angular, um framework JavaScript popular e amplamente suportado pela comunidade, juntamente com o ag-Grid, uma biblioteca JavaScript para criação de tabelas avançadas e interativas, o SweetAlert para exibição de alertas personalizados, e o FormBuilder e Validators do Angular para criar formulários reativos e validar campos.
+  
+- No desenvolvimento, segui os princípios da engenharia de software, como a separação de responsabilidades por meio da estrutura modular do código, garantindo a manutenção e reutilização. Utilizei a validação de entrada com o FormBuilder e Validators para garantir que o campo 'nomeRepositorio' seja preenchido antes de realizar a consulta, e implementei um tratamento de erros para exibir mensagens de alerta em caso de falhas na obtenção dos dados do repositório.
+  
+- Para os testes de interface do usuário, escolhi o Cypress, um framework que oferece uma sintaxe amigável e a capacidade de simular interações do usuário. Com o Cypress, criei testes automatizados para o componente Repositorios, garantindo a corretude do software e facilitando a detecção de regressões. Enfrentei desafios relacionados ao acesso à URL correta, mas resolvi o problema ajustando a configuração do Cypress.
+  
+- Algumas possíveis melhorias para o projeto incluem a adição de testes unitários e de integração para garantir a qualidade e estabilidade do código, a melhoria da responsividade da tabela ag-Grid para diferentes tamanhos de tela e a implementação de recursos adicionais, como ordenação das colunas e filtro avançado. Além disso, sugiro refatorar o código para seguir princípios de design, como os princípios SOLID, padrões de projeto e boas práticas de codificação.
+  
+- Espero que essas informações sejam úteis para a avaliação do projeto. Fico à disposição para fornecer mais detalhes, se necessário. Agradeço a oportunidade e aguardo seu retorno. Eu sou Heitor Alexandre Soares, um desenvolvedor de software nascido em Jales, São Paulo. Iniciei minha jornada na área de tecnologia estudando na ETEC de Catanduva, onde me aprofundei em informática durante três anos. Em seguida, decidi buscar mais conhecimento e me matriculei na FATEC de Jales, onde obtive meu diploma em Análise e Desenvolvimento de Sistemas.
+  
+- Minha carreira profissional decolou quando ingressei na HD - Soluções Tecnológicas em fevereiro de 2022. Nessa empresa, tive a oportunidade incrível de trabalhar em diversos projetos, sempre em colaboração com uma equipe completa composta por gerentes de projeto, especialistas em UI/UX, testadores e desenvolvedores de back-end e front-end. Utilizamos metodologias ágeis para implementar soluções, melhorias e inovações nos sistemas. Além disso, meu papel inclui aprimorar sistemas legados que são utilizados atualmente pelo IAMSP.
+  
+- Minhas habilidades técnicas são vastas, com proficiência em tecnologias como Angular, React, .NET Core, Node.js e Spring. Também possuo habilidades em CSS, SASS e Tailwind CSS, além de ter uma afinidade especial com UX - Design Thinking. Durante minha trajetória, trabalhei com bancos de dados como PostgreSQL, SQL Server, MongoDB e Firebase, o que me proporcionou uma visão abrangente no tratamento de dados.
+  
+- Antes de ingressar na HD, tive uma valiosa experiência na Siscomp Sistemas, onde forneci suporte a sistemas para desktop e web. Durante esse período, pude aprimorar minhas habilidades de interação com os usuários, participando de cursos na área e aplicando os conhecimentos adquiridos na prática. Além disso, também fui envolvido em projetos de controle de documentos para clientes, auxiliando na implementação e orientação de uso.
+  
+- Busco constantemente expandir meu conhecimento na área de desenvolvimento de software. Recentemente, obtive certificações em Angular, JavaScript ES6, UX & Design Thinking e Desenvolvimento de aplicações com .NET. Valorizo muito o aprendizado contínuo e estou sempre em busca de novos desafios e oportunidades na área de desenvolvimento de software.
+  
+- Espero que essas informações sejam úteis para a avaliação do projeto. Fico à disposição para fornecer mais detalhes, se necessário. Agradeço a oportunidade e aguardo seu retorno.
+  
+Atenciosamente,
+Heitor
+(17) 99754-4473
+heitor.soaress@outlook.com
+
+
+
+
+
+
