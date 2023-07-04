@@ -1,0 +1,29 @@
+<body>
+    <form [formGroup]="formulario">
+        <div class="container">
+            <div class="search-container">
+                <h1 class="title">Buscar repositórios GitHub</h1>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="search-input" placeholder="Nome repositório"
+                        formControlName="nomeRepositorio">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3" id="btn-buscar"
+                    (click)="obterRepositorio()">Pesquisar</button>
+            </div>
+        </div>
+
+        <div class="container mt-4" *ngIf="existeLista">
+            <div class="list-container">
+                <h1 class="title">Listagem repositórios GitHub</h1>
+                <ag-grid-angular #LancamentosFinanceiro class="ag-theme-balham" style="height: 487px;"
+                    [columnDefs]="colunasTabela" [defaultColDef]="definicaoPadraoColunas" [gridOptions]="gridOptions"
+                    [animateRows]="true" [localeText]="traducaoAgGrid" [cacheOverflowSize]="cacheOverflowSize"
+                    [context]="gridContext" [loadingOverlayComponent]="loadingOverlayComponent"
+                    [suppressExcelExport]="true" [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+                    [frameworkComponents]="frameworkComponents" [pagination]=true
+                    (gridReady)="inicializarAgGrid($event)">
+                </ag-grid-angular>
+            </div>
+        </div>
+    </form>
+</body>

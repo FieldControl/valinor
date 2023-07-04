@@ -1,0 +1,92 @@
+/* .primeng-to-aggrid */
+.layout-aggrid .p-datatable .p-datatable-thead>tr>th {
+  padding: 5px 5px 5px 10px !important;
+  font-size: 12px;
+  text-align: left !important;
+}
+
+.layout-aggrid .p-datatable .p-datatable-tbody>tr>td {
+  padding: 3px 0 3px 10px !important;
+  font-size: 11.5px;
+  border-color: #d9dcde !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.layout-aggrid .p-datatable table {
+  border: solid 1px #c2c2c2;
+}
+
+.layout-aggrid .color-row td {
+  background-color: #f7f7f7;
+}
+
+.layout-aggrid .p-button.p-button-icon-only.p-button-rounded {
+  font-size: 10px !important;
+  height: 15px !important;
+  width: 15px !important;
+  margin: 7px !important;
+}
+
+.layout-aggrid .p-button:focus {
+  box-shadow: none !important;
+}
+
+.layout-aggrid-footer {
+  text-align: center !important;
+  font-size: 12px;
+  padding: 0 2px;
+  margin: 0;
+}
+
+.layout-aggrid .pi-chevron-right:before {
+  font-size: 11px;
+}
+
+.layout-aggrid .pi-chevron-down:before {
+  font-size: 11px;
+}
+
+.layout-aggrid .p-paginator {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+
+/* Mundanças da Tabela ↓ */
+
+.tabelaHeader th {
+  font-size: 11px;
+}
+
+.p-datatable-tbody>tr>td {
+  padding: 0 0.857rem !important;
+}
+
+.p-datatable-table {
+  border: 1px solid #c8c8c8;
+}
+
+.p-paginator {
+  justify-content: flex-end !important;
+  align-content: center;
+  border: 1px solid #c8c8c8 !important;
+  margin-top: 0 !important;
+  min-height: 26px !important;
+  height: 26px !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  height: 16px !important;
+  background-color: #ffffff !important;
+  color: #848484 !important;
+}
+
+.p-button.p-button-icon-only.p-button-rounded {
+  height: 1.3rem !important;
+}
+
+.p-paginator button {
+  height: 1.3rem !important;
+}
+

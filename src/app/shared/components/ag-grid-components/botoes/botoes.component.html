@@ -1,0 +1,49 @@
+<button id="btn-atribuirParaVisualizar" *ngIf="botoesAgGrid?.btnVisualizar && !opcoesBotoesAgGrid?.btnVisualizar?.invisible"
+    (click)="atribuirParaVisualizar()" (keyup.enter)="atribuirParaVisualizar()">
+    <i class="icone btnVisualizar fa-regular fa-eye" aria-hidden="true"></i>
+</button>
+
+<!-- <a id="btn-editar" [ngClass]="{'disabled': opcoesBotoesAgGrid.btnAprovarDocumento?.desabled}"
+    *ngIf="botoesAgGrid.btnEditar && !opcoesBotoesAgGrid.btnEditar?.invisible" (click)="atribuirParaEditar()" title="Editar">
+    <i class="icone btnEditar md-mode-edit" aria-hidden="true"></i>
+</a>
+
+<a [ngClass]="{'disabled': opcoesBotoesAgGrid.btnAprovarDocumento?.desabled}"
+    *ngIf="botoesAgGrid.btnExcluir && !opcoesBotoesAgGrid.btnExcluir?.invisible" (click)="excluir()">
+    <i class="icone btnExcluir md-delete" aria-hidden="true"></i>
+</a>
+
+<a [ngClass]="{'disabled': opcoesBotoesAgGrid.btnVisualizarExecao?.desabled}"
+    *ngIf="botoesAgGrid.btnVisualizarExecao && !opcoesBotoesAgGrid.btnVisualizarExecao?.invisible" (click)="atribuirParaExecao()" title="Exceção Prestador">
+    <i class="icone btnVisualizarExecao md-person-add" aria-hidden="true" ></i>
+</a>
+
+<a [ngClass]="{'disabled': opcoesBotoesAgGrid.btnVisualizarHistorico?.desabled}"
+    *ngIf="botoesAgGrid.btnVisualizarHistorico && !opcoesBotoesAgGrid.btnVisualizarHistorico?.invisible" (click)="atribuirParaVisualizarHistorico()" title="Histórico">
+    <i class="icone btnExcluir md-history" aria-hidden="true" ></i>
+</a>
+
+<a [ngClass]="{'disabled': opcoesBotoesAgGrid.btnAprovarDocumento?.desabled}"
+    *ngIf="botoesAgGrid.btnAprovarDocumento && !opcoesBotoesAgGrid.btnAprovarDocumento?.invisible" title="Aprovar"
+    (click)="atribuirParaAprovarDocumento()">
+    <i class="icone btnAprovarDocumeto md-check-box" aria-hidden="true"></i>
+</a>
+
+<a [ngClass]="{'disabled': opcoesBotoesAgGrid.btnAprovarDocumento?.desabled}"
+    *ngIf="botoesAgGrid.btnReprovarDocumento && !opcoesBotoesAgGrid.btnReprovarDocumento?.invisible" title="Reprovar"
+    (click)="atribuirParaReprovarDocumento()">
+    <i class="icone btnReprovarDocumento md-cancel" aria-hidden="true"></i>
+</a>
+
+<a id="btn-imprimir" [ngClass]="{'disabled': opcoesBotoesAgGrid.btnImprimir?.desabled}"
+    *ngIf="botoesAgGrid.btnImprimir && !opcoesBotoesAgGrid.btnImprimir?.invisible" title="Imprimir"
+    (click)="atribuirParaImprimir()">
+    <i class="icone btnImprimir fas fa-light fa-print" aria-hidden="true"></i>
+</a>
+
+
+<a id="btn-qrcode" [ngClass]="{'disabled': opcoesBotoesAgGrid.btnQrCode?.desabled}"
+    *ngIf="botoesAgGrid.btnQrCode && !opcoesBotoesAgGrid.btnQrCode?.invisible" title="QRCode"
+    (click)="atribuirParaQRCode()">
+    <i class="icone btnQrCode fas fa-qrcode" aria-hidden="true"></i>
+</a> -->

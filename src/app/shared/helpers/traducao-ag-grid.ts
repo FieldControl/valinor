@@ -1,0 +1,35 @@
+export class TraducaoAgGrid {
+    public static Traduzir(): any {
+        return {
+            page: "Página",
+            more: "Mais",
+            to: "-",
+            of: "de",
+            next: "Proximo",
+            last: "Ultimo",
+            first: "Primeiro",
+            previous: "daPreviousen",
+            loadingOoo: "Carregando...",
+            selectAll: "Selecionar tudo",
+            searchOoo: "Pesquisar...",
+            blanks: "daBlanc",
+            filterOoo: "Filtro...",
+            applyFilter: "Aplicar filtro...",
+            equals: "Igual a",
+            notEqual: "Diferente de",
+            contains: "Contem",
+            notContains: "Não contem",
+            startsWith: "Inicia com",
+            endsWith: "Termina com",
+            andCondition: "E",
+            orCondition: "Ou",
+            group: "Grupo",
+            columns: "Colunas",
+            filters: "Filtros",
+            noRowsToShow: "Informações não encontradas",
+            inRange: "Entre",
+            greaterThan: "Maior que",
+            lessThan: "Menor que",
+        };
+    }
+}

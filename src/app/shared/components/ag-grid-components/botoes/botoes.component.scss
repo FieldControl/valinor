@@ -1,0 +1,55 @@
+.icone {
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 3px;
+    border: none !important;
+}
+
+.disabled{
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.btnEditar {
+    color: rgba(32, 44, 68, 0.705);
+}
+
+button{
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.btnVisualizar {
+    color: rgba(32, 44, 68, 0.705);
+}
+
+.btnExcluir {
+    color: rgba(255, 0, 0, 0.705);
+}
+
+.btnAprovarDocumeto {
+    color: rgb(0, 128, 0);
+}
+
+.btnReprovarDocumento {
+    color: rgba(255, 0, 0, 0.705);
+}
+
+.btnImprimir{
+    color: rgb(255, 255, 255);
+    background-color: #00b19d;
+    border: 1px solid #00b19d;
+    border-radius: 5px;
+    font-size: 10pt;
+    padding: 5px;
+}
+
+.btnQrCode{
+    margin-left: 5px;
+    color: rgb(255, 255, 255);
+    background-color: #f7aa00;
+    border: 1px solid #f7aa00;
+    border-radius: 5px;
+    font-size: 10pt;
+    padding: 5px;
+}

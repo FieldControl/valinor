@@ -1,0 +1,106 @@
+span {
+    font-size: 13px;
+    font-family: "Lexend", sans-serif;
+    color: rgb(117, 117, 117);
+}
+
+.imagem {
+    align-self: flex-end;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    height: 50px;
+    margin: 0 auto 0 auto;
+    transform-origin: bottom;
+    width: 50px !important;
+
+}
+
+.ag-overlay-loading-center {
+    padding: 15px;
+    /* border-color: rgb(238, 238, 238); */
+    border-color: #f3f3f3;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+}
+
+.loader {
+    animation: rotate 2s infinite;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+}
+
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+.loader:before {
+    animation: ball1 2s infinite;
+    background-color:#f09610;
+    box-shadow: 30px 0 0 #f09610;
+    margin-bottom: 10px;
+}
+
+.loader:after {
+    animation: ball2 2s infinite;
+    background-color: #a50500;
+    box-shadow: 30px 0 0 #a50500;
+}
+
+@keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(0.8);
+        -moz-transform: rotate(0deg) scale(0.8);
+    }
+
+    50% {
+        -webkit-transform: rotate(360deg) scale(1.2);
+        -moz-transform: rotate(360deg) scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: rotate(720deg) scale(0.8);
+        -moz-transform: rotate(720deg) scale(0.8);
+    }
+}
+
+@keyframes ball1 {
+    0% {
+        box-shadow: 30px 0 0 rgba(88, 167, 88, 1);
+    }
+
+    50% {
+        box-shadow: 0 0 0 rgba(88, 167, 88, 1);
+        margin-bottom: 0;
+        -webkit-transform: translate(15px, 15px);
+        -moz-transform: translate(15px, 15px);
+    }
+
+    100% {
+        box-shadow: 30px 0 0 rgba(88, 167, 88, 1);
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes ball2 {
+    0% {
+        box-shadow: 30px 0 0 #4b4b4b;
+    }
+
+    50% {
+        box-shadow: 0 0 0 #4b4b4b;
+        margin-top: -20px;
+        -webkit-transform: translate(15px, 15px);
+        -moz-transform: translate(15px, 15px);
+    }
+
+    100% {
+        box-shadow: 30px 0 0 #4b4b4b;
+        margin-top: 0;
+    }
+}
