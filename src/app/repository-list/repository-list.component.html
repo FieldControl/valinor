@@ -1,0 +1,14 @@
+<!-- repository-list.component.html -->
+
+<div *ngFor="let repositorio of repositorios" class="card">
+    <div class="card-header">
+      <a [href]="repositorio.html_url" target="_blank">{{ repositorio.name }}</a>
+    </div>
+    <div class="card-body">
+      <p>URL: <a class="card-link" [href]="repositorio.html_url" target="_blank">{{ repositorio.html_url }}</a></p>
+      <p>Observadores: {{ repositorio.watchers }}</p>
+      <p>Estrelas: {{ repositorio.stargazers_count }}</p>
+      <p>Issues Abertas: {{ repositorio.open_issues }}</p>
+    </div>
+  </div>
+  

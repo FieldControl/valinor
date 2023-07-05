@@ -1,0 +1,13 @@
+
+<div class="container">
+  <h1 class="text-center">{{ titulo }}</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="search-container">
+        <input class="form-control search-input" type="text" [(ngModel)]="termoPesquisa" placeholder="Pesquisar repositórios..." (keyup.enter)="pesquisarRepositorios()">
+        <button class="btn btn-primary search-button" (click)="pesquisarRepositorios()">Pesquisar</button>
+      </div>
+    </div>
+  </div>
+  <lista-repositorios [repositorios]="repositorios"></lista-repositorios>
+</div>

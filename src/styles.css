@@ -1,0 +1,71 @@
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.search-button {
+  margin-left: 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table th {
+  background-color: #f8f9fa;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+}
+
+.table a {
+  text-decoration: none;
+  color: #0366d6;
+}
+
+.table a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  font-size: 14px;
+}
+
+.card-link {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
