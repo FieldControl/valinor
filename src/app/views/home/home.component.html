@@ -1,0 +1,23 @@
+<html>
+  <!--PARTE DO CABECALHO-->
+  <div class="centerText">
+    <h1>
+      Repositórios do GitHub
+    </h1>
+  </div>
+  <!--ICONE DO GITHUB-->
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="IconeGithub" class="github">
+  <br>
+  <!--FORM QUE IRA FAZER O COMANDO PARA REALIZAR A PESQUISA DE REPOSITORIOS-->
+  <form class="searchInput" (submit)="pegarRepositorios()">
+    <mat-form-field class="searchInput-fullWidth" appearance="outline">
+      <mat-label>
+        Procurar:
+      </mat-label>
+      <input matInput placeholder="Nome do repositório..." name="repos" [(ngModel)]="searchQuery" type="search">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="submitBTN" type="submit">Pesquisar</button>
+  </form>
+  <!--ENVIANDO INFORMACOES PARA O SHOW GITHUB REPOSITORY-->
+  <app-show-github-repository [githubRepositorio]="githubRepositorio" [paginator]="paginator" [searchQuery]="searchQuery"></app-show-github-repository>
+</html>

@@ -1,0 +1,41 @@
+/* TITULO (CABECALHO) */
+h1{
+  font-size: 40px;
+  height: 60px;
+  position: relative;
+  top: 20px;
+  margin-bottom: 0px;
+}
+
+.centerText{
+  text-align: center;
+}
+
+/* LOGO GITHUB */
+.github{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+  display: block;
+  width: 80px;
+}
+
+/* BARRA DE PESQUISA */
+.searchInput{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 150px;
+  max-width: 750px;
+  width: 100%;
+}
+
+.searchInput-fullWidth{
+  width: 100%;
+}
+
+/* BOTAO DE PESQUISAR */
+.submitBTN{
+  height: 55px;
+}
+

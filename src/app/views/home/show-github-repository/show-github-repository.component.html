@@ -1,0 +1,38 @@
+<!--CONTAINER QUE IRA FAZER O LOOP E MOSTRAR OS CARDS DOS REPOSITORIOS-->
+<!--A LOGICA DO PAGINADOR SE ENCONTRA NO CONTAINER-->
+<ng-container *ngFor="let items of githubRepositorio.items | paginate: { itemsPerPage: paginator.itemsPerPage, currentPage: paginator.page, totalItems: paginator.totalCount}" class="ng-cont">
+  <div class="container">
+  <mat-card class="card-github">
+    <mat-card-header class="card-header">
+      <mat-card-title class="nomeRepositorio">{{items.name}}</mat-card-title>
+      <mat-card-subtitle>Owner: {{items.owner.login}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="items.owner.avatar_url" alt="github user photo" class="userPhoto">
+    <mat-card-content>
+      <p class="textoDescricao">
+        Descrição: {{items.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions style="justify-content: center;">
+      <button mat-button disabled>
+        <mat-icon fontIcon="star"></mat-icon>
+        <span style="font-weight: bold;">{{items.stargazers_count}}</span>
+      </button>
+      <button mat-button disabled>
+        <span style="font-weight: bold;">Forks: {{items.forks}}</span>
+      </button>
+      <button mat-button disabled>
+        <span style="font-weight: bold;">Issues: {{items.open_issues}}</span>
+      </button>
+    </mat-card-actions>
+    <mat-card-actions style="justify-content: center;">
+      <button mat-button disabled>
+        <span style="font-weight: bold;">Linguagem: {{items.language}}</span>
+      </button>
+      <a mat-button [href]="items.html_url" color="primary" target="_blank">LINK REPOSITORIO</a>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+</ng-container>
+<!--CONTROLADOR DO PAGINADOR-->
+<pagination-controls (pageChange)="changePage($event)" class="paginador"></pagination-controls>

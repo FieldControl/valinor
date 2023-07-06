@@ -1,0 +1,51 @@
+
+.card-github {
+  width: 450px;
+  background-color:beige;
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card-github:hover{
+  box-shadow: 0 24px 48px 0 lightskyblue;
+}
+
+.card-github-header {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.textoDescricao{
+  font-weight: bold;
+  color:darkslategrey;
+}
+
+.container{
+  display: inline-block;
+  margin: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+.userPhoto{
+  width: 450px;
+}
+
+.nomeRepositorio{
+  font-weight:bolder;
+  font-size: xx-large;
+}
+
+.paginador /deep/ .ngx-pagination{
+  height: 50px;
+  font-size: 20px;
+}
+
+.paginador /deep/ .ngx-pagination .current{
+  background:blue;
+}
+
+.card-header{
+  text-align: center;
+  justify-content: center;
+}
