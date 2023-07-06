@@ -1,0 +1,63 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="listaRepositorios()">
+        <div class="input-group my-3">
+            <input type="text" class="form-control" formControlName="repositorio"
+                placeholder="Digite o nome do repositorio" aria-label="Recipient's username"
+                aria-describedby="basic-addon2">
+            <button [disabled]="!form.valid" type="submit" class="input-group-text" id="basic-addon2"><img src="assets/search.svg"
+                    alt=""></button>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <span *ngIf="totalRepositorios > 0">{{totalRepositorios.toLocaleString()}} repositorios</span>
+    <div class="card my-3"
+        *ngFor="let repositorio of repositorios | paginate: { itemsPerPage: 30, currentPage: page, totalItems: totalRepositorios }">
+        <div class="card-body">
+            <div class="d-flex">
+                <img src="{{repositorio.owner.avatar_url}}" alt="imagem avatar">
+                <a class="px-2" target="_blank" href="{{repositorio.html_url}}">{{repositorio.full_name}}</a>
+            </div>
+            <p class="descricao">{{repositorio.description}}</p>
+            <div class="d-flex flex-wrap">
+                <a class="px-2" *ngFor="let topicos of repositorio.topics | slice:0:5; let i=index">
+                    <span class="stack">{{topicos}}</span>
+                </a>
+            </div>
+            <div class="d-flex justify-content-start">
+                <div class="d-flex align-middle p-2">
+                    <img src="assets/star.svg" alt="">
+                    <span class="m-0">
+                        {{formataNumero(repositorio.stargazers_count)}}
+                    </span>
+                </div>
+                <div class="p-2">
+                    <span>Atualizado {{calcularDiferenca(repositorio.updated_at)}}</span>
+                </div>
+                <ng-container *ngIf="repositorio.open_issues_count > 0" class="p-2">
+                    <div class="p-2">
+                        <a class="btn p-0"
+                            routerLink="issues/{{codificaNomeRepositorio(repositorio.full_name)}}">{{repositorio.open_issues_count}}
+                            problemas
+                            precisando de ajuda!</a>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="exibirPaginacao">
+    <div class="d-flex justify-content-center">
+        <pagination-controls (pageChange)="mudarPagina($event)" previousLabel="Anterior"
+            nextLabel="Próximo"></pagination-controls>
+    </div>
+</ng-container>
+<ng-container *ngIf="exibirMensagemDeErro">
+    <div class="container d-flex justify-content-center">
+        <p>Erro ao listar repositorios</p>
+    </div>
+</ng-container>
+<app-loader *ngIf="loader"></app-loader>
+<ng-container *ngIf="exibirIssues">
+    <app-lista-issues></app-lista-issues>
+</ng-container>

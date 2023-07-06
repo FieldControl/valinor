@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <a class="btn" (click)="voltar()">Voltar</a>
+        <span>{{totalIssues.toLocaleString()}} problemas</span>
+    </div>
+    <table class="table table-hover mt-3">
+        <tbody>
+            <tr *ngFor="let issue of issues | paginate: { itemsPerPage: 30, currentPage: page, totalItems: totalIssues }">
+                <td>
+                    <p class="fw-bold">{{issue.title}}</p>
+                    <div class="d-flex">
+                        <div class="px-2"><small>#{{(issue.number)}}</small></div>
+                        <div class="px-2"><small>aberto {{calcularDiferenca(issue.created_at)}}</small></div>
+                        <div class="px-2"><small>por {{issue.user.login}}</small></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-container *ngIf="exibirPaginacao">
+    <div class="d-flex justify-content-center">
+        <pagination-controls (pageChange)="mudarPagina($event)" previousLabel="Anterior"
+            nextLabel="Próximo"></pagination-controls>
+    </div>
+</ng-container>
+<ng-container *ngIf="exibirMensagemDeErro">
+    <div class="container d-flex justify-content-center">
+        <p>Erro ao listar issues</p>
+    </div>
+</ng-container>
+<app-loader *ngIf="loader"></app-loader>
