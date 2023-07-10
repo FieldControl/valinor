@@ -1,7 +1,7 @@
 # GitHub Repositories
 
-Web application for searching GitHub repositories. The user can visualize all repositories along with
-their information, such as: name, creator, main language, topics, number of stars and forks.
+This web application allows users to search for GitHub repositories and view information about them,
+including the repository name, creator, main language, topics, number of stars, and forks.
 
 ## Stacks
 - VueJS: Web user interface framework.
@@ -12,29 +12,31 @@ their information, such as: name, creator, main language, topics, number of star
 - Pinia: Store for VueJS.
 
 ## How to run
-Run the following command:
+To run the application, follow these steps:
+
+1. Install dependencies by running the following command:
 
 ```shell
 npm i
+```
+
+2. Start the development server using Vite by running the following command:
+
+```shell
 vite
 ```
 
 ## Observations
 
-I chose to use VueJS, because it is the framework that I am more familiar with. That said,
-I do not have any problem with learning a new one, in fact, I would very much like to!
+I chose to use Vue.js for this project because it's the framework I'm most familiar with. However, I'm open and excited to learn other frameworks if needed.
 
-Since it is a very simple application I did not need to use the Store, I prepared the whole 
-application for its future use, that is why Pinia is still installed.
+Although the application is currently simple, I've designed it with extensibility in mind. That is why Pinia store is included.
 
-The test were done using Vitest, because it is what Vue developers recommend, it is almost
-the same as Jest and could be easily changed if desired to.
+For testing, I used Vitest, the recommended testing framework for Vue.js. However, if desired, it can easily be replaced with Jest or another testing library.
 
-Also, the top-bar was designed so it could have more pages in the future, it is always 
-good to plan ahead!
+The application's top bar is designed to accommodate additional pages in the future, allowing for easy scalability.
 
 There are not many components in the app, because I thought that there was no need to, it
 is a very compact and easy to read code.
 
-Vuetify is used because of its very flexible and beautiful components. THe framework its 
-very praised and used by the community.
+Vuetify was chosen for its flexible and beautiful components. It is highly regarded and widely used within the Vue.js community.
