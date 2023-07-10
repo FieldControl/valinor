@@ -1,16 +1,15 @@
 <template>
   <v-container class="fill-height d-flex justify-center" fluid>
-    <v-card width="1200" height="100%" flat>
+    <v-sheet width="1200" height="100%" flat>
       <v-text-field v-model="query" variant="outlined"
                     @click:append="findAll"
                     @keydown.enter="findAll"
                     append-icon="mdi-magnify" hide-details></v-text-field>
-      <v-data-table-server class="mt-6" height="73vh"
-                    :page="page" :items-length="repositories.total_count"
-                    :items-per-page="itemsPerPage" @update:options="findAll"
-                    :items-per-page-options="itemsPerPageOptions"
-                    :items="repositories.items" :headers="headers">
-
+      <v-data-table-server class="mt-6" height="73vh" @click:row="selectRepository"
+                           :page="page" :items-length="repositories.total_count"
+                           :items-per-page="itemsPerPage" @update:options="findAll"
+                           :items-per-page-options="itemsPerPageOptions" :loading="loading"
+                           :items="repositories.items" :headers="headers">
         <template v-slot:item.full_name="{ item }">
           <v-row align="center" class="py-2">
             <v-col cols="2">
@@ -24,14 +23,17 @@
           </v-row>
         </template>
         <template v-slot:item.topics="{ item }">
-            <v-row no-gutters>
-              <v-col cols="auto" v-for="topic in item.props.title.topics">
-                <v-card class="mr-3 my-1 pa-2 text-truncate text-center" max-width="8rem" min-width="2rem"
-                        rounded flat color="secondary">
-                  {{topic}}
-                </v-card>
-              </v-col>
-            </v-row>
+          <v-row no-gutters v-if="item.props.title.topics.length > 0">
+            <v-col cols="auto" v-for="topic in item.props.title.topics">
+              <v-card class="mr-3 my-1 pa-2 text-truncate text-center" max-width="8rem" min-width="2rem"
+                      rounded flat color="secondary">
+                <span>{{ topic }}</span>
+              </v-card>
+            </v-col>
+          </v-row>
+          <div v-else class="ml-3">
+            --
+          </div>
         </template>
         <template v-slot:item.updated_at="{ item }">
           <div>
@@ -41,11 +43,13 @@
         <template v-slot:item.statistics="{ item }">
           <v-row justify="center" class="py-2">
             <v-col cols="auto">
-              <v-sheet color="secondary" width="5rem" rounded="lg" class="pa-1 mb-1 text-subtitle-2 font-weight-regular d-flex justify-sm-space-around align-center">
+              <v-sheet color="secondary" width="5rem" rounded="lg"
+                       class="pa-1 mb-1 text-subtitle-2 font-weight-regular d-flex justify-sm-space-around align-center">
                 <v-icon width="8" class="pr-1">mdi-star</v-icon>
                 {{ formatNumber(item.props.title.stargazers_count) }}
               </v-sheet>
-              <v-sheet color="secondary" width="5rem" rounded="lg" class="pa-1 text-subtitle-2 font-weight-regular d-flex justify-sm-space-around align-center">
+              <v-sheet color="secondary" width="5rem" rounded="lg"
+                       class="pa-1 text-subtitle-2 font-weight-regular d-flex justify-sm-space-around align-center">
                 <v-img src="src/assets/fork.png" height="19" max-width="9">=</v-img>
                 {{ formatNumber(item.props.title.forks_count) }}
               </v-sheet>
@@ -53,7 +57,7 @@
           </v-row>
         </template>
       </v-data-table-server>
-    </v-card>
+    </v-sheet>
   </v-container>
 </template>
 
@@ -66,6 +70,7 @@ export default {
   name: 'Repositories',
   data() {
     return {
+      loading: false,
       page: 1,
       itemsPerPage: 10,
       itemsPerPageOptions: [
@@ -92,7 +97,19 @@ export default {
       return number.format(value)
     },
     async findAll({page, itemsPerPage}) {
-      this.repositories = await repositories.findAll({page: page, per_page: itemsPerPage}, this.query)
+      if (this.query.length > 0) {
+        this.loading = true
+        this.repositories = await repositories.findAll({
+          page: page,
+          per_page: itemsPerPage
+        }, this.query).then(response => {
+          this.loading = false
+          return response
+        })
+      }
+    },
+    selectRepository(e, repository) {
+      window.open(repository.item.props.title.html_url)
     }
   }
 }
