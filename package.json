@@ -1,24 +1,32 @@
 {
   "name": "github-repositories",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
     "axios": "^1.3.4",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
-    "vue": "^3.2.38",
+    "vue": "^3.3.1",
     "vue-router": "^4.0.0",
-    "vuetify": "^3.0.0",
+    "vuetify": "^3.3.2",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@pinia/testing": "^0.0.16",
     "@vitejs/plugin-vue": "^3.0.3",
-    "vite": "^3.1.9",
-    "vite-plugin-vuetify": "^1.0.0-alpha.12"
+    "@vitest/coverage-c8": "^0.30.1",
+    "@vue/test-utils": "^2.0.0",
+    "jsdom": "latest",
+    "sass": "^1.60.0",
+    "vite": "^3.2.7",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vitest": "latest"
   }
 }
