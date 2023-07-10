@@ -6,7 +6,7 @@
                     @keydown.enter="findAll"
                     append-icon="mdi-magnify" hide-details></v-text-field>
       <v-data-table-server class="mt-6" height="73vh" @click:row="selectRepository"
-                           :page="page" :items-length="repositories.total_count"
+                           :page="page" :items-length="total_count"
                            :items-per-page="itemsPerPage" @update:options="findAll"
                            :items-per-page-options="itemsPerPageOptions" :loading="loading"
                            :items="repositories.items" :headers="headers">
@@ -73,6 +73,7 @@ export default {
       loading: false,
       page: 1,
       itemsPerPage: 10,
+      total_count: 0,
       itemsPerPageOptions: [
         {value: 10, title: '10'},
         {value: 25, title: '25'},
@@ -104,6 +105,7 @@ export default {
           per_page: itemsPerPage
         }, this.query).then(response => {
           this.loading = false
+          this.total_count = response.total_count
           return response
         })
       }
