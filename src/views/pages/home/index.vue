@@ -1,12 +1,20 @@
 <template>
   <v-container class="fill-height d-flex justify-center" fluid>
     <v-card width="1200" height="100%" flat>
-      <v-text-field variant="outlined" append-icon="mdi-magnify" hide-details></v-text-field>
-      <v-data-table class="mt-6" :items="repositories" :headers="headers" height="73vh">
+      <v-text-field v-model="query" variant="outlined"
+                    @click:append="findAll"
+                    @keydown.enter="findAll"
+                    append-icon="mdi-magnify" hide-details></v-text-field>
+      <v-data-table-server class="mt-6" height="73vh"
+                    :page="page" :items-length="repositories.total_count"
+                    :items-per-page="itemsPerPage" @update:options="findAll"
+                    :items-per-page-options="itemsPerPageOptions"
+                    :items="repositories.items" :headers="headers">
+
         <template v-slot:item.full_name="{ item }">
           <v-row align="center" class="py-2">
             <v-col cols="2">
-              <v-img src="https://avatars.githubusercontent.com/u/1530011?s=40&v=4" width="55">
+              <v-img :src="item.props.title.owner.avatar_url" width="55">
               </v-img>
             </v-col>
             <v-col cols="10">
@@ -44,7 +52,7 @@
             </v-col>
           </v-row>
         </template>
-      </v-data-table>
+      </v-data-table-server>
     </v-card>
   </v-container>
 </template>
@@ -52,72 +60,28 @@
 <script>
 import date from '@/commons/filter/date'
 import number from '@/commons/filter/number'
+import repositories from '@/commons/api/repositories'
 
 export default {
   name: 'Repositories',
   data() {
     return {
+      page: 1,
+      itemsPerPage: 10,
+      itemsPerPageOptions: [
+        {value: 10, title: '10'},
+        {value: 25, title: '25'},
+        {value: 50, title: '50'},
+        {value: 100, title: '100'},
+      ],
+      query: 'bootstrap',
       headers: [
         {title: 'Repository', align: 'start', key: 'full_name', sortable: false, width: '20rem'},
         {title: 'Topics', align: 'start', key: 'topics', sortable: false},
         {title: 'Updated at', align: 'center', key: 'updated_at', sortable: false},
         {title: 'Statistics', align: 'center', key: 'statistics', sortable: false},
       ],
-      repositories: [
-        {
-          id: 2126244,
-          full_name: "twbs/bootstrap",
-          owner: {
-            avatar_url: "https://avatars.githubusercontent.com/u/2918581?v=4",
-            url: "https://api.github.com/users/twbs",
-            starred_url: "https://api.github.com/users/twbs/starred{/owner}{/repo}",
-          },
-          url: "https://api.github.com/repos/twbs/bootstrap",
-          forks_url: "https://api.github.com/repos/twbs/bootstrap/forks",
-          languages_url: "https://api.github.com/repos/twbs/bootstrap/languages",
-          stargazers_url: "https://api.github.com/repos/twbs/bootstrap/stargazers",
-          created_at: "2011-07-29T21:19:00Z",
-          updated_at: "2023-07-10T11:29:22Z",
-          pushed_at: "2023-07-10T10:25:59Z",
-          git_url: "git://github.com/twbs/bootstrap.git",
-          size: 232526,
-          stargazers_count: 164517,
-          watchers_count: 164517,
-          language: "JavaScript",
-          forks_count: 78658,
-          open_issues_count: 419,
-          license: {
-            key: "mit",
-            name: "MIT License",
-            spdx_id: "MIT",
-            url: "https://api.github.com/licenses/mit",
-            node_id: "MDc6TGljZW5zZTEz"
-          },
-          allow_forking: true,
-          is_template: false,
-          web_commit_signoff_required: false,
-          topics: [
-            'bootstrap',
-            'css',
-            'css-framework',
-            'html',
-            'javascript',
-            'sass',
-            'css',
-            'css-framework',
-            'html',
-            'javascript',
-            'sass',
-            'scss'
-          ],
-          visibility: "public",
-          forks: 78658,
-          open_issues: 419,
-          watchers: 164517,
-          default_branch: "main",
-          score: 1.0
-        },
-      ]
+      repositories: []
     }
   },
   methods: {
@@ -126,6 +90,9 @@ export default {
     },
     formatNumber(value) {
       return number.format(value)
+    },
+    async findAll({page, itemsPerPage}) {
+      this.repositories = await repositories.findAll({page: page, per_page: itemsPerPage}, this.query)
     }
   }
 }
