@@ -26,6 +26,12 @@ npm i
 vite
 ```
 
+3. To run all the tests:
+
+```shell
+vitest
+```
+
 ## Observations
 
 I chose to use Vue.js for this project because it's the framework I'm most familiar with. However, I'm open and excited to learn other frameworks if needed.

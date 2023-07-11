@@ -34,10 +34,8 @@ describe('Repositories component', () => {
     it('should open the repository URL in a new window', () => {
       const repository = {
         item: {
-          props: {
-            title: {
+          selectable: {
               html_url: 'https://github.com/repo'
-            }
           }
         }
       }
