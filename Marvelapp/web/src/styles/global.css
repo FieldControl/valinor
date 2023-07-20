@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* CONTAINER DA PESQUISA */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100%;
+  height: 100%;
+}
+
+.pesquisa {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #000;
+}
+
+#Hero {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 15px;
+
+  letter-spacing: 2px;
+}
+
+.pesquisa input {
+  border-radius: 3px;
+  height: 2rem;
+  padding: 5px 10px;
+  font-size: 18px;
+  border: transparent;
+  margin-right: 50px;
+}
+
+.pesquisa button {
+  position: absolute;
+  margin-right: 25px;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border: transparent;
+  cursor: pointer;
+  transition: 0.5s;
+
+  width: 2rem;
+  height: 2rem;
+}
+
+.pesquisa button:hover {
+  filter: brightness(0.8);
+}
+
+#icon {
+  margin: 4px;
+  font-size: 20px;
+}
+
+/* CARTAS */
+.Classlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url(../Media/imgs/Comics-1.jfif);
+}
+
+.Card {
+  background-color: rgb(255, 255, 255);
+  height: 350px;
+  width: 300px;
+  margin: 20px 10px 100px 10px;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);
+  transition: all 1s;
+}
+
+.Card h2,
+p {
+  padding: 5px;
+  text-align: justify;
+  color: #000;
+  font-size: 17px;
+}
+
+#Cards img {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* PAGINAÇÃO */
+#Pagination {
+  display: flex;
+  justify-content: center;
+  background-color: #202020;
+  padding: 20px;
+}
+
+ul.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.pagination li {
+  min-width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 5px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  background: #f2f2f2;
+}
+
+.pagination li.active,
+.pagination li:hover {
+  background: #aa1f28;
+  color: #fff !important;
+}
+
+.pagination li a {
+  color: #000;
+  margin-left: 0px;
+  font-size: 17.2061px;
+  transition: ease-in-out 0.3s;
+}
+
+svg {
+  margin: 0 30px;
+}
+
+video {
+  height: 100vh;
+  width: 100%;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container-modal {
+  display: flex;
+  background: #202020;
+  width: 60%;
+  height: 365px;
+  border-radius: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container-modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.container-modal::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.container-modal::-webkit-scrollbar-thumb {
+  background-color: #aa1f28;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal img {
+  max-width: 250px;
+  height: auto;
+  border-top-left-radius: 20px;
+}
+
+.conteudo {
+  padding: 10px 45px 10px 10px;
+}
+
+.modal h2 {
+  margin-bottom: 5px;
+  color: #e81e21;
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+  color: #888;
+}
+
+.modal p {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.modal button {
+  background-color: #888;
+  color: #fff;
+  padding: 10px 20px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  border: none;
+}
+
+.modal button:hover {
+  background-color: #555;
+}
+
+/* MOBILE-RESPONSIVE */
+@media screen and (max-width: 480px) {
+  .pesquisa {
+    padding: 20px;
+    position: relative;
+    height: auto;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pesquisa input {
+    width: 90%;
+    margin-right: 0px;
+  }
+
+  .pesquisa button {
+    right: 3%;
+    top: 53.5%;
+  }
+
+  .container-modal {
+    display: block;
+    width: 90%;
+  }
+
+  .modal img {
+    max-width: 50%;
+    height: 50%;
+  }
+
+  .pagination li {
+    min-width: 23px;
+  }
+}

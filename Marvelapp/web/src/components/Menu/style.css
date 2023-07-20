@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+/* MENU */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #202020;
+    position: fixed;
+    z-index: 99;
+}
+
+a {
+    margin-left: 20px;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    font-size: 17.2061px;
+    transition: ease-in-out 0.3s;
+}
+
+a:hover {
+    color: red;
+}
+
+.logo,
+.logo img {
+    height: 50px;
+}
+/* BANNER E CONTEUDOS */
+.home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    background-image: url(../../Media/imgs/homem_aranha_de_costas.jpg);
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.home h1 {
+    text-align: center;
+    background-color: rgb(0 0 0 / 65%);
+    font-size: 42px;
+    width: 100%;
+    color: #fff;
+    margin: 0%;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-family: 'Bangers', sans-serif;
+    letter-spacing: 5px;
+    position: relative;
+    top: 20%;
+}
+
+.home strong {
+    color: red;
+    font-family: 'Bangers', sans-serif;
+}
+
+/* DESK-RESPONSIVE */
+@media screen and (min-width: 1600px) {
+    .home h1 {
+        font-size: 54px;
+        line-height: 1.2;
+    }
+}
+
+/* MOBILE-RESPONSIVE */
+@media screen and (max-width: 480px) {
+    .home {
+        height: 80vh;
+    }
+    nav {  
+     justify-content: space-between;
+      padding-right: 20px;
+    }
+
+    nav a{
+        margin-left: auto;
+    }
+    
+    .home h1 {
+        font-size: 26px;
+    }
+    
+    #Hero {
+        text-align: center;
+        letter-spacing: 0px; 
+    }
+}
