@@ -94,3 +94,5 @@ function pages(value){
         </g>
     </svg>`, max)
 }
+
+module.exports = {getData, pages}
