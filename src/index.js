@@ -1,15 +1,22 @@
 
-let pagina = 1
-let totalCount = 1
+let currentPage = 0
+let totalCount = 0
+let nameRepository = ''
 
-const getData =async (repositorieName) => {
-    const api = `https://api.github.com/search/repositories?q=${repositorieName}&per_page=10`
-    try{
+const getData =async (repositorieName, page) => {
+    currentPage = page
+    nameRepository = repositorieName
+    const api = `https://api.github.com/search/repositories?q=${repositorieName}&page=${page}&per_page=10`
+    try{    
     const data = await fetch(api).then(data => {if(!data.ok){throw new Error(data.status)} return data.json()}).catch(err => {throw new Error(err)})
-    
-    const [totalCount, items] = await [data.total_count, data.items.map(({name, html_url, description, stargazers_count, watchers_count, open_issues_count}) => ({'name': name, 'html_url': html_url, 'description': description, 'stargazers_count': stargazers_count, 'watchers_count': watchers_count, 'open_issues_count': open_issues_count}))]
+    totalCount = await data.total_count
+    if(!totalCount) {
+        throw new Error(`<h1 style="color: #ff4a4a; padding: 0 2em"> Could not find repository: ${repositorieName} </h1>`)
+    }
+    const items = await data.items.map(({name, html_url, description, stargazers_count, watchers_count, open_issues_count}) => ({'name': name, 'html_url': html_url, 'description': description, 'stargazers_count': stargazers_count, 'watchers_count': watchers_count, 'open_issues_count': open_issues_count}))
+    pages(page)
 
-    return items.map(({name, html_url, description, stargazers_count, watchers_count, open_issues_count}) => `
+    repositories.innerHTML = items.map(({name, html_url, description, stargazers_count, watchers_count, open_issues_count}) => `
     <a href='${html_url}'>
         <div class='repository'>
             <h1> ${name} </h1>
@@ -40,12 +47,50 @@ const getData =async (repositorieName) => {
     </a>
     `).join('\n')
     }catch(err){
-        return err.message
+        currentPage = 0
+        totalCount = 0
+        repositories.innerHTML = `<h1 style="color: #ff4a4a; padding: 0 2em"> ${err.message} </h1>`
     }
 }
 
-const [btn, search, repositories, page] = ['btn', 'search', 'repositories', 'page'].map(name => document.getElementById(name))
+const [btn, search, repositories, pagination] = ['btn', 'search', 'repositories', 'pages'].map(name => document.getElementById(name))
 btn.addEventListener('click', () => {
-    search.value && ( new Promise((resolve, reject) => resolve(getData(search.value))).then(data => repositories.innerHTML = data))
+    search.value && ( new Promise((resolve, reject) => resolve(getData(search.value, 1))))
 })
 
+
+
+
+function pages(value){
+    let lastPage = Math.ceil(totalCount/10)
+    let max = Math.min((lastPage), 100)
+    let min = Math.max(Math.min(currentPage - 1 , max - 2), 1)
+    let len = Math.min(max, 3)
+
+    pagination.innerHTML = ''
+
+    function insertHTML(idName, name, page){
+        new Promise(resolve => resolve(`<button id="btn-${idName}" ${currentPage === page && 'style="color: #587dff; cursor: default"'}> ${name} </button>`))
+        .then(data => pagination.innerHTML += data)
+        .then(() => document.getElementById(`btn-${idName}`).addEventListener('click', () => currentPage !== page && getData(nameRepository, page)))
+    }
+
+    len > 2 && insertHTML(`btn-first`, 
+    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 122.88 83.21" style="enable-background:new 0 0 122.88 83.21; transform: scaleX(-1);" xml:space="preserve">
+        <g>
+            <path d="M107.68,12.35c0-4.2,3.4-7.6,7.6-7.6c4.2,0,7.6,3.4,7.6,7.6v58.52c0,4.2-3.4,7.6-7.6,7.6c-4.2,0-7.6-3.4-7.6-7.6V12.35 L107.68,12.35z M87.18,46.44L59.74,80.39c-2.62,3.26-7.4,3.78-10.66,1.16c-3.26-2.62-3.78-7.4-1.16-10.66l17.55-21.7L7.57,49.2 C3.39,49.2,0,45.81,0,41.63c0-4.18,3.39-7.57,7.57-7.57l57.91-0.02L47.93,12.33c-2.62-3.26-2.1-8.03,1.16-10.66 c3.26-2.62,8.03-2.1,10.66,1.16l27.44,33.95l0.06,0.08l0.24,0.31l0.04,0.06l0.07,0.1l0.04,0.05l0.07,0.11l0.1,0.16l0.03,0.04 l0.07,0.12l0.02,0.04l0.07,0.13l0.02,0.04l0.07,0.13l0.02,0.03l0.07,0.14l0.01,0.03l0.07,0.14l0.01,0.03l0.06,0.14l0.01,0.02 l0.06,0.15l0.01,0.02L88.46,39l0,0.02l0.11,0.33l0,0.01l0.1,0.34l0,0.01l0.04,0.17v0.01l0.04,0.17v0.01l0.03,0.17v0l0.03,0.18v0 l0.02,0.18h0l0.02,0.18v0l0.02,0.18l0.01,0.18h0l0.01,0.18l0,0.18v0.18l0,0.18l-0.01,0.18h0l-0.01,0.18l-0.02,0.18v0l-0.02,0.18h0 l-0.02,0.18v0l-0.03,0.18v0l-0.03,0.17v0.01l-0.04,0.17v0.01l-0.04,0.17l0,0.01l-0.1,0.34l0,0.01l-0.11,0.33l0,0.02l-0.06,0.15 l-0.01,0.02l-0.06,0.15l-0.01,0.02l-0.06,0.14l-0.01,0.03l-0.07,0.14l-0.01,0.03l-0.07,0.14l-0.02,0.03l-0.07,0.13l-0.02,0.04 l-0.07,0.13L87.9,45.4l-0.07,0.12l-0.03,0.04l-0.1,0.16l-0.07,0.11l-0.04,0.05l-0.07,0.1l-0.04,0.06l-0.24,0.31L87.18,46.44 L87.18,46.44z"/>
+        </g>
+    </svg>`, 1)
+    
+    for(let i = 0; i < len; i++){
+            let num = i + min
+            insertHTML(num, num, num)
+    }
+
+    len > 2 && insertHTML(`btn-last`, 
+    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 122.88 83.21" style="enable-background:new 0 0 122.88 83.21" xml:space="preserve">
+        <g>
+            <path d="M107.68,12.35c0-4.2,3.4-7.6,7.6-7.6c4.2,0,7.6,3.4,7.6,7.6v58.52c0,4.2-3.4,7.6-7.6,7.6c-4.2,0-7.6-3.4-7.6-7.6V12.35 L107.68,12.35z M87.18,46.44L59.74,80.39c-2.62,3.26-7.4,3.78-10.66,1.16c-3.26-2.62-3.78-7.4-1.16-10.66l17.55-21.7L7.57,49.2 C3.39,49.2,0,45.81,0,41.63c0-4.18,3.39-7.57,7.57-7.57l57.91-0.02L47.93,12.33c-2.62-3.26-2.1-8.03,1.16-10.66 c3.26-2.62,8.03-2.1,10.66,1.16l27.44,33.95l0.06,0.08l0.24,0.31l0.04,0.06l0.07,0.1l0.04,0.05l0.07,0.11l0.1,0.16l0.03,0.04 l0.07,0.12l0.02,0.04l0.07,0.13l0.02,0.04l0.07,0.13l0.02,0.03l0.07,0.14l0.01,0.03l0.07,0.14l0.01,0.03l0.06,0.14l0.01,0.02 l0.06,0.15l0.01,0.02L88.46,39l0,0.02l0.11,0.33l0,0.01l0.1,0.34l0,0.01l0.04,0.17v0.01l0.04,0.17v0.01l0.03,0.17v0l0.03,0.18v0 l0.02,0.18h0l0.02,0.18v0l0.02,0.18l0.01,0.18h0l0.01,0.18l0,0.18v0.18l0,0.18l-0.01,0.18h0l-0.01,0.18l-0.02,0.18v0l-0.02,0.18h0 l-0.02,0.18v0l-0.03,0.18v0l-0.03,0.17v0.01l-0.04,0.17v0.01l-0.04,0.17l0,0.01l-0.1,0.34l0,0.01l-0.11,0.33l0,0.02l-0.06,0.15 l-0.01,0.02l-0.06,0.15l-0.01,0.02l-0.06,0.14l-0.01,0.03l-0.07,0.14l-0.01,0.03l-0.07,0.14l-0.02,0.03l-0.07,0.13l-0.02,0.04 l-0.07,0.13L87.9,45.4l-0.07,0.12l-0.03,0.04l-0.1,0.16l-0.07,0.11l-0.04,0.05l-0.07,0.1l-0.04,0.06l-0.24,0.31L87.18,46.44 L87.18,46.44z"/>
+        </g>
+    </svg>`, max)
+}

@@ -76,13 +76,37 @@ body{
     overflow-y: scroll;
     overflow-x: hidden;
 }
-#page{
+#pages{
     position: absolute;
     background-color: #474e5bc2;
     width: 100%;
     height: 5em;
     bottom: 0;
     border-radius: 0  0 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pages button{
+    margin: 0 0.6em;
+    height: 3em;
+    width: 3em;
+    border: none;
+    outline: none;
+    background: white;
+    padding: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12pt;
+    font-weight: bold;
+    opacity: 0.85;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pages button:hover{
+    background-color: #c3cfffc2;
 }
 a{
     text-decoration: none;
@@ -92,7 +116,7 @@ a{
     padding: 0em 3em;
     border-bottom: 1px solid;
 }
-.repository h1{
+#repositories h1{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
