@@ -58,4 +58,19 @@ describe('Unit testes', () => {
         }
         expect(error).toBe(expectError)
     })
+
+    it('Call pages when calling getData', async () => {
+        //eventCounter counts how many times the addEventListener has been called, and it is only called in getData when executing the pages function
+        eventCounter = 0
+        itsOk = true
+        code = "200"
+        error = ''
+        total_count = 1
+        expectError = 'Not found '
+        setFetch(itsOk, code, total_count)
+        
+        expect(eventCounter).toBe(0)
+        await new Promise((resolve) => resolve()).then(() => getData('', 1))
+        expect(eventCounter).toBe(1)
+    })
 })
