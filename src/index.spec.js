@@ -41,4 +41,21 @@ describe('Unit testes', () => {
 
         expect(error).toBe(expectError)
     })
+
+    it('Not found repository', async () => {
+        itsOk = true
+        code = "200"
+        error = ''
+        total_count = 0
+        expectError = 'Not found '
+        setFetch(itsOk, code, total_count)
+
+        await new Promise((resolve) => resolve()).then(() => getData('', 1))
+        try{
+            await catchSpy.mock.contexts.at(-1)
+        }catch(err){
+            error = err.message
+        }
+        expect(error).toBe(expectError)
+    })
 })
