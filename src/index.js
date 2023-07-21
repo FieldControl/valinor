@@ -3,19 +3,19 @@ let currentPage = 0
 let totalCount = 0
 let nameRepository = ''
 
-const getData =async (repositorieName, page) => {
+const getData =async (repositoryName, page) => {
     currentPage = page
-    nameRepository = repositorieName
-    const api = `https://api.github.com/search/repositories?q=${repositorieName}&page=${page}&per_page=10`
+    nameRepository = repositoryName
+    const api = `https://api.github.com/search/repositories?q=${repositoryName}&page=${page}&per_page=10`
     try{    
-    const data = await fetch(api).then(data => {if(!data.ok){throw new Error(data.status)} return data.json()}).catch(err => {throw new Error(err)})
+    const data = await fetch(api)
+    .then(data => {if(!data.ok){throw new Error(data.status)}; return data.json()})
+    .then(data => !data.total_count ? (() => { throw new Error(`Not found ${repositoryName}`) })() : data)
+    .catch(err => {throw new Error(err)})
+
     totalCount = await data.total_count
-    if(!totalCount) {
-        throw new Error(`<h1 style="color: #ff4a4a; padding: 0 2em"> Could not find repository: ${repositorieName} </h1>`)
-    }
     const items = await data.items.map(({name, html_url, description, stargazers_count, watchers_count, open_issues_count}) => ({'name': name, 'html_url': html_url, 'description': description, 'stargazers_count': stargazers_count, 'watchers_count': watchers_count, 'open_issues_count': open_issues_count}))
     pages(page)
-
     repositories.innerHTML = items.map(({name, html_url, description, stargazers_count, watchers_count, open_issues_count}) => `
     <a href='${html_url}'>
         <div class='repository'>
@@ -61,7 +61,7 @@ btn.addEventListener('click', () => {
 
 
 
-function pages(value){
+const pages = (value) => {
     let lastPage = Math.ceil(totalCount/10)
     let max = Math.min((lastPage), 100)
     let min = Math.max(Math.min(currentPage - 1 , max - 2), 1)
@@ -95,4 +95,4 @@ function pages(value){
     </svg>`, max)
 }
 
-module.exports = {getData, pages}
+module.exports = { getData, pages }
