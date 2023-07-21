@@ -1,0 +1,124 @@
+body {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('../images/bg.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-weight: bold;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: center;
+	align-items: flex-start;
+	width: 50%;
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+.grid-item1 {
+	width: 100%;
+	margin: 20px 0;
+}
+
+.search-input {
+	box-sizing: border-box;
+	background-image: url('../images/search-icon.svg');
+	background-repeat: no-repeat;
+	background-size: 22px 22px;
+	background-position: calc(100% - 12px) center;
+}
+
+.grid-item2 {
+	width: 100%;
+	background-color: rgba(60, 36, 31, 0.8); 
+	padding: 20px 40px;
+	border-radius: 12px;
+	box-sizing: border-box;
+	align-self: center;
+}
+
+input[type="text"] {
+	padding: 12px 24px;
+	width: 100%;
+	font-size: 15px;
+	background-color: rgba(79, 47, 40, 1.0);
+	border: 1px solid rgba(210, 115, 138, 1.0) !important;
+	border-radius: 25px;
+	color: rgba(60, 162, 115, 1.0);;
+	box-sizing: border-box;
+}
+
+input[type="text"]::placeholder {
+	color: rgba(60, 162, 115, 1.0);
+	letter-spacing: 1.5px;
+}
+
+@keyframes blink {
+	50% {
+		color: rgba(210, 115, 138, 1.0);
+		text-shadow: rgba(210, 115, 138, 1.0) 1px 4px 5px;
+	}
+}
+
+div[ng-repeat="repo in repositories"] {
+	margin-top: 10px;
+	border: 1px solid rgba(210, 115, 138, 1.0) !important;
+	border-radius: 8px;
+	background-color: rgba(79, 47, 40, 1.0);
+	padding: 10px;
+}
+
+div[ng-repeat="repo in repositories"] a {
+	color: rgba(210, 115, 138, 1.0);
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+	letter-spacing: 2px;
+	text-decoration: none;
+	box-sizing: inherit;
+	animation: blink 2s ease-in-out infinite;
+	cursor: pointer;
+}
+
+div[ng-repeat="repo in repositories"] a:hover {
+	text-shadow: rgba(210, 115, 138, 1.0) 1px 4px 5px;
+	color: rgba(210, 115, 138, 1.0);
+}
+
+div[ng-repeat="repo in repositories"] p {
+	font-size: 13px;
+	margin: 5px 0;
+}
+
+.pagination-container {
+	text-align: center;
+}
+
+.pagination-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 10px;
+}
+
+.pagination-content span,
+.pagination-content button {
+	margin: 5px;
+}
+
+.pagination-content button {
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	color: rgba(60, 162, 115, 1.0);
+	transition: background-color 0.2s ease-in-out;
+	background-color: rgba(79, 47, 40, 1.0);
+}

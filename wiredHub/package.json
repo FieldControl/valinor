@@ -1,0 +1,25 @@
+{
+	"name": "WiredHub",
+	"version": "1.0.0",
+	"description": "WiredHub",
+	"main": "app/app.js",
+	"scripts": {
+		"start": "http-server",
+		"test": "karma start"
+	},
+	"keywords": [],
+	"author": "kumahooks",
+	"license": "ISC",
+	"dependencies": {
+		"angular": "^1.6.10",
+		"http-server": "^14.1.1"
+	},
+	"devDependencies": {
+		"angular-mocks": "^1.8.3",
+		"jasmine-core": "^5.0.1",
+		"karma": "^6.4.2",
+		"karma-chrome-launcher": "^3.2.0",
+		"karma-firefox-launcher": "^2.1.2",
+		"karma-jasmine": "^5.1.0"
+	}
+}
