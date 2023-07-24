@@ -1,0 +1,69 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.search-itens input {
+    flex: 1;
+    height: 2.6rem;
+    width: 30.0rem;
+    padding: 0 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #808080;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+}
+  
+.search-itens input::placeholder {
+    color: #FFF;
+}
+
+.search-itens #btn {
+    padding: 0.6rem 2rem;
+    margin-left: 0.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: rgb(96, 102, 102);
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#repositories {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#repositories th,
+#repositories td {
+    padding: 0.75em 1.5em;
+    text-align: left;
+    color: rgb(0, 0, 0);
+}
+
+#repositories th {
+    background-color: rgb(96, 102, 102);
+}
+
+#repositories tbody tr {
+    border-bottom: 1px solid #505e78;
+}
+
+#repositories tbody tr:last-child {
+    border-bottom: none;
+}
+
+#repositories a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#repositories a:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}

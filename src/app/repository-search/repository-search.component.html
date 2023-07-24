@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./repository-search.component.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>GitSearch</title>
+</head>
+<body>
+    <div class="search-itens">
+        <input id="search" placeholder="Digite o nome do repositório" [(ngModel)]="nameRepository" />
+        <button id="btn" (click)="searchRepositories()">
+            Pesquisar
+        </button>
+    </div>    
+    
+    <div id="container">
+        <table id="repositories">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>URL</th>
+                    <th>Watchers</th>
+                    <th>Stars</th>
+                    <th>Issues</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let repo of repositories | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: totalCount }">
+                    <td>{{ repo.name }}</td>
+                    <td>{{ repo.description }}</td>
+                    <td><a [href]="repo.html_url" target="_blank">{{ repo.html_url }}</a></td>
+                    <td>{{ repo.watchers_count }}</td>
+                    <td>{{ repo.stargazers_count }}</td>
+                    <td>{{ repo.open_issues_count }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination" *ngIf="repositories.length > 0">
+        <pagination-controls (pageChange)="onPageChange($event)" 
+                            previousLabel="Anterior" 
+                            nextLabel="Próxima"
+                            [maxSize]="5"
+                            [responsive]="true">
+        </pagination-controls>
+    </div>
+</body>
+</html>
