@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Times Brasilerão | Futebas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Brasilerão - Série A</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Posição</th>
+        <th scope="col">Escudo</th>
+        <th scope="col">Time</th>
+        <th scope="col">Pontos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let time of tabela | async">
+        <th scope="row">{{time.overall_league_position}}</th>
+        <td><img class="escudo" src="{{time.team_badge}}" alt=""></td>
+        <td>{{time.team_name}}</td>
+        <th scope="row">{{time.overall_league_PTS}}</th>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
