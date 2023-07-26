@@ -78,6 +78,10 @@ export class ResultComponent implements OnInit {
       pages.push(i);
     }
 
+    if (!pages.includes(this.totalPages) && this.totalPages > 0) {
+      pages.push(this.totalPages);
+    }
+
     this.updatePagesToShow();
 
     return pages;

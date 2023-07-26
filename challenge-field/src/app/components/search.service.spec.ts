@@ -49,7 +49,7 @@ describe('SearchService', () => {
       const req = httpMock.expectOne(`https://api.github.com/search/repositories?q=${searchTerm}&per_page=${service.maxRepositoriesPerPage}&page=${page}`);
       expect(req.request.method).toBe('GET');
 
-      const searchResult = generateSearchResultWithSixItems(); // Replace this with a function that generates a search result with 6 items
+      const searchResult = generateSearchResultWithSixItems();
       req.flush(searchResult);
 
       service.searchData$.subscribe((data) => {
