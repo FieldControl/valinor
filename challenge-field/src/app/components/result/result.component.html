@@ -1,0 +1,60 @@
+<main class="bg-zinc-950 h-screen pt-8 space-y-8">
+    <div class="container">
+        <section *ngIf="searchService.loading$ | async" class="w-full mx-auto my-0">
+            <h1 class="text-gray-50 text-3xl">Carregando...</h1>
+        </section>
+        <div *ngIf="!(searchService.loading$ | async)" class="flex flex-col">
+            <ng-container *ngIf="total_count > 0; else noResultsMessage">
+                <h2 class="text-gray-50 text-2xl">{{ formatNumber(total_count) }} resultado{{ total_count > 1 ? 's' : ''
+                    }}</h2>
+            </ng-container>
+            <ng-template #noResultsMessage>
+                <p class="text-gray-50">Para começar, pesquise um repositório.</p>
+            </ng-template>
+            <section class="grid grid-cols-3 gap-4 pt-8 max-lg:grid-cols-2 max-sm:grid-cols-1">
+                <div class="text-gray-800 border border-zinc-800 p-4" *ngFor="let repo of searchData.items">
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 overflow-hidden relative">
+                                <img class="w-full h-full rounded-full absolute inset-0" *ngIf="repo?.owner?.avatar_url"
+                                    [src]="repo.owner.avatar_url" alt="Imagem do Proprietário">
+                            </div>
+                            <h1 class="text-blue-500">{{ repo.full_name }}</h1>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <p class="text-gray-50">{{ repo.description }}</p>
+                            <div class="flex gap-4 max-sm:flex-col items-center flex-wrap">
+                                <span *ngIf="repo.language !== null"
+                                    class="after:gudi text-blue-400 text-base px-4 py-2 bg-blue-500/20 rounded-md">{{
+                                    repo.language }}</span>
+                                <div class="flex items-center gap-2">
+                                    <img width="16" src="/assets/star.svg" alt="watchers" />
+                                    <span class="text-gray-400 text-base">{{ formatNumber(repo.watchers) }}</span>
+                                </div>
+                                <span class="text-gray-400 text-base">Atualizado em {{ formatDate(repo.updated_at)
+                                    }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="w-full flex justify-center items-center space-x-4 py-8"
+                *ngIf="(searchService.searchData$ | async) !== null && total_count > 0;">
+                <button class="text-gray-50 hover:bg-zinc-900 py-2 px-4 rounded-md transition-colors"
+                    [ngClass]="{'cursor-not-allowed': currentPage === 0 || currentPage === 1}"
+                    [disabled]="currentPage === 0 || currentPage === 1"
+                    (click)="setPage(currentPage - 1)">Anterior</button>
+                <ng-container class="flex gap-4" *ngFor="let page of generatePageArray()">
+                    <button class="py-2 px-3 rounded-md font-bold text-gray-50" (click)="setPage(page)" [ngClass]="{
+                      'bg-blue-500': page === currentPage,
+                      'bg-transparent border border-zinc-800 hover:bg-zinc--900': page !== currentPage
+                    }">{{ page }}</button>
+                </ng-container>
+                <button class="text-gray-50 hover:bg-zinc-900 py-2 px-4 rounded-md transition-colors"
+                    [ngClass]="{'cursor-not-allowed': currentPage === totalPages}"
+                    [disabled]="currentPage === totalPages" (click)="setPage(currentPage + 1)">Próximo
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

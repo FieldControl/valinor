@@ -1,0 +1,12 @@
+<header class="bg-zinc-950 h-20 w-full relative border-b border-zinc-800 flex items-center">
+  <div class="container">
+    <div class="flex items-center justify-between h-full">
+      <div class="w-20">
+        <img width="35" src="/assets/github-mark.svg" />
+      </div>
+      <input type="text" [(ngModel)]="repoName" placeholder="Digite o nome do repositório"
+        class="border border-zinc-800 bg-transparent rounded-md px-2 py-1 w-full focus:border-blue-400 focus:border-2 outline-none text-zinc-50 max-sm:text-sm"
+        (keyup.enter)="searchRepo(repoName)">
+    </div>
+  </div>
+</header>
