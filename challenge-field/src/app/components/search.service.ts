@@ -33,7 +33,7 @@ export class SearchService {
       Authorization: `Bearer ${token}`
     });
 
-    this.http.get(searchUrl, { headers })
+    this.http.get(searchUrl)
       .pipe(
         catchError((error: any) => {
           console.error('Ocorreu um erro na requisição:', error);
