@@ -1,0 +1,34 @@
+@import '../../../../assets/themes/colors.scss';
+
+:host {
+  mat-sidenav-container {
+    height: 100%;
+    mat-sidenav { 
+      width: 11.66vw;
+      min-width: 3px;
+        .menu-item { color: #fff !important; }
+        .menu-item.active {
+          .mdc-list-item__primary-text { color: $primary-400 !important; }
+          .mdc-list-item__start { color: $primary-400 !important; }
+        }
+      }
+    }
+    mat-sidenav-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px 30px;
+      header {
+        background-color: #424242;
+        width: calc(100% - 32px);
+        border-radius: 8px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .role-message > span { color: $primary-400; }
+      }
+      main { padding: 16px 32px; }
+    }
+  }
+

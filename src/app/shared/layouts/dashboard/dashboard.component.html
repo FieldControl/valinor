@@ -1,0 +1,34 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    [mode]="(isHandset$ | async) ? 'side' : 'over'"
+    [opened]="isHandset$ | async"
+    [class.width]="'12.66vw'">
+    <mat-nav-list class="text-center">
+      <span class="to-end"></span>
+
+      <h1>
+        Hello! <br />
+        {{ userName ? userName : '' }}
+      </h1>
+
+      <mat-list-item
+        class="bottom"
+        routerLink="/"
+        routerLinkActive="active"
+        (click)="logOut()">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <div matListItemTitle>Logout</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <header>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

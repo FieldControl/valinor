@@ -1,0 +1,52 @@
+<main>
+  <div class="container">
+    <h3>GitHub Search</h3>
+    <form [formGroup]="signInForm">
+      <h1>Start your <br />journey with us.</h1>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            required
+            type="email"
+            placeholder="name@domain.com"
+            formControlName="email" />
+          <mat-error *ngIf="signInForm.get('email')?.invalid">
+            {{ getEmailError() }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your Password</mat-label>
+          <input
+            #passwd
+            matInput
+            required
+            type="password"
+            formControlName="password" />
+          <mat-icon
+            matIconSuffix
+            (click)="(passwd.type === 'text'); $event.stopPropagation()">
+            visibility
+          </mat-icon>
+          <mat-error *ngIf="signInForm.get('password')?.invalid">
+            {{ getPasswordError() }}
+          </mat-error>
+        </mat-form-field>
+        <!-- <a href="#"> Forgot Password </a> -->
+        <button mat-raised-button (click)="submit()" color="primary">
+          Sign In
+        </button>
+      </div>
+    </form>
+    <span class="signature">
+      Made with <strong>❤</strong> by
+      <strong>
+        <a href="https://github.com/isaiasMbueno/" target="_blank">
+          Isaías Bueno
+        </a>
+      </strong>
+    </span>
+  </div>
+  <div class="image"></div>
+</main>

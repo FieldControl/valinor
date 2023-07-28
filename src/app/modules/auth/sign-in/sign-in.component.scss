@@ -1,0 +1,94 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #424242;
+
+  height: 100vh;
+  width: 100vw;
+
+  main {
+    display: flex;
+    flex-direction: row;
+    border-radius: 16px;
+    background-color: #262626;
+    width: 60%;
+    min-width: 800px;
+
+    .container, .form-row, .image, form {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+  
+    .container {
+      gap: 32px;
+      justify-content: space-between;
+
+      h3, span { padding: 16px; width: calc(100% - 32px);  }
+      
+      form {
+        padding: 64px;
+        gap: 32px;
+
+        .form-row {
+          gap: 8px;
+
+          a {
+            width: 100%;
+            text-align: right;
+            text-decoration: none; 
+            color: #7C3AED;
+            margin-bottom: 8px;
+          }
+        }
+      }
+
+      span strong {
+        color: #7C3AED;
+        a {text-decoration: none; color: #7C3AED;}
+      }
+    }
+
+    .image {
+      border-radius: 0px 16px 16px 0px;
+      background-image: url(../../../../assets/image/sign-in.jpg);
+      background-size: cover;
+      background-position: bottom;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    overflow: hidden;
+
+    main {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-width: 420px;
+      gap: 16px;
+
+      .signature {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
+     
+      form {
+        padding: 16px;
+        gap: 16px;
+      }
+
+      .container {
+        height: 70%;
+      }
+
+      .image {
+        height: 30%;
+      }
+    }
+  }
+  
+}

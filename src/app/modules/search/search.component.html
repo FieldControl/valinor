@@ -1,0 +1,88 @@
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Pesquisar</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="Digite o termo de busca"
+      [formControl]="searchText" />
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<ng-container *ngIf="data$ | async as data">
+  <div class="card-container">
+    <ng-container *ngFor="let item of data.items">
+      <mat-card>
+        <mat-card-header>
+          <div
+            mat-card-avatar
+            class="avatar"
+            [style.background-image]="
+              'url(' + item.owner.avatar_url + ')'
+            "></div>
+          <mat-card-title>
+            <a [href]="item.owner.html_url" [target]="'_blank'">
+              <strong> @{{ item.owner.login }}</strong>
+            </a>
+          </mat-card-title>
+          <mat-card-subtitle target="_blank">
+            <a [href]="item.html_url" [target]="'_blank'">
+              {{ item.full_name }}
+            </a>
+          </mat-card-subtitle>
+          <span class="to-end"></span>
+          <span class="text-icon">
+            <a
+              class="text-icon"
+              [target]="'_blank'"
+              [href]="item.html_url + '/watchers'">
+              <span class="text-icon">{{ item.watchers }}</span>
+              <mat-icon>visibility</mat-icon>
+            </a>
+          </span>
+          <span class="text-icon">
+            <a class="text-icon" [href]="item.html_url" [target]="'_blank'">
+              <span class="text-icon">{{ item.stargazers_count }}</span>
+              <mat-icon>star</mat-icon>
+            </a>
+          </span>
+          <span class="text-icon" *ngIf="item.has_issues">
+            <a
+              class="text-icon"
+              [href]="item.html_url + '/issues'"
+              [target]="'_blank'">
+              <span class="text-icon">{{ item.open_issues_count }}</span>
+              <mat-icon>bug_report</mat-icon>
+            </a>
+          </span>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{ item.description }}</p>
+          <div class="topics">
+            <mat-chip-set>
+              <mat-chip *ngFor="let topic of item.topics">
+                {{ topic }}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+
+    <mat-paginator
+      #paginator
+      (page)="handlePageEvent($event)"
+      [length]="data.total_count"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[10, 25, 50]"
+      [pageIndex]="pageIndex"
+      aria-label="Select page">
+    </mat-paginator>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showLoader">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-container>

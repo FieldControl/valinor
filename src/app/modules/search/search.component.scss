@@ -1,0 +1,31 @@
+:host {
+  .search-container {
+    display: flex;
+    align-items: center;
+    mat-form-field { width: 100%; }
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  mat-card-header {
+    display: flex;
+    gap: 16px;
+
+    mat-card-title { text-decoration: none; }
+
+    .avatar {
+      background-size: cover;
+    }
+
+    .text-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}

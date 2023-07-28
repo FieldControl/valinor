@@ -1,0 +1,57 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+@import "colors";
+
+$default-text: white;
+$highlight-text: black;
+
+$pallette-primary: (
+  50:  $primary-50,
+  100: $primary-100,
+  200: $primary-200,
+  300: $primary-300,
+  400: $primary-400,
+  500: $primary-500,
+  600: $primary-600,
+  700: $primary-700,
+  800: $primary-800,
+  900: $primary-900,
+  A100: $primary-100,
+  A200: $primary-200,
+  A400: $primary-400,
+  A700: $primary-700,
+  contrast: (
+    50: $default-text,
+    100: $default-text,
+    200: $default-text,
+    300: $default-text,
+    400: $default-text,
+    500: $highlight-text,
+    600: $highlight-text,
+    700: $highlight-text,
+    800: $highlight-text,
+    900: $highlight-text,
+    A100: $default-text,
+    A200: $highlight-text,
+    A400: $highlight-text,
+    A700: $highlight-text,
+  ),
+);
+
+$spellbook-primary: mat.define-palette(mat.$purple-palette);
+$spellbook-accent:  mat.define-palette(mat.$pink-palette);
+$spellbook-warn:    mat.define-palette(mat.$red-palette);
+
+$spellbook-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $spellbook-primary,
+      accent: $spellbook-accent,
+      warn: $spellbook-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($spellbook-theme);

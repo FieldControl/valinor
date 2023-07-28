@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  color: #fff;
+}
+body {
+  margin: 0;
+  font-family: "Roboto Slab", "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+.to-end {
+  flex: 1 1 auto;
+}
+
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #fff;
+  text-decoration: none;
+}
