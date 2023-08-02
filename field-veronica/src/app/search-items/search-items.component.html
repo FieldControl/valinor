@@ -1,0 +1,11 @@
+<div>
+    <input type="text" [(ngModel)]="searchQuery" (keyup)="search()" placeholder="Digite o termo de busca">
+  </div>
+  
+  <div class="results-container">
+    <div *ngFor="let repo of repositories" class="result-item">
+      <h3>{{ repo.name }}</h3>
+      <p>{{ repo.description }}</p>
+      <p>Stars: {{ repo.stargazers_count }}</p>
+    </div>
+  </div>
