@@ -1,0 +1,13 @@
+.container {
+    height: 4rem;
+    background-color: #0B1016;
+    border-bottom: 1px solid #4D535B;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 3.5rem;
+}

@@ -1,11 +1,33 @@
-<div>
-    <input type="text" [(ngModel)]="searchQuery" (keyup)="search()" placeholder="Digite o termo de busca">
-  </div>
-  
-  <div class="results-container">
-    <div *ngFor="let repo of repositories" class="result-item">
-      <h3>{{ repo.name }}</h3>
-      <p>{{ repo.description }}</p>
-      <p>Stars: {{ repo.stargazers_count }}</p>
+
+<div class="container-search">
+
+    <div class="box-search">
+        <h1 class="title">Procure por repositórios no Github</h1>
+        <div class="input-box">
+            <img src="../../assets/images/icone-search.svg" class="search-icon"/>
+            <input class="input" type="text" [(ngModel)]="searchQuery" (keyup)="search()" placeholder="Procurar repositório...">
+        </div>
     </div>
-  </div>
+
+    <div class="box-search" *ngIf="repositories.length > 0">
+        <div class="results-container">
+            <div *ngFor="let repo of getPaginatedRepositories()" class="result-item">
+                <app-repository-item [repository]="repo"></app-repository-item>
+            </div>
+        </div>
+
+        <div class="no-results" *ngIf="repositories.length === 0 && searchQuery">
+            <h2 class="title">
+                Nenhum repositório encontrado!
+            </h2>
+          </div>
+      
+      <div class="pagination" *ngIf="repositories.length > 0">
+        <button [disabled]="currentPage === 1" (click)="prevPage()">Anterior</button>
+        <span>Página {{ currentPage }} de {{ getTotalPages() }}</span>
+        <button [disabled]="currentPage === getTotalPages()" (click)="nextPage()">Próximo</button>
+      </div>
+
+    </div>
+
+</div>

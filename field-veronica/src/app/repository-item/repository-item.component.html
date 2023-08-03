@@ -1,0 +1,17 @@
+<div class="result-box">
+    <h3 class="repository-title">
+      <a [href]="repository.html_url" target="_blank" rel="noopener">
+        {{ repository.name }}
+      </a>
+    </h3>
+    <p class="repository-description">{{ repository.description }}</p>
+    <div class="gray-line"></div>
+    <div class="author">
+      <img class="avatar" [src]="repository.owner.avatar_url" alt="Avatar do autor">
+      <p class="author-name">{{ repository.owner.login }}</p>
+    </div>
+    <div class="stars-box">
+      <img class="star-icon" src="../../assets/images/icons8-multiple-stars-24.png" alt="Ícone de estrela">
+      <p class="stars">{{ repository.stargazers_count }}</p>
+    </div>
+  </div>
