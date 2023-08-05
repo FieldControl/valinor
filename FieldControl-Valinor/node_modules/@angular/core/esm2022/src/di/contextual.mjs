@@ -1,0 +1,57 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { RuntimeError } from '../errors';
+import { getCurrentInjector, setCurrentInjector } from './injector_compatibility';
+import { getInjectImplementation, setInjectImplementation } from './inject_switch';
+import { R3Injector } from './r3_injector';
+/**
+ * Runs the given function in the [context](guide/dependency-injection-context) of the given
+ * `Injector`.
+ *
+ * Within the function's stack frame, [`inject`](api/core/inject) can be used to inject dependencies
+ * from the given `Injector`. Note that `inject` is only usable synchronously, and cannot be used in
+ * any asynchronous callbacks or after any `await` points.
+ *
+ * @param injector the injector which will satisfy calls to [`inject`](api/core/inject) while `fn`
+ *     is executing
+ * @param fn the closure to be run in the context of `injector`
+ * @returns the return value of the function, if any
+ * @publicApi
+ */
+export function runInInjectionContext(injector, fn) {
+    if (injector instanceof R3Injector) {
+        injector.assertNotDestroyed();
+    }
+    const prevInjector = setCurrentInjector(injector);
+    const previousInjectImplementation = setInjectImplementation(undefined);
+    try {
+        return fn();
+    }
+    finally {
+        setCurrentInjector(prevInjector);
+        setInjectImplementation(previousInjectImplementation);
+    }
+}
+/**
+ * Asserts that the current stack frame is within an [injection
+ * context](guide/dependency-injection-context) and has access to `inject`.
+ *
+ * @param debugFn a reference to the function making the assertion (used for the error message).
+ *
+ * @publicApi
+ */
+export function assertInInjectionContext(debugFn) {
+    // Taking a `Function` instead of a string name here prevents the unminified name of the function
+    // from being retained in the bundle regardless of minification.
+    if (!getInjectImplementation() && !getCurrentInjector()) {
+        throw new RuntimeError(-203 /* RuntimeErrorCode.MISSING_INJECTION_CONTEXT */, ngDevMode &&
+            (debugFn.name +
+                '() can only be used within an injection context such as a constructor, a factory function, a field initializer, or a function used with `runInInjectionContext`'));
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udGV4dHVhbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL2RpL2NvbnRleHR1YWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFDLFlBQVksRUFBbUIsTUFBTSxXQUFXLENBQUM7QUFFekQsT0FBTyxFQUFDLGtCQUFrQixFQUFFLGtCQUFrQixFQUFDLE1BQU0sMEJBQTBCLENBQUM7QUFDaEYsT0FBTyxFQUFDLHVCQUF1QixFQUFFLHVCQUF1QixFQUFDLE1BQU0saUJBQWlCLENBQUM7QUFDakYsT0FBTyxFQUFDLFVBQVUsRUFBQyxNQUFNLGVBQWUsQ0FBQztBQUV6Qzs7Ozs7Ozs7Ozs7OztHQWFHO0FBQ0gsTUFBTSxVQUFVLHFCQUFxQixDQUFVLFFBQWtCLEVBQUUsRUFBaUI7SUFDbEYsSUFBSSxRQUFRLFlBQVksVUFBVSxFQUFFO1FBQ2xDLFFBQVEsQ0FBQyxrQkFBa0IsRUFBRSxDQUFDO0tBQy9CO0lBRUQsTUFBTSxZQUFZLEdBQUcsa0JBQWtCLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDbEQsTUFBTSw0QkFBNEIsR0FBRyx1QkFBdUIsQ0FBQyxTQUFTLENBQUMsQ0FBQztJQUN4RSxJQUFJO1FBQ0YsT0FBTyxFQUFFLEVBQUUsQ0FBQztLQUNiO1lBQVM7UUFDUixrQkFBa0IsQ0FBQyxZQUFZLENBQUMsQ0FBQztRQUNqQyx1QkFBdUIsQ0FBQyw0QkFBNEIsQ0FBQyxDQUFDO0tBQ3ZEO0FBQ0gsQ0FBQztBQUVEOzs7Ozs7O0dBT0c7QUFDSCxNQUFNLFVBQVUsd0JBQXdCLENBQUMsT0FBaUI7SUFDeEQsaUdBQWlHO0lBQ2pHLGdFQUFnRTtJQUNoRSxJQUFJLENBQUMsdUJBQXVCLEVBQUUsSUFBSSxDQUFDLGtCQUFrQixFQUFFLEVBQUU7UUFDdkQsTUFBTSxJQUFJLFlBQVksd0RBRWxCLFNBQVM7WUFDTCxDQUFDLE9BQU8sQ0FBQyxJQUFJO2dCQUNaLGlLQUFpSyxDQUFDLENBQUMsQ0FBQztLQUM5SztBQUNILENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtSdW50aW1lRXJyb3IsIFJ1bnRpbWVFcnJvckNvZGV9IGZyb20gJy4uL2Vycm9ycyc7XG5pbXBvcnQgdHlwZSB7SW5qZWN0b3J9IGZyb20gJy4vaW5qZWN0b3InO1xuaW1wb3J0IHtnZXRDdXJyZW50SW5qZWN0b3IsIHNldEN1cnJlbnRJbmplY3Rvcn0gZnJvbSAnLi9pbmplY3Rvcl9jb21wYXRpYmlsaXR5JztcbmltcG9ydCB7Z2V0SW5qZWN0SW1wbGVtZW50YXRpb24sIHNldEluamVjdEltcGxlbWVudGF0aW9ufSBmcm9tICcuL2luamVjdF9zd2l0Y2gnO1xuaW1wb3J0IHtSM0luamVjdG9yfSBmcm9tICcuL3IzX2luamVjdG9yJztcblxuLyoqXG4gKiBSdW5zIHRoZSBnaXZlbiBmdW5jdGlvbiBpbiB0aGUgW2NvbnRleHRdKGd1aWRlL2RlcGVuZGVuY3ktaW5qZWN0aW9uLWNvbnRleHQpIG9mIHRoZSBnaXZlblxuICogYEluamVjdG9yYC5cbiAqXG4gKiBXaXRoaW4gdGhlIGZ1bmN0aW9uJ3Mgc3RhY2sgZnJhbWUsIFtgaW5qZWN0YF0oYXBpL2NvcmUvaW5qZWN0KSBjYW4gYmUgdXNlZCB0byBpbmplY3QgZGVwZW5kZW5jaWVzXG4gKiBmcm9tIHRoZSBnaXZlbiBgSW5qZWN0b3JgLiBOb3RlIHRoYXQgYGluamVjdGAgaXMgb25seSB1c2FibGUgc3luY2hyb25vdXNseSwgYW5kIGNhbm5vdCBiZSB1c2VkIGluXG4gKiBhbnkgYXN5bmNocm9ub3VzIGNhbGxiYWNrcyBvciBhZnRlciBhbnkgYGF3YWl0YCBwb2ludHMuXG4gKlxuICogQHBhcmFtIGluamVjdG9yIHRoZSBpbmplY3RvciB3aGljaCB3aWxsIHNhdGlzZnkgY2FsbHMgdG8gW2BpbmplY3RgXShhcGkvY29yZS9pbmplY3QpIHdoaWxlIGBmbmBcbiAqICAgICBpcyBleGVjdXRpbmdcbiAqIEBwYXJhbSBmbiB0aGUgY2xvc3VyZSB0byBiZSBydW4gaW4gdGhlIGNvbnRleHQgb2YgYGluamVjdG9yYFxuICogQHJldHVybnMgdGhlIHJldHVybiB2YWx1ZSBvZiB0aGUgZnVuY3Rpb24sIGlmIGFueVxuICogQHB1YmxpY0FwaVxuICovXG5leHBvcnQgZnVuY3Rpb24gcnVuSW5JbmplY3Rpb25Db250ZXh0PFJldHVyblQ+KGluamVjdG9yOiBJbmplY3RvciwgZm46ICgpID0+IFJldHVyblQpOiBSZXR1cm5UIHtcbiAgaWYgKGluamVjdG9yIGluc3RhbmNlb2YgUjNJbmplY3Rvcikge1xuICAgIGluamVjdG9yLmFzc2VydE5vdERlc3Ryb3llZCgpO1xuICB9XG5cbiAgY29uc3QgcHJldkluamVjdG9yID0gc2V0Q3VycmVudEluamVjdG9yKGluamVjdG9yKTtcbiAgY29uc3QgcHJldmlvdXNJbmplY3RJbXBsZW1lbnRhdGlvbiA9IHNldEluamVjdEltcGxlbWVudGF0aW9uKHVuZGVmaW5lZCk7XG4gIHRyeSB7XG4gICAgcmV0dXJuIGZuKCk7XG4gIH0gZmluYWxseSB7XG4gICAgc2V0Q3VycmVudEluamVjdG9yKHByZXZJbmplY3Rvcik7XG4gICAgc2V0SW5qZWN0SW1wbGVtZW50YXRpb24ocHJldmlvdXNJbmplY3RJbXBsZW1lbnRhdGlvbik7XG4gIH1cbn1cblxuLyoqXG4gKiBBc3NlcnRzIHRoYXQgdGhlIGN1cnJlbnQgc3RhY2sgZnJhbWUgaXMgd2l0aGluIGFuIFtpbmplY3Rpb25cbiAqIGNvbnRleHRdKGd1aWRlL2RlcGVuZGVuY3ktaW5qZWN0aW9uLWNvbnRleHQpIGFuZCBoYXMgYWNjZXNzIHRvIGBpbmplY3RgLlxuICpcbiAqIEBwYXJhbSBkZWJ1Z0ZuIGEgcmVmZXJlbmNlIHRvIHRoZSBmdW5jdGlvbiBtYWtpbmcgdGhlIGFzc2VydGlvbiAodXNlZCBmb3IgdGhlIGVycm9yIG1lc3NhZ2UpLlxuICpcbiAqIEBwdWJsaWNBcGlcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGFzc2VydEluSW5qZWN0aW9uQ29udGV4dChkZWJ1Z0ZuOiBGdW5jdGlvbik6IHZvaWQge1xuICAvLyBUYWtpbmcgYSBgRnVuY3Rpb25gIGluc3RlYWQgb2YgYSBzdHJpbmcgbmFtZSBoZXJlIHByZXZlbnRzIHRoZSB1bm1pbmlmaWVkIG5hbWUgb2YgdGhlIGZ1bmN0aW9uXG4gIC8vIGZyb20gYmVpbmcgcmV0YWluZWQgaW4gdGhlIGJ1bmRsZSByZWdhcmRsZXNzIG9mIG1pbmlmaWNhdGlvbi5cbiAgaWYgKCFnZXRJbmplY3RJbXBsZW1lbnRhdGlvbigpICYmICFnZXRDdXJyZW50SW5qZWN0b3IoKSkge1xuICAgIHRocm93IG5ldyBSdW50aW1lRXJyb3IoXG4gICAgICAgIFJ1bnRpbWVFcnJvckNvZGUuTUlTU0lOR19JTkpFQ1RJT05fQ09OVEVYVCxcbiAgICAgICAgbmdEZXZNb2RlICYmXG4gICAgICAgICAgICAoZGVidWdGbi5uYW1lICtcbiAgICAgICAgICAgICAnKCkgY2FuIG9ubHkgYmUgdXNlZCB3aXRoaW4gYW4gaW5qZWN0aW9uIGNvbnRleHQgc3VjaCBhcyBhIGNvbnN0cnVjdG9yLCBhIGZhY3RvcnkgZnVuY3Rpb24sIGEgZmllbGQgaW5pdGlhbGl6ZXIsIG9yIGEgZnVuY3Rpb24gdXNlZCB3aXRoIGBydW5JbkluamVjdGlvbkNvbnRleHRgJykpO1xuICB9XG59XG4iXX0=

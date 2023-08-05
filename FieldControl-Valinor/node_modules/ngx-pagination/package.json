@@ -1,0 +1,45 @@
+{
+  "name": "ngx-pagination",
+  "version": "6.0.3",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angular2",
+    "pagination"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelbromley/ngx-pagination"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelbromley/ngx-pagination/issues"
+  },
+  "author": "Michael Bromley <michael@michaelbromley.co.uk>",
+  "peerDependencies": {
+    "@angular/common": ">=13.0.0",
+    "@angular/core": ">=13.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2015/ngx-pagination.mjs",
+  "es2020": "fesm2020/ngx-pagination.mjs",
+  "esm2020": "esm2020/ngx-pagination.mjs",
+  "fesm2020": "fesm2020/ngx-pagination.mjs",
+  "fesm2015": "fesm2015/ngx-pagination.mjs",
+  "typings": "ngx-pagination.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngx-pagination.d.ts",
+      "esm2020": "./esm2020/ngx-pagination.mjs",
+      "es2020": "./fesm2020/ngx-pagination.mjs",
+      "es2015": "./fesm2015/ngx-pagination.mjs",
+      "node": "./fesm2015/ngx-pagination.mjs",
+      "default": "./fesm2020/ngx-pagination.mjs"
+    }
+  },
+  "sideEffects": false
+}
