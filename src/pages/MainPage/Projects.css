@@ -1,0 +1,10 @@
+.containerProject {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameRepo {
+  color: rgb(46, 63, 214);
+  font-weight: 500;
+  font-size: 20px;
+}
