@@ -1,0 +1,71 @@
+<mat-card class="mat-card-container">
+  <form (submit)="searchRepositories()" [formGroup]="form">
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Pesquisar Repositórios</h1>
+      <div class="d-flex justify-content-center">
+        <div class="input-group">
+          <input
+            placeholder="Digite o nome do repositório"
+            [(ngModel)]="query"
+            formControlName="query"
+            class="input"
+            name="text"
+            type="text"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-primary"
+              type="submit"
+              (click)="searchRepositories()"
+            >
+              Pesquisar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let repository of pagedRepositories">
+            <td>{{ repository.name }}</td>
+            <td>
+              <p>
+                {{
+                  repository.description.length > 50
+                    ? repository.description.substring(0, 50) + "..."
+                    : repository.description
+                }}
+              </p>
+            </td>
+            <td>
+              <a [href]="repository.html_url" target="_blank">{{
+                repository.html_url
+              }}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <mat-paginator
+        [length]="totalItems"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="currentPage"
+        [id]="paginationId"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator>
+    </div>
+  </form>
+</mat-card>
