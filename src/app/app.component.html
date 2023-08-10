@@ -1,0 +1,3 @@
+<app-header (searchEvent)="fetchRepositories($event)"></app-header>
+<app-card [data]="data"></app-card>
+<app-pagination [length]="pageItemsLength" [hidden]="data === undefined || data === null || data.length === 0" (paginationEvent)="fetchPaginationRepositories($event)"></app-pagination>

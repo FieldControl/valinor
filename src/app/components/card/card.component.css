@@ -1,0 +1,36 @@
+mat-card {
+  margin: 1rem;
+}
+mat-card mat-card-title a {
+  color: #5D6D7E;
+  transition: 0.3s;
+}
+mat-card mat-card-subtitle a {
+  color: #AEB6BF;
+  transition: 0.3s;
+}
+mat-card mat-card-title a:hover {
+  color: #212F3C;
+}
+mat-card mat-card-subtitle a:hover {
+  color: #85929E;
+}
+mat-card img {
+  background-size: cover;
+}
+mat-card a {
+  text-decoration: none;
+}
+mat-card mat-icon {
+  vertical-align: middle;
+  font-size: 22px;
+}
+mat-card .star-icon {
+  color: #F4D03F;
+}
+mat-card .visibility-icon {
+  color: gray;
+}
+mat-card .error-icon {
+  color: #EC7063;
+}/*# sourceMappingURL=card.component.css.map */

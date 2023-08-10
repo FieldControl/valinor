@@ -1,0 +1,35 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+svg {
+  filter: brightness(0) invert(1);
+  vertical-align: middle;
+}
+
+header, .search-block, .main-header {
+  position: fixed;
+  top: 0;
+  z-index: 11;
+  transition: all 250ms ease-in-out;
+}
+
+.main-header.hidden {
+  opacity: 0;
+}
+
+.search-block {
+  width: 0%;
+  right: 0;
+  background: #fff;
+}
+.search-block.active {
+  width: 100%;
+}
+.search-block .search-control {
+  flex: 1;
+  font-size: 1rem;
+  border: 0;
+  outline: none;
+  padding-left: 10px;
+}/*# sourceMappingURL=header.component.css.map */
