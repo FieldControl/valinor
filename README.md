@@ -1,9 +1,24 @@
-projeto field!
+Framework, Linguagem e Ferramentas
 
-esse foi um projeto desenvolvido em angular e suas bibliotecas. Opitei pelo angular pois pela minha opinião é o melhor framework para front-end.
+Utilizei o Angular e suas bibliotecas com TypeScript para o desenvolvimento.
 
-esse projeto foi desenvolvido com o obijetivo de ser direto.
+Tecnologias X e Y
 
-tive varios desafios mas nada mt demais pois ja desenvolvo com esse framework a alguns meses.
+Optei pelo Angular porque é um framework que tenho vivencia ja a algun tempo.
 
-pode ser melhorrardo sim utilizando mais elementos e mais bibliotecas do proprio angular.
+Princípios de Software
+
+Eficiencia, Reutilização de Código, Manutenção Facilitada e Boas Práticas de Desenvolvimento.
+
+Desafios e Problemas
+
+Enfrentei problemas ao passar do tempo de desenvolvimento como alguns erros do proprio angular e alguns problemas com minha maquina.
+
+Melhorias e Próximas Implementações
+
+Todo do projeto pode ser melhorado basta estudalo para saber oq melhorar.
+
+informações para contato: 
+
+telefone: 17991518628
+email: mariottopires@gmail.com
