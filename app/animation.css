@@ -1,0 +1,81 @@
+.fade {
+    animation-name: fadeout;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+
+  }
+  
+  @keyframes fadeout {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+
+  .loader_wrapper {
+    display: inline-block;
+    position: relative;
+    filter: drop-shadow(0 0 1px yellow);
+  }
+  
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-family: arial;
+    color: yellow;
+    text-shadow: 1px 1px 1px black;
+    animation: blink 1s ease infinite;
+  }
+  
+  .loader {
+    width: 100px;
+    height: 100px;
+    animation: flip 2s linear infinite;
+  }
+  
+  .loader path {
+    stroke: black;
+    stroke-width: 30;
+    fill: transparent;
+    
+    stroke-dasharray: 100px 5px;
+    animation: spin 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes spin {
+    0% {
+      stroke-dashoffset: 500;
+      opacity: .5;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes flip {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(1080deg);
+    }
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: .5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .5;
+    }
+  }

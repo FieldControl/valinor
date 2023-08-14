@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/routes/_index.tsx"],
+  "sourcesContent": ["// REMIX HMR BEGIN\nimport * as __hmr__ from \"remix:hmr\";\nif (import.meta) {\nimport.meta.hot = __hmr__.createHotContext(\n//@ts-expect-error\n\"app/routes/_index.tsx\"\n);\nimport.meta.hot.lastModified = \"1691789791474.21\";\n}\n// REMIX HMR END\n\nimport { redirect, V2_MetaFunction } from \"@remix-run/node\";\nimport type { LoaderArgs } from \"@remix-run/node\"\n\nexport const meta: V2_MetaFunction = () => {\n  return [\n    { title: \"New Remix App\" },\n    { name: \"description\", content: \"Welcome to Remix!\" },\n  ];\n};\n\nexport async function loader({ request }: LoaderArgs) {\n  return redirect('/films/1')\n}"],
+  "mappings": ";;;;;;;;;;;;AAWA,kBAA0C;AAT1C,IAAI,aAAa;AACjB,cAAY,MAAc;AAAA;AAAA,IAE1B;AAAA,EACA;AACA,cAAY,IAAI,eAAe;AAC/B;AAMO,IAAM,OAAwB,MAAM;AACzC,SAAO;AAAA,IACL,EAAE,OAAO,gBAAgB;AAAA,IACzB,EAAE,MAAM,eAAe,SAAS,oBAAoB;AAAA,EACtD;AACF;",
+  "names": []
+}
