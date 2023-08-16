@@ -18,7 +18,11 @@ Melhorias e Próximas Implementações
 
 Todo projeto pode ser melhorado, basta estudá-lo para saber o que melhorar.
 
-informações para contato: 
+Sobre mim
+
+Meu nome é Enzo tenho 19 anos sou de Tabapuã mas moro em São José do Rio Preto com meus avos por conta da faculdade. estou no 4° semestre de ADS
+
+informações para contato:
 
 telefone: 17991518628
-email: mariottopires@gmail.com
+Email: mariottopires@gmail.com
