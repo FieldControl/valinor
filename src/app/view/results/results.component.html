@@ -1,0 +1,109 @@
+<header
+  class="w-full h-[62px] pl-8 pr-2 text-white flex gap-4 items-center bg-[#010409] border-b border-b-gray-500"
+>
+  <svg
+    height="32"
+    aria-hidden="true"
+    viewBox="0 0 16 16"
+    version="1.1"
+    width="32"
+    fill="currentColor"
+    data-view-component="true"
+    class="octicon octicon-mark-github v-align-middle"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+    ></path>
+  </svg>
+
+  <app-search-input
+    (searchChanged)="getData()"
+    placeholder="Type / to search"
+    class="w-full max-w-[1620px] h-[30px] flex items-center justify-center"
+  />
+</header>
+
+<main class="w-full h-full max-w-7xl mt-[24px] mx-auto text-white">
+  <div *ngIf="isLoading" class="custom-loader mt-[268px] mx-auto"></div>
+
+  <div class="flex flex-col gap-4 items-center w-full px-2" *ngIf="!isLoading">
+    <p class="self-start mb-2" *ngIf="!isError && !isLoading">
+      {{ totalCount }} results
+    </p>
+
+    <app-empty-search
+      *ngIf="repositories.length < 1 && !isError"
+      class="w-full h-full"
+    />
+
+    <div
+      *ngIf="!isLoading && isError"
+      class="mt-28"
+    >
+      <app-error-feedback />
+    </div>
+
+    <div
+      class="w-full rounded-lg border border-gray-500 flex flex-col items-start p-4 gap-[7px]"
+      *ngFor="
+        let repository of repositories
+          | paginate : { itemsPerPage: 10, currentPage }
+      "
+    >
+      <header class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <img
+            src="{{ repository.owner.avatar_url }}"
+            class="h-[22px] w-[22px] rounded-full"
+          />
+          <a
+            target="_blank"
+            href="{{ repository.html_url }}"
+            class="text-[#71B7FF] hover:decoration-1 hover:underline"
+          >
+            {{ repository.full_name }}
+          </a>
+        </div>
+      </header>
+
+      <span class="text-sm">{{ repository.description }}</span>
+
+      <div
+        *ngIf="repository.topics.length > 0"
+        class="flex items-center gap-2 text-xs w-full flex-wrap"
+      >
+        <span
+          *ngFor="let topic of repository.topics"
+          class="text-[#71B7FF] bg-[#409EFF26] p-1 px-2 rounded-xl hover:bg-[#409EFF] hover:text-[#0a0c10]"
+        >
+          {{ topic }}
+        </span>
+      </div>
+
+      <footer class="flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <div class="h-[10px] w-[10px] rounded-full bg-blue-800"></div>
+          <span>{{ repository.language }}</span>
+          •
+          <div class="flex items-center gap-1">
+            <ng-icon name="heroStar"></ng-icon>
+            {{ repository.stargazers_count }}
+          </div>
+          •
+          <span>{{ repository.pushed_at | getLastUpdateRepo }}</span>
+        </div>
+      </footer>
+    </div>
+
+    <div
+      class="w-full mb-14 mt-11 items-center justify-center flex"
+      *ngIf="repositories.length > 10"
+    >
+      <pagination-controls
+        (pageChange)="currentPage = $event"
+        class="my-pagination"
+      />
+    </div>
+  </div>
+</main>

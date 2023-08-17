@@ -1,0 +1,20 @@
+<div class="w-full relative h-full">
+  <input
+    type="text"
+    class="border border-gray-500 outline-none rounded-md w-full bg-transparent h-full text-sm text-white pl-9 pr-4"
+    [placeholder]="placeholder"
+    [formControl]="form"
+    (keypress)="onSearch($event)"
+  />
+  <ng-icon
+    name="heroMagnifyingGlass"
+    class="text-white font-bold text-xl absolute left-2 top-1/2 -translate-y-1/2"
+  />
+
+  <button *ngIf="searchTerm" (click)="onErase()">
+    <ng-icon
+      name="heroXCircle"
+      class="absolute right-2 text-base text-white top-1/2 -translate-y-1/2 rounded-full hover:bg-white hover:text-black"
+    />
+  </button>
+</div>
