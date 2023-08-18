@@ -1,0 +1,58 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100dvh;
+    position: sticky;
+    top: 0;
+    width: 16rem;
+    background-color: #0d1117;
+    color: #fff;
+    border-right: 1px solid #fff;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    transition: 250ms;
+}
+
+main h3 {
+    font-size: 1rem;
+}
+
+main p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    transition: 250ms;
+    cursor: pointer;
+    padding: 0.2rem;
+}
+
+main p:hover {
+    background-color: #171e28;
+    border-radius: 5px;
+}
+
+svg {
+    cursor: pointer;
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.closeNav {
+    transform: translateX(-100%);
+}
+
+.positonAbsolute {
+    position: fixed;
+    padding: 1rem 1rem 2.5rem 2.5rem;
+}
+
+@media(max-width: 870px) {
+    main {
+        position: fixed;
+        z-index: 100;
+    }
+}

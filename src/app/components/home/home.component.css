@@ -1,0 +1,137 @@
+main {
+    min-height: 100dvh;
+    background-color: #0d1117;
+    color: #fff;
+    padding: 3rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 28rem;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ffffff59;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.align {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.synopses {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+span {
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+/* Paginator */
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btns button {
+    padding: 0.5rem;
+    background-color: #131820;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+    height: 2.5rem;
+}
+
+.btns button:hover {
+    background-color: #1e2632;
+}
+
+.btns button:disabled {
+    color: #ffffff4a;
+
+}
+
+.loading {
+    margin-top: 2rem;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+.page-item {
+    display: inline;
+}
+
+.page-item:first-child .page-link {
+    margin-left: 0;
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+}
+
+.page-item:last-child .page-link {
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.page-item.active .page-link,
+.page-item.active .page-link:focus,
+.page-item.active .page-link:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #1e2632;
+    border-color: #1e2632;
+}
+
+.page-item.disabled .page-link,
+.page-item.disabled .page-link:focus,
+.page-item.disabled .page-link:hover {
+    color: #818a91;
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+.page-link {
+    position: relative;
+    float: left;
+    padding: 0.5rem 0.75rem;
+    margin-left: .2rem;
+    color: #fff;
+    text-decoration: none;
+    background-color: #131820;
+    cursor: pointer;
+}
+
+.page-link:focus,
+.page-link:hover {
+    background-color: #1e2632;
+}
+
+@media(max-width: 870px) {
+    .container {
+        width: auto;
+    }
+}

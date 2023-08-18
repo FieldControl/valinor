@@ -1,0 +1,34 @@
+<main>
+    <h3>{{count$ | async}} results </h3>
+    <div *ngIf="characters$ | async as characters; else loading">
+        <div class="container" *ngFor="let character of characters">
+            <div class="align">
+                <h3>{{character.name}}</h3>
+                <p>id: {{character.id}}</p>
+            </div>
+            <div class="synopses">
+                <p>{{character.description == '' ? 'Without description' : character.description }}</p>
+            </div>
+            <div class="align">
+                <div>
+                    <p><span>series: {{ character.series.available}}</span> </p>
+                    <p><span>stories: {{ character.stories.available}}</span></p>
+                </div>
+                <p><span>modified: {{ character.modified | date:"MM/dd/yyyy" }}</span></p>
+            </div>
+        </div>
+        <div class="btns" *ngIf="pages">
+            <button [disabled]="offset == 0" (click)="previousPage()">Previous</button>
+            <ul>
+                <li *ngFor="let page of pages" [ngClass]="{'page-item': true, active: currentPage === page}"
+                    (click)="changePage(page)">
+                    <span class="page-link">{{page}}</span>
+                </li>
+            </ul>
+            <button [disabled]="this.currentPage === pages.length - 1" (click)="nextPage()">Next</button>
+        </div>
+    </div>
+    <ng-template #loading>
+        <h3 class="loading">Loading...</h3>
+    </ng-template>
+</main>
