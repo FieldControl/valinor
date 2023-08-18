@@ -1,0 +1,34 @@
+<div class="row mt-5">
+  <div class="col-md-12 mb-3">
+    <h3 class="text-center mt-5 mb-5 text-white">API GITHUB</h3>
+    <form (ngSubmit)="buscarRepositorio()">
+      <div class="form-row align-items-center">
+        <div class="col-md-9">
+          <label class="sr-only" for="repositorioInput">NOME</label>
+          <input type="text" name="repositorio" required [(ngModel)]="repositorio" class="form-control" id="repositorioInput" placeholder="NOME DO REPOSITÓRIO">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">BUSCAR</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-3 col-md-12" *ngFor="let repo of projects | paginate: { itemsPerPage: tableSize, currentPage: page, totalItems: count }; let i = index">
+    <div class="card bg-dark text-white mb-1" style="border-color: #fff;">
+      <div class="card-body">
+        <a [href]="repo.html_url" target="_blank">{{repo.html_url}}</a>
+        <h5 class="card-title">{{repo.name}}</h5>
+        <span class="badge badge-secondary" *ngFor="let topic of repo.topics">{{topic}}</span><br>
+        <span class="badge badge-info mr-1">Stars {{repo.stargazers_count}}</span>
+        <span class="badge badge-warning">Last Update - {{formatDate(repo.updated_at)}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="d-flex justify-content-center">
+      <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
+    </div>
+  </div>
+</div>
