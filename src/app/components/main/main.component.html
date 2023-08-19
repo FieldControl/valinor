@@ -1,0 +1,50 @@
+<main>
+    <div class="main">
+       <div class="main-content">
+            <div class="content-info">
+                <div class="box-content-info">
+                    <div class="repository-box">
+                        <p>{{ total_count }} results</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="result-list">
+                    <div *ngFor="let repo of repositories" class="repository-box">
+                        <div class="url-reposi">
+                            <img src="{{ repo.owner.avatar_url}}" alt="avatar_url">
+                            <a href="{{ repo.html_url }}"> {{ repo.full_name}}</a>
+                        </div>
+                        <div class="description">
+                            <span>{{ repo.description }}</span>
+                        </div>
+                        <div class="topic">
+                            
+                        </div>
+                        <div class="topics">
+                            <div *ngFor= "let topic of repo.topics" class="box-topics">
+                                <div class="content-topic">
+                                    <span>{{ topic }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>{{ repo.language }}</li>
+                            <span>·</span>
+                            <li> {{ repo.watchers_count }}</li>
+                            <span>·</span>
+                            <li>Updated {{ repo.updated_at }}</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+                <span>Page {{ currentPage }} of {{ totalPages }}</span>
+                <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+              </div>
+        </div> 
+    </div>
+</main>
+

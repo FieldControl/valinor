@@ -1,0 +1,14 @@
+<header>
+    <div class="header-bar">
+        <div class="header-bar-img">
+            <a href="#" class="header-bar-logo"><img src="/assets/icons8-github.svg" alt=""></a>
+        </div>
+        <div class="header-search">
+                <form>
+                    <input [(ngModel)]="searchTerm" name="searchTerm" placeholder=" Digite o nome do repositório">   
+                    <button type="submit" (click)="getRepository()"><img src="/assets/search.svg" alt=""></button> 
+                </form>
+        </div> 
+    </div>
+</header>
+

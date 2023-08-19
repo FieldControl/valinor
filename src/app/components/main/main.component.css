@@ -1,0 +1,105 @@
+.main {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.main .main-content {
+    display: block;
+    height: 100%;
+    align-items: center;
+    padding: 24px;
+}
+.main .main-content .content-info{
+    display: flex;
+    width: 100%;
+    height: 28px;
+    padding: 2px;
+}
+.main .main-content .content-info .box-content-info {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.main .main-content .content-info .box-content-info .repository-box p{
+    font-weight: 500;
+    font-size: 16px;
+
+}
+
+.main .main-content .content-info .box-content-info button{
+    width: 60px;
+    height: 28px;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    background: rgb(246, 248, 250);
+    box-shadow: rgba(31, 35, 40, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+    text-align: center;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.main .main-content .box-content {
+    width: 900px;
+    height: 100%;
+}
+
+.main .main-content .box-content .result-list {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    padding-top: 10px;
+}
+
+.main .main-content .box-content .result-list .repository-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgb( 208, 215, 222);
+    border-radius: 6px;
+}
+
+.main .main-content .box-content .result-list .repository-box .url-reposi img {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.main .main-content .box-content .result-list .repository-box .description {
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.main .main-content .box-content .result-list .repository-box .topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+    margin-top: 8px;
+}
+
+.main .main-content .box-content .result-list .repository-box .topics span {
+    display: inline-block;
+    padding: 0px 10px;
+    line-height: 22px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 2rem;
+    background-color: rgb(221, 244, 255);
+    color: rgb(9, 105, 218);
+}
+
+.main .main-content .box-content .result-list .repository-box ul{
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.main .main-content .box-content .result-list .repository-box ul span {
+    margin-left: 8px;
+    margin-right: 8px;
+    color: rgb(110, 119, 129);
+}
