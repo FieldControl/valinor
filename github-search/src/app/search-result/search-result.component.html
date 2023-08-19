@@ -1,0 +1,20 @@
+<div class="results">
+  <!-- Exibir os resultados da página atual -->
+  <div *ngFor="let repo of repositories">
+    <div class="repo-placeholder">
+      {{ repo.full_name }}
+    </div>
+  </div>
+
+  <!-- Espaço para o restante das informações -->
+  <div class="info-space"></div>
+
+  <!-- Paginação -->
+  <div class="pagination">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1"><</button>
+    <button (click)="onPageChange(1)" *ngIf="totalPages > 1">1</button>
+    <span class="current-page">{{ currentPage }}</span>
+    <button (click)="onPageChange(totalPages)" *ngIf="totalPages > 1">{{ totalPages }}</button>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">></button>
+  </div>
+</div>

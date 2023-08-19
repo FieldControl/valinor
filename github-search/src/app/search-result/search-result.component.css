@@ -1,0 +1,21 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+.info-space {
+  height: 100px; /* Altura desejada para o espaço entre resultados e paginação */
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-page {
+  margin: 0 20px;
+}

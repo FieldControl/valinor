@@ -18,3 +18,8 @@
       <button (click)="onSearchClick()">Pesquisar</button>
     </div>
   </ng-template>
+</div>
+
+<app-search-result [repositories]="repositories" [currentPage]="currentPage" [totalPages]="totalPages"
+  (pageChange)="onPageChange($event)">
+</app-search-result>
