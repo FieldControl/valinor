@@ -225,7 +225,7 @@ Entre os critérios de avaliação estão:
 - Segurança
 
 Entrega
----------
+--------- 
 
 Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
 
