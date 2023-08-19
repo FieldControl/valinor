@@ -1,0 +1,20 @@
+<div class="search-bar">
+  <ng-container *ngIf="!searchResults; else showResults">
+    <div class="search-center">
+      <div>
+        <h1>Github Search</h1>
+      </div>
+      <div>
+        <input type="text" placeholder="Pesquisar repositórios" [(ngModel)]="searchQuery">
+        <button (click)="onSearchClick()">Pesquisar</button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #showResults>
+    <div class="search-input">
+      <button (click)="onBackClick()">Voltar</button>
+      <input type="text" placeholder="Pesquisar repositórios" [(ngModel)]="searchQuery">
+      <button (click)="onSearchClick()">Pesquisar</button>
+    </div>
+  </ng-template>
