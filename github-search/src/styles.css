@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+.card-custom {
+  width: 70rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1.6rem;
+  background-color: #fff !important;
+  overflow-wrap: anywhere;
+}
+
+.card-custom a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card-custom a:hover {
+  text-decoration: underline;
+}
+
+.card-custom p {
+  margin-bottom: 5px;
+}

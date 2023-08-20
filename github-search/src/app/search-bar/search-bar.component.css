@@ -6,3 +6,16 @@
   text-align: center;
   height: 100vh;
 }
+
+.input-group-text i {
+  font-size: 1rem;
+  color: #230505;
+  border-radius: 40px;
+}
+
+.icon-container {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

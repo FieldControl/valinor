@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class RepositoryDetailsComponent {
   @Input() issues: any[] = [];
-
+  @Input() repoName: any;
 }

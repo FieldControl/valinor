@@ -1,38 +1,88 @@
-<div class="info-space"></div>
+<div *ngIf="!viewingIssues" class="results mt-4">
 
-<div class="results">
-  <div *ngIf="!viewingIssues">
-  <div *ngFor="let repo of repositories">
-    <div class="repo-placeholder">
-      <h2>{{ repo.name }}</h2>
-      <p>{{ repo.description }}</p>
-      <p>URL: <a [href]="repo.html_url">{{ repo.html_url }}</a></p>
-      <p>Watchers: {{ repo.watchers_count }}</p>
-      <p>Estrelas: {{ repo.stargazers_count }}</p>
-      <p *ngIf="repo.open_issues_count > 0">
-        <a href="javascript:void(0);" (click)="showIssues(repo)">Ver {{ repo.open_issues_count }} issues</a>
-      </p>
-      <p>Linguagem: {{ repo.language }}</p>
-      <p>Tags: {{ repo.topics.join(', ') }}</p>
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div *ngIf="repositories.length === 0" class="text-center mt-5">
+      <h3>No repositories found for the search</h3>
+    </div>
+  </div>
+  <!-- Seção de repositórios -->
+  <div>
+    <div *ngFor="let repo of repositories" class="card-custom">
+      <!-- Conteúdo do card -->
+      <div class="card-body d-flex align-items-start">
+        <div class="d-flex align-items-start">
+          <div class="ml-4">
+            <!-- Informações do dono do repositório -->
+            <div class="d-flex align-items-center mb-2 user-info">
+              <img [src]="repo.owner.avatar_url" alt="Avatar do Dono" class="avatar-img rounded-circle mr-3">
+              <h2 class="card-title user-name">{{ repo.owner.login }}</h2>
+            </div>
+
+            <!-- Nome e descrição do repositório -->
+            <h3 class="card-title">{{ repo.name }}</h3>
+            <p class="card-text">{{ repo.description }}</p>
+            <p class="card-text">URL: <a [href]="repo.html_url">{{ repo.html_url }}</a></p>
+
+            <!-- Linguagem do repositório como badge -->
+            <div class="card-text">
+              <ng-container *ngIf="repo.language">
+                <span class="badge badge-custom">{{ repo.language }}</span>
+              </ng-container>
+            </div>
+
+            <!-- Watchers, Stars e Issues -->
+            <div class="card-text mt-3">
+              <p>
+                <i class="far fa-eye"></i> Watch: {{ repo.watchers_count }}&nbsp;&nbsp;&nbsp;
+                <i class="fas fa-star"></i> Star: {{ repo.stargazers_count }}
+              </p>
+              <p *ngIf="repo.open_issues_count > 0">
+                <a href="javascript:void(0);" (click)="showIssues(repo)" class="card-link">
+                  <i class="far fa-circle-dot"></i>
+                  Issues: {{ repo.open_issues_count }}
+                </a>
+              </p>
+            </div>
+
+            <!-- Tags do repositório como badges -->
+            <div class="card-text">
+              <ng-container *ngIf="repo.topics.length > 0">
+                <span *ngFor="let tag of repo.topics" class="badge badge-custom">{{ tag }}</span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="info-space"></div>
+  <!-- Seção de paginação -->
+  <div class="pagination mt-3" *ngIf="repositories.length > 0 && totalPages > 1">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <div class="btn-group">
+        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1" class="btn btn-primary btn-pagination"><</button>
+        <button (click)="onPageChange(1)" *ngIf="totalPages > 1" class="btn btn-primary btn-pagination">{{ 1 }}</button>
+        <span class="current-page">{{ currentPage }}</span>
+        <button (click)="onPageChange(totalPages)" *ngIf="totalPages > 1" class="btn btn-primary btn-pagination">{{ totalPages }}</button>
+        <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages" class="btn btn-primary btn-pagination">></button>
+      </div>
+    </div>
 
-  <div class="pagination">
-    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1"><</button>
-    <button (click)="onPageChange(1)" *ngIf="totalPages > 1">1</button>
-    <span class="current-page">{{ currentPage }}</span>
-    <button (click)="onPageChange(totalPages)" *ngIf="totalPages > 1">{{ totalPages }}</button>
-    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">></button>
+    <div class="mb-2">
+      <div class="input-group">
+        <input type="number" [(ngModel)]="desiredPage" class="form-control" min="1" [max]="totalPages" maxlength="3">
+        <div class="input-group-append">
+          <button (click)="onPageChange(desiredPage)" class="btn btn-primary btn-pagination">Go to page</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div *ngIf="viewingIssues">
-  <!-- Detalhes das issues -->
-  <app-repository-details [issues]="selectedRepoIssues"></app-repository-details>
-
-  <!-- Botão de voltar -->
-  <button (click)="backToRepositories()">Voltar para Repositórios</button>
-</div>
+<!-- Seção de detalhes das issues -->
+<div *ngIf="viewingIssues" class="d-flex justify-content-center  vh-100">
+  <div>
+    <app-repository-details [issues]="selectedRepoIssues" [repoName]="repoName"></app-repository-details>
+    <button (click)="backToRepositories()" class="btn btn-secondary mt-3 mb-3">Back</button>
+  </div>
 </div>

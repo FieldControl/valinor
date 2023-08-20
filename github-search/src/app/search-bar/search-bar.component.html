@@ -1,25 +1,37 @@
-<div class="search-bar">
+<div class="search-bar container">
   <ng-container *ngIf="!searchResults; else showResults">
     <div class="search-center">
       <div>
-        <h1>Github Search</h1>
+        <h1 class="display-4">Github Search</h1>
       </div>
-      <div>
-        <input type="text" placeholder="Pesquisar repositórios" [(ngModel)]="searchQuery">
-        <button (click)="onSearchClick()">Pesquisar</button>
+      <br>
+      <br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search repositories" [(ngModel)]="searchQuery" (keyup.enter)="onSearchClick()">
+        <div class="input-group-append">
+          <span class="input-group-text icon-container" (click)="onSearchClick()">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
       </div>
     </div>
   </ng-container>
 
   <ng-template #showResults>
-    <div class="search-input">
-      <button (click)="onBackClick()">Voltar</button>
-      <input type="text" placeholder="Pesquisar repositórios" [(ngModel)]="searchQuery">
-      <button (click)="onSearchClick()">Pesquisar</button>
+    <div class="search-input d-flex align-items-center mt-3">
+      <i class="fas fa-home home-icon" (click)="onBackClick()" style="margin-right: 10px;"></i>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search repositories" [(ngModel)]="searchQuery" (keyup.enter)="onSearchClick()">
+        <div class="input-group-append">
+          <span class="input-group-text icon-container" (click)="onSearchClick()">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
     </div>
   </ng-template>
 </div>
 
-<app-search-result *ngIf="searchResults" [repositories]="repositories" [currentPage]="currentPage" [totalPages]="totalPages"
+<app-search-result *ngIf="searchResults" [repositories]="repositories" [currentPage]="currentPage" [totalPages]="totalPages" [newSearch]="newSearch"
   (pageChange)="onPageChange($event)">
 </app-search-result>

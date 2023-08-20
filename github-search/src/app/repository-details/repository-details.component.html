@@ -1,11 +1,11 @@
-<div class="issues-list">
-  <ul>
-    <li *ngFor="let issue of issues">
+<div class="card-body d-flex justify-content-center align-items-center mt-4">
+  <div class="issues-list">
+    <h2> Most Recentes </h2>
+    <div *ngFor="let issue of issues; let i = index" class="card-custom">
+      <h5>#{{ issues.length - i }}&nbsp;&nbsp;&nbsp;{{ repoName }}</h5>
       <a [href]="issue.html_url" target="_blank">{{ issue.title }}</a>
-      <p>Created by: {{ issue.user.login }}</p>
-      <p>Created at: {{ issue.created_at }}</p>
-      <p>Comments: {{ issue.comments }}</p>
-      <p>Last Commented at: {{ issue.updated_at }}</p>
-    </li>
-  </ul>
+      <p>by: {{ issue.user.login }} &nbsp;&nbsp;&nbsp; created at: {{ issue.created_at }}</p>
+      <p>comments: {{ issue.comments }} &nbsp;&nbsp;&nbsp; last commented at: {{ issue.updated_at }}</p>
+    </div>
+  </div>
 </div>

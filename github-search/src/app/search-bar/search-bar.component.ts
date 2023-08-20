@@ -10,30 +10,35 @@ export class SearchBarComponent {
   constructor(private http: HttpClient) {}
 
   searchQuery: string = '';
+  searchedQuery: string = '';
   searchResults: boolean = false;
   repositories: any[] = [];
   currentPage: number = 0;
   totalPages: number = 0;
+  newSearch: boolean = false;
 
   onSearchClick() {
     if (this.searchQuery.trim() !== '') {
       this.searchRepositories(this.searchQuery);
-      this.searchResults = true;
     }
   }
 
-  searchRepositories(query: string, page: number = 1, perPage: number = 10) {
+  searchRepositories(query: string, page: number = 1, changePage: boolean = false,  perPage: number = 10) {
     const apiUrl = `https://api.github.com/search/repositories?q=${query}&page=${page}&per_page=${perPage}`;
 
     this.http.get(apiUrl).subscribe((response: any) => {
-      this.repositories = response.items; // Armazenar os repositórios na variável
-      this.currentPage = page; // Armazenar a página atual
-      this.totalPages = Math.ceil(response.total_count / perPage); // Calcular o número total de páginas
+      this.repositories = response.items;
+      this.currentPage = page;
+      this.totalPages = Math.ceil(response.total_count / perPage);
+      this.searchResults = true;
+      this.searchedQuery = changePage ? this.searchedQuery : this.searchQuery;
+      this.searchQuery = '';
+      this.newSearch = !this.newSearch;
     });
   }
 
   onPageChange(page: number) {
-    this.searchRepositories(this.searchQuery, page);
+    this.searchRepositories(this.searchedQuery, page, true);
   }
 
   onBackClick() {

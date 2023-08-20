@@ -7,15 +7,51 @@
 }
 
 .info-space {
-  height: 100px; /* Altura desejada para o espaço entre resultados e paginação */
+  height: 100px;
 }
 
-.pagination {
+.user-info {
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.user-name {
+  margin-left: 1rem;
 }
 
 .current-page {
-  margin: 0 20px;
+margin-left: 1rem;
+margin-right: 1.25rem;
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+}
+
+.badge-custom {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  background-color: #007bff;
+  color: #fff;
+  margin-right: 0.2rem;
+}
+
+.pagination {
+  margin-bottom: 1rem;
+}
+
+.btn-pagination {
+  margin-right: 0.2rem;
+}
+
+.input-group {
+  margin-left: 2rem;
 }
