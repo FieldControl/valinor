@@ -1,0 +1,11 @@
+<div class="issues-list">
+  <ul>
+    <li *ngFor="let issue of issues">
+      <a [href]="issue.html_url" target="_blank">{{ issue.title }}</a>
+      <p>Created by: {{ issue.user.login }}</p>
+      <p>Created at: {{ issue.created_at }}</p>
+      <p>Comments: {{ issue.comments }}</p>
+      <p>Last Commented at: {{ issue.updated_at }}</p>
+    </li>
+  </ul>
+</div>

@@ -1,15 +1,24 @@
+<div class="info-space"></div>
+
 <div class="results">
-  <!-- Exibir os resultados da página atual -->
+  <div *ngIf="!viewingIssues">
   <div *ngFor="let repo of repositories">
     <div class="repo-placeholder">
-      {{ repo.full_name }}
+      <h2>{{ repo.name }}</h2>
+      <p>{{ repo.description }}</p>
+      <p>URL: <a [href]="repo.html_url">{{ repo.html_url }}</a></p>
+      <p>Watchers: {{ repo.watchers_count }}</p>
+      <p>Estrelas: {{ repo.stargazers_count }}</p>
+      <p *ngIf="repo.open_issues_count > 0">
+        <a href="javascript:void(0);" (click)="showIssues(repo)">Ver {{ repo.open_issues_count }} issues</a>
+      </p>
+      <p>Linguagem: {{ repo.language }}</p>
+      <p>Tags: {{ repo.topics.join(', ') }}</p>
     </div>
   </div>
 
-  <!-- Espaço para o restante das informações -->
   <div class="info-space"></div>
 
-  <!-- Paginação -->
   <div class="pagination">
     <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1"><</button>
     <button (click)="onPageChange(1)" *ngIf="totalPages > 1">1</button>
@@ -17,4 +26,13 @@
     <button (click)="onPageChange(totalPages)" *ngIf="totalPages > 1">{{ totalPages }}</button>
     <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">></button>
   </div>
+</div>
+
+<div *ngIf="viewingIssues">
+  <!-- Detalhes das issues -->
+  <app-repository-details [issues]="selectedRepoIssues"></app-repository-details>
+
+  <!-- Botão de voltar -->
+  <button (click)="backToRepositories()">Voltar para Repositórios</button>
+</div>
 </div>
