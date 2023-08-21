@@ -46,7 +46,6 @@ export class SearchResultComponent {
   }
 
   onPageChange(page: number) {
-    console.log(page)
     if (page >= 1 && page <= this.totalPages) {
       this.pageChange.emit(page);
       window.scrollTo(0, 0);
