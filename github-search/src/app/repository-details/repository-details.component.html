@@ -4,7 +4,7 @@
     <div *ngFor="let issue of issues; let i = index" class="card-custom">
       <h5>#{{ issues.length - i }}&nbsp;&nbsp;&nbsp;{{ repoName }}</h5>
       <a [href]="issue.html_url" target="_blank">{{ issue.title }}</a>
-      <p>by: {{ issue.user.login }} &nbsp;&nbsp;&nbsp; created at: {{ issue.created_at }}</p>
+      <p>by: {{ issue.user?.login }} &nbsp;&nbsp;&nbsp; created at: {{ issue.created_at }}</p>
       <p>comments: {{ issue.comments }} &nbsp;&nbsp;&nbsp; last commented at: {{ issue.updated_at }}</p>
     </div>
   </div>

@@ -1,5 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-search-result',
@@ -17,7 +23,7 @@ export class SearchResultComponent {
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() repositorySelected = new EventEmitter<any>();
 
-  selectedRepoIssues: any;
+  selectedRepoIssues: any[] = [];
   viewingIssues: boolean = false;
   selectedRepo: any;
   desiredPage: number = 1;
@@ -32,12 +38,15 @@ export class SearchResultComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['newSearch'].previousValue != changes['newSearch'].currentValue) {
+    if (
+      changes['newSearch'].previousValue != changes['newSearch'].currentValue
+    ) {
       this.viewingIssues = false;
     }
   }
 
   onPageChange(page: number) {
+    console.log(page)
     if (page >= 1 && page <= this.totalPages) {
       this.pageChange.emit(page);
       window.scrollTo(0, 0);
@@ -49,15 +58,17 @@ export class SearchResultComponent {
   }
 
   showIssues(repo: any) {
-    const apiUrl = `https://api.github.com/repos/${repo.owner.login}/${repo.name}/issues`;
+    if (repo.owner && repo.owner.login) {
+      const apiUrl = `https://api.github.com/repos/${repo.owner.login}/${repo.name}/issues`;
 
-    this.http.get(apiUrl).subscribe((response: any) => {
-      this.selectedRepoIssues = response;
-      this.viewingIssues = true;
-      this.selectedRepo = repo;
-      this.repoName = repo.name;
-      window.scrollTo(0, 0);
-    });
+      this.http.get(apiUrl).subscribe((response: any) => {
+        this.selectedRepoIssues = response;
+        this.viewingIssues = true;
+        this.selectedRepo = repo;
+        this.repoName = repo.name;
+        window.scrollTo(0, 0);
+      });
+    }
   }
 
   backToRepositories() {
