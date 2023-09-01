@@ -1,0 +1,35 @@
+<div class="button">
+  <div class="button" *ngIf="type == 'home'">
+    <a class="__home" href="{{hreflink}}">
+      <img src="../../../assets/imgs/logoriotnav.png" alt=""/>
+    </a>
+  </div>
+  <div class="button" *ngIf="type == 'button-navigate'">
+    <a class="__navigate" href="{{hreflink}}">{{ content }}</a>
+  </div>
+  <div
+    class="button"
+    *ngIf="type == 'button-link' && iconOn == true && icon == 'github'"
+  >
+    <a class="__iconlink" href="{{hreflink}}">
+      <img src="../../../assets/imgs/github.png" alt="" />
+    </a>
+  </div>
+  <div
+    class="button"
+    *ngIf="type == 'button-link' && iconOn == true && icon == 'linkedin'">
+    <a class="__iconlink" href="{{hreflink}}">
+      <img src="../../../assets/imgs/linkedin.png" alt=""/>
+    </a>
+  </div>
+  <div
+    class="button"
+    *ngIf="type == 'button-link' && iconOn == true && icon == 'instagram'">
+    <a class="__iconlink" href="{{hreflink}}">
+      <img src="../../../assets/imgs/instagram.png" alt="" />
+    </a>
+  </div>
+  <div class="button" *ngIf="type == 'button-logout'">
+    <a class="__logout" href="{{hreflink}}"><img src="../../../assets/imgs/sair.png" alt="">{{ content }}</a>
+  </div>
+</div>

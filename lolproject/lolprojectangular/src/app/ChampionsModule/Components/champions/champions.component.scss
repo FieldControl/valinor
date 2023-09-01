@@ -1,0 +1,465 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap");
+
+table {
+
+  margin-left: 170px;
+  width: 100%;
+  margin-top: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  tbody {
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .__classimg {
+      margin: 0px;
+
+      .__load {
+        margin-right: 120px;
+
+
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 150px;
+          margin-right: 100px;
+
+          img {
+
+            width: 170px;
+          }
+        }
+      }
+    }
+
+    tr {
+      display: inline-block;
+      width: calc(20% - 40px);
+      margin: 10px;
+
+      td {
+
+        width: 200px;
+        height: 290px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        img {
+          border: 6px solid rgb(137, 133, 133);
+          border-style: groove;
+          display: flex;
+
+          width: 260px;
+          height: 360px;
+        }
+      }
+    }
+  }
+}
+.bold{
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+
+}
+thead {
+  color: #fff;
+}
+
+
+thead {
+  color: #fff;
+}
+
+
+.__pagination {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+
+  .__botao {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 999px;
+    width: 90px;
+    height: 40px;
+    color: #000000;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+  }
+
+  .__numeração {
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.container-image {
+  width: 100%;
+  height: 120vh;
+  background-image: url(../../../../assets/imgs/lolimg.png);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+
+  .__background-table {
+    margin-top: 70px;
+    width: 1508px;
+    height: 993px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.47);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .pesquisa {
+      width: 1508px;
+      display: flex;
+      justify-content: space-around;
+
+      .space {
+        width: 200px;
+      }
+
+      .__pesquisar {
+        margin-left: 190px;
+        display: flex;
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-weight: bold;
+      }
+      .__paginação {
+        margin-top: 18px;
+        display: flex;
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+      }
+    }
+    .__barra-de-pesquisa {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px
+      ;
+
+      .__button {
+        background-color: #fff;
+        border-radius: 999px;
+        width: 90px;
+        height: 40px;
+        color: #000000;
+        font-family: "Inter", sans-serif;
+        font-weight: bold;
+        margin-bottom:  0px;
+      }
+
+      .__search-input {
+        margin-top: 2px;
+        width: 1370px;
+        height: 28px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background: rgba(0, 0, 0, 0.63);
+        color: white;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1500px) {
+  table {
+
+    margin-left: 170px;
+    width: 100%;
+    margin-top: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    tbody {
+      display: block;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      tr {
+        display: inline-block;
+        width: calc(20% - 40px);
+        margin: 10px;
+
+        td {
+          width: 200px;
+          height: 290px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+
+          img {
+            border: 6px solid rgb(137, 133, 133);
+            border-style: groove;
+            display: flex;
+
+            width: 250px;
+            height: 400px;
+          }
+        }
+      }
+    }
+  }
+
+
+  thead {
+    color: #fff;
+  }
+
+  .__pagination {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+  }
+
+  .__pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+  .container-image {
+    width: 100%;
+    height: 150vh;
+    background-image: url(../../../../assets/imgs/lolimg.png);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .__background-table {
+      margin-top: 30px;
+      width: 1358px;
+      height: 993px;
+      flex-shrink: 0;
+      border-radius: 50px;
+      background: rgba(0, 0, 0, 0.47);
+
+      .pesquisa {
+        width: 1208px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 11px;
+        .space {
+          width: 100px;
+        }
+
+        .__pesquisar {
+          display: flex;
+          color: white;
+        }
+        .__paginação {
+          margin-top: 18px;
+          display: flex;
+          color: white;
+        }
+      }
+      .__barra-de-pesquisa {
+        display: flex;
+        justify-content: center;
+
+        .__search-input {
+          width: 1070px;
+          height: 28px;
+          flex-shrink: 0;
+          border-radius: 5px;
+          border: 1px solid #fff;
+          background: rgba(0, 0, 0, 0.63);
+          color: white;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  table {
+    height: 300px;
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+    tbody {
+      display: block;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+
+    .__classimg {
+      margin: 0px;
+
+      .__load {
+        margin-right: 0px;
+
+
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          margin-top: 150px;
+          margin-right: 0px;
+
+          img {
+
+            width: 170px;
+          }
+        }
+      }
+    }
+      tr {
+        display: inline-block;
+        width: calc(20% - 20px);
+        margin: 10px;
+
+        td {
+          width: 100px;
+          height: 90px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          label {
+            margin-right: 36px;
+          }
+          img {
+            border: 6px solid rgb(137, 133, 133);
+            border-style: groove;
+            display: flex;
+            width: 55px;
+            height: 190px;
+            margin-right: 40px;
+
+          }
+        }
+      }
+    }
+  }
+
+
+  thead {
+    color: #fff;
+  }
+
+  .__pagination {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+  }
+
+  .__pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+  .container-image {
+    width: 100%;
+    height: 800px;
+    background-color: #fff;
+    background-image: url(../../../../assets/imgs/lolimg.png);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .__background-table {
+      margin-top: 30px;
+      width: 370px;
+      height: 600px;
+      flex-shrink: 0;
+      border-radius: 50px;
+      background: rgba(0, 0, 0, 0.63);
+
+
+      .pesquisa {
+        width: 360px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0px;
+        margin-right: 250px;
+
+        .space {
+          display: none;
+        }
+
+        .__pesquisar {
+          display: flex;
+          color: white;
+          font-size: 9px;
+          font-family: "Inter", sans-serif;
+          font-weight: bold;
+          margin-top: 18px;
+
+          h1 {
+            margin: 0px;
+
+          }
+        }
+        .__paginação {
+          display: flex;
+          color: white;
+          font-family: "Inter", sans-serif;
+          font-weight: bold;
+          flex-direction: column;
+          font-size: 10px;
+        }
+      }
+      .__barra-de-pesquisa {
+        display: flex;
+        justify-content: center;
+        margin-left: 20px;
+        gap: 20px ;
+
+        .__search-input {
+          width: 240px;
+          height: 28px;
+          flex-shrink: 0;
+          border-radius: 5px;
+          border: 1px solid #fff;
+          background: rgba(0, 0, 0, 0.63);
+          color: white;
+        }
+      }
+    }
+  }
+}

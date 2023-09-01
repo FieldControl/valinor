@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="__background-card">
+    <div class="__card">
+      <form action="" [formGroup]="formCreate!">
+      <div class="__titulo">
+        <h1>Novo Usuário</h1>
+      </div>
+      <div class="__descriçao">
+        <p>Entre com as informações para criação de um novo Usuário</p>
+      </div>
+      <div class="__frame">
+        <div class="__input">
+          <form action="" [formGroup]="formCreate!">
+          <h4>Novo Usuário (Nome)</h4>
+          <input-text-new-register
+            [type]="'text'"
+            [password]="false"
+            formControlName="username"
+            [placeholder]="'Nome de Usuário'"
+            [control]="formCreate?.get('username')"
+          ></input-text-new-register>
+        </form>
+        </div>
+        <div class="__input">
+          <h4>Nova Senha</h4>
+          <input-text-new-register
+            [type]="'text'"
+            [password]="true"
+            formControlName="password"
+            [placeholder]="'Senha'"
+            [control]="formCreate?.get('password')"
+          ></input-text-new-register>
+        </div>
+        <div class="__input">
+          <h4>Confirmar Senha</h4>
+          <input-text-new-register
+            [type]="'text'"
+            [password]="true"
+            formControlName="confirmPassword"
+            [placeholder]="'Confirmar Senha'"
+            [control]="formCreate?.get('confirmPassword')"
+          ></input-text-new-register>
+        </div>
+        <div>
+          <div class=".__botao">
+            <button-save (click)="submitAlterState()"> </button-save>
+          </div>
+        </div>
+
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+body {
+  margin: 0px;
+  background-color: #000000;
+
+
+}
+::-webkit-scrollbar {
+  width: 0.1px; /* Largura da barra de rolagem */
+  height: 6px; /* Altura da barra de rolagem */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #000000; /* Cor da alça */
+  border-radius: 5px; /* Borda arredondada da alça */
+}
+

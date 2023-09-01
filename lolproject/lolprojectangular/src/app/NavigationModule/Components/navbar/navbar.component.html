@@ -1,0 +1,14 @@
+<div class="navbar">
+  <div class="__left">
+    <button-navbar [hreflink]="'home'" [type]="'home'" [content]="'teste'"></button-navbar>
+    <button-navbar [hreflink]="'champions'" [type]="'button-navigate'" [content]="'Campeões'"></button-navbar>
+    <button-navbar [hreflink]="'free'" [type]="'button-navigate'" [content]="'Campeões para Iniciantes'"></button-navbar>
+    <button-navbar [hreflink]="'novousuario'" [type]="'button-navigate'" [content]="'Novo Usuário'"></button-navbar>
+  </div>
+  <div class="__right">
+    <button-navbar [hreflink]="'https://github.com/7conann'" [type]="'button-link'"  [iconOn]="true" [icon]="'github'"></button-navbar>
+    <button-navbar [hreflink]="'https://www.instagram.com/7conan_/'" [type]="'button-link'"  [iconOn]="true" [icon]="'instagram'"></button-navbar>
+    <button-navbar [hreflink]="'https://www.linkedin.com/in/angelo-alves-de-marchi-5924a0263'" [type]="'button-link'"  [iconOn]="true" [icon]="'linkedin'"></button-navbar>
+    <button-navbar [hreflink]="''" [type]="'button-logout'" [content]="'Sair'" (click)="logout()"></button-navbar>
+  </div>
+</div>

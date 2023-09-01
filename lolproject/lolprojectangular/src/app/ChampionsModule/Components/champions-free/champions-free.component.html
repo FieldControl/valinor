@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="__card">
+    <div class="__titulo">
+      <h1>Campeões grátis sugeridos para iniciantes</h1>
+    </div>
+    <div class="carousel">
+      <div class="__load">
+        <label *ngIf="isLoading">
+          <img src="../../../../assets/imgs/telacarregamento.png" alt="">
+        </label>
+      </div>
+      <div
+        class="carousel-content"
+        [style.transform]="'translateX(' + translateX + 'px)'"
+      >
+        <div class="carousel-item" *ngFor="let item of champions">
+          <img  [src]="item.champion_splash" alt="Carousel Item" />
+          <label >{{ item.champion_name }}</label>
+        </div>
+      </div>
+      <button class="carousel-button prev" (click)="prevSlide()">
+        &#10094;
+      </button>
+      <button class="carousel-button next" (click)="nextSlide()">
+        &#10095;
+      </button>
+    </div>
+  </div>
+</div>

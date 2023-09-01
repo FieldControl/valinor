@@ -1,0 +1,63 @@
+.footer{margin-top: 40px;
+  width: 100%;
+  height: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: black;
+
+  .__conteudo {
+    display: flex;
+    color: white;
+    justify-content: center;
+    gap: 100px;
+
+  }
+  .__prefencias {
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .__prefencias p img {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .footer{width: 380px;
+    height: 204px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    background-color: black;
+    margin: 0px;
+
+    .__conteudo {
+      display: flex;
+      color: white;
+      justify-content: center;
+      gap: 0px;
+
+    }
+    .__prefencias {
+      color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .__prefencias p img {
+      width: 12px;
+      height: 12px;
+    }
+    .__prefencias p {
+      font-size: 10px;
+    }
+
+    .__conteudo p {
+      font-size: 10px;
+    }
+  }
+}
+

@@ -1,0 +1,74 @@
+<!-- <div *ngFor="let champion of champions">
+  <h2>{{ champion.name }}</h2>
+  <p>{{ champion.title }}</p>
+</div> -->
+<div class="container-image">
+  <div class="__background-table">
+    <div class="pesquisa">
+      <div class="__space"></div>
+      <div class="__pesquisar">
+        <h1>Pesquisar Campeões</h1>
+      </div>
+      <div class="__paginação">
+        <h3>
+          Itens por página <u>{{ itemsPerPage }}</u>
+        </h3>
+        <div></div>
+      </div>
+    </div>
+    <div class="__barra-de-pesquisa">
+      <input
+        type="text"
+        class="__search-input"
+        [(ngModel)]="searchText"
+        placeholder="Pesquisar..."
+        (keyup.enter)="search()"
+      />
+      <button class="__button" (click)="search()">Pesquisar</button>
+    </div>
+    <table>
+      <tbody>
+          <div class="__classimg">
+            <div class="__load">
+              <label *ngIf="loading"><img src="../../../../assets/imgs/telacarregamento.png" alt=""></label>
+            </div>
+            <tr *ngFor="let item of champions">
+              <td class="img">
+                <img [src]="item.champion_splash" alt="" [style.display]="item.champion_splash ===  '../../../../assets/imgs/fundopreto.png' ? 'none' : 'block'" />
+                <label class="bold">{{ item.champion_name }}</label>
+              </td>
+            </tr>
+          </div>
+      </tbody>
+    </table>
+    <div class="__pagination" *ngIf="searchText == '' && champions.length > 1">
+      <button
+      *ngIf="currentPage !== 0"
+        class="__botao"
+        (click)="prevPage(0)">
+        Voltar ao Início >
+      </button>
+      <button
+      *ngIf="currentPage !== 0"
+        class="__botao"
+        (click)="prevPage()"
+      >
+        Anterior
+      </button>
+      <span class="__numeração">{{ currentPage }}</span>
+      <button
+        class="__botao"
+        (click)="nextPage()"
+      >
+        Próxima
+      </button>
+
+    <button
+    *ngIf="currentPage !== totalPages"
+      class="__botao"
+      (click)="nextPage(16)">
+      Ir para o final
+    </button>
+    </div>
+  </div>
+</div>

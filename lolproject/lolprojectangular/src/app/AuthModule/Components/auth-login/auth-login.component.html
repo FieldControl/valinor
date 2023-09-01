@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="__login">
+    <label-text label-text [type]="'logo'"></label-text>
+    <div>
+      <label-text [type]="'login'"></label-text>
+    </div>
+    <form class="__input" action="" [formGroup]="formCreate!" (submit)="login()">
+      <input-text
+        formControlName="username"
+        [control]="formCreate?.get('username')"
+        [label]="'Nome de Usuário :'"
+        [placeholder]="'Usuário'"
+        [password]="false"
+      ></input-text>
+      <input-text
+        formControlName="password"
+        [control]="formCreate?.get('password')"
+        [label]="'Senha :'"
+        [placeholder]="'Senha'"
+        [password]="true"
+      ></input-text>
+    </form>
+    <form class="__entrar" action="" [formGroup]="formCreate!" (submit)="login()">
+      <button-access-login type="submit"></button-access-login>
+      <label-text [type]="'name'"></label-text>
+    </form>
+  </div>
+  <div class="__video">
+    <video #myVideoLogin autoplay loop volume="0.5">
+      <source src="../../../../assets/movies/login.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
