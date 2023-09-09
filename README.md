@@ -26,6 +26,8 @@ $ npm run test
 
 - Vue.js 3 - Utilizei para conhecer mais sobre essa nova versão do Vue, pois, até o momento havia desenvolvido aplicações utilizando somente Vue.js 2. Optei por utilizar o Vue pelo fato de ter um maior domínio sobre este framework.
 
+- Vitest - Biblioteca de testes unitários recomendada na documentação do Vue.js.
+
 - Bootstrap 4 - Utilizei somente a parte das classes para facilitar a estilização da aplicação. Não importei os scripts de funcionalidades para não ser necessário adicionar o JQuery, visto que, as interações necessárias no projeto eram relativamente simples. Inicialmente utilizei o Vuetify 3, porém, enfrentei algumas dificuldades.
 
 - Pinia - Como já desenvolvi outros projetos utilizando Vuex, optei por utilizar o pinia para agregar conhecimento sobre essa biblioteca.
