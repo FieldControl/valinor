@@ -1,0 +1,28 @@
+{
+  "name": "github-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "axios": "^1.4.0",
+    "bootstrap": "4",
+    "pinia": "^2.1.6",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@testing-library/vue": "^7.0.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/test-utils": "^2.4.0-alpha.2",
+    "axios-mock-adapter": "^1.21.5",
+    "happy-dom": "^10.11.2",
+    "vite": "^4.4.6",
+    "vitest": "^0.34.3"
+  }
+}

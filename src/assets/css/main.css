@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color-black: #000000;
+  --primary-color-background-dark: #0E1117; 
+  --secundary-color-background-dark: #24292E;
+  --primary-color-gray-hover: rgba(208,215,222,0.32);
+  --primary-color-text-light: #F8F8F8;
+  --primary-color-light: #FFFFFF;
+  --primary-color-green: #3fb950;
+  --secundary-color-light: rgb(201, 209, 217);
+  --primary-color-blue: #007bff;
+  --secundary-color-blue: rgba(47, 129, 247, 100);
+  --secundary-color-blue-light: rgba(47, 130, 247, 0.1);
+  
+  --bg-dark-muted: #161B22;
+  --bg-scroll-dark: #E9E9E9;
+
+  --color-scroll-background: #2C2C2C;
+  --color-scroll: #6B6B6B;
+  --scroll-width: 17px;
+}
+
+
+body {
+  color: var(--primary-color-text-light);
+  background: var(--primary-color-background-dark);
+  font-family: 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media (min-width: 990px) {
+  body.overflow-hidden {
+    padding-right: var(--scroll-width);
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/*==================================================
+ * SCROLL BAR
+==================================================*/
+*::-webkit-scrollbar {
+  width: var(--scroll-width);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-scroll-background);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-scroll);
+  border: 4px transparent solid;
+  border-radius: 20px;
+  background-clip: padding-box;
+}
+
+/*==================================================
+ * BACKGROUNDS
+==================================================*/
+.bg-dark--secundary {
+  background: var(--secundary-color-background-dark);
+}
+
+.bg-dark--muted {
+  background: var(--bg-dark-muted);
+}
+
+/*==================================================
+ * FONT SIZES 
+==================================================*/
+.font-10 {
+  font-size: 10px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+/*==================================================
+ * BUTTONS
+==================================================*/
+.btn-dark--secundary {
+  background: var(--secundary-color-background-dark);
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  color: var(--secundary-color-light);
+}
+
+.btn-dark--secundary:hover {
+  background-color: rgb(48, 54, 61);
+  border-color: rgb(139, 148, 158);
+  color: var(--secundary-color-light);
+}
+
+/*==================================================
+ * FORM
+==================================================*/
+.form-control:focus {
+  box-shadow: 0 0 0 2px var(--primary-color-blue);
+}
