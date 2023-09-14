@@ -1,0 +1,53 @@
+<!-- REPO CARD -->
+<div class="flex gap-2 flex-col p-4 rounded-lg border border-default dark:border-dark-border">
+  <!-- TITLE -->
+  <h1 class="flex items-center">
+    <!-- ICON -->
+    <div class="mr-2 rounded border border-default/70 dark:border-dark-border/70">
+      <img class="w-5 h-5 rounded" [src]="repo?.owner?.avatar_url" alt="icon">
+    </div>
+    <!-- LINK/TEXT -->
+    <a href="https://github.com/{{repo?.full_name}}" target="_blank" class="text-blue-600 font-semibold dark:text-blue-500 hover:underline">
+      {{repo?.owner?.login}}/<em class="font-extrabold not-italic">{{repo?.name}}</em>
+    </a>
+  </h1>
+
+  <!-- DESCRIPTION -->
+  <div class="text-sm [&>*>a]:text-blue-600 dark:[&>*>a]:text-blue-500 hover:[&>*>a]:underline" [innerHTML]="desc"></div>
+
+  <!-- TOPICS -->
+  <ul *ngIf="repo?.topics?.length" class="flex gap-2 my-1 flex-wrap">
+    <li *ngFor="let topic of repo?.topics | slice:0:5">
+      <a href="https://github.com/topics/{{topic}}" target="_blank" class="px-2 py-1 rounded-[2em] text-xs font-semibold whitespace-nowrap bg-sky-100 text-blue-600 hover:bg-blue-600 hover:text-white dark:text-blue-500 dark:bg-blue-600/20 dark:hover:bg-blue-600 dark:hover:text-white select-none">
+        {{topic}}
+      </a>
+    </li>
+  </ul>
+
+  <!-- FOOTER -->
+  <footer class="flex flex-wrap gap-1 space-x-1 text-xs text-gray-700 dark:text-gray-400/90">
+    <!-- LANGUAGE -->
+    <div *ngIf="repo?.language" class="flex gap-2 items-center">
+      <div class="rounded-full w-[11px] h-[11px] border border-white/20" [ngClass]="languageColor"></div>
+      {{repo?.language}}
+    </div>
+
+    <div *ngIf="repo?.language">·</div>
+
+    <!-- STARS -->
+    <a href="https://github.com/{{repo?.full_name}}/stargazers" target="_blank"
+      class="group flex gap-2 items-center hover:text-blue-600 dark:hover:text-blue-500 hover:border-b hover:-mb-[1px] hover:border-gray-600/90 dark:hover:border-gray-400/90"
+    >
+      <svg class="fill-gray-500 group-hover:fill-blue-600 dark:group-hover:fill-blue-500" aria-hidden="true" focusable="false" role="img" viewBox="0 0 16 16" width="16" height="16" >
+        <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path>
+      </svg>
+      <p class="-ml-[2px]">{{repo?.stargazers_count | shortNumber}}</p>
+    </a>
+
+    <div>·</div>
+
+    <!-- DATE -->
+    <p>Updated {{repo?.pushed_at | githubDate}}</p>
+  </footer>
+
+</div>

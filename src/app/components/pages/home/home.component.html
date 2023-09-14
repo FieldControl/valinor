@@ -1,0 +1,150 @@
+<!-- HOME -->
+<div class="relative mx-auto my-10 max-w-[1296px] w-full">
+  <!-- META HEADER -->
+  <app-meta-header></app-meta-header>
+
+  <!-- MAIN CONTENT -->
+  <main class="md:rounded-lg md:border border-y border-light-border dark:text-white dark:border-dark-border shadow overflow-hidden">
+
+    <!-- HEADER -->
+    <header class="flex p-4 rounded-t-lg border-b border-light-border bg-light-bg-primary dark:bg-dark-bg-secondary dark:border-dark-border">
+      <!-- GITHUB ICON -->
+      <a href="https://github.com/" target="_blank">
+        <svg class="dark:fill-white" height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true">
+          <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+      </a>
+
+      <!-- INPUT GROUP -->
+      <label for="search-bar" class="relative flex items-center w-full">
+        <!-- SEARCH ICON -->
+        <svg class="absolute left-6 fill-gray-600 dark:fill-gray-400/90" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true">
+          <path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path>
+        </svg>
+
+        <!-- INPUT -->
+        <input #searchbar (keydown)="handlePress($event)" type="text" id="search-bar" placeholder="Search GitHub" 
+          class="w-full h-full pl-8 mx-2 ml-4 border rounded-md text-sm font-normal 
+          border-light-border bg-light-bg-primary text-gray-600 focus:bg-white placeholder:text-gray-500 outline-blue-600
+          dark:border-dark-border dark:bg-dark-bg-secondary dark:text-gray-400/90 dark:placeholder:text-gray-400/70 dark:outline-blue-500 
+          dark:focus:border-dark-bg-primary dark:focus:bg-dark-bg-primary dark:focus:text-white
+          focus:outline outline-2"
+        >
+        
+        <!-- ERASE BUTTON/ICON -->
+        <button *ngIf="searchbar.value" (click)="searchbar.value=''" class="absolute right-4 w-7 h-7 hover:bg-white/10">
+          <svg class="mx-auto fill-gray-600 dark:fill-gray-400/90" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true">
+            <path d="M2.343 13.657A8 8 0 1 1 13.658 2.343 8 8 0 0 1 2.343 13.657ZM6.03 4.97a.751.751 0 0 0-1.042.018.751.751 0 0 0-.018 1.042L6.94 8 4.97 9.97a.749.749 0 0 0 .326 1.275.749.749 0 0 0 .734-.215L8 9.06l1.97 1.97a.749.749 0 0 0 1.275-.326.749.749 0 0 0-.215-.734L9.06 8l1.97-1.97a.749.749 0 0 0-.326-1.275.749.749 0 0 0-.734.215L8 6.94Z"></path>
+          </svg>
+        </button>
+      </label>
+    </header>
+
+    <!-- PROGRESS BAR -->
+    <div class="h-1 bg-blue-500 duration-500 ease-in-out" [ngClass]="{'opacity-0': requestProgress.fade }" [ngStyle]="{ width: requestProgress.value + '%' }"></div>
+
+    <!-- INITIAL SCREEN -->
+    <div *ngIf="!query" class="flex flex-col my-8 items-center">
+      <!-- MESSAGE -->
+      <p class="hidden md:inline text-[15px] text-gray-500 ">
+        <!-- BELL ICON -->
+        <span class="text-yellow-600 dark:text-yellow-500/90">
+          <svg class="inline -mt-[2px]" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+            <path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16ZM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.519 1.519 0 0 1 13.482 13H2.518a1.516 1.516 0 0 1-1.263-2.36l1.703-2.554A.255.255 0 0 0 3 7.947Zm5-3.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.017.017 0 0 0-.003.01l.001.006c0 .002.002.004.004.006l.006.004.007.001h10.964l.007-.001.006-.004.004-.006.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.745 1.745 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5Z"></path>
+          </svg>
+          Tip!
+        </span>
+        <!-- TEXT -->
+        Press the <span class="font-medium text-gray-800 dark:text-gray-400">[Enter]</span> key to activate the search input.
+      </p>
+      <!-- ILLUSTRATION -->
+      <img class="w-[800px] md:mt-10" [src]="globalService.theme === 'dark' ? 'https://github.com/images/modules/search/home-desktop-dark.webp' : 'https://github.com/images/modules/search/home-desktop-light.webp'" alt="Illustration of Mona looking through binoculars at the a building a supernatural landscape">
+    </div>
+
+    <!-- SKELETON -->
+    <main *ngIf="!repos && query" class="p-6">
+      <div class="h-3 w-[20%] mb-6 rounded-lg bg-black/5 dark:bg-white/5 animate-pulse"></div>
+      <div class="h-48 w-full mb-4 rounded-lg bg-black/5 dark:bg-white/5 animate-pulse"></div>
+      <div class="h-48 w-full mb-4 rounded-lg bg-black/5 dark:bg-white/5 animate-pulse"></div>
+      <div class="h-48 w-full mb-4 rounded-lg bg-black/5 dark:bg-white/5 animate-pulse"></div>
+      <div class="h-48 w-full mb-4 rounded-lg bg-black/5 dark:bg-white/5 animate-pulse"></div>
+      <div class="h-48 w-full mb-4 rounded-lg bg-black/5 dark:bg-white/5 animate-pulse"></div>
+    </main>
+
+    <!-- MAIN -->
+    <main *ngIf="repos && query" class="px-6 py-4">
+      <!-- SUB-HEADER -->
+      <div class="flex items-center justify-between mb-4">
+        <!-- RESULTS INFO -->
+        <p><span class="font-semibold">{{repos.total_count | shortNumber}} results</span><small class="text-gray-500 dark:text-gray-400"> ({{requestTime}} ms)</small></p>
+        <!-- SORT BY -->
+        <div class="relative" (clickOutside)="dropdownOpen = false">
+          <button class="flex items-center gap-1 p-2 rounded-lg border text-xs font-semibold
+            border-light-border bg-light-bg-primary text-gray-500 hover:border-gray-400/80 hover:bg-gray-200/80
+            dark:bg-dark-gray dark:border-white/[.15] dark:text-gray-400 hover:dark:bg-dark-gray-hover hover:dark:border-dark-border-hover"
+            (click)="dropdownOpen = !dropdownOpen"
+            [ngClass]="dropdownOpen ? 'border-gray-400/60 bg-gray-200/60 dark:bg-dark-gray-hover/70 dark:border-dark-border-hover/70' : ''"
+          >
+            Sort by: <span class="text-gray-800 dark:text-gray-300">{{sortSelected}}</span>
+            <!-- DOWN CHEVRON ICON -->
+            <svg aria-hidden="true" focusable="false" role="img" class="octicon octicon-triangle-down" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+              <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path>
+            </svg>
+          </button>
+          <!-- DROPDOWN MENU -->
+          <ul *ngIf="dropdownOpen" class="absolute top-[38px] right-0 p-2 text-sm rounded-xl border bg-white drop-shadow-xl dark:border-dark-border dark:bg-dark-bg-tertiary dark:drop-shadow-[0_16px_16px_rgba(1,4,9,0.75)]">
+            <li *ngFor="let sortItem of sortList" (click)="changeSorting(sortItem)" class="flex p-2 rounded-md hover:bg-gray-200/50 dark:hover:bg-white/10 cursor-pointer">
+              <span class="flex justify-center w-5 h-5 mr-2 font-semibold">{{sortSelected === sortItem ? '✓' : ''}}</span>
+              <p class="w-[200px]">{{sortItem}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- REPOS LIST -->
+      <ul class="flex flex-col gap-4">
+        <li *ngFor="let repo of repos.items">
+          <app-repo-card [repo]="repo"></app-repo-card>
+        </li>
+      </ul>
+
+      <!-- NAV PAGINATION -->
+      <nav *ngIf="repos.total_count > 10" class="flex flex-wrap space-x-1 items-center justify-center my-6 pt-5 pb-2 text-sm">
+
+        <button *ngIf="page === 1" class="px-2 py-[6px] h-8 min-w-[32px] rounded-md text-gray-400 dark:text-gray-600" disabled>Previous</button>
+        <button *ngIf="page !== 1" (click)="switchPage(page-1)" class="flex items-center gap-2 px-2 py-[6px] h-8 min-w-[32px] rounded-md text-blue-500 hover:bg-gray-200/60 hover:dark:bg-gray-200/10"><span class="text-lg"><</span> Previous</button>
+        
+        <button (click)="switchPage(1)" [ngClass]="page === 1
+          ? 'px-2 py-[6px] h-8 min-w-[32px] rounded-md bg-blue-600 text-white'
+          : 'px-2 py-[6px] h-8 min-w-[32px] rounded-md hover:bg-gray-200/60 hover:dark:bg-gray-200/10'
+        ">1</button>
+        <button *ngIf="page > 4" class="px-2 py-[6px] h-8 min-w-[32px] rounded-md text-gray-400 dark:text-gray-600" disabled>...</button>
+
+
+        <button (click)="switchPage(num)" *ngFor="let num of nearestNumbers(page, 1, lastPage, 5)"
+          [ngClass]="num === page
+            ? 'px-2 py-[6px] h-8 min-w-[32px] rounded-md bg-blue-600 text-white'
+            : 'px-2 py-[6px] h-8 min-w-[32px] rounded-md hover:bg-gray-200/60 hover:dark:bg-gray-200/10'
+        ">
+          {{num}}
+        </button>
+
+        <button *ngIf="page < (lastPage - 5)" class="px-2 py-[6px] h-8 min-w-[32px] rounded-md text-gray-400 dark:text-gray-600" disabled>...</button>
+        <button (click)="switchPage(lastPage)" [ngClass]="page === lastPage
+          ? 'px-2 py-[6px] h-8 min-w-[32px] rounded-md bg-blue-600 text-white'
+          : 'px-2 py-[6px] h-8 min-w-[32px] rounded-md hover:bg-gray-200/60 hover:dark:bg-gray-200/10'
+        ">{{lastPage}}</button>
+
+        <button *ngIf="page === lastPage" class="px-2 py-[6px] h-8 min-w-[32px] rounded-md text-gray-400 dark:text-gray-600" disabled>Next</button>
+        <button *ngIf="page !== lastPage" (click)="switchPage(page+1)" class="flex items-center gap-2 px-2 py-[6px] h-8 min-w-[32px] rounded-md text-blue-500 hover:bg-gray-200/60 hover:dark:bg-gray-200/10">Next <span class="text-lg">></span></button>
+      </nav>
+    </main>
+
+  </main>
+
+  <!-- FOOTNOTE -->
+  <div class="flex w-full mt-2 justify-center">
+    <a href="https://github.com/amdiaspb" target="_blank" class="font-normal text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400">@amdiaspb</a>
+  </div>
+</div>
+
