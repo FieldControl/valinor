@@ -24,6 +24,7 @@ export const CardRight = styled.div`
   border-radius: 5px;
   padding: 1.31rem 1.75rem;
   backdrop-filter: blur(10px);
+  cursor: pointer;
 
   @media (max-width: 768px) {
     width: 22rem;
