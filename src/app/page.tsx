@@ -13,43 +13,60 @@ import { BackgroundAnimated } from "../components/BackgroundAnimated";
 import { StaticInfoHome } from "../components/StaticInfoHome";
 import { useState } from "react";
 import { GitHubRepository, GitHubSearchResult } from "../types/repositories";
+import { User } from "../components/User";
+import { Repositories } from "../components/Repositories";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const apiUrl = "https://api.github.com/search";
 
-  const [repositories, setRepositories] = useState<GitHubRepository[] | undefined>(undefined)
-  const [user, setUser] = useState<GitHubSearchResult | undefined>(undefined)
+  const [repositories, setRepositories] = useState<
+    GitHubRepository[] | undefined
+  >(undefined);
+  const [user, setUser] = useState<GitHubSearchResult | undefined>(undefined);
 
+  const [activeComponent, setActiveComponent] = useState<
+    "user" | "repositories" | "home"
+  >("home");
 
   const handleSearch = async () => {
     if (inputValue.trim() === "") {
       return;
     }
-
-    let endpoint = "/repositories"; // Rota de repositórios padrão
-
-    // Verifique se a entrada parece ser um nome de usuário ou um repositório
-    if (inputValue.includes("/")) {
-      endpoint = "/users";
-    }
-
     try {
-      const response = await fetch(`${apiUrl}${endpoint}?q=${inputValue}`);
-      const responseJson = await response.json()
+      const userResponse = await fetch(`${apiUrl}/users?q=${inputValue}`);
 
-      if (endpoint === "/repositories") {
-        // Lógica para manipular resultados de repositórios
-        setRepositories(responseJson)
+      if (userResponse.status === 200) {
+        const userJson = await userResponse.json();
+        
+        if (userJson.total_count > 0) {
+          setUser(userJson);
+          setActiveComponent("user");
+        } 
+
+        else {
+          const repoResponse = await fetch(
+            `${apiUrl}/repositories?q=${inputValue}`
+          )
+          const repoJson = await repoResponse.json();
+          setRepositories(repoJson.items);
+          setActiveComponent("repositories");
+
+          console.log(repoJson)
+        }
+
       } else {
-        // Lógica para manipular resultados de usuários
-        setUser(responseJson)
+        const repoResponse = await fetch(
+          `${apiUrl}/repositories?q=${inputValue}`
+        );
+        const repoJson = await repoResponse.json();
+        setRepositories(repoJson);
+        setActiveComponent("repositories");
       }
     } catch (error) {
       console.error("Erro na solicitação:", error);
     }
   };
-
 
   return (
     <>
@@ -71,7 +88,9 @@ export default function Home() {
         </HeaderContent>
       </HeaderContainer>
 
-      <StaticInfoHome />
+      {activeComponent === "home" && <StaticInfoHome />}
+      {activeComponent === "user" && <User user={user} />}
+      {activeComponent === "repositories" && <Repositories repos={repositories} />}
       <BackgroundAnimated />
     </>
   );

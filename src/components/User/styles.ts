@@ -1,15 +1,60 @@
-'use client'
+"use client";
 import styled from "styled-components";
 
-export const RepositoriesContainer = styled.div`
-    display: flex;
+export const UserContainer = styled.div`
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 4.3125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 3.75rem;
+`;
+
+export const UserCard = styled.div`
+  width: 15.5rem;
+  height: 8.5rem;
+  border: 1px solid ${(props) => props.theme.colors.bg300};
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 1.18rem;
+  backdrop-filter: blur(10px);
+`;
+
+export const Profile = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const Avatar = styled.div`
+  width: 4rem;
+  height: 4rem;
+  clip-path: circle();
+`;
+export const AvatarDetails = styled.div`
+  .repos {
+    font-size: 12px;
+  }
+`;
+export const AvatarName = styled.p`
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.primary100};
+  font-weight: bold;
+`;
+
+export const UserRepositories = styled.div`
+  display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
   gap: 0.5rem 8rem;
   margin-top: 3rem;
-`
-
+`;
 
 export const CardRight = styled.div`
   width: 28.75rem;
@@ -84,4 +129,21 @@ export const Controls = styled.div`
   }
     cursor: pointer;
   }
+`;
+
+export const ButtonPrev = styled.div`
+  display: flex;
+  align-items: center;
+  width: 4.6rem;
+  padding: 0.3rem;
+  cursor: pointer;
+`;
+
+export const ButtonNext = styled.div`
+  display: flex;
+  align-items: center;
+  width: 4.6rem;
+  padding: 0.3rem;
+  cursor: pointer;
+  
 `;

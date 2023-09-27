@@ -1,41 +1,57 @@
 import { IoEyeSharp } from "react-icons/io5";
-import { Card, Description, Detail, GitDetails, HeaderCard, RepoContainer, TitleCard, Watchs } from "./styles";
+import { GitHubRepository } from "../../types/repositories";
+import {
+  CardRight,
+  Description,
+  Detail,
+  GitDetails,
+  HeaderCard,
+  RepositoriesContainer,
+  Tecnologies,
+  TitleCard,
+  Watchs,
+} from "./styles";
 import { AiOutlineStar } from "react-icons/ai";
 import { PiGitForkDuotone } from "react-icons/pi";
 import { BsChatRightText } from "react-icons/bs";
-import Image from "next/image";
 
-export const Repositories = () => {
+interface ReposProps {
+  repos: GitHubRepository[] | undefined;
+}
+
+export const Repositories = ({repos }: ReposProps) => {
   return (
-    <RepoContainer>
-      <Card>
-        <HeaderCard>
-          <TitleCard>github-readme-stats</TitleCard>
-          <Watchs>
-            <IoEyeSharp />
-            <p>Watch 5</p>
-          </Watchs>
-        </HeaderCard>
+    <RepositoriesContainer>
+      {repos?.map((repo) => (
+        <CardRight key={repo.id}>
+          <HeaderCard>
+            <TitleCard>{repo.name}</TitleCard>
+            <Watchs>
+              <IoEyeSharp />
+              <p>Watch {repo.watchers_count}</p>
+            </Watchs>
+          </HeaderCard>
 
-        <GitDetails>
-          <Detail>
-            <AiOutlineStar />
-            <p>125</p>
-          </Detail>
+          <GitDetails>
+            <Detail>
+              <AiOutlineStar />
+              <p>{repo.stargazers_count}</p>
+            </Detail>
 
-          <Detail>
-            <PiGitForkDuotone />
-            <p>12400</p>
-          </Detail>
-        </GitDetails>
+            <Detail>
+              <PiGitForkDuotone />
+              <p>{repo.forks_count}</p>
+            </Detail>
 
-        <Description>
-          <BsChatRightText />
-          <p>Dynamically generated stats for your github readmes</p>
-        </Description>
+            <Tecnologies>{repo.language && <p>{repo.language}</p>}</Tecnologies>
+          </GitDetails>
 
-        <Image src={''} alt="" className="tecnologies" />
-      </Card>
-    </RepoContainer>
+          <Description>
+            <BsChatRightText />
+            <p>{repo.description}</p>
+          </Description>
+        </CardRight>
+      ))}
+    </RepositoriesContainer>
   );
 };
