@@ -5,11 +5,10 @@ export const UserContainer = styled.div`
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  height: 4.3125rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 3.75rem;
+  padding: 0 1rem;
 `;
 
 export const UserCard = styled.div`
@@ -53,7 +52,16 @@ export const UserRepositories = styled.div`
   margin: 0 auto;
   justify-content: center;
   gap: 0.5rem 8rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: row;
+
+  }
 `;
 
 export const CardRight = styled.div`
@@ -63,6 +71,16 @@ export const CardRight = styled.div`
   border-radius: 5px;
   padding: 1.31rem 1.75rem;
   backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    width: 22rem;
+    padding: 1rem 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    width: 22rem;
+    padding: 1rem 1rem;
+  }
 `;
 
 export const HeaderCard = styled.div`
@@ -106,6 +124,12 @@ export const Description = styled.div`
   gap: 0.5rem;
   margin-top: 1rem;
   font-size: 12px;
+
+  p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
 
 export const Tecnologies = styled.div`
@@ -115,7 +139,7 @@ export const Tecnologies = styled.div`
 export const Controls = styled.div`
   display: flex;
   gap: 5.75rem;
-  margin: 2.68rem 0;
+  margin: 2.78rem 0 ;
 
   button {
     border: none;

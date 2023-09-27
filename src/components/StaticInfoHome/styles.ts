@@ -26,6 +26,17 @@ export const Content = styled.div`
   justify-content: space-between;
   padding: 0 3.75rem;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
 `;
 
 export const Section = styled.section`
@@ -78,6 +89,14 @@ export const CardRight = styled.div`
   border-radius: 5px;
   padding: 1.31rem 1.75rem;
   backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    width: 24rem;
+  }
+
+  @media (max-width: 1024px) {
+    width: 24rem;
+  }
 `;
 
 export const HeaderCard = styled.div`

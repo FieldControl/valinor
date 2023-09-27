@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+'use client'
+import { useState } from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { GitHubRepository, GitHubSearchResult } from "../../types/repositories";
 import {
@@ -25,43 +26,35 @@ import Image from "next/image";
 import { AiOutlineStar } from "react-icons/ai";
 import { BsChatRightText } from "react-icons/bs";
 import { PiGitForkDuotone } from "react-icons/pi";
-import {GrNext} from 'react-icons/gr'
-import {MdArrowBackIosNew} from 'react-icons/md'
-
+import { GrNext } from "react-icons/gr";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { useQuery } from "@tanstack/react-query";
+import ky from "ky";
 
 interface UserProps {
   user: GitHubSearchResult | undefined;
 }
 
 export const User = ({ user }: UserProps) => {
-  const [repos, setRepos] = useState<GitHubRepository[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const reposPerPage = 6;
 
-  useEffect(() => {
-    const fetchUserRepos = async () => {
-      if (user) {
-        try {
-          const response = await fetch(user?.items[0].repos_url);
-          if (response.ok) {
-            const data = await response.json();
-            setRepos(data);
-          } else {
-            console.error("Erro ao carregar os repositórios do usuário");
-          }
-        } catch (error) {
-          console.error("Erro ao carregar os repositórios do usuário", error);
-        }
+  const { data: repos, isLoading } = useQuery({
+    queryKey: ["user", user, currentPage],
+    async queryFn({ signal }) {
+      const perPage = reposPerPage;
+      const page = currentPage;
+      const reposUrl = user?.items[0].repos_url;
+
+      if (!reposUrl) {
+        return [];
       }
-    };
 
-    fetchUserRepos();
-  }, [user]);
-
-  // Calcula o índice inicial e final dos repositórios a serem exibidos na página atual
-  const indexOfLastRepo = currentPage * reposPerPage;
-  const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
-  const currentRepos = repos.slice(indexOfFirstRepo, indexOfLastRepo);
+      const url = `${reposUrl}?per_page=${perPage}&page=${page}`;
+      return await ky.get(url, { signal }).json<GitHubRepository[]>();
+    },
+    enabled: Boolean(user),
+  });
 
   const goToPrevPage = () => {
     if (currentPage > 1) {
@@ -70,11 +63,11 @@ export const User = ({ user }: UserProps) => {
   };
 
   const goToNextPage = () => {
-    if (indexOfLastRepo < repos.length) {
+    if (repos && repos.length >= reposPerPage) {
       setCurrentPage(currentPage + 1);
     }
   };
-
+  
   return (
     <UserContainer>
       <UserCard>
@@ -89,13 +82,12 @@ export const User = ({ user }: UserProps) => {
           </Avatar>
           <AvatarDetails>
             <AvatarName>{user?.items[0].login}</AvatarName>
-            <p className="repos">Repositories {repos.length}</p>
           </AvatarDetails>
         </Profile>
       </UserCard>
 
       <UserRepositories>
-        {currentRepos.map((repo) => (
+        {repos?.map((repo) => (
           <CardRight key={repo.id}>
             <HeaderCard>
               <TitleCard>{repo.name}</TitleCard>
@@ -137,14 +129,13 @@ export const User = ({ user }: UserProps) => {
           </button>
         </ButtonPrev>
         <ButtonNext>
-            
           <button
             onClick={goToNextPage}
-            disabled={indexOfLastRepo >= repos.length}
+            disabled={!(repos && repos.length >= reposPerPage)}
           >
             Próximo
           </button>
-            <GrNext />
+          <GrNext />
         </ButtonNext>
       </Controls>
     </UserContainer>

@@ -15,10 +15,11 @@ import { useState } from "react";
 import { GitHubRepository, GitHubSearchResult } from "../types/repositories";
 import { User } from "../components/User";
 import { Repositories } from "../components/Repositories";
+import { useQuery } from "@tanstack/react-query";
+import { githubApi } from "../services/github";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
-  const apiUrl = "https://api.github.com/search";
 
   const [repositories, setRepositories] = useState<
     GitHubRepository[] | undefined
@@ -29,40 +30,57 @@ export default function Home() {
     "user" | "repositories" | "home"
   >("home");
 
-  const handleSearch = async () => {
-    if (inputValue.trim() === "") {
-      return;
-    }
-    try {
-      const userResponse = await fetch(`${apiUrl}/users?q=${inputValue}`);
+  const query = useQuery({
+    queryKey: ["github", inputValue],
+    async queryFn({ signal }) {
+      if (inputValue.trim() === "") {
+        return;
+      }
+      
+      const userResponse = await githubApi.get("users", {
+        signal,
+        searchParams: {
+          q: inputValue,
+        },
+      });
 
       if (userResponse.status === 200) {
-        const userJson = await userResponse.json();
-        
+        const userJson = await userResponse.json<GitHubSearchResult>();
+
         if (userJson.total_count > 0) {
           setUser(userJson);
           setActiveComponent("user");
-        } 
-
-        else {
-          const repoResponse = await fetch(
-            `${apiUrl}/repositories?q=${inputValue}`
-          )
-          const repoJson = await repoResponse.json();
+        } else {
+          const repoResponse = await githubApi.get("repositories", {
+            signal,
+            searchParams: {
+              q: inputValue,
+            },
+          });
+          const repoJson = await repoResponse.json<any>();
           setRepositories(repoJson.items);
           setActiveComponent("repositories");
 
-          console.log(repoJson)
+          console.log(repoJson);
         }
-
       } else {
-        const repoResponse = await fetch(
-          `${apiUrl}/repositories?q=${inputValue}`
-        );
-        const repoJson = await repoResponse.json();
+        const repoResponse = await githubApi.get("repositories", {
+          signal,
+          searchParams: {
+            q: inputValue,
+          },
+        });
+        const repoJson = await repoResponse.json<GitHubRepository[]>();
         setRepositories(repoJson);
         setActiveComponent("repositories");
       }
+    },
+    enabled: false,
+  });
+
+  const handleSearch = async () => {
+    try {
+      await query.refetch();
     } catch (error) {
       console.error("Erro na solicitação:", error);
     }
@@ -81,7 +99,7 @@ export default function Home() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <Button onClick={handleSearch}>
+            <Button disabled={query.isFetching} onClick={handleSearch}>
               <BsSearch />
             </Button>
           </ContentButton>
@@ -90,7 +108,9 @@ export default function Home() {
 
       {activeComponent === "home" && <StaticInfoHome />}
       {activeComponent === "user" && <User user={user} />}
-      {activeComponent === "repositories" && <Repositories repos={repositories} />}
+      {activeComponent === "repositories" && (
+        <Repositories repos={repositories} />
+      )}
       <BackgroundAnimated />
     </>
   );
