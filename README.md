@@ -58,6 +58,8 @@ O projeto GitHub Search utiliza as seguintes tecnologias e bibliotecas:
 
 
 ## Escolhas Tecnológicas:
+    Next.js:
+    Renderização no Lado do Servidor (SSR) e Pré-renderização (SSG): O Next.js oferece suporte nativo para renderização no lado do servidor e pré-renderização, o que pode melhorar significativamente o desempenho da sua aplicação.
 
     React Query em vez de Redux:
         Optou-se por React Query devido à sua simplicidade e eficácia no gerenciamento de estados e lógica de busca de dados, sem a complexidade de configurações extensas encontradas em soluções como Redux.
