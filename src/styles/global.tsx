@@ -36,6 +36,16 @@ const Globals = createGlobalStyle`
         background: #fff;
         position: relative;
         border-radius: 5px;
+
+        @media (max-width: 768px) {
+            width: 25rem;
+            padding: .5rem 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            width: 25rem;
+            padding: .5rem 1rem;
+        }
     }
 
     .react-modal-close{

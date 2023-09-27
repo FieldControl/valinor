@@ -45,11 +45,20 @@ export const Profile = styled.div`
       clip-path: circle();
     }
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin:0 0 1rem 0;
+  }
 
-  .update{
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    margin:0 0 1rem 0;
+  }
+
+  .update {
     display: flex;
-    span{
-        color: ${props => props.theme.colors.primary100};
+    span {
+      color: ${(props) => props.theme.colors.primary100};
     }
   }
 `;
@@ -97,7 +106,7 @@ export const Tecnologies = styled.div`
 
 export const Github = styled.div`
   margin-top: 1rem;
-  color: ${props => props.theme.colors.primary100};
+  color: ${(props) => props.theme.colors.primary100};
   a {
     display: flex;
     gap: 0.5rem;

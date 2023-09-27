@@ -56,7 +56,13 @@ export const ModalInfo = ({
               </div>
 
               <div className="update">
-              <p><span>Last update </span> {format(new Date(selectedRepo.updated_at), "dd/MM/yyyy HH:mm:ss")}</p>
+                <p>
+                  <span>Last update </span>{" "}
+                  {format(
+                    new Date(selectedRepo.updated_at),
+                    "dd/MM/yyyy HH:mm:ss"
+                  )}
+                </p>
               </div>
             </Profile>
 
