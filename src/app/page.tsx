@@ -1,156 +1,78 @@
 "use client";
 import {
-  CardLeft,
-  CardRight,
-  Container,
-  Content,
-  Description,
-  Detail,
-  DivGroupIcons,
-  GitDetails,
-  H1,
-  HeaderCard,
-  Section,
-  Span,
-  Tecnologies,
-  TitleCard,
-  Watchs,
+  Button,
+  ContentButton,
+  HeaderContainer,
+  HeaderContent,
+  Input,
 } from "./styles";
 import logo from "@/public/logo.svg";
-import angular from "@/public/angular.svg";
-import react from "@/public/react.svg";
-import node from "@/public/node.svg";
-import python from "@/public/python.svg";
 import Image from "next/image";
-
-import { IoEyeSharp } from "react-icons/io5";
-import { PiGitForkDuotone } from "react-icons/pi";
-import { AiOutlineStar } from "react-icons/ai";
-import { BsChatRightText } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
+import { BackgroundAnimated } from "../components/BackgroundAnimated";
+import { StaticInfoHome } from "../components/StaticInfoHome";
+import { useState } from "react";
+import { GitHubRepository, GitHubSearchResult } from "../types/repositories";
 
 export default function Home() {
+  const [inputValue, setInputValue] = useState("");
+  const apiUrl = "https://api.github.com/search";
+
+  const [repositories, setRepositories] = useState<GitHubRepository[] | undefined>(undefined)
+  const [user, setUser] = useState<GitHubSearchResult | undefined>(undefined)
+
+
+  const handleSearch = async () => {
+    if (inputValue.trim() === "") {
+      return;
+    }
+
+    let endpoint = "/repositories"; // Rota de repositórios padrão
+
+    // Verifique se a entrada parece ser um nome de usuário ou um repositório
+    if (inputValue.includes("/")) {
+      endpoint = "/users";
+    }
+
+    try {
+      const response = await fetch(`${apiUrl}${endpoint}?q=${inputValue}`);
+      const responseJson = await response.json()
+
+      if (endpoint === "/repositories") {
+        // Lógica para manipular resultados de repositórios
+        setRepositories(responseJson)
+      } else {
+        // Lógica para manipular resultados de usuários
+        setUser(responseJson)
+      }
+    } catch (error) {
+      console.error("Erro na solicitação:", error);
+    }
+  };
+
+
   return (
-    <Container>
-      <Content>
-        <Section className="left">
-          <H1>
-            <Span>Find</Span> repositories, users or <br /> anything on{" "}
-            <Span>github</Span>{" "}
-            <Image src={logo} alt="" width={33.08} height={32.49} />
-          </H1>
+    <>
+      <HeaderContainer>
+        <HeaderContent>
+          <Image src={logo} alt="" />
 
-          <CardLeft>
-            <H1>
-              1.1 M+ <br />
-              <Span>Repositories</Span>
-            </H1>
+          <ContentButton>
+            <Input
+              type="text"
+              placeholder="find anything"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <Button onClick={handleSearch}>
+              <BsSearch />
+            </Button>
+          </ContentButton>
+        </HeaderContent>
+      </HeaderContainer>
 
-            <DivGroupIcons>
-              <Image src={angular} alt="" />
-              <Image src={react} alt="" />
-              <Image src={node} alt="" />
-              <Image src={python} alt="" />
-            </DivGroupIcons>
-          </CardLeft>
-        </Section>
-
-        <Section className="right">
-          <CardRight>
-            <HeaderCard>
-              <TitleCard>github-readme-stats</TitleCard>
-              <Watchs>
-                <IoEyeSharp />
-                <p>Watch 5</p>
-              </Watchs>
-            </HeaderCard>
-
-            <GitDetails>
-              <Detail>
-                <AiOutlineStar />
-                <p>125</p>
-              </Detail>
-
-              <Detail>
-                <PiGitForkDuotone />
-                <p>12400</p>
-              </Detail>
-
-              <Tecnologies>
-                <p>Python</p>
-              </Tecnologies>
-            </GitDetails>
-
-            <Description>
-              <BsChatRightText />
-              <p>Dynamically generated stats for your github readmes</p>
-            </Description>
-          </CardRight>
-
-          <CardRight>
-            <HeaderCard>
-              <TitleCard>github-readme-stats</TitleCard>
-              <Watchs>
-                <IoEyeSharp />
-                <p>Watch 5</p>
-              </Watchs>
-            </HeaderCard>
-
-            <GitDetails>
-              <Detail>
-                <AiOutlineStar />
-                <p>125</p>
-              </Detail>
-
-              <Detail>
-                <PiGitForkDuotone />
-                <p>12400</p>
-              </Detail>
-
-              <Tecnologies>
-                <p>Python</p>
-              </Tecnologies>
-            </GitDetails>
-
-            <Description>
-              <BsChatRightText />
-              <p>Dynamically generated stats for your github readmes</p>
-            </Description>
-          </CardRight>
-
-          <CardRight>
-            <HeaderCard>
-              <TitleCard>github-readme-stats</TitleCard>
-              <Watchs>
-                <IoEyeSharp />
-                <p>Watch 5</p>
-              </Watchs>
-            </HeaderCard>
-
-            <GitDetails>
-              <Detail>
-                <AiOutlineStar />
-                <p>125</p>
-              </Detail>
-
-              <Detail>
-                <PiGitForkDuotone />
-                <p>12400</p>
-              </Detail>
-
-              <Tecnologies>
-                <p>Python</p>
-              </Tecnologies>
-            </GitDetails>
-
-            <Description>
-              <BsChatRightText />
-              <p>Dynamically generated stats for your github readmes</p>
-            </Description>
-          </CardRight>
-        </Section>
-      </Content>
-
-      
-    </Container>
+      <StaticInfoHome />
+      <BackgroundAnimated />
+    </>
   );
 }

@@ -26,7 +26,6 @@ export default function RootLayout({
 }) {
   const [theme, setTheme] = useState(light);
 
-  
 
   return (
     <html lang="en">
@@ -35,7 +34,6 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             <ThemeProvider theme={theme}>
               <AppContextProvider>
-                <Header />
                 {children}
                 <GlobalStyles />
               </AppContextProvider>
