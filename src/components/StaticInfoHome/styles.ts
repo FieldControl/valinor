@@ -5,11 +5,15 @@ export const Container = styled.main`
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  height: calc(100vh - 83px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 1rem ;
+
+
+  @media (max-width: 1024px) {
+    
+  }
 
   .left {
     gap: 2.1875rem;
@@ -17,6 +21,7 @@ export const Container = styled.main`
 
   .right {
     gap: 8px;
+    margin-bottom: 2rem;
   }
 `;
 

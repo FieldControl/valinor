@@ -4,8 +4,6 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   border-bottom: 1px solid ${(props) => props.theme.colors.bg300};
   backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
 
   z-index: 1;
 `;
