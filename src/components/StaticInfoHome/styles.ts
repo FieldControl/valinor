@@ -1,19 +1,15 @@
 'use client'
 import styled from "styled-components";
 
-export const Container = styled.main`
+export const Container = styled.div`
   width: 100%;
   max-width: 1280px;
+  height: calc(100vh - 8.5rem);
   margin: 2rem auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 0 1rem ;
 
-
-  @media (max-width: 1024px) {
-    
-  }
 
   .left {
     gap: 2.1875rem;
@@ -27,6 +23,7 @@ export const Container = styled.main`
 
 export const Content = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 3.75rem;
