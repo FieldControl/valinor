@@ -3,21 +3,29 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: 100%;
-  max-width: 1364px;
+  max-width: 1280px;
   margin: 0 auto;
   height: calc(100vh - 83px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 
   .left {
-    gap: 48px;
+    gap: 2.1875rem;
   }
 
   .right {
-    gap: 1rem;
+    gap: 8px;
   }
+`;
+
+export const Content = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 3.75rem;
+  align-items: center;
 `;
 
 export const Section = styled.section`
@@ -26,7 +34,7 @@ export const Section = styled.section`
 `;
 
 export const H1 = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
 `;
 
 export const Span = styled.span`
@@ -34,11 +42,11 @@ export const Span = styled.span`
 `;
 
 export const CardLeft = styled.div`
-  width: 486px;
-  height: 300px;
+  width: 24rem;
+  height: 14.4375rem;
   border: 1px solid ${(props) => props.theme.colors.bg300};
   border-radius: 5px;
-  padding: 2.5rem 2.18rem;
+  padding: 1.6rem 1.3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,15 +71,11 @@ export const DivGroupIcons = styled.div`
 //card right home page
 
 export const CardRight = styled.div`
-  width: 580px;
-  height: 172px;
+  width: 28.75rem;
+  height: 8.5rem;
   border: 1px solid ${(props) => props.theme.colors.bg300};
   border-radius: 5px;
   padding: 1.31rem 1.75rem;
-  .tecnologies {
-    width: 20px;
-    margin-top: .5rem ;
-  }
 `;
 
 export const HeaderCard = styled.div`
@@ -81,7 +85,7 @@ export const HeaderCard = styled.div`
 `;
 
 export const TitleCard = styled.h3`
-  font-size: 20px;
+  font-size: 1rem;
 `;
 
 export const Watchs = styled.div`
@@ -89,9 +93,9 @@ export const Watchs = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
-
+  font-size: 12px;
   svg {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 `;
 
@@ -99,19 +103,24 @@ export const GitDetails = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  font-size: 12px;
 `;
 export const Detail = styled.div`
   display: flex;
   align-items: center;
-
   svg {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 `;
 
 export const Description = styled.div`
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   margin-top: 1rem;
+  font-size: 12px;
+`;
+
+export const Tecnologies = styled.div`
+  font-size: 12px;
 `;

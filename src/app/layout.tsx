@@ -26,9 +26,7 @@ export default function RootLayout({
 }) {
   const [theme, setTheme] = useState(light);
 
-  const ToggledTheme = () => {
-    setTheme(theme.title === "light" ? dark : light);
-  };
+  
 
   return (
     <html lang="en">
@@ -37,7 +35,7 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             <ThemeProvider theme={theme}>
               <AppContextProvider>
-                <Header toggledTheme={ToggledTheme} />
+                <Header />
                 {children}
                 <GlobalStyles />
               </AppContextProvider>
