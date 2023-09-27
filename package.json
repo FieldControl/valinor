@@ -13,12 +13,14 @@
     "@types/node": "20.6.2",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@types/react-modal": "^3.16.0",
     "@types/styled-components": "^5.1.27",
     "ky": "^1.0.1",
     "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
+    "react-modal": "^3.16.1",
     "styled-components": "^6.0.8",
     "typescript": "5.2.2"
   }

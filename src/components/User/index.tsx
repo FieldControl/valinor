@@ -30,6 +30,7 @@ import { GrNext } from "react-icons/gr";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import ky from "ky";
+import { ModalInfo } from "../Modal";
 
 interface UserProps {
   user: GitHubSearchResult | undefined;
@@ -38,6 +39,10 @@ interface UserProps {
 export const User = ({ user }: UserProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const reposPerPage = 6;
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [selectedRepo, setSelectedRepo] = useState<GitHubRepository | null>(
+    null
+  );
 
   const { data: repos, isLoading } = useQuery({
     queryKey: ["user", user, currentPage],
@@ -67,6 +72,15 @@ export const User = ({ user }: UserProps) => {
       setCurrentPage(currentPage + 1);
     }
   };
+
+  const openModal = (selectedRepo: GitHubRepository) => {
+    setSelectedRepo(selectedRepo)
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   
   return (
     <UserContainer>
@@ -88,7 +102,7 @@ export const User = ({ user }: UserProps) => {
 
       <UserRepositories>
         {repos?.map((repo) => (
-          <CardRight key={repo.id}>
+          <CardRight key={repo.id} onClick={() => openModal(repo)}>
             <HeaderCard>
               <TitleCard>{repo.name}</TitleCard>
               <Watchs>
@@ -138,6 +152,8 @@ export const User = ({ user }: UserProps) => {
           <GrNext />
         </ButtonNext>
       </Controls>
+
+      <ModalInfo isOpen={modalIsOpen} onRequestClose={closeModal} selectedRepo={selectedRepo}/>
     </UserContainer>
   );
 };

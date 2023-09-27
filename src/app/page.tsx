@@ -18,6 +18,7 @@ import { User } from "../components/User";
 import { Repositories } from "../components/Repositories";
 import { useQuery } from "@tanstack/react-query";
 import { githubApi } from "../services/github";
+import { ModalInfo } from "../components/Modal";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
@@ -30,6 +31,9 @@ export default function Home() {
   const [activeComponent, setActiveComponent] = useState<
     "user" | "repositories" | "home"
   >("home");
+
+  
+
 
   const query = useQuery({
     queryKey: ["github", inputValue],
@@ -92,6 +96,7 @@ export default function Home() {
     setInputValue('')
   }
 
+
   return (
     <>
       <HeaderContainer>
@@ -117,7 +122,7 @@ export default function Home() {
       {activeComponent === "home" && <StaticInfoHome />}
       {activeComponent === "user" && <User user={user} />}
       {activeComponent === "repositories" && (
-        <Repositories repos={repositories} />
+        <Repositories repos={repositories}/>
       )}
       <BackgroundAnimated />
     </>
