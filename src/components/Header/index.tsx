@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Button,
@@ -13,24 +14,39 @@ import Image from "next/image";
 import { useContext } from "react";
 import Switch from "react-switch";
 import { ThemeContext } from "styled-components";
-import {BsSearch} from 'react-icons/bs'
+import { BsSearch } from "react-icons/bs";
+
+import { useAppContext } from "../../contexts/AppContext";
 
 interface Props {
-    toggledTheme: () => void,
+  toggledTheme: () => void;
 }
 
-export const Header = ({toggledTheme}: Props) => {
-    const colors = useContext(ThemeContext)
-    const title = useContext(ThemeContext)
-    
+export const Header = ({ toggledTheme }: Props) => {
+  const colors = useContext(ThemeContext);
+  const title = useContext(ThemeContext);
+
+  const { inputValue, setInputValue } = useAppContext();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <HeaderContainer>
       <HeaderContent>
-        <Image src={logo} alt=""/>
+        <Image src={logo} alt="" />
 
         <ContentButton>
-          <Input type="text" placeholder="find anything"/>
-          <Button><BsSearch /></Button>
+          <Input
+            type="text"
+            placeholder="find anything"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          <Button>
+            <BsSearch />
+          </Button>
         </ContentButton>
 
         <Switch
