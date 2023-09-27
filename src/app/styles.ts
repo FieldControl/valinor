@@ -8,6 +8,7 @@ export const HeaderContainer = styled.header`
   z-index: 1;
 `;
 
+
 export const HeaderContent = styled.div`
   width: 100%;
   max-width: 1280px;
@@ -18,6 +19,10 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
   padding: 0 3.75rem;
 `;
+
+export const Logo = styled.div`
+  cursor: pointer;
+`
 
 export const ContentButton = styled.div`
   width: 11.875rem;

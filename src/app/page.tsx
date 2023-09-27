@@ -5,6 +5,7 @@ import {
   HeaderContainer,
   HeaderContent,
   Input,
+  Logo,
 } from "./styles";
 import logo from "@/public/logo.svg";
 import Image from "next/image";
@@ -36,7 +37,7 @@ export default function Home() {
       if (inputValue.trim() === "") {
         return;
       }
-      
+
       const userResponse = await githubApi.get("users", {
         signal,
         searchParams: {
@@ -86,11 +87,18 @@ export default function Home() {
     }
   };
 
+  const Backhome = () => {
+    setActiveComponent('home')
+    setInputValue('')
+  }
+
   return (
     <>
       <HeaderContainer>
         <HeaderContent>
-          <Image src={logo} alt="" />
+          <Logo onClick={Backhome}>
+            <Image src={logo} alt="" />
+          </Logo>
 
           <ContentButton>
             <Input
