@@ -1,238 +1,57 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# Github-find
 
-A empresa
-----------
+# Documentação do Projeto GitHub-find
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+## Objetivo do Projeto
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+O projeto GitHub-find é uma aplicação web desenvolvida em Next.js que tem como objetivo permitir aos usuários pesquisar por repositórios e usuários no GitHub. A aplicação consome a API pública do GitHub para recuperar informações relevantes e apresentá-las de forma acessível e organizada aos usuários.
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+### Funcionalidades Principais
 
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
+O projeto GitHub-find oferece as seguintes funcionalidades principais:
 
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
+1. **Pesquisa de Repositórios**: Os usuários podem inserir palavras-chave na barra de pesquisa para encontrar repositórios do GitHub relacionados a essas palavras-chave. Os resultados incluem detalhes como nome do repositório, descrição, linguagem de programação predominante e número de estrelas.
 
-Origem
-----------
+2. **Pesquisa de Usuários**: Os usuários também podem buscar por outros usuários do GitHub. Os resultados exibem informações sobre o perfil do usuário, incluindo nome, avatar, nome de usuário, número de seguidores e repositórios públicos.
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+3. **Detalhes do Repositório**: Ao clicar em um repositório na lista de resultados, os usuários podem visualizar informações mais detalhadas sobre o repositório, como os commits mais recentes e os colaboradores.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
+## Como Usar o Projeto
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
+Para utilizar o projeto GitHub Search, siga os passos abaixo:
 
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
+1. **Clone o Repositório**: Clone o repositório do projeto para seu ambiente local usando o comando `git clone`.
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+2. **Instale as Dependências**: Navegue até a pasta raiz do projeto e execute `npm install` ou `yarn install` para instalar todas as dependências necessárias.
 
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
+3. **Configure as Variáveis de Ambiente**: É necessário configurar as variáveis de ambiente para fornecer uma chave de acesso à API do GitHub (token de autenticação). Crie um arquivo `.env.local` na raiz do projeto e adicione a variável de ambiente `GITHUB_API_TOKEN` com seu token de acesso.
 
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
+4. **Inicie a Aplicação**: Execute o comando `npm run dev` ou `yarn dev` para iniciar o servidor de desenvolvimento.
 
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
+5. **Acesse a Aplicação**: Abra seu navegador e acesse `http://localhost:3000` para começar a usar a aplicação.
 
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
+## Tecnologias Utilizadas
 
-Oportunidade
-----------
+O projeto GitHub Search utiliza as seguintes tecnologias e bibliotecas:
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
+1. @tanstack/react-query (v4.35.3)
 
-Na Field, o seu dia-a-dia será repleto de:
+    Motivo de Uso: O React Query é uma biblioteca que oferece uma solução eficaz para gerenciar o estado e a lógica de busca de dados em aplicativos React. Ela simplifica a busca, a atualização e o gerenciamento de dados, tornando as solicitações de API mais eficientes e escaláveis.
 
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
+2. ky (v1.0.1)
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
+    Motivo de Uso: Ky é uma biblioteca para realizar solicitações de rede HTTP no navegador e no Node.js. Ela oferece uma API moderna e amigável para fazer requisições assíncronas a servidores. Ky é uma escolha popular para lidar com chamadas de API em projetos React devido à sua simplicidade e recursos.
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
+3. react-icons (v4.11.0)
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
+    Motivo de Uso: O pacote React Icons fornece uma ampla variedade de ícones que podem ser facilmente incorporados em componentes React. Isso é útil para adicionar ícones a elementos de interface do usuário, como botões, links e barras de navegação, tornando a aplicação mais atraente e intuitiva.
 
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
+4. styled-components (v6.0.8)
 
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
+    Motivo de Uso: O styled-components é uma biblioteca que permite criar estilos CSS em JavaScript para componentes React. Com ela, você pode definir estilos de maneira declarativa diretamente nos componentes, facilitando a manutenção e a compreensão do CSS da aplicação. É amplamente utilizado para criar interfaces de usuário elegantes e responsivas.
 
-Os desafios de programação
-----------
+5. typescript (v5.2.2)
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
-
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
-
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
-
-<br/>
-
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
-
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
-
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
-
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
-
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
-
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
-
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
-
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
-
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
-
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
-
-Um diferencial gigante é o uso de testes unitários e integrados!
-
-URLs úteis:
-
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
-
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
-
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
-
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
-
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
-
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
-
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
-
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
-
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
-
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
-
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
-
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
-
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
-
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
-
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
-
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
-
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
-
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
-
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+    Motivo de Uso: TypeScript é uma linguagem de programação que adiciona tipagem estática ao JavaScript. Ele ajuda a identificar erros de código em tempo de desenvolvimento, tornando o código mais seguro e fácil de manter. O Next.js pode ser configurado para funcionar perfeitamente com o TypeScript, oferecendo uma experiência de desenvolvimento mais robusta e escalável.
