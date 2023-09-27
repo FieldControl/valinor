@@ -34,7 +34,6 @@ const Globals = createGlobalStyle`
         width: 100%;
         max-width: 576px;
         background: #fff;
-        padding: 3rem;
         position: relative;
         border-radius: 5px;
     }
