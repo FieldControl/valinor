@@ -55,3 +55,43 @@ O projeto GitHub Search utiliza as seguintes tecnologias e bibliotecas:
 5. typescript (v5.2.2)
 
     Motivo de Uso: TypeScript é uma linguagem de programação que adiciona tipagem estática ao JavaScript. Ele ajuda a identificar erros de código em tempo de desenvolvimento, tornando o código mais seguro e fácil de manter. O Next.js pode ser configurado para funcionar perfeitamente com o TypeScript, oferecendo uma experiência de desenvolvimento mais robusta e escalável.
+
+
+## Escolhas Tecnológicas:
+
+    React Query em vez de Redux:
+        Optou-se por React Query devido à sua simplicidade e eficácia no gerenciamento de estados e lógica de busca de dados, sem a complexidade de configurações extensas encontradas em soluções como Redux.
+
+    Ky em vez de Axios:
+        Ky foi escolhido por sua API moderna e amigável, e por ser extendida da proprias fetch api, possui uma integraçao melhor com as novas features do next 13.
+
+    Styled-components em vez de CSS puro ou outros pré-processadores:
+        Styled-components foi escolhido para permitir a criação de estilos CSS diretamente em JavaScript, simplificando a manutenção e a compreensão do código relacionado à interface do usuário.
+    
+## Princípios de Engenharia de Software:
+
+Componentização:
+    Utilização extensiva de componentes React para modularização e reutilização de código, seguindo o princípio de componentização na engenharia de software.
+
+Tipagem Estática:
+    Adoção do TypeScript para introduzir tipagem estática ao código, melhorando a segurança e a facilidade de manutenção.
+
+Desenvolvimento Orientado a Componentes:
+    O uso de styled-components promove o desenvolvimento orientado a componentes, permitindo estilos encapsulados e reutilizáveis.
+    
+
+## Desafios e Soluções:
+    Gerenciamento de Estado e Dados:
+        Desafio: Gerenciar eficientemente o estado da aplicação e as chamadas à API.
+        Solução: A escolha do React Query simplificou o gerenciamento de estados e integrou-se bem com a lógica de busca de dados.  
+
+## Oportunidades de Melhoria:
+
+    Testes Automatizados:
+        Introduzir testes automatizados para garantir a robustez e a estabilidade da aplicação.      
+    
+
+## Contato
+
+Telefone e Whatsapp - (11)9 3952-9655
+Email: lucasrenan365@outlook.com
