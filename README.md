@@ -58,17 +58,17 @@ O projeto GitHub Search utiliza as seguintes tecnologias e bibliotecas:
 
 
 ## Escolhas Tecnológicas:
-    Next.js:
-    Renderização no Lado do Servidor (SSR) e Pré-renderização (SSG): O Next.js oferece suporte nativo para renderização no lado do servidor e pré-renderização, o que pode melhorar significativamente o desempenho da sua aplicação.
+Next.js:
+Renderização no Lado do Servidor (SSR) e Pré-renderização (SSG): O Next.js oferece suporte nativo para renderização no lado do servidor e pré-renderização, o que pode melhorar significativamente o desempenho da sua aplicação.
 
-    React Query em vez de Redux:
-        Optou-se por React Query devido à sua simplicidade e eficácia no gerenciamento de estados e lógica de busca de dados, sem a complexidade de configurações extensas encontradas em soluções como Redux.
+React Query em vez de Redux:
+    Optou-se por React Query devido à sua simplicidade e eficácia no gerenciamento de estados e lógica de busca de dados, sem a complexidade de configurações extensas encontradas em soluções como Redux.
 
-    Ky em vez de Axios:
-        Ky foi escolhido por sua API moderna e amigável, e por ser extendida da proprias fetch api, possui uma integraçao melhor com as novas features do next 13.
+Ky em vez de Axios:
+    Ky foi escolhido por sua API moderna e amigável, e por ser extendida da proprias fetch api, possui uma integraçao melhor com as novas features do next 13.
 
-    Styled-components em vez de CSS puro ou outros pré-processadores:
-        Styled-components foi escolhido para permitir a criação de estilos CSS diretamente em JavaScript, simplificando a manutenção e a compreensão do código relacionado à interface do usuário.
+Styled-components em vez de CSS puro ou outros pré-processadores:
+    Styled-components foi escolhido para permitir a criação de estilos CSS diretamente em JavaScript, simplificando a manutenção e a compreensão do código relacionado à interface do usuário.
     
 ## Princípios de Engenharia de Software:
 
@@ -83,17 +83,17 @@ Desenvolvimento Orientado a Componentes:
     
 
 ## Desafios e Soluções:
-    Gerenciamento de Estado e Dados:
-        Desafio: Gerenciar eficientemente o estado da aplicação e as chamadas à API.
-        Solução: A escolha do React Query simplificou o gerenciamento de estados e integrou-se bem com a lógica de busca de dados.  
+Gerenciamento de Estado e Dados:
+    Desafio: Gerenciar eficientemente o estado da aplicação e as chamadas à API.
+    Solução: A escolha do React Query simplificou o gerenciamento de estados e integrou-se bem com a lógica de busca de dados.  
 
 ## Oportunidades de Melhoria:
 
-    Testes Automatizados:
-        Introduzir testes automatizados para garantir a robustez e a estabilidade da aplicação.      
+Testes Automatizados:
+    Introduzir testes automatizados para garantir a robustez e a estabilidade da aplicação.      
     
 
 ## Contato
 
-Telefone e Whatsapp - (11)9 3952-9655
+Telefone e Whatsapp - (11)9 3952-9655 <br />
 Email: lucasrenan365@outlook.com
