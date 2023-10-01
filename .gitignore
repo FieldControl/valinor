@@ -3,7 +3,6 @@ node_modules
 coverage
 PULL_REQUEST_TEMPLATE.md
 # Compiled output
-/dist
 /tmp
 /out-tsc
 /bazel-out
