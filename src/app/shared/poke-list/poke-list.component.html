@@ -1,0 +1,31 @@
+<!-- Search -->
+<poke-search (emmitSearch)="getSearch($event)"></poke-search>
+
+<section class="listagem">
+  <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons | paginate: { itemsPerPage: 10, currentPage: page }">
+    <a [routerLink]="['details', pokemon.status.id]" class="pokemon" *ngIf="pokemon.status">
+      <section class="pokemon_status">
+        <h2>
+          {{pokemon.name}}
+        </h2>
+
+        <ul>
+          <li *ngFor="let value of pokemon.status.types">
+            {{value.type.name}}
+          </li>
+        </ul>
+      </section>
+
+      <section class="pokemon_image">
+        <img [src]="pokemon.status.sprites.other.dream_world.front_default"
+             [alt]="pokemon.name">
+      </section>
+    </a>
+  </ng-template>
+  <pagination-controls (pageChange)="page = $event" class="pagination"></pagination-controls>
+</section>
+<img src="assets/Error.svg"
+     alt="Deu erro na mostragem do pokémon"
+     width="100%"
+     *ngIf="apiError"
+>

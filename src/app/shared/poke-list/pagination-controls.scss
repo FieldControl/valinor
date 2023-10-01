@@ -1,0 +1,42 @@
+@import '../../../config-scss/rem-calc.scss';
+@import "../../../config-scss/variables.scss";
+:host{
+  section{
+    pagination-controls{
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: rem-calc(5);
+      pagination-template{
+        ul{
+          background-color: #ff5473 !important;
+          li{
+            background-color: #358ad4 !important;
+            a{
+              color: var(--white) !important;
+              font-size: rem-calc(18) !important;
+              font-weight: 700 !important;
+              text-transform: capitalize !important;
+            }
+          }
+        }
+        nav{
+          background-color: #ff5473 !important;
+
+          ul{
+
+            li{
+
+              a{
+                color: var(--secondary-color);
+                font-size: rem-calc(18);
+                font-weight: 700;
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
