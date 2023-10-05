@@ -1,0 +1,96 @@
+<!-- 
+     <div>
+     <label for="">Busca da ação!</label><br>
+     <input type="text" [(ngModel)]="page">
+     <button (click)="searchPage()">Search!</button>
+</div>
+
+<br>
+     <a href="/list">Voltar para a Home!</a>
+<br>
+
+<hr>
+
+<div *ngIf="isLoading">
+     <p>Carregando...</p>
+</div>
+
+<table>
+     <div *ngIf="!isLoading">
+          <tr *ngFor="let request of api.stocks">
+               <td>{{request.stock}}</td>
+               <td>{{request.name}}</td>
+               <td>{{request.close}}</td>
+               <td><a [routerLink]="['/query', request.stock]">Acessar Minha Página com Parâmetro</a></td>
+               
+          </tr>
+          <button (click)="previousPage()"><</button>
+               <p>{{api.currentPage}}</p> / <p>{{api.totalPages}}</p>
+          <button (click)="afterPage()">></button>
+     </div>
+</table>
+     
+<hr>
+ -->
+
+ <!DOCTYPE html>
+ <html lang="pt-br">
+ 
+ <head>
+      <meta charset="UTF-8">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+           rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.1">
+      <link rel="stylesheet" href="./list.component.css">
+      <title></title>
+ </head>
+ 
+ <main id="content">
+     <div class="m-container">
+          <img class="m-containerImg" src="/assets/images/crypto.svg" alt="">
+          <div class="m-containerTable">
+               <div class="m-input">
+                    <input  [(ngModel)]="page" class="m-inputSearch" type="text" name="" id="" placeholder="Encontre ação que deseja ver! | Ex: PETR3">
+                    <button (click)="searchPage()"type="button" class="m-inputSearchBtn">
+                         <img src="/assets/images/search.svg" alt="">
+                    </button>
+               </div>
+               <div class="table">
+                    <div *ngIf="isLoading">
+                         <p>Carregando...</p>
+                    </div>
+                    <table id="table" *ngIf="!isLoading">
+                         <div class="m-tableLoading">
+                              <tr class="m-tableName">
+                                   <th class="m-tableInfoStock">Ticket</th>
+                                   <th class="m-tableInfoName">Nome</th>
+                                   <th class="m-tableInfoClose">Preço</th>
+                                   <th class="m-tableInfoAcess">Acesso</th>
+                              </tr>
+                              <tr class="m-tableInfoAPI" *ngFor="let request of api.stocks">
+                                   <th class="m-tableInfoStock">{{request.stock}}</th>
+                                   <th class="m-tableInfoName">{{request.name}}</th>
+                                   <th class="m-tableInfoClose">{{request.close}} R$</th>
+                                   <th class="m-tableInfoAcess"><a [routerLink]="['/query', request.stock]"><img src="/assets/images/info.svg" alt="" id="m-tableInfoImg"></a></th>
+                              </tr>
+                         </div>
+                         
+                    </table>
+               </div>
+               <div class="m-arrows">
+                    <button (click)="previousPage()" type="button" class="m-arrowsLeft">
+                         <img src="/assets/images/arw-left.svg" alt="">
+                    </button>
+                         <p class="m-arrowsDescribe">{{api.currentPage}}/{{api.totalPages}}</p>
+                    <button (click)="afterPage()" type="button" class="m-arrowsRight">
+                         <img src="/assets/images/arw-right.svg" alt="">
+                    </button>
+               </div>
+          </div>
+     </div>
+ </main>
+
+
+

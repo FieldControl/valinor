@@ -1,0 +1,95 @@
+<!-- <p>O parâmetro passado é: {{ parametro }}</p>
+
+<div *ngIf="isLoading">
+     
+     <p>Carregando...</p>
+</div>
+
+<table>
+     <div *ngIf="!isLoading">
+          <div *ngFor="let request of api.results">
+               <img src="{{request.logourl}}" alt="HTML tutorial">
+               <p>{{request.symbol}}</p>
+               <p>{{request.currency}}</p>
+               <p>{{request.longName}}</p>
+               <p>{{request.regularMarketPrice}}</p>
+          </div>
+     </div>
+</table> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+     <meta charset="UTF-8">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1.1">
+     <link rel="stylesheet" href="./query.component.css">
+     <title></title>
+</head>
+
+<main>
+     <div *ngFor="let request of api.results">
+          <h1 class="q-title">{{request.longName}}</h1>
+     </div>
+     <div *ngFor="let request of api.results" class="q-container">
+          <div class="q-containerFirst">
+               <img src="{{request.logourl}}" alt="HTML tutorial">
+               <p class="q-containerFirstDescribe">Valor dessa ação.</p>
+               <p>{{request.regularMarketPrice}} R$ / BRL.</p>
+          </div>
+          <div class="q-containerSecond">
+               <div class="q-containerChild">
+                    <div class="q-containerChildLimit">
+                         <button type="button" class="m-inputSearchBtn">
+                              <img src="/assets/images/search.svg" alt="">
+                         </button>
+                    </div>
+                    <div *ngFor="let request of api.results">
+                         <p class="q-containerChildInfo">Porcentagem regular de mudança de mercado</p>
+                         <p class="q-containerChildInfo">{{request.regularMarketChangePercent}}%</p>
+                    </div>
+               </div>
+               <div class="q-containerChild">
+                    <div class="q-containerChildLimit">
+                         <button type="button" class="m-inputSearchBtn">
+                              <img src="/assets/images/search.svg" alt="">
+                         </button>
+                    </div>
+                    <div *ngFor="let request of api.results">
+                         <p class="q-containerChildInfo">Estimativa do valor de encerramento do dia</p>
+                         <p class="q-containerChildInfo">{{request.regularMarketPreviousClose}} R$ / BRL.</p>
+                    </div>
+               </div>
+          </div>
+          <div class="q-containerThree">
+               <div class="q-containerChild">
+                    <div class="q-containerChildLimit">
+                         <button type="button" class="m-inputSearchBtn">
+                              <img src="/assets/images/search.svg" alt="">
+                         </button>
+                    </div>
+                    <div *ngFor="let request of api.results">
+                         <p class="q-containerChildInfo">Maior valor do ano</p>
+                         <p class="q-containerChildInfo">{{request.fiftyTwoWeekHigh}} R$ / BRL.</p>
+                    </div>
+               </div>
+               <div class="q-containerChild">
+                    <div class="q-containerChildLimit">
+                         <button type="button" class="m-inputSearchBtn">
+                              <img src="/assets/images/search.svg" alt="">
+                         </button>
+                    </div>
+                    <div *ngFor="let request of api.results">
+                         <p class="q-containerChildInfo">Quanto a empresa vale</p>
+                         <p class="q-containerChildInfo">{{request.marketCap}} R$ / BRL.</p>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <a href="/list" class="q-title">Pesquise novamente!</a>
+</main>
+

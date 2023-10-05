@@ -1,0 +1,136 @@
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+.q-title {
+     color: #00B37E;
+     font-family: Plus Jakarta Sans;
+     font-size: 12.5px;
+     font-style: normal;
+     font-weight: 800;
+     line-height: 30px; /* 85.714% */
+
+     text-align: center;
+
+     margin: 20px 20px;
+}
+
+
+.link {
+     text-align: center;
+     margin: 0 auto
+}
+
+.q-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 20px;
+}
+
+.q-containerFirst img {
+     width: 75px;
+     height: 75px;
+     flex-shrink: 0;
+}
+
+.q-containerFirst p {
+     color: #000;
+     font-family: Plus Jakarta Sans;
+     font-size: 19px;
+     font-style: normal;
+     font-weight: 800;
+     line-height: 30px; /* 78.947% */
+}
+
+.m-inputSearchBtn {
+     border-radius: 7.5px;
+     background: #00875F;
+     outline: none;
+     border: none;
+
+     width: 30px;
+     height: 30.5px;  
+
+     margin-top: 15px;
+}
+
+.m-inputSearchBtn img {
+     width: 12.701px;
+     height: 12.518px;
+
+     margin-top: 5px;
+}
+
+.q-containerFirst {
+     color: #323238;
+     font-family: Plus Jakarta Sans;
+     font-size: 24px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: 30px; /* 125% */
+
+     display: flex;
+     flex-direction: column;
+}
+.q-containerFirstDescribe {
+     color: #323238;
+     font-family: Plus Jakarta Sans;
+     font-size: 12px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: 30px; /* 125% */
+}
+
+.q-containerSecond {
+     color: #323238;
+     font-family: Plus Jakarta Sans;
+     font-size: 24px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: 30px; /* 125% */
+
+     display: flex;
+     flex-direction: column;
+}
+
+.q-containerThree {
+     color: #323238;
+     font-family: Plus Jakarta Sans;
+     font-size: 24px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: 30px; /* 125% */
+
+     display: flex;
+     flex-direction: column;
+}
+
+.q-containerChild {
+     display: flex;
+     align-items: flex-start;
+     
+     gap: 20px;
+}
+
+.q-containerChildInfo {
+     color: #323238;
+     font-family: Plus Jakarta Sans;
+     font-size: 12px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: 30px; /* 125% */
+}
+
+@media (max-width: 800px) {
+     * {
+          transition: 1s;
+     }
+
+     .q-container {
+          flex-direction: column;
+          margin: 0 auto;
+     }
+}
