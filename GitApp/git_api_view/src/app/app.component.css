@@ -1,0 +1,28 @@
+.containerApp{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: #0e0518;
+   
+}
+app-menu{
+    margin-right: 35px;
+    width: 25%;
+    background-color: #120a1b;
+}
+app-home{
+    width: 75%;
+    margin-top: 20px;
+    background-color:  #0e0518;
+}
+
+@media screen and (max-width: 768px) {
+    app-menu{
+        visibility: hidden;
+        display: none;
+    }
+    app-home{
+        width: 100%;
+        margin-left: 10px;
+    }
+}

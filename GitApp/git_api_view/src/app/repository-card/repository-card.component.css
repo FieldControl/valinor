@@ -1,0 +1,33 @@
+.container-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 180px;
+    max-height: 240px;
+    border-radius: 10px;
+    background-color: #1d1427;
+    margin-bottom: 10px;
+}
+.card-user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    justify-items: center;
+}
+app-user-repository{
+    width: 50%;
+}
+app-user-star-btn{
+    width: 20%;
+}
+app-repository-infos{
+    max-width: 100%;
+}
+@media screen and (max-width: 768px) {
+    
+    .container-card{
+        width: 97%;
+    }
+}

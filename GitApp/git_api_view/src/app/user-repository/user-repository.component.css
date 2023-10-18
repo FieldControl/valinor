@@ -1,0 +1,28 @@
+.container{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+img{
+    width: 40px;
+    height: auto;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+p{
+    font-size: small;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    P{
+        font-size: x-small;
+    }
+    img{
+        width: 35px;
+    }
+}

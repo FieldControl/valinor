@@ -1,0 +1,8 @@
+h1{
+    font-size:large;
+}
+.container-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

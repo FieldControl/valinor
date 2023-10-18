@@ -1,0 +1,29 @@
+.container-repository{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    max-height: 300px;
+    margin-left: 10%;
+}
+.container-tags{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    
+}
+app-codigo-tag{
+    margin-right: 5px;
+}
+p{
+    color: white;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+    p{
+        font-size: x-small;
+    }
+    .container-tags{
+       width: 50%;
+    }
+}
