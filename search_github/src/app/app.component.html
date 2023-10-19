@@ -1,1 +1,23 @@
-<h3>Eduardo Teste</h3>
+<div>
+  <tbody>
+    <div>
+      <label>Query</label>
+      <input type="text" [(ngModel)]="q" name="q">
+    </div>
+
+    <select id="dropdown" [(ngModel)]="sortAndOrder" name="sortAndOrder" (change)="findRepositories()">
+      <option value="best-match">Best match</option>
+      <option value="stars desc">Most stars</option>
+      <option value="stars asc">Fewest stars</option>
+      <option value="forks desc">Most forks</option>
+      <option value="forks asc">Fewest forks</option>
+      <option value="updated desc">Recently updated</option>
+      <option value="updated asc">Least recently updated</option>
+    </select>
+
+    <button (click)="findRepositories()">Pesquisar</button>
+    <tr *ngFor="let repositorie of repositories">
+      <td>{{ repositorie.full_name }}</td>
+    </tr>
+  </tbody>
+</div>
