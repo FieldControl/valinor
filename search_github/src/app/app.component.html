@@ -19,5 +19,8 @@
     <tr *ngFor="let repositorie of repositories">
       <td>{{ repositorie.full_name }}</td>
     </tr>
+
+    <button (click)="goToNextPage()">Next page</button>
+    <button (click)="goToPreviousPage()">Previous page</button>
   </tbody>
 </div>

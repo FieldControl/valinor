@@ -22,9 +22,9 @@ export class GithubService {
         return { sort: array[0], order: array[1]? array[1] : '' }
     }
 
-    findRepositories(q: string, sortAndOrder: string) {
+    findRepositories(q: string, sortAndOrder: string, page: number) {
         const { sort, order } = this.separateSortFromOrder(sortAndOrder);
-        const url = `${this._apiUrl}repositories?q=${q}&per_page=2&sort=${sort}&order=${order}`;
+        const url = `${this._apiUrl}repositories?q=${q}&per_page=2&sort=${sort}&order=${order}&page=${page}`;
         return this.httpClient.get<Data>(url);
     }
 }

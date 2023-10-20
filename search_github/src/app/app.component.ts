@@ -15,16 +15,15 @@ export class AppComponent {
 
   repositories: Item[] = [];
   q: string = '';
+  page: number = 1;
   sortAndOrder: string = 'best-match';
   /* response = new Observable<Data>(); */
 
 
-  constructor(private githubService: GithubService) {
-    this.findRepositories();
-  }
+  constructor(private githubService: GithubService) {}
 
   findRepositories() {
-    this.githubService.findRepositories(this.q, this.sortAndOrder).subscribe(data => {
+    this.githubService.findRepositories(this.q, this.sortAndOrder, this.page).subscribe(data => {
       this.repositories = data.items;
     });
 /*     this.response = this.githubService.findRepositories();
@@ -32,5 +31,15 @@ export class AppComponent {
     this.response.subscribe(data => {
       this.repositories = data.items;
     }); */
+  }
+
+  goToNextPage() {
+    this.page += 1;
+    this.findRepositories();
+  }
+
+  goToPreviousPage() {
+    this.page -= 1;
+    this.findRepositories();
   }
 }
