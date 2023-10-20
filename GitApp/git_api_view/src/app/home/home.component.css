@@ -1,5 +1,7 @@
 h1{
     font-size:large;
+    color: white;
+    margin-bottom: 10px;
 }
 .container-card{
     display: flex;

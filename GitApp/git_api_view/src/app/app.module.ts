@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +14,9 @@ import { CodigoTagComponent } from './codigo-tag/codigo-tag.component';
 import { UserStarBtnComponent } from './user-star-btn/user-star-btn.component';
 import { UserRepositoryComponent } from './user-repository/user-repository.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ApigitService } from './services/apigit.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -27,14 +30,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     CodigoTagComponent,
     UserStarBtnComponent,
-    UserRepositoryComponent
+    UserRepositoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    HttpClientModule,
+    FontAwesomeModule,
+    FormsModule,
+    
   ],
-  providers: [],
+  providers: [ApigitService,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

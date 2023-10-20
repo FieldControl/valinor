@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { ApigitService } from '../services/apigit.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  textSeach:any
+  cardsData:any
+  constructor(private apiGit:ApigitService){
+    
+  }
+
+  blur(){
+    if(this.textSeach != undefined){
+      this.apiGit.getRepositoryAll(this.textSeach).subscribe(data => {
+        this.cardsData = data;
+        console.log(data)
+      })
+    }
+  }
 }

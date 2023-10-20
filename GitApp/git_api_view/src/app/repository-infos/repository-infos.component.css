@@ -17,6 +17,7 @@ p{
     color: white;
     margin-top: 10px;
     font-size: smaller;
+    font-weight: 300;
 }
 @media screen and (max-width: 768px) {
     p{

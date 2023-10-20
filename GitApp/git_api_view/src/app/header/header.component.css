@@ -6,7 +6,7 @@
     align-items: center;
     background-color: #120a1b;
 }
-.liveSearch{
+input{
     border-style: none;
     height: 25px;
     border-radius: 13px;
@@ -15,6 +15,10 @@
 }
 button{
     display: none;
+    background-color: transparent;
+    border-style: none;
+    color: white;
+    font-size: larger;
 }
 img{
     width: 25px;
