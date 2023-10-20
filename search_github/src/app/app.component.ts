@@ -14,7 +14,7 @@ export class AppComponent {
   sortAndOrder: string = 'best-match';
   prevnumberOfRepositories: number = 0;
   numberOfRepositories: number = 0;
-  limit: number = 15;
+  perPage: number = 15;
   page: number = 1;
   pages: number[] = [1];
   repositories: Item[] = [];
@@ -24,7 +24,7 @@ export class AppComponent {
   constructor(private githubService: GithubService) {}
 
   findRepositories() {
-    this.githubService.findRepositories(this.q, this.sortAndOrder, this.page).subscribe(data => {
+    this.githubService.findRepositories(this.q, this.sortAndOrder, this.page, this.perPage).subscribe(data => {
       this.repositories = data.items;
       this.numberOfRepositories = data.total_count;
     });
@@ -33,7 +33,7 @@ export class AppComponent {
   ngDoCheck(): void {    
     if(this.prevnumberOfRepositories !== this.numberOfRepositories) {
       this.prevnumberOfRepositories = this.numberOfRepositories;
-      this.pages = this.githubService.createPagesArray(this.numberOfRepositories, this.limit);
+      this.pages = this.githubService.createPagesArray(this.numberOfRepositories, this.perPage);
     }
   }
 
@@ -49,6 +49,11 @@ export class AppComponent {
 
   goToPreviousPage() {
     this.page -= 1;
+    this.findRepositories();
+  }
+
+  changePerPage() {
+    this.pages = this.githubService.createPagesArray(this.numberOfRepositories, this.perPage);
     this.findRepositories();
   }
 }

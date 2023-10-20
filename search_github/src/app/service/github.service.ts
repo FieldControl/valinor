@@ -22,8 +22,8 @@ export class GithubService {
         return { sort: array[0], order: array[1]? array[1] : '' }
     }
 
-    createPagesArray(numberOfRepositories: number, limit: number) {
-        let totalPages = Math.ceil(numberOfRepositories / limit);
+    createPagesArray(numberOfRepositories: number, perPage: number) {
+        let totalPages = Math.ceil(numberOfRepositories / perPage);
         if(totalPages > 100) {
             totalPages = 100;
         }
@@ -37,9 +37,9 @@ export class GithubService {
         return pagesArray;
     }
 
-    findRepositories(q: string, sortAndOrder: string, page: number) {
+    findRepositories(q: string, sortAndOrder: string, page: number, perPage: number) {
         const { sort, order } = this.separateSortFromOrder(sortAndOrder);
-        const url = `${this._apiUrl}repositories?q=${q}&per_page=5&sort=${sort}&order=${order}&page=${Number(page)}`;
+        const url = `${this._apiUrl}repositories?q=${q}&per_page=${perPage}&sort=${sort}&order=${order}&page=${Number(page)}`;
         return this.httpClient.get<Data>(url);
     }
 }

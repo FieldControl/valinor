@@ -26,5 +26,10 @@
     <select [(ngModel)]="page" name="page" (change)="findRepositories()">
       <option *ngFor="let number of pages" [value]="number">{{ number }}</option>
     </select>
+    <select [(ngModel)]="perPage" name="perPage" (change)="changePerPage()">
+      <option [value]="15">15</option>
+      <option [value]="30">30</option>
+      <option [value]="45">45</option>
+    </select>
   </tbody>
 </div>
