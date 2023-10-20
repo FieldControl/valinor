@@ -1,7 +1,37 @@
 .header-container{
     display: flex;
+    height: 50px;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     background-color: #120a1b;
+}
+.liveSearch{
+    border-style: none;
+    height: 25px;
+    border-radius: 13px;
+    padding-left: 15px;
+    width: 50%;
+}
+button{
+    display: none;
+}
+img{
+    width: 25px;
+}
+h1{
+    color: white;
+
+}
+a{
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+ h1{
+    display: none;
+ }
+ button{
+    display: block;
+ }
 }
