@@ -1,6 +1,17 @@
 .menu-container{
-  
+  display: flex; 
+  flex-direction: column;
+  color: white;
+  margin-top: 50px;
 }
 h3{
     font-size:medium;
+    margin-bottom: 20px;
+    margin-left:15%;
+}
+P{
+    margin-left: 15%;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: smaller;
 }

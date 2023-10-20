@@ -34,7 +34,7 @@ label{
     }
 }
 
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 768px) {
     button{
         display: flex;
         flex-direction: row;
@@ -46,6 +46,7 @@ label{
     } 
     fa-icon{
         margin-top: 1px;
+        margin-left: 5px;
     }
     label{
         font-size: small;
