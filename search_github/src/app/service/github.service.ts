@@ -22,9 +22,24 @@ export class GithubService {
         return { sort: array[0], order: array[1]? array[1] : '' }
     }
 
+    createPagesArray(numberOfRepositories: number, limit: number) {
+        let totalPages = Math.ceil(numberOfRepositories / limit);
+        if(totalPages > 100) {
+            totalPages = 100;
+        }
+
+        const pagesArray: number[] = [];
+
+        for (let i = 1; i <= totalPages; i+=1) {
+            pagesArray.push(i);
+        }
+
+        return pagesArray;
+    }
+
     findRepositories(q: string, sortAndOrder: string, page: number) {
         const { sort, order } = this.separateSortFromOrder(sortAndOrder);
-        const url = `${this._apiUrl}repositories?q=${q}&per_page=2&sort=${sort}&order=${order}&page=${page}`;
+        const url = `${this._apiUrl}repositories?q=${q}&per_page=5&sort=${sort}&order=${order}&page=${Number(page)}`;
         return this.httpClient.get<Data>(url);
     }
 }

@@ -15,12 +15,16 @@
       <option value="updated asc">Least recently updated</option>
     </select>
 
-    <button (click)="findRepositories()">Pesquisar</button>
+    <button (click)="mainSearch()">Pesquisar</button>
     <tr *ngFor="let repositorie of repositories">
       <td>{{ repositorie.full_name }}</td>
     </tr>
 
-    <button (click)="goToNextPage()">Next page</button>
     <button (click)="goToPreviousPage()">Previous page</button>
+    <button (click)="goToNextPage()">Next page</button>
+
+    <select [(ngModel)]="page" name="page" (change)="findRepositories()">
+      <option *ngFor="let number of pages" [value]="number">{{ number }}</option>
+    </select>
   </tbody>
 </div>
