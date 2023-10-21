@@ -1,5 +1,5 @@
-<div class="h-screen w-full">
-  <tbody class="w-full">
+<div class="h-screen h-100 bg-slate-100">
+  <tbody class="w-full bg-slate-100">
 
     <header class="bg-blue-600 w-screen shadow-md shadow-gray-500">
       <div class="flex items-center justify-between">
@@ -36,15 +36,43 @@
       <option value="updated desc">Recently updated</option>
       <option value="updated asc">Least recently updated</option>
     </select> -->
-    <div class="flex flex-row flex-wrap overflow-y-auto overflow-x-hidden p-10 w-full h-full">
-      <article *ngFor="let repositorie of repositories" class="p-10 flex flex-col">
-        <header>
-          <h2>{{ repositorie.full_name }}</h2>
-        </header>
+    <div class="flex flex-col flex-wrap overflow-y-auto overflow-x-hidden p-10 w-full h-full content-center gap-3">
+      <article *ngFor="let repositorie of repositories" 
+      class="p-2 flex flex-col shadow-md shadow-gray-600 w-1/3 m-1 rounded-md bg-white border-2 border-blue-600 gap-2"
+      >
+        <section class="flex flex-row items-center justify-self-auto gap-2">
+          <img
+          [src]="repositorie.owner?.avatar_url"
+          alt="avatar_url"
+          class="w-10 h-10"
+          >
+          <a class="text-blue-900 font-bold hover:underline" 
+          [href]="repositorie.html_url">
+            {{ repositorie.full_name }}
+          </a>
+        </section>
         <section class="card-body">
-          <p>{{ repositorie.description }}</p>
+          <span class="text-gray-600">{{ repositorie.description }}</span>
           <p>Language: {{ repositorie.language }}</p>
-          <p>Last Updated: {{ repositorie.updated_at }}</p>
+        </section>
+        <div class="flex flex-row flex-wrap gap-3">
+          <section *ngFor="let topic of repositorie.topics">
+            <span class="bg-blue-600 text-white font-bold rounded-md p-1">{{ topic }}</span>
+          </section>
+        </div>
+        <section class="text-gray-600 flex flex-row gap-1">
+          <div class="flex flex-row gap-1">
+            <span>★</span>
+            <span>{{ repositorie.stargazers_count }}</span>
+          </div>
+          <div class=" flex flex-row gap-1">
+            <i class="fas fa-exclamation-circle ml-2 align-baseline mt-1"></i>
+            <span>{{ repositorie.open_issues }}</span>
+          </div>
+          <div class="flex flex-row gap-1">
+            <i class="fas fa-eye  ml-2 mt-1"></i>
+            <span>{{ repositorie.watchers }}</span>
+          </div>
         </section>
       </article>
     </div>
