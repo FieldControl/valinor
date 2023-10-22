@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-user-repository',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-repository.component.css']
 })
 export class UserRepositoryComponent {
-
+    @Input() urlImg:string = ""
+    @Input() Name:string = ""
+  
 }

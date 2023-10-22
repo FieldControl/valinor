@@ -1,8 +1,7 @@
 <div class="container-card">
     <div class="card-user">
-        <app-user-repository></app-user-repository>
+        <app-user-repository [Name]="userInfo.full_name" [urlImg]="userInfo.owner.avatar_url"></app-user-repository>
         <app-user-star-btn></app-user-star-btn>
     </div>
-    
-    <app-repository-infos></app-repository-infos>
+    <app-repository-infos [descricao]="userInfo.description" [StarCount]="userInfo.stargazers_count"></app-repository-infos>
 </div>

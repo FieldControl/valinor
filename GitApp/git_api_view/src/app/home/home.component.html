@@ -1,5 +1,5 @@
 <h1>Home/Repository</h1>
   
-<div class="container-card" ng-repeat="custInfo in customers">
-    <app-repository-card></app-repository-card>
+<div class="container-card" *ngFor="let item of cardsData" >
+    <app-repository-card [userInfo]="item"></app-repository-card>
 </div>

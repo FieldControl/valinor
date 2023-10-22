@@ -1,24 +1,22 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApigitService } from '../services/apigit.service';
+import { SharedDateService } from '../services/SharedData.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-
-  textSeach:any
+export class HomeComponent implements OnInit {
   cardsData:any
-  constructor(private apiGit:ApigitService){
-    
+  constructor(private apiGit:ApigitService,private shareddata:SharedDateService){
+   
   }
 
-  blur(){
-    if(this.textSeach != undefined){
-      this.apiGit.getRepositoryAll(this.textSeach).subscribe(data => {
-        this.cardsData = data;
-        console.log(data)
-      })
-    }
+  ngOnInit(): void {
+        this.shareddata.data$.subscribe(data => {
+          this.cardsData = data.items
+          console.log(this.cardsData)
+        })
   }
+
 }
