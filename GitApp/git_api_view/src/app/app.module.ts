@@ -16,6 +16,7 @@ import { UserRepositoryComponent } from './user-repository/user-repository.compo
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ApigitService } from './services/apigit.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedDateService } from './services/SharedData.service';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     
   ],
-  providers: [ApigitService,HttpClientModule],
+  providers: [ApigitService,HttpClientModule,SharedDateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
