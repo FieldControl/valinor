@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { Item } from './model/github.model';
 import { GithubService } from './service/github.service';
 
@@ -16,9 +16,13 @@ export class AppComponent {
   numberOfRepositories: number = 0;
   perPage: number = 15;
   page: number = 1;
+  prevPage: number = 1;
   pages: number[] = [1];
   repositories: Item[] = [];
-  lastPage: number = 0;
+  hidden: boolean = true;
+  filtersDesable: boolean = true;
+  nextDesable: boolean = false;
+  prevDesable: boolean = false;
 
 
   constructor(private githubService: GithubService) {}
@@ -35,10 +39,22 @@ export class AppComponent {
       this.prevnumberOfRepositories = this.numberOfRepositories;
       this.pages = this.githubService.createPagesArray(this.numberOfRepositories, this.perPage);
     }
+    if(!this.q.length) {
+      this.filtersDesable = true;
+    } else {
+      this.filtersDesable = false;
+    }
+
+    if(this.prevPage !== this.page) {
+      this.nextDesable = this.githubService.nextIsPossible(this.page, this.pages.length);
+      this.prevDesable = this.githubService.prevIsPossible(this.page); 
+      this.prevPage = this.page;
+    }
   }
 
   mainSearch() {
     this.page = 1;
+    this.hidden = false;
     this.findRepositories();
   }
 
@@ -49,6 +65,11 @@ export class AppComponent {
 
   goToPreviousPage() {
     this.page -= 1;
+    this.findRepositories();
+  }
+
+  selectPage() {
+    this.page = Number(this.page);
     this.findRepositories();
   }
 

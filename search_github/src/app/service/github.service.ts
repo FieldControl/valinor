@@ -17,6 +17,20 @@ export class GithubService {
     Imports do module. */
     constructor(private httpClient: HttpClient) {}
 
+    prevIsPossible(pages: number): boolean {
+        if(Number(pages) === 1) {
+            return true;
+        }
+        return false;
+    }
+
+    nextIsPossible(pages: number, lastPage: number): boolean {        
+        if(Number(pages) === lastPage) {
+            return true;
+        }
+        return false;
+    }
+
     separateSortFromOrder(sortAndOrder: string) {
         const array = sortAndOrder.split(" ");
         return { sort: array[0], order: array[1]? array[1] : '' }
