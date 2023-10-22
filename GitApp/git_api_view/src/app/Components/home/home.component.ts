@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ApigitService } from '../services/apigit.service';
-import { SharedDateService } from '../services/SharedData.service';
+import { ApigitService } from '../../services/apigit.service';
+import { SharedDateService } from '../../services/SharedData.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

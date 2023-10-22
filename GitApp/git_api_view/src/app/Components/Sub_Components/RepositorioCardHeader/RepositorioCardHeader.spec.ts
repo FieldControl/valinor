@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserRepositoryComponent } from './user-repository.component';
+import { RepositorioCardHeaderComponent } from './RepositorioCardHeader.component';
 
 describe('UserRepositoryComponent', () => {
-  let component: UserRepositoryComponent;
-  let fixture: ComponentFixture<UserRepositoryComponent>;
+  let component: RepositorioCardHeaderComponent;
+  let fixture: ComponentFixture<RepositorioCardHeaderComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UserRepositoryComponent]
+      declarations: [RepositorioCardHeaderComponent]
     });
-    fixture = TestBed.createComponent(UserRepositoryComponent);
+    fixture = TestBed.createComponent(RepositorioCardHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,11 @@
 import { Component,Input } from '@angular/core';
 import { faStar} from '@fortawesome/free-solid-svg-icons'
 @Component({
-  selector: 'app-repository-infos',
-  templateUrl: './repository-infos.component.html',
-  styleUrls: ['./repository-infos.component.css']
+  selector: 'app-RepositorioCardFooter',
+  templateUrl: './RepositorioCardFooter.component.html',
+  styleUrls: ['./RepositorioCardFooter.component.css']
 })
-export class RepositoryInfosComponent {
+export class RepositorioCardFooter {
   faStar = faStar;
   @Input() descricao:string = ""
   @Input() StarCount:number = 0

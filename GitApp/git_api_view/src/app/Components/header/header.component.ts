@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { ApigitService } from '../services/apigit.service';
-import { SharedDateService } from '../services/SharedData.service';
+import { ApigitService } from '../../services/apigit.service';
+import { SharedDateService } from '../../services/SharedData.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +9,7 @@ import { SharedDateService } from '../services/SharedData.service';
 })
 export class HeaderComponent {
   faBars = faBars
-  textSeach:any
+  textSeach:string = ""
   constructor(private apiGit:ApigitService,private shareddata:SharedDateService){
     
   }

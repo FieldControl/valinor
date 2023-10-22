@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RepositoryInfosComponent } from './repository-infos.component';
+import { RepositorioCardFooter } from './RepositorioCardFooter.component';
 
 describe('RepositoryInfosComponent', () => {
-  let component: RepositoryInfosComponent;
-  let fixture: ComponentFixture<RepositoryInfosComponent>;
+  let component: RepositorioCardFooter;
+  let fixture: ComponentFixture<RepositorioCardFooter>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RepositoryInfosComponent]
+      declarations: [RepositorioCardFooter]
     });
-    fixture = TestBed.createComponent(RepositoryInfosComponent);
+    fixture = TestBed.createComponent(RepositorioCardFooter);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

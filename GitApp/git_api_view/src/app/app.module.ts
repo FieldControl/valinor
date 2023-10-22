@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { StarLabelComponent } from './star-label/star-label.component';
-import { RepositoryCardComponent } from './repository-card/repository-card.component';
-import { RepositoryInfosComponent } from './repository-infos/repository-infos.component';
-import { MenuComponent } from './menu/menu.component';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { UserLoginComponent } from './Components/Sub_Components/user-login/user-login.component';
+import { StarLabelComponent } from './Components/Sub_Components/star-label/star-label.component';
+import { RepositorioCardComponent } from './Components/RepositorioCard/RepositorioCard.component';
+import { RepositorioCardFooter } from './Components/Sub_Components/RepositorioCardFooter/RepositorioCardFooter.component';
+import { MenuComponent } from './Components/menu/menu.component';
+import { HomeComponent } from './Components/home/home.component';
 import { CodigoTagComponent } from './codigo-tag/codigo-tag.component';
-import { UserStarBtnComponent } from './user-star-btn/user-star-btn.component';
-import { UserRepositoryComponent } from './user-repository/user-repository.component';
+import { UserStarBtnComponent } from './Components/Sub_Components/user-star-btn/user-star-btn.component';
+import { RepositorioCardHeaderComponent } from './Components/Sub_Components/RepositorioCardHeader/RepositorioCardHeader.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ApigitService } from './services/apigit.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,13 +25,13 @@ import { SharedDateService } from './services/SharedData.service';
     HeaderComponent,
     UserLoginComponent,
     StarLabelComponent,
-    RepositoryCardComponent,
-    RepositoryInfosComponent,
+    RepositorioCardComponent,
+    RepositorioCardFooter,
     MenuComponent,
     HomeComponent,
     CodigoTagComponent,
     UserStarBtnComponent,
-    UserRepositoryComponent,
+    RepositorioCardHeaderComponent,
   ],
   imports: [
     BrowserModule,
