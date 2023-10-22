@@ -1,0 +1,31 @@
+<div class=" flex flex-col gap-2">
+    <section class="flex flex-row items-center justify-self-auto gap-2">
+        <img [src]="repositorie.owner?.avatar_url" alt="avatar_url" class="w-10 h-10">
+        <a class="text-blue-900 font-bold hover:underline" [href]="repositorie.html_url">
+            {{ repositorie.full_name }}
+        </a>
+    </section>
+    <section class="card-body">
+        <span class="text-gray-600">{{ repositorie.description }}</span>
+        <p>Language: {{ repositorie.language }}</p>
+    </section>
+    <div class="flex flex-row flex-wrap gap-3">
+        <section *ngFor="let topic of repositorie.topics">
+            <span class="bg-blue-600 text-white font-bold rounded-md p-1">{{ topic }}</span>
+        </section>
+    </div>
+    <section class="text-gray-600 flex flex-row gap-1">
+        <div class="flex flex-row gap-1">
+            <span>★</span>
+            <span>{{ repositorie.stargazers_count }}</span>
+        </div>
+        <div class=" flex flex-row gap-1">
+            <i class="fas fa-exclamation-circle ml-2 align-baseline mt-1"></i>
+            <span>{{ repositorie.open_issues }}</span>
+        </div>
+        <div class="flex flex-row gap-1">
+            <i class="fas fa-eye  ml-2 mt-1"></i>
+            <span>{{ repositorie.watchers }}</span>
+        </div>
+    </section>
+</div>
