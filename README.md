@@ -1,29 +1,27 @@
-**<h1 style="color: blue; font-weight: bold;">AngularSearch</h1>**
+# AngularSearch
 
-Este projeto foi desenvolvido com [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6 com intuito de demonstrar habilidade de programação e desenvolvimento de softwares utilizando o <span style="color: blueviolet;">framework</span>.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
-O projeto consiste em uma página SPA de pesquisa do GitHub, utilizando as APIs do próprio GitHub, foi desenvolvido para que o usuário consiga alternar as pesquisas entre <span style="color: blueviolet;">Repositórios</span> ou <span style="color: blueviolet;">Issues.</span>
+## Development server
 
-**<h2 style="color: blue;">Componentes e Serviços</h2>**
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-A estrutura do código é organizada por <span style="color: blueviolet;">componentes</span> e <span style="color: blueviolet;">serviços</span> gerados no framework, o projeto conta com 4 <span style="color: blueviolet;">componentes</span> e 5 <span style="color: blueviolet;">serviços</span>, sendo eles:
+## Code scaffolding
 
-**<h3 style="color: blue;">Componentes:</h3>**
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-- NavBar
-- SideNav
-- Página de Resultados
-- Footer
+## Build
 
-**<h3 style="color: blue;">Serviços:</h3>**
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-- **CheckResults:** Serviço que atua quando a página é iniciada, checando se existe algum resultado de pesquisa, caso não haja, uma variável é acionada como <span style="color: red;">true</span>, e é utilizada para apresentar uma div com uma imagem no container para o funcionamento correto da sidenav.
+## Running unit tests
 
-- **Drawer:** É um serviço para conseguir utilizar a função de abrir ou fechar a sidenav por meio de um botão em outro componente, no caso um botão na NavBar.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-- **Issues:** É um serviço para compartilhar a API e os resultados (dados) geridos pela ferramenta.
+## Running end-to-end tests
 
-- **Repo:** Serviço identico ao Issues, com a diferença de compartilhar a API referente a pesquisa de Repositórios.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-- **Show-search-results:** Serviço criado para compartilhar 4 variaveis com todos os componentes do código a fim de utilizá-las conforme o necessário.
+## Further help
 
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
