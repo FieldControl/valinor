@@ -1,0 +1,14 @@
+.footer {
+    background-color: var(--background-color-footer);
+    color: var(--color-text-footer);
+    text-align: center;
+    height: 64px;
+    position: sticky;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  

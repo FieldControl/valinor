@@ -1,0 +1,29 @@
+<mat-drawer-container class="container">
+  <mat-drawer class="sidenav" mode="side" [opened]="sidenavOC">
+    <p (click)="showFiller = !showFiller" mat-raised-button class="menu-option">
+      Tipos de Pesquisa
+    </p>
+    <p *ngIf="showFiller">
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+          <mat-icon fontIcon="folder_data" class="icon-folder"></mat-icon>
+          <span class="span-item" (click)="Repos()">Repositórios</span>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <mat-icon fontIcon="feedback" class="icon-feedback"></mat-icon>
+          <span class="span-item" (click)="Issues()">Issues</span>
+        </mat-list-item>
+      </mat-list>
+    </p>
+  </mat-drawer>
+  <div *ngIf="showresultsSearch.showCR_b" class="before-search">
+    <img src="/assets/githublogo.png" alt="logo">
+    <p>Search a repository or issue.</p>
+  </div>
+  <div *ngIf="showresultsSearch.showCI_b" class="before-search">
+    <img src="/assets/githublogo.png" alt="logo">
+    <p>Search a repository or issue.</p>
+  </div>
+  <app-page-results></app-page-results>
+  <app-footer></app-footer>
+</mat-drawer-container>

@@ -1,0 +1,38 @@
+<div *ngIf="showresultsSearch.showR_b">
+    <div *ngFor="let repo of repoService.repos.items.slice(0, pageSize)" class="resultados">
+        <div class="boxTitle">
+            <img [src]="repo.owner.avatar_url" alt="avatar_url" class="avatar">
+            <h3><a [href]="repo.html_url" class="resultados-a">{{repo.full_name}}</a></h3>
+        </div>
+        <p class="resultados-p">{{repo.description}}</p>
+        <p class="resultados-p"><mat-icon aria-hidden="false" fontIcon="visibility" class="watchers"></mat-icon> {{
+            repo.watchers_count }} -
+            <mat-icon aria-hidden="false" fontIcon="star" class="star"></mat-icon> {{ repo.stargazers_count }} -
+            <mat-icon aria-hidden="false" fontIcon="crisis_alert" class="target"></mat-icon> {{ repo.open_issues }}
+        </p>
+    </div>
+    <mat-paginator *ngIf="repoService.repos.total_count > 0" [pageSize]="pageSize" [pageSizeOptions]="[]"
+        [length]="repoService.repos.total_count" showFirstLastButtons
+        (page)="updatePageSizeRepo($event.pageIndex + 1, $event.pageSize)" class="paginator">
+    </mat-paginator>
+</div>
+<div *ngIf="showresultsSearch.showI_b">
+    <div *ngFor="let issue of issuesService.issues.items" class="resultados">
+        <div class="boxTitle">
+            <h3><a [href]="issue.html_url" class="resultados-a">{{issue.title}}</a></h3>
+        </div>
+        <div>
+            <p class="resultados-p">{{issue.body}}</p>
+        </div>
+        <div class="boxTitle">
+            <img [src]="issue.user.avatar_url" alt="avatar_url" class="avatar">
+            <p class="resultados-p">{{issue.user.login}}</p>
+            <p class="resultados-p">Created at</p>
+            <p class="resultados-a">{{issue.created_at}}</p>
+        </div>
+
+    </div>
+    <mat-paginator *ngIf="issuesService.issues.total_count > 0" [pageSize]="pageSize" [pageSizeOptions]="[]"
+        [length]="issuesService.issues.total_count" showFirstLastButtons
+        (page)="updatePageSizeIssues($event.pageIndex + 1, $event.pageSize)" class="paginator"></mat-paginator>
+</div>

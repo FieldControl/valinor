@@ -1,0 +1,47 @@
+/* Reset */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Tilt Neon', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--background-color-container);
+}
+
+/* Variaveis */
+
+:root {
+    /*NavBar - Toolbar*/
+    --background-color-toolbar: blueviolet;
+    --background-color-btnsearch: blueviolet;
+    --background-color-searchbox: #eeeeee;
+    --border-toolbar: #252525;
+    --title-toolbar: white;
+    --icon-color-btnsearch: rgb(255, 255, 255);
+    --hover-color-btnMenu: #999999b0;
+
+    /*SideNav*/
+    --background-color-sidenav: #eeeeee;
+    --background-color-border-container: blueviolet;
+    --color-text-menuoption: blueviolet;
+    --color-text-span-item: #252525;
+
+    /*Container-aSideNav*/
+    --background-color-container: #252525;
+    --background-color-paginator: #f3f2f2;
+    --color-text-paginator: blueviolet;
+    --icon-star-color: gold;
+    --icon-watched-color: #1943ff;
+    --icon-target-color: rgb(226, 5, 5);
+    --h3-color-resultados: #ba18fa;
+    --p-color-resultados: white;
+
+    /*Footer*/
+    --background-color-footer: blueviolet;
+    --color-text-footer: #eeeeee;
+    
+
+}

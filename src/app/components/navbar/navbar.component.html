@@ -1,0 +1,36 @@
+<nav *ngIf="showresultsSearch.showR_b">
+    <mat-toolbar class="toolbar">
+        <ul class="list">
+            <li class="li-left">
+                <button class="btnMenu" (click)="toggle()">
+                    <img src="/assets/web-github-icon.png" alt="GitHub-logo" class="GitLogo">
+                </button>
+                <span class="highlight">Search GitHub</span>
+            </li>
+            <li class="li-center">
+                <input [(ngModel)]="query" type="text" (keyup.enter)="search()" placeholder="Digite o repositório que está procurando..."
+                    class="searchBox" id="searchRepos">
+                <button class="btnSearch" (click)="search()"><mat-icon fontIcon="search"
+                        class="icon-btnSearch"></mat-icon></button>
+            </li>
+        </ul>
+    </mat-toolbar>
+</nav>
+<nav *ngIf="showresultsSearch.showI_b">
+    <mat-toolbar class="toolbar">
+        <ul class="list">
+            <li class="li-left">
+                <button class="btnMenu" (click)="toggle()">
+                    <img src="/assets/web-github-icon.png" alt="GitHub-logo" class="GitLogo">
+                </button>
+                <span class="highlight">Search GitHub</span>
+            </li>
+            <li class="li-center">
+                <input [(ngModel)]="query" type="text" (keyup.enter)="search()" placeholder="Digite a issue que está procurando..."
+                    class="searchBox" id="searchIssue">
+                <button class="btnSearch" (click)="search()"><mat-icon fontIcon="search"
+                        class="icon-btnSearch"></mat-icon></button>
+            </li>
+        </ul>
+    </mat-toolbar>
+</nav>

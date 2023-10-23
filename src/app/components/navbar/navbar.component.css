@@ -1,0 +1,90 @@
+.toolbar {
+    background-color: var(--background-color-toolbar);
+    padding: 0px;
+    width: auto;
+    border: 1px inset var(--border-toolbar);
+    z-index: 999999;
+}
+
+.btnMenu {
+    background-color: transparent;
+    width: 45px;
+    text-align: center;
+    border-color: transparent;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    cursor: pointer;
+}
+
+.btnMenu:hover {
+    background-color: var(--hover-color-btnMenu);
+}
+
+.highlight {
+    color: var(--title-toolbar);
+    font-size: 16px;
+}
+
+.GitLogo {
+    height: 45px;
+    width: 100%;
+    padding: 0px;
+    margin-top: 15px;
+}
+
+.icon-btnSearch {
+    color: var(--icon-color-btnsearch);
+    ;
+}
+
+.icon-btnSearch:hover {
+    color: var(--background-color-btnsearch);
+}
+
+.btnSearch {
+    background-color: var(--background-color-btnsearch);
+    margin-left: 3px;
+    border-radius: 15px;
+    border-color: var(--icon-color-btnsearch);
+    cursor: pointer;
+}
+
+.btnSearch:hover {
+    background-color: var(--icon-color-btnsearch);
+    border-color: var(--background-color-btnsearch);
+}
+
+.searchBox {
+    background-color: var(--background-color-searchbox);
+    width: 400px;
+    height: 25px;
+    color: var(--background-color-toolbar);
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.searchBox::placeholder {
+    font-weight: bold;
+    color: var(--background-color-toolbar);
+    text-align: center;
+}
+
+.li-left {
+    display: flex;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.li-center {
+    margin: 0 auto;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    height: auto;
+    padding: 0;
+}

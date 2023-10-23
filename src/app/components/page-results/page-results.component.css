@@ -1,0 +1,57 @@
+.resultados {
+    border: 1px solid var(--background-color-border-container);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: transparent;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.star {
+    color: var(--icon-star-color);
+    font-size: 22px;
+}
+
+.watchers {
+    color: var(--icon-watched-color);
+    font-size: 22px;
+}
+
+.target {
+    color: var(--icon-target-color);
+    font-size: 22px;
+}
+
+.resultados-a {
+    text-decoration: none;
+    color: var(--h3-color-resultados);
+    font-weight: bold;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.resultados-p {
+    color: var(--p-color-resultados);
+    margin: 0;
+    font-size: 14px;
+}
+
+.avatar {
+    width: 20px;
+    height: 20px;
+}
+
+.boxTitle {
+    display: flex;
+    gap: 10px;
+}
+
+.paginator {
+    background-color: var(--background-color-paginator);
+    color: var(--color-text-paginator);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+
