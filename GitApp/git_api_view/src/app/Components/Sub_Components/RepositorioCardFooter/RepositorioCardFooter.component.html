@@ -1,7 +1,9 @@
 <div class="container-repository">
-    <p>{{descricao}}</p>
-    <div class="container-tags">
-        <app-codigo-tag></app-codigo-tag>
+    <h5>{{descricao}}</h5>
+    <div class="container-topics" >
+        <app-TopicsTags [TagText] = "topics" *ngFor="let topics of topics"></app-TopicsTags>
     </div>
-    <fa-icon [icon]="faStar"></fa-icon><p>{{StarCount}}</p>
+    <div class="container-infos-more">
+     <p>{{language}}</p> <fa-icon [icon]="faStar"></fa-icon><p>{{StarCount}}</p><p>.</p><p>{{lastUpdate}}</p>
+    </div>
 </div>

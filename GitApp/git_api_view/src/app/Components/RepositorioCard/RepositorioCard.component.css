@@ -1,33 +1,30 @@
 .container-card{
+    background-color: #1d1427;
+    width: 70%;
+    margin: 10px;
+    border-radius: 13px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 70%;
-    height: 160px;
-    max-height: 240px;
-    border-radius: 10px;
-    background-color: #1d1427;
-    margin-bottom: 10px;
 }
-.card-user{
+.card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    
+}
+app-repositoriocardheader{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    justify-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
-app-user-repository{
-    width: 50%;
-}
-app-user-star-btn{
-    width: 20%;
-}
-app-repository-infos{
-    max-width: 100%;
-}
-@media screen and (max-width: 768px) {
-    
-    .container-card{
-        width: 97%;
-    }
+app-RepositorioCardFooter{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 10px;
 }

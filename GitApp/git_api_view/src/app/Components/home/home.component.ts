@@ -8,14 +8,14 @@ import { SharedDateService } from '../../services/SharedData.service';
 })
 export class HomeComponent implements OnInit {
   cardsData:any
-  constructor(private apiGit:ApigitService,private shareddata:SharedDateService){
+  constructor(private apiGit:ApigitService,private SharedData:SharedDateService){
    
   }
 
   ngOnInit(): void {
-        this.shareddata.data$.subscribe(data => {
-          this.cardsData = data.items
-          console.log(this.cardsData)
+        this.SharedData.dataCard$.subscribe(card => {
+          this.cardsData = card
+          
         })
   }
 

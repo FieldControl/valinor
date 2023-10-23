@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CodigoTagComponent } from './codigo-tag.component';
+import { CodigoTagComponent } from './TopicsTags.component';
 
 describe('CodigoTagComponent', () => {
   let component: CodigoTagComponent;

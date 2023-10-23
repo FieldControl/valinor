@@ -10,14 +10,16 @@ import { SharedDateService } from '../../services/SharedData.service';
 export class HeaderComponent {
   faBars = faBars
   textSeach:string = ""
-  constructor(private apiGit:ApigitService,private shareddata:SharedDateService){
-    
+  constructor(private apiGit:ApigitService,private SharedData:SharedDateService){
+    this.textSeach = "teste";
+    this.SeachRepositorio()
   }
 
-  blur(){
+  SeachRepositorio(){
     if(this.textSeach != undefined){
       this.apiGit.getRepositoryAll(this.textSeach).subscribe(data => {
-        this.shareddata._EnviaData(data) 
+        debugger
+        this.SharedData.SetDataCards(data) 
       })
     }
   }

@@ -1,13 +1,16 @@
 import { Component, Input} from '@angular/core';
+import { card } from 'src/app/Models/Card';
+import { faStar} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-repositorioCard',
-  templateUrl: './repositorioCard.component.html',
-  styleUrls: ['./repositorioCard.component.css']
+  templateUrl: './RepositorioCard.component.html',
+  styleUrls: ['./RepositorioCard.component.css']
 })
 export class RepositorioCardComponent {
-
-   @Input() userInfo:any
-   @Input() StarInfo:any
-   @Input() RepositoryInfo:any
+  
+   faStar = faStar;
+   
+   @Input() Card:any
+   
 }

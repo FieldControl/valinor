@@ -9,5 +9,8 @@ export class RepositorioCardFooter {
   faStar = faStar;
   @Input() descricao:string = ""
   @Input() StarCount:number = 0
+  @Input() lastUpdate:string = ""
+  @Input() language:string = ""
+  @Input() topics:any = [];
 
 }

@@ -1,7 +1,4 @@
 <div class="container-card">
-    <div class="card-user">
-        <app-RepositorioCardHeader [Name]="userInfo.full_name" [urlImg]="userInfo.owner.avatar_url"></app-RepositorioCardHeader>
-        <app-user-star-btn></app-user-star-btn>
-    </div>
-    <app-RepositorioCardFooter [descricao]="userInfo.description" [StarCount]="userInfo.stargazers_count"></app-RepositorioCardFooter>
+    <app-RepositorioCardHeader [Name] = "Card.fullName" [urlImg] = "Card.urlImage"></app-RepositorioCardHeader>
+    <app-RepositorioCardFooter [descricao]="Card.subscribe" [language]="Card.Language" [StarCount]="Card.starCount" [lastUpdate]="Card.lastUpdate" [topics] = "Card.topics"></app-RepositorioCardFooter>
 </div>

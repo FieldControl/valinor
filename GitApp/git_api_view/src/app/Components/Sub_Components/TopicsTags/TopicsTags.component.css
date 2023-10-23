@@ -1,0 +1,20 @@
+.topics{
+   
+    height: 20px;
+    background-color: #331455;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 25px;
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topicsText{
+    min-width: 20px;
+    font-size: X-small;
+    color: white;
+    font-weight: 200;
+    text-align: center;
+}

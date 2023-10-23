@@ -1,5 +1,2 @@
 <h1>Home/Repository</h1>
-  
-<div class="container-card" *ngFor="let item of cardsData" >
-    <app-repositorioCard [userInfo]="item"></app-repositorioCard>
-</div>
+<app-repositorioCard *ngFor="let card of cardsData" [Card]="card"></app-repositorioCard>

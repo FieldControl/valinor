@@ -2,26 +2,20 @@
     color: white;
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
+    width: 160px;
 }
 
 img{
-    width: 25px;
-    height: auto;
+    width: 20px;
+    height: 20px;
     border-radius: 100%;
-    margin-right: 5px;
+    margin-right: 10px;
 }
-p{
+label{
+    color: white;
     font-size: small;
-   
-}
-
-@media screen and (max-width: 768px) {
-    
-    P{
-        font-size: x-small;
-    }
-    img{
-        width: 15px;
-    }
+    font-weight: 300;
+    max-width: 200px;
 }

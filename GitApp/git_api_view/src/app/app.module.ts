@@ -10,7 +10,7 @@ import { RepositorioCardComponent } from './Components/RepositorioCard/Repositor
 import { RepositorioCardFooter } from './Components/Sub_Components/RepositorioCardFooter/RepositorioCardFooter.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { HomeComponent } from './Components/home/home.component';
-import { CodigoTagComponent } from './codigo-tag/codigo-tag.component';
+import { CodigoTagComponent } from './Components/Sub_Components/TopicsTags/TopicsTags.component';
 import { UserStarBtnComponent } from './Components/Sub_Components/user-star-btn/user-star-btn.component';
 import { RepositorioCardHeaderComponent } from './Components/Sub_Components/RepositorioCardHeader/RepositorioCardHeader.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
