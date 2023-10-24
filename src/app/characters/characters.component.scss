@@ -1,0 +1,35 @@
+
+.character-image-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.character-button {
+  width: 100%;
+  height: 100%;
+}
+
+.character-card-rotate {
+  transition: transform 0.5s ease;
+}
+
+.character-card-rotate.flipped {
+  transform: rotateY(180deg);
+}
+
+.center-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
