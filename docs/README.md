@@ -16,45 +16,33 @@ Mobile: Funcionalidades a mais : Widget dos commits do usuario
 		Vai englobar todos os outros components
    Header
 
-		conter informacoes de header -> apenas visual
-LiveSearch	
+		Conter component Seach para pesquisa
+Search	
 			
-			barra de pesquisa que vai filtrar em tempo real
-Card_Git
-			
-		Vai conter o componente User_Info e componente Git_Infos
+		Buscar informacoes na Api Apartir do texto de pesquisa
 		
-User_Info
+Card
 			
-			img do usuario e nome do repositorio_Usuario e
-			descricao
+		Componente que carrega os componentes headerCard, footerCard,
+	
 
-Git_Infos
-				
-				quantidade de estrelas, ultima atualizacao
-	
-	
+HeaderCard
+			
+		Componente que cerrga imagem, nome e botao
+FooterCard
+			
+		Componente que cerrga observacoes, topicos, lingua, 
+		ultima atualizacao e estrelas
 	
 **Web:** 
 LiveSearch: Ao pesquisar no SearchBar, ele vai fazer um filtro de pesquisa aonde : 
 ```mermaid
 	graph LR
 	
-G[Home] --> A
-H[CardGit] --> I
-H --> J
-I[User_Info] 
-J[Git_Infos]
-A[LiveSerach] -- Get --> B((SearchAllRepository))
 
-B --> D{GetRepositoryUser}
-B --> E{GetRepositoryName}
-B --> F{GetRepositoryLanguage}
-D --> B
-E --> B
-F --> B
-B -- Return Repositories--> H
-H --return Lista de Card--> G
+
+A[Componensearch] -- Get -->  B((apiGit.SearchAll)) --> c[cardModel]--> D(cardComponent) --> E(Home)
+
 
 ```
 **Fora do escopo por Enquanto**:
@@ -72,5 +60,3 @@ https://angular.io/guide/what-is-angular
 https://angular.io/tutorial/first-app
 <instalar bootstrap>
 https://www.youtube.com/watch?v=Qv62pYv-FIM
-
-<img src="1280x720-1.png">
