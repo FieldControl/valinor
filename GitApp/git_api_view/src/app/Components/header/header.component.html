@@ -1,6 +1,6 @@
 <nav class="header-container">
       <h1><a>!</a>SPECTOR</h1>
       <button class="btn-open-menu"><fa-icon [icon]="faBars"></fa-icon></button>
-      <input  [(ngModel)]="textSeach" (blur) = "SeachRepositorio()" type="search" placeholder="Search" >
+      <input [(ngModel)]="textSeach" (keyup.enter) = "SeachRepositorio()" (blur) = "SeachRepositorio()" type="search" placeholder="Search" >
       <app-user-login></app-user-login>
 </nav>
