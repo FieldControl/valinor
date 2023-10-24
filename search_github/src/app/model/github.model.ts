@@ -6,7 +6,6 @@ export interface Item {
     description?: string
     language?: string,
     topics?: string[],
-    updated_at?: string,
     owner?: {
         avatar_url?: string
     },
