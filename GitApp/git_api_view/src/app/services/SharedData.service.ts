@@ -4,8 +4,6 @@ import { card } from '../Models/Card';
 
 @Injectable()
 export class SharedDateService {
-
-    
     private search = new Subject<string>();
     public SearchGlobal = this.search.asObservable();
     private dataCardSubject = new Subject<card[]>();
@@ -21,7 +19,6 @@ export class SharedDateService {
          
         if(data.items[0].repository != null){
             const item = data.items
-            debugger
            for (let repos = 0; repos < item.length; repos++) {
             repositorio.items.push(item[repos].repository);
            }
