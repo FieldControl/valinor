@@ -7,7 +7,7 @@ export class card{
         this.lastUpdate = lastUpdate == null ? "":lastUpdate.substring(0,10),
         this.Language = language
         this.reduceName(fullName);
-       this.reduceTopics(topics) 
+        this.reduceTopics(topics) 
         this.reduceSubscribe(subscribe);
     }
     
@@ -35,24 +35,24 @@ export class card{
     }
     private reduceTopics(topics:[]){
         if(topics == undefined || topics.length <= 0) return;
-      for (let topic = 0; topic < topics.length; topic++) {
-        
-        if(topic < 3){
-            this.topics.push(topics[topic])
-        }
-        this.topicsHidden.push(topics[topic])
-      }
+            for (let topic = 0; topic < topics.length; topic++) {
+                
+                if(topic < 3){
+                    this.topics.push(topics[topic])
+                }
+                this.topicsHidden.push(topics[topic])
+            }
     }
    private reduceName(name:string){
     
-    for (let letra = 0; letra < name.length; letra++) {
-        if(letra < 13){
-            this.fullName += name[letra]
-        }else if(letra < 16){
-            this.fullName += "."
+        for (let letra = 0; letra < name.length; letra++) {
+            if(letra < 13){
+                this.fullName += name[letra]
+            }else if(letra < 16){
+                this.fullName += "."
+            }
+            
         }
-        
-    }
         
     }
 }

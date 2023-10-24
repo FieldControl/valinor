@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   SeachRepositorio(){
     if(this.textSeach != undefined){
-      this.apiGit.getRepositoryAll(this.textSeach).subscribe(data => {
+        this.apiGit.getRepositoryAll(this.textSeach).subscribe(data => {
         this.SharedData.setSeach(this.textSeach)
         this.SharedData.SetDataCards(data) 
       })
