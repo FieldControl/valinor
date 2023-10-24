@@ -13,4 +13,5 @@ export class RepositorioCardFooter {
   @Input() language:string = ""
   @Input() topics:any = [];
 
+  
 }

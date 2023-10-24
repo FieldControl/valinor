@@ -3,8 +3,22 @@ h1{
     color: white;
     margin-bottom: 10px;
 }
-.container-card{
+span{
+    margin-top: 20px;
+    color: white;
+}
+.container{
+    width: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
+}
+.container-page{
+    color: white;
+}
+app-repositoriocard{
+    width: 100%;
+}
+fa-icon{
+    margin-left: 5px;
 }

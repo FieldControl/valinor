@@ -1,54 +1,15 @@
 button{
+    width: 60px;
+    height: 25px;
     border-style: none;
-    border-radius: 10px;
-    width: 90px;
-    height: 35px;
-    background-color: rgb(240, 240, 240);
-}
-fa-icon{
-    color: #1d1427;
-    font-size: 15px;
-    margin-right: 5px;
-    
-}
-label{
-    font-weight:400;
-    color: #1d1427;
-}
-@media screen and (max-width: 768px) {
-    button{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 60px;
-        height: 30px;
-             
-    } 
+    border-radius: 13px;
+    border: 1px solid rgb(88, 97, 147);
+    background-color: transparent;
+    color: rgb(88, 97, 147);
 
-    fa-icon{
-    
-        font-size: 12px;
-        margin-right: 5px;
-        margin-top: 2px;
-        
-    }
 }
-
-@media screen and (max-width: 768px) {
-    button{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 60px;
-        height: 22px;
-        
-        
-    } 
-    fa-icon{
-        margin-top: 1px;
-        margin-left: 5px;
-    }
-    label{
-        font-size: small;
-    }
+button:hover{
+   
+    border: 1px solid rgba(88, 97, 147, 0.493);
+    color: rgba(88, 97, 147, 0.493);
 }

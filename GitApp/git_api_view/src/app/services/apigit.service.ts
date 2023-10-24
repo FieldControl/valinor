@@ -6,9 +6,13 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ApigitService {
     url_api:any = "https://api.github.com/"
-  constructor(private http:HttpClient) { }
-
+    
+  constructor(private http:HttpClient) {
+   
+   }
+  
     getRepositoryAll(textSeach:string){
       return this.http.get(`${this.url_api}search/repositories?q=${textSeach}`)
     }
+    
 }

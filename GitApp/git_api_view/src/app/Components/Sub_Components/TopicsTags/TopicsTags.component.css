@@ -1,6 +1,5 @@
 .topics{
-   
-    height: 20px;
+    height: 10px;
     background-color: #331455;
     margin-right: 10px;
     padding: 5px;
@@ -12,9 +11,9 @@
 }
 
 .topicsText{
-    min-width: 20px;
-    font-size: X-small;
+    text-wrap: nowrap;
+    font-size:xx-small;
     color: white;
-    font-weight: 200;
-    text-align: center;
+    font-weight: 100;
+
 }

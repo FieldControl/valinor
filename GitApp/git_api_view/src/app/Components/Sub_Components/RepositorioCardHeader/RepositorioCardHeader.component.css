@@ -1,21 +1,28 @@
-.container{
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 160px;
-}
-
 img{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 100%;
     margin-right: 10px;
 }
-label{
+p{
     color: white;
-    font-size: small;
-    font-weight: 300;
-    max-width: 200px;
+    font-size: x-small;
+    width: 200px;
 }
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 15px;
+    
+}
+.container-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+    min-width: 50%;
+    max-width: 50%;
+}
+

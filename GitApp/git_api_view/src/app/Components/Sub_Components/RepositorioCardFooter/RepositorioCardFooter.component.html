@@ -1,9 +1,11 @@
 <div class="container-repository">
     <h5>{{descricao}}</h5>
-    <div class="container-topics" >
-        <app-TopicsTags [TagText] = "topics" *ngFor="let topics of topics"></app-TopicsTags>
+    <div class="container-topics" *ngIf="topics">
+        <app-TopicsTags  [TagText] = "topics" *ngFor="let topics of topics; "></app-TopicsTags>
     </div>
     <div class="container-infos-more">
-     <p>{{language}}</p> <fa-icon [icon]="faStar"></fa-icon><p>{{StarCount}}</p><p>.</p><p>{{lastUpdate}}</p>
+     <p *ngIf="language">{{language}}</p> 
+     <fa-icon *ngIf="StarCount" [icon]="faStar"></fa-icon>
+     <p *ngIf="StarCount" >{{StarCount}}</p><p *ngIf="lastUpdate">{{lastUpdate}}</p>
     </div>
 </div>

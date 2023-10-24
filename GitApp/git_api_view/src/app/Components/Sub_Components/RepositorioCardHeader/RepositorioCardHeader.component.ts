@@ -9,5 +9,8 @@ import { card } from 'src/app/Models/Card';
 export class RepositorioCardHeaderComponent {
     @Input() urlImg:string = "";
     @Input() Name:string = "";
-    
+    constructor(){
+     
+    }
+ 
 }

@@ -11,14 +11,13 @@ export class HeaderComponent {
   faBars = faBars
   textSeach:string = ""
   constructor(private apiGit:ApigitService,private SharedData:SharedDateService){
-    this.textSeach = "teste";
-    this.SeachRepositorio()
+   
   }
 
   SeachRepositorio(){
     if(this.textSeach != undefined){
       this.apiGit.getRepositoryAll(this.textSeach).subscribe(data => {
-        debugger
+        this.SharedData.setSeach(this.textSeach)
         this.SharedData.SetDataCards(data) 
       })
     }

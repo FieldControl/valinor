@@ -5,12 +5,31 @@ import { card } from '../Models/Card';
 @Injectable()
 export class SharedDateService {
 
+    
+    private search = new Subject<string>();
+    public SearchGlobal = this.search.asObservable();
     private dataCardSubject = new Subject<card[]>();
     public dataCard$ = this.dataCardSubject.asObservable();
 
+    setSeach(search:string){
+         this.search.next(search)
+    }
     SetDataCards(data:any){
-        let cards = this.convertToData(data);
-        this.dataCardSubject.next(cards)
+         let repositorio = {
+            items: new Array()
+         };
+         
+        if(data.items[0].repository != null){
+            const item = data.items
+            debugger
+           for (let repos = 0; repos < item.length; repos++) {
+            repositorio.items.push(item[repos].repository);
+           }
+           this.dataCardSubject.next(this.convertToData(repositorio))
+            
+        }else{
+            this.dataCardSubject.next(this.convertToData(data))
+        }
     }
     convertToData(data:any){
         var cards = new Array<card>;

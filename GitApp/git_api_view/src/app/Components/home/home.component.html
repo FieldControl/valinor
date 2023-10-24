@@ -1,2 +1,11 @@
 <h1>Home/Repository</h1>
-<app-repositorioCard *ngFor="let card of cardsData" [Card]="card"></app-repositorioCard>
+<div class="container" *ngIf="cardsData.length > 0">
+    <app-repositorioCard *ngFor="let card of cardsData | paginate: { itemsPerPage: itensPorPagina, currentPage: paginaAtual, totalItems: cardsData.length }" [Card]="card"></app-repositorioCard>
+    
+    <div class="container-page">
+        
+        <fa-icon  class="page-item"  [icon]="iconLeft" (click)="paginaAtual = paginaAtual - 1" [class.disabled]="paginaAtual === 1"></fa-icon >
+        <fa-icon  class="page-item" [icon]="iconRight" (click)="paginaAtual = paginaAtual + 1" [class.disabled]="paginaAtual === (cardsData.length / itensPorPagina)"></fa-icon >
+    </div>
+</div>
+<span *ngIf="cardsData.length == 0">Nenhum Repositorio Listado</span>
