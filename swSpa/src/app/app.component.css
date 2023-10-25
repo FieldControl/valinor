@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'soloist';
+    src: url('../../../assets/Fonts/Soloist.otf');
+}
+
+* {
+    font-family: soloist;
+}
