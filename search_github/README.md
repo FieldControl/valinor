@@ -1,27 +1,49 @@
 # SearchGithub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+**SearchGithub** is a web application that allows users to search for repositories on the GitHub API. The project is organized into distinct sections, each with a specific role: service, model, and components.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Header Section:**
 
-## Code scaffolding
+  - A navigation bar with an input field where users can enter search text.
+  - A search button to trigger the search.
+  - A dropdown menu for sorting repositories by various criteria, including best match, most stars, least stars, most forks, least forks, most recent, and oldest.
+  - Another dropdown to adjust the number of pages to display.
+  - All these features are disabled when the input field is empty.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Article Section:**
 
-## Build
+  - Responsible for displaying the search results, i.e., the repositories.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Navbar Section:**
+  - Buttons for navigating to the next page and the previous page.
+  - A dropdown menu for quick navigation to any specific page.
+  - The navbar is only visible when repositories are displayed.
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Styling**: The page's styling is implemented using [Tailwind CSS](https://tailwindcss.com/).
 
-## Running end-to-end tests
+- **Unit Testing**: The project includes unit tests implemented using [Jasmine](https://jasmine.github.io/) for ensuring code quality.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Getting Started
 
-## Further help
+To run the application locally, follow these steps:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/SearchGithub.git
+   cd SearchGithub
+   npm install
+   npm start
+   ```
+   The application will be accessible at http://localhost:3000.
+
+## Running Unit Tests
+
+To run unit tests for the project, you can use the following command:
+
+```bash
+npm run test:unit
+```
