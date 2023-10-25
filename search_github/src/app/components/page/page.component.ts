@@ -16,18 +16,18 @@ export class PageComponent {
   title = 'search_github';
 
   q: string = '';
-  sortAndOrder: string = 'best-match';
-  prevnumberOfRepositories: number = 0;
-  numberOfRepositories: number = 0;
   perPage: number = 15;
+  sortAndOrder: string = 'best-match';
   page: number = 1;
   prevPage: number = 1;
   pages: number[] = [1];
-  repositories: Item[] = [];
-  hidden: boolean = true;
-  filtersDesable: boolean = true;
   nextDesable: boolean = false;
-  prevDesable: boolean = false;
+  prevDesable: boolean = true;
+  navHidden: boolean = true;
+  prevnumberOfRepositories: number = 0;
+  numberOfRepositories: number = 0;
+  repositories: Item[] = [];
+  filtersDesable: boolean = true;
 
 
   constructor(private githubService: GithubService) {}
@@ -42,6 +42,7 @@ export class PageComponent {
   ngDoCheck(): void {    
     if(this.prevnumberOfRepositories !== this.numberOfRepositories) {
       this.prevnumberOfRepositories = this.numberOfRepositories;
+      this.navHidden = false;
       this.pages = this.githubService.createPagesArray(this.numberOfRepositories, this.perPage);
     }
     if(!this.q.length) {
@@ -59,7 +60,6 @@ export class PageComponent {
 
   mainSearch() {
     this.page = 1;
-    this.hidden = false;
     this.findRepositories();
   }
 

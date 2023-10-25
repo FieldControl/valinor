@@ -4,8 +4,7 @@ import { environment } from "src/environments/environment";
 import { Data } from "../model/github.model";
 
 
-/* Essa injeção é a mesma coisa que colocar essa service 
-injetada no provider no module */
+
 @Injectable({ 
     providedIn: 'root'
 })
@@ -13,8 +12,7 @@ export class GithubService {
 
     private _apiUrl = environment.api;
 
-    /* A varável httpClient está sendo criata e a injeção está sendo feita pelo módulo
-    Imports do module. */
+
     constructor(private httpClient: HttpClient) {}
 
     prevIsPossible(pages: number): boolean {

@@ -12,7 +12,7 @@ describe('GithubService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule], // Import HttpClientTestingModule for mocking HTTP requests
+      imports: [HttpClientTestingModule], 
       providers: [GithubService],
     });
 
@@ -26,25 +26,18 @@ describe('GithubService', () => {
     const page = 1;
     const perPage = 15;
 
-    // Define the expected URL
     const expectedUrl = `${environment.api}repositories?q=${searchTerm}&per_page=${perPage}&sort=stars&order=desc&page=${page}`;
 
-    // Mock the response data
     const mockData: Data = mockedData;
 
-    // Call the findRepositories method
     githubService.findRepositories(searchTerm, sortAndOrder, page, perPage).subscribe((data) => {
-      // Assert that the returned data matches the mock data
       expect(data).toEqual(mockData);
     });
 
-    // Expect a single request to the expected URL
     const req = httpTestingController.expectOne(expectedUrl);
 
-    // Respond with the mock data when the request is made
     req.flush(mockData);
 
-    // Verify that there are no outstanding requests
     httpTestingController.verify();
   });
 
