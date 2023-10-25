@@ -1,10 +1,26 @@
+:root {
+  --color-black-primary: #0b0b0b;
+  --color-black-secondary: #0f0f10;
+  --color-blue: #135ac0;
+  --color-blue-secondary: #96c2ff;
+  --color-text: #ccced2;
+  --color-text-secondary: #5e6265;
+  --border-default: #e5e7eb;
+  --border-primary: #29292b;
+  --color-input-default: #9ca3af;
+}
+
+:root{
+  --box-shadow: 0px 10px 15px -3px rgba(210, 209, 209, 0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
 *,
 ::before,
 ::after {
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
-  border-color: #e5e7eb;
+  border-color: var(--border-default);
 }
 
 ::before,
@@ -115,6 +131,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+  appearance: button;
   -webkit-appearance: button;
   background-color: transparent;
   background-image: none;
@@ -138,6 +155,7 @@ progress {
 }
 
 [type="search"] {
+  appearance: textfield;
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
@@ -195,13 +213,13 @@ textarea {
 input::-moz-placeholder,
 textarea::-moz-placeholder {
   opacity: 1;
-  color: #9ca3af;
+  color: var(--color-input-default);
 }
 
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
-  color: #9ca3af;
+  color: var(--color-input-default);
 }
 
 button,
@@ -221,7 +239,7 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
+  display: inline-block;
   vertical-align: middle;
 }
 
@@ -242,6 +260,8 @@ body {
   line-height: 1.25rem;
   --tw-text-opacity: 1;
   color: rgb(28 28 36 / var(--tw-text-opacity));
+  background-color: var(--color-black-primary);
+  color: var(--color-text);
 }
 
 input,
@@ -254,9 +274,9 @@ textarea {
   padding-right: 1rem;
 }
 
-body {
-  background-color: rgb(11, 11, 11);
-  color: rgb(204, 206, 210);
+input:focus,
+input:focus {
+  outline: 1px solid var(--color-blue-secondary);
 }
 
 .container {
