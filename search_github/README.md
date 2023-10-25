@@ -34,8 +34,17 @@ To run the application locally, follow these steps:
 1. Clone the repository to your local machine:
    ```bash
    git clone https://github.com/your-username/SearchGithub.git
+   ```
+2. Enter the repository:
+   ```bash
    cd SearchGithub
+   ```
+3. Install the dependencies:
+   ```bash
    npm install
+   ```
+4. Start the project:
+   ```bash
    npm start
    ```
    The application will be accessible at http://localhost:3000.
