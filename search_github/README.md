@@ -33,11 +33,11 @@ To run the application locally, follow these steps:
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/SearchGithub.git
+   git clone git@github.com:EduardoSimoess/valinor.git
    ```
 2. Enter the repository:
    ```bash
-   cd SearchGithub
+   cd search_github
    ```
 3. Install the dependencies:
    ```bash
