@@ -1,0 +1,9 @@
+<nav class="navbar bg-body-tertiary my-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand">Star Wars</a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" #searchInput>
+            <button class="btn btn-outline-success" type="submit" (click)="doSearch(searchInput.value)">Pesquisar</button>
+        </form>
+    </div>
+</nav>
