@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'soloist';
+    src: url('../../../assets/Fonts/Soloist.otf');
+}
+
+.card-container {
+    max-width: 400px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-family: soloist;
+}
