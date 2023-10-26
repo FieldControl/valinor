@@ -6,12 +6,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input()
-  title: string = '';
-  @Input()
-  subtitle: string = '';
-  @Input()
-  info: string[] = []
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
+  @Input() height: string = '';
+  @Input() mass: string = '';
+  @Input() hairColor: string = '';
+  @Input() eyeColor: string = '';
+  @Input() gender: string = '';
 
   constructor() { }
 
