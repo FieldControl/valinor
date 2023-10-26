@@ -4,7 +4,10 @@
 }
 
 .card-container {
+    min-width: 400px;
     max-width: 400px;
+    min-height: 200px;
+    max-height: 200px;
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 10px;
