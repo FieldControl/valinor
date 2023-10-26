@@ -10,7 +10,7 @@ import { People } from 'src/app/models/people.model';
 export class HomeComponent implements OnInit {
 
   constructor(private _swService: StarWarsService) { }
-
+  pageNumber: any = 1;
   peoples: People[] = [];
   shouldHideLoad: boolean = true;
 

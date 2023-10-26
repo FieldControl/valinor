@@ -19,4 +19,8 @@ export class StarWarsService {
   searchPeople(query: string) {
     return this.http.get<People[]>(`${this.baseUrl}people/?search=${query}`);
   }
+
+  getPagination(page: any) {
+    return this.http.get<People[]>(`${this.baseUrl}people/?page=${page}`);
+  }
 }
