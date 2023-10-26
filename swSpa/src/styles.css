@@ -4,9 +4,15 @@
 
 @font-face {
   font-family: 'soloist';
-  src: url('../assets/Fonts/Soloist.otf')
-} 
+  src: url('./assets/Fonts/Soloist.otf')
+}; 
+
+body {
+  background-image: url('./assets/Imgs/star-background.jpg');
+  background-size: cover;
+}
 
 * {
     font-family: soloist;
-}
+};
+
