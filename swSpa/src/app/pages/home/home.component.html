@@ -1,5 +1,11 @@
 <app-nav-bar (searchText)="receiveSearchText($event)"></app-nav-bar>
 <mat-progress-bar *ngIf="!shouldHideLoad" mode="indeterminate"></mat-progress-bar>
-<div *ngFor="let p of peoples">
-    <app-card [title]="p.name" [subtitle]="p.birth_year" [height]="p.height" [mass]="p.mass" [hairColor]="p.hair_color" [eyeColor]="p.eye_color" [gender]="p.gender"></app-card>
+
+<section class="cards-itens-container">
+    <div *ngFor="let p of peoples">
+        <app-card class="card-item" [title]="p.name" [subtitle]="p.birth_year" [height]="p.height" [mass]="p.mass" [hairColor]="p.hair_color" [eyeColor]="p.eye_color" [gender]="p.gender"></app-card>
+    </div>
+</section>
+<div *ngIf="shouldHideLoad" class="button-container d-grid gap-2 col-6 mx-auto">
+    <button type="button" class="btn btn-warning btn-lg">More...</button>
 </div>
