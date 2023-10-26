@@ -1,0 +1,70 @@
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--color-text-secondary);
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--color-text-secondary);
+  border-spacing: 8px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.bt-prev {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bt-prev:hover {
+  color: var(--color-text);
+}
+
+.bt-prev .icon,
+.bt-prev span {
+  transform: translateX(10%);
+  transition: all 0.25s ease;
+}
+
+.bt-prev span {
+  font-size: 1.1rem;
+  margin-top: 3px;
+}
+
+.bt-prev:hover span {
+  transform: translateX(-30%);
+  transition-duration: 0.2s;
+}
+
+.bt-prev:hover .icon {
+  color: var(--color-text);
+  transform: translateX(-30%);
+}
+
+.perfil {
+  margin-top: 40px;
+  padding: 40px;
+  background-color: var(--color-black-secondary);
+  border-radius: 0.75rem;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about .avatar {
+  width: 98px;
+  height: 98px;
+}
+
+.info .title {
+  font-size: 1.2rem;
+}
+
+.info .description {
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+  display: inline-block;
+}
