@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StarWarsService } from 'src/app/core/star-wars.service';
 import { People } from 'src/app/models/people.model';
 
@@ -11,29 +10,15 @@ import { People } from 'src/app/models/people.model';
 })
 export class NavBarComponent implements OnInit {
 
-  searchControl: FormControl = new FormControl('');
-  searchText: string = '';
-  peoples: People[] = [];
-
+  @Output() searchText = new EventEmitter<string>();
+  
   constructor(private _swService: StarWarsService) { }
 
   ngOnInit(): void {
-    this.searchControl = new FormControl('', Validators.required);
   }
 
-  async doSearch(text: string) {
-    if(!text) {
-      await this._swService.getPeople().subscribe(res => {
-        this.peoples = res;
-        console.log(this.peoples);
-      })
-    } else {
-      await this._swService.searchPeople(text).subscribe(res => {
-        this.peoples = res;
-        console.log(this.peoples);
-      })
-    }
-    console.log(text);
+  searchedText(text: string) {
+    this.searchText.emit(text);
   }
 
 }
