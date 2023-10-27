@@ -1,5 +1,7 @@
-<app-nav-bar (searchText)="receiveSearchText($event)"></app-nav-bar>
-<mat-progress-bar *ngIf="!shouldHideLoad" mode="indeterminate"></mat-progress-bar>
+<div class="nav-container">
+    <app-nav-bar (searchText)="receiveSearchText($event)"></app-nav-bar>
+    <mat-progress-bar *ngIf="!shouldHideLoad" mode="indeterminate"></mat-progress-bar>
+</div>
 
 <section class="cards-itens-container">
     <div *ngFor="let p of peoples">
@@ -7,5 +9,12 @@
     </div>
 </section>
 <div *ngIf="shouldHideLoad" class="button-container d-grid gap-2 col-6 mx-auto">
-    <button type="button" class="btn btn-warning btn-lg">More...</button>
+    <button type="button" class="btn btn-warning btn-lg" (click)="loadMore()">More...</button>
+</div>
+
+<div *ngIf="showWarning">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Error! Your search yielded no results. It's almost as if they've vanished into a galaxy, far, far away...
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 </div>
