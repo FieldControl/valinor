@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     this._swService.getPagination(this.pageNumber)
       .pipe(
         catchError(error => {
-          console.error('Erro na paginação:', error);
+          console.error('Error when getting page content', error);
           return [];
         })
       )
