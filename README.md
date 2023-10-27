@@ -1,3 +1,6 @@
+.
+
+
 👨‍💻 Vaga para apaixonados por criação de software
 ===========================================
 
