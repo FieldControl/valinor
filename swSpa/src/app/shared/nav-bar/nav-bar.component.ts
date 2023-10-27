@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { StarWarsService } from 'src/app/core/star-wars.service';
-import { People } from 'src/app/models/people.model';
 
 
 @Component({
@@ -19,6 +19,10 @@ export class NavBarComponent implements OnInit {
 
   searchedText(text: string) {
     this.searchText.emit(text);
+  }
+
+  homeNav(): void{
+    window.location.reload();
   }
 
 }
