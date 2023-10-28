@@ -6,11 +6,15 @@
 .card-container {
     min-width: 400px;
     max-width: 400px;
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 230px;
+    max-height: 300px;
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
     font-family: soloist;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+};

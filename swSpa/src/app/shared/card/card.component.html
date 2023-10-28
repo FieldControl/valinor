@@ -5,11 +5,14 @@
     </mat-card-header>
     <mat-card-content>
         <ul>
-            <li>Height: {{ height }}</li>
-            <li>Weight: {{ mass }}</li>
-            <li>Hair Color: {{ hairColor }}</li>
-            <li>Eye Color: {{ eyeColor }}</li>
-            <li>Gender: {{ gender }}</li>
+            <li class="height">Height: {{ height }}</li>
+            <li class="weight">Weight: {{ mass }}</li>
+            <li class="hairColor">Hair Color: {{ hairColor }}</li>
+            <li class="eyeColor">Eye Color: {{ eyeColor }}</li>
+            <li class="gender">Gender: {{ gender }}</li>
         </ul>
+        <mat-card-actions>
+            <button mat-raised-button (click)="openModal()">Movies +</button>
+        </mat-card-actions>
     </mat-card-content>
 </mat-card>
