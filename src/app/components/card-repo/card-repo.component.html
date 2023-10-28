@@ -1,0 +1,44 @@
+<div class="card">
+  <button
+    class="card-button"
+    type="button"
+    (click)="navigateToUser(data.login)"
+  >
+    <div class="card-about">
+      <div class="card-avatar" *ngIf="data.avatar_url">
+        <img src="{{ data.avatar_url }}" alt="Avatar" />
+      </div>
+      <div class="card-info">
+        <h1 class="card-title">{{ data.name }}</h1>
+        <span *ngIf="data.login" class="card-description">{{
+          data.login
+        }}</span>
+      </div>
+    </div>
+    <div class="card-content">
+      <p>
+        <i-lucide name="book-marked" size="20" class="icon"></i-lucide>
+        <span>Repositórios</span>
+        <span class="emphasis">{{ data.public_repos }}</span>
+      </p>
+      <p>
+        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        <span>Seguidores</span>
+        <span class="emphasis">{{ data.followers }}</span>
+      </p>
+      <p>
+        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        <span>Seguindo</span>
+        <span class="emphasis">{{ data.following }}</span>
+      </p>
+    </div>
+  </button>
+  <div class="card-icons">
+    <a href="{{ data.html_url }}" target="_blank">
+      <i-lucide name="ExternalLink" class="card-icon" size="22"></i-lucide>
+    </a>
+    <button>
+      <i-lucide name="MoreVertical" class="card-icon" size="22"></i-lucide>
+    </button>
+  </div>
+</div>
