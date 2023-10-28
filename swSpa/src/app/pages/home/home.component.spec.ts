@@ -34,11 +34,15 @@ describe('HomeComponent', () => {
 
   it("should initialize shouldHideLoad as false", () => {
     expect(component.shouldHideLoad).toBeFalse();
-  })
+  });
 
   it('should initialize showWarning as false', () => {
     expect(component.showWarning).toBeFalse();
-  })
+  });
+
+  it("should initialize textSearched variable empty", () => {
+    expect(component.textSearched).toEqual('');
+  });
 
   it('should render the app-nav-bar component', () => {
     const navBarComponent  = fixture.debugElement.query(By.css('app-nav-bar'));
@@ -115,5 +119,33 @@ describe('HomeComponent', () => {
   
     moreButton.triggerEventHandler('click', null);
     expect(component.loadMore).toHaveBeenCalled();
+  });
+
+  it('should increment page number after getPagination is called', () => {
+    component.pageNumber = 1;
+
+    component.loadMore();
+
+    expect(component.pageNumber).toBe(2);
+  });
+
+  it('shoud change showWarning to false after receiveSearchText is calle', () => {
+    const searchText = 'test'
+
+    component.showWarning = true;
+    
+    component.receiveSearchText(searchText);
+
+    expect(component.showWarning).toBeFalse();
+  });
+
+  it('should call doSearch() method when receiveSearchText() is called', () => {
+    const searchText = 'test';
+
+    spyOn(component, 'doSearch')
+
+    component.receiveSearchText(searchText);
+
+    expect(component.doSearch).toHaveBeenCalledWith(searchText);
   });
 });
