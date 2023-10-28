@@ -15,6 +15,7 @@
     </div>
 </section>
 
-<div *ngIf="shouldHideLoad" class="button-container d-grid gap-2 col-6 mx-auto">
-    <button type="button" class="btn btn-warning btn-lg" (click)="loadMore()">More...</button>
+<div *ngIf="shouldHideLoad" class="button-container d-grid gap-2 col-6 mx-auto mb-5">
+    <button *ngIf="!textSearched" type="button" class="load-more-button btn btn-warning btn-lg" (click)="loadMore()">More...</button>
+    <button *ngIf="textSearched" type="button" class="load-more-button btn btn-warning btn-lg" (click)="doSearch('')">Back</button>
 </div>

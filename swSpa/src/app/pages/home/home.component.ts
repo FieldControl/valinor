@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   peoplesBkp: People[] = [];
   shouldHideLoad: boolean = true;
   showWarning: boolean = false;
+  textSearched: string = ''
  
   ngOnInit(): void {
     this.doSearch('');
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
 
     const searchObservable = text
       ? this._swService.searchPeople(text)
-      : this._swService.getPeople();
+      : this._swService.getPeople();  
 
     searchObservable.pipe(
       catchError(error => {
@@ -39,6 +40,8 @@ export class HomeComponent implements OnInit {
       })
     ).subscribe((res: any) => {
       if(res.count) {
+        this.textSearched = (text);
+        console.log(this.textSearched);
         this.peoples = res.results;
         this.peoplesBkp = this.peoples;
         this.shouldHideLoad = true;
