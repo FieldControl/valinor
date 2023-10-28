@@ -1,0 +1,33 @@
+
+.footer{
+    overflow: hidden;
+    position: sticky;
+    top: 100%;
+    background: rgb(0, 0, 0);
+    padding: 20px 10px;
+}
+
+h1{
+    font-weight: bold;
+    color: aliceblue;
+    font-size: 20px;
+}
+p{
+    color:aliceblue;
+    font-size: 12px;
+}
+
+a{
+    color:aliceblue;
+    text-decoration: nome;
+    padding: 0px 5px;
+    font-size: 18px;
+}
+
+a:hover{
+    color:yellow
+}
+
+i{
+    padding: 0px 10px;
+}

@@ -1,0 +1,73 @@
+.banner{
+    background-image: url('../../../assets/img/BANNERREFEICAO.png');
+    height: 600px;
+    background-position: center top;
+    background-size: cover;
+}
+
+.banner h1{
+    color: red;
+    font-size: 50px;
+    font-weight: bold;
+    font: impact;
+}
+
+.content{
+    top: 32%;
+    left: 44%;
+    position: absolute;
+}
+
+.content h1 {
+    color: beige;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.content a{
+    text-decoration: none;
+    background-color: aliceblue;
+    color: red;
+    padding: 20px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.content a:hover{
+    background-color: yellow;
+    color: red;
+    font-style:initial;
+    font-weight: bold;
+}
+.Box{
+    background: brown;
+    padding: 30px 30px;
+    border-radius:  5;
+    text-align: center;
+
+}
+.Box h1{
+    font-size: 40px;
+    font-weight: bold;
+    color: yellow;
+
+}
+.Box p{
+    font-size: 30px;
+    font-style: italic;
+    color:aliceblue;
+}
+.foodbox{
+    padding: 10px 5px;
+}
+
+.foodbox img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.foodbox h1{
+    font-size: 18px;
+    margin-top: 20px;
+}
