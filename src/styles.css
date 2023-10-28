@@ -1,12 +1,12 @@
 :root {
-  --color-black-primary: #0b0b0b;
-  --color-black-secondary: #0f0f10;
+  --color-black-primary: #171717;
+  --color-black-secondary: #1d1d1f;
   --color-blue: #1776f9;
   --color-blue-secondary: #96c2ff;
   --color-text: #ccced2;
   --color-text-secondary: #5e6265;
   --border-default: #e5e7eb;
-  --border-primary: #29292b;
+  --border-primary: #313134;
   --color-input-default: #9ca3af;
 }
 
