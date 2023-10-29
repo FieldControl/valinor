@@ -17,3 +17,10 @@
 .warning-message {
     margin-top: 3.75rem;
 }
+
+.foooter {
+    position: fiexed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

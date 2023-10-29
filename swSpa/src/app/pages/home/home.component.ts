@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StarWarsService } from 'src/app/core/star-wars.service';
 import { People } from 'src/app/models/people.model';
 import { catchError } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _swService: StarWarsService) { }
+  constructor(private _swService: StarWarsService, private _dialog: MatDialog) { }
   pageNumber: number = 1;
   peoples: People[] = [];
   peoplesBkp: People[] = [];

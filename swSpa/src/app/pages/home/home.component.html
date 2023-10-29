@@ -19,3 +19,5 @@
     <button *ngIf="!textSearched" type="button" class="load-more-button btn btn-warning btn-lg" (click)="loadMore()">More...</button>
     <button *ngIf="textSearched" type="button" class="load-more-button btn btn-warning btn-lg" (click)="doSearch('')">Back</button>
 </div>
+
+<app-footer class="footer" *ngIf="shouldHideLoad"></app-footer>
