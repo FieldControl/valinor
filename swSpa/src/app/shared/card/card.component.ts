@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
   @Input() hairColor: string = '';
   @Input() eyeColor: string = '';
   @Input() gender: string = '';
+  @Input() films: string[] = [];
 
   constructor(public _dialog: MatDialog) { }
   
@@ -24,10 +25,10 @@ export class CardComponent implements OnInit {
   }
 
   openDialog(title: string) {
-    this._dialog.open(DialogComponent, {
-      data: { title: this.title },
-      width: '300px',
-      height: '300px'
+    this._dialog.open(DialogComponent, 
+    {
+      data: {title: title,
+             films: this.films },
     });
   }
 }

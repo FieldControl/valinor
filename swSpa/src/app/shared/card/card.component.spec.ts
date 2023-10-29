@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CardComponent } from './card.component';
 import { By } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -9,7 +9,8 @@ describe('CardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardComponent ]
+      declarations: [ CardComponent ],
+      imports: [ MatDialogModule ]
     })
     .compileComponents();
 
@@ -27,7 +28,7 @@ describe('CardComponent', () => {
   });
 
   it('should call openModal function when the button more is clicked', () => {
-    const openModalSpy = spyOn(component, 'openModal')
+    const openModalSpy = spyOn(component, 'openDialog')
     const openModalElement = fixture.debugElement.query(By.css('button[mat-raised-button]'));
 
     expect(openModalElement).toBeTruthy();

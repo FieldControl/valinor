@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StarWarsService } from 'src/app/core/star-wars.service';
 import { People } from 'src/app/models/people.model';
 import { catchError } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
+import { ResultWapper } from 'src/app/core/common';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _swService: StarWarsService, private _dialog: MatDialog) { }
+  constructor(private _swService: StarWarsService) { }
   pageNumber: number = 1;
   peoples: People[] = [];
   peoplesBkp: People[] = [];
@@ -39,10 +39,9 @@ export class HomeComponent implements OnInit {
         console.error('Error during the search of the element', error);
         return [];
       })
-    ).subscribe((res: any) => {
+    ).subscribe((res: ResultWapper<People>) => {
       if(res.count) {
         this.textSearched = (text);
-        console.log(this.textSearched);
         this.peoples = res.results;
         this.peoplesBkp = this.peoples;
         this.shouldHideLoad = true;
