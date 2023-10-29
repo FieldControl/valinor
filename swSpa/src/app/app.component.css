@@ -1,0 +1,7 @@
+html, * {
+    margin: 0;
+    padding: 0;
+}
+ div.body-content{
+   margin-bottom: 40px;
+}
