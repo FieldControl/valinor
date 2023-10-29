@@ -21,7 +21,6 @@ export class DialogComponent implements OnInit {
   
 
   ngOnInit(): void {
-    console.log(this.data);
     if(this.data.films.length > 0) {
       this._filmsService.getMultiFilms(this.data.films).pipe(
         catchError(error => {
