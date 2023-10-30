@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Repositórios no GitHub</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: gray;
+        }
+
+        #search-input {
+            width: 300px;
+        }
+
+        #search-button {
+            padding: 10px 20px;
+        }
+
+        #results {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body ng-controller="SearchController">
+    <h1>Busca de Repositórios no GitHub</h1>
+    <input type="text" id="search-input" placeholder="Digite sua pergunta" ng-model="query">
+    <button id="search-button" ng-click="searchRepositories()">Pesquisar</button>
+
+    <div id="results">
+        <div ng-repeat="repo in repositories">
+            <h2>{{ repo.name }}</h2>
+            <p>{{ repo.description }}</p>
+            <p>URL: <a ng-href="{{ repo.html_url }}" target="_blank">{{ repo.html_url }}</a></p>
+            <p>Watchers: {{ repo.watchers }}</p>
+            <p>Estrelas: {{ repo.stargazers_count }}</p>
+            <p>Issues: {{ repo.open_issues }}</p>
+            <hr>
+        </div>
+        <p ng-if="repositories.length === 0">Nenhum repositório encontrado.</p>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("SearchController", function ($scope, $http) {
+            $scope.searchRepositories = function () {
+                const query = $scope.query;
+                const apiUrl = `https://api.github.com/search/repositories?q=${query}`;
+
+                $http.get(apiUrl)
+                    .then(function (response) {
+                        $scope.repositories = response.data.items;
+                    })
+                    .catch(function (error) {
+                        console.error('Erro ao buscar repositórios:', error);
+                        $scope.repositories = [];
+                    });
+            };
+        });
+    </script>
+</body>
+</html>
