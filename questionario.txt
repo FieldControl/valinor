@@ -1,0 +1,37 @@
+• QUAIS FERRAMENTAS E BIBLIOTECAS (LIBRARIES, FRAMEWORK, TOOLS ETC) VOCÊ USOU ?
+
+1. *AngularJS*: Eu escolhi ele para fornecer funcionalidade de ligação de dados bidirecional e gerenciar a lógica do aplicativo de maneira mais organizada.
+
+2. *HTML e CSS*: Escolhi o  HTML para marcar a estrutura da página e fornecer elementos interativos, enquanto o CSS escolhi para estilizar a página e torná-la mais atraente.
+
+3. *GitHub API*: Escolhi a API do GitHub para buscar repositórios com base na consulta do usuário.
+
+• POR QUE VOCÊ OPTOU PELA TECNOLOGIA X E NÃO A Y ?
+
+Optei pelo AngularJS porque além de terem pedido ele oferece um conjunto robusto de ferramentas e um ecossistema bem estabelecido que ajuda no desenvolvimento, teste e manutenção de aplicativos.
+
+• QUAIS PRINCÍPIOS DA ENGENHARIA DE SOFTWARE QUE VOCÊ USOU ?
+
+MVC (Model-View-Controller): O AngularJS segue o padrão MVC, que ajuda a separar a lógica de negócios (controller) da apresentação (view) e dos dados (model).
+
+Organização de Código: O código está organizado em módulos, controladores e diretivas, seguindo boas práticas de estruturação de aplicativos AngularJS.
+
+Reatividade: O uso de diretivas como `ng-model` e `ng-click` demonstra o conceito de reatividade, onde as alterações no modelo (dados) refletem automaticamente na interface do usuário.
+
+• DESAFIOS E PROBLEMAS QUE VOCÊ ENFRENTOU E COMO RESOLVEU ?
+
+Testabilidade: Tive que garantir que o código fosse testável para identificar problemas e garantir a qualidade do aplicativo.
+
+Desempenho: Em aplicativos maiores, o desempenho pode ser um problema, então tiver que fazer a otimização de solicitações de API e renderização de dados.
+
+Manutenção: Garantir que o código seja facilmente mantido e estendido ao longo do tempo.
+
+•O QUE VOCÊ ENTENDE QUE PODE SER SER MELHORADO E COMO FAZER ISSO?
+
+Testes unitários : Implementar testes unitários para o código do driver e as funções auxiliares para ajudar a garantir que o aplicativo funcione corretamente e continue funcionando após atualizações futuras.
+
+ Mensagem de Carregamento : Adicionar uma mensagem de carregamento ou um indicador visual enquanto os resultados da pesquisa estão sendo carregados pode fornecer feedback ao usuário.
+
+ Documentação : Incluir comentários no código e documentação para tornar o código mais compreensível para outros desenvolvedores e para o seu futuro eu.
+
+Segurança : Certificar as medidas de segurança, como validação de entrada e autenticação, se aplicáveis.
