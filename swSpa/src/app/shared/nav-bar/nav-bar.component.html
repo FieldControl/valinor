@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <a class="navbar-brand app-title" (click)="homeNav()">Star Wars</a>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Pesquisar" #searchInput>
-            <button class="btn btn-outline-warning" type="submit" (click)="searchedText(searchInput.value)">Search</button>
+            <input id="search-input" class="form-control me-2" type="search" placeholder="Search" aria-label="Pesquisar" #searchInput>
+            <button id="search-content" class="btn btn-outline-warning" type="submit" (click)="searchedText(searchInput.value)">Search</button>
         </form>
     </div>
 </nav>

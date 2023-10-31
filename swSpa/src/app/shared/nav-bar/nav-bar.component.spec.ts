@@ -30,7 +30,7 @@ describe('NavBarComponent', () => {
     expect(emitSpy).toHaveBeenCalledWith(searchText);
   });
 
-  it('should reload the page when the title is clicked', () => {
+  it('should call the homeNav method when the title is clicked', () => {
     const homeNavSpy = spyOn(component, 'homeNav');
 
     const titleElement = fixture.debugElement.query(By.css('.app-title'));

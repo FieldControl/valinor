@@ -18,7 +18,7 @@ getMultiFilms (urls: string[]) {
 }
 
 
-private getFilmData(url: string): Observable<Film> {
+getFilmData(url: string): Observable<Film> {
   return this.http.get<Film>(url);
 }
  

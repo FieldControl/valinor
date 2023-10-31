@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 import { By } from '@angular/platform-browser';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { Film } from 'src/app/models/film.model';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -10,7 +11,7 @@ describe('CardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CardComponent ],
-      imports: [ MatDialogModule ]
+      imports: [ MatDialogModule ],
     })
     .compileComponents();
 
@@ -23,20 +24,29 @@ describe('CardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize shouldOpenModa as false', () => {
+  it('should initialize shouldOpenModal as false', () => {
     expect(component.shouldOpenModal).toBeFalse();
   });
 
-  it('should call openModal function when the button more is clicked', () => {
-    const openModalSpy = spyOn(component, 'openDialog')
-    const openModalElement = fixture.debugElement.query(By.css('button[mat-raised-button]'));
+  it('should call openDialog function when the button more is clicked', () => {
+    const openDialogSpy = spyOn(component, 'openDialog')
+    const openDialogElement = fixture.debugElement.query(By.css('button[mat-raised-button]'));
 
-    expect(openModalElement).toBeTruthy();
+    expect(openDialogElement).toBeTruthy();
     
-    openModalElement.nativeElement.click();
+    openDialogElement.nativeElement.click();
 
-    expect(openModalSpy).toHaveBeenCalled();
+    expect(openDialogSpy).toHaveBeenCalled();
   });
+
+  it('should set films via @input', () => {
+    const films: string[] = [];
+    component.films = films;
+
+    fixture.detectChanges();
+
+    expect(component.films).toEqual(films);
+  })
 
   it('should set title via @Input()', () => {
     const title = 'title';
@@ -120,5 +130,4 @@ describe('CardComponent', () => {
   
     expect(genderElement.nativeElement.textContent).toContain(gender);
   });
-
 });

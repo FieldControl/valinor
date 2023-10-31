@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   constructor(private _swService: StarWarsService) { }
   pageNumber: number = 1;
   peoples: People[] = [];
-  peoplesBkp: People[] = [];
   shouldHideLoad: boolean = true;
   showWarning: boolean = false;
   textSearched: string = ''
@@ -43,7 +42,6 @@ export class HomeComponent implements OnInit {
       if(res.count) {
         this.textSearched = (text);
         this.peoples = res.results;
-        this.peoplesBkp = this.peoples;
         this.shouldHideLoad = true;
       } else {
         this.showWarning = true;

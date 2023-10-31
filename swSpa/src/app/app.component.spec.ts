@@ -26,12 +26,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('swSpa');
   });
-
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const app = fixture.componentInstance;
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('app-root')?.textContent).toContain(app.title);
-  // });
 });

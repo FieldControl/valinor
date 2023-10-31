@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import { Observable, catchError } from 'rxjs';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { catchError } from 'rxjs';
 import { MoviesService } from 'src/app/core/movies.service';
 import { Film } from 'src/app/models/film.model';
 

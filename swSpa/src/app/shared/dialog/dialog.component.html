@@ -1,10 +1,10 @@
 <h1 mat-dialog-title>{{ data.title }}</h1>
-<p *ngIf="shouldHideLoad">Appearences: </p>
+<p class="appearences-subtitle" *ngIf="shouldHideLoad">Appearences: </p>
 <div mat-dialog-content>
     <mat-progress-spinner *ngIf="!shouldHideLoad" class="example-margin" color="warn" mode="indeterminate">
     </mat-progress-spinner>
     <ul *ngIf="shouldHideLoad">
-        <li *ngFor="let film of films">{{film.title}}</li>
+        <li class="film-title" *ngFor="let film of films">{{film.title}}</li>
     </ul>
 </div>
 <div mat-dialog-actions>
