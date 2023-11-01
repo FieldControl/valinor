@@ -1,0 +1,37 @@
+<div class="pagination">
+  <div class="wrap">
+    <button
+      class="pagination-item pagination-last"
+      type="button"
+      *ngIf="currentPage > 2"
+      (click)="firstPage()"
+    >
+      <i-lucide name="ChevronsLeft" size="16"></i-lucide>
+    </button>
+    <button
+      class="pagination-item pagination-prev"
+      type="button"
+      (click)="prevPage()"
+      *ngIf="currentPage > 1"
+    >
+      <i-lucide name="ChevronLeft" size="16"></i-lucide>
+    </button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button
+      class="pagination-item pagination-next"
+      type="button"
+      (click)="nextPage()"
+      *ngIf="currentPage < totalPages"
+    >
+      <i-lucide name="ChevronRight" size="16"></i-lucide>
+    </button>
+    <button
+      class="pagination-item pagination-first"
+      type="button"
+      *ngIf="currentPage < totalPages"
+      (click)="lastPage()"
+    >
+      <i-lucide name="ChevronsRight" size="16"></i-lucide>
+    </button>
+  </div>
+</div>
