@@ -1,0 +1,52 @@
+.container {
+  display: grid;
+  flex-direction: column;
+  row-gap: 5px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-areas: 
+  "nm nm nm nm nm nm nm nm nm nm"
+  "dc dc dc dc dc dc dc dc dc dc"
+  "tp tp tp tp tp tp tp tp tp tp"
+  "sg lg ud ud ud . . . . .";
+  margin: 10px 0;
+  padding: 16px;
+  border: solid 1px rgb(208, 215, 222);
+  border-radius: 6px;
+
+  .name {
+    grid-area: nm;
+    a {
+      cursor: pointer;
+      color: hotpink;
+    }
+  }
+
+  .description{
+    grid-area: dc;
+  }
+
+  .language{
+    grid-area: lg;
+  }
+
+  .stargazers_count{
+    grid-area: sg;
+  }
+
+  .updated_at{
+    grid-area: ud;
+  }
+
+  .topics{
+    grid-area: tp;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+    justify-items: center;
+    div{
+      padding: 5px;
+      background-color: rgb(245 212 229);
+      border-radius: 50px;
+    }
+  }
+}
