@@ -4,11 +4,10 @@ import { HomeComponent } from './home.component';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { By } from '@angular/platform-browser';
 import { StarWarsService } from 'src/app/core/star-wars.service';
-import { of} from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
 import { MOCK_API_RES, MOCK_NEW_PAGE, PEOPLES_RES } from 'src/app/core/peoples.mock';
-import { ResultWapper } from 'src/app/core/common';
-import { People } from 'src/app/models/people.model';
+
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -162,7 +161,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
 
     expect(_swService.getPeople).toHaveBeenCalledWith();
-    expect(component.peoples.length).toBe(10);
+    expect(component.peoples.length).toEqual(MOCK_API_RES.results.length);
     expect(component.shouldHideLoad).toBeTrue();
   });
 
@@ -210,8 +209,38 @@ describe('HomeComponent', () => {
     expect(component.peoples).toEqual([...MOCK_API_RES.results, ...MOCK_NEW_PAGE.results]);
     expect(component.shouldHideLoad).toBeTrue();
 
-  }) 
+  });
 
+  it('should handle get people error', () => {
+    const mockedError = new Error('Error during the search of the element');
+  
+    spyOn(console, 'error');
     
+    spyOn(_swService, 'getPeople').and.returnValue(throwError ( () => {
+      const error = new Error('Error during the search of the element');
+      return error;
+    }));
+  
+    component.doSearch('');
+  
+    expect(console.error).toHaveBeenCalledWith('Error during the search of the element', mockedError);
+  });
+
+  it('should handle pagination error', () => {
+    const mockedError = new Error('Error when getting page content');
+    component.pageNumber = 1;
+    component.shouldHideLoad = true;
+
+    spyOn(console, 'error');
+
+    spyOn(_swService, 'getPagination').and.returnValue(throwError ( () => {
+      const error = new Error('Error when getting page content');
+      return error;
+    }));
+
+    component.loadMore();
+
+    expect(console.error).toHaveBeenCalledWith('Error when getting page content', mockedError);
+  });
   
 });
