@@ -1,238 +1,60 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+## Envio de solução
 
-A empresa
-----------
+Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+**Framework, linguagem e ferramentas**
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+- **Angular**: Optei pelo Angular, um framework do Google, para criar a aplicação. Ele é ótimo para criar interfaces de usuário e componentes reutilizáveis, o que facilita a manutenção e a escalabilidade do projeto.
+- **Tailwind**: Para estilizar a aplicação, usei o Tailwind. Ele é bastante flexível e permite criar designs personalizados com facilidade, o que me permitiu replicar a aparência do GitHub de forma eficiente.
+- **FontAwesome**: Para melhorar a interface do usuário, adicionei ícones com o FontAwesome. Isso ajudou a tornar a interface mais intuitiva e visualmente agradável.
+- **Toastr**: Implementei notificações com o Toastr para fornecer feedback ao usuário sobre as ações realizadas. Isso melhora a experiência do usuário ao usar a aplicação.
+- **Karma e Jasmine**: Para garantir que tudo está funcionando como deveria, usei o Karma e o Jasmine para realizar testes unitários. Isso me ajudou a identificar e corrigir problemas rapidamente durante o desenvolvimento.
+- **Axios**: Para fazer as solicitações HTTP à API do GitHub, usei o Axios. Ele é simples e eficiente, tornando o código mais limpo e fácil de entender.
+- **RxJS**: Usei o RxJS para lidar com programação reativa usando Observables. Isso facilitou muito o trabalho com código assíncrono ou baseado em callback, tornando o código mais previsível e fácil de gerenciar.
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+**Técnologias X e Y**
 
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
+- Usei o Angular para desenvolver as aplicações de forma dinamica e de alto desempenho, optei pelo uso do Angular por ter mais conhecimento nele, e creio que ele é bem mais completo do que outro framework de JavaScript por incluir roteamento, gerenciamento de estado e ferramentas de desenvolvimento, alem de ser mantido pelo Google, que é uma empresa de confiança e que está anos no mercado.
+- Usei o Axios para solicitações HTTP, poderia ter usado o fetch nativo do JavaScript, mas indo mais a fundo, descobri que o Axios fornece  uma API bem mais facil de utilizar, e suporte a dados JSON.
+- usei o RxJS BehaviorSubject que é parte da biblioteca RxJS, ele fornece uma maneira de manter um valor que pode ser observado por varias partes do sistema. Poderia ter usado simples variaveis, mas a biblioteca tem diferenciais como criar fluxo de dados de forma melhor, e reagir a mudanças ao longo do tempo de maneira declarativa.
 
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
+**Princípios de software**
 
-Origem
-----------
+1. **Separação de preocupações**: Eu dividi o aplicativo em componentes e serviços separados, cada um responsável por uma parte específica da funcionalidade.
+2. **Reutilização de código**: Ao usar serviços e componentes, você pude reutilizar o código em diferentes partes do aplicativo.
+3. **Modularidade**: O aplicativo é composto por módulos menores que podem ser desenvolvidos e testados independentemente.
+4. **Manutenibilidade**: Ao seguir as convenções do Angular e organizar meu código de maneira lógica, eu tornei o código mais fácil de entender e fazer manutenções.
+5. **Programação Reativa**: Usei o RxJS, que é uma biblioteca para programação reativa usando Observáveis, para lidar com eventos assíncronos, como chamadas HTTP à API do GitHub.
+6. **Design Responsivo**: Usei o Tailwind CSS, um framework de CSS de baixo nível, para criar uma interface do usuário responsiva que se adapta a diferentes tamanhos de tela.
+7. **Testes Unitários e de Integração**: Usei o Jasmine e o Karma para escrever e executar testes unitários e de integração para garantir que cada parte da aplicação funcione como esperado.
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+**Desafios e problemas**
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
+Durante a execução deste projeto, deparei-me com alguns desafios significativos devido a Angular e Tailwind ser um pouco de novidade para mim. No entanto, encarei essas dificuldades como oportunidades de aprendizado e crescimento. Investi tempo na pesquisa das documentações pertinentes e revisão a aulas de cursos que já realizei para aprimorar meu conhecimento em ambas as tecnologias.
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
+À medida que enfrentava problemas e obstáculos específicos, adotei uma abordagem sistemática para resolvê-los. Isso incluiu a análise detalhada das documentações, a participação em fóruns de desenvolvedores e perguntar para colegas mais experientes. Além disso, minha capacidade de adaptação me permitiu aprender rapidamente e aplicar o conhecimento adquirido para superar os desafios à medida que surgiam.
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
+**Melhorias e próximas implementações**
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
+Vejo oportunidades de melhoria no aplicativo. Uma delas é aprimorar a paginação, permitindo que os usuários escolham páginas específicas. Além disso, adicionar opções de filtragem para personalizar as consultas seria útil. Para otimizar o desempenho, poderíamos implementar um sistema de cache para evitar solicitações repetidas à API. Essas melhorias tornariam o aplicativo mais amigável e eficiente para os usuários, demonstrando o compromisso com a qualidade contínua.
 
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
+Para melhorar a paginação, eu poderia criar um componente personalizado apenas para a paginação em vez de colocar a paginação no componente dos resultados, usando recursos de roteamento e parâmetros de consulta, e para filtragem, adicionaria um evento em um botão ou um dropdown que integra o filtro na url da api. E para o cache de resultado daria uma funcionalidade de interceptores do Axios para capturar as solicitações antes que sejam enviadas ao servidor.
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+**Sobre você**
 
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
+Meu nome é Guilherme Carmona Matricola e sou natural de São José do Rio Preto, SP. Iniciei minha jornada na tecnologia na escola SESI Yolanda C. Bassitt, onde estudei de 2010 a 2021. Atualmente, estou no segundo semestre do curso de Informática para Negócios na FATEC Rio Preto, iniciado em 2023.
 
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
+Desde cedo, fui fascinado pela tecnologia, o que me levou a explorar o desenvolvimento de jogos. Comecei com o Scratch, que me ensinou lógica de programação e algoritmos. Posteriormente, participei da equipe de robótica na Olimpíada Brasileira de Robótica, programando robôs Arduino em C++.
 
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
+Minha especialização está no desenvolvimento Frontend, com foco em HTML, CSS e JavaScript. Estou animado para explorar frameworks como Angular, React, Next, Ionic, Tailwind, e etc.. JavaScript é minha linguagem favorita devido à sua versatilidade e capacidade de criar aplicativos web dinâmicos.
 
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
+Estagiei na AnCode, onde trabalhei em UX design e desenvolvimento Frontend usando HTML, CSS, JavaScript, Bootstrap e C#. Minhas experiências moldaram meu entusiasmo e dedicação à programação. Estou ansioso para abraçar novos desafios e continuar aprimorando minhas habilidades.
 
-Oportunidade
-----------
+---
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
+Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
 
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
-
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
-
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
-
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
-
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
-
-Os desafios de programação
-----------
-
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
-
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
-
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
-
-<br/>
-
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
-
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
-
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
-
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
-
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
-
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
-
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
-
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
-
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
-
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
-
-Um diferencial gigante é o uso de testes unitários e integrados!
-
-URLs úteis:
-
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
-
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
-
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
-
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
-
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
-
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
-
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
-
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
-
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
-
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
-
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
-
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
-
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
-
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
-
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
-
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
-
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
-
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
-
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+**Email**
+guilherme.carmona86@gmail.com
+**Telefone**
+(17) 99222-5924

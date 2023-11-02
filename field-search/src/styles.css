@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'ngx-toastr/toastr';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}

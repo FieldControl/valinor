@@ -1,0 +1,49 @@
+<nav class="bg-slate-50 sticky top-0 z-50">
+  <div class="mx-auto py-2 px-2 px-8 lg:px-16">
+    <div class="relative flex h-16 items-center justify-between">
+      <app-logo-field onclick="location.reload()"></app-logo-field>
+    </div>
+  </div>
+</nav>
+
+<header class="bg-blue-900 shadow">
+  <div class="mx-auto max-w-3x4 py-12 md:px-16 px-8 lg:px-32">
+    <h1 class="text-4xl font-semibold text-white font-montserrat">
+      Pesquisa de Repositorios
+    </h1>
+    <div class="my-8">
+      <app-pesquisa class="w-full md:w-4/5 lg:w-5/6"></app-pesquisa>
+    </div>
+  </div>
+</header>
+<main class="flex flex-col md:flex-row flex-1">
+  <section class="w-full overflow-auto py-4">
+    <app-repositorio-lista></app-repositorio-lista>
+  </section>
+</main>
+
+<footer class="bg-blue-900">
+  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-white sm:text-center"
+        >Feito com o <fa-icon icon="heart" /> por Guilherme Carmona
+      </span>
+      <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+        <a
+          href="https://www.linkedin.com/in/guilherme-carmona-abb02b239/"
+          target="_blank" class="text-gray-300 hover:text-gray-900 dark:hover:text-white"
+        >
+          <fa-icon [icon]="['fab', 'linkedin']" />
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <a
+          href="https://github.com/imkarmona" target="_blank"
+          class="text-gray-300 hover:text-gray-900 dark:hover:text-white"
+        >
+          <fa-icon [icon]="['fab', 'github']" />
+          <span class="sr-only">GitHub account</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

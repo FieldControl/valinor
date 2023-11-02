@@ -1,0 +1,144 @@
+<!-- Texto Inicial -->
+<div *ngIf="!searchMade" class="max-w-screen-md mx-auto text-center px-8 py-32">
+  <fa-icon [icon]="['fas', 'code']" class="text-7xl text-gray-700"></fa-icon>
+  <blockquote>
+    <p class="text-2xl italic font-medium text-gray-700">
+      "Explore uma vasta coleção de repositórios de código-fonte de projetos
+      incríveis, compartilhados por desenvolvedores de todo o mundo, e encontre
+      a próxima fonte de inspiração para seus próprios desafios de programação.
+      Comece a sua jornada de descoberta agora mesmo!"
+    </p>
+  </blockquote>
+</div>
+
+<!-- Texto caso não encontre nenhum repositorio -->
+<div
+  *ngIf="totalRepositorios === 0 && searchMade && !isLoading"
+  class="max-w-screen-md mx-auto text-center py-32"
+>
+  <fa-icon [icon]="['fas', 'face-frown']" class="text-7xl text-gray-700"></fa-icon>
+  <blockquote>
+    <p class="text-2xl italic font-medium text-gray-700">
+      Desculpe, não encontramos nenhum repositório correspondente à sua
+      pesquisa. Tente novamente com palavras-chave diferentes ou verifique a
+      ortografia.
+    </p>
+  </blockquote>
+</div>
+
+<!-- Placeholder de carregamento -->
+<div *ngIf="isLoading">
+  <div
+    *ngFor="let item of repetirItems; let i = index"
+    class="flex p-2 flex-col w-5/6 mx-auto animate-pulse"
+  >
+    <div
+      class="relative w-full flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg py-3 flex-auto border border-white bg-white"
+    >
+      <div class="w-full md:w-1/4 grid place-items-center">
+        <div
+          class="rounded-xl bg-gray-500 h-24 w-24 md:h-32 md:w-32 object-cover"
+        ></div>
+      </div>
+      <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
+        <div class="flex justify-between item-center">
+          <div class="h-3 bg-gray-500 rounded w-3/4 md:w-1/6"></div>
+          <div class="flex items-center gap-2">
+            <div class="h-4 bg-gray-500 rounded w-full"></div>
+          </div>
+        </div>
+        <div class="h-4 bg-gray-500 w-1/6 rounded"></div>
+        <div class="h-3 bg-gray-500 w-1/4 rounded"></div>
+        <div class="h-3 bg-gray-500 rounded w-full md:w-1/2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loop para listar repositórios -->
+<div
+  *ngFor="let repositorio of repositorios"
+  class="flex p-2 flex-col w-5/6 mx-auto"
+>
+  <div
+    class="relative w-full flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg py-3 flex-auto border border-white bg-white"
+  >
+    <div class="w-full md:w-1/4 bg-white grid place-items-center">
+      <img
+        src="{{ repositorio.owner.avatar_url }}"
+        alt="tailwind logo"
+        class="rounded-xl h-24 w-24 md:h-32 md:w-32 object-cover"
+      />
+    </div>
+    <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
+      <div class="flex justify-between item-center">
+        <p class="text-gray-500 font-medium hidden md:block">
+          <a href="{{ repositorio.owner.html_url }}" target="_blank">{{
+            repositorio.owner.login
+          }}</a>
+        </p>
+        <div class="flex items-center gap-2">
+          <fa-icon class="text-gray-600" icon="star"></fa-icon>
+          <p class="text-gray-600 font-bold text-sm">
+            {{ repositorio.stargazers_count | numeroCurto }}
+          </p>
+          <fa-icon class="text-gray-600" icon="eye"></fa-icon>
+          <p class="text-gray-600 font-bold text-sm">
+            {{ repositorio.watchers_count | numeroCurto }}
+            <span class="text-gray-500 font-normal">watchers</span>
+          </p>
+          <div class="flex flex-row">
+            <fa-icon class="text-gray-600" icon="exclamation-circle"></fa-icon>
+            <p class="text-gray-600 font-bold ml-2 text-sm">
+              {{ repositorio.open_issues_count | numeroCurto }}
+              <span class="text-gray-500 font-normal">open issues</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <h3 class="font-black text-gray-800 text-lg md:text-xl">
+        <a href="{{ repositorio.html_url }}" target="_blank">{{
+          repositorio.name
+        }}</a>
+      </h3>
+      <p class="text-gray-500 text-sm md:text-base">
+        {{ repositorio.description }}
+      </p>
+      <div
+        *ngIf="repositorio.language != null"
+        class="hidden justify-between md:block"
+      >
+        <span
+          class="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 inline-block"
+        >
+          {{ repositorio.language }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navegação de páginas e informações -->
+<div class="flex flex-col items-center p-4" *ngIf="totalRepositorios > 10">
+  <span class="text-sm text-gray-700">
+    Exibindo
+    <span class="font-semibold text-gray-900">{{
+      totalRepositorios | numeroCurto
+    }}</span>
+    repositorios
+  </span>
+  <div class="inline-flex mt-2 xs:mt-0">
+    <button
+      (click)="onPrevPage()"
+      class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-blue-500 hover:bg-blue-800 border-blue-700 rounded-l"
+    >
+      Anterior
+    </button>
+    <button
+      (click)="onNextPage()"
+      class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-blue-500 hover-bg-blue-800 border-0 border-l border-blue-700 rounded-r"
+    >
+      Próximo
+    </button>
+  </div>
+</div>
