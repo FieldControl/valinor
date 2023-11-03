@@ -1,0 +1,22 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <main>
+        <img class="github-favico" src="../../../assets/github-icon.png">
+        <div (click)="clickedButton($event)" class="search-bar">
+            <span class="material-symbols-outlined">search</span>
+            <span class="input-tag">Search...</span>
+            <div class="modal-input modal-hidden" id="mdl">
+                <div class="modal-box">
+                    <div class="modal-grid-layer">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" id="input-text" [(ngModel)]="searchTextValue" (input)="shareText()">
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </main>
+</body>

@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+.dot-selected {
+    color: #0f0;
+}
+
+.pg-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 5px;
+    padding: 10px;
+    user-select: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.intern-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 25px;
+}
+
+.intern-container .pg-elements {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 10px;
+    padding: 5px;
+}
+
+.intern-container .pg-elements td {
+    display: grid;
+    grid-auto-rows: 2;
+    font-size: 14px;
+}
+
+.intern-container .triple-dot {
+    align-items: center !important;
+    align-content: center !important;
+    margin-top: 5px;
+}
+
+.intern-container .col {
+    cursor: pointer;
+    background-color: #20202088;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.intern-container .button {
+    border-radius: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.intern-container .col:hover {
+    background-color: #000000F0;
+}
+
+.intern-container .col:hover > .dot-selected {
+    color: aquamarine !important;
+}
+
+.intern-container .col:hover > .col-dot {
+    color: yellow;
+}

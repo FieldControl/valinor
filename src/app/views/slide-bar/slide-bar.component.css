@@ -1,0 +1,120 @@
+main {
+    background-color: black;
+    color: #fff;
+    width: auto;
+    height: 100%;
+    min-height: 93.8vh;
+    scroll-behavior: smooth;
+    overflow-wrap: normal;
+    overflow-x: hidden;
+}
+
+.filter-title {
+    font-style: normal;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-variant: small-caps;
+}
+
+.filter-label {
+    font-style: normal;
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #9f9f9f;
+}
+
+section[class^="filter-list"] {
+    margin: 8px;
+    width: auto;
+}
+
+h1 {
+    padding: 0.8em;
+}
+
+section {
+    background-color: #000020;
+    width: 100%;
+    min-height: 250px;
+    padding: 2px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #4f4f4f;
+}
+
+.filter-list:hover {
+    box-shadow: 0 0 1px 0px #fff;
+}
+
+.filter-list ul, ol, li, a {
+    text-decoration: none;
+    text-overflow: clip;
+    text-align: left;
+    list-style-type: none;
+}
+
+ul .row {
+    display: grid;
+    grid-column: 3;
+    grid-template-columns: 15% 65% 20%;
+    grid-auto-rows: max-content;
+    grid-area: auto;
+    grid-auto-flow: dense;
+    grid-row: 0;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+}
+
+.filter-list .row td {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    font-weight: 600;
+}
+
+.filter-list .row:hover {
+    transition: .2s;
+    background-color: #555;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 10px;
+    
+}
+
+.icon-item {padding: 5px;}
+
+.item-selected {
+    transition: 0.4s;
+    border-left: 4px solid #8f8fFF;
+}
+
+.row td span {font-size: 20px}
+
+.title-item {
+    padding: 5px;
+    letter-spacing: 3px;
+    word-spacing: 1px;
+    font-family: 'Playfair Display', serif !important;
+}
+
+.resolved-count {
+    background-color: #7f7f9f9F;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    margin: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 90%;
+    opacity: 0.6;
+}
+
+.resolved-count:hover {
+    background-color: #70708f;
+    opacity: 1;
+}
+
+
+/* Use only on components inside slide bar that not implemented yet */
+.filter-list .not-done-yet {
+    background-color: rgba(155, 50, 50, 0.3) !important;
+}

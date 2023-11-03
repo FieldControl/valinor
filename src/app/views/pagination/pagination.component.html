@@ -1,0 +1,24 @@
+<div class="pg-container">
+    <div class="intern-container">        
+        <ul class="pg-elements">
+            <li class="col">
+                <td><</td><td class="button" (click)="previousPage()">Prev</td>
+            </li>
+            <li class="col" (click)="goToPage(1)">
+                <td class="col-dot dot-selected">•</td><td class="col-page-number">1</td>
+            </li>
+            <li class="col" (click)="goToPage(2)">
+                <td class="col-dot">•</td><td class="col-page-number">2</td>
+            </li>
+            <li class="col" (click)="goToPage(3)">
+                <td class="col-dot">•</td><td class="col-page-number">3</td>
+            </li>
+            <li class="col">
+                <td class="triple-dot">...</td>
+            </li>
+            <li class="col">
+                <td>></td><td class="button" (click)="nextPage()">Next</td>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+main {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-basis: content;
+    height: auto;
+    min-height: 80px;
+}
+
+.github-favico {
+    padding: 10px 10px;
+    width: 70px;
+    border-radius: 20px;
+    opacity: 70%;
+}
+
+.github-favico:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.search-bar {
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    margin-right: 10px;
+    width: 95%;
+    height: auto;
+    border: 1px solid #4f4f4f;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px;
+}
+
+.search-bar:hover {
+    box-shadow: 0 0 2px 0px #fff;
+    animation-duration: 400ms;
+}
+
+.material-symbols-outlined {
+    color: #fff;
+    margin-top: 8px;
+}
+
+.input-tag {
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    font-weight: 800;
+    margin-top: 12px;
+    font-variant: small-caps;
+}
+
+span {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.modal-input {
+    position: relative;
+    top: -10px;
+    left: -130px;
+    width: 100%;
+    cursor: default;
+    
+}
+
+.modal-box {
+    position: absolute;
+    display: flex;
+    width: calc(100% + 135px);
+    height: 300px;
+    background-color: #4f4f4fFF;
+    z-index: 99999;
+    border-radius: 5px;
+}
+
+.modal-grid-layer {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 80px auto;
+    width: inherit;
+    height: 58px;
+    background-color: #9f9f9fFF;
+}
+
+.modal-grid-layer span:first-of-type {
+    border: none;
+    font-size: 26px;
+    text-align: center;
+    border-right: 2px solid #40404070;
+    padding: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    text-shadow: -3px 1px 4px #444;
+}
+.modal-grid-layer span:first-of-type:hover {
+    color: #4F4F4F7F;
+}
+
+.modal-grid-layer span:first-of-type:active {
+    text-shadow: 0px 0px 4px #000;
+}
+
+.modal-grid-layer input[type='text'] {
+    padding-left: 16px;
+    background: none;
+    border: none;
+    color: #222;
+    font-size: medium;
+}
+
+.modal-grid-layer input[type='text'] {
+    outline: none;
+    outline-offset: none;
+}
+
+.modal-hidden {
+    display: none;
+}
+
+.modal-show {
+    display: inherit;
+}

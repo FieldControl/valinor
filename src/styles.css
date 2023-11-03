@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* 
+    Google Fonts - To Use:
+    
+    font-family: 'Permanent Marker', cursive; 
+    font-family: Agbalumo, cursive;
+    font-family: 'Edu Tas Beginner', cursive;
+    font-family: 'Playfair Display', serif;
+*/

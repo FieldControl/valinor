@@ -1,0 +1,164 @@
+main {
+    background-color: #101010;
+    color: #fff;
+    height: auto;
+    width: auto;
+    padding: 0.8em;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 5px;
+    margin: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-place {
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+    padding-bottom: 25px;
+}
+
+.found-results {
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #8f808f;
+    font-variant: small-caps;
+}
+
+section {
+    user-select: text;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0 6px 1px #303030;
+    border-radius: 8px;
+    padding: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+}
+
+.card-container {
+    width: 100%;
+    box-shadow: 0 0 12px 0px #80808080;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 6% 1%;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 100%;
+    border-bottom: 1px solid #30303f;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.card-header .title {
+    margin-top: 2px;
+    font-weight: 400;
+    font-size: larger;
+    word-spacing: 8px;
+    font-family: Agbalumo, sans-serif;
+}
+
+.card-header .descriptor {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    align-items: right;
+    align-content: center;
+}
+
+.card-header .descriptor .update-time {
+    padding-top: 12px;
+    text-align: right;
+    padding-right: 18px;
+}
+
+.card-header .descriptor .content-principal-star {
+    padding-left: 10px;
+}
+
+.card-header .descriptor .content-principal-star .star {
+    color: #ff0;
+    padding-right: 5px;
+    margin-left: -2px;
+    font-size: 18px;
+}
+
+.card-header .principal-lang {
+    font-family: 'Permanent Marker', cursive;
+    font-size: small;
+}
+
+.card-header .principal-lang:hover {
+    color: #ff0;
+    cursor: pointer;
+}
+
+.card-body {
+    padding: 20px 0 20px 8px;
+    border-bottom: 1px solid #30303f;
+    margin-bottom: 12px;
+}
+
+.card-footer {
+    margin: 15px;
+    font-family: 'Edu Tas Beginner', cursive;
+    font-size: small;
+}
+
+.card-footer .topics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.8vw;
+}
+
+.card-footer .topics .topic-item {
+    box-shadow: 0 0 8px 0px #0f0;
+    background-color: #232e5f;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    user-select: none;
+}
+
+.card-footer .topics .topic-item:hover {
+    box-shadow: 0 0 12px 2px #0f0;
+    cursor: pointer;
+    background-color: #232e5f;
+} 
+
+
+@media (max-width: 1388px) {
+    .card-header .descriptor {
+        font-size: 80%;
+    }
+    .card-header {
+        grid-template-columns: 60% 40%;
+    }
+}
+
+@media (max-width: 800px) {
+    .card-header .descriptor {
+        font-size: 70%;
+        display: flex;
+        padding: 25px 0 0px 0;
+    }
+
+    .card-header .descriptor .content-principal-star {
+        display: inline-block;
+    }
+
+    .card-header {
+        display: inline-block;
+    }
+}

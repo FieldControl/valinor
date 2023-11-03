@@ -1,0 +1,46 @@
+<main>
+    <header>
+        <span class="header-place">
+            Repositories : {{search_text}}
+        </span>
+        <span class="found-results">
+            {{found_result_value}} Results found
+        </span>
+    </header>
+    <section>
+        <div class="card-container" *ngFor="let repo of getVisibleRepositories()">
+            <div class="card-header">
+                <div class="title">
+                    {{repo.full_name}}
+                </div>
+                <div class="descriptor">
+                    <div class="update-time">
+                        {{lastUpdateFormat(repo.updated_at)}}
+                    </div>
+                    <div class="content-principal-star">
+                        <div class="content-principal">
+                            <span class="principal-lang">{{repo.language}}</span>
+                        </div>
+                        <div class="content-stars">
+                            <p><span class="star">✩</span>{{starsCountFormatter(repo.stargazers_count)}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="about">
+                    <p id="about-p">{{repo.description}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="topics">
+                    <div class="topic-item" *ngFor="let item of repo.topics">
+                        {{ item }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-pagination [currentPage]="currentPage" (pageChanged)="onPageChange($event)"></app-pagination>
+    </section>
+    
+</main>
