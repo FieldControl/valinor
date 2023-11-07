@@ -1,0 +1,4 @@
+<p>Peso: {{dadosDoPokemon.dadosCompletos?.weight}} Kg</p>
+<p>Altura: {{dadosDoPokemon.dadosCompletos?.height}} m </p>
+<p>Categoria:  <span *ngFor="let type of dadosDoPokemon.dadosCompletos?.types" class="badge rounded-pill cor-{{type.type.name}} ms-2 px-3">{{type.type.name}}</span></p>
+<p>Habilidades: <li *ngFor="let ability of dadosDoPokemon.dadosCompletos?.abilities">{{ability.ability.name}}</li></p>

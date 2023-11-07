@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Poppins:wght@100;200;400&family=Space+Grotesk:wght@500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.titulo-padrao {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.subtitulo-padrao {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+img{
+    object-fit: cover;
+}
+
+.cor-normal{
+    background-color: #A0A0A0;
+}
+
+.cor-fighting{
+    background-color: #172737;
+}
+
+.cor-flying{
+    background-color: #79BCD7;
+}
+
+.cor-poison{
+    background-color: #BE78BE;
+}
+
+.cor-ground{
+    background-color: #CCA142;
+}
+
+.cor-rock{
+    background-color: #A07850;
+}
+
+.cor-bug{
+    background-color: #32B432;
+}
+
+.cor-ghost{
+    background-color: #8C78F0;
+}
+
+.cor-steel{
+    background-color: #96B4DC;
+}
+
+.cor-fire{
+    background-color: #FF3700;
+}
+
+.cor-water{
+    background-color: #0094E5;
+}
+
+.cor-grass{
+    background-color: #9BCC50;
+}
+
+.cor-electric{
+    background-color: #E4B700;
+}
+
+.cor-psychic{
+    background-color: #DC78C8;
+}
+
+.cor-ice{
+    background-color: #00B7EE;
+}
+
+.cor-dragon{
+    background-color: #3C64C8;
+}
+
+.cor-dark{
+    background-color: #646464;
+}
+
+.cor-fairy{
+    background-color: #FF7EB8;
+}
+
+.cor-unknown{
+    background-color: #FFFFFF;
+}
+
+.cor-shadow{
+    background-color: #0000;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
