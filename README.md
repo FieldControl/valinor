@@ -98,7 +98,7 @@ Para compilar o projeto
 - Meu nome é Paulo Eduardo Teixeira de Souza, tenho 29 anos.
 - Sou bacharelado em engenharia da computação pela UNIRP.
 - Nasci em Mirassol, morei em Mirassolândia, atualmente moro em São José do Rio Preto a aproximadamente 4 anos.
-- Trabalho com desenvolvimento Web já há alguns anos, porem hoje sou coordenador da ATM EVs, faço toda a parte de programação em C++, software embarcado e a criação de hardwares para carregadores de carro elétrico, com sistema de cobrança via MQTT e ws.
+- Trabalho com desenvolvimento Web já há alguns anos, porem hoje sou coordenador de uma empresa, faço toda a parte de programação em C++, software embarcado e a criação de hardwares para carregadores de carro elétrico, com sistema de cobrança via MQTT e ws.
 - Tenho conhecimento em "GraphQL, GitHub, GitLab, Git, Node.js, API REST, HTML, CSS, Python, C++, React.js, JavaScript, TypeScript, C# - tive contato na faculdade, Scrum, Metodologias Ageis, React Hooks, Hardwares".
 - Comecei a trabalhar muito cedo, e sempre fui fascinado pela tecnologia, buscando entender como tudo funciona, como foi criado ou até mesmo em soluções que possam de alguma maneira agregar e facilitar processos de outras pessoas.
 - Gosto de estar em constante aprendizagem, pessoal e profissional e também de poder ajudar de alguma maneira outras pessoas com o meu conhecimento.
