@@ -1,0 +1,122 @@
+<div class="breadcrumb">
+  <button routerLink="" class="bt-prev">
+    <i-lucide name="arrow-left" class="icon" size="22"></i-lucide>
+    <span>Voltar</span>
+  </button>
+  <span>Usuário / {{ repo.owner?.login }} / {{ repo.name }}</span>
+</div>
+
+<section class="repo" *ngIf="repo">
+  <app-progress-bar *ngIf="isLoading"></app-progress-bar>
+  <div class="repo-wrap">
+    <div class="about">
+      <div class="info">
+        <p *ngIf="repo.name" class="title">{{ repo.name }}</p>
+        <p *ngIf="repo.description" class="description">
+          {{ repo.description }}
+        </p>
+        <div *ngIf="repo.created_at" class="flex">
+          <i-lucide name="CalendarDays" class="icon" size="22"></i-lucide>
+          <p class="wrap">
+            <span>Criado em:</span>
+            <span>{{ repo.created_at | date : "d MMM, y" }}</span>
+          </p>
+        </div>
+        <div *ngIf="repo.updated_at" class="flex">
+          <i-lucide name="History" class="icon" size="22"></i-lucide>
+          <p class="wrap">
+            <span>Atualizado em:</span>
+            <span>{{ repo.updated_at | date : "d MMM, y" }}</span>
+          </p>
+        </div>
+        <div *ngIf="repo.pushed_at" class="flex">
+          <i-lucide name="ArrowUpFromLine" class="icon" size="22"></i-lucide>
+          <p class="wrap">
+            <span>Push em:</span>
+            <span>{{ repo.pushed_at | date : "d MMM, y" }}</span>
+          </p>
+        </div>
+        <div class="flex topics">
+          <span *ngFor="let topic of repo.topics" class="topic">
+            {{ topic }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="branches wrap" *ngIf="branches$">
+        <h2 class="title">
+          <i-lucide name="GitBranch" size="20" class="icon"></i-lucide>
+          Branches
+          <span class="emphasis">{{ repo.public_repos | number }}</span>
+        </h2>
+        <ul class="list">
+          <li *ngFor="let branche of branches$ | async">
+            <span>{{ branche.name }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="wrap">
+        <p class="wrap-item">
+          <i-lucide name="Star" size="20" class="icon"></i-lucide>
+          <span>Stars</span>
+          <span class="emphasis">{{ repo.watchers }}</span>
+        </p>
+        <p class="wrap-item">
+          <i-lucide name="GitFork" size="20" class="icon"></i-lucide>
+          <span>Forks</span>
+          <span class="emphasis">{{ repo.forks_count }}</span>
+        </p>
+        <p class="wrap-item">
+          <i-lucide name="Eye" size="20" class="icon"></i-lucide>
+          <span>watching</span>
+          <span class="emphasis">{{ repo.subscribers_count }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="followers" *ngIf="repo.followers">
+      <h2 class="title">
+        Seguidores
+        <span class="emphasis">{{ repo.followers | number }}</span>
+      </h2>
+      <ul class="list">
+        <li *ngFor="let contributor of contributors$ | async">
+          <a href="{{ contributor.html_url }}" target="_blank">
+            <img
+              src="{{ contributor.avatar_url }}&s=50"
+              class="avatar"
+              alt="image {{ contributor.login }}"
+            />
+            {{ contributor.login }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="list" *ngIf="collaborators$">
+      <h2 class="title">
+        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        Colaboradores
+      </h2>
+      <ul class="list-loop">
+        <li *ngFor="let collaborator of collaborators$ | async">
+          <a href="{{ collaborator.html_url }}" target="_blank">
+            <img
+              src="{{ collaborator.avatar_url }}&s=50"
+              class="avatar"
+              alt="image {{ collaborator.login }}"
+            />
+            {{ collaborator.login }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <a href="{{ repo.html_url }}" target="_blank">
+    <i-lucide name="ExternalLink" class="icon" size="20"></i-lucide>
+    <span class="description">{{ repo.full_name }}</span>
+  </a>
+</section>
