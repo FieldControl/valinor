@@ -10,24 +10,21 @@ import { environment } from '../../environments/environment';
 export class GetDataApiGitHub {
   private domain = environment.GITHUB_API_URL;
   private key = environment.GITHUB_API_KEY;
-  private query = '?q=';
   private messageSource = new BehaviorSubject([]);
   currentMessage = this.messageSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  getAllUsers = (perPage: number): Observable<any> =>
-    this.http.get<any>(`${this.domain}/users?per_page=${perPage}`, {
+  getDataByTerm = (option: string, term: string, page: number, perPage: number): Observable<any> =>
+    this.http.get<any>(`${this.domain}/search/${option}`, {
       headers: new HttpHeaders({
         Authorization: `token ${this.key}`,
       }),
-    });
-
-  getUsersByName = (userName: string): Observable<any> =>
-    this.http.get<any>(`${this.domain}/search/users${this.query}${userName}`, {
-      headers: new HttpHeaders({
-        Authorization: `token ${this.key}`,
-      }),
+      params: {
+        q: term,
+        page: page,
+        per_page: perPage.toString(),
+      }
     });
 
   getUserDetails = (userName: string): Observable<any> =>
@@ -37,7 +34,14 @@ export class GetDataApiGitHub {
       }),
     });
 
-  getUserByURL = (url: string): Observable<any> =>
+  getRepoDetails = (repoName: string): Observable<any> =>
+    this.http.get<any>(`${this.domain}/repos/${repoName}`, {
+      headers: new HttpHeaders({
+        Authorization: `token ${this.key}`,
+      }),
+    });
+
+  getDataByURL = (url: string): Observable<any> =>
     this.http.get<any>(url, {
       headers: new HttpHeaders({
         Authorization: `token ${this.key}`,
