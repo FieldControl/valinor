@@ -1,11 +1,31 @@
-import { Component, NgModule } from '@angular/core';
-import { LucideAngularModule, File, Home, Menu, UserCheck } from 'lucide-angular';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css'],
+  styleUrls: ['./card.component.css']
 })
 
-export class CardComponent { }
+export class CardComponent implements OnInit {
+  @Input() data: any = '';
+  @Input() option: string = '';
+
+  description: string = '';
+  urlRepo: string = '';
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+
+    this.description = this.data.login || 'Usuário: ' + this.data.full_name?.split('/')[0];
+    this.urlRepo = this.data.owner ? this.data.owner?.login : this.data.login;
+
+  }
+
+  navigateTo(name: string) {
+    let path = this.option === 'repositories' ? this.urlRepo : '/usuario/';
+    this.router.navigate([path, name]);
+  }
+
+}
