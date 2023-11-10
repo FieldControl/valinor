@@ -1,20 +1,91 @@
-<p>user works!</p>
 <div class="breadcrumb">
   <button routerLink="" class="bt-prev">
     <i-lucide name="arrow-left" class="icon" size="22"></i-lucide>
     <span>Voltar</span>
   </button>
-  <span>Algum conteúdo</span>
+  <span>Usuário / {{ user.name }}</span>
 </div>
 
-<section class="perfil">
+<section class="perfil" *ngIf="user">
+  <app-progress-bar *ngIf="isLoading"></app-progress-bar>
   <div class="about">
     <div class="avatar">
-      <img src="oi" alt="Avatar" />
+      <img src="{{ user.avatar_url }}" alt="Avatar" />
     </div>
     <div class="info">
-      <p class="title">Maya Comunicação</p>
-      <span class="description">16 anos não são 16 dias!</span>
+      <p *ngIf="user.name" class="title">{{ user.name }}</p>
+      <a href="{{ user.html_url }}" target="_blank">
+        <i-lucide name="ExternalLink" class="icon" size="20"></i-lucide>
+        <span class="description">{{ user.login }}</span>
+      </a>
+      <p *ngIf="user.bio">{{ user.bio }}</p>
+      <span *ngIf="user.location">
+        <i-lucide name="MapPin" class="icon" size="22"></i-lucide>
+        {{ user.location }}</span
+      >
+      <p *ngIf="user.created_at">
+        <i-lucide name="CalendarDays" class="icon" size="22"></i-lucide>
+        <span>{{ user.created_at | date : "d MMM, y" }}</span>
+      </p>
+      <a
+        *ngIf="user.twitter_username"
+        href="https://twitter.com/{{ user.twitter_username }}"
+        target="_blank"
+      >
+        <img
+          class="icon-twitter"
+          src="../../../assets/img/twitter.svg"
+          alt="Icon Twitter"
+        />
+        {{ user.twitter_username }}</a
+      >
     </div>
+  </div>
+  <div class="repositories" *ngIf="user.public_repos">
+    <h2 class="title">
+      Repositórios
+      <span class="emphasis">{{ user.public_repos | number }}</span>
+    </h2>
+    <ul class="list">
+      <li *ngFor="let repo of repos$ | async">
+        <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="followers" *ngIf="user.followers">
+    <h2 class="title">
+      Seguidores
+      <span class="emphasis">{{ user.followers | number }}</span>
+    </h2>
+    <ul class="list">
+      <li *ngFor="let follower of followers$ | async">
+        <a href="{{ follower.html_url }}" target="_blank">
+          <img
+            src="{{ follower.avatar_url }}&s=50"
+            class="avatar"
+            alt="image {{ follower.login }}"
+          />
+          {{ follower.login }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="following" *ngIf="user.following">
+    <h2 class="title">
+      Seguindo
+      <span class="emphasis">{{ user.following | number }}</span>
+    </h2>
+    <ul class="list">
+      <li *ngFor="let following of following$ | async">
+        <a href="{{ following.html_url }}" target="_blank">
+          <img
+            src="{{ following.avatar_url }}&s=50"
+            class="avatar"
+            alt="image {{ following.login }}"
+          />
+          {{ following.login }}
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
