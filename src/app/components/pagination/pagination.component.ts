@@ -7,13 +7,18 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class PaginationComponent {
-  currentPage: number = 1;
+  @Input() currentPage: number = 1;
   @Input() perPage: number = 12;
   @Input() totalPages: number;
   @Output() pageChange = new EventEmitter<number>();
 
+
   constructor() {
-    this.totalPages = Math.ceil(100 / this.perPage);
+    this.totalPages = Math.ceil(1000 / this.perPage);
+  }
+
+  public scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /*-- Fetch previous page data --*/
@@ -42,10 +47,6 @@ export class PaginationComponent {
   lastPage() {
     this.pageChange.emit(this.currentPage = this.totalPages);
     this.scrollTop()
-  }
-
-  scrollTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
 }
