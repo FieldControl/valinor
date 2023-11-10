@@ -71,6 +71,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     document.removeEventListener('click', this.onClickOutside.bind(this));
   }
 
+  /*-- Function responsible for calling the API consumption service --*/
   search() {
     this.isLoading = true;
     return combineLatest([
@@ -110,11 +111,13 @@ export class SearchComponent implements OnInit, OnDestroy {
     );
   }
 
+  /*-- Function responsible for opening and closing the modal with the number of pages --*/
   OpenModal(e: Event): void {
     e.stopPropagation()
     this.openModal = !this.openModal
   }
 
+  /*-- Function responsible for closing the modal on external clicks --*/
   onClickOutside(event: any) {
     const modalContainer = document.querySelector('.search-filter');
 
@@ -123,6 +126,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
   }
 
+  /*-- Function responsible for getting the value of the number of pages to be displayed --*/
   getOption(value: number) {
     this.perPage = value;
     this.perPageField.setValue(this.perPage);
