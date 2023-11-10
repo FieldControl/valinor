@@ -1,27 +1,61 @@
-<button class="card" type="button">
-  <div class="card-about">
-    <div class="card-avatar">
-      <img
-        src="../../../assets/img/github-mark/github-mark-white.svg"
-        alt="Avatar"
-      />
+<div class="card">
+  <button
+    class="card-button"
+    type="button"
+    (click)="navigateTo(data.login || data.name)"
+  >
+    <div class="card-about">
+      <div class="card-avatar" *ngIf="data.avatar_url">
+        <img src="{{ data.avatar_url }}" alt="Avatar" />
+      </div>
+      <div class="card-info">
+        <h1 class="card-title">{{ data.name }}</h1>
+        <span class="card-description">
+          {{ description }}
+        </span>
+      </div>
     </div>
-    <div class="card-info">
-      <p class="card-title">Maya Comunicação</p>
-      <span class="card-description">16 anos não são 16 dias!</span>
+    <div class="card-content">
+      <p *ngIf="option === 'repositories'">
+        <i-lucide name="Star" size="20" class="icon"></i-lucide>
+        <span>Stars</span>
+        <span class="emphasis">{{ data.watchers }}</span>
+      </p>
+      <p *ngIf="option === 'users'">
+        <i-lucide name="book-marked" size="20" class="icon"></i-lucide>
+        <span>Repositórios</span>
+        <span class="emphasis">{{ data.public_repos }}</span>
+      </p>
+
+      <p *ngIf="option === 'repositories'">
+        <i-lucide name="GitFork" size="20" class="icon"></i-lucide>
+        <span>Forks</span>
+        <span class="emphasis">{{ data.forks_count }}</span>
+      </p>
+      <p *ngIf="option === 'users'">
+        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        <span>Seguidores</span>
+        <span class="emphasis">{{ data.followers }}</span>
+      </p>
+
+      <p *ngIf="option === 'repositories'">
+        <i-lucide name="Eye" size="20" class="icon"></i-lucide>
+        <span>Watching</span>
+        <span class="emphasis">{{ data.subscribers_count }}</span>
+      </p>
+      <p *ngIf="option === 'users'">
+        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        <span>Seguindo</span>
+        <span class="emphasis">{{ data.following }}</span>
+      </p>
     </div>
+  </button>
+  <div class="card-icons">
+    <a href="{{ data.html_url }}" target="_blank">
+      <i-lucide name="ExternalLink" class="card-icon" size="22"></i-lucide>
+    </a>
+    <button>
+      <i-lucide name="MoreVertical" class="card-icon" size="22"></i-lucide>
+    </button>
   </div>
-  <div class="card-content">
-    <p>data 1</p>
-    <p>data 2</p>
-    <p>data 3</p>
-    <div class="card-icons">
-      <button>
-        <i-lucide name="ExternalLink" class="card-icon" size="22"></i-lucide>
-      </button>
-      <button>
-        <i-lucide name="MoreVertical" class="card-icon" size="22"></i-lucide>
-      </button>
-    </div>
-  </div>
-</button>
+</div>
