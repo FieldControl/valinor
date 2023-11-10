@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  title = 'search-repo-github';
+export class AppComponent implements OnInit {
+
+  url: string = '';
+  constructor(location: Location) {
+    this.url = location.path();
+  }
+
+  ngOnInit(): void { }
+
 }
