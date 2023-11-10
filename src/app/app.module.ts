@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import localePT from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -11,13 +13,11 @@ import { SearchComponent } from './components/search/search.component';
 import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { UserComponent } from './components/user/user.component';
-import localePT from '@angular/common/locales/pt';
-import { LucideAngularModule, MoreVertical, ChevronDown, ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight, ExternalLink, ArrowLeft, BookMarked, Users2, Star, MapPin, CalendarDays, Eye, Stars, GitFork, ArrowUpFromLine, History, GitBranch } from 'lucide-angular';
-
-import { registerLocaleData } from '@angular/common';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { RepositoryComponent } from './components/repository/repository.component';
+import { LucideAngularModule, MoreVertical, ChevronDown, ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight, ExternalLink, ArrowLeft, BookMarked, Users2, Star, MapPin, CalendarDays, Eye, Stars, GitFork, ArrowUpFromLine, History, GitBranch } from 'lucide-angular';
+
 registerLocaleData(localePT);
 
 @NgModule({
