@@ -1,0 +1,121 @@
+.search-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+  /* background-color: var(--color-blue); */
+  /* border-radius: 16px; */
+  padding: 26px 0;
+  position: relative;
+  z-index: 9;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 22px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.buttons .button {
+  padding: 8px;
+  border: 1px solid var(--border-primary);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  width: 50%;
+  text-align: center;
+}
+
+.buttons .button input {
+  width: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.buttons .button.active {
+  background-color: var(--color-blue);
+  border: 0;
+}
+
+.search-input,
+.search-select {
+  background-color: transparent;
+  border: 1px solid;
+  border-color: var(--border-primary);
+  color: var(--color-text);
+}
+
+.search-input {
+  width: 100%;
+  min-width: 400px;
+}
+
+.search-select {
+  margin-left: 6px;
+  position: relative;
+  border-radius: 0.75rem;
+}
+
+.search-select .search-icon {
+  transform: rotate(0);
+  transition: all 0.2s ease-in-out;
+}
+
+.search-select.active .search-icon {
+  transform: rotate(180deg);
+}
+
+.search-modal {
+  position: absolute;
+  top: 23px;
+  left: -1px;
+  z-index: 99;
+  transform: translateY(-25%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.18s ease-in-out;
+  padding: 14px;
+  background-color: transparent;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: var(--border-primary);
+  color: var(--color-input-default);
+  border-radius: 0 0 0.45rem 0.45rem;
+  box-shadow: var(--box-shadow);
+  min-width: 92px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.search-modal button {
+  text-align: left;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+}
+
+.search-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  min-width: 90px;
+}
+
+.search-modal-open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  background-color: var(--color-black-primary);
+}

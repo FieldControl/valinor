@@ -4,6 +4,7 @@ footer {
   align-items: center;
 }
 
-.wrap {
-  padding: 40px 0;
+.text {
+  padding: 40px 0 20px 0;
+  color: var(--color-text-secondary);
 }

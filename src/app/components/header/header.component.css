@@ -1,9 +1,25 @@
-header{
+.wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 40px 0 0;
 }
 
-.wrap{
-  padding:  40px 0;
+.wrap .title {
+  font-size: 1.4rem;
+  margin-top: 40px;
+}
+
+.wrap .description {
+  text-align: center;
+  width: 46%;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 1530) {
+  .wrap .description {
+    font-size: 1.1rem;
+  }
 }
