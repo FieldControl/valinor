@@ -2,11 +2,11 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  var [name, setName] = useState()
   return (
     <>
     <h1 className='text text-primary'>GitHub Repositórios</h1>
       <input type="text" className='form-control' placeholder='' id="" />
+
       <input type="submit" className='btn btn-primary' value="Pesquisar" />
 
     </>
