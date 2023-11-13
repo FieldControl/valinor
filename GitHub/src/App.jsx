@@ -17,7 +17,7 @@ function App() {
       <div id='app'>
         <h1 className='text text-primary'>GitHub Repositórios</h1>
 
-        <input type="text" className='form-control' placeholder='Pesquisar repositórios' />
+        <input type="text" className='form-control' placeholder='Pesquisar repositórios' onChange={handChanger} />
 
         <input type="button" className='btn btn-primary' onClick={handleClick} value="Pesquisar" />
       </div>
