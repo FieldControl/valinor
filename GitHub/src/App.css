@@ -11,11 +11,15 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#container{
+  margin: 0 auto;
+  background-color: white;
+  width: 80vw;
+  height: 200px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: 2px solid blue;
+  box-sizing: border-box;
 }
 #app{
   margin-top: 50px;
