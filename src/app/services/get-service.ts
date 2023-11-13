@@ -9,7 +9,6 @@ import { environment } from '../../environments/environment';
 
 export class GetDataApiGitHub {
   private domain = environment.GITHUB_API_URL;
-  private key = environment.GITHUB_API_KEY;
   private messageSource = new BehaviorSubject([]);
   currentMessage = this.messageSource.asObservable();
 
@@ -17,9 +16,6 @@ export class GetDataApiGitHub {
 
   getDataByTerm = (option: string, term: string, page: number, perPage: number): Observable<any> =>
     this.http.get<any>(`${this.domain}/search/${option}`, {
-      headers: new HttpHeaders({
-        Authorization: `token ${this.key}`,
-      }),
       params: {
         q: term,
         page: page,
@@ -27,26 +23,11 @@ export class GetDataApiGitHub {
       }
     });
 
-  getUserDetails = (userName: string): Observable<any> =>
-    this.http.get<any>(`${this.domain}/users/${userName}`, {
-      headers: new HttpHeaders({
-        Authorization: `token ${this.key}`,
-      }),
-    });
+  getUserDetails = (userName: string): Observable<any> => this.http.get<any>(`${this.domain}/users/${userName}`);
 
-  getRepoDetails = (repoName: string): Observable<any> =>
-    this.http.get<any>(`${this.domain}/repos/${repoName}`, {
-      headers: new HttpHeaders({
-        Authorization: `token ${this.key}`,
-      }),
-    });
+  getRepoDetails = (repoName: string): Observable<any> => this.http.get<any>(`${this.domain}/repos/${repoName}`);
 
-  getDataByURL = (url: string): Observable<any> =>
-    this.http.get<any>(url, {
-      headers: new HttpHeaders({
-        Authorization: `token ${this.key}`,
-      }),
-    });
+  getDataByURL = (url: string): Observable<any> => this.http.get<any>(url);
 
   changeMessage(message: any): void {
     this.messageSource.next(message);
