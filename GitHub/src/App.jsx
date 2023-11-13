@@ -2,12 +2,26 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [nome, setNome] = useState("")
+
+  const handChanger = event => {
+    setNome(event.target.value)
+  }
+
+  const handleClick = () => {
+    window.alert(setNome)
+  }
   return (
     <>
-    <h1 className='text text-primary'>GitHub Repositórios</h1>
-      <input type="text" className='form-control' placeholder='' id="" />
 
-      <input type="submit" className='btn btn-primary' value="Pesquisar" />
+      <div id='app'>
+        <h1 className='text text-primary'>GitHub Repositórios</h1>
+
+        <input type="text" className='form-control' placeholder='Pesquisar repositórios' />
+
+        <input type="button" className='btn btn-primary' onClick={handleClick} value="Pesquisar" />
+      </div>
+
 
     </>
   )
