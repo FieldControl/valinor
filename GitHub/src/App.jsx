@@ -6,10 +6,29 @@ function App() {
 
   const handChanger = event => {
     setNome(event.target.value)
+
   }
 
   const handleClick = () => {
-    window.alert(setNome)
+    var originalNome = nome.split(" ").join("")
+
+    fetch("https://api.github.com/search/repositories?q=" + originalNome)
+
+    .then(response =>{
+      if (!response.ok) {
+        window.alert(`Erro na requisição: ${response.status}`)
+      }
+
+      return response.json()
+    })
+    .then(data => {
+      window.alert("a")
+      console.log(data)
+
+      var nomeCompleto = data.items[0].full_name
+      console.log(`Nome: ${nomeCompleto}\n`)
+    })
+
   }
   return (
     <>
