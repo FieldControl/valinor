@@ -19,8 +19,6 @@
     "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
     "@types/node": "^20.9.0",
-    "dotenv": "^16.3.1",
-    "lucide-angular": "^0.292.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
