@@ -1,3 +1,13 @@
+![Static Badge](https://img.shields.io/badge/React.js-o?logo=react&color=%230080ff)
+![Static Badge](https://img.shields.io/badge/trap-0?style=flat&logo=bootstrap&logoColor=%23b300ff&label=Boots&labelColor=white&color=%23b300ff)
+![Static Badge](https://img.shields.io/badge/Javascript-o?logo=javascript&logoColor=black&color=%23ffe100)
+![Static Badge](https://img.shields.io/badge/HTML-o?style=flat&logo=html5&logoColor=%23d93e29&color=%23e6e6e6&link=https%3A%2F%2Fgithub.com%2FFelipeKauanG%3Ftab%3Drepositories)
+![Static Badge](https://img.shields.io/badge/CSS-o?style=flat&logo=css3&logoColor=%23296ad9&color=%23e6e6e6&link=https%3A%2F%2Fgithub.com%2FFelipeKauanG%3Ftab%3Drepositories)
+
+
+
+
+
 # Documentação GitHub Challenge - Field
 
 ## Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
