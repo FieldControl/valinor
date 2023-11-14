@@ -20,6 +20,18 @@
   vertical-align: middle;
   text-align: center;
 }
+#container span p{
+  user-select: text;
+}
+#container span{
+  color: white;
+}
+#container span p:hover{
+  cursor: text;
+}
+#container span a p:hover{
+  cursor: pointer;
+}
 .material-symbols-outlined{
   color: white;
 }

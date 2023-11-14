@@ -48,12 +48,25 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+#resultados{
+  margin-top: 10px;
+  margin-bottom: 200px;
+}
+
 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+::-webkit-scrollbar{
+  background-color: #272727;
+  width: 20px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #0D6EFD;
+  border-radius: 50px;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
