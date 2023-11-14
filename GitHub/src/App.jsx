@@ -36,14 +36,14 @@ function App() {
       .then(data => {
 
         var container = document.getElementById("container")
-
+        container.innerHTML = ""
         for (let i = 0; i < 30; i++) {
           var nomeCompleto = data.items[i].full_name
           var desc = data.items[i].description
           if (desc == null){
             desc = "Sem descrição"
           }
-          
+
           var forks = data.items[i].forks_count
           var estrelas = data.items[i].stargazers_count
           var upload = data.items[i].updated_at
