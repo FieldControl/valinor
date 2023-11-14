@@ -21,10 +21,13 @@ export class ListComponent implements OnInit {
   currentPage: number = 1;
 
   constructor(private listDataService: GetDataApiGitHub) {
+    /*-- GitHub API limits 1000 items per query --*/
     this.totalPages = Math.ceil(1000 / this.perPage);
   }
 
   ngOnInit(): void {
+
+    /*-- Function responsible for taking data from the observer and populating the array --*/
     this.listDataService.currentMessage.subscribe((res: Array<any>) => {
       const [option, searchText, data, currentPage, perPage] = res;
 
@@ -43,11 +46,14 @@ export class ListComponent implements OnInit {
 
   onPageChange(page: number) {
     this.currentPage = page;
+
+    /*-- Function responsible for inserting data into the observer --*/
     this.getDataApi().subscribe((data: any) => {
       this.listDataService.changeMessage([this.option, this.term, data, this.currentPage, this.perPage] || []);
     });
   }
 
+  /*-- Function responsible for fetching data from the new page --*/
   getDataApi() {
     this.isLoading = true;
     return this.listDataService.getDataByTerm(this.option, this.term, this.currentPage, this.perPage)
