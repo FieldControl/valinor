@@ -148,6 +148,11 @@
   border-radius: 50%;
 }
 
+.followers .title,
+.repositories .title {
+  color: var(--color-text);
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
