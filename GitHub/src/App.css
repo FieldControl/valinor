@@ -12,13 +12,23 @@
   transition: filter 300ms;
 }
 #container{
-  margin: 0 auto;
-  background-color: white;
-  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
   height: fit-content;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  vertical-align: middle;
+  text-align: center;
+}
+.material-symbols-outlined{
+  color: white;
+}
+#container img{
+  display: flex;
+  justify-content: left;
+  height: 100px;
   border-radius: 5px;
-  margin-top: 20px;
-  box-sizing: border-box;
+  width: 100px;
 }
 #app{
   margin-top: 50px;
