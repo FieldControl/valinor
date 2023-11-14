@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GetDataApiGitHub } from '../../services/get-service';
 import { dataGitHub } from '../../interface';
-import { forkJoin, of } from 'rxjs';
+import { Subscription, forkJoin, of } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
 
 @Component({
@@ -10,7 +10,7 @@ import { mergeMap, switchMap } from 'rxjs/operators';
   styleUrls: ['./list.component.css']
 })
 
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   dataApi: dataGitHub[] = [];
   perPage: number = 12;
@@ -19,6 +19,8 @@ export class ListComponent implements OnInit {
   option: string = '';
   term: string = '';
   currentPage: number = 1;
+  private initialSubscription!: Subscription;
+  private pageSubscription!: Subscription;
 
   constructor(private listDataService: GetDataApiGitHub) {
     /*-- GitHub API limits 1000 items per query --*/
@@ -28,7 +30,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
 
     /*-- Function responsible for taking data from the observer and populating the array --*/
-    this.listDataService.currentMessage.subscribe((res: Array<any>) => {
+    this.initialSubscription = this.listDataService.currentMessage.subscribe((res: Array<any>) => {
       const [option, searchText, data, currentPage, perPage] = res;
 
       this.isLoading = true;
@@ -44,11 +46,22 @@ export class ListComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    if (this.initialSubscription) {
+      this.initialSubscription.unsubscribe();
+    }
+
+    if (this.pageSubscription) {
+      this.pageSubscription.unsubscribe();
+    }
+  }
+
+  /*-- Function responsible for taking the current page and fetching the data --*/
   onPageChange(page: number) {
     this.currentPage = page;
 
-    /*-- Function responsible for inserting data into the observer --*/
-    this.getDataApi().subscribe((data: any) => {
+    /*-- Function responsible for inserting data into the observer according to the pagination --*/
+    this.pageSubscription = this.getDataApi().subscribe((data: any) => {
       this.listDataService.changeMessage([this.option, this.term, data, this.currentPage, this.perPage] || []);
     });
   }

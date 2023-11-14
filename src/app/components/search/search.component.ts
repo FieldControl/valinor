@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { forkJoin, of, startWith, combineLatest } from 'rxjs';
+import { forkJoin, of, startWith, combineLatest, Subscription } from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   option: string = 'repositories';
   term: string = 'javascript';
   selectedOptionIndex: number = 0;
+  private subscript!: Subscription;
 
   searchForm: FormGroup
   optionField: FormControl;
@@ -57,7 +58,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     /*-- Function responsible for inserting data into the observer --*/
-    this.search().subscribe((data: any) => {
+    this.subscript = this.search().subscribe((data: any) => {
       let option = this.optionField.value ? this.optionField.value : this.option;
       let term = this.searchField.value ? this.searchField.value : this.term;
       let perPage = this.perPageField.value ? this.perPageField.value : this.perPage;
@@ -70,6 +71,10 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     document.removeEventListener('click', this.onClickOutside.bind(this));
+
+    if (this.subscript) {
+      this.subscript.unsubscribe();
+    }
   }
 
   /*-- Function responsible for calling the API consumption service --*/

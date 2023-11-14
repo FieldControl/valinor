@@ -42,7 +42,9 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscript.unsubscribe();
+    if (this.subscript) {
+      this.subscript.unsubscribe();
+    }
   }
 
 }
