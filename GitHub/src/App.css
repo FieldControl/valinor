@@ -15,10 +15,9 @@
   margin: 0 auto;
   background-color: white;
   width: 80vw;
-  height: 200px;
+  height: fit-content;
   border-radius: 5px;
   margin-top: 20px;
-  border: 2px solid blue;
   box-sizing: border-box;
 }
 #app{
