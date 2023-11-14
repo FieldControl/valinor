@@ -106,14 +106,11 @@ function App() {
         <form>
           <input type="text" required="True" className='form-control' placeholder='Pesquisar repositórios' onChange={handleChanger} />
           <input type="button" className='btn btn-primary' onClick={handleClick} value="Pesquisar" />
-          <br />
-          <div className='btn btn-danger' id="resultados"></div>
         <br />
         </form>
         <br />
         
         <div className='btn btn-primary' id="container"></div>
-        
       </div>
     </>
   )
