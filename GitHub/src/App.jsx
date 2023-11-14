@@ -65,15 +65,20 @@ function App() {
           var forks = data.items[i].forks_count
           var estrelas = data.items[i].stargazers_count
           var upload = data.items[i].updated_at
+
           var foto = data.items[i].owner.avatar_url
           var link = data.items[i].html_url
           var novaDiv = document.createElement("div")
+          var ano = upload.slice(0, 4)
+          var mes = upload.slice(5, 7)
+          var dia = upload.slice(8, 10)
+          var dataOri = (`${dia} ${mes} ${ano}`)
           //var res = document.createElement("div")
 
           novaDiv.style.border = "2px solid blue"
           novaDiv.innerHTML = `<img src="${foto}"/>  <span class="material-symbols-outlined">link</span> <span><a target="_blank" href="${link}">
             <p class='btn btn-success'>${nomeCompleto}</p>
-          </a> <br> <p class='btn btn-primary'>${desc}</p><br> <p class='btn btn-primary'>${upload}</p> <br> <span class="material-symbols-outlined">star</span> <span>${estrelas}</span> watchers <br> <span class="material-symbols-outlined">linked_services</span> ${forks} forks </span> `
+          </a> <br> <p class='btn btn-primary'>${desc}</p><br> <p class='btn btn-primary'>${dataOri}</p> <br> <span class="material-symbols-outlined">star</span> <span>${estrelas}</span> watchers <br> <span class="material-symbols-outlined">linked_services</span> ${forks} forks </span> `
           novaDiv.style.color = "black"
           novaDiv.style.marginTop = "40px"
           novaDiv.style.backgroundColor = "#272727"
