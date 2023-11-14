@@ -1,6 +1,6 @@
 <div class="breadcrumb">
   <button routerLink="" class="bt-prev">
-    <i-lucide name="arrow-left" class="icon" size="22"></i-lucide>
+    <ng-icon name="heroArrowLeft" class="icon" size="22"></ng-icon>
     <span>Voltar</span>
   </button>
   <span>Usuário / {{ repo.owner?.login }} / {{ repo.name }}</span>
@@ -16,21 +16,21 @@
           {{ repo.description }}
         </p>
         <div *ngIf="repo.created_at" class="flex">
-          <i-lucide name="CalendarDays" class="icon" size="22"></i-lucide>
+          <ng-icon name="ionCalendarOutline" class="icon" size="22"></ng-icon>
           <p class="wrap">
             <span>Criado em:</span>
             <span>{{ repo.created_at | date : "d MMM, y" }}</span>
           </p>
         </div>
         <div *ngIf="repo.updated_at" class="flex">
-          <i-lucide name="History" class="icon" size="22"></i-lucide>
+          <ng-icon name="ionTimeOutline" class="icon" size="22"></ng-icon>
           <p class="wrap">
             <span>Atualizado em:</span>
             <span>{{ repo.updated_at | date : "d MMM, y" }}</span>
           </p>
         </div>
         <div *ngIf="repo.pushed_at" class="flex">
-          <i-lucide name="ArrowUpFromLine" class="icon" size="22"></i-lucide>
+          <ng-icon name="heroArrowUpTray" class="icon" size="22"></ng-icon>
           <p class="wrap">
             <span>Push em:</span>
             <span>{{ repo.pushed_at | date : "d MMM, y" }}</span>
@@ -47,7 +47,7 @@
     <div>
       <div class="branches wrap" *ngIf="branches$">
         <h2 class="title">
-          <i-lucide name="GitBranch" size="20" class="icon"></i-lucide>
+          <ng-icon name="ionGitMergeOutline" size="20" class="icon"></ng-icon>
           Branches
           <span class="emphasis">{{ repo.public_repos | number }}</span>
         </h2>
@@ -59,17 +59,17 @@
       </div>
       <div class="wrap">
         <p class="wrap-item">
-          <i-lucide name="Star" size="20" class="icon"></i-lucide>
+          <ng-icon name="ionStarOutline" size="20" class="icon"></ng-icon>
           <span>Stars</span>
           <span class="emphasis">{{ repo.watchers }}</span>
         </p>
         <p class="wrap-item">
-          <i-lucide name="GitFork" size="20" class="icon"></i-lucide>
+          <ng-icon name="ionGitNetworkOutline" size="20" class="icon"></ng-icon>
           <span>Forks</span>
           <span class="emphasis">{{ repo.forks_count }}</span>
         </p>
         <p class="wrap-item">
-          <i-lucide name="Eye" size="20" class="icon"></i-lucide>
+          <ng-icon name="ionEyeOutline" size="20" class="icon"></ng-icon>
           <span>watching</span>
           <span class="emphasis">{{ repo.subscribers_count }}</span>
         </p>
@@ -97,7 +97,7 @@
 
     <div class="list" *ngIf="collaborators$">
       <h2 class="title">
-        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
         Colaboradores
       </h2>
       <ul class="list-loop">
@@ -116,7 +116,7 @@
   </div>
 
   <a href="{{ repo.html_url }}" target="_blank">
-    <i-lucide name="ExternalLink" class="icon" size="20"></i-lucide>
+    <ng-icon name="ionLogOutOutline" class="icon" size="20"></ng-icon>
     <span class="description">{{ repo.full_name }}</span>
   </a>
 </section>

@@ -6,7 +6,7 @@
       *ngIf="currentPage > 2"
       (click)="firstPage()"
     >
-      <i-lucide name="ChevronsLeft" size="16"></i-lucide>
+      <ng-icon name="heroChevronDoubleLeft" size="16"></ng-icon>
     </button>
     <button
       class="pagination-item pagination-prev"
@@ -14,7 +14,7 @@
       (click)="prevPage()"
       *ngIf="currentPage > 1"
     >
-      <i-lucide name="ChevronLeft" size="16"></i-lucide>
+      <ng-icon name="heroChevronLeft" size="16"></ng-icon>
     </button>
     <span>Página {{ currentPage }} de {{ totalPages }}</span>
     <button
@@ -23,7 +23,7 @@
       (click)="nextPage()"
       *ngIf="currentPage < totalPages"
     >
-      <i-lucide name="ChevronRight" size="16"></i-lucide>
+      <ng-icon name="heroChevronRight" size="16"></ng-icon>
     </button>
     <button
       class="pagination-item pagination-first"
@@ -31,7 +31,7 @@
       *ngIf="currentPage < totalPages"
       (click)="lastPage()"
     >
-      <i-lucide name="ChevronsRight" size="16"></i-lucide>
+      <ng-icon name="heroChevronDoubleRight" size="16"></ng-icon>
     </button>
   </div>
 </div>

@@ -17,34 +17,34 @@
     </div>
     <div class="card-content">
       <p *ngIf="option === 'repositories'">
-        <i-lucide name="Star" size="20" class="icon"></i-lucide>
+        <ng-icon name="ionStarOutline" size="20" class="icon"></ng-icon>
         <span>Stars</span>
         <span class="emphasis">{{ data.watchers }}</span>
       </p>
       <p *ngIf="option === 'users'">
-        <i-lucide name="book-marked" size="20" class="icon"></i-lucide>
+        <ng-icon name="ionJournalOutline" size="20" class="icon"></ng-icon>
         <span>Repositórios</span>
         <span class="emphasis">{{ data.public_repos }}</span>
       </p>
 
       <p *ngIf="option === 'repositories'">
-        <i-lucide name="GitFork" size="20" class="icon"></i-lucide>
+        <ng-icon name="ionGitNetworkOutline" size="20" class="icon"></ng-icon>
         <span>Forks</span>
         <span class="emphasis">{{ data.forks_count }}</span>
       </p>
       <p *ngIf="option === 'users'">
-        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
         <span>Seguidores</span>
         <span class="emphasis">{{ data.followers }}</span>
       </p>
 
       <p *ngIf="option === 'repositories'">
-        <i-lucide name="Eye" size="20" class="icon"></i-lucide>
+        <ng-icon name="ionEyeOutline" size="20" class="icon"></ng-icon>
         <span>Watching</span>
         <span class="emphasis">{{ data.subscribers_count }}</span>
       </p>
       <p *ngIf="option === 'users'">
-        <i-lucide name="Users2" size="20" class="icon"></i-lucide>
+        <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
         <span>Seguindo</span>
         <span class="emphasis">{{ data.following }}</span>
       </p>
@@ -52,10 +52,10 @@
   </button>
   <div class="card-icons">
     <a href="{{ data.html_url }}" target="_blank">
-      <i-lucide name="ExternalLink" class="card-icon" size="22"></i-lucide>
+      <ng-icon name="ionLogOutOutline" class="card-icon" size="22"></ng-icon>
     </a>
     <button>
-      <i-lucide name="MoreVertical" class="card-icon" size="22"></i-lucide>
+      <ng-icon name="ionEllipsisVertical" class="card-icon" size="22"></ng-icon>
     </button>
   </div>
 </div>
