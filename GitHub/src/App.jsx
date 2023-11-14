@@ -2,13 +2,8 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-
-
   const [nome, setNome] = useState("")
   const [pag, setPag] = useState("")
-
-
-
   const handlePag = event => {
     setPag(event.target.value)
   }
@@ -16,7 +11,6 @@ function App() {
   const handleChanger = event => {
     setNome(event.target.value)
   }
-
   const handleClick = () => {
     var originalNome = nome.split(" ").join("")
 
@@ -28,13 +22,9 @@ function App() {
         else if (response.status == "422"){
           window.alert("Por favor, preencha todos os dados")
         }
-
         return response.json()
-        
       })
-        
       .then(data => {
-
         var container = document.getElementById("container")
         container.innerHTML = ""
         for (let i = 0; i < 30; i++) {
@@ -43,7 +33,6 @@ function App() {
           if (desc == null){
             desc = "Sem descrição"
           }
-
           var forks = data.items[i].forks_count
           var estrelas = data.items[i].stargazers_count
           var upload = data.items[i].updated_at
@@ -64,6 +53,7 @@ function App() {
           novaDiv.style.backgroundColor = "#272727"
           novaDiv.style.padding = "10px"
           novaDiv.style.borderRadius = "5px"
+
           container.appendChild(novaDiv)
         }
       })
@@ -75,10 +65,7 @@ function App() {
         <button className='btn btn-outline-primary'>Página</button>
         <br />
         <input min={1} defaultValue={1} onClick={handlePag} type="number" className='btn btn-outline-light' placeholder='Página' />
-        
-
         <h1 className='text text-primary'>GitHub Repositórios</h1>
-
         <form>
           <input type="text" required="True" className='form-control' placeholder='Pesquisar repositórios' onChange={handleChanger} />
           <input type="button" className='btn btn-primary' onClick={handleClick} value="Pesquisar" />
