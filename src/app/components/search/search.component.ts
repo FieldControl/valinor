@@ -56,6 +56,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    /*-- Function responsible for inserting data into the observer --*/
     this.search().subscribe((data: any) => {
       let option = this.optionField.value ? this.optionField.value : this.option;
       let term = this.searchField.value ? this.searchField.value : this.term;
