@@ -17,10 +17,8 @@ function App() {
     setNome(event.target.value)
   }
 
-  var container = document.getElementById("container")
   const handleClick = () => {
     var originalNome = nome.split(" ").join("")
-    console.log(`Pagina: ${pag}`)
 
     fetch("https://api.github.com/search/repositories?q=" + originalNome + "&page=" + pag)
       .then(response => {
@@ -36,21 +34,8 @@ function App() {
       })
         
       .then(data => {
-        //console.log("https://api.github.com/search/repositories?q=" + originalNome + "&page=" + pag)
+
         var container = document.getElementById("container")
-        //var divRes = document.getElementById("resultados")
-        
-        //res.innerHTML = ""
-        //container.innerHTML = ""
-        //console.log(data)
-        //var resultado = data.total_count
-        
-        
-        
-        //res.innerHTML = `${resultado} resultados`
-        
-        //window.alert(resultado)
-        
 
         for (let i = 0; i < 30; i++) {
           var nomeCompleto = data.items[i].full_name
@@ -58,10 +43,6 @@ function App() {
           if (desc == null){
             desc = "Sem descrição"
           }
-
-
-          
-
           var forks = data.items[i].forks_count
           var estrelas = data.items[i].stargazers_count
           var upload = data.items[i].updated_at
@@ -73,7 +54,6 @@ function App() {
           var mes = upload.slice(5, 7)
           var dia = upload.slice(8, 10)
           var dataOri = (`${dia} ${mes} ${ano}`)
-          //var res = document.createElement("div")
 
           novaDiv.style.border = "2px solid blue"
           novaDiv.innerHTML = `<img src="${foto}"/>  <span class="material-symbols-outlined">link</span> <span><a target="_blank" href="${link}">
@@ -86,7 +66,6 @@ function App() {
           novaDiv.style.borderRadius = "5px"
 
           container.appendChild(novaDiv)
-          //divRes.appendChild(res)
 
 
         }
