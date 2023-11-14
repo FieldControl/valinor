@@ -43,10 +43,10 @@ function App() {
           if (desc == null){
             desc = "Sem descrição"
           }
+          
           var forks = data.items[i].forks_count
           var estrelas = data.items[i].stargazers_count
           var upload = data.items[i].updated_at
-
           var foto = data.items[i].owner.avatar_url
           var link = data.items[i].html_url
           var novaDiv = document.createElement("div")
@@ -64,10 +64,7 @@ function App() {
           novaDiv.style.backgroundColor = "#272727"
           novaDiv.style.padding = "10px"
           novaDiv.style.borderRadius = "5px"
-
           container.appendChild(novaDiv)
-
-
         }
       })
   }
@@ -88,7 +85,6 @@ function App() {
         <br />
         </form>
         <br />
-        
         <div className='btn btn-primary' id="container"></div>
       </div>
     </>
