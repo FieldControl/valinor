@@ -58,7 +58,7 @@ Enfrentei o desafio de apresentar os resultados gerais, considerando minha famil
 
 -  ***Melhor distribuição sobre os componentes:***
   
-decidi não usar componentes por que eu não tinha experiência usando esquemas de componentes com a lógica que criei sobre o código **React** e eles estão no no mesmo arquivo. :anguished:
+decidi não usar componentes por que eu não tinha experiência usando esquemas de componentes com a lógica que criei sobre o código **React**, e eles estão no no mesmo arquivo. :anguished:
 
 <br>
 
