@@ -13,19 +13,16 @@
 
 ## Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 Usei o **React.js** como **Vite** para desenvolver o site/aplicativo, e usei também a biblioteca **Bootstrap**,
-eu coloquei o link da biblioteca do Bootstrap no arquivo index.html do projeto, e instalei o **React.js** usando os comandos.
+eu coloquei o link da biblioteca do Bootstrap no arquivo index.html do projeto, e instalei o **React.js** usando os comandos em sequência no terminal.
 
 <br>
-<br>
-<br>
 
-para colcar estilos nos botões eu coloquei as classes nos elementos HTML do código.
-<br>
-```
-  npm create vite@latest
-  cd GitHub
-  npm run dev
-```
+``npm create vite@latest``
+
+``cd GitHub``
+
+``npm run dev ``
+
 <br>
 
 ## Porque você optou pela tecnologia X e não a Y.
@@ -62,19 +59,47 @@ Me sintí desafiado como eu iria poder mostrar os resultados gerais, e eu conhec
 <br>
 <br>
 
- - Abra a pasta do projeto.
+### Abra a pasta do projeto.
 
 ![Abrir projeto](https://github.com/FelipeKauanG/valinor/assets/144256901/80048fde-2359-44bd-814e-6cacf1864c6f)
 
-- Escolha o arquivo App.jsx
+### Escolha o arquivo App.jsx
   
   <br>
   
   ```valinor/GitHub/src/App.jsx```
 
+![Escolher arquivo](https://github.com/FelipeKauanG/valinor/assets/144256901/80b096cd-5acd-4326-a56a-1d10fe5e32ae)
+
+### Abra o terminal integrado
+
+``Ctrl + Shift + ' `` ![Static Badge](https://img.shields.io/badge/Windows-o?logo=windows&logoColor=%23036bfc&color=white)
+
+<br> 
+
+``Ctrl + shift + ` ``  ![Static Badge](https://img.shields.io/badge/Linux-o?logo=linux&logoColor=black&color=%23fcd303)
+ 
+<br>
+
+ ```Command + `` ``` ![Static Badge](https://img.shields.io/badge/MacOS%20-o?logo=macos&color=gray)
+
+
+![abrir terminal](https://github.com/FelipeKauanG/valinor/assets/144256901/204aaaf0-c28a-40a8-969c-8ba4a95f3506)
+
 
 
 <br>
 
+### Execute os seguintes comandos:
+``cd GitHub``
 
+``npm run dev``
+
+![digitarComandos](https://github.com/FelipeKauanG/valinor/assets/144256901/e1b67ee6-b212-47eb-b5c7-3a73ac1dbec9)
+
+Clique em [http://localhost:5173/](#)
+
+### Faça testes no site
+
+![Tela](https://github.com/FelipeKauanG/valinor/assets/144256901/2ad13d7b-e3a9-442b-87e2-e525eec8ee95)
 
