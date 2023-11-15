@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
- 
+  
 function App() {
   const [nome, setNome] = useState("")
   const [pag, setPag] = useState("")
