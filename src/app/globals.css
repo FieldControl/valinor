@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilizando o scrollbar para todos os elementos */
+::-webkit-scrollbar {
+  width: 12px; /* Largura do scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937; /* Cor do fundo do track do scrollbar - mais escuro */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4b5563; /* Cor do thumb (parte móvel) do scrollbar - cor média */
+  border-radius: 6px; /* Raio da borda do thumb */
+  border: 3px solid #1f2937; /* Borda ao redor do thumb - mesma cor do track para um look integrado */
+}
+
+/* Estilizando o scrollbar ao passar o mouse sobre */
+::-webkit-scrollbar-thumb:hover {
+  background: #374151; /* Cor do thumb ao passar o mouse - ligeiramente mais claro */
+}
+
+/* Para Firefox */
+* {
+  scrollbar-width: thin; /* 'auto' ou 'thin' */
+  scrollbar-color: #4b5563 #1f2937; /* thumb e track */
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}

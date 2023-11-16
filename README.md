@@ -1,139 +1,33 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+<h1 align="center"> FieldControl Challenge </h1>
 
-A empresa
-----------
-
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
-
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
-
-Nossa missão é melhorar a prestação de serviços no Brasil.
-
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
-
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
+<p align="center">
+  <img src="./src/assets/company/field3.jpeg">
 </p>
 
-Origem
-----------
+<h2 align="center"> Desafio técnico </h2>
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
+<p align="center">
+<a href="https://www.linkedin.com/in/guilherme-cagide-fialho/">
+  <img src="https://img.shields.io/badge/-@guilherme-2CA5E0?logo=Linkedin&logoColor=white" width="150"/> </a>
+<a href="https://github.com/GuilhermeCF10">
+  <img src="https://img.shields.io/badge/-GuilhermeCF10-gray?logo=Github&logoColor=white" width="170"/> </a>
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
+---
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
+## Sumário
+  - [Proposta](https://github.com/GuilhermeCF10/FieldControlChallenge#proposta-)
+  - [Como rodar o projeto?](https://github.com/GuilhermeCF10/FieldControlChallenge#como-rodar-o-projeto-%EF%B8%8F)
+  - [O que está funcionando?](https://github.com/GuilhermeCF10/FieldControlChallenge#o-que-está-funcionando-)
+  - [Tecnologias usadas](https://github.com/GuilhermeCF10/FieldControlChallenge#tecnologias-usadas)
+  - [Agradecimentos](https://github.com/GuilhermeCF10/FieldControlChallenge#agradecimentos)
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
+#
+## Proposta 🚧
 
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
+#### Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
-
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
-
-Oportunidade
-----------
-
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
-
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
-
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
-
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
-
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
-
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
-
-Os desafios de programação
-----------
-
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
-
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
-
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
-
-<br/>
-
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
-
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
-
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
-
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
-
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
-
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
-
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
-
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
+Basicamente, uma tela quase parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
 
 Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
 
@@ -141,98 +35,82 @@ Escreva seu código com clareza e use a estrutura adequada do MVC para escrever 
 
 Um diferencial gigante é o uso de testes unitários e integrados!
 
-URLs úteis:
-
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
-
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
-
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
-
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
-
 #### Requisitos mínimos
 - Usar um framework (de preferencia angular)
 - Lista items de uma API
 - Ter páginação via API
 
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
+#
+## Como rodar o projeto? 📽️ 
 
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
+- Etapa 1: Clonar o projeto
+    ```
+        git clone https://github.com/GuilhermeCF10/FieldControlChallenge
+    ```
 
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
+<br />
+  
+- Etapa 2: Entrar no projeto e instalar dependencias node
+    ```
+        cd FieldControlChallenge && pnpm install
+    ```
+<br />
 
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
+- Etapa 3: Iniciar projeto
+    ```
+        pnpm dev
+    ```
+<br />
 
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
+    
 
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
 
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
 
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
 
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
 
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+#
+## O que está funcionando? 💻
 
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
+Funcionalidade | Status
+:---------|:----------
+Visualizar repositórios por nome com paginação      |  ✅  
+Visualizar detalhes de um repositório                                      |  ✅  
+Visualizar todas as issues de um repositório                                      |  ✅ 
 
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
 
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
+#
+## Tecnologias Utilizadas 👨‍💻
 
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+**Next.js:** Optei por Next.js devido ao meu domínio em React e à sua capacidade de otimização automática de páginas, server-side rendering, e geração de sites estáticos. Isso proporciona uma melhor experiência de usuário e performance, comparado ao Angular/AngularJS.
 
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
+**TypeScript:** Minha escolha por TypeScript ao invés de JavaScript puro deve-se à sua robustez em termos de tipagem forte, o que minimiza erros em tempo de execução e melhora a manutenção do código.
 
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
+**TailwindCSS:** Decidi usar TailwindCSS por sua abordagem de utilidade-primeiro que me permite estilizar de maneira rápida e eficiente, trazendo uma experiência de desenvolvimento mais ágil em comparação com o CSS tradicional.
 
-Avaliação
-----------
+### Detalhes do Projeto 💬
 
-Entre os critérios de avaliação estão:
+#### Ferramentas e Bibliotecas Utilizadas 👽
+Para este projeto, escolhi uma combinação de Next.js, TypeScript, TailwindCSS, Axios, e a API do GitHub. Next.js foi escolhido pela sua facilidade em criar aplicações React otimizadas para SEO e com suporte a server-side rendering. TypeScript me oferece uma experiência de desenvolvimento mais robusta e segura com sua tipagem forte, o que é crucial para manter a qualidade do código em projetos maiores. TailwindCSS agiliza o processo de estilização com sua abordagem de utilidades CSS, tornando o desenvolvimento de interfaces mais rápido. Por fim, utilizei Axios para fazer requisições HTTP devido à sua simplicidade e facilidade de uso, especialmente quando integrado com a API do GitHub para buscar dados de repositórios e issues.
 
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
+#### Porque Optei pela Tecnologia X e não a Y 👻
+Minha escolha por Next.js, TypeScript e TailwindCSS em vez de Angular ou AngularJS foi guiada tanto pela minha familiaridade com estas tecnologias quanto pelos benefícios técnicos que elas oferecem. Next.js proporciona uma experiência de desenvolvimento mais integrada com React, além de otimizações automáticas e suporte a SSR. Prefiro TypeScript ao JavaScript puro pela segurança adicional que a tipagem forte oferece, reduzindo a possibilidade de erros em tempo de execução. Escolhi TailwindCSS por sua flexibilidade e eficiência no desenvolvimento de interfaces, o que me permite focar mais na lógica do aplicativo do que na estilização
 
-Entrega
-----------
+#### Princípios de Engenharia de Software Aplicados 🤖
+Durante o desenvolvimento deste projeto, apliquei o princípio DRY (Don't Repeat Yourself), que envolve a redução de duplicação no código. Isso foi alcançado por meio do uso de funções reutilizáveis e componentes em React, garantindo que a mesma lógica ou componente não fosse repetido desnecessariamente. Também adotei os princípios SOLID, que são cinco diretrizes de design orientado a objetos para escrever código mais compreensível, flexível e sustentável. Por exemplo, utilizei a segregação de interface (um dos princípios SOLID) ao projetar componentes React, garantindo que eles tivessem uma única responsabilidade e não fossem sobrecarregados com funcionalidades que não lhes pertencem. O uso de páginas, componentes e hooks em React alinha-se com esses princípios, ajudando a manter o código organizado, modular e fácil de manter
 
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
+#### Desafios e Soluções e Áreas de Melhoria 💯
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
+Um dos principais desafios que enfrentei foi a limitação de requisições da API do GitHub para usuários não autenticados. Para superar isso, a solução ideal seria implementar a autenticação do usuário e vincular uma chave API (API Key) para aumentar o limite de requisições disponíveis. Embora eu esteja ciente desta limitação, acabei não implementando essa funcionalidade no projeto. Acredito que a adição da autenticação e gestão de chaves API pode melhorar significativamente a funcionalidade do projeto, não apenas aumentando o limite de requisições, mas também personalizando a experiência do usuário com base em sua conta do GitHub
 
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+
+#
+## Agradecimentos 🤌
+ - [Gabriela Zapater](https://www.linkedin.com/in/gabriela-zapater-89775b164/?originalSubdomain=br) pela indicação.
+ - [Field Control](https://www.linkedin.com/company/field-control/) pela oportunidade.
+
+#
+<p align="center">
+<a href="https://github.com/GuilhermeCF10">
+  <img src="./src/assets/me/GCF.png" width="96" style="border-radius: 20px;">
+</a>
+<h1 align="center"> Guilherme Cagide Fialho </h1>
