@@ -1,0 +1,73 @@
+<section class="container">
+  <div class="search-wrap">
+    <form [formGroup]="searchForm" class="search-form">
+      <div class="buttons">
+        <label
+          class="button"
+          for="{{ option }}"
+          *ngFor="let option of options; let i = index"
+          [ngClass]="{ active: i === selectedOptionIndex }"
+          (click)="selectedOptionIndex = i"
+        >
+          <input
+            type="radio"
+            name="optionField"
+            id="{{ option }}"
+            value="{{ i === 0 ? 'repositories' : 'users' }}"
+            formControlName="optionField"
+          />
+          <span class="text">{{ option }}</span>
+        </label>
+      </div>
+      <input
+        class="search-input"
+        type="search"
+        name="search"
+        placeholder="Pesquisar.."
+        aria-label="Search"
+        formControlName="searchField"
+      />
+      <div class="search-filter">
+        <span>Quantidade:</span>
+        <div
+          class="search-select"
+          [ngClass]="{
+            active: openModal
+          }"
+        >
+          <button
+            type="button"
+            class="search-label"
+            (click)="OpenModal($event)"
+          >
+            <span>{{ perPage }}</span>
+            <input
+              type="hidden"
+              name="perPageField"
+              [formControl]="perPageField"
+            />
+            <ng-icon
+              name="ionChevronDownOutline"
+              class="search-icon"
+              size="16"
+            ></ng-icon>
+          </button>
+          <div
+            [ngClass]="{
+              'search-modal-open': openModal
+            }"
+            class="search-modal"
+          >
+            <button
+              (click)="getOption(perPage)"
+              type="button"
+              *ngFor="let perPage of totalPage"
+            >
+              {{ perPage }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

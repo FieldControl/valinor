@@ -1,0 +1,166 @@
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--color-text-secondary);
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--color-text-secondary);
+  border-spacing: 8px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.bt-prev {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bt-prev:hover {
+  color: var(--color-text);
+}
+
+.bt-prev .icon,
+.bt-prev span {
+  transform: translateX(10%);
+  transition: all 0.25s ease;
+}
+
+.bt-prev span {
+  font-size: 1.1rem;
+  margin-top: 3px;
+}
+
+.bt-prev:hover span {
+  transform: translateX(-30%);
+  transition-duration: 0.2s;
+}
+
+.bt-prev:hover .icon {
+  color: var(--color-text);
+  transform: translateX(-30%);
+}
+
+.perfil {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  margin-top: 40px;
+  padding: 40px;
+  background-color: var(--color-black-secondary);
+  border-radius: 0.75rem;
+}
+
+.icon {
+  margin-right: 6px;
+}
+
+.about {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about .avatar {
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+}
+
+.about .avatar img {
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--color-text-secondary);
+}
+
+.info a:hover {
+  color: var(--color-blue);
+}
+
+.info .title {
+  font-size: 1.2rem;
+  color: var(--color-blue);
+}
+
+.info .icon-twitter {
+  width: 18px;
+  height: auto;
+  padding-left: 3px;
+}
+
+.followers,
+.following,
+.repositories {
+  color: var(--color-text-secondary);
+}
+
+.followers .title,
+.following .title,
+.repositories .title {
+  text-transform: uppercase;
+}
+
+.followers .list,
+.following .list,
+.repositories .list {
+  height: 100%;
+  max-height: 280px;
+  overflow-y: auto;
+  margin-top: 16px;
+}
+
+.followers .list a,
+.following .list a,
+.repositories .list a {
+  transform: translateX(0);
+  transition: all 0.2s ease-out;
+  display: block;
+  width: calc(100% - 6px);
+}
+
+.followers .list a:hover,
+.following .list a:hover,
+.repositories .list a:hover {
+  color: var(--color-text);
+  transform: translateX(4px);
+}
+
+.followers .list li,
+.following .list li {
+  margin-bottom: 6px;
+}
+
+.emphasis {
+  color: var(--color-blue);
+  font-size: 1.2rem;
+}
+
+.followers .avatar,
+.following .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.followers .title,
+.repositories .title {
+  color: var(--color-text);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black-secondary);
+}

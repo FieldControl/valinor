@@ -1,0 +1,37 @@
+<div class="pagination">
+  <div class="wrap">
+    <button
+      class="pagination-item pagination-last"
+      type="button"
+      *ngIf="currentPage > 2"
+      (click)="firstPage()"
+    >
+      <ng-icon name="heroChevronDoubleLeft" size="16"></ng-icon>
+    </button>
+    <button
+      class="pagination-item pagination-prev"
+      type="button"
+      (click)="prevPage()"
+      *ngIf="currentPage > 1"
+    >
+      <ng-icon name="heroChevronLeft" size="16"></ng-icon>
+    </button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button
+      class="pagination-item pagination-next"
+      type="button"
+      (click)="nextPage()"
+      *ngIf="currentPage < totalPages"
+    >
+      <ng-icon name="heroChevronRight" size="16"></ng-icon>
+    </button>
+    <button
+      class="pagination-item pagination-first"
+      type="button"
+      *ngIf="currentPage < totalPages"
+      (click)="lastPage()"
+    >
+      <ng-icon name="heroChevronDoubleRight" size="16"></ng-icon>
+    </button>
+  </div>
+</div>

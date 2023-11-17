@@ -1,0 +1,14 @@
+<div class="list">
+  <app-progress-bar *ngIf="isLoading"></app-progress-bar>
+  <app-card
+    *ngFor="let data of dataApi"
+    [data]="data"
+    [option]="option"
+  ></app-card>
+  <app-pagination
+    *ngIf="totalPages > 1"
+    [totalPages]="totalPages"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+  ></app-pagination>
+</div>

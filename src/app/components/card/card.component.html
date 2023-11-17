@@ -1,0 +1,61 @@
+<div class="card">
+  <button
+    class="card-button"
+    type="button"
+    (click)="navigateTo(data.login || data.name)"
+  >
+    <div class="card-about">
+      <div class="card-avatar" *ngIf="data.avatar_url">
+        <img src="{{ data.avatar_url }}" alt="Avatar" />
+      </div>
+      <div class="card-info">
+        <h1 class="card-title">{{ data.name }}</h1>
+        <span class="card-description">
+          {{ description }}
+        </span>
+      </div>
+    </div>
+    <div class="card-content">
+      <p *ngIf="option === 'repositories'">
+        <ng-icon name="ionStarOutline" size="20" class="icon"></ng-icon>
+        <span>Stars</span>
+        <span class="emphasis">{{ data.watchers }}</span>
+      </p>
+      <p *ngIf="option === 'users'">
+        <ng-icon name="ionJournalOutline" size="20" class="icon"></ng-icon>
+        <span>Repositórios</span>
+        <span class="emphasis">{{ data.public_repos }}</span>
+      </p>
+
+      <p *ngIf="option === 'repositories'">
+        <ng-icon name="ionGitNetworkOutline" size="20" class="icon"></ng-icon>
+        <span>Forks</span>
+        <span class="emphasis">{{ data.forks_count }}</span>
+      </p>
+      <p *ngIf="option === 'users'">
+        <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
+        <span>Seguidores</span>
+        <span class="emphasis">{{ data.followers }}</span>
+      </p>
+
+      <p *ngIf="option === 'repositories'">
+        <ng-icon name="ionEyeOutline" size="20" class="icon"></ng-icon>
+        <span>Watching</span>
+        <span class="emphasis">{{ data.subscribers_count }}</span>
+      </p>
+      <p *ngIf="option === 'users'">
+        <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
+        <span>Seguindo</span>
+        <span class="emphasis">{{ data.following }}</span>
+      </p>
+    </div>
+  </button>
+  <div class="card-icons">
+    <a href="{{ data.html_url }}" target="_blank">
+      <ng-icon name="ionLogOutOutline" class="card-icon" size="22"></ng-icon>
+    </a>
+    <button>
+      <ng-icon name="ionEllipsisVertical" class="card-icon" size="22"></ng-icon>
+    </button>
+  </div>
+</div>

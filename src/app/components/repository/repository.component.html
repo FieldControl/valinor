@@ -1,0 +1,124 @@
+<div class="breadcrumb">
+  <button routerLink="" class="bt-prev">
+    <ng-icon name="heroArrowLeft" class="icon" size="22"></ng-icon>
+    <span>Voltar</span>
+  </button>
+  <span>{{ login }} / {{ name }}</span>
+</div>
+
+<section class="repo" *ngIf="repo">
+  <app-progress-bar *ngIf="isLoading"></app-progress-bar>
+  <div class="repo-wrap">
+    <div class="about">
+      <div class="info">
+        <p *ngIf="repo.name" class="title">{{ repo.name }}</p>
+        <p *ngIf="repo.description" class="description">
+          {{ repo.description }}
+        </p>
+        <div *ngIf="repo.created_at" class="flex">
+          <ng-icon name="ionCalendarOutline" class="icon" size="22"></ng-icon>
+          <p class="wrap">
+            <span>Criado em:</span>
+            <span>{{ repo.created_at | date : "d MMM, y" }}</span>
+          </p>
+        </div>
+        <div *ngIf="repo.updated_at" class="flex">
+          <ng-icon name="ionTimeOutline" class="icon" size="22"></ng-icon>
+          <p class="wrap">
+            <span>Atualizado em:</span>
+            <span>{{ repo.updated_at | date : "d MMM, y" }}</span>
+          </p>
+        </div>
+        <div *ngIf="repo.pushed_at" class="flex">
+          <ng-icon name="heroArrowUpTray" class="icon" size="22"></ng-icon>
+          <p class="wrap">
+            <span>Push em:</span>
+            <span>{{ repo.pushed_at | date : "d MMM, y" }}</span>
+          </p>
+        </div>
+        <div class="flex topics">
+          <span *ngFor="let topic of repo.topics" class="topic">
+            {{ topic }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="branches wrap" *ngIf="branches$">
+        <h2 class="title">
+          <ng-icon name="ionGitMergeOutline" size="20" class="icon"></ng-icon>
+          Branches
+          <span class="emphasis">{{ repo.public_repos | number }}</span>
+        </h2>
+        <ul class="list">
+          <li *ngFor="let branche of branches$ | async">
+            <span>{{ branche.name }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="wrap">
+        <p class="wrap-item">
+          <ng-icon name="ionStarOutline" size="20" class="icon"></ng-icon>
+          <span>Stars</span>
+          <span class="emphasis">{{ repo.watchers }}</span>
+        </p>
+        <p class="wrap-item">
+          <ng-icon name="ionGitNetworkOutline" size="20" class="icon"></ng-icon>
+          <span>Forks</span>
+          <span class="emphasis">{{ repo.forks_count }}</span>
+        </p>
+        <p class="wrap-item">
+          <ng-icon name="ionEyeOutline" size="20" class="icon"></ng-icon>
+          <span>watching</span>
+          <span class="emphasis">{{ repo.subscribers_count }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="followers" *ngIf="repo.followers">
+      <h2 class="title">
+        Seguidores
+        <span class="emphasis">{{ repo.followers | number }}</span>
+      </h2>
+      <ul class="list">
+        <li *ngFor="let contributor of contributors$ | async">
+          <a href="{{ contributor.html_url }}" target="_blank">
+            <img
+              src="{{ contributor.avatar_url }}&s=50"
+              class="avatar"
+              alt="image {{ contributor.login }}"
+            />
+            {{ contributor.login }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="list">
+      <div *ngIf="collaborators$">
+        <h2 class="title">
+          <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
+          Colaboradores
+        </h2>
+        <ul class="list-loop">
+          <li *ngFor="let collaborator of collaborators$ | async">
+            <a href="{{ collaborator.html_url }}" target="_blank">
+              <img
+                src="{{ collaborator.avatar_url }}&s=50"
+                class="avatar"
+                alt="image {{ collaborator.login }}"
+              />
+              {{ collaborator.login }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ repo.html_url }}" target="_blank">
+    <ng-icon name="ionLogOutOutline" class="icon" size="20"></ng-icon>
+    <span class="description">{{ repo.full_name }}</span>
+  </a>
+</section>

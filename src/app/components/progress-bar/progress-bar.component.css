@@ -1,0 +1,51 @@
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.progress {
+  transform: translateZ(0);
+}
+
+.progress:before,
+.progress:after {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+
+.progress:before,
+.progress:after,
+.progress {
+  border-radius: 50%;
+  width: 1.4em;
+  height: 1.4em;
+  animation: animation 1.2s infinite ease-in-out;
+}
+
+.progress {
+  animation-delay: -0.16s;
+}
+
+.progress:before {
+  left: -2.6em;
+  animation-delay: -0.3s;
+}
+
+.progress:after {
+  left: 2.6em;
+}
+
+@keyframes animation {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2em 0 -1em var(--color-blue);
+  }
+  40% {
+    box-shadow: 0 2em 0 0 var(--color-blue);
+  }
+}
