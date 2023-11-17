@@ -14,6 +14,8 @@ export class RepositoryComponent implements OnInit, OnDestroy {
   contributors$ = of(null);
   branches$ = of(null);
   collaborators$ = of(null);
+  login: string = '';
+  name: string = '';
   private subscript!: Subscription;
 
   isLoading: boolean = false
@@ -36,6 +38,9 @@ export class RepositoryComponent implements OnInit, OnDestroy {
     this.subscript = this.repoService.getRepoDetails(userName + '/' + repo).subscribe((data) => {
       if (data) {
         this.repo = data;
+        this.name = this.repo?.name;
+        this.login = this.repo?.owner?.login;
+
         this.contributors$ = this.repoService.getDataByURL(data.contributors_url);
         this.branches$ = this.repoService.getDataByURL(data.branches_url.replace("{/branch}", ""));
         this.collaborators$ = this.repoService.getDataByURL(data.contributors_url);
