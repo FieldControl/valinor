@@ -1,0 +1,9 @@
+<div class="error" *ngIf="state">
+  <div class="wrap">
+    <button class="close" aria-label="icon close" (click)="closeModal()">
+      <ng-icon name="heroXMark" size="20" class="icon"></ng-icon>
+    </button>
+    <h1 class="title">Ops :(</h1>
+    <p>{{ menssage }}</p>
+  </div>
+</div>
