@@ -1,27 +1,45 @@
-# SearchRepoGithub
+## Explore Repositórios e Usuários do GitHub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+Encontre os repositórios mais populares, descubra desenvolvedores talentosos e acompanhe o código-fonte de projetos emocionantes.
 
-## Development server
+Este projeto foi desenvolvido em resposta a um desafio, construindo um SPA para consumir uma API pública do GitHub com listagem, visualização individual e paginação de resultados. Utilizei o [Angular], foi meu primeiro projeto com o framework e gostei bastante da experiência, apesar de algumas limitações da API do GitHub. O resultado me agradou bastante, pretendo continuar evoluindo o aplicativo com correções e melhorias.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![Lista](assets/img/list.png)
+![Visualização Individual](assets/img/single.png)
 
-## Code scaffolding
+## Demo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Ver Demo](https://github-api-search-gamma.vercel.app/)
 
-## Build
+## Próximos Passos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Exibir mapa de contribuições do perfil.
+- Exibir quantidade total de commits do repositório.
+- Exibir quantidade de pull request dos repositórios.
+- Usar autenticação na API para aumentar o limite de 10 solicitações por hora.
 
-## Running unit tests
+## Stack Utilizada
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Desenvolvi o projeto utilizando Angular CLI 16.2.7, finalizado na versão 17.0.2. Utilizei HTML, CSS e a biblioteca de ícones [@ng-icons](https://github.com/ng-icons/ng-icons).
 
-## Running end-to-end tests
+## Executando o Projeto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Clone o repositório:
 
-## Further help
+```console
+git clone https://github.com/LeandroJMartin/github-api-search.git
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Instale as dependências:
+
+```console
+npm i
+```
+
+Para rodar o servidor de desenvolvimento:
+
+```console
+ng serve
+```
+
+navegue até `http://localhost:4200/`.
