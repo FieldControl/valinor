@@ -4,8 +4,8 @@ Encontre os repositórios mais populares, descubra desenvolvedores talentosos e 
 
 Este projeto foi desenvolvido em resposta a um desafio, construindo um SPA para consumir uma API pública do GitHub com listagem, visualização individual e paginação de resultados. Utilizei o [Angular], foi meu primeiro projeto com o framework e gostei bastante da experiência, apesar de algumas limitações da API do GitHub. O resultado me agradou bastante, pretendo continuar evoluindo o aplicativo com correções e melhorias.
 
-![Lista](assets/img/list.png)
-![Visualização Individual](assets/img/single.png)
+![Lista](src/assets/img/list.png)
+![Visualização Individual](src/assets/img/single.png)
 
 ## Demo
 
