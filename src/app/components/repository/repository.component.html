@@ -3,7 +3,7 @@
     <ng-icon name="heroArrowLeft" class="icon" size="22"></ng-icon>
     <span>Voltar</span>
   </button>
-  <span>Usuário / {{ repo.owner?.login }} / {{ repo.name }}</span>
+  <span>{{ login }} / {{ name }}</span>
 </div>
 
 <section class="repo" *ngIf="repo">
@@ -95,23 +95,25 @@
       </ul>
     </div>
 
-    <div class="list" *ngIf="collaborators$">
-      <h2 class="title">
-        <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
-        Colaboradores
-      </h2>
-      <ul class="list-loop">
-        <li *ngFor="let collaborator of collaborators$ | async">
-          <a href="{{ collaborator.html_url }}" target="_blank">
-            <img
-              src="{{ collaborator.avatar_url }}&s=50"
-              class="avatar"
-              alt="image {{ collaborator.login }}"
-            />
-            {{ collaborator.login }}
-          </a>
-        </li>
-      </ul>
+    <div class="list">
+      <div *ngIf="collaborators$">
+        <h2 class="title">
+          <ng-icon name="ionPeopleOutline" size="20" class="icon"></ng-icon>
+          Colaboradores
+        </h2>
+        <ul class="list-loop">
+          <li *ngFor="let collaborator of collaborators$ | async">
+            <a href="{{ collaborator.html_url }}" target="_blank">
+              <img
+                src="{{ collaborator.avatar_url }}&s=50"
+                class="avatar"
+                alt="image {{ collaborator.login }}"
+              />
+              {{ collaborator.login }}
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
