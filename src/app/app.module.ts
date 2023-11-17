@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import localePT from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { NgIconsModule } from '@ng-icons/core'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,9 +17,9 @@ import { UserComponent } from './components/user/user.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { RepositoryComponent } from './components/repository/repository.component';
-import { NgIconsModule } from '@ng-icons/core'
+import { ModalErrorComponent } from './components/modal-error/modal-error.component';
 import { ionStarOutline, ionGitNetworkOutline, ionPeopleOutline, ionEyeOutline, ionJournalOutline, ionEllipsisVertical, ionLogOutOutline, ionCalendarOutline, ionTimeOutline, ionGitMergeOutline, ionChevronDownOutline } from '@ng-icons/ionicons'
-import { heroChevronLeft, heroChevronRight, heroChevronDoubleLeft, heroChevronDoubleRight, heroArrowLeft, heroArrowUpTray, heroMapPin } from '@ng-icons/heroicons/outline'
+import { heroChevronLeft, heroChevronRight, heroChevronDoubleLeft, heroChevronDoubleRight, heroArrowLeft, heroArrowUpTray, heroMapPin, heroXMark } from '@ng-icons/heroicons/outline'
 
 registerLocaleData(localePT);
 
@@ -34,6 +35,7 @@ registerLocaleData(localePT);
     PaginationComponent,
     ProgressBarComponent,
     RepositoryComponent,
+    ModalErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ registerLocaleData(localePT);
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgIconsModule.withIcons({ ionStarOutline, ionGitNetworkOutline, ionPeopleOutline, ionEyeOutline, ionJournalOutline, ionEllipsisVertical, ionLogOutOutline, heroChevronLeft, heroChevronRight, heroChevronDoubleLeft, heroChevronDoubleRight, heroArrowLeft, ionCalendarOutline, ionTimeOutline, heroArrowUpTray, ionGitMergeOutline, heroMapPin, ionChevronDownOutline })
+    NgIconsModule.withIcons({ ionStarOutline, ionGitNetworkOutline, ionPeopleOutline, ionEyeOutline, ionJournalOutline, ionEllipsisVertical, ionLogOutOutline, heroChevronLeft, heroChevronRight, heroChevronDoubleLeft, heroChevronDoubleRight, heroArrowLeft, ionCalendarOutline, ionTimeOutline, heroArrowUpTray, ionGitMergeOutline, heroMapPin, ionChevronDownOutline, heroXMark })
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
