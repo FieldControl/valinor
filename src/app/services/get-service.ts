@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 
 export class GetDataApiGitHub {
   private domain = environment.GITHUB_API_URL;
+  private key = environment.GITHUB_API_KEY;
   private messageSource = new BehaviorSubject([]);
   currentMessage = this.messageSource.asObservable();
 

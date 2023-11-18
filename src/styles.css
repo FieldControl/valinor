@@ -1,6 +1,6 @@
 :root {
   --color-black-primary: #121217;
-  --color-black-secondary: #1A1A20;
+  --color-black-secondary: #1a1a20;
   --color-blue: #1776f9;
   --color-blue-secondary: #96c2ff;
   --color-text: #ccced2;
@@ -11,8 +11,9 @@
   --color-input-default: #9ca3af;
 }
 
-:root{
-  --box-shadow: 0px 10px 15px -3px rgba(210, 209, 209, 0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+:root {
+  --box-shadow: 0px 10px 15px -3px rgba(210, 209, 209, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 *,
@@ -42,6 +43,7 @@ html {
 body {
   margin: 0;
   line-height: inherit;
+  position: relative;
 }
 
 hr {

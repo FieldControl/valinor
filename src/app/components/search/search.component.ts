@@ -58,12 +58,17 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     /*-- Function responsible for inserting data into the observer --*/
-    this.subscript = this.search().subscribe((data: any) => {
-      let option = this.optionField.value ? this.optionField.value : this.option;
-      let term = this.searchField.value ? this.searchField.value : this.term;
-      let perPage = this.perPageField.value ? this.perPageField.value : this.perPage;
+    this.subscript = this.search().subscribe({
+      next: (data: any) => {
+        let option = this.optionField.value ? this.optionField.value : this.option;
+        let term = this.searchField.value ? this.searchField.value : this.term;
+        let perPage = this.perPageField.value ? this.perPageField.value : this.perPage;
 
-      this.searchDataService.changeMessage([option, term, data, this.currentPage, perPage] || []);
+        this.searchDataService.changeMessage([option, term, data, this.currentPage, perPage] || []);
+      },
+      error: (err) => {
+        this.searchDataService.changeMessage([err.status]);
+      },
     });
 
     document.addEventListener('click', this.onClickOutside.bind(this));
@@ -110,7 +115,7 @@ export class SearchComponent implements OnInit, OnDestroy {
                   })
                 );
               })
-            );
+            )
         }
         return of([]);
       })
@@ -139,3 +144,4 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.openModal = !this.openModal;
   }
 }
+

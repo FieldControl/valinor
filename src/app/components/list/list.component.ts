@@ -30,19 +30,24 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     /*-- Function responsible for taking data from the observer and populating the array --*/
-    this.initialSubscription = this.listDataService.currentMessage.subscribe((res: Array<any>) => {
-      const [option, searchText, data, currentPage, perPage] = res;
+    this.initialSubscription = this.listDataService.currentMessage.subscribe({
+      next: (res: Array<any>) => {
+        const [option, searchText, data, currentPage, perPage] = res;
 
-      this.isLoading = true;
+        this.isLoading = true;
 
-      if (data?.items && data?.items?.length) {
-        this.option = option;
-        this.term = searchText;
-        this.dataApi = data.items;
-        this.perPage = perPage;
-        this.currentPage = currentPage;
-        this.isLoading = false;
-      }
+        if (data?.items && data?.items?.length) {
+          this.option = option;
+          this.term = searchText;
+          this.dataApi = data.items;
+          this.perPage = perPage;
+          this.currentPage = currentPage;
+          this.isLoading = false;
+        }
+      },
+      error: (err) => {
+        this.listDataService.changeMessage([err.status]);
+      },
     });
   }
 
@@ -61,8 +66,13 @@ export class ListComponent implements OnInit, OnDestroy {
     this.currentPage = page;
 
     /*-- Function responsible for inserting data into the observer according to the pagination --*/
-    this.pageSubscription = this.getDataApi().subscribe((data: any) => {
-      this.listDataService.changeMessage([this.option, this.term, data, this.currentPage, this.perPage] || []);
+    this.pageSubscription = this.getDataApi().subscribe({
+      next: (data: any) => {
+        this.listDataService.changeMessage([this.option, this.term, data, this.currentPage, this.perPage] || []);
+      },
+      error: (err) => {
+        this.listDataService.changeMessage([err.status]);
+      },
     });
   }
 

@@ -1,0 +1,44 @@
+.error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 450px;
+  background-color: var(--color-black-secondary);
+  color: var(--color-text);
+  padding: 46px;
+  text-align: center;
+  position: relative;
+  border-radius: 4px;
+}
+
+.close {
+  color: var(--color-text-secondary);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.close .icon{
+  transform: rotate(0);
+  transition: all .3s ease;
+}
+
+.close:hover .icon{
+  transform: rotate(164deg);
+}
+
+.title{
+  font-size: 2rem;
+  line-height: 150%;
+}

@@ -30,14 +30,19 @@ export class UserComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.subscript = this.userService.getUserDetails(userName).subscribe((data) => {
-      if (data) {
-        this.user = data;
-        this.repos$ = this.userService.getDataByURL(data.repos_url);
-        this.followers$ = this.userService.getDataByURL(data.followers_url);
-        this.following$ = this.userService.getDataByURL(data.following_url);
-        this.isLoading = false;
-      }
+    this.subscript = this.userService.getUserDetails(userName).subscribe({
+      next: (data) => {
+        if (data) {
+          this.user = data;
+          this.repos$ = this.userService.getDataByURL(data.repos_url);
+          this.followers$ = this.userService.getDataByURL(data.followers_url);
+          this.following$ = this.userService.getDataByURL(data.following_url);
+          this.isLoading = false;
+        }
+      },
+      error: (err) => {
+        this.userService.changeMessage([err.status]);
+      },
     });
   }
 
