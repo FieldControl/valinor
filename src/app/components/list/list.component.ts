@@ -45,8 +45,8 @@ export class ListComponent implements OnInit, OnDestroy {
           this.isLoading = false;
         }
       },
-      error(err) {
-        console.log('Opa deu erro', err);
+      error: (err) => {
+        this.listDataService.changeMessage([err.status]);
       },
     });
   }
@@ -70,8 +70,8 @@ export class ListComponent implements OnInit, OnDestroy {
       next: (data: any) => {
         this.listDataService.changeMessage([this.option, this.term, data, this.currentPage, this.perPage] || []);
       },
-      error(err) {
-        console.log('Opa deu erro', err);
+      error: (err) => {
+        this.listDataService.changeMessage([err.status]);
       },
     });
   }

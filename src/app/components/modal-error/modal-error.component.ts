@@ -24,7 +24,7 @@ export class ModalErrorComponent implements OnInit, OnDestroy {
 
         if (data === 403) {
           this.state = true;
-          this.menssage = 'A API do GitHup excedeu seu limite de 10 consultas por hora, tente novamente mais tarde';
+          this.menssage = 'A API do GitHup excedeu seu limite de 10 consultas por hora. Por favor, tente novamente mais tarde.';
         }
 
         if (data === 401) {
@@ -32,9 +32,9 @@ export class ModalErrorComponent implements OnInit, OnDestroy {
           this.menssage = 'Erro na autenticação da API';
         }
       },
-
-      error(err) {
-        console.log('Opa deu erro', err);
+      error: () => {
+        this.state = true;
+        this.menssage = 'Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.';
       },
     });
   }

@@ -35,17 +35,22 @@ export class RepositoryComponent implements OnInit, OnDestroy {
     }
 
     /*-- Function responsible for making queries on other API urls --*/
-    this.subscript = this.repoService.getRepoDetails(userName + '/' + repo).subscribe((data) => {
-      if (data) {
-        this.repo = data;
-        this.name = this.repo?.name;
-        this.login = this.repo?.owner?.login;
+    this.subscript = this.repoService.getRepoDetails(userName + '/' + repo).subscribe({
+      next: (data) => {
+        if (data) {
+          this.repo = data;
+          this.name = this.repo?.name;
+          this.login = this.repo?.owner?.login;
 
-        this.contributors$ = this.repoService.getDataByURL(data.contributors_url);
-        this.branches$ = this.repoService.getDataByURL(data.branches_url.replace("{/branch}", ""));
-        this.collaborators$ = this.repoService.getDataByURL(data.contributors_url);
-        this.isLoading = false;
-      }
+          this.contributors$ = this.repoService.getDataByURL(data.contributors_url);
+          this.branches$ = this.repoService.getDataByURL(data.branches_url.replace("{/branch}", ""));
+          this.collaborators$ = this.repoService.getDataByURL(data.contributors_url);
+          this.isLoading = false;
+        }
+      },
+      error: (err) => {
+        this.repoService.changeMessage([err.status]);
+      },
     });
   }
 
