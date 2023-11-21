@@ -1,5 +1,4 @@
-
-<div class="w-100 h-96 rounded-md mt-5 mb-20">
+<div *ngIf="repositories" class="w-100 h-96 rounded-md mt-5 mb-20">
 
     <div class="mt-5 p-1 bg-gray-200 border border-black rounded-md overflow-hidden relative">
 
@@ -15,15 +14,19 @@
         </p>
 
         <div class="mt-2 flex items-center justify-start">
-            <span class="mx-2 text-xs md:text-sm md:py-1 md:px-3 text-blue-700 bg-gray-50 py-1 px-2 rounded-full font-semibold cursor-pointer">
+            <span
+                class="mx-2 text-xs md:text-sm md:py-1 md:px-3 text-blue-700 bg-gray-50 py-1 px-2 rounded-full font-semibold cursor-pointer">
                 javascript </span>
-            <span class="mx-2 text-xs md:text-sm text-blue-700 bg-gray-50 py-1 px-2 rounded-full font-semibold cursor-pointer">
+            <span
+                class="mx-2 text-xs md:text-sm text-blue-700 bg-gray-50 py-1 px-2 rounded-full font-semibold cursor-pointer">
                 c# </span>
-            <span class="mx-2 text-xs md:text-sm text-blue-700 bg-gray-50 py-1 px-2 rounded-full font-semibold cursor-pointer">
+            <span
+                class="mx-2 text-xs md:text-sm text-blue-700 bg-gray-50 py-1 px-2 rounded-full font-semibold cursor-pointer">
                 angular </span>
         </div>
 
-        <div class="mt-2 flex items-center justify-start text-xs md:text-sm text-gray-600 font-extralight pointer-events-none">
+        <div
+            class="mt-2 flex items-center justify-start text-xs md:text-sm text-gray-600 font-extralight pointer-events-none">
             <p class="mx-2 flex items-center">
                 <span class="mx-1 inline-block w-3 h-3 bg-yellow-200 rounded-full"></span>
                 JavaScript
@@ -43,14 +46,23 @@
             </p>
         </div>
 
-        <div class="absolute top-0 right-0 p-2 m-3 bg-blue-600 rounded-lg cursor-pointer transition ease-out duration-100 border hover:border-gray-50 hover:bg-blue-500 flex items-center group">
-            <a class="text-xs md:text-sm text-gray-50 hover:text-gray-100 font-light font-montserrat hover:animate-pulse">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 md:w-5 md:h-5 inline-block group-hover:scale-[115%] transition ease-in-out">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
-                  </svg>
+        <div
+            class="absolute top-0 right-0 p-2 m-3 bg-blue-600 rounded-lg cursor-pointer transition ease-out duration-100 border hover:border-gray-50 hover:bg-blue-500 flex items-center group">
+            <a
+                class="text-xs md:text-sm text-gray-50 hover:text-gray-100 font-light font-montserrat hover:animate-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-3 h-3 md:w-5 md:h-5 inline-block group-hover:scale-[115%] transition ease-in-out">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
+                </svg>
                 Issues
             </a>
         </div>
 
-    </div>    
+    </div>
+</div>
+
+<div *ngIf="!repositories" class="w-100 h-[58vh] rounded-md mt-5 mb-20 overflow-hidden bg-center flex justify-center items-center">
+    <img class="object-fit pointer-events-none" width="350" src="../../../assets/img/github.gif" alt="">
 </div>
