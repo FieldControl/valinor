@@ -8,3 +8,17 @@
     @apply m-4 cursor-pointer rounded-md shadow-md transition ease-in-out duration-200 hover:scale-110;
 }
 
+.btnPagination{
+    @apply bg-gray-50 h-full w-10 text-xs flex items-center justify-center border transition hover:bg-gray-800 hover:text-gray-50;
+}
+
+.arrowLeft{
+    @apply text-black h-full w-[60px] text-xs md:text-sm flex items-center justify-center border rounded-l-full
+}
+.arrowRight{
+    @apply text-black h-full w-[60px] text-xs md:text-sm flex items-center justify-center border rounded-r-full
+}
+
+.paginationDisabled{
+    @apply bg-gray-300 cursor-not-allowed hover:bg-gray-300 hover:text-black;
+}
