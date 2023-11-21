@@ -10,6 +10,10 @@
   margin: 0 auto;
 }
 
+.breadcrumb span{
+  text-align: right;
+}
+
 .bt-prev {
   display: flex;
   align-items: center;
@@ -42,11 +46,12 @@
 }
 
 .perfil {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
+  gap: 40px;
   margin-top: 40px;
-  padding: 40px;
+  padding: 24px;
   background-color: var(--color-black-secondary);
   border-radius: 0.75rem;
 }
@@ -163,4 +168,17 @@
 
 ::-webkit-scrollbar-track {
   background: var(--color-black-secondary);
+}
+
+@media screen and (min-width: 1024px) {
+  .perfil {
+    padding: 40px;
+    display: grid;
+    gap: 60px;
+  }
+
+  .repo-wrap{
+    gap: 60px;
+    display: grid;
+  }
 }
