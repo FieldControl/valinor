@@ -40,23 +40,31 @@ export class SearchComponent {
   }
 
   formatDataUpdated(dataString: string) {
-    const data = new Date(dataString);
-    const dataAtual = new Date();
+    const pushedAt = new Date(dataString);
+    const dateNow = new Date();
 
-    const diffDias = Math.floor((dataAtual.getTime() - data.getTime()) / (1000 * 60 * 60 * 24));
-    const diffMeses = (dataAtual.getFullYear() - data.getFullYear()) * 12 + dataAtual.getMonth() - data.getMonth();
-    const diffHoras = Math.floor((dataAtual.getTime() - data.getTime()) / (1000 * 60 * 60));
+    const pushedAgoInMilliseconds = Math.abs(dateNow.getTime() - pushedAt.getTime());
+    const pushedAgoInHours = pushedAgoInMilliseconds / (1000 * 60 * 60);
 
-   if (diffDias <= 30) {
-      return `${diffDias} days ago`;
-    } else if (diffMeses <= 11) {
-      return `${diffMeses} ${diffMeses === 1 ? 'month ago' : 'months ago'}`;
-    } else if (diffHoras <= 24) {
-      return `${diffHoras} ${diffHoras === 1 ? 'hour ago' : 'hours ago'}`;
-    } else {
-      const diffAnos = Math.floor(diffMeses / 12);
-      return `${diffAnos} ${diffAnos === 1 ? 'year ago' : 'years ago'}`;
+    if (pushedAgoInHours >= 1) {
+      const amountHoursTwoDays = 48;
+      const amountHoursOneDay = 24;
+
+      if (pushedAgoInHours >= amountHoursTwoDays) {
+        return `on ${pushedAt.toLocaleString()}`;
+      } else if (pushedAgoInHours >= amountHoursOneDay) {
+        return 'yesterday';
+      }
+
+      return `${Math.floor(pushedAgoInHours)} hours ago`;
     }
+
+    const pushedAgoInMinutes = pushedAgoInHours * 60;
+    if (pushedAgoInMinutes >= 1) {
+      return `${Math.floor(pushedAgoInMinutes)} minutes ago`;
+    }
+
+    return `${Math.floor(pushedAgoInMinutes * 60)} seconds ago`;
   }
 
 
