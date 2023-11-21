@@ -9,7 +9,7 @@ import { emojify } from 'node-emoji';
   styleUrls: ['./search.component.css']
 })
 
-export class SearchComponent {
+export class SearchComponent{
 
   constructor(private githubService: GithubService) { }
 
@@ -17,20 +17,46 @@ export class SearchComponent {
   perPage: number = 10;
   search?: string;
   repositories?: Repository;
+  totalPages : number = 1;
+  paginator : number[] = [];
 
+  paginationClick(page : number) {
+    this.page = page;
+    this.searchRepo();
+  }
 
   searchRepo(): void {
-    this.githubService.getRepositories(this.page, this.perPage, this.search).subscribe(root => {
-      this.repositories = root;
-    })
+    if (this.search && this.search!.trim().length > 0) {
+      this.githubService.getRepositories(this.page, this.perPage, this.search).subscribe(root => {
+        this.repositories = root;
+        this.totalPages = Math.ceil(root.total_count/this.perPage);
+        this.totalPages = this.totalPages > 100 ? 100 : this.totalPages;
+        for(let i = 1; i < this.totalPages; i++){
+            this.paginator.push(i);
+        }
+      })
+    }
   }
 
-  showPerPage() {
-    this.githubService.getRepositories(this.page, this.perPage, this.search).subscribe(root => {
-      this.repositories = root;
-    })
+  goToPage(targetPage: number): void {
+    if (targetPage >= 1 && targetPage <= this.totalPages) {
+      this.page = targetPage;
+    }
   }
 
+  visiblePages(): number[] {
+    const maxVisiblePages = 5;
+  
+    const startPage = Math.max(1, this.page - Math.floor(maxVisiblePages / 2));  
+    const endPage = Math.min(this.totalPages, startPage + maxVisiblePages - 1);  
+    const pages = Array.from({ length: endPage - startPage + 1 }, (_, i) => i + startPage);
+  
+    if (!pages.includes(1) && this.totalPages > 1) {
+      pages.unshift(1);
+    }
+  
+    return pages;
+  }
   formatDescription(description: string) {
     return emojify(description);
   }

@@ -22,3 +22,7 @@
 .paginationDisabled{
     @apply bg-gray-300 cursor-not-allowed hover:bg-gray-300 hover:text-black;
 }
+
+.activeButton{
+    @apply bg-gray-800 text-gray-50;
+}

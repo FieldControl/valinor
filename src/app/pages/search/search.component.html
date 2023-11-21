@@ -21,7 +21,7 @@
             <p class="mx-1">
                 Show 
             </p>
-            <select [(ngModel)]="perPage" (ngModelChange)="showPerPage()" class="hover:bg-gray-300 hover:text-gray-900 transition duration-75 cursor-pointer bg-white text-black p-1 border rounded-md">
+            <select [(ngModel)]="perPage" (ngModelChange)="goToPage(page)" class="hover:bg-gray-300 hover:text-gray-900 transition duration-75 cursor-pointer bg-white text-black p-1 border rounded-md">
                 <option value="5" >5</option>
                 <option value="10" selected>10</option>
                 <option value="15" >15</option>
@@ -33,7 +33,7 @@
     
     </div>
 
-    <div *ngFor="let item of repositories!.items; let last = last" [ngClass]="{'mb-20' : last}" class="mt-5 p-1 bg-gray-200 border border-black rounded-md overflow-hidden relative">
+    <div *ngFor="let item of repositories!.items; let last = last" [ngClass]="{'mb-10' : last}" class="mt-5 p-1 bg-gray-200 border border-black rounded-md overflow-hidden relative">
 
         <div class="flex items-center justify-start">
             <span class="p-2"> <img class="rounded-full" height="25" width="25" src="{{item.owner.avatar_url}}" />
@@ -86,33 +86,45 @@
         </div>
         
     </div>     
-</div>
 
-<div class="w-full h-10 rounded-md mt-4 flex overflow-hidden mb-20 justify-center font-extralight cursor-pointer">
+    <div class="w-full h-10 rounded-md mt-4 flex overflow-hidden mb-32 justify-center font-extralight cursor-pointer">
 
-    <div class="arrowLeft btnPagination paginationDisabled">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-2 h-2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
-          </svg>          
-        <p class="mx-1">Prev</p>
-    </div>
-
-    <div class="btnPagination">1</div>
-    <div class="btnPagination">2</div>
-    <div class="btnPagination">3</div>
-    <div class="btnPagination">4</div>
-    <div class="btnPagination">5</div>
-    <div class="btnPagination">6</div>
-    <div class="btnPagination">7</div>
-
-    <div class="arrowRight btnPagination">
-        <p class="mx-1">Next</p>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-2 h-2">
+        <div class="arrowLeft btnPagination paginationDisabled" (click)="goToPage(page - 1)" [ngClass]="{'paginationDisabled': page === 1}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-2 h-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+            </svg>          
+          <p class="mx-1">Prev</p>
+        </div>
+      
+        <!-- Página 1 fixa -->
+        <div *ngIf="totalPages > 1 && !visiblePages().includes(1)" (click)="goToPage(1)" [ngClass]="{'btnPagination': true, 'activeButton': 1 === page}">
+            1
+        </div>
+       
+       <!-- Intervalo de Páginas  -->
+       <div *ngFor="let pag of visiblePages()" (click)="goToPage(pag)" [ngClass]="{'btnPagination': true, 'activeButton': pag === page}">
+         {{ pag }}
+       </div>
+      
+           <!-- Última página Fixa -->
+        <div *ngIf="totalPages > 1 && visiblePages().indexOf(totalPages) === -1" (click)="goToPage(totalPages)" [ngClass]="{'btnPagination': true, 'activeButton': totalPages === page}">
+          {{ totalPages }}
+        </div>
+      
+        <div class="arrowRight btnPagination" 
+             (click)="goToPage(page + 1)" 
+             [ngClass]="{'paginationDisabled': page === totalPages}">
+          <p class="mx-1">Next</p>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-2 h-2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
           </svg>               
-    </div>
+        </div>
+      
+      </div> 
+    
 
 </div>
+  
 
 <div *ngIf="repositories?.items?.length == 0"
     class="w-100 h-[58vh] rounded-md mt-5 mb-20 overflow-hidden bg-center flex justify-center items-center">
