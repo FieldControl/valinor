@@ -9,17 +9,11 @@ import { Repository } from '../models/repository';
 export class GithubService {
 
   private RepositoryApiURL = environment.RepositoryApiURL;
-  private IssueApiURL = environment.IssueApiURL;
 
   constructor(private http: HttpClient) {}
 
-  getRepositories(page : number = 1, perPage : number = 10, search : string = "kaiogotyacode"){
-    return this.http.get<Repository>(`${this.RepositoryApiURL}?q=${search}&page=${page}&perPage=${perPage}`);
+  getRepositories(page : number = 1, perPage : number = 10, search?: string){
+    return this.http.get<Repository>(`${this.RepositoryApiURL}?q=${search}&page=${page}&per_page=${perPage}`);
   }
-
-  getIssues(userName : string = "kaiogotyacode", userRepository : string = "taskManagement"){
-    return this.http.get<Repository>(`${this.IssueApiURL}?q=repo:${userName}/${userRepository}`);
-  }
-
 
 }
