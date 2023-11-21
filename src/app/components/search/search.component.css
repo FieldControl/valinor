@@ -1,6 +1,6 @@
 .search-wrap {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-top: 16px;
   /* background-color: var(--color-blue); */
@@ -12,8 +12,10 @@
 
 .search-form {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 22px;
+  align-items: center;
+  grid-template-columns: 72% 28%;
+  gap: 10px;
+  width: calc(100% - 10px);
 }
 
 .buttons {
@@ -21,6 +23,8 @@
   flex-direction: row;
   align-items: center;
   gap: 6px;
+  order: 2;
+  width: 100%;
 }
 
 .buttons .button {
@@ -30,6 +34,7 @@
   cursor: pointer;
   width: 50%;
   text-align: center;
+  line-height: 120%;
 }
 
 .buttons .button input {
@@ -53,7 +58,9 @@
 
 .search-input {
   width: 100%;
-  min-width: 400px;
+  min-width: 100%;
+  order: 1;
+  grid-column: span 2;
 }
 
 .search-select {
@@ -89,7 +96,7 @@
   color: var(--color-input-default);
   border-radius: 0 0 0.45rem 0.45rem;
   box-shadow: var(--box-shadow);
-  min-width: 92px;
+  min-width: 72px;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -102,15 +109,22 @@
 
 .search-filter {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  order: 3;
+  grid-column-end: 70px;
+}
+
+.search-filter > span {
+  display: none;
 }
 
 .search-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 10px;
-  min-width: 90px;
+  padding: 6px 12px;
+  min-width: 70px;
 }
 
 .search-modal-open {
@@ -118,4 +132,40 @@
   opacity: 1;
   visibility: visible;
   background-color: var(--color-black-primary);
+}
+
+@media screen and (min-width: 1024px) {
+  .search-wrap {
+    flex-direction: column;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 22px;
+    width: initial;
+  }
+
+  .search-input {
+    order: 2;
+    width: max-content;
+    min-width: 400px;
+    grid-column: span 1;
+  }
+
+  .search-filter {
+    flex-direction: row;
+    order: 3;
+  }
+
+  .search-label {
+    min-width: 90px;
+  }
+
+  .search-filter > span {
+    display: block;
+  }
+
+  .search-modal {
+    min-width: 92px;
+  }
 }

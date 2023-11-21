@@ -52,20 +52,20 @@
               size="16"
             ></ng-icon>
           </button>
-          <div
+          <ul
             [ngClass]="{
               'search-modal-open': openModal
             }"
             class="search-modal"
           >
-            <button
+            <li
               (click)="getOption(perPage)"
               type="button"
               *ngFor="let perPage of totalPage"
             >
               {{ perPage }}
-            </button>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </form>
