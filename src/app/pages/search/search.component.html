@@ -21,7 +21,7 @@
             <p class="mx-1">
                 Show 
             </p>
-            <select [(ngModel)]="perPage" (ngModelChange)="goToPage(page)" class="hover:bg-gray-300 hover:text-gray-900 transition duration-75 cursor-pointer bg-white text-black p-1 border rounded-md">
+            <select [(ngModel)]="perPage" (ngModelChange)="searchRepo()" class="hover:bg-gray-300 hover:text-gray-900 transition duration-75 cursor-pointer bg-white text-black p-1 border rounded-md">
                 <option value="5" >5</option>
                 <option value="10" selected>10</option>
                 <option value="15" >15</option>
@@ -87,7 +87,7 @@
         
     </div>     
 
-    <div class="w-full h-10 rounded-md mt-4 flex overflow-hidden mb-32 justify-center font-extralight cursor-pointer">
+    <div *ngIf="totalPages > 0" class="w-full h-10 rounded-md mt-4 flex overflow-hidden mb-32 justify-center font-extralight cursor-pointer">
 
         <div class="arrowLeft btnPagination paginationDisabled" (click)="goToPage(page - 1)" [ngClass]="{'paginationDisabled': page === 1}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-2 h-2">

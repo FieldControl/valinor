@@ -16,6 +16,7 @@ export class SearchComponent{
   page: number = 1;
   perPage: number = 10;
   search?: string;
+  lastSearch? : string;
   repositories?: Repository;
   totalPages : number = 1;
   paginator : number[] = [];
@@ -27,10 +28,15 @@ export class SearchComponent{
 
   searchRepo(): void {
     if (this.search && this.search!.trim().length > 0) {
+
+      if(this.search != this.lastSearch)
+        this.page = 1;              
+
       this.githubService.getRepositories(this.page, this.perPage, this.search).subscribe(root => {
         this.repositories = root;
         this.totalPages = Math.ceil(root.total_count/this.perPage);
         this.totalPages = this.totalPages > 100 ? 100 : this.totalPages;
+        this.lastSearch = this.search;
         for(let i = 1; i < this.totalPages; i++){
             this.paginator.push(i);
         }
@@ -41,6 +47,7 @@ export class SearchComponent{
   goToPage(targetPage: number): void {
     if (targetPage >= 1 && targetPage <= this.totalPages) {
       this.page = targetPage;
+      this.searchRepo();
     }
   }
 
