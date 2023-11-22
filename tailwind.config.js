@@ -6,6 +6,9 @@ module.exports = {
       fontFamily:{
         montserrat: ['Montserrat'],
         colonna: ['Colonna']
+      },
+      backgroundImage:{
+        'fieldcontrol': "url('assets/img/arteField.png')"
       }
     },
   },
