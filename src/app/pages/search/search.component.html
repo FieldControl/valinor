@@ -18,10 +18,10 @@
 
     <div class="flex items-center mt-2 justify-between">
         <div class="flex items-center text-xs md:text-sm border rounded-md font-semibold hover:bg-gray-300 hover:border-gray-700 hover:text-gray-900 transition duration-75 cursor-pointer overflow-hidden p-1">
-            <label class="mx-1">
+            <label for="sortBy" class="mx-1">
                 Sort by: 
             </label>
-            <select [(ngModel)]="sortBy" (ngModelChange)="searchRepo()" class="hover:bg-gray-300 hover:border-gray-700 hover:text-gray-900 transition duration-75 cursor-pointer bg-white text-black p-1">
+            <select [(ngModel)]="sortBy"  id="sortBy" (ngModelChange)="searchRepo()" class="hover:bg-gray-300 hover:border-gray-700 hover:text-gray-900 transition duration-75 cursor-pointer bg-inherit text-black p-1">
                 <option value="" selected> Best Match </option>
                 <option value="stars">Most Stars</option>
                 <option value="forks">Most Forks</option>
@@ -50,7 +50,7 @@
         <div class="flex items-center justify-start">
             <span class="p-2"> <img class="rounded-full" height="25" width="25" src="{{item.owner.avatar_url}}" />
             </span>
-            <a href="{{item.html_url}}" target="_blank" class="text-xs lg:text-lg text-blue-600 cursor-pointer"> <b> {{ item.full_name}} </b></a>
+            <a href="{{item.html_url}}" target="_blank" class="text-xs lg:text-lg text-blue-600 cursor-pointer hover:underline"> {{ item.owner.login }}/<b>{{ item.name}}</b></a>
         </div>
     
         <p class="flex items-center justify-start">

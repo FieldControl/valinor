@@ -13,7 +13,7 @@ export class GithubService {
   constructor(private http: HttpClient) {}
 
   getRepositories(page : number = 1, perPage : number = 10, search?: string, sortBy : string = ""){
-    // console.log(`${this.RepositoryApiURL}?q=${search}&page=${page}&per_page=${perPage}&sort=${sortBy}&order=asc`)
+    console.log(`${this.RepositoryApiURL}?q=${search}&page=${page}&per_page=${perPage}&sort=${sortBy}&order=asc`)
     return this.http.get<Repository>(`${this.RepositoryApiURL}?q=${search}&page=${page}&per_page=${perPage}&sort=${sortBy}&order=desc`);
   }
 
