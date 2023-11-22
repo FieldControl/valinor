@@ -10,11 +10,12 @@ import { emojify } from 'node-emoji';
 })
 
 export class SearchComponent{
-
+  
   constructor(private githubService: GithubService) { }
-
+  
   page: number = 1;
   perPage: number = 10;
+  sortBy: string = "";
   search?: string;
   lastSearch? : string;
   repositories?: Repository;
@@ -32,7 +33,7 @@ export class SearchComponent{
       if(this.search != this.lastSearch)
         this.page = 1;              
 
-      this.githubService.getRepositories(this.page, this.perPage, this.search).subscribe(root => {
+      this.githubService.getRepositories(this.page, this.perPage, this.search, this.sortBy).subscribe(root => {
         this.repositories = root;
         this.totalPages = Math.ceil(root.total_count/this.perPage);
         this.totalPages = this.totalPages > 100 ? 100 : this.totalPages;
@@ -64,6 +65,7 @@ export class SearchComponent{
   
     return pages;
   }
+  
   formatDescription(description: string) {
     return emojify(description);
   }
