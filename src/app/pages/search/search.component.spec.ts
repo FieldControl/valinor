@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { SearchComponent } from './search.component';
+import { FormsModule } from '@angular/forms';
 
 describe('SearchComponent', () => {
   
@@ -9,7 +10,8 @@ describe('SearchComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SearchComponent]
+      declarations: [SearchComponent],
+      imports:  [HttpClientTestingModule, FormsModule]
     });
     fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
@@ -17,6 +19,8 @@ describe('SearchComponent', () => {
   });
 
   it('should create', () => {
+    //component.  acessa todas as propriedades/métodos dentro do meu componente
+    
     expect(component).toBeTruthy();
   });
 

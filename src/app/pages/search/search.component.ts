@@ -9,40 +9,47 @@ import { emojify } from 'node-emoji';
   styleUrls: ['./search.component.css']
 })
 
-export class SearchComponent{
-  
+export class SearchComponent {
+
   constructor(private githubService: GithubService) { }
-  
+
   page: number = 1;
   perPage: number = 10;
   sortBy: string = "";
   search?: string;
-  lastSearch? : string;
+  lastSearch?: string;
+  lastSort?: string;
+  lastEntries?: number;  
   repositories?: Repository;
-  totalPages : number = 1;
-  paginator : number[] = [];
+  totalPages: number = 1;
+  paginator: number[] = [];
 
-  paginationClick(page : number) {
+  paginationClick(page: number) {
     this.page = page;
     this.searchRepo();
   }
 
   searchRepo(): void {
-    if (this.search && this.search!.trim().length > 0) {
 
-      if(this.search != this.lastSearch)
-        this.page = 1;              
+    if (!this.search || this.search!.trim().length == 0) {
+      this.repositories = undefined;
+    } else {
+
+      this.page = (this.search != this.lastSearch || this.sortBy != this.lastSort || this.perPage != this.lastEntries) ? 1 : this.page;
 
       this.githubService.getRepositories(this.page, this.perPage, this.search, this.sortBy).subscribe(root => {
         this.repositories = root;
-        this.totalPages = Math.ceil(root.total_count/this.perPage);
+        this.totalPages = Math.ceil(root.total_count / this.perPage);
         this.totalPages = this.totalPages > 100 ? 100 : this.totalPages;
         this.lastSearch = this.search;
-        for(let i = 1; i < this.totalPages; i++){
-            this.paginator.push(i);
+        this.lastSort = this.sortBy;
+        this.lastEntries = this.perPage;
+        for (let i = 1; i < this.totalPages; i++) {
+          this.paginator.push(i);
         }
       })
     }
+    
   }
 
   goToPage(targetPage: number): void {
@@ -54,18 +61,18 @@ export class SearchComponent{
 
   visiblePages(): number[] {
     const maxVisiblePages = 5;
-  
-    const startPage = Math.max(1, this.page - Math.floor(maxVisiblePages / 2));  
-    const endPage = Math.min(this.totalPages, startPage + maxVisiblePages - 1);  
+
+    const startPage = Math.max(1, this.page - Math.floor(maxVisiblePages / 2));
+    const endPage = Math.min(this.totalPages, startPage + maxVisiblePages - 1);
     const pages = Array.from({ length: endPage - startPage + 1 }, (_, i) => i + startPage);
-  
+
     if (!pages.includes(1) && this.totalPages > 1) {
       pages.unshift(1);
     }
-  
+
     return pages;
   }
-  
+
   formatDescription(description: string) {
     return emojify(description);
   }
