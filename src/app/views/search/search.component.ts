@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Repository } from 'src/app/models/repository';
 import { GithubService } from 'src/app/services/github.service';
 import { emojify } from 'node-emoji';
@@ -19,37 +19,36 @@ export class SearchComponent {
   search?: string;
   lastSearch?: string;
   lastSort?: string;
-  lastEntries?: number;  
-  repositories?: Repository;
+  lastEntries?: number;
+  repositories?: Repository | undefined;
   totalPages: number = 1;
   paginator: number[] = [];
 
-  paginationClick(page: number) {
-    this.page = page;
-    this.searchRepo();
-  }
 
   searchRepo(): void {
 
-    if (!this.search || this.search!.trim().length == 0) {
-      this.repositories = undefined;
-    } else {
+    this.searchValidation();
 
-      this.page = (this.search != this.lastSearch || this.sortBy != this.lastSort || this.perPage != this.lastEntries) ? 1 : this.page;
+    if (this.search) {
+      this.page = this.shouldResetPage() ? 1 : this.page;
 
-      this.githubService.getRepositories(this.page, this.perPage, this.search, this.sortBy).subscribe(root => {
-        this.repositories = root;
-        this.totalPages = Math.ceil(root.total_count / this.perPage);
-        this.totalPages = this.totalPages > 100 ? 100 : this.totalPages;
+      this.githubService.getRepositories(this.page, this.perPage, this.search!, this.sortBy).subscribe(response => {
+
+        this.repositories = response;
+        this.totalPages = Math.ceil(response.total_count / this.perPage);
+        this.configPaginator();
+        console.log(this.perPage);
         this.lastSearch = this.search;
         this.lastSort = this.sortBy;
         this.lastEntries = this.perPage;
+
+        this.paginator = [];
         for (let i = 1; i < this.totalPages; i++) {
           this.paginator.push(i);
         }
       })
     }
-    
+
   }
 
   goToPage(targetPage: number): void {
@@ -73,6 +72,33 @@ export class SearchComponent {
     return pages;
   }
 
+  private searchValidation(): void {
+    if (this.search?.trim().length == 0) {
+      this.repositories = undefined;
+      this.search = undefined;
+    }
+  }
+
+  private shouldResetPage(): boolean {
+    return this.search !== this.lastSearch || this.sortBy !== this.lastSort || this.perPage !== this.lastEntries;
+  }
+
+  configPaginator(): void {
+
+    //Definindo limites máximos de página de acordo com o valor de PerPage configurado.
+    const perPageLimits: Record<number, number> = {
+      5: 200,
+      10: 100,
+      15: 67,
+      20: 50,
+      30: 34,
+    };
+
+    //Caso o valor de totalPages ultrapassar o valor máximo estabelecido, utiliza-se Math.min para exibir sempre o valor mínimo pré-estabelecido.
+    this.totalPages = Math.min(perPageLimits[this.perPage] || this.totalPages, this.totalPages);
+
+  }
+
   formatDescription(description: string) {
     return emojify(description);
   }
@@ -81,7 +107,7 @@ export class SearchComponent {
     return stargazers > 999 ? `${(stargazers / 1000).toFixed(1)}k` : stargazers;
   }
 
-  formatDataUpdated(dataString: string) {
+  formatDataUpdated(dataString: string): string {
     const pushedAt = new Date(dataString);
     const dateNow = new Date();
 

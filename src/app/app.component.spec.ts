@@ -20,12 +20,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('valinor');
   });
 
-  // it('Deve renderizar o título!', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('.content span')?.textContent).toContain('valinor app is running!');
-  // });
-
-
 });
