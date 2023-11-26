@@ -67,8 +67,10 @@ Durante o desenvolvimento do VALINOR, enfrentei alguns desafios notáveis:
 
 De um modo geral, foi um desafio super legal, gostei de verdade de aplicar meus conhecimentos técnicos e foi ótimo ter a percepção que estou em dia pra desenrolar com as tecnologias atuais.
 
+<hr> 
 
-Kaio Maciel
-(17) 98138-3539
+(17) 98138-3539 / 👉 [What's App](https://kaiogotyacode.github.io/whatsappCR/)
+
 kaioreis1153@hotmail.com
+
 www.linkedin.com/in/kaio-maciel
