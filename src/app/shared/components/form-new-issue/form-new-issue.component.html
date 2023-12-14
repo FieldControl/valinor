@@ -1,0 +1,34 @@
+<div class="form-wrapper">
+  <p>
+    <i (click)="openForm()" class="smaller heading bi bi-plus-square"></i>
+    <span class="add-issue">Adicionar issue</span>
+  </p>
+  <div *ngIf="visible">
+    <form [formGroup]="formIssue">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Título"
+        formControlName="issueTitle"
+      />
+      <textarea
+        style="margin-top: 10px"
+        class="form-control"
+        rows="3"
+        formControlName="issueBody"
+      ></textarea>
+      <button
+        (click)="
+          addIssue(
+            this.formIssue.value.issueTitle,
+            this.formIssue.value.issueBody
+          )
+        "
+        type="button"
+        class="btn btn-secondary btn-sm mt-3"
+      >
+        Adicionar
+      </button>
+    </form>
+  </div>
+</div>

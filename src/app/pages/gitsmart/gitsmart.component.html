@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="cards">
+    <div class="wrapper">
+      <div>
+        <h1>GitSmart</h1>
+      </div>
+      <div class="card-wrapper card">
+        <h5 class="mt-5">
+          Vamos começar! Busque por um usuário do Github.
+          <hr />
+        </h5>
+        <div class="circle mt-3">
+          <img class="w-100" src="{{ foto }}" />
+        </div>
+        <div>
+          <form class="form-inline" [formGroup]="formUser" (submit)="searchUser(this.formUser.value.user)">
+            <div class="form-group d-flex mx-sm-2 mb-2" style="gap: 0.5em">
+              <input type="text" class="form-control mw-100 h-50 mt-2" placeholder="usuário" formControlName="user" />
+              <button type="submit" class="btn btn-warning btn-sm mt-2">
+                Buscar
+              </button>
+            </div>
+          </form>
+          <div class="validators" *ngIf="formUser.get('user')?.errors?.['required'] && formUser.get('user')?.touched">
+            Usuário obrigatório
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="repositories">
+      <app-repositories [repositories]="repositories" [users]="users"></app-repositories>
+    </div>
+  </div>
+</div>

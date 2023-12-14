@@ -1,0 +1,32 @@
+<div class="form-wrapper">
+  <form *ngFor="let issue of issues" [formGroup]="formEditIssue">
+    <div *ngIf="issue.number === issueEdit">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Título"
+        formControlName="issueTitle"
+        [value]="issue.title"
+      />
+      <textarea
+        class="issue-body form-control"
+        rows="3"
+        formControlName="issueBody"
+        [value]="issue.body"
+      ></textarea>
+      <button
+        (click)="
+          patchIssue(
+            issue.number,
+            this.formEditIssue.value.issueTitle,
+            this.formEditIssue.value.issueBody
+          )
+        "
+        type="button"
+        class="btn btn-secondary btn-sm mt-3"
+      >
+        Atualizar
+      </button>
+    </div>
+  </form>
+</div>

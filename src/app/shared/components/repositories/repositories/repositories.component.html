@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="card-repor card mt-5">
+    <div *ngIf="repositories.length === 0">
+      {{ noRepor }}
+    </div>
+    <div *ngFor="let repos of repositories">
+      <h5>Projeto: {{ repos.name }}</h5>
+      <div class="description-project">
+        Descrição:
+        {{ repos.description ? repos.description : "Sem descrição" }}
+      </div>
+      <div class="text-center mt-3">
+        <button type="button" class="btn btn-warning" (click)="serchIssues(repos.name)">
+          <span>Acessar as issues</span>
+          <i class="binoc bi bi-binoculars"></i>
+        </button>
+      </div>
+      <div *ngIf="repos.name == repositorie">
+        <div class="card">
+          <i class="close-issue bi bi-x" (click)="close()"></i>
+          <app-form-new-issue (issuesReload)="issueReload($event, repos.name)" [users]="users"
+            [repositorie]="repositorie"></app-form-new-issue>
+          <div *ngFor="let issue of issues">
+            <div class="issue-card" *ngIf="issues.length > 0">
+              <div>
+                <div>
+                  <p>
+                    <span class="issues-property">Título:</span>
+                    {{ issue.title }}
+                  </p>
+                  <p>
+                    <span class="issues-property">Autor:</span>
+                    {{ issue.user.login }}
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <span class="issues-property">Descrição:</span>
+                    {{ issue.body ? issue.body : "Sem descrição" }}
+                  </p>
+                </div>
+              </div>
+              <div class="icons">
+                <i (click)="LockIssue(issue.number)" class="bi bi-lock-fill" style="margin-right: 10px"></i>
+                <i (click)="openEditIssue(issue.number, issue.title, issue.body)" class="bi bi-pen-fill"></i>
+              </div>
+              <div *ngIf="issue.number === issueEdit">
+                <app-edit-issues (issuesReloadEdit)="issueReloadEdit($event, repos.name)" [issues]="issues"
+                  [issueEdit]="issueEdit" [users]="users" [repositorie]="repositorie" [issueTitulo]="issueTitulo"
+                  [issueText]="issueText"></app-edit-issues>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="issues.length === 0" class="text-center mb-2">
+            Sem issues e pulls
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>

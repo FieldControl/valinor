@@ -1,0 +1,63 @@
+.card-repor {
+  margin: 0 auto;
+  box-shadow: 5px 5px 5px #000000ac;
+  padding: 24px;
+  overflow: scroll;
+  height: 25em;
+  text-align: center;
+
+  h5 {
+    text-align: center;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  .card {
+    margin-top: 10px;
+  }
+}
+
+.btn-warning {
+  span {
+    font-weight: 500;
+  }
+}
+
+.description-project {
+  font-weight: 500;
+  background-color: #dedede;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.close-issue {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.issue-card {
+  border: 3px solid pink;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.icons {
+  font-size: 22px;
+  text-align: end;
+}
+
+.issues-property {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.binoc {
+  margin-left: 10px;
+}
