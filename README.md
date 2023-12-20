@@ -2,11 +2,15 @@
 
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
+## Observação
+
+- Cada pasta com inicio app_ contém o código da aplicação com suas respectivas tecnologias, juntamente com um readme de como executar a aplicação.
+
 **Framework, linguagem e ferramentas**
 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
-- Resposta: Para esta aplicação foi usara ReactJS em sua versão mais atual juntamente com o Vite. Para estilização utilizei o Tailwind, para requisições optei pelo axios e para os testes React Testing Library + Jest. Optei também por criar uma versão do teste em angular como forma de usar o teste para aprender sobre o Framework já que eu nunca tinha criado nada em Angular.
+- Resposta: Para esta aplicação usei ReactJS em sua versão mais atual juntamente com o Vite. Para estilização utilizei o Tailwind, para requisições optei pelo axios e para os testes React Testing Library + Jest. Optei também por criar uma versão do teste em angular como forma de usar o teste para aprender sobre o Framework já que eu nunca tinha criado nada em Angular.
 
 **Técnologias X e Y**
 
