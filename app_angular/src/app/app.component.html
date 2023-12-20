@@ -1,0 +1,105 @@
+<header
+  class="pt-5 flex flex-col sm:flex-row items-center justify-between p-[15px] gap-5 bg-black"
+>
+  <div class="flex items-center gap-5">
+    <img
+      src="../../assets/logo-github.png"
+      alt="Logo Github"
+      class="rounded-full w-10 invert"
+    />
+    <span class="text-white text-lg font-semibold">GitHub Search Repo</span>
+  </div>
+  <div class="flex items-center gap-5 flex-col sm:flex-row">
+    <input
+      [(ngModel)]="searchText"
+      type="text"
+      id="search_input"
+      class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Buscar"
+      required
+    />
+    <button
+      (click)="searchRepositories()"
+      class="bg-gray-800 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      type="button"
+    >
+      Buscar
+    </button>
+    <img
+      src="https://avatars.githubusercontent.com/u/71036610?v=4"
+      alt="Avatar Rebecca"
+      class="rounded-full w-10"
+    />
+  </div>
+</header>
+
+<div class="p-4 flex align-middle">
+  <main class="w-full">
+    <ng-container *ngIf="repositories.length > 0; else noRepositories">
+      <div *ngFor="let repository of pagedRepositories">
+        <a
+          [href]="repository.html_url"
+          title="Ir para o repositório"
+          target="_blank"
+        >
+          <div
+            class="mb-4 w-full text-white m-auto block p-6 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          >
+            <h5
+              class="flex flex-col sm:flex-row gap-3 text-white mb-2 text-2xl font-bold tracking-tight"
+            >
+              <img
+                [src]="repository.owner.avatar_url"
+                class="rounded-full mb-2 sm:mb-0"
+                width="30"
+                alt="Avatar"
+              />
+              <span>{{ repository.name }}</span>
+            </h5>
+            <p class="font-normal text-white dark:text-gray-400">
+              {{ repository.description }}
+            </p>
+            <ul class="flex flex-wrap gap-2 pt-4">
+              <li class="rounded-lg bg-blue-900 p-2">
+                {{ repository.language }}
+              </li>
+            </ul>
+            <div
+              class="flex flex-col sm:flex-row justify-between items-center text-gray-500 mt-4"
+            >
+              <p class="mb-2 sm:mb-0">
+                Última atualização: {{ repository.updated_at | date }}
+              </p>
+              <p class="mb-2 sm:mb-0">
+                Stars: {{ repository.stargazers_count }}
+              </p>
+              <p>{{ repository.language }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="flex justify-between mt-4">
+        <button
+          (click)="previousPage()"
+          class="bg-gray-800 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          [disabled]="currentPage === 1"
+        >
+          Anterior
+        </button>
+        <span class="text-white">
+          Página {{ currentPage }} de {{ totalPages }}
+        </span>
+        <button
+          (click)="nextPage()"
+          class="bg-gray-800 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          [disabled]="currentPage === totalPages"
+        >
+          Próximo
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #noRepositories>
+      <p class="text-white">Nenhum repositório encontrado.</p>
+    </ng-template>
+  </main>
+</div>
