@@ -5,6 +5,7 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 ## Observação
 
 - Cada pasta com inicio app_ contém o código da aplicação com suas respectivas tecnologias, juntamente com um readme de como executar a aplicação.
+- Aplicação em React deploy: <a href="https://valinor-reactjs-rebecca.netlify.app/" target="_blank" title="Ir para link da aplicação"> Ver aplicação </a>
 
 **Framework, linguagem e ferramentas**
 
