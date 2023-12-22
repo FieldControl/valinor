@@ -27,7 +27,7 @@ export function SearchRepoProvider({ children }: SearchRepo) {
   const [currentPage, setCurrentPage] = useState(1);
 
   async function getRepo(repoName: string) {
-    api.get(repoName)
+    api.get(repoName + '&per_page=100')
       .then(response => {
         const repoItems: RepoCardProps[] = response.data.items;
         setRepos(repoItems);
