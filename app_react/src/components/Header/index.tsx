@@ -1,4 +1,4 @@
-import Image from "../Image";
+import { Image } from "../Image";
 import Search from "../Search";
 import Logo from "/logo-github.png";
 
