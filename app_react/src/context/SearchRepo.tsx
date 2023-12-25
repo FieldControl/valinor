@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 import api from "../services/api";
 import { RepoCardProps } from "../components/@interfaces/IRepoCard";
 
@@ -15,6 +15,8 @@ interface SearchRepoData {
   setRepos: (repos: RepoCardProps[]) => void;
   currentPage: number;
   setCurrentPage: (page: number) => void;
+  loading: boolean
+  setLoading: (loading: boolean) =>  void
 }
 
 export const SearchRepo = createContext<SearchRepoData>(
@@ -25,22 +27,32 @@ export function SearchRepoProvider({ children }: SearchRepo) {
   const [getRepoName, setGetRepoName] = useState('');
   const [repos, setRepos] = useState<RepoCardProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   async function getRepo(repoName: string) {
-    api.get(repoName + '&per_page=100')
-      .then(response => {
-        const repoItems: RepoCardProps[] = response.data.items;
-        setRepos(repoItems);
-        console.log(repoItems)
-      })
-      .catch(error => {
-        console.error('Erro na solicitação:', error);
-      });
+    try {
+      setLoading(true);
+      const response = await api.get(repoName + '&per_page=100');
+      const repoItems: RepoCardProps[] = response.data.items;
+      setRepos(repoItems);
+    } catch (error) {
+      console.error('Erro na solicitação:', error);
+    } finally {
+      setLoading(false);
+    }
   }
-
-  useEffect(() => {
-    console.log('Search Repo context is working');
-  }, []);
-
-  return <SearchRepo.Provider value={{ getRepo, getRepoName, setGetRepoName, repos, setRepos, currentPage, setCurrentPage }}>{children}</SearchRepo.Provider>;
+  
+  return <SearchRepo.Provider value={
+    { 
+    getRepo, 
+    getRepoName, 
+    setGetRepoName, 
+    repos, 
+    setRepos, 
+    currentPage, 
+    setCurrentPage,
+    loading,
+    setLoading
+  }
+}>{children}</SearchRepo.Provider>;
 }
