@@ -1,4 +1,5 @@
-// paginationUtils.ts
+
+export const reposPerPage = 4
 export interface PaginationData<T> {
     currentPage: number;
     itemsPerPage: number;

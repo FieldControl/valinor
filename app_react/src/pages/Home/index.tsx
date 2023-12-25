@@ -2,11 +2,10 @@ import Header from "../../components/Header";
 import RepoCard from "../../components/RepoCard";
 import Pagination from "../../components/Pagination";
 import { useSearch } from "../../hooks/useSearchRepo";
-import { PaginationData, paginateData, calculateTotalPages } from "../../utils/paginationUtils";
+import { PaginationData, paginateData, calculateTotalPages, reposPerPage } from "../../utils/paginationUtils";
 
 export default function Home() {
   const { repos, currentPage: searchCurrentPage, setCurrentPage } = useSearch();
-  const reposPerPage = 6;
 
   const { currentPage, data: currentRepos }: PaginationData<typeof repos[0]> = paginateData(
     repos,
