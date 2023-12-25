@@ -28,7 +28,7 @@ export default function Home() {
           {loading ? (
             // Spinner do Tailwind enquanto os dados estão sendo carregados
             <div className="flex items-center justify-center h-screen">
-              <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-300"></div>
+              <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-300  "></div>
             </div>
           ) : (
             // Renderizar os dados
