@@ -1,0 +1,188 @@
+.repo-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2rem;
+}
+
+.repos {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+
+  padding: 2rem;
+}
+
+.noRepos {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+.noRepos .text {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  > h1 {
+    font-size: 7rem;
+    color: #dd891b;
+    font-weight: 800;
+  }
+
+  > h2 {
+    color: #6c6c75;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+}
+
+/* loading animation */
+.loader {
+  display: block;
+  width: 8em;
+  height: 8em;
+}
+
+.loader_ring {
+  stroke: hsla(var(--hue), 90%, 5%, 0.1);
+  transition: stroke 0.3s;
+}
+
+.loader_worm1,
+  .loader_worm2,
+  .loader_worm2-1 {
+  animation: worm1 5s ease-in infinite;
+}
+
+.loader_worm1 {
+  transform-origin: 64px 64px;
+}
+
+.loader_worm2,
+  .loader_worm2-1 {
+  transform-origin: 22px 22px;
+}
+
+.loader_worm2 {
+  animation-name: worm2;
+  animation-timing-function: linear;
+}
+
+.loader_worm2-1 {
+  animation-name: worm2-1;
+  stroke-dashoffset: 175.92;
+}
+
+  /* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(var(--hue), 90%, 5%);
+    --fg: hsl(var(--hue), 90%, 95%);
+  }
+
+  .loader_ring {
+    stroke: hsla(var(--hue), 90%, 95%, 0.1);
+  }
+}
+
+  /* Animations */
+@keyframes worm1 {
+  from,
+    to {
+    stroke-dashoffset: 0;
+  }
+
+  12.5% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -175.91;
+  }
+
+  25% {
+    animation-timing-function: cubic-bezier(0, 0, 0.43, 1);
+    stroke-dashoffset: -307.88;
+  }
+
+  50% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -483.8;
+  }
+
+  62.5% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -307.88;
+  }
+
+  75% {
+    animation-timing-function: cubic-bezier(0, 0, 0.43, 1);
+    stroke-dashoffset: -175.91;
+  }
+}
+
+@keyframes worm2 {
+  from,
+    12.5%,
+    75%,
+    to {
+    transform: rotate(0) translate(-42px, 0);
+  }
+
+  25%,
+    62.5% {
+    transform: rotate(0.5turn) translate(-42px, 0);
+  }
+}
+
+@keyframes worm2-1 {
+  from {
+    stroke-dashoffset: 175.91;
+    transform: rotate(0);
+  }
+
+  12.5% {
+    animation-timing-function: cubic-bezier(0, 0, 0.42, 1);
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+
+  25% {
+    animation-timing-function: linear;
+    stroke-dashoffset: 0;
+    transform: rotate(1.5turn);
+  }
+
+  37.5%,
+    50% {
+    stroke-dashoffset: -175.91;
+    transform: rotate(1.5turn);
+  }
+
+  62.5% {
+    animation-timing-function: cubic-bezier(0, 0, 0.42, 1);
+    stroke-dashoffset: 0;
+    transform: rotate(1.5turn);
+  }
+
+  75% {
+    animation-timing-function: linear;
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+
+  87.5%,
+    to {
+    stroke-dashoffset: 175.92;
+    transform: rotate(0);
+  }
+}

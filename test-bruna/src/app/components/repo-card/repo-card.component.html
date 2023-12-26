@@ -1,0 +1,11 @@
+<div class="repo-card-container" (click)="openRepo(repo.html_url)">
+  <section class="top">
+    <h3>{{ repo.name }}</h3>
+    <span>{{ repo.private ? 'Private' : 'Public' }}</span>
+  </section>
+  <p>{{ repo.description }}</p>
+  <div class="user-name">
+    <mat-icon>person</mat-icon>
+    <p>{{ repo.owner.login }}</p>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<nav>
+  <ul class="pagination" [ngClass]="{'no-show': totalPages === 0}">
+    <li class="prev" (click)="onPageClick(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </li>
+
+    <li class="page" *ngFor="let page of getPagesToShow()" [ngClass]="{'current': page === currentPage}" (click)="onPageClick(page)">
+      {{ page }}
+    </li>
+
+    <li class="next" (click)="onPageClick(currentPage + 1)" [ngClass]="{'disabled': currentPage === totalPages}">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,25 @@
+<header>
+  <div class="logo">
+    <img
+      src="../../../assets/github-mark.svg"
+      alt="github logo"
+      (click)="onClickGithub()"
+      title="brunaporato @ github"
+    >
+  </div>
+
+  <input
+    type="text"
+    placeholder="search github repositories"
+    (keypress)="onInputKeyPress($event)"
+  />
+
+  <div class="user-icon">
+    <img
+      src="https://github.com/brunaporato.png"
+      alt=""
+      (click)="onClickLinkedin()"
+      title="brunaporato @ linkedin"
+    >
+  </div>
+</header>

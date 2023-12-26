@@ -1,0 +1,82 @@
+.repo-card-container .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  > h3 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.75rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  > span {
+    padding: 0.5rem 2rem;
+    background: rgba(40,24,51,1);
+    border-radius: 8px;
+    border: 1.5px solid rgba(165, 166, 168, 0.50);
+
+    font-size: 0.75rem;
+  }
+}
+
+.repo-card-container .user-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #868d92;
+
+  margin-top: 1rem;
+
+  > p {
+    margin: 0;
+    line-height: normal;
+  }
+}
+
+.repo-card-container {
+  background: rgb(40,24,51);
+  background: linear-gradient(90deg, rgba(40,24,51,1) 0%, rgba(80,62,89,1) 100%);
+  border-radius: 8px;
+  height: 12rem;
+  color: #969da2;
+  overflow: hidden;
+  
+  padding: 2.5rem 1.5rem 1.5rem;
+
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+ 
+  cursor: pointer;
+
+  > p {
+    margin: 0;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.repo-card-container:hover {
+  transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.repo-card-container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 1;
+}

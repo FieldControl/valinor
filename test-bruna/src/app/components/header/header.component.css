@@ -1,0 +1,54 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2.5rem 2rem 1.5rem;
+  gap: 2.5rem;
+
+  background: #1d263e;
+  border-bottom: 1px solid #352F44;
+
+  > input {
+    width: 100%;
+    height: 2.5rem;
+
+    border-radius: 8px;
+    background: #0e142e;
+    padding: 0.5rem 1rem;
+    border: 1px solid #3b4665;
+
+    color: #DBD8E3;
+
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+  }
+
+  img {
+    cursor: pointer;
+  }
+}
+
+header .logo {
+  > img {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+header .user-icon {
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  border-radius: 9999999px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  > img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
