@@ -1,27 +1,56 @@
-# TestBruna
+# Teste Field - Angular App
+Este é um projeto Angular desenvolvido como parte do teste da Field. Ele utiliza a API do GitHub para buscar e exibir informações de repositórios.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+## Como Rodar o Projeto
+Siga as instruções abaixo para rodar o projeto em sua máquina:
 
-## Development server
+### Pré-requisitos
+- Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo [aqui](https://nodejs.org/en).
+- Angular CLI é necessário para executar o projeto. Caso não tenha instalado, utilize o seguinte comando para instalar globalmente:
+```bash
+npm install -g @angular/cli
+```
+### Clonar o Repositório
+Clone este repositório em sua máquina local. Abra o terminal e execute o seguinte comando:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+git clone https://github.com/brunaporato/valinor.git
+```
+### Instalar Dependências
+Navegue até o diretório do projeto e instale as dependências usando o seguinte comando:
 
-## Code scaffolding
+```bash
+cd test-bruna
+npm install
+```
+### Rodar o Servidor de Desenvolvimento
+Execute o seguinte comando para iniciar o servidor de desenvolvimento:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+ng serve
+```
+Aguarde até que o processo seja concluído.<br />
+Após a conclusão, abra seu navegador e acesse http://localhost:4200/. <br />
+Você verá a aplicação Angular em execução.
 
-## Build
+### Como Usar
+- Ao abrir na página inicial você verá repositórios que correspondem pelo termo pesquisado: 'field control'.
+- Digite qualquer termo para pesquisar repositórios no github.
+- Aperte 'Enter' para visualizar os repositórios relacionados ao termo inserido.
+- Ao clicar nos cards de repositórios você acessará o repositório no github.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Executar Testes
+Para executar os testes unitários, utilize o seguinte comando:
 
-## Running unit tests
+```bash
+ng test
+```
+### Build do Projeto
+Se desejar realizar o build do projeto para produção, utilize o seguinte comando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+ng build --prod
+```
+Isso criará uma pasta dist/ com os artefatos de produção.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Espero que essas instruções ajudem a configurar e executar o projeto em sua máquina local. Se houver algum problema ou dúvida, sinta-se à vontade para entrar em contato. 😊
