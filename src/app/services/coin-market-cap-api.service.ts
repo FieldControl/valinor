@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { CryptoCoin } from "../models/crypto-coin";
@@ -13,18 +13,17 @@ export class CoinMarketCapAPIService {
   private data: CryptoCoin | any;
 
   constructor(private http: HttpClient) {
-    this.urlApi = environment.API_URL;
+    this.urlApi = environment.API_URL
     this.keyApi = environment.API_KEY;
   }
 
   getCryptoData(): Observable<CryptoCoin> {
     this.data = this.http.get<CryptoCoin>(this.urlApi, {
       headers: {
-        "X-CMC_PRO_API_KEY": this.keyApi,
-        "Access-Control-Allow-Origin": "*"
+        "X-CMC_PRO_API_KEY": `${this.keyApi}`,
+        "Accept": "application/json",
       },
     });
-    console.log(this.data)
     return this.data;
   }
 }

@@ -12,14 +12,14 @@ import { CryptoCoin } from "../../models/crypto-coin";
 })
 export class HomeComponent implements OnInit {
   crypto: CryptoCoin | any;
-
   
   constructor(private service: CoinMarketCapAPIService) {}
   
   ngOnInit(): void {
     this.service.getCryptoData().subscribe({
       next: (response: CryptoCoin) => {
-        this.crypto = response;
+        this.crypto = response
+        console.log(this.crypto)
       }
     })
   }

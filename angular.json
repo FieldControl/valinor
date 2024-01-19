@@ -66,7 +66,8 @@
               "buildTarget": "valinor:build:production"
             },
             "development": {
-              "buildTarget": "valinor:build:development"
+              "buildTarget": "valinor:build:development",
+              "proxyConfig": "./proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
