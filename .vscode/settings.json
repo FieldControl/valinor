@@ -1,5 +1,3 @@
 {
-    "conventionalCommits.scopes": [
-        "config angular project structure"
-    ]
+  "conventionalCommits.scopes": ["config angular project structure"]
 }

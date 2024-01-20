@@ -1,3 +1,28 @@
-<h1>HOME</h1>
-<p>{{ crypto }}</p>
-<app-crypto-card></app-crypto-card>
+<main>
+
+  <h1>{{ title }}</h1>
+  <p>{{ subtitle }}</p>
+
+  <!--
+    <div class="container-latest-card">
+      <swiper-container>
+        <swiper-slide>
+          <app-crypto-card></app-crypto-card>
+        </swiper-slide>
+        <swiper-slide>
+          <app-crypto-card></app-crypto-card>
+        </swiper-slide>
+        <swiper-slide>
+          <app-crypto-card></app-crypto-card>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  -->
+
+
+<div class="crypto-currency-table">
+    <app-crypto-currency-prices></app-crypto-currency-prices>
+</div>
+
+
+</main>

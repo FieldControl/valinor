@@ -8,10 +8,9 @@ describe('CryptoCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CryptoCardComponent]
-    })
-    .compileComponents();
-    
+      imports: [CryptoCardComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CryptoCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

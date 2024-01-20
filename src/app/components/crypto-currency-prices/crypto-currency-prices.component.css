@@ -1,0 +1,25 @@
+table {
+  background-color: white;
+  border-radius: 10px;
+}
+
+tr {
+  border-spacing: 12px;
+}
+
+th {
+  padding: 12px 0;
+  text-align: end;
+  font-size: 32px;
+  color: black;
+}
+
+td {
+  text-align: end;
+  font-size: 24px;
+  color: black;
+}
+
+.test > * {
+  color: black;
+}

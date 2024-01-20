@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Base Neue;
+  src: url(./assets/fonts/BaseNeue-Black.ttf);
+}
+
+@font-face {
+  font-family: Sarabun;
+  src: url(./assets/fonts/Sarabun-Regular.ttf);
+}
+
+:root {
+  --bg-page-color: #5a189a;
+  --bg-card-color: #7b2cbf;
+  --font-color-white: #ffffff;
+}
+
+/* reset config */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  color: var(--font-color-white);
+  font-family: Sarabun,sans-serif;
+}
+
+/* font size default*/
+
+h1 {
+  font-family: Base Neue,sans-serif;
+  font-size: 64px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-page-color);
+  margin: 0;
+}

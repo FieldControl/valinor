@@ -32,10 +32,6 @@ Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como 
 
 Se quiser enviar alguma informação adicional sobre o desafio..
 
-
 ---
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
-
-
-
+Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :)

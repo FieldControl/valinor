@@ -1,0 +1,54 @@
+.container-card {
+  margin: 3px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  background-color: #7b2cbf;
+  border-radius: 10px;
+  gap: 20px;
+}
+
+.info-card {
+  position: relative;
+}
+
+.image-card {
+  float: right;
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+}
+
+.description-card {
+  padding-right: 20px;
+  float: left;
+}
+
+.description-card h3 {
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.description-card p {
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.price-card {
+  padding-left: 20px;
+  text-align: end;
+}
+
+.price-card h4 {
+  top: 21px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.price-card p {
+  font-weight: 500;
+  font-size: 14px;
+}
