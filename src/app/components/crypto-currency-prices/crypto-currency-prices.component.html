@@ -4,27 +4,30 @@
       <th>Name</th>
       <th>Preço</th>
       <th>24h</th>
-      <th>7d</th>
       <th>Market Cap</th>
     </tr>
   </thead>
   <tbody>
     @for (crypto of cryptos; track $index) {
-      <tr>
-        <td>
-          <div class="test">
-            <h3>{{crypto.name}}</h3>
-            <p>{{crypto.symbol}}</p>
-            <img src="" alt="" srcset="">
-          </div>
-        </td>
-        <td>{{crypto.quote.BRL.price}}</td>
-        <td>{{crypto.quote.BRL.percent_change_24h}}</td>
-        <td>{{crypto.quote.BRL.percent_change_7d}}</td>
-        <td>{{crypto.quote.BRL.market_cap}}</td>
-      </tr>
+    <tr>
+      <td>
+        <div class="test">
+          <h3>{{ crypto.name }}</h3>
+          <p>{{ crypto.symbol }}</p>
+          <img
+            ngSrc="{{ crypto.iconUrl }}"
+            alt="logo"
+            [width]="16"
+            [height]="16"
+          />
+        </div>
+      </td>
+      <td>{{ crypto.price }}</td>
+      <td>{{ crypto.change }}</td>
+      <td>{{ crypto.marketCap }}</td>
+    </tr>
     } @empty {
-      <p>CARREGANDO...</p>
+    <p>CARREGANDO...</p>
     }
   </tbody>
 </table>

@@ -1,18 +1,35 @@
-export interface CryptoCoin {
+export interface DataCoinRanking {
+  status: string;
   data: {
-    id: number;
-    name: string;
-    symbol: string;
-    slug: string;
-    circulating_supply: number;
-    quote: {
-      BRL: {
-        price: number;
-        percent_change_1h: number;
-        percent_change_24h: number;
-        percent_change_7d: number;
-        market_cap: number;
-      };
-    };
+    stats: DataStats;
+    coins: DataCryptoCoin[];
   };
+}
+
+interface DataStats {
+  total: number;
+  totalCoins: number;
+  totalMarkets: number;
+  totalExchanges: number;
+  totalMarketCap: string;
+  total24hVolume: string;
+}
+
+interface DataCryptoCoin {
+  uuid: string;
+  symbol: string;
+  name: string;
+  color: string;
+  iconUrl: string;
+  marketCap: string;
+  price: string;
+  listedAt: number;
+  tier: number;
+  change: string;
+  rank: number;
+  sparkline: [];
+  lowVolume: boolean;
+  coinrankingUrl: string;
+  "24hVolume": string;
+  btcPrice: string;
 }

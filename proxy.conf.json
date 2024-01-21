@@ -1,6 +1,6 @@
 {
   "/v1": {
-    "target": "https://pro-api.coinmarketcap.com/",
+    "target": "https://brapi.dev/api",
     "secure": false,
     "changeOrigin": true,
     "pathRewrite": {

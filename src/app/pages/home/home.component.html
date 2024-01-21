@@ -1,39 +1,40 @@
 <main>
   <div class="container-page-title">
-    <img src="../../../assets/images/logo.png">
+    <img src="../../../assets/images/logo.png" />
     <div class="page-title">
       <h1>{{ title }}</h1>
       <p>{{ subtitle }}</p>
     </div>
   </div>
 
-    <swiper-container slides-per-view="3" loop="true" space-between="150">
-      <swiper-slide>
-        <app-crypto-card></app-crypto-card>
-      </swiper-slide>
-      <swiper-slide>
-        <app-crypto-card></app-crypto-card>
-      </swiper-slide>
-      <swiper-slide>
-        <app-crypto-card></app-crypto-card>
-      </swiper-slide>
-      <swiper-slide>
-        <app-crypto-card></app-crypto-card>
-      </swiper-slide>
-      <swiper-slide>
-        <app-crypto-card></app-crypto-card>
-      </swiper-slide>
-      <swiper-slide>
-        <app-crypto-card></app-crypto-card>
-      </swiper-slide>
-      <swiper-slide>
-        <app-crypto-card></app-crypto-card>
-      </swiper-slide>
-    </swiper-container>
+  <swiper-container slides-per-view="3" loop="true" space-between="150">
+    <swiper-slide>
+      <app-crypto-card></app-crypto-card>
+    </swiper-slide>
+    <swiper-slide>
+      <app-crypto-card></app-crypto-card>
+    </swiper-slide>
+    <swiper-slide>
+      <app-crypto-card></app-crypto-card>
+    </swiper-slide>
+    <swiper-slide>
+      <app-crypto-card></app-crypto-card>
+    </swiper-slide>
+    <swiper-slide>
+      <app-crypto-card></app-crypto-card>
+    </swiper-slide>
+    <swiper-slide>
+      <app-crypto-card></app-crypto-card>
+    </swiper-slide>
+    <swiper-slide>
+      <app-crypto-card></app-crypto-card>
+    </swiper-slide>
+  </swiper-container>
 
-<div class="crypto-currency-table">
-    <!--<app-crypto-currency-prices></app-crypto-currency-prices>-->
-</div>
-
-
+  <div class="crypto-currency-table">
+    <div class="container-search-input">
+      <app-search-input></app-search-input>
+    </div>
+    <app-crypto-currency-prices></app-crypto-currency-prices>
+  </div>
 </main>
