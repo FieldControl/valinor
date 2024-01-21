@@ -27,11 +27,6 @@
 
 /* font size default*/
 
-h1 {
-  font-family: Base Neue,sans-serif;
-  font-size: 64px;
-}
-
 html, body {
   height: 100%;
 }
@@ -39,4 +34,5 @@ html, body {
 body {
   background-color: var(--bg-page-color);
   margin: 0;
+  max-width: 100vw;
 }

@@ -1,25 +1,22 @@
 table {
   background-color: white;
   border-radius: 10px;
-}
-
-tr {
-  border-spacing: 12px;
+  border-spacing: 1.2cm 12px;
 }
 
 th {
-  padding: 12px 0;
   text-align: end;
-  font-size: 32px;
+  font-size: 16px;
   color: black;
 }
 
 td {
   text-align: end;
-  font-size: 24px;
+  font-size: 14px;
   color: black;
 }
 
 .test > * {
+  font-size: 14px;
   color: black;
 }

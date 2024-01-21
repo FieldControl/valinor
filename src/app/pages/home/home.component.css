@@ -1,9 +1,47 @@
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+main > * {
+  margin: 40px 0;
 }
+
+.container-page-title {
+  display: flex;
+  justify-content: center;
+  text-align: end;
+  align-items: center;
+  margin-top: 80px;
+  position: relative;
+}
+
+.container-page-title img {
+  width: 120px;
+  height: 100px;
+  position: absolute;
+  left: 20px;
+}
+
+.page-title {
+  padding-left: 100px;
+}
+
+.page-title h1 {
+  font-family: Base Neue,sans-serif;
+  font-size: 32px;
+}
+
+.page-title p {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: pre-wrap;
+}
+
+.container-latest-card {
+  display: flex;
+  overflow: hidden;
+}
+
+
+
 
 .crypto-currency-table {
   width: 80%;
 }
+

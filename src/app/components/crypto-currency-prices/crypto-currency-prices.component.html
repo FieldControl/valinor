@@ -9,51 +9,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>
-        <div class="test">
-          <h3>Bitcoin</h3>
-          <p>BTC</p>
-          <img src="" alt="" srcset="">
-        </div>
-      </td>
-      <td>$41,414.24</td>
-      <td>2.46%</td>
-      <td>10.03%</td>
-      <td>$811,347,046,133</td>
-    </tr>
+    @for (crypto of cryptos; track $index) {
+      <tr>
+        <td>
+          <div class="test">
+            <h3>{{crypto.name}}</h3>
+            <p>{{crypto.symbol}}</p>
+            <img src="" alt="" srcset="">
+          </div>
+        </td>
+        <td>{{crypto.quote.BRL.price}}</td>
+        <td>{{crypto.quote.BRL.percent_change_24h}}</td>
+        <td>{{crypto.quote.BRL.percent_change_7d}}</td>
+        <td>{{crypto.quote.BRL.market_cap}}</td>
+      </tr>
+    } @empty {
+      <p>CARREGANDO...</p>
+    }
   </tbody>
 </table>
-
-<!--
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Preço </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-
-
-      <ng-container matColumnDef="percent_change_24h">
-        <th mat-header-cell *matHeaderCellDef> 24h </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="percent_change_7d":>
-        <th mat-header-cell *matHeaderCellDef> 7d </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="market_cap">
-    <th mat-header-cell *matHeaderCellDef> Market Cap </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
--->
