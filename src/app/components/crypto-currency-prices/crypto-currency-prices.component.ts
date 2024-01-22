@@ -1,26 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CoinRankingAPIService } from '../../services/coin-ranking-api.service';
-import { NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DataCoinRanking } from '../../models/crypto-coin';
 
 @Component({
   selector: 'app-crypto-currency-prices',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, CommonModule],
   templateUrl: './crypto-currency-prices.component.html',
   styleUrl: './crypto-currency-prices.component.css',
 })
 export class CryptoCurrencyPricesComponent {
-  cryptos: DataCoinRanking | any;
+  @Input({ required: true }) cryptos: DataCoinRanking | any;
 
-  constructor(private service: CoinRankingAPIService) {}
+  constructor(public service: CoinRankingAPIService) {}
 
-  ngOnInit(): void {
-    this.service.getCryptoData().subscribe({
-      next: (response: DataCoinRanking) => {
-        this.cryptos = response.data.coins;
-        console.log(this.cryptos)
-      },
-    });
-  }
+  ngOnInit(): void {}
 }

@@ -1,13 +1,19 @@
-  <div class="container-card">
-    <div class="info-card">
-      <div class="description-card">
-        <h3>Bitcoin</h3>
-        <p>BTC</p>
+<swiper-container>
+  @for (crypto of cryptos; track $index) {
+    <swiper-slide>
+      <div class="container-card">
+        <div class="info-card">
+          <div class="description-card">
+            <h3>{{ crypto.name }}</h3>
+            <p>{{ crypto.symbol }}</p>
+          </div>
+          <img class="image-card" src="{{ crypto.iconUrl }}" loading="lazy" />
+        </div>
+        <div class="price-card">
+          <h4>Preço hoje</h4>
+          <p>{{ crypto.price | currency }}</p>
+        </div>
       </div>
-      <img class="image-card" src="img/btc-1.png" />
-    </div>
-    <div class="price-card">
-      <h4>Preço hoje</h4>
-      <p>$41,414.24</p>
-    </div>
-  </div>
+    </swiper-slide>
+  }
+</swiper-container>

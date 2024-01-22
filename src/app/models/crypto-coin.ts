@@ -30,6 +30,6 @@ interface DataCryptoCoin {
   sparkline: [];
   lowVolume: boolean;
   coinrankingUrl: string;
-  "24hVolume": string;
+  '24hVolume': string;
   btcPrice: string;
 }

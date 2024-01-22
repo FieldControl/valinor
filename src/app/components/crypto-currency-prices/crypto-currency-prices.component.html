@@ -9,25 +9,25 @@
   </thead>
   <tbody>
     @for (crypto of cryptos; track $index) {
-    <tr>
-      <td>
-        <div class="test">
-          <h3>{{ crypto.name }}</h3>
-          <p>{{ crypto.symbol }}</p>
-          <img
-            ngSrc="{{ crypto.iconUrl }}"
-            alt="logo"
-            [width]="16"
-            [height]="16"
-          />
-        </div>
-      </td>
-      <td>{{ crypto.price }}</td>
-      <td>{{ crypto.change }}</td>
-      <td>{{ crypto.marketCap }}</td>
-    </tr>
+      <tr>
+        <td>
+          <div class="test">
+            <h3>{{ crypto.name }}</h3>
+            <p>{{ crypto.symbol }}</p>
+            <img
+              ngSrc="{{ crypto.iconUrl }}"
+              alt="logo"
+              [width]="16"
+              [height]="16"
+            />
+          </div>
+        </td>
+        <td>{{ crypto.price | currency }}</td>
+        <td>{{ crypto.change }}</td>
+        <td>{{ crypto.marketCap | currency }}</td>
+      </tr>
     } @empty {
-    <p>CARREGANDO...</p>
+      <p>CARREGANDO...</p>
     }
   </tbody>
 </table>

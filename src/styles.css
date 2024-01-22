@@ -22,12 +22,13 @@
   box-sizing: border-box;
   font-size: 62.5%;
   color: var(--font-color-white);
-  font-family: Sarabun,sans-serif;
+  font-family: Sarabun, sans-serif;
 }
 
 /* font size default*/
 
-html, body {
+html,
+body {
   height: 100%;
 }
 

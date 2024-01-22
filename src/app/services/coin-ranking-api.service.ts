@@ -11,8 +11,9 @@ export class CoinRankingAPIService {
   private urlApi: string = '';
   private keyApi: string = '';
   apiData: DataCoinRanking | any;
-  limit: number = 5;
-  convert: string = 'BRL';
+  search: string = '';
+  limit: number = 8;
+  offset: number = 0;
 
   constructor(private http: HttpClient) {
     this.urlApi = environment.API_URL;
@@ -21,7 +22,7 @@ export class CoinRankingAPIService {
 
   getCryptoData(): Observable<DataCoinRanking> {
     this.apiData = this.http.get<DataCoinRanking>(
-      `${this.urlApi}/coins?limit=${this.limit}`,
+      `${this.urlApi}/coins?limit=${this.limit}&search=${this.search}&offset=${this.offset}&tier=1`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -30,5 +31,9 @@ export class CoinRankingAPIService {
       }
     );
     return this.apiData;
+  }
+
+  searchCrypto(value: string) {
+    this.search = value;
   }
 }

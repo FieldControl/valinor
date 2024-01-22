@@ -23,7 +23,9 @@ main > * {
 }
 
 .page-title h1 {
-  font-family: Base Neue,sans-serif;
+  font-family:
+    Base Neue,
+    sans-serif;
   font-size: 32px;
 }
 
@@ -38,10 +40,6 @@ main > * {
   overflow: hidden;
 }
 
-
-
-
 .crypto-currency-table {
   width: 80%;
 }
-

@@ -2,6 +2,12 @@
   font-size: 32px;
 }
 
-p {
+p,
+button {
+  color: black;
   font-size: 32px;
+}
+
+input {
+  color: black;
 }

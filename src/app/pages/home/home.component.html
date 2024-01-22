@@ -6,35 +6,18 @@
       <p>{{ subtitle }}</p>
     </div>
   </div>
-
-  <swiper-container slides-per-view="3" loop="true" space-between="150">
-    <swiper-slide>
-      <app-crypto-card></app-crypto-card>
-    </swiper-slide>
-    <swiper-slide>
-      <app-crypto-card></app-crypto-card>
-    </swiper-slide>
-    <swiper-slide>
-      <app-crypto-card></app-crypto-card>
-    </swiper-slide>
-    <swiper-slide>
-      <app-crypto-card></app-crypto-card>
-    </swiper-slide>
-    <swiper-slide>
-      <app-crypto-card></app-crypto-card>
-    </swiper-slide>
-    <swiper-slide>
-      <app-crypto-card></app-crypto-card>
-    </swiper-slide>
-    <swiper-slide>
-      <app-crypto-card></app-crypto-card>
-    </swiper-slide>
-  </swiper-container>
-
+  <div class="container-card">
+    <app-crypto-card [cryptos]="cryptos"></app-crypto-card>
+  </div>
   <div class="crypto-currency-table">
     <div class="container-search-input">
       <app-search-input></app-search-input>
     </div>
-    <app-crypto-currency-prices></app-crypto-currency-prices>
+    <app-crypto-currency-prices
+      [cryptos]="cryptos"
+    ></app-crypto-currency-prices>
+    <div class="container-pagination">
+      <app-pagination-btn></app-pagination-btn>
+    </div>
   </div>
 </main>
