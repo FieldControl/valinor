@@ -1,0 +1,157 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  display: flex; 
+  background-color: #000; 
+  height: 70px; 
+  width: 100vw; 
+  padding-top: 8px;
+  position: absolute;
+}
+
+main {
+  display: flex; 
+  background-color: #F5F6FA; 
+  width: 100vw; 
+  height: 100vh; 
+  padding-top: 70px; 
+  justify-content: center; 
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+  padding-bottom: 5px;
+  color: #fff;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.dashboard {
+  display: block;
+}
+
+.persons {
+  display: none;
+}
+
+.list-menu {
+  padding-left: 5px;
+}
+
+.box-menu {
+  background-color: #000;
+  padding-bottom: 0px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.card-container {
+  display: flex; 
+  flex-direction: row; 
+  margin-top: 10px; 
+  justify-content: space-evenly;
+}
+
+.card-text-pattern {
+  margin-top: 10px;
+  margin-left: 5px; 
+  color: #404040;
+}
+
+.card-dinamic-text-pattern {
+  margin-top: 10px;
+  margin-left: 5px; 
+  color: #ffba33;
+}
+
+.card-dinamic-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-count-pattern {
+  color: #ffba33; 
+  font-weight: bold;
+}
+
+.styled-card {
+  width: 18rem;
+  height: 120px;
+  box-shadow: 2px 2px 15px rgb(167 167 167);
+  border-radius: 15px;
+}
+
+.person-card {
+  width: 40rem;
+  height: 200px;
+  box-shadow: 2px 2px 15px rgb(167 167 167);
+  border-radius: 15px;
+}
+
+.big-card {
+  width: 30rem;
+  height: 120px;
+  box-shadow: 2px 2px 15px rgb(167 167 167);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px; 
+}
+
+.icon-card {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}
+
+.title-card {
+  display: flex;
+  align-items: center;
+}
+
+.escape-icon {
+  margin-right: 10px;
+}
+
+.panel-main {
+  display: flex;
+  width: 1280px;
+  height: 720px;
+  flex-direction: column;
+}
+
+
+.logo {
+  display: flex; 
+  justify-content: center; 
+  width: 100vw;
+}
+
+@font-face {
+  font-family: Star;
+  src: url('../fonts/Starjhol.ttf');
+}
+
+@font-face {
+  font-family: Padawan;
+  src: url('../fonts/Starjedi.ttf');
+}

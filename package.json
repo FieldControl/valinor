@@ -1,0 +1,20 @@
+{
+  "name": "starlist",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.6.5",
+    "bootstrap": "^5.3.2",
+    "moment": "^2.30.1"
+  }
+}

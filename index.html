@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/imgs/icons/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <header>
+        <div class="p-2">
+          <a
+            data-bs-toggle="collapse" 
+            href="#mainMenu" 
+            role="button" 
+            aria-expanded="false" 
+            aria-controls="mainMenu"
+            href="#" 
+            style="margin-left: 5px;"
+            >
+            <img src="./imgs/icons/bars.svg">
+          </a>
+        </div>
+        <div class="logo"> 
+          <div class="p-2">
+            <p style="font-family: Padawan; color: gold; font-size: 23px;">
+              Starlist
+            </p>
+          </div>
+        </div>
+    </header>
+    <div 
+      class="collapse" 
+      id="mainMenu" 
+      style="position: absolute; 
+      margin-top: 4.1rem;"
+    >
+      <div 
+        class="card card-body box-menu" 
+        style="background-color: #000; padding-bottom: 0px;"
+      >
+        <ul class="list-menu">
+          <li>
+            <a id="dashboardMenu" href="#" onclick="javascript:;">
+              <img class="icon escape-icon" src="./imgs/icons/dashboard.svg"/>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a id="personsMenu" href="#" onclick="javascript:;">
+              <img class="icon escape-icon" src="./imgs/icons/persons.svg"/>
+              Personagens
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <main>
+      <div class="dashboard">
+        <div class="panel-main">
+          <div>
+            <h3>Dashboard</h3>
+          </div>
+          <div class="card-container">
+            <div class="card styled-card">
+              <div class="title-card">
+                <img src="./imgs/icons/personsBlack.svg" class="icon-card">
+                <h5 class="card-text-pattern">Personagens</h5>
+              </div>
+              <div class="card-body">
+                <h2 id="people" class="card-text card-count-pattern"></h2>
+              </div>
+            </div>
+            <div class="card">
+              <div class="big-card">
+                <div class="title-card">
+                  <img src="./imgs/icons/speciesBlack.svg" class="icon-card">
+                  <h5 id="" class="card-text-pattern">Espécies</h5>
+                </div>
+                <div class="card-body">
+                  <h2 id="species" class="card-text card-count-pattern"></h2>
+                </div>
+                <div class="title-card">
+                  <img src="./imgs/icons/planetBlack.svg" class="icon-card">
+                  <h5 class="card-text-pattern">Planetas</h5>
+                </div>
+                <div class="card-body">
+                  <h2 id="planets" class="card-text card-count-pattern"></h2>
+                </div>
+              </div>
+            </div>
+            <div class="card styled-card">
+              <div class="title-card">
+                <img src="./imgs/icons/spatialsBlack.svg" class="icon-card">
+                <h5 class="card-text-pattern">Naves</h5>
+              </div>
+              <div class="card-body">
+                <h2 id="starships" class="card-text card-count-pattern"></h2>
+              </div>
+            </div>
+          </div>
+          <div 
+            class="card-container" 
+            style="justify-content: flex-start; padding-left: 56px; padding-top: 20px;"
+          >
+            <div class="card styled-card" style="width: 95.5%;">
+              <div class="title-card">
+                <img src="./imgs/icons/filmsBlack.svg" class="icon-card">
+                <h5 class="card-text-pattern">Filmes</h5>
+              </div>
+              <div class="card-body">
+                <div class="film-table">
+                  <table class="table table-striped">
+                    <thead id="headTable">
+                      <tr>
+                        <th>Título</th>
+                        <th>Estréia</th>
+                        <th>Diretor</th>
+                        <th>Episódio</th>
+                      </tr>
+                    </thead>
+                    <tbody id="bodyTable">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="persons">
+        <div class="panel-main">
+          <h3>Personagens</h3>
+          <div id="cardContainer" class="card-container" style="flex-direction: column; justify-content: center; align-items: center;">
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/components/dashboard.js"></script>
+    <script type="module" src="/components/persons.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </body>
+</html>
