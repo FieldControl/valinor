@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: end;
+  padding: 38px;
+  position: relative;
+}
+
+.header-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.disable {
+  display: none;
+}
+
+.container-nav {
+  z-index: 2;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  backdrop-filter: blur(4px);
+}
+
+.icon-header-btn{
+  width: 32px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  gap: 12px;
+  align-items: center;
+  padding-top: 4rem;
+}
+
+a {
+  font-size: 36px;
+  color: black;
+  text-decoration: none;
+}

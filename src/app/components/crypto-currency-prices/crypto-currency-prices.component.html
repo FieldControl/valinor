@@ -1,30 +1,49 @@
 <table class="table table-primary">
   <thead>
     <tr>
-      <th>Name</th>
+      <th style="text-align: start">Nome</th>
       <th>Preço</th>
       <th>24h</th>
-      <th>Market Cap</th>
+      <th>Capitalização de mercado</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
     @for (crypto of cryptos; track $index) {
       <tr>
         <td>
-          <div class="test">
-            <h3>{{ crypto.name }}</h3>
-            <p>{{ crypto.symbol }}</p>
+          <div style="display: flex; align-items: center">
             <img
+              style="float: left"
               ngSrc="{{ crypto.iconUrl }}"
               alt="logo"
               [width]="16"
               [height]="16"
             />
+            <div class="test">
+              <h3>{{ crypto.name }}</h3>
+              <p style="text-align: start">{{ crypto.symbol }}</p>
+            </div>
           </div>
         </td>
-        <td>{{ crypto.price | currency }}</td>
-        <td>{{ crypto.change }}</td>
+        <td>{{ crypto.price | currency:'BRL' }}</td>
+        @if (isPositive(crypto.change)) {
+          <td class="positive-num">
+            <img src="../../../assets/images/iconpositive.svg" width="8" srcset="">
+            {{ crypto.change }}
+          </td>
+        } @else {
+          <td class="negative-num">
+            <img src="../../../assets/images/iconnegative.svg" width="8" srcset="">
+            {{ removeSymbol(crypto.change) }}
+          </td>
+        }
         <td>{{ crypto.marketCap | currency }}</td>
+        <td>
+          <a href="{{ crypto.coinrankingUrl }}" style="color: black"
+            >Ver {{ crypto.name }}</a
+          >
+        </td>
       </tr>
     } @empty {
       <p>CARREGANDO...</p>

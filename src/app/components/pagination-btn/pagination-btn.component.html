@@ -1,7 +1,9 @@
 <div class="container-pagination">
-  <a (click)="previousList()"><i class="fi fi-bs-angle-left" width="32"></i></a>
+  <a (click)="setPreviousPage()"
+    ><i class="fi fi-bs-angle-left" width="26"></i
+  ></a>
   <div>
-    <p>1 / 250</p>
+    <p>{{ countPage }} / {{ (totalPages / 8).toFixed(0) }}</p>
   </div>
-  <a (click)="nextList()"><i class="fi fi-bs-angle-right" width="32"></i></a>
+  <a (click)="setNextPage()"><i class="fi fi-bs-angle-right" width="26"></i></a>
 </div>

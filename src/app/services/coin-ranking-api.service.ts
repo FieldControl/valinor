@@ -28,12 +28,8 @@ export class CoinRankingAPIService {
           'Content-Type': 'application/json',
           'x-access-token': this.keyApi,
         },
-      }
+      },
     );
     return this.apiData;
-  }
-
-  searchCrypto(value: string) {
-    this.search = value;
   }
 }

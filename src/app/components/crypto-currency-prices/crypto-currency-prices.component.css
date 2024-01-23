@@ -1,7 +1,6 @@
 table {
   background-color: white;
-  border-radius: 10px;
-  border-spacing: 1.2cm 12px;
+  box-shadow: 0 2px 20px 0 var(--border-shadow);
 }
 
 th {
@@ -17,6 +16,15 @@ td {
 }
 
 .test > * {
+  text-align: end;
   font-size: 14px;
   color: black;
+}
+
+.positive-num {
+  color: green;
+}
+
+.negative-num {
+  color: red;
 }

@@ -1,5 +1,9 @@
 .search-input {
-  font-size: 32px;
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  font-size: 26px;
+  padding: 20px;
 }
 
 p,
@@ -11,3 +15,10 @@ button {
 input {
   color: black;
 }
+
+button {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}
+

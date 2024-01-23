@@ -1,7 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { CoinRankingAPIService } from '../../services/coin-ranking-api.service';
+import { Component, Input, Pipe } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { DataCoinRanking } from '../../models/crypto-coin';
 
 @Component({
   selector: 'app-crypto-currency-prices',
@@ -11,9 +9,20 @@ import { DataCoinRanking } from '../../models/crypto-coin';
   styleUrl: './crypto-currency-prices.component.css',
 })
 export class CryptoCurrencyPricesComponent {
-  @Input({ required: true }) cryptos: DataCoinRanking | any;
+  @Input({ required: true }) cryptos: [] | any;
 
-  constructor(public service: CoinRankingAPIService) {}
+  constructor() {}
 
-  ngOnInit(): void {}
+  isPositive(value: string):boolean {
+    if(parseFloat(value) > 0) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  removeSymbol(value: string) {
+    const num = Math.abs(parseFloat(value))
+    return num.toFixed(2)
+  }
 }

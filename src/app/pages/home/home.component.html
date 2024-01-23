@@ -1,23 +1,36 @@
-<main>
-  <div class="container-page-title">
-    <img src="../../../assets/images/logo.png" />
-    <div class="page-title">
-      <h1>{{ title }}</h1>
-      <p>{{ subtitle }}</p>
+<main id="home" class="home-page">
+  <div class="container-home-describe">
+    <img class="home-image-logo" src="../../../assets/images/logo.png" alt="logotipo"/>
+    <div class="container-home-title">
+      <h1 class="home-title">{{ title }}</h1>
+      <p class="home-subtitle">{{ subtitle }}</p>
     </div>
   </div>
-  <div class="container-card">
-    <app-crypto-card [cryptos]="cryptos"></app-crypto-card>
+
+  <div class="container-latest-cards">
+    <div class="container-card">
+      <h3>Top criptomoedas</h3>
+      <app-crypto-card></app-crypto-card>
+    </div>
   </div>
+  <!--
   <div class="crypto-currency-table">
     <div class="container-search-input">
-      <app-search-input></app-search-input>
+      <app-search-input
+      (setSearchOutput)="getSearchOutput($event)"
+      ></app-search-input>
     </div>
     <app-crypto-currency-prices
-      [cryptos]="cryptos"
+    [cryptos]="cryptos"
     ></app-crypto-currency-prices>
     <div class="container-pagination">
-      <app-pagination-btn></app-pagination-btn>
+      <app-pagination-btn
+      (nextPage)="getNextPage($event)"
+      (previousPage)="getPreviousPage($event)"
+      [totalPages]="totalPage"
+      ></app-pagination-btn>
     </div>
   </div>
 </main>
+
+-->

@@ -1,3 +1,5 @@
+/* CARD STYLE */
+
 .container-card {
   width: 180px;
   margin: 3px;
@@ -6,7 +8,7 @@
   padding: 30px;
   background-color: #7b2cbf;
   border-radius: 10px;
-  box-shadow: 1px 2px 3spx 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 3px 3px 0 var(--border-shadow);
 }
 
 .info-card {
@@ -51,4 +53,38 @@
 .price-card p {
   font-weight: 500;
   font-size: 14px;
+}
+
+
+/*SWIPER CONFIG*/
+
+.swiper-container
+{
+    width: 100%;
+    height: auto;
+}
+
+.swiper-slide {
+	/* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+/* override swipers transition */
+.swiper-container-free-mode > .swiper-wrapper {
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  margin: 0 auto;
 }

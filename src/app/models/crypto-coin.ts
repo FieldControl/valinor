@@ -25,7 +25,7 @@ interface DataCryptoCoin {
   price: string;
   listedAt: number;
   tier: number;
-  change: string;
+  change: number;
   rank: number;
   sparkline: [];
   lowVolume: boolean;

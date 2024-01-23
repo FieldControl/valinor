@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CoinRankingAPIService } from '../../services/coin-ranking-api.service';
 
 @Component({
   selector: 'app-search-input',
@@ -11,9 +10,9 @@ import { CoinRankingAPIService } from '../../services/coin-ranking-api.service';
 })
 export class SearchInputComponent {
   name: string = '';
-  @Output() event: EventEmitter<string> = new EventEmitter();
+  @Output() setSearchOutput = new EventEmitter();
 
-  enviarEvento() {
-    this.event.emit(this.name);
+  toSearch() {
+    this.setSearchOutput.emit(this.name);
   }
 }

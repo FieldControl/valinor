@@ -11,10 +11,13 @@
 :root {
   --bg-page-color: #5a189a;
   --bg-card-color: #7b2cbf;
-  --font-color-white: #ffffff;
+  --font-color-white: #fafafa;
+  --font-color-gray: #4b4b4b;
+  --font-color-black: #101010;
+  --border-shadow: rgba(0, 0, 0, 0.35);
 }
 
-/* reset config */
+/* RESET CSS*/
 
 * {
   margin: 0;
@@ -25,15 +28,95 @@
   font-family: Sarabun, sans-serif;
 }
 
-/* font size default*/
-
-html,
-body {
-  height: 100%;
-}
-
 body {
   background-color: var(--bg-page-color);
-  margin: 0;
   max-width: 100vw;
 }
+
+/* 320 TO 374 PX*/
+
+h1 {
+  font-family: "Base Neue", sans-serif;
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+
+/* -- MEDIA QUERIES -- */
+
+
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  h1 {
+    font-size: 3.8rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+  p {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1439) {
+  h1 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  h1 {
+    font-size: 8rem;
+  }
+
+  p {
+    font-size: 3.6rem;
+  }
+}
+
+/* MEDIA QUERIES COPY/PASTE
+
+@media screen and (min-width: 375px) and (max-width: 424px) {
+
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1025px) {
+
+}
+
+@media screen and (min-width: 1440px) {
+
+}
+
+*/
