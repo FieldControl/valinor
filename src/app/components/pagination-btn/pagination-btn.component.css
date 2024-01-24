@@ -1,19 +1,21 @@
 @import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-bold-straight/css/uicons-bold-straight.css");
 
 .container-pagination {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
+  height: 40px;
+  gap: 8px;
 }
 
-a {
+.container-pagination a {
   cursor: pointer;
 }
 
-p {
-  font-size: 32px;
+.container-pagination p {
+  margin-bottom: 3px;
 }
 
-i {
-  font-size: 42px;
+.container-pagination i {
+  vertical-align: middle;
+  font-size: 18px;
 }

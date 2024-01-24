@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
   /* Recebe evento da busca */
   getSearchOutput(event: string) {
     this.service.search = event;
+    this.service.offset = 0;
     this.loadCryptoData(this.service);
   }
 

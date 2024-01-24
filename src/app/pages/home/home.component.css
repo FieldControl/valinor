@@ -1,3 +1,7 @@
+main {
+  overflow: hidden;
+}
+
 /* DESCRIÇÂO DA PAGINA*/
 
 .container-home-describe {
@@ -47,39 +51,47 @@
 .crypto-currency-table {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 12vw;
+  overflow-x: scroll;
+  padding: 0 8px;
 }
 
 .container-search-input {
-  align-self: end;
   margin: 3.4rem 0 12px 0;
+  padding-left: 18px;
 }
 
+.container-pagination {
+  margin: 1rem 0;
+  padding-left: 18px;
+}
+
+/* BACKGROUND COIN TOPO*/
+main::before {
+  content: ' ';
+  background: url(../../../assets/images/coin.png) no-repeat;
+  background-size: 100px;
+  width: 100px;
+  height: 100px;
+  z-index: -10;
+  position: absolute;
+  top: 40rem;
+  right: 30%;
+}
+
+/* BACKGROUND COIN BOTTOM*/
 main::after {
   content: '';
-  z-index: -10;
-  width: 310px;
-  height: 272px;
-  position: absolute;
-  background: url(../../../assets/images/coin.png) bottom no-repeat;
-  right: 10rem;
-  bottom: -65rem;
-}
-
-main::before {
-  content: '';
-  z-index: -10;
-  top: 40rem;
-  left: 50rem;
-  width: 310px;
-  height: 272px;
-  position: absolute;
   background: url(../../../assets/images/coin.png) no-repeat;
+  background-size: 100px;
+  width: 100px;
+  height: 100px;
+  z-index: -10;
+  position: absolute;
+  right: 0;
+  bottom: -420px;
 }
 
-
-/* MEDIA QUERY */
+/* MEDIA QUERIES HOME PAGE */
 @media screen and (min-width: 374px) and (max-width: 424px) {
   .container-home-describe {
     margin: 1rem 2rem 6rem;
@@ -87,6 +99,30 @@ main::before {
 
   .home-image-logo {
     width: 94px;
+  }
+  main::before {
+    content: ' ';
+    background: url(../../../assets/images/coin.png) no-repeat;
+    background-size: 100px;
+    width: 100px;
+    height: 100px;
+    z-index: -10;
+    position: absolute;
+    top: 40rem;
+    right: 30%;
+  }
+
+  /* BACKGROUND COIN BOTTOM*/
+  main::after {
+    content: '';
+    background: url(../../../assets/images/coin.png) no-repeat;
+    background-size: 100px;
+    width: 100px;
+    height: 100px;
+    z-index: -10;
+    position: absolute;
+    right: 0;
+    bottom: -250px;
   }
 }
 
@@ -110,9 +146,31 @@ main::before {
   .home-image-logo {
     width: 148px;
   }
-
   .container-crypto-cards {
     margin: 0 12rem;
+  }
+  .crypto-currency-table {
+    align-items: center;
+    overflow: hidden;
+  }
+  .container-search-input {
+    align-self: end;
+    padding-right: 7.5rem;
+  }
+  /* BACKGROUND COIN TOPO*/
+  main::before {
+    background-size: 180px;
+    width: 180px;
+    height: 180px;
+    right: 28rem;
+  }
+  /* BACKGROUND COIN BOTTOM*/
+  main::after {
+    background-size: 180px;
+    width: 180px;
+    height: 180px;
+    right: 4rem;
+    bottom: -20rem;
   }
 }
 
@@ -123,10 +181,35 @@ main::before {
   .home-image-logo {
     width: 148px;
   }
-
   .container-crypto-cards {
     margin: 0 16rem;
   }
+  .crypto-currency-table {
+    align-items: center;
+    overflow: hidden;
+  }
+  .container-search-input {
+    align-self: end;
+    padding-right: 16rem;
+  }
+  .container-search-input {
+    padding-right: 16rem;
+  }
+    /* BACKGROUND COIN TOPO*/
+    main::before {
+      background-size: 180px;
+      width: 180px;
+      height: 180px;
+      right: 58rem;
+    }
+    /* BACKGROUND COIN BOTTOM*/
+    main::after {
+      background-size: 180px;
+      width: 180px;
+      height: 180px;
+      right: 24rem;
+      top: 108rem;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -136,8 +219,30 @@ main::before {
   .home-image-logo {
     width: 200px;
   }
-
   .container-crypto-cards {
     margin: 0 34rem;
   }
+  .crypto-currency-table {
+    align-items: center;
+    overflow: hidden;
+  }
+  .container-search-input {
+    align-self: end;
+    padding-right: 7.5rem;
+  }
+      /* BACKGROUND COIN TOPO*/
+      main::before {
+        background-size: 250px;
+        width: 250px;
+        height: 250px;
+        right: 72rem;
+      }
+      /* BACKGROUND COIN BOTTOM*/
+      main::after {
+        background-size: 250px;
+        width: 250px;
+        height: 250px;
+        right: 34rem;
+        top: 108rem;
+      }
 }

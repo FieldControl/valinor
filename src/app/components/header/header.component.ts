@@ -11,8 +11,11 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class HeaderComponent {
   @ViewChild('navMenu') navMenu: any;
+  teste: string = '';
 
   menuTest() {
+    this.teste = 'slideheader'
     this.navMenu.nativeElement.classList.remove('disable');
+    this.navMenu.nativeElement.classList.add('overflow');
   }
 }

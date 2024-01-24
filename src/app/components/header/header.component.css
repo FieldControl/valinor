@@ -8,14 +8,15 @@
 .header-btn {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .disable {
   display: none;
 }
 
-.container-nav {
-  z-index: 2;
+.container-nav-header {
+  z-index: 20;
   position: fixed;
   right: 0;
   top: 0;
@@ -28,10 +29,10 @@
   width: 32px;
 }
 
-nav {
+.container-nav {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 70vw;
   height: 100vh;
   position: absolute;
   right: 0;
@@ -39,10 +40,27 @@ nav {
   gap: 12px;
   align-items: center;
   padding-top: 4rem;
+  top: 0;
+  padding: 0 16px;
+  text-align: center;
+  padding: 32px 0;
+  transition: translate 5s;
+  animation: slideheader;
+  animation-duration: 1s;
 }
 
 a {
-  font-size: 36px;
-  color: black;
-  text-decoration: none;
+  font-size: 32px;
+  color: var(--font-color-gray);
+  text-decoration: underline;
+  margin: 16px 0;
+}
+
+@keyframes slideheader {
+  from {
+    transform: translateX(38rem);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

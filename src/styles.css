@@ -27,7 +27,7 @@
   box-sizing: border-box;
   font-size: 62.5%;
   color: var(--font-color-white);
-  font-family: Sarabun, sans-serif;
+  font-family: Sarabun, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -38,12 +38,22 @@ body {
 /* 320 TO 374 PX*/
 
 h1 {
-  font-family: "Base Neue", sans-serif;
+  font-family: "Base Neue", Sarabun, Arial, Helvetica, sans-serif;
   font-size: 3rem;
 }
 
-p {
+p, a {
   font-size: 1.4rem;
+}
+
+a {
+  color: var(--bg-page-color);
+  font-weight: 600;
+  text-decoration: solid;
+}
+
+a:hover {
+  text-decoration:underline;
 }
 
 footer {

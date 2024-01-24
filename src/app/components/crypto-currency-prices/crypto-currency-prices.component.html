@@ -5,7 +5,7 @@
       <th>Preço</th>
       <th>24h</th>
       <th>Capitalização de mercado</th>
-      <th>Status</th>
+      <th>Detalhes</th>
     </tr>
   </thead>
   <tbody>
@@ -30,25 +30,25 @@
         @if (isPositive(crypto.change)) {
           <td class="positive-num">
             <img
+              class="icon-crypto-change"
               src="../../../assets/images/iconpositive.svg"
               width="8"
-              srcset=""
             />
             {{ crypto.change }}
           </td>
         } @else {
           <td class="negative-num">
             <img
+              class="icon-crypto-change"
               src="../../../assets/images/iconnegative.svg"
               width="8"
-              srcset=""
             />
             {{ removeSymbol(crypto.change) }}
           </td>
         }
         <td>{{ crypto.marketCap | currency }}</td>
         <td>
-          <a href="{{ crypto.coinrankingUrl }}" style="color: black"
+          <a href="{{ crypto.coinrankingUrl }}" target="_blank"
             >Ver {{ crypto.name }}</a
           >
         </td>

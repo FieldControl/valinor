@@ -1,9 +1,8 @@
 .table {
-  width: 60vw;
   background-color: white;
   border-radius: 32px;
-  padding: 12px;
   box-shadow: 1px 2px 4px 0 var(--border-shadow-h);
+  box-shadow: 0 0 4px 0 var(--border-shadow-h) inset;
 }
 
 .text-start {
@@ -13,12 +12,15 @@
 .container-crypto-info {
   display: flex;
   align-items: center;
-  gap: 6px;
+  width: 140px;
+  height: 40px;
+  gap: 8px;
 }
 
 .crypto-info > h3 {
   font-size: 16px;
   color: var(--font-color-black);
+  text-overflow: ellipsis;
 }
 
 .crypto-info > p {
@@ -26,16 +28,10 @@
   color: var(--font-color-gray);
 }
 
-th {
-  text-align: end;
-  font-size: 16px;
-  color: var(--font-color-gray);
-}
 
-td {
-  text-align: end;
-  font-size: 14px;
-  color: black;
+.positive-num, .negative-num {
+  width: 60px;
+  text-wrap: nowrap;
 }
 
 .positive-num {
@@ -44,4 +40,56 @@ td {
 
 .negative-num {
   color: red;
+}
+
+.icon-crypto-change {
+  margin: 0 3px;
+}
+
+th {
+  vertical-align: middle;
+  text-align: end;
+  font-size: 16px;
+  color: var(--font-color-gray);
+}
+
+td {
+  vertical-align: middle;
+  text-align: end;
+  font-size: 14px;
+  color: black;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 375px) and (max-width: 424px) {
+
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .container-crypto-info {
+    width: 180px;
+    height: 40px;
+    gap: 8px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container-crypto-info {
+    width: 350px;
+    height: 40px;
+    gap: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container-crypto-info {
+    width: 400px;
+    height: 48px;
+    gap: 28px;
+  }
 }

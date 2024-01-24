@@ -61,7 +61,7 @@ export class CryptoCardComponent implements OnInit, AfterViewInit {
         },
         1440: {
           slidesPerView: 5,
-          spaceBetween: 188,
+          spaceBetween: 184,
         },
       },
       speed: 18000,

@@ -9,6 +9,7 @@
   border-radius: 10px;
   font-size: 14px;
   padding: 10px;
+  color: var(--font-color-black);
 }
 
 .input-btn {
