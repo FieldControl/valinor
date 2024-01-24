@@ -1,7 +1,7 @@
-<table class="table table-primary">
+<table class="table" [cellSpacing]="24">
   <thead>
     <tr>
-      <th style="text-align: start">Nome</th>
+      <th class="text-start">Nome</th>
       <th>Preço</th>
       <th>24h</th>
       <th>Capitalização de mercado</th>
@@ -12,29 +12,37 @@
     @for (crypto of cryptos; track $index) {
       <tr>
         <td>
-          <div style="display: flex; align-items: center">
+          <div class="container-crypto-info">
             <img
-              style="float: left"
+              class="icon-crypto"
               ngSrc="{{ crypto.iconUrl }}"
               alt="logo"
               [width]="16"
               [height]="16"
             />
-            <div class="test">
+            <div class="crypto-info text-start">
               <h3>{{ crypto.name }}</h3>
-              <p style="text-align: start">{{ crypto.symbol }}</p>
+              <p>{{ crypto.symbol }}</p>
             </div>
           </div>
         </td>
-        <td>{{ crypto.price | currency:'BRL' }}</td>
+        <td>{{ crypto.price | currency: "USD" }}</td>
         @if (isPositive(crypto.change)) {
           <td class="positive-num">
-            <img src="../../../assets/images/iconpositive.svg" width="8" srcset="">
+            <img
+              src="../../../assets/images/iconpositive.svg"
+              width="8"
+              srcset=""
+            />
             {{ crypto.change }}
           </td>
         } @else {
           <td class="negative-num">
-            <img src="../../../assets/images/iconnegative.svg" width="8" srcset="">
+            <img
+              src="../../../assets/images/iconnegative.svg"
+              width="8"
+              srcset=""
+            />
             {{ removeSymbol(crypto.change) }}
           </td>
         }

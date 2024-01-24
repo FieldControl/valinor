@@ -32,36 +32,37 @@ export class CryptoCardComponent implements OnInit, AfterViewInit {
 
   /* SWIPER CONFIGS */
   ngAfterViewInit(): void {
-
     const swiperParams = {
       slidesPerView: 2,
-      spaceBetween: 94,
-      breakpoints :{
+      spaceBetween: 68,
+      breakpoints: {
         375: {
-          spaceBetween: 50
+          spaceBetween: 14,
         },
         425: {
-          spaceBetween: 20
+          slidesPerView: 3,
+          spaceBetween: 188,
         },
         500: {
           slidesPerView: 3,
-          spaceBetween: 144
-        },
-        600: {
-          slidesPerView: 3,
-          spaceBetween: 94
+          spaceBetween: 128,
         },
         768: {
           slidesPerView: 3,
-          spaceBetween: 94
+          spaceBetween: 34,
         },
         1024: {
-          slidesPerView: 3,
-          spaceBetween: 100
+          slidesPerView: 4,
+          spaceBetween: 128,
+        },
+        1280: {
+          slidesPerView: 5,
+          spaceBetween: 24,
         },
         1440: {
-
-        }
+          slidesPerView: 5,
+          spaceBetween: 188,
+        },
       },
       speed: 18000,
       direction: 'horizontal',

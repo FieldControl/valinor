@@ -10,6 +10,9 @@ import { HeaderComponent } from './components/header/header.component';
   template: `
     <app-header></app-header>
     <router-outlet></router-outlet>
+    <footer id="footer" class="footer">
+      <p>Feito por dants.dev</p>
+    </footer>
   `,
 })
 export class AppComponent {}

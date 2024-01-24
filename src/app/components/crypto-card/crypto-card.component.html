@@ -7,7 +7,12 @@
             <h3>{{ crypto.name }}</h3>
             <p>{{ crypto.symbol }}</p>
           </div>
-          <img id="img" class="image-card" src="{{ crypto.iconUrl }}" loading="lazy" />
+          <img
+            id="img"
+            class="image-card"
+            src="{{ crypto.iconUrl }}"
+            loading="lazy"
+          />
         </div>
         <div class="price-card">
           <h4>Preço hoje</h4>
@@ -20,7 +25,6 @@
 
 <script>
   // swiper element
-  const swiperEl = document.querySelector('swiper-container');
-  console.log(swiperEl)
-
+  const swiperEl = document.querySelector("swiper-container");
+  console.log(swiperEl);
 </script>

@@ -1,24 +1,43 @@
+.form-input {
+  display: flex;
+  gap: 12px;
+}
+
 .search-input {
-  background-color: white;
+  background-color: var(--bg-color-input);
   border: 0;
   border-radius: 10px;
-  font-size: 26px;
-  padding: 20px;
+  font-size: 14px;
+  padding: 10px;
 }
 
-p,
-button {
-  color: black;
-  font-size: 32px;
-}
-
-input {
-  color: black;
-}
-
-button {
+.input-btn {
   cursor: pointer;
   border: 0;
   background-color: transparent;
 }
 
+.icon-btn {
+  width: 24px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .search-input {
+    font-size: 16px;
+    padding: 14px;
+  }
+  .icon-btn {
+    width: 32px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .search-input {
+    font-size: 18px;
+  }
+  .icon-btn {
+    width: 34px;
+  }
+}

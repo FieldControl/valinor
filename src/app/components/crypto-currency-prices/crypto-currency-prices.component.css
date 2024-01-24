@@ -1,21 +1,38 @@
-table {
+.table {
+  width: 60vw;
   background-color: white;
-  box-shadow: 0 2px 20px 0 var(--border-shadow);
+  border-radius: 32px;
+  padding: 12px;
+  box-shadow: 1px 2px 4px 0 var(--border-shadow-h);
+}
+
+.text-start {
+  text-align: start;
+}
+
+.container-crypto-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.crypto-info > h3 {
+  font-size: 16px;
+  color: var(--font-color-black);
+}
+
+.crypto-info > p {
+  font-size: 14px;
+  color: var(--font-color-gray);
 }
 
 th {
   text-align: end;
   font-size: 16px;
-  color: black;
+  color: var(--font-color-gray);
 }
 
 td {
-  text-align: end;
-  font-size: 14px;
-  color: black;
-}
-
-.test > * {
   text-align: end;
   font-size: 14px;
   color: black;

@@ -2,24 +2,31 @@
 
 .container-card {
   width: 180px;
-  margin: 3px;
-  flex-direction: column;
-  justify-content: center;
-  padding: 30px;
-  background-color: #7b2cbf;
+  margin: 6px;
+  padding: 28px;
+  background-color: var(--bg-card-color);
   border-radius: 10px;
   box-shadow: 3px 3px 3px 0 var(--border-shadow);
 }
 
 .info-card {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.description-card {
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
 }
 
 .image-card {
   float: right;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   object-fit: cover;
+  filter: drop-shadow(2px 2px 2px var(--border-shadow));
 }
 
 .description-card {
@@ -53,38 +60,4 @@
 .price-card p {
   font-weight: 500;
   font-size: 14px;
-}
-
-
-/*SWIPER CONFIG*/
-
-.swiper-container
-{
-    width: 100%;
-    height: auto;
-}
-
-.swiper-slide {
-	/* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-}
-
-/* override swipers transition */
-.swiper-container-free-mode > .swiper-wrapper {
-  -webkit-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  transition-timing-function: linear;
-  margin: 0 auto;
 }

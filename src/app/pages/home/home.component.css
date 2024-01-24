@@ -1,12 +1,11 @@
+/* DESCRIÇÂO DA PAGINA*/
+
 .container-home-describe {
   display: flex;
   justify-content: end;
   align-items: center;
   position: relative;
-  margin: 1.4rem 1.8rem;
-}
-
-.container-home-describe{
+  margin: 1rem 1.8rem 6rem;
   margin-bottom: 6rem;
 }
 
@@ -22,53 +21,123 @@
   text-align: end;
 }
 
+.title-crypto-cards {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+
 .home-subtitle {
   font-weight: 600;
   white-space: pre-wrap;
 }
 
+/* CONTAINER CARDS */
+
+.container-crypto-cards {
+  margin: 0 0;
+}
+
+.title-crypto-cards {
+  margin: 0 12px;
+}
+
+/* CONTAINER TABELA */
+
+.crypto-currency-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 12vw;
+}
+
+.container-search-input {
+  align-self: end;
+  margin: 3.4rem 0 12px 0;
+}
+
+main::after {
+  content: '';
+  z-index: -10;
+  width: 310px;
+  height: 272px;
+  position: absolute;
+  background: url(../../../assets/images/coin.png) bottom no-repeat;
+  right: 10rem;
+  bottom: -65rem;
+}
+
+main::before {
+  content: '';
+  z-index: -10;
+  top: 40rem;
+  left: 50rem;
+  width: 310px;
+  height: 272px;
+  position: absolute;
+  background: url(../../../assets/images/coin.png) no-repeat;
+}
+
+
 /* MEDIA QUERY */
-@media screen and (min-width: 375px) and (max-width: 424px) {
+@media screen and (min-width: 374px) and (max-width: 424px) {
   .container-home-describe {
-    margin: 1.6rem 2rem;
+    margin: 1rem 2rem 6rem;
   }
+
   .home-image-logo {
     width: 94px;
   }
 }
 
-@media screen and (min-width: 425px) and (max-width: 768px) {
+@media screen and (min-width: 425px) and (max-width: 767px) {
   .container-home-describe {
-    margin: 1.6rem 3rem;
+    margin: 1rem 3rem 6rem;
   }
   .home-image-logo {
     width: 128px;
   }
+
+  .container-crypto-cards {
+    margin: 0 1.6rem;
+  }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .container-home-describe {
-    margin: 1.6rem 14rem;
+    margin: 1rem 14rem 6rem;
   }
   .home-image-logo {
     width: 148px;
   }
+
+  .container-crypto-cards {
+    margin: 0 12rem;
+  }
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1439px) {
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
   .container-home-describe {
-    margin: 2.8rem 26rem;
+    margin: 1rem 26rem 6rem;
   }
   .home-image-logo {
     width: 148px;
+  }
+
+  .container-crypto-cards {
+    margin: 0 16rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container-home-describe {
-    margin: 2.8rem 35rem;
+    margin: 1rem 40rem 6rem;
   }
   .home-image-logo {
-    width: 220px;
+    width: 200px;
+  }
+
+  .container-crypto-cards {
+    margin: 0 34rem;
   }
 }

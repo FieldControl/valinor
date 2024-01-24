@@ -13,16 +13,17 @@ export class CryptoCurrencyPricesComponent {
 
   constructor() {}
 
-  isPositive(value: string):boolean {
-    if(parseFloat(value) > 0) {
-      return true
+  isPositive(value: string): boolean {
+    const parsedValue = parseFloat(value)
+    if (parsedValue > 0) {
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 
   removeSymbol(value: string) {
-    const num = Math.abs(parseFloat(value))
-    return num.toFixed(2)
+    const num = Math.abs(parseFloat(value));
+    return num.toFixed(2);
   }
 }
