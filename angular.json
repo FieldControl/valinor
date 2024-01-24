@@ -19,7 +19,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/custom-theme.scss", "src/styles.css"],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -59,8 +59,7 @@
               "buildTarget": "valinor:build:production"
             },
             "development": {
-              "buildTarget": "valinor:build:development",
-              "proxyConfig": "./proxy.conf.json"
+              "buildTarget": "valinor:build:development"
             }
           },
           "defaultConfiguration": "development"
