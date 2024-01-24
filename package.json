@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "copy": "mv docs/browser/** docs/ & rm docs/browser"
   },
   "private": true,
   "dependencies": {
