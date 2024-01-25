@@ -12,9 +12,9 @@ Este é um projeto feito em AngularJS que permite aos usuários pesquisar reposi
 
 1. Clone o repositório para a sua máquina local:
 
-   ```bash
-   git clone https://github.com/gabbarco/valinor.git
-   ```
+  ```bash
+  git clone https://github.com/gabbarco/valinor.git
+  ```
   
 2. Navegue até o diretório do projeto:
 
