@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="githubApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>GitHub Search / Field Control</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body ng-controller="RepoController">
+    <div class="container">
+        <div class="header">
+            <div class="icons">
+                <img class="github-icon" src="../assets/github.png" alt="GitHub Icon">
+                <img class="fieldcontrol-icon" src="../assets/fieldcontrol.png" alt="Field Control Icon">
+            </div>
+            <div class="search-bar">
+                <input class="search-class" type="text" ng-model="searchQuery" ng-keypress="handleKeyPress($event)"
+                    placeholder="Search or jump to...">
+            </div>
+        </div>
+
+        <ul class="repo-list">
+            <li ng-repeat="repo in repos">
+                <div class="repo-info">
+                    <img class="avatar" ng-src="{{repo.owner.avatar_url}}" alt="Avatar">
+                    <a href="{{repo.html_url}}" target="_blank">{{extractRepoName(repo)}}</a>
+                    <p>{{repo.description}}</p>
+                </div>
+                <div class="stats">
+                    <span>Stars: {{repo.stargazers_count}}</span>
+                    <span>Forks: {{repo.forks_count}}</span>
+                    <span>Issues: {{repo.open_issues_count}}</span>
+                </div>
+            </li>
+        </ul>
+
+        <div class="pagination">
+            <button ng-click="prevPage()" ng-disabled="currentPage === 1">Previous</button>
+            <span>Page {{currentPage}} of {{totalPages}}</span>
+            <button ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+    <script src="services.js"></script>
+</body>
+
+</html>

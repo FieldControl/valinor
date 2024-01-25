@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "angular": "^1.8.2"
+  },
+  "devDependencies": {
+    "jasmine-core": "^5.1.1",
+    "karma": "^6.4.2",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0",
+    "protractor": "^7.0.0"
+  }
+}
