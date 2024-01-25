@@ -14,7 +14,7 @@ Este é um projeto feito em AngularJS que permite aos usuários pesquisar reposi
 
    ```bash
    git clone https://github.com/gabbarco/valinor.git
-  ``` 
+   ```
   
 2. Navegue até o diretório do projeto:
 
@@ -49,7 +49,7 @@ Execute os seguintes comandos para iniciar o servidor de desenvolvimento:
   ```bash
   npm install -g http-server
   ```
-    ```bash
+  ```bash
   http-server
   ```
   O aplicativo estará acessível em http://localhost:8080.
