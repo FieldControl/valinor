@@ -28,14 +28,14 @@ export class CryptoCardComponent implements OnInit, AfterViewInit {
         this.cryptos = response.data.coins;
       },
     });
-    this.swaperCarrouselInit()
+    this.swaperCarrouselInit();
+  }
+
+  ngAfterViewInit(): void {
+    this.swaperCarrouselInit();
   }
 
   /* SWIPER CONFIGS */
-  ngAfterViewInit(): void {
-    this.swaperCarrouselInit()
-  }
-
   swaperCarrouselInit() {
     const swiperParams = {
       slidesPerView: 2,
@@ -74,7 +74,7 @@ export class CryptoCardComponent implements OnInit, AfterViewInit {
       direction: 'horizontal',
       autoplay: {
         delay: 0,
-        disableOnInteraction: false
+        disableOnInteraction: false,
       },
       loop: true,
       freeMode: true,
