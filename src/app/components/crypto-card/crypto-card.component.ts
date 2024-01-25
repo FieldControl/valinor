@@ -28,13 +28,19 @@ export class CryptoCardComponent implements OnInit, AfterViewInit {
         this.cryptos = response.data.coins;
       },
     });
+    this.swaperCarrouselInit()
   }
 
   /* SWIPER CONFIGS */
   ngAfterViewInit(): void {
+    this.swaperCarrouselInit()
+  }
+
+  swaperCarrouselInit() {
     const swiperParams = {
       slidesPerView: 2,
       spaceBetween: 68,
+      grabCursor: true,
       breakpoints: {
         375: {
           spaceBetween: 14,
@@ -68,9 +74,11 @@ export class CryptoCardComponent implements OnInit, AfterViewInit {
       direction: 'horizontal',
       autoplay: {
         delay: 0,
+        disableOnInteraction: false
       },
       loop: true,
       freeMode: true,
+      centeredSlides: true,
     };
     Object.assign(this.swiperContainer.nativeElement, swiperParams);
     this.swiperContainer.nativeElement.initialize();
