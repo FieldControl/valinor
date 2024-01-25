@@ -1,0 +1,33 @@
+<div class='row my-3'>
+  <div class="col-md-12">
+    <mat-card class='card-git'>
+      <mat-card-header>
+        <span class="spacer"></span>
+        <mat-card-title>
+          <img src="{{repositorio.owner.avatar_url}}">
+          <span>{{repositorio.full_name}}</span>
+        </mat-card-title>
+        <span class="spacer"></span>
+        <button mat-stroked-button><small><mat-icon class='star'>star_border</mat-icon> Star</small></button>
+      </mat-card-header>
+      <mat-card-content>
+        <p *ngIf="repositorio.description">{{repositorio.description}}</p>
+        <div id="chips-content">
+          <mat-chip-list>
+            <div *ngFor="let topic of repositorio.topics">
+              <mat-chip selected>{{topic}}</mat-chip>
+            </div>
+          </mat-chip-list>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-12 repo-info" id="footer-card-repo">
+            <span *ngIf="repositorio.language" class="language-dot dot-{{repositorio.language}}"></span>
+            <span *ngIf="repositorio.language" class="language-name">{{repositorio.language}}</span>
+            <span class="repo-stars"><mat-icon class='star'>star_border</mat-icon> {{repositorio.stargazers_count | starCount}}</span>
+            <span class="repo-update">{{repositorio.updated_at | timeSince}}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

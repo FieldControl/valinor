@@ -1,0 +1,8 @@
+header>mat-toolbar>img{
+  width: 115px
+}
+@media (max-width: 600px) {
+  header>mat-toolbar>img {
+    width: 100px;
+  }
+}

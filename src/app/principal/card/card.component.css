@@ -1,0 +1,22 @@
+mat-form-field {
+  width: 100%;
+}
+
+.col-md-2>button {
+  min-height: 5.5vh;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.card-git {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  color: #000;
+  /* Cor do texto */
+  padding: 20px;
+  /* Espaço interno ao redor do conteúdo do card */
+  margin: 20px;
+}

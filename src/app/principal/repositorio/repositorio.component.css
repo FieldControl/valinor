@@ -1,0 +1,140 @@
+mat-card-title>img {
+  width: 40px;
+  margin-right: 1vw;
+}
+
+.repo-info {
+  color: #858585;
+  /* Cor do texto */
+  font-size: 14px;
+  /* Tamanho do texto */
+  /* Restante do estilo para corresponder ao seu layout */
+}
+
+.language-dot {
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.2);
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.dot-JavaScript {
+  background-color: rgb(241, 224, 90);
+}
+
+.dot-TypeScript {
+  background-color: rgb(49, 120, 198);
+}
+
+.dot-HTML {
+  background-color: rgb(227, 76, 38);
+}
+
+.dot-CSS {
+  background-color: rgb(86, 61, 124);
+}
+
+.dot-EJS {
+  background-color: rgb(169, 30, 80)
+}
+
+.dot-Python {
+  background-color: rgb(53, 114, 165)
+}
+
+.dot-Shell {
+  background-color: rgb(137, 224, 81)
+}
+
+.dot-Dockerfile {
+  background-color: rgb(56, 77, 84)
+}
+
+.dot-Java {
+  background-color: rgb(176, 114, 25)
+}
+
+.dot-PHP {
+  background-color: #4F5D95
+}
+
+.dot-Go {
+  background-color: #00ADD8
+}
+
+.dot-Dart {
+  background-color: #00B4AB
+}
+
+.dot-Ruby {
+  background-color: #701516
+}
+
+.language-name {
+  margin-right: 10px;
+  /* Espaço após o nome da linguagem */
+}
+
+.repo-stars {
+  margin-right: 10px;
+  /* Espaço após as estrelas */
+}
+
+.star {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+mat-card-header>button {
+  height: 50%;
+  border: #fff;
+  padding: 5px 10px;
+  border: none;
+  margin-left: auto;
+}
+
+mat-card-header>button:hover {
+  color: white;
+  transition: 200ms;
+  background-color: rgb(255, 193, 7);
+}
+
+@media (max-width: 768px) {
+  mat-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    /* Isso permite que os itens do cabeçalho se ajustem conforme a largura */
+    align-items: center;
+  }
+
+  mat-card-title>span {
+    flex: 1 0 100%;
+    /* Isso permite que o título ocupe o espaço disponível */
+    white-space: nowrap;
+    /* Evita a quebra de linha no título */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Adiciona "..." se o título for muito longo */
+  }
+
+  mat-card-header>button {
+    padding: 5px 8px;
+    /* Menor padding no modo mobile */
+    font-size: 0.8rem;
+    /* Tamanho de fonte menor */
+    margin-top: 8px;
+    /* Adiciona margem superior se o botão for para a próxima linha */
+    flex-shrink: 0;
+    /* Impede o botão de encolher */
+    flex: 1 0 auto;
+  }
+}

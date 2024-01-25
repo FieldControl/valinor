@@ -1,0 +1,47 @@
+<section>
+  <div class="container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Pesquisar Repositórios</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class='col-md-10'>
+            <mat-form-field appearance="outline">
+              <mat-label>Pesquisar</mat-label>
+              <input (keyup.enter)="pesquisar()" [(ngModel)]="pesquisa" matInput
+                placeholder="Digite o nome do repositório">
+            </mat-form-field>
+          </div>
+          <div class="col-md-2 align-middle">
+            <button (click)="pesquisar()" mat-raised-button color="primary">Search <mat-icon aria-hidden="false"
+                aria-label="Example home icon" fontIcon="search"></mat-icon></button>
+          </div>
+        </div>
+        <div *ngFor="let resposta of respostaPesquisa!.items">
+          <app-repositorio [repositorio]="resposta"></app-repositorio>
+        </div>
+        <div class="row" *ngIf="respostaPesquisa!.items.length > 0">
+          <div class="col-md-3">
+            <button [disabled]="links.first == null" (click)="pesquisar(links.first)" mat-raised-button class='w-100' color="primary">Primeiro <mat-icon
+                aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_double_arrow_left"></mat-icon></button>
+          </div>
+          <div class="col-md-3">
+            <button [disabled]="links.prev == null" (click)="pesquisar(links.prev)" mat-raised-button class='w-100' color="primary">Anterior <mat-icon
+                aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_left"></mat-icon></button>
+          </div>
+          <div class="col-md-3">
+            <button [disabled]="links.next == null" (click)="pesquisar(links.next)" mat-raised-button class='w-100' color="primary">Proximo <mat-icon
+                aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_arrow_right"></mat-icon></button>
+          </div>
+          <div class="col-md-3">
+            <button [disabled]="links.last == null" (click)="pesquisar(links.last)" mat-raised-button class='w-100' color="primary">Ultimo <mat-icon
+                aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_double_arrow_right"></mat-icon></button>
+          </div>
+        </div>
+        <!-- <mat-paginator #paginator *ngIf="respostaPesquisa!.items.length > 0" [length]="respostaPesquisa!.items.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)" aria-label="Select page">
+        </mat-paginator> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
