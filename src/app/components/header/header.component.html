@@ -1,17 +1,33 @@
 <header class="header">
-  <div class="container-header-btn">
-    <button (click)="menuTest()" class="header-btn">
-      <img
-        class="icon-header-btn"
-        src="../../../assets/images/menu-nav.svg"
-        alt="icone de menu"
-      />
-    </button>
-  </div>
-  <div class="container-nav-header disable" #navMenu>
-    <nav class="container-nav">
-      <a routerLink="/">Home</a>
-      <a routerLink="/about">Sobre</a>
-    </nav>
-  </div>
+  @if (innerWidth < 750) {
+    <div class="container-header-btn">
+      <button (click)="openDialog()" class="header-btn">
+        <img
+          class="icon-header-btn"
+          src="../../../assets/images/menu-nav.svg"
+          alt="icone de menu"
+        />
+      </button>
+    </div>
+    <div class="disable container-nav-header" (click)="openDialog()" #navMenu>
+      <nav class="container-nav">
+        <button class="header-btn close-btn" type="button">
+          <img
+            class="icon-close-btn"
+            src="../../../assets/images/close.svg"
+            alt="icone fechar menu"
+          />
+        </button>
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">Sobre</a>
+      </nav>
+    </div>
+  } @else {
+    <div class="container-header-desktop">
+      <nav class="container-link-desktop">
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">Sobre</a>
+      </nav>
+    </div>
+  }
 </header>

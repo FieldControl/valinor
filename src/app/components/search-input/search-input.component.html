@@ -1,13 +1,18 @@
 <div class="form-input">
   <input
-  (keypress)="toSearch()"
-  id="name"
-  class="search-input"
-  type="text"
-  [(ngModel)]="name"
-  placeholder="Pesquisar criptomoeda"
+    (keypress)="toSearch()"
+    id="name"
+    class="search-input"
+    type="text"
+    [(ngModel)]="name"
+    placeholder="Pesquisar criptomoeda"
   />
   <button class="input-btn" (click)="toSearch()">
-    <img class="icon-btn" src="../../../assets/images/search.svg" alt="" width="32" />
+    <img
+      class="icon-btn"
+      src="../../../assets/images/search.svg"
+      alt=""
+      width="32"
+    />
   </button>
 </div>

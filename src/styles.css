@@ -16,7 +16,7 @@
   --font-color-gray: #4b4b4b;
   --font-color-black: #101010;
   --border-shadow: rgba(0, 0, 0, 0.35);
-  --border-shadow-h: rgba(0, 0, 0, 0.70);
+  --border-shadow-h: rgba(0, 0, 0, 0.7);
 }
 
 /* RESET CSS*/
@@ -42,7 +42,8 @@ h1 {
   font-size: 3rem;
 }
 
-p, a {
+p,
+a {
   font-size: 1.4rem;
 }
 
@@ -53,7 +54,7 @@ a {
 }
 
 a:hover {
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 footer {

@@ -12,9 +12,9 @@
     </div>
   </div>
   <!--CONTAINER CARDS-->
-    <div class="container-crypto-cards">
-      <div class="container-content-crypto-cards">
-        <h3 class="title-crypto-cards">Top criptomoedas</h3>
+  <div class="container-crypto-cards">
+    <div class="container-content-crypto-cards">
+      <h3 class="title-crypto-cards">Top criptomoedas</h3>
       <app-crypto-card></app-crypto-card>
     </div>
   </div>
@@ -24,23 +24,22 @@
     <!--SEARCH-->
     <div class="container-search-input">
       <app-search-input
-      (setSearchOutput)="getSearchOutput($event)"
+        (setSearchOutput)="getSearchOutput($event)"
       ></app-search-input>
     </div>
     <!--TABLE-->
-      <div class="container-crypto-table">
-        <app-crypto-currency-prices
+    <div class="container-crypto-table">
+      <app-crypto-currency-prices
         [cryptos]="cryptos"
-        ></app-crypto-currency-prices>
-      </div>
+      ></app-crypto-currency-prices>
+    </div>
     <!--PAGINATION-->
     <div class="container-pagination">
       <app-pagination-btn
-      (nextPage)="getNextPage($event)"
+        (nextPage)="getNextPage($event)"
         (previousPage)="getPreviousPage($event)"
         [totalPages]="totalPage"
       ></app-pagination-btn>
     </div>
   </div>
-
 </main>

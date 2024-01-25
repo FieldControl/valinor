@@ -14,7 +14,7 @@ export class CryptoCurrencyPricesComponent {
   constructor() {}
 
   isPositive(value: string): boolean {
-    const parsedValue = parseFloat(value)
+    const parsedValue = parseFloat(value);
     if (parsedValue > 0) {
       return true;
     } else {

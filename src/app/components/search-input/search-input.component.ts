@@ -5,13 +5,13 @@ import { PaginationBtnComponent } from '../pagination-btn/pagination-btn.compone
 @Component({
   selector: 'app-search-input',
   standalone: true,
-  imports: [FormsModule,PaginationBtnComponent],
+  imports: [FormsModule, PaginationBtnComponent],
   templateUrl: './search-input.component.html',
   styleUrl: './search-input.component.css',
 })
 export class SearchInputComponent {
   name: string = '';
-  teste: any = new PaginationBtnComponent()
+  teste: any = new PaginationBtnComponent();
   @Output() setSearchOutput = new EventEmitter();
 
   toSearch() {

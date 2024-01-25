@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,11 +11,26 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class HeaderComponent {
   @ViewChild('navMenu') navMenu: any;
-  teste: string = '';
+  @HostListener('window:resize', ['$event'])
+  innerWidth: any;
+  teste: boolean = false;
 
-  menuTest() {
-    this.teste = 'slideheader'
-    this.navMenu.nativeElement.classList.remove('disable');
-    this.navMenu.nativeElement.classList.add('overflow');
+  ngOnInit() {
+    this.innerWidth = window.innerWidth;
+  }
+
+  /* FUNÇÂO ATUALIZA/VERIFICAR TAMANHO DA TELA PARA O HEADER*/
+  onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+  }
+
+  openDialog() {
+    if (!this.teste) {
+      this.teste = true;
+      this.navMenu.nativeElement.classList.remove('disable');
+    } else {
+      this.teste = false;
+      this.navMenu.nativeElement.classList.add('disable');
+    }
   }
 }

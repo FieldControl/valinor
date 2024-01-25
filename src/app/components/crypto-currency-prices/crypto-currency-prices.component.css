@@ -28,8 +28,8 @@
   color: var(--font-color-gray);
 }
 
-
-.positive-num, .negative-num {
+.positive-num,
+.negative-num {
   width: 60px;
   text-wrap: nowrap;
 }
@@ -63,11 +63,9 @@ td {
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 375px) and (max-width: 424px) {
-
 }
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
-
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
