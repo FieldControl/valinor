@@ -1,6 +1,6 @@
 # GitHub Search / Field Control
 
-Este é um projeto AngularJS que permite aos usuários pesquisar repositórios no GitHub e exibir informações relevantes sobre esses repositórios. O projeto inclui paginação e uma interface de usuário inspirada na página de pesquisa de repositórios do GitHub.
+Este é um projeto feito em AngularJS que permite aos usuários pesquisar repositórios no GitHub e exibir informações relevantes sobre esses repositórios. O projeto inclui paginação e uma interface de usuário inspirada na página de pesquisa de repositórios do GitHub.
 
 ## Pré-requisitos
 
@@ -12,9 +12,9 @@ Este é um projeto AngularJS que permite aos usuários pesquisar repositórios n
 
 1. Clone o repositório para a sua máquina local:
 
-   ```bash
-   git clone https://github.com/gabbarco/valinor.git
-  ``` 
+  ```bash
+  git clone https://github.com/gabbarco/valinor.git
+  ```
   
 2. Navegue até o diretório do projeto:
 
@@ -49,7 +49,7 @@ Execute os seguintes comandos para iniciar o servidor de desenvolvimento:
   ```bash
   npm install -g http-server
   ```
-    ```bash
+  ```bash
   http-server
   ```
   O aplicativo estará acessível em http://localhost:8080.
