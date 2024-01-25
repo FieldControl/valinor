@@ -9,17 +9,15 @@ import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderModule } from 'ngx-skeleto
   templateUrl: './crypto-currency-prices.component.html',
   styleUrl: './crypto-currency-prices.component.css',
 })
-export class CryptoCurrencyPricesComponent implements OnInit{
+export class CryptoCurrencyPricesComponent implements OnInit {
   @Input({ required: true }) cryptos: [] | any;
-  loader: boolean = true
+  loader: boolean = true;
 
   constructor() {}
 
-
   ngOnInit(): void {
-    this.loader = false
+    this.loader = false;
   }
-
 
   isPositive(value: string): boolean {
     const parsedValue = parseFloat(value);

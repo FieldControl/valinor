@@ -10,13 +10,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CryptoCardComponent,
-    CryptoCurrencyPricesComponent,
-    SearchInputComponent,
-    PaginationBtnComponent,
-    HeaderComponent,
-  ],
+  imports: [CryptoCardComponent, CryptoCurrencyPricesComponent, SearchInputComponent, PaginationBtnComponent, HeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

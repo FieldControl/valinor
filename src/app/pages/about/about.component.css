@@ -23,6 +23,10 @@
 }
 
 .link-portfolio {
-  text-decoration:underline;
+  text-decoration: underline;
   color: var(--font-color-white);
+}
+
+a {
+  font-size: 1.8rem;
 }

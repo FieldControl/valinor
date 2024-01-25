@@ -1,11 +1,7 @@
 <main id="home" class="home-page">
   <!--CONTENT-->
   <div class="container-home-describe">
-    <img
-      class="home-image-logo"
-      src="../../../assets/images/logo.png"
-      alt="logotipo"
-    />
+    <img class="home-image-logo" src="../../../assets/images/logo.png" alt="logotipo" />
     <div class="container-home-title">
       <h1 class="home-title">{{ title }}</h1>
       <p class="home-subtitle">{{ subtitle }}</p>
@@ -23,23 +19,15 @@
   <div class="crypto-currency-table">
     <!--SEARCH-->
     <div class="container-search-input">
-      <app-search-input
-        (setSearchOutput)="getSearchOutput($event)"
-      ></app-search-input>
+      <app-search-input (setSearchOutput)="getSearchOutput($event)"></app-search-input>
     </div>
     <!--TABLE-->
     <div class="container-crypto-table">
-      <app-crypto-currency-prices
-        [cryptos]="cryptos"
-      ></app-crypto-currency-prices>
+      <app-crypto-currency-prices [cryptos]="cryptos"></app-crypto-currency-prices>
     </div>
     <!--PAGINATION-->
     <div class="container-pagination">
-      <app-pagination-btn
-        (nextPage)="getNextPage($event)"
-        (previousPage)="getPreviousPage($event)"
-        [totalPages]="totalPage"
-      ></app-pagination-btn>
+      <app-pagination-btn (nextPage)="getNextPage($event)" (previousPage)="getPreviousPage($event)" [totalPages]="totalPage"></app-pagination-btn>
     </div>
   </div>
 </main>

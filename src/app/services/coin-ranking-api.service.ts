@@ -21,15 +21,12 @@ export class CoinRankingAPIService {
   }
 
   getCryptoData(): Observable<DataCoinRanking> {
-    this.apiData = this.http.get<DataCoinRanking>(
-      `${this.urlApi}/coins?limit=${this.limit}&search=${this.search}&offset=${this.offset}&tier=1`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'x-access-token': this.keyApi,
-        },
+    this.apiData = this.http.get<DataCoinRanking>(`${this.urlApi}/coins?limit=${this.limit}&search=${this.search}&offset=${this.offset}&tier=1`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': this.keyApi,
       },
-    );
+    });
     return this.apiData;
   }
 }

@@ -67,7 +67,7 @@ main {
 
 /* BACKGROUND COIN TOPO*/
 main::before {
-  content: " ";
+  content: ' ';
   background: url(../../../assets/images/coin.png) no-repeat;
   background-size: 100px;
   width: 100px;
@@ -80,7 +80,7 @@ main::before {
 
 /* BACKGROUND COIN BOTTOM*/
 main::after {
-  content: "";
+  content: '';
   background: url(../../../assets/images/coin.png) no-repeat;
   background-size: 100px;
   width: 100px;
@@ -101,7 +101,7 @@ main::after {
     width: 94px;
   }
   main::before {
-    content: " ";
+    content: ' ';
     background: url(../../../assets/images/coin.png) no-repeat;
     background-size: 100px;
     width: 100px;
@@ -114,7 +114,7 @@ main::after {
 
   /* BACKGROUND COIN BOTTOM*/
   main::after {
-    content: "";
+    content: '';
     background: url(../../../assets/images/coin.png) no-repeat;
     background-size: 100px;
     width: 100px;

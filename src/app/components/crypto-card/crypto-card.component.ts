@@ -1,12 +1,7 @@
-import {
-  AfterViewInit,
-  CUSTOM_ELEMENTS_SCHEMA,
-  Component,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoinRankingAPIService } from '../../services/coin-ranking-api.service';
+import { swiperJsParams } from './swiperjs-config';
 
 @Component({
   selector: 'app-crypto-card',
@@ -18,69 +13,28 @@ import { CoinRankingAPIService } from '../../services/coin-ranking-api.service';
 })
 export class CryptoCardComponent implements OnInit, AfterViewInit {
   @ViewChild('swiperContainer') swiperContainer: any;
+  swiper: any = swiperJsParams;
   cryptos!: Array<any>;
 
   constructor(private service: CoinRankingAPIService) {}
 
   ngOnInit(): void {
     this.service.getCryptoData().subscribe({
-      next: (response) => {
+      next: response => {
         this.cryptos = response.data.coins;
       },
     });
-    this.swaperCarrouselInit();
   }
 
   ngAfterViewInit(): void {
-    this.swaperCarrouselInit();
+    setTimeout(() => {
+      this.swiperJsInit();
+    }, 500) 
   }
 
   /* SWIPER CONFIGS */
-  swaperCarrouselInit() {
-    const swiperParams = {
-      slidesPerView: 2,
-      spaceBetween: 68,
-      grabCursor: true,
-      breakpoints: {
-        375: {
-          spaceBetween: 14,
-        },
-        425: {
-          slidesPerView: 3,
-          spaceBetween: 188,
-        },
-        500: {
-          slidesPerView: 3,
-          spaceBetween: 128,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 34,
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 128,
-        },
-        1280: {
-          slidesPerView: 5,
-          spaceBetween: 24,
-        },
-        1440: {
-          slidesPerView: 5,
-          spaceBetween: 184,
-        },
-      },
-      speed: 18000,
-      direction: 'horizontal',
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },
-      loop: true,
-      freeMode: true,
-      centeredSlides: true,
-    };
-    Object.assign(this.swiperContainer.nativeElement, swiperParams);
+  swiperJsInit() {
+    Object.assign(this.swiperContainer.nativeElement, this.swiper);
     this.swiperContainer.nativeElement.initialize();
   }
 }

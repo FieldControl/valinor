@@ -68,8 +68,8 @@ a {
 
 .container-link-desktop {
   display: flex;
-  gap: 28px;
-  padding-right: 10rem;
+  gap: 60px;
+  padding-right: 20rem;
 }
 
 .container-link-desktop > a {

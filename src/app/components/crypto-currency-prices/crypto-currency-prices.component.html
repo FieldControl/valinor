@@ -1,5 +1,5 @@
 <table class="table" [cellSpacing]="24">
-    <thead>
+  <thead>
     <tr>
       <th class="text-start">Nome</th>
       <th>Preço</th>
@@ -13,44 +13,28 @@
       <tr>
         <td>
           <div class="container-crypto-info">
-            <img
-            class="icon-crypto"
-            ngSrc="{{ crypto.iconUrl }}"
-            alt="logo"
-            [width]="16"
-            [height]="16"
-            />
+            <img class="icon-crypto" ngSrc="{{ crypto.iconUrl }}" alt="logo" [width]="16" [height]="16" />
             <div class="crypto-info text-start">
               <h3>{{ crypto.name }}</h3>
               <p>{{ crypto.symbol }}</p>
             </div>
           </div>
         </td>
-        <td>{{ crypto.price | currency: "USD" }}</td>
+        <td>{{ crypto.price | currency: 'USD' }}</td>
         @if (isPositive(crypto.change)) {
           <td class="positive-num">
-            <img
-            class="icon-crypto-change"
-            src="../../../assets/images/iconpositive.svg"
-            width="8"
-            />
+            <img class="icon-crypto-change" src="../../../assets/images/iconpositive.svg" width="8" />
             {{ crypto.change }}
           </td>
         } @else {
           <td class="negative-num">
-            <img
-            class="icon-crypto-change"
-            src="../../../assets/images/iconnegative.svg"
-            width="8"
-            />
+            <img class="icon-crypto-change" src="../../../assets/images/iconnegative.svg" width="8" />
             {{ removeSymbol(crypto.change) }}
           </td>
         }
         <td>{{ crypto.marketCap | currency }}</td>
         <td>
-          <a href="{{ crypto.coinrankingUrl }}" target="_blank"
-          >Ver {{ crypto.name }}</a
-          >
+          <a href="{{ crypto.coinrankingUrl }}" target="_blank">Ver {{ crypto.name }}</a>
         </td>
       </tr>
     }
