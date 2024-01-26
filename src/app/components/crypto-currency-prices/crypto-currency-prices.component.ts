@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-crypto-currency-prices',
   standalone: true,
-  imports: [NgOptimizedImage, CommonModule, NgxSkeletonLoaderModule],
+  imports: [NgOptimizedImage, CommonModule],
   templateUrl: './crypto-currency-prices.component.html',
   styleUrl: './crypto-currency-prices.component.css',
 })
