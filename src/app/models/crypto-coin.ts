@@ -23,13 +23,13 @@ interface DataCryptoCoin {
   iconUrl: string;
   marketCap: string;
   price: string;
+  btcPrice: string;
   listedAt: number;
   tier: number;
-  change: number;
+  change: string;
   rank: number;
   sparkline: [];
   lowVolume: boolean;
   coinrankingUrl: string;
   '24hVolume': string;
-  btcPrice: string;
 }
