@@ -29,7 +29,7 @@ export class CryptoCardComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.swiperJsInit();
-    }, 1000) 
+    }, 1000);
   }
 
   /* SWIPER CONFIGS */

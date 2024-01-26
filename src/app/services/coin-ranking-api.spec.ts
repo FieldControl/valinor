@@ -15,7 +15,7 @@ describe('CoinRakingAPIService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [{ provide: CoinRankingAPIService, useValue: CoinRankingAPIServiceMock }],
-    })
+    });
     service = TestBed.inject(CoinRankingAPIService);
   });
 
