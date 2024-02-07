@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Ferramentas Utilizadas</h2>
+
+  <p>Este projeto utilizou o framework Angular.js, TypeScript e SCSS em seu desenvolvimento, além de utilizar também a biblioteca UI Angular Material para a criação dos modais existentes na seção Projetos Desenvolvidos.</p>
+
+  @for (item of arrayTools(); track item) {
+    <details>
+      <summary>
+        <p>
+          <strong> {{ item.summary.strong }} </strong>
+        </p>
+      </summary>
+      <article [innerHTML]="item.text"></article>
+    </details>
+  }
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Melhorias e Próximas Implementações</h2>
+
+  @for (item of arrayImprovements(); track item) {
+    <details>
+      <summary>
+        <p>
+          <strong> {{ item.summary.strong }} </strong>
+        </p>
+      </summary>
+      <article [innerHTML]="item.text"></article>
+    </details>
+  }
+</div>

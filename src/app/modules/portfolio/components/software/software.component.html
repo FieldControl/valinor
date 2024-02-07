@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Princípios de Software</h2>
+
+  <p>Para responder essa pergunta, estou me baseando nos sete princípios da Engenharia de Software listados pelo cientista David Hooker:</p>
+
+  @for (item of arraySoftware(); track item) {
+    <details>
+      <summary>
+        <p>
+          <strong> {{ item.summary.strong }} </strong>
+        </p>
+      </summary>
+      <article [innerHTML]="item.text"></article>
+    </details>
+  }
+</div>

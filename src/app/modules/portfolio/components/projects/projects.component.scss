@@ -1,0 +1,57 @@
+:host {
+  margin-top: 25px;
+  padding: 25px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  background: var(--bg-02);
+
+  h2 {
+    text-align: center;
+    margin: 0 0 25px 0;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    li {
+      flex: 20%;
+      width: 160px;
+      height: 160px;
+
+      button {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        background: none;
+        border: 2px solid var(--primary);
+        border-radius: 8px;
+        transition: 0.5s;
+
+        img {
+          border-radius: 8px;
+        }
+
+        &:hover {
+          background: var(--primary);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    ul {
+      li {
+        flex: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+:host {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    text-align: center;
+    margin: 0 0 25px 0;
+  }
+
+  details {
+    overflow: hidden;
+    margin-top: 10px;
+    background: var(--bg-02);
+    border-radius: 8px;
+    color: var(--white);
+
+    article, summary {
+      padding: 10px 20px;
+      transition: 500ms;
+      color: var(--txt-03);
+    }
+
+    summary {
+      cursor: pointer;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: var(--primary);
+
+      p {
+        font-size: 14px;
+        color: var(--txt-03);
+
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+
+        strong {
+          font-weight: 500;
+        }
+      }
+    }
+
+    &[open] {
+      summary {
+        &::after {
+          content: url("../../../../../assets/icons/chevron-up.svg");
+          width: 15px;
+          margin-top: 5px;
+        }
+
+        background: var(--primary);
+        border-radius: 8px 8px 0 0 !important;
+      }
+    }
+
+    &:not([open]) {
+      summary {
+        &::after {
+          content: url("../../../../../assets/icons/chevron-down.svg");
+          width: 15px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}

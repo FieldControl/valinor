@@ -1,0 +1,51 @@
+::ng-deep .dialog-container-projects .mdc-dialog__container {
+  width: 850px;
+}
+
+:host {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+
+  header, h3, p, mat-dialog-content {
+    padding: 0;
+    margin: 0 0 15px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 22px;
+      padding: 0;
+      margin: 0;
+      color: var(--black-010);
+    }
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    color: var(--black-010);
+  }
+
+  article {
+    margin-bottom: 15px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  nav {
+    display: flex;
+  }
+}

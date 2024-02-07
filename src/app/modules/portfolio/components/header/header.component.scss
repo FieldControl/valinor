@@ -1,0 +1,142 @@
+:host {
+  &::before {
+    content: '';
+    display: flex;
+    width: 100%;
+    height: 150px;
+    margin-bottom: -65px;
+    background: var(--primary);
+  }
+
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--bg-02);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  header, aside {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    flex-direction: column;
+    
+    img {
+      border-radius: 100px;
+      border: 2px solid var(--stroke-01);
+      margin-bottom: 12px;
+    }
+  }
+
+  aside {
+    p {
+      text-align: center;
+    }
+
+    nav ul, section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav {
+      margin: 20px 0;
+
+      ul {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        li {
+          a {
+            width: 250px;
+          }
+        }
+      }
+    }
+
+    section {
+      figure {
+        width: 335px;
+        height: 77px;
+
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        background-color: var(--terciary);
+        border: solid 1px var(--stroke-01);
+        border-radius: 8px;
+
+        figcaption {
+
+          a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            
+            p {
+              margin: 3px 0;
+              color: var(--txt-03)
+            }
+
+            strong {
+              font-weight: 500;
+              color: var(--primary)
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    aside {
+      nav {
+        ul {
+          flex-direction: column;
+          gap: 15px;
+
+          li, li a {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    section {
+      flex-direction: column;
+      gap: 15px;
+
+      figure {
+        width: 100%;
+      }
+    }
+  }
+}

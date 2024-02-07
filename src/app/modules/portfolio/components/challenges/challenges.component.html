@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Desafios e Problemas</h2>
+
+  @for (item of arrayChallenges(); track item) {
+    <details>
+      <summary>
+        <p>
+          <strong> {{ item.summary.strong }} </strong>
+        </p>
+      </summary>
+      <article [innerHTML]="item.text"></article>
+    </details>
+  }
+</div>
