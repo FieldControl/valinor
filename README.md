@@ -74,10 +74,6 @@ Os candidatos serão avaliados com base nos seguintes critérios:
 - **Resolução de Problemas:** Habilidade para resolver problemas e tomar decisões de design.
 - **Comunicação Eficaz:** Clareza na comunicação das decisões de design e implementação.
 
-## Prazo
-
-Os candidatos têm até [inserir data aqui] para concluir o teste e enviar o pull request.
-
 ---
 
 Esperamos que este desafio seja empolgante e aguardamos sua contribuição! Se tiver alguma dúvida ou precisar de mais informações, por favor, não hesite em entrar em contato. Boa sorte!
