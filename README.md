@@ -104,110 +104,84 @@ Os desafios de programação
 
 Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
 
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
+# Teste de Programação: Kanban
 
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
+Este é um teste de programação que consiste em implementar um Kanban, utilizando Angular para o client side e NestJs para o back-end. 
 
-<br/>
+O objetivo é avaliar a capacidade do candidato em estruturar um projeto seguindo as boas práticas de ambos os frameworks e implementar um fluxo básico de colunas e cards dentro do Kanban.
 
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
+## Critérios de Avaliação
 
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
+Os critérios de avaliação para este teste são os seguintes:
 
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
+1. **Código Limpo e Organização**: Avalia a clareza, legibilidade e organização do código fonte.
 
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
+2. **Testes de Software**: Serão avaliados os testes unitários e integrados para garantir a robustez do sistema.
 
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
+3. **Semântica**: A utilização de nomes significativos para variáveis, funções, classes, etc., será observada.
 
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
-----------
+4. **Documentação do Projeto (README)**: A qualidade e completude da documentação do projeto, que inclui informações sobre como executar, testar e utilizar o sistema.
 
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
+5. **Segurança**: A adoção de práticas de segurança apropriadas, como proteção contra ataques comuns, será considerada.
 
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
+## Instruções
 
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular e AngularJS!
+1. Implemente um Kanban básico que permita a criação de colunas e cards.
+2. Utilize Angular para o desenvolvimento do cliente e NestJs para o desenvolvimento do servidor.
+3. Siga as boas práticas de desenvolvimento de software recomendadas pelos frameworks.
+4. Implemente testes unitários e integrados para garantir a qualidade e robustez do sistema.
+5. Documente o projeto de forma clara e completa neste arquivo README.
 
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
+## Entrega
 
-Um diferencial gigante é o uso de testes unitários e integrados!
+O candidato deve entregar o projeto em um repositório do GitHub e compartilhar o link com os avaliadores.
 
-URLs úteis:
+## Estrutura do Projeto
 
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
+A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJs, com os arquivos de configuração e código-fonte organizados de maneira lógica e intuitiva.
 
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
+## Observações
 
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
+- Certifique-se de que o código está devidamente comentado e documentado para facilitar a compreensão e manutenção futura.
+- Evite a utilização de bibliotecas ou frameworks que não sejam necessários para a implementação do Kanban básico.
+- Qualquer dúvida ou problema encontrado durante a execução do projeto, entre em contato com os avaliadores.
 
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
+## Referências e Cursos Gratuitos
 
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
+### Angular
 
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
+- Documentação Oficial do Angular: [Angular Docs](https://angular.io/docs)
+- Repositório do Angular no GitHub: [Angular GitHub](https://github.com/angular/angular)
 
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
+### NestJs
 
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
+- Documentação Oficial do NestJs: [NestJs Docs](https://docs.nestjs.com/)
+- Repositório do NestJs no GitHub: [NestJs GitHub](https://github.com/nestjs/nest)
 
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
+Estes recursos fornecem uma base sólida para aprender e se aprofundar nos frameworks Angular e NestJs.
 
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
+## Diferenciais
 
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
+Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais pode agregar valor ao projeto:
 
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
+### Aplicação Publicada e Rodando
 
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
+- Configurar e publicar a aplicação em um ambiente de hospedagem como Heroku, Netlify, AWS, Azure, etc., para demonstrar a capacidade de implantar e disponibilizar o sistema para uso real.
 
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
+### Testes Integrados e E2E
 
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
+- Implementar testes integrados e end-to-end (E2E) utilizando ferramentas como Jasmine, Protractor, Jest, etc., para garantir a qualidade e estabilidade do sistema em diferentes níveis de teste.
 
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
+### API em GraphQL ao Invés de REST
 
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
+- Utilizar GraphQL como interface de programação de aplicativos (API) em vez de REST para oferecer uma forma mais flexível e eficiente de consultar e manipular dados entre o cliente e o servidor.
 
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
+### Realtime com Socket.io
 
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
+- Implementar funcionalidades em tempo real utilizando Socket.io para fornecer uma experiência interativa e dinâmica aos usuários, permitindo atualizações instantâneas e sincronizadas entre os diferentes clientes conectados à aplicação.
 
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
+A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a aplicação de tecnologias modernas e práticas de desenvolvimento de software, elevando a qualidade e a experiência do usuário final.
+
 
 Dúvidas?
 ----------
