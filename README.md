@@ -160,6 +160,24 @@ A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJ
 
 Estes recursos fornecem uma base sólida para aprender e se aprofundar nos frameworks Angular e NestJs.
 
+## Para Iniciantes
+
+Se você é um iniciante nesta jornada de desenvolvimento, queremos encorajá-lo a participar deste teste e fazer o seu melhor. Na Field, valorizamos a força de vontade, a iniciativa e o desejo de aprender.
+
+Não se preocupe se você não conseguir entregar um projeto perfeito ou completo. O objetivo é que você ganhe experiência, aprenda com o processo e se desafie a ir além do que já conhece.
+
+Aqui estão algumas dicas para ajudá-lo durante o teste:
+
+1. **Comece com o Básico**: Concentre-se em entender os conceitos fundamentais do Angular e do NestJs. Explore tutoriais, documentações e exemplos de código para se familiarizar com as tecnologias.
+
+2. **Divida o Projeto em Etapas**: Em vez de tentar implementar tudo de uma vez, divida o projeto em etapas menores e gerenciáveis. Concentre-se em uma funcionalidade de cada vez e avance gradualmente.
+
+3. **Não Tenha Medo de Errar**: O processo de aprendizado envolve tentativa e erro. Não se preocupe com os erros ou obstáculos que encontrar ao longo do caminho. Eles fazem parte do processo e são oportunidades de aprendizado.
+
+4. **Celebre suas Conquistas**: Cada pequeno progresso é uma conquista. Celebre suas realizações, por menores que sejam, e reconheça o esforço e a dedicação que você está dedicando ao projeto.
+
+Lembre-se, o importante é tentar e aprender durante o processo. Valorizamos sua iniciativa e estamos aqui para apoiá-lo em sua jornada de desenvolvimento. Boa sorte e divirta-se codificando! 🌟
+
 ## Diferenciais
 
 Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais pode agregar valor ao projeto:
@@ -186,17 +204,6 @@ A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a
 Dúvidas?
 ----------
 Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
 
 Entrega
 ----------
