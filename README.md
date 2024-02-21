@@ -79,25 +79,40 @@ Na Field, o seu dia-a-dia será repleto de:
 ]
 ```
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
+Nossa stack tecnológica é predominantemente JavaScript, abrangendo Node.js, Single Page Applications (SPA) e Hybrid Mobile Apps.
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
+Acreditamos firmemente que excelentes desenvolvedores são capazes de selecionar a ferramenta mais adequada para cada desafio. Por essa razão, para resolver problemas específicos, recorremos às melhores alternativas disponíveis, o que nos leva a incluir uma pitada de C#, Java e PHP em nossas soluções.
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
+Nossos servidores residem na AWS, onde utilizamos a nuvem como nossa plataforma principal. Temos aplicativos funcionando com Elastic BeanStalk, armazenamento em S3 e arquiteturas serverless com AWS Lambda.
 
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
+Antes mesmo de avaliar o conhecimento técnico, valorizamos o perfil pessoal dos candidatos. Para nós, a determinação, o interesse e a curiosidade são qualidades essenciais. Se você é alguém proativo, interessado e que busca constantemente aprender, é isso que realmente importa para nós! 😊
 
-Requisitos principais
+Requisitos Principais
 ----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
+
+- **Sem Ego**: Acreditamos que ninguém é melhor que ninguém e que todos podem aprender uns com os outros. Promovemos um ambiente onde a humildade, o respeito e a abertura para aprender e ensinar são valorizados.
+
+- **Evolução Contínua**: Encorajamos o crescimento pessoal e profissional de todos os membros da equipe. Estamos comprometidos em fornecer oportunidades de aprendizado e desenvolvimento, permitindo que cada indivíduo evolua constantemente em sua jornada.
+
+- **Proatividade**: Buscamos indivíduos proativos, capazes de antecipar problemas e buscar soluções de forma autônoma.
+
+- **Sentimento de Dono**: Valorizamos profissionais que assumem responsabilidade pelo seu trabalho e estão comprometidos com o sucesso do projeto como se fossem os donos.
+
+- **Boa Comunicação e Trabalho em Equipe**: Habilidades de comunicação eficaz e colaboração são essenciais para trabalhar de forma eficiente em equipe.
+
+- **Proficiência em JavaScript e TypeScript**: Experiência sólida em JavaScript e TypeScript, demonstrando habilidade em desenvolver soluções robustas e escaláveis.
+
+- **Experiência com CSS e HTML Semântico**: Conhecimento prático em CSS e HTML Semântico para criar interfaces atraentes e acessíveis.
+
+- **Experiência Sólida com Angular e Ionic**: Capacidade comprovada no desenvolvimento com Angular e Ionic, demonstrando habilidade em construir aplicações web e mobile de alta qualidade.
+
+- **Familiaridade com Princípios de UX**: Compreensão dos princípios de User Experience (UX) para criar interfaces intuitivas e amigáveis aos usuários.
+
+- **Familiaridade com APIs REST, GraphQL e WebSockets**: Conhecimento em APIs REST, GraphQL e WebSockets para comunicação eficiente entre cliente e servidor.
+
+- **Prática em Testar Software**: Experiência prática em testes de software, incluindo testes unitários, integrados e de aceitação, garantindo a qualidade e a confiabilidade do sistema.
+
+Estes requisitos refletem nossa busca por profissionais qualificados e comprometidos, capazes de contribuir de forma significativa para o sucesso de nossos projetos.
 
 O desafio de programação
 ----------
@@ -146,7 +161,7 @@ A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJ
 - Evite a utilização de bibliotecas ou frameworks que não sejam necessários para a implementação do Kanban básico.
 - Qualquer dúvida ou problema encontrado durante a execução do projeto, entre em contato com os avaliadores.
 
-## Referências e Cursos Gratuitos
+## Referências
 
 ### Angular
 
