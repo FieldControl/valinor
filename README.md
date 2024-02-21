@@ -99,10 +99,10 @@ Requisitos principais
  - Familiaridade com APIs REST, GraphQL e WebSockets
  - Ter prática em testar software!
 
-Os desafios de programação
+O desafio de programação
 ----------
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
+Se você é apaixonado por desenvolvimento de software e busca desafios para impulsionar sua carreira, este teste é para você! Realize o desafio abaixo e faça um fork deste repositório para começar a codificar. [Let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)! 🚀
 
 # Teste de Programação: Kanban
 
@@ -134,7 +134,7 @@ Os critérios de avaliação para este teste são os seguintes:
 
 ## Entrega
 
-O candidato deve entregar o projeto em um repositório do GitHub e compartilhar o link com os avaliadores.
+Você deve enviar a resolução do desafio via pull request nesse mesmo repositório ;)
 
 ## Estrutura do Projeto
 
@@ -204,11 +204,6 @@ A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a
 Dúvidas?
 ----------
 Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
 
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
 
