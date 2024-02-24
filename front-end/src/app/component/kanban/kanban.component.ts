@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Kanban } from './kanban';
+import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
 
 @Component({
