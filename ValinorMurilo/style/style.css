@@ -1,0 +1,36 @@
+body {
+        background: rgb(51, 51, 51);
+        background-size: cover;
+        background-position: center;
+     }
+     label{
+        color: rgb(255, 255, 255);
+        margin-left: 45%;
+        font-size: 40px;
+        font-style: oblique;
+     }
+     img{
+        margin-left: 35%;
+        background-size: cover;
+        background-position: center;
+     }
+     input{
+        margin-left: 34%;
+        width: 30%;
+        height: 5%;
+        transform: scale(1.3);
+     }
+     #btn-enviar{
+        width: 20%;
+        margin-left: 40%;
+        transform: scale(1.2);
+     }
+     #search_repo{
+       height: 30px;
+     }
+
+     #pagination-search button.active {
+      background-color: transparent;
+      color: #007bff;
+      border: 2px solid #007bff;
+  }
