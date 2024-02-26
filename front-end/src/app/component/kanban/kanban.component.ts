@@ -22,8 +22,7 @@ export class KanbanComponent implements OnInit {
           badges: [
             {
               name: "badge Laranja",
-              cor: "bg-orange-500",
-              cor_hover: "bg-orange-700"
+              cor: "#FF5733"
             }
           ],
           description: "",
@@ -42,8 +41,7 @@ export class KanbanComponent implements OnInit {
           badges: [
             {
               name: "badge Azul",
-              cor: "bg-blue-500",
-              cor_hover: "bg-blue-700"
+              cor: "#0000FF",
             }
           ],
           description: `Lorem ipsum dolor sit amet, consectetur adipiscing

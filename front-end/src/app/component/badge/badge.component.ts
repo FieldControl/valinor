@@ -8,12 +8,37 @@ import { Badge } from '../badge';
 })
 export class BadgeComponent implements OnInit {
 
-  @Input() badge:Badge = {
+  @Input() badge: Badge = {
     name: "",
-    cor: "",
-    cor_hover: ""
+    cor: ""
   }
   constructor() { }
+
+  darkenColor(hex:string, percent:number) {
+    hex = hex.replace(/^#/, '');
+
+    if (!/^[0-9A-F]{6}$/i.test(hex)) {
+      throw new Error('O valor hexadecimal fornecido é inválido.');
+    }
+
+    let r = parseInt(hex.substring(0, 2), 16);
+    let g = parseInt(hex.substring(2, 4), 16);
+    let b = parseInt(hex.substring(4, 6), 16);
+
+    if (percent < 0 || percent > 1) {
+      throw new Error('O percentual deve estar entre 0 e 1.');
+    }
+
+    r = Math.round(r * (1 - percent));
+    g = Math.round(g * (1 - percent));
+    b = Math.round(b * (1 - percent));
+
+    const rr = (r).toString(16).padStart(2, '0');
+    const gg = (g).toString(16).padStart(2, '0');
+    const bb = (b).toString(16).padStart(2, '0');
+
+    return `#${rr}${gg}${bb}`;
+  }
 
   ngOnInit(): void {
     const div = document.getElementsByName('teste');
