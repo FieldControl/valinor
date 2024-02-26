@@ -1,5 +1,6 @@
-export interface Project {
-  id: number;
+import { Document } from 'mongoose';
+
+export interface Project extends Document {
   title: string;
   columns: Array<Column>;
 }

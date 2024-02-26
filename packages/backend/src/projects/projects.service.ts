@@ -1,28 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import { Project } from './interfaces/projects.interface';
+import { Inject, Injectable } from '@nestjs/common';
+import { Project } from '../interfaces/projects.interface';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ProjectsService {
-  projectsArr: Project[] = [
-    { id: 1, title: 'Projeto 1', columns: [] },
-    { id: 2, title: 'Projeto 2', columns: [] },
-    { id: 3, title: 'Projeto 3', columns: [] },
-  ];
+  constructor(@Inject('PROJECT_MODEL') private projectModel: Model<Project>) {}
 
-  constructor() {}
-
-  createProject(project: Project) {
-    return this.projectsArr.push(project);
+  async createProject(project: Project): Promise<Project[]> {
+    const createProject = new this.projectModel(project);
+    await createProject.save();
+    return this.projectModel.find().exec();
   }
 
-  getAllProjects() {
-    return this.projectsArr;
+  async getAllProjects(): Promise<Project[]> {
+    return await this.projectModel.find().exec();
   }
 
-  getProjectById(id: number) {
-    const item = this.projectsArr.find((item) => {
-      return item.id == id ? item : undefined;
-    });
-    return item;
+  async getByIdProject(id: string): Promise<Project> {
+    return this.projectModel.findById(id).exec();
+  }
+
+  async renameProject(id: string, name: string): Promise<Project[]> {
+    await this.projectModel.updateOne({ _id: id }, { title: name });
+    return this.projectModel.find().exec();
+  }
+
+  async deleteProject(id: string): Promise<Project[]> {
+    await this.projectModel.deleteOne({ _id: id });
+    return this.projectModel.find().exec();
   }
 }
