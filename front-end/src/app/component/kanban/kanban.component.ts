@@ -57,6 +57,7 @@ export class KanbanComponent implements OnInit {
     }
   ];
   editListName: number = 0;
+  addCardName: number = 0;
 
   constructor() {  }
   saveListName(id: number) {
@@ -113,6 +114,24 @@ export class KanbanComponent implements OnInit {
       });
     }
   }
+
+  addCard(newCardTitle:HTMLInputElement,idList:Number) {
+    const indexList = this.kanban.findIndex(obj => obj.id === idList);
+    const lastId = this.kanban.reduce((maior, obj) => {
+      const maxId = obj.cards.reduce((max, card) => Math.max(max, card.id), 0);
+      return Math.max(maior, maxId);
+    }, 0);
+    this.kanban[indexList].cards.push({
+      id: lastId+1,
+      title: newCardTitle.value,
+      date_created: new Date(),
+      date_end: null,
+      badges: [],
+      description: null
+    })
+    newCardTitle.value = "";
+  }
+
   ngOnInit(): void {
     const slider = document.getElementById("page_kanban");
     let startX:number;

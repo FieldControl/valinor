@@ -1,7 +1,7 @@
 <div id='page_kanban' class='overflow-x-auto h-full inner-container select-none'>
   <div class="flex">
     <div *ngFor="let list of kanban" class="w-1/3 flex-shrink-0 p-4">
-      <div class="bg-gray-100 rounded-xl p-4 drop-shadow-md mb-3">
+      <div #listCardDiv class="bg-gray-100 rounded-xl p-4 drop-shadow-md mb-3">
         <div class="flex flex-row">
           <div class="basis-full">
             <h2 *ngIf="editListName != list.id" (click)="editListName = list.id"
@@ -18,8 +18,27 @@
         <div *ngFor="let card of list.cards" class='bg-white rounded-xl p-3 drop-shadow-sm my-2'>
           <app-card [card]="card"></app-card>
         </div>
+
+        <div *ngIf="addCardName == list.id">
+          <div class='bg-white rounded-xl p-3 drop-shadow-sm my-2' >
+            <div class="flex flex-row mb-3">
+              <div class="basis-full line-clamp-1 overflow-ellipsi">
+                <input #newCardTitle id="editNamelist{{list.id}}" (keyup.enter)="saveListName(list.id)"
+                  class="w-full rounded-md shadow-sm text-lg focus:outline-none" type="text" placeholder="Insira um titulo para esse cartão">
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <div class="bg-green-600 w-full p-1.5 mr-2 text-center text-white rounded-md" (click)="addCard(newCardTitle,list.id)">Salvar</div>
+            <div class="text-right px-2 rounded-sm flex items-center" >
+              <span class='fas fa-times text-gray-500 text-lg transition duration-150 ease-in-out hover:text-red-500' (click)="addCardName = 0"></span>
+            </div>
+          </div>
+        </div>
+
+
         <div
-          class='p-2 mt-4 rounded-md cursor-pointer transition duration-150 ease-in-out text-slate-500 hover:bg-gray-200'>
+          class='p-2 mt-4 rounded-md cursor-pointer transition duration-150 ease-in-out text-slate-500 hover:bg-gray-200' *ngIf="addCardName != list.id" (click)="addCardName = list.id">
           <span class="fas fa-plus stroke-0"></span> <span class="font-semibold"> Adicionar cartão</span>
         </div>
       </div>
