@@ -32,10 +32,10 @@ function buscarRepositorios(event) {
     
                 repoItem.innerHTML = `
                  
-                    <a href=${SanitizedUrl.nodeValue} style="color:rgb(0, 132, 255)" target="_blank"><strong>${SanitizedRepoName.nodeValue}</strong></a><br>
-                    <span style="color:white">🌟Stars: ${SanitizedStars.nodeValue} | 👀Watchers: ${SanitizedWatchers.nodeValue}</span><br>
-                    <span style="color:white">📋Forks: ${SanitizedForks.nodeValue} | 🚨Issues: ${SanitizedIssues.nodeValue}</span><br>
-                    <span style="color:white">💾Descrição: ${SanitizedDescription.nodeValue} <br>
+                    <a href="${SanitizedUrl.nodeValue}" style="color:rgb(0, 132, 255)" target="_blank"><strong>"${SanitizedRepoName.nodeValue}"</strong></a><br>
+                    <span style="color:white">🌟Stars: "${SanitizedStars.nodeValue}" | 👀Watchers: "${SanitizedWatchers.nodeValue}"</span><br>
+                    <span style="color:white">📋Forks: "${SanitizedForks.nodeValue}" | 🚨Issues: "${SanitizedIssues.nodeValue}"</span><br>
+                    <span style="color:white">💾Descrição: "${SanitizedDescription.nodeValue}" <br>
                     <hr>
                 `;
                 reposList.appendChild(repoItem);
