@@ -7,12 +7,12 @@ import {
   Delete,
   Query,
 } from '@nestjs/common';
-import { ProjectsService } from './projects.service';
-import { Project } from 'src/interfaces/projects.interface';
+import { ProjectService } from './project.service';
+import { Project } from 'src/interfaces/project.interface';
 
 @Controller('projects')
 export class ProjectsController {
-  constructor(private projectService: ProjectsService) {}
+  constructor(private projectService: ProjectService) {}
 
   @Get()
   async getAll(): Promise<Project[]> {

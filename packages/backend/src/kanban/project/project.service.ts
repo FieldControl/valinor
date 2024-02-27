@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Project } from '../interfaces/projects.interface';
 import { Model } from 'mongoose';
+import { Project } from '../../interfaces/project.interface';
 
 @Injectable()
-export class ProjectsService {
+export class ProjectService {
   constructor(@Inject('PROJECT_MODEL') private projectModel: Model<Project>) {}
 
   async createProject(project: Project): Promise<Project[]> {

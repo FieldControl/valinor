@@ -1,5 +1,5 @@
 import { Mongoose } from 'mongoose';
-import { ProjectSchema } from './schemas/project.schema';
+import { ProjectSchema } from '../../schemas/project.schema';
 
 export const projectsProviders = [
   {

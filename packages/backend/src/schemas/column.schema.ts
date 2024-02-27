@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
-export const ProjectSchema = new mongoose.Schema({
+export const columnSchema = new mongoose.Schema({
+  _id_project: String,
   title: String,
-  columns: Array,
   createdDate: { type: Date, default: Date.now },
 });
