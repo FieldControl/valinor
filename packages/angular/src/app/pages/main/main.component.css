@@ -1,0 +1,13 @@
+section {
+  width: 100vw;
+  height: 100%;
+  background-color: #42677b1f;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.container-column {
+  display: flex;
+  margin: 24px 4px;
+  gap: 14px;
+}

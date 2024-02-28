@@ -1,0 +1,10 @@
+.header {
+  padding: 2rem;
+  text-align: end;
+}
+
+.title-header {
+  justify-content: end;
+  align-items: center;
+  gap: 1.4em;
+}

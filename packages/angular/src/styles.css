@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+app-root,
+app-main {
+  display: block;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+figcaption {
+  font-size: 2.4rem;
+}
+
+p,
+a {
+  font-size: 2rem;
+}
+
+.flex {
+  display: flex;
+}

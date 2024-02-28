@@ -1,0 +1,16 @@
+figcaption {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 12px;
+}
+
+ul li {
+  list-style: none;
+  padding: 2px;
+}
+
+ul li a {
+  padding-left: 24px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}

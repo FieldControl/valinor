@@ -1,0 +1,37 @@
+.container-column-component {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container-column-component > div {
+  border-radius: 10px;
+  background-color: #42677b36;
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 12px;
+}
+
+.container-column-title h2 {
+  padding-left: 24px;
+  font-size: 1.6rem;
+}
+
+.container-column-new-btn {
+  text-align: center;
+}
+
+.container-column-new-btn a {
+  justify-content: center;
+}
+
+.container-column-new-btn a > p {
+  font-size: 1.4rem;
+}
+
+.container-tasks {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 250px;
+  gap: 12px;
+}

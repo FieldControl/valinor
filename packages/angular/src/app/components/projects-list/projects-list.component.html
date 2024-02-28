@@ -1,0 +1,11 @@
+<aside>
+  <ul>
+    <figcaption>Kanban</figcaption>
+    @for (project of projects; track $index) {
+      <li>
+        <a routerLink="" [queryParams]="{ id: project.id }">{{ project.title }}</a>
+      </li>
+    }
+  </ul>
+  <app-button buttonType="fab" (clickEventProject)="getEventCreateProject()"></app-button>
+</aside>

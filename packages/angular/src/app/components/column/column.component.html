@@ -1,0 +1,14 @@
+<div class="container-column-component" draggable="true">
+  <div class="container-column-title">
+    <h2>{{ title }}</h2>
+  </div>
+  <div class="container-column-new-btn">
+    <a class="flex" (click)="sendEventEmitNewTask()">
+      <mat-icon fontIcon="add"></mat-icon>
+      <p>Add new task</p>
+    </a>
+  </div>
+  <div class="container-tasks">
+    <ng-content />
+  </div>
+</div>
