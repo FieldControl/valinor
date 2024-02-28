@@ -6,12 +6,12 @@ import { Column } from 'src/interfaces/column.interface';
 export class ColumnService {
   constructor(@Inject('COLUMN_MODEL') private columnModel: Model<Column>) {}
 
-  async createColumn(body: Column): Promise<any> {
+  async createColumn(body: Column): Promise<Column[]> {
     new this.columnModel(body).save();
     return this.columnModel.find().exec();
   }
 
-  async getByIdColumns(projectId: string, columnId: string): Promise<any> {
+  async getByIdColumns(projectId: string, columnId: string): Promise<Column> {
     return await this.columnModel
       .findOne({ _id_project: projectId, _id: columnId })
       .exec();

@@ -1,14 +1,22 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
-import { Task } from 'src/interfaces/task.interface';
+import {
+  Body,
+  Controller,
+  Get,
+  Put,
+  Post,
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { TaskService } from './task.service';
+import { Task } from 'src/interfaces/task.interface';
 
 @Controller('tasks')
 export class TaskController {
   constructor(private taskService: TaskService) {}
 
   @Get()
-  async getAllTasks(@Query('project_id') id: string): Promise<Task[]> {
-    return this.taskService.getAllTasks(id);
+  async getAllTasks(@Query('project_id') projectId: string): Promise<Task[]> {
+    return this.taskService.getAllTasks(projectId);
   }
 
   @Get('query')
@@ -22,5 +30,30 @@ export class TaskController {
   @Post()
   async createTask(@Body() body: Task): Promise<Task[]> {
     return this.taskService.createTask(body);
+  }
+
+  @Put('updateTitle')
+  async updateTitleTask(@Body() bodyReq: Task) {
+    return this.taskService.updateTitleTask(bodyReq);
+  }
+
+  @Put('updateDescription')
+  async updateDescriptionTask(@Body() bodyReq: Task) {
+    return this.taskService.updateDescriptionTask(bodyReq);
+  }
+
+  @Put('archive')
+  async archiveTask(@Query('task_id') taskId: string) {
+    return this.taskService.archiveTask(taskId);
+  }
+
+  @Put('recovery')
+  async recoveryArchivedTask(@Query('task_id') taskId: string) {
+    return this.taskService.recoveryArchivedTask(taskId);
+  }
+
+  @Delete('query')
+  async deleteTask(@Query('task_id') taskId: string) {
+    return this.taskService.archiveTask(taskId);
   }
 }

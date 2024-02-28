@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Put, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Put,
+  Post,
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { ColumnService } from './column.service';
 import { Column } from 'src/interfaces/column.interface';
 
@@ -16,12 +24,18 @@ export class ColumnController {
   @Get('query')
   async getByIdColumn(
     @Query('project_id') projectId: string,
-  ): Promise<Column[]> {
-    return this.columnService.getAllColumns(projectId);
+    @Query('column_id') columnId: string,
+  ): Promise<Column> {
+    return this.columnService.getByIdColumns(projectId, columnId);
+  }
+
+  @Post()
+  async createColumn(@Body() bodyReq: Column): Promise<Column[]> {
+    return this.columnService.createColumn(bodyReq);
   }
 
   @Put('query')
-  async update(
+  async updateTitleColumn(
     @Query('id') columnId: string,
     @Body() body: Column,
   ): Promise<Column[]> {
@@ -29,7 +43,7 @@ export class ColumnController {
   }
 
   @Delete('query')
-  async delete(
+  async deleteColumn(
     @Query('project_id') projectId: string,
     @Query('column_id') columnId: string,
   ): Promise<Column[]> {

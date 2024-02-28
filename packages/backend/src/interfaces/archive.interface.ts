@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface Task extends Document {
+export interface Archive extends Document {
   _id_project: string;
   _id_column: string;
   title: string;

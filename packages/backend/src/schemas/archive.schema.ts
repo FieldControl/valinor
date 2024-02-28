@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const taskSchema = new mongoose.Schema(
+export const archiveSchema = new mongoose.Schema(
   {
     _id_project: String,
     _id_column: String,

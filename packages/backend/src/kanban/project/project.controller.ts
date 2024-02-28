@@ -2,8 +2,8 @@ import {
   Body,
   Controller,
   Get,
-  Post,
   Put,
+  Post,
   Delete,
   Query,
 } from '@nestjs/common';
@@ -15,30 +15,34 @@ export class ProjectsController {
   constructor(private projectService: ProjectService) {}
 
   @Get()
-  async getAll(): Promise<Project[]> {
+  async getAllProjects(): Promise<Project[]> {
     return this.projectService.getAllProjects();
   }
 
   @Get('query')
-  async getById(@Query('id') id: string): Promise<Project> {
-    return this.projectService.getByIdProject(id);
+  async getByIdProject(
+    @Query('project_id') projectId: string,
+  ): Promise<Project> {
+    return this.projectService.getByIdProject(projectId);
   }
 
   @Post()
-  async create(@Body() reqBody: Project): Promise<any> {
+  async createProject(@Body() reqBody: Project): Promise<Project[]> {
     return this.projectService.createProject(reqBody);
   }
 
   @Put('query')
-  async update(
-    @Query('id') id: string,
+  async updateTitleProject(
+    @Query('project_id') projectId: string,
     @Body() body: Project,
   ): Promise<Project[]> {
-    return this.projectService.renameProject(id, body.title);
+    return this.projectService.renameProject(projectId, body);
   }
 
   @Delete('query')
-  async delete(@Query('id') id: string): Promise<Project[]> {
-    return this.projectService.deleteProject(id);
+  async deleteProject(
+    @Query('project_id') projectId: string,
+  ): Promise<Project[]> {
+    return this.projectService.deleteProject(projectId);
   }
 }

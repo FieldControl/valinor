@@ -20,8 +20,8 @@ export class ProjectService {
     return this.projectModel.findById(id).exec();
   }
 
-  async renameProject(id: string, name: string): Promise<Project[]> {
-    await this.projectModel.updateOne({ _id: id }, { title: name });
+  async renameProject(id: string, body: Project): Promise<Project[]> {
+    await this.projectModel.updateOne({ _id: id }, { title: body.title });
     return this.projectModel.find().exec();
   }
 
