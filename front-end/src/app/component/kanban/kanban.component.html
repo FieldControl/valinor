@@ -15,7 +15,7 @@
               (click)="deleteList(list.id)"></span>
           </div>
         </div>
-        <div *ngFor="let card of list.cards" class='bg-white rounded-xl p-3 drop-shadow-sm my-2'>
+        <div *ngFor="let card of list.cards">
           <app-card [card]="card"></app-card>
         </div>
 
