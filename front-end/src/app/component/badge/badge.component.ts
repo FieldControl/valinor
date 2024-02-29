@@ -9,6 +9,7 @@ import { Badge } from '../badge';
 export class BadgeComponent implements OnInit {
 
   @Input() badge: Badge = {
+    id: 0,
     name: "",
     cor: ""
   }
@@ -41,8 +42,6 @@ export class BadgeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const div = document.getElementsByName('teste');
-    console.log(div);
   }
 
 }

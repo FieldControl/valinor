@@ -35,47 +35,14 @@
             (click)="openBadge = false"></span>
         </div>
       </div>
-      <div class="my-2">
-        <mat-checkbox value="" color="primary">
-          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#A9DEF9">
-            <span class='text-gray-700'>Novo</span>
-          </div>
-        </mat-checkbox>
-      </div>
-      <div class="my-2">
-        <mat-checkbox value="" color="primary">
-          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#FF99C8">
-            <span class='text-gray-700'>Com Defeito</span>
-          </div>
-        </mat-checkbox>
-      </div>
-      <div class="my-2">
-        <mat-checkbox value="" color="primary">
-          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#E4C1F9">
-            <span class='text-gray-700'>Documentação</span>
-          </div>
-        </mat-checkbox>
-      </div>
-      <div class="my-2">
-        <mat-checkbox value="" color="primary">
-          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#D0F4DE">
-            <span class='text-gray-700'>Facil</span>
-          </div>
-        </mat-checkbox>
-      </div>
-      <div class="my-2">
-        <mat-checkbox value="" color="primary">
-          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#FCF6BD">
-            <span class='text-gray-700'>Médio</span>
-          </div>
-        </mat-checkbox>
-      </div>
-      <div class="my-2">
-        <mat-checkbox value="" color="primary">
-          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#FAC8D6">
-            <span class='text-gray-700'>Dificil</span>
-          </div>
-        </mat-checkbox>
+      <div *ngFor="let badge of badges">
+        <div class="my-2">
+          <mat-checkbox value="{{badge.id}}" color="primary">
+            <div class='p-2 w-max rounded-md font-semibold cursor-pointer' [style.background-color]="badge.cor">
+              <span class='text-gray-700'>{{badge.name}}</span>
+            </div>
+          </mat-checkbox>
+        </div>
       </div>
     </div>
   </div>
@@ -90,12 +57,12 @@
     <div class="flex flex-row">
       <div class="w-1/2 mr-2">
         <label class="text-gray-500 text-sm font-semibold block">Criado em:</label>
-        <input disabled type="date" [valueAsDate]="data.card.date_created"
+        <input disabled type="date" [value]="data.card.date_created | date:'yyyy-MM-dd'"
           class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
       </div>
       <div class="w-1/2 ml-2">
         <label class="text-gray-500 text-sm font-semibold block">Entregar até:</label>
-        <input type="date" [valueAsDate]="data.card.date_end" class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
+        <input type="date" [value]="data.card.date_end | date:'yyyy-MM-dd'" class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
       </div>
     </div>
   </div>
