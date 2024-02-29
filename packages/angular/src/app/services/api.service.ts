@@ -9,18 +9,17 @@ import { Project } from '../models/kanban.model';
 })
 export class ApiService {
   apiUrl: string;
-  allProjectsData?: Array<Project>;
 
   constructor(private http: HttpClient) {
     this.apiUrl = environment.apiUrl;
   }
 
-  getAllProjectsDataApi(): Observable<Project[]> {
-    return this.http.get<Project[]>(`${this.apiUrl}projects`);
+  getAllProjects(): Observable<Project> {
+    return this.http.get<Project>(`${this.apiUrl}/projects`);
   }
 
-  getProjectsDataApiById(id: number): Observable<Project> {
-    return this.http.get<Project>(`${this.apiUrl}projects/get?id=${id}`);
+  getProjectById(projectId: string): Observable<Project> {
+    return this.http.get<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}`);
   }
 
   postCreateNewProject() {

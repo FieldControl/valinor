@@ -3,9 +3,9 @@
     <figcaption>Kanban</figcaption>
     @for (project of projects; track $index) {
       <li>
-        <a routerLink="" [queryParams]="{ id: project.id }">{{ project.title }}</a>
+        <a routerLink="/" [queryParams]="{ project_id: project._id }">{{ project.title }}</a>
       </li>
     }
   </ul>
-  <app-button buttonType="fab" (clickEventProject)="getEventCreateProject()"></app-button>
+  <app-button buttonType="fab"></app-button>
 </aside>

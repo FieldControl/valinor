@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
-import { ActivatedRoute, RouterLink,  } from '@angular/router';
-import { Project } from '../../models/kanban.model';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { KanbanService } from '../../services/kanban.service';
 import { ApiService } from '../../services/api.service';
 
@@ -13,31 +12,16 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './projects-list.component.css',
 })
 export class ProjectsListComponent implements OnInit {
-  projects?: Project[] = [];
-  id!: number;
+  @Input() projects: any;
+  project_id?: string;
 
   constructor(
-    private serviceKanban: KanbanService,
-    private apiService: ApiService,
     private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
-    this.getAllProjects();
-    this.route.queryParams.subscribe((value) => (this.id = value['id']));
+    this.route.queryParams.subscribe((params) => {
+      this.project_id = params['project_id'];
+    });
   }
-
-  getAllProjects() {
-    this.apiService.getAllProjectsDataApi().subscribe((res) => (this.projects = res));
-  }
-
-  getEventCreateProject() {
-    this.serviceKanban.createNewProject();
-  }
-
-  /*
-  setCurrentProject(id: number) {
-    this.serviceKanban.setCurrentProject(id)
-  }
-  */
 }

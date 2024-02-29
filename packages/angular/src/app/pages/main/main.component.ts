@@ -6,7 +6,7 @@ import { TaskCardComponent } from '../../components/task-card/task-card.componen
 import { ButtonComponent } from '../../components/button/button.component';
 import { Project } from '../../models/kanban.model';
 import { ProjectsListComponent } from '../../components/projects-list/projects-list.component';
-import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-main',
@@ -24,34 +24,11 @@ import { ActivatedRoute } from '@angular/router';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MainComponent implements OnInit {
-  projects!: Project;
+  projects?: Project;
 
-  /*
-  currentProject: Array<Project> = [
-    {
-      id: 1,
-      title: 'New project',
-      columns: [],
-    },
-  ];
-  columns: Array<any> = [];
-  cards: Array<any> = [];
-  */
+  constructor(private apiService: ApiService) {}
 
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {}
-
-  /*
-  getEventCreateColumn(id: number) {
-    this.serviceKanban.createNewColumn2(id, 'teste');
-    this.projects = this.serviceKanban.projectsData
-    this.currentProject = []
-    this.currentProject.push(this.serviceKanban.projectsData[0])
+  ngOnInit(): void {
+    this.apiService.getAllProjects().subscribe((data) => (this.projects = data));
   }
-
-  getEventCreateTask() {
-    this.serviceKanban.createNewTask('titulo', 'aa');
-  }
-  */
 }

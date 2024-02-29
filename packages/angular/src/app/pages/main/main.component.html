@@ -3,28 +3,16 @@
     <app-header></app-header>
   </mat-grid-header>
   <mat-grid-tile rowspan="1" colspan="1">
-    <app-projects-list></app-projects-list>
+    <app-projects-list [projects]="projects"></app-projects-list>
   </mat-grid-tile>
   <mat-grid-tile rowspan="1" colspan="4">
-    <!--
-      <section>
-        <div class="container-column">
-          @for (column of project?.columns; track $index) {
-            <app-column
-            [title]="column.title"
-            (clickEventTask)="getEventCreateTask()"
-            >
-            @for (card of cards; track $index) {
-              <app-task-card [title]="card.title"></app-task-card>
-            }
-          </app-column>
-        }
-        <app-button
-          buttonType="flat"
-          (clickEventColumn)="getEventCreateColumn(project.id)"
-          />
-        </div>
-      </section>
-    -->
+    <section>
+      <div class="container-column">
+        <app-column title="Columntest">
+          <app-task-card title="cardTest"></app-task-card>
+        </app-column>
+        <app-button buttonType="flat" />
+      </div>
+    </section>
   </mat-grid-tile>
 </mat-grid-list>
