@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Kanban } from './kanban';
+import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -22,8 +22,7 @@ export class KanbanComponent implements OnInit {
           badges: [
             {
               name: "badge Laranja",
-              cor: "bg-orange-500",
-              cor_hover: "bg-orange-700"
+              cor: "#FF5733"
             }
           ],
           description: "",
@@ -42,8 +41,7 @@ export class KanbanComponent implements OnInit {
           badges: [
             {
               name: "badge Azul",
-              cor: "bg-blue-500",
-              cor_hover: "bg-blue-700"
+              cor: "#00ffff",
             }
           ],
           description: `Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -59,6 +57,7 @@ export class KanbanComponent implements OnInit {
     }
   ];
   editListName: number = 0;
+  addCardName: number = 0;
 
   constructor() {  }
   saveListName(id: number) {
@@ -115,6 +114,24 @@ export class KanbanComponent implements OnInit {
       });
     }
   }
+
+  addCard(newCardTitle:HTMLInputElement,idList:Number) {
+    const indexList = this.kanban.findIndex(obj => obj.id === idList);
+    const lastId = this.kanban.reduce((maior, obj) => {
+      const maxId = obj.cards.reduce((max, card) => Math.max(max, card.id), 0);
+      return Math.max(maior, maxId);
+    }, 0);
+    this.kanban[indexList].cards.push({
+      id: lastId+1,
+      title: newCardTitle.value,
+      date_created: new Date(),
+      date_end: null,
+      badges: [],
+      description: null
+    })
+    newCardTitle.value = "";
+  }
+
   ngOnInit(): void {
     const slider = document.getElementById("page_kanban");
     let startX:number;

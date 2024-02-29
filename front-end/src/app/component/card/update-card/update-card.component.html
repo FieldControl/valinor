@@ -1,0 +1,102 @@
+<div class="bg-white p-4" >
+  <div class="w-full text-right">
+    <div class="rounded-full relative px-2 self-center text-gray-400 text-xl">
+      <span class="absolute fas fa-times transition duration-150 ease-in-out hover:text-red-500"
+        (click)="closeModal()"></span>
+    </div>
+  </div>
+  <div class="flex flex-row">
+    <div class='items-center text-lg mr-2'>
+      <span class="fas fa-newspaper"></span>
+    </div>
+    <div class="line-clamp-1 mr-2 basis-full">
+      <h2 class='text-xl'>{{data.card.title}}</h2>
+    </div>
+  </div>
+  <span class="text-gray-500 text-sm font-light">Na lista: {{data.nameList}}</span>
+  <p class="mt-4 text-sm text-gray-500 font-thin">Etiquetas</p>
+  <div class="flex flex-row relative">
+    <div *ngFor="let badge of data.card.badges">
+      <div (click)="openBadge = true" class='p-2 w-max rounded-md mr-1 font-semibold cursor-pointer'
+        [style.background-color]="badge.cor">
+        <span>{{badge.name}}</span>
+      </div>
+    </div>
+    <div (click)="openBadge = true" class="p-2 bg-gray-400 rounded-md text-gray-100 mr-1 font-thin cursor-pointer">
+      <span class='fas fa-plus'></span>
+    </div>
+    <div *ngIf="openBadge" class="py-4 pl-4 pr-8 absolute top-full w-1/2 bg-white shadow-md rounded-md">
+      <div class="flex flex-row">
+        <div class="text-center text-gray-700 w-full font-semibold text-sm">
+          Etiquetas
+        </div>
+        <div class="right-0 text-gray-700 text-lg">
+          <span class="absolute fas fa-times transition duration-150 ease-in-out hover:text-red-500"
+            (click)="openBadge = false"></span>
+        </div>
+      </div>
+      <div class="my-2">
+        <mat-checkbox value="" color="primary">
+          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#A9DEF9">
+            <span class='text-gray-700'>Novo</span>
+          </div>
+        </mat-checkbox>
+      </div>
+      <div class="my-2">
+        <mat-checkbox value="" color="primary">
+          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#FF99C8">
+            <span class='text-gray-700'>Com Defeito</span>
+          </div>
+        </mat-checkbox>
+      </div>
+      <div class="my-2">
+        <mat-checkbox value="" color="primary">
+          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#E4C1F9">
+            <span class='text-gray-700'>Documentação</span>
+          </div>
+        </mat-checkbox>
+      </div>
+      <div class="my-2">
+        <mat-checkbox value="" color="primary">
+          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#D0F4DE">
+            <span class='text-gray-700'>Facil</span>
+          </div>
+        </mat-checkbox>
+      </div>
+      <div class="my-2">
+        <mat-checkbox value="" color="primary">
+          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#FCF6BD">
+            <span class='text-gray-700'>Médio</span>
+          </div>
+        </mat-checkbox>
+      </div>
+      <div class="my-2">
+        <mat-checkbox value="" color="primary">
+          <div class='p-2 w-max rounded-md font-semibold cursor-pointer' style="background-color:#FAC8D6">
+            <span class='text-gray-700'>Dificil</span>
+          </div>
+        </mat-checkbox>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <label class="text-gray-500 text-sm font-semibold block">Descrição</label>
+    <textarea name="" id="" rows="5" placeholder="Adicione uma descrição mais detalhada..."
+      class="w-full shadow-sm bg-gray-100 p-2 rounded-md">
+    {{data.card.description ? data.card.description : undefined}}
+    </textarea>
+  </div>
+  <div class="mt-4">
+    <div class="flex flex-row">
+      <div class="w-1/2 mr-2">
+        <label class="text-gray-500 text-sm font-semibold block">Criado em:</label>
+        <input disabled type="date" [valueAsDate]="data.card.date_created"
+          class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
+      </div>
+      <div class="w-1/2 ml-2">
+        <label class="text-gray-500 text-sm font-semibold block">Entregar até:</label>
+        <input type="date" [valueAsDate]="data.card.date_end" class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
+      </div>
+    </div>
+  </div>
+</div>

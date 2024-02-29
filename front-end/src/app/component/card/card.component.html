@@ -1,0 +1,14 @@
+<div class='bg-white rounded-xl p-3 drop-shadow-sm my-2 transition duration-150 ease-in-out hover:ring-2 hover:shadow-md cursor-pointer' (click)="editCard(card.id)">
+  <div class="flex flex-row my-1" *ngFor="let badge of card.badges">
+    <app-badge [badge]="badge"></app-badge>
+  </div>
+  <div class="flex flex-row mb-3">
+    <div class="basis-full line-clamp-1 overflow-ellipsi">
+      <h3 class="text-lg">{{card.title}}</h3>
+    </div>
+  </div>
+  <p class="line-clamp-3 text-pretty text-slate-500/75">{{card.description}}</p>
+  <div *ngIf="card.date_end != null" class="mt-3 text-slate-500/75">
+    <small><span class="far fa-clock mr-1D"></span> {{card.date_end | shortDate}}</small>
+  </div>
+</div>
