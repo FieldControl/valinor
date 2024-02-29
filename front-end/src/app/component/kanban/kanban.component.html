@@ -16,7 +16,7 @@
           </div>
         </div>
         <div *ngFor="let card of list.cards">
-          <app-card [card]="card"></app-card>
+          <app-card [card]="card" [idList]="list.id" [nameList]="list.name.toString()"></app-card>
         </div>
 
         <div *ngIf="addCardName == list.id">

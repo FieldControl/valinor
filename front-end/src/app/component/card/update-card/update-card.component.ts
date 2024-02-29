@@ -1,5 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Card } from '../../card';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+  idList: number
+  nameList: string
+  card: Card
+}
 
 @Component({
   selector: 'app-update-card',
@@ -8,16 +15,14 @@ import { Card } from '../../card';
 })
 export class UpdateCardComponent implements OnInit {
 
-  // @Input() card: Card = {
-  //   id: 0,
-  //   title: "",
-  //   date_created: new Date(),
-  //   date_end: null,
-  //   badges: [],
-  //   description: null
-  // }
+  openBadge:boolean = false;
+  
+  constructor(public dialogRef: MatDialogRef<UpdateCardComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-  constructor() { }
+  closeModal():void {
+    this.dialogRef.close();
+  }
 
   ngOnInit(): void {
   }

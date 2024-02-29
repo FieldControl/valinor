@@ -11,6 +11,7 @@ import { CardComponent } from './component/card/card.component';
 import { BadgeComponent } from './component/badge/badge.component';
 import { UpdateCardComponent } from './component/card/update-card/update-card.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
