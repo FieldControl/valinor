@@ -1,5 +1,5 @@
 <div id='page_kanban' class='overflow-x-auto h-full inner-container select-none'>
-  <div class="flex">
+  <div cdkDropListGroup class="flex">
     <div *ngFor="let list of kanban" class="basis-96 flex-shrink-0 p-4">
       <div #listCardDiv class="bg-gray-100 rounded-xl p-4 drop-shadow-md mb-3">
         <div class="flex flex-row">
@@ -15,8 +15,10 @@
               (click)="deleteList(list.id)"></span>
           </div>
         </div>
-        <div *ngFor="let card of list.cards">
-          <app-card [card]="card" [idList]="list.id" [nameList]="list.name.toString()"></app-card>
+        <div cdkDropList [cdkDropListData]="list.cards" (cdkDropListDropped)="drop($event,list)">
+          <div cdkDrag *ngFor="let card of list.cards">
+            <app-card [card]="card" [idList]="list.id" [nameList]="list.name.toString()"></app-card>
+          </div>
         </div>
 
         <div *ngIf="addCardName == list.id">

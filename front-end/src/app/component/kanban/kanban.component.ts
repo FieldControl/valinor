@@ -3,6 +3,7 @@ import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
 import { KanbanService } from 'src/app/kanban.service';
 import { Card } from '../card';
+import { CdkDragDrop,moveItemInArray,transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-kanban',
@@ -16,6 +17,19 @@ export class KanbanComponent implements OnInit {
   addCardName: number = 0;
 
   constructor(private service: KanbanService) { }
+
+  drop(event: CdkDragDrop<Card[],any>, kanban:Kanban) {
+    console.log(event);
+    console.log(kanban);
+    if(event.previousContainer === event.container){
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      // this.service.update(kanban).subscribe((kanban: Kanban) => {
+
+      // })
+    }else{
+      transferArrayItem(event.previousContainer.data,event.container.data,event.previousIndex,event.currentIndex)
+    }
+  }
 
   saveListName(kanban: Kanban) {
     this.service.update(kanban).subscribe((kanban: Kanban) => {

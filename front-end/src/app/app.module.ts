@@ -11,6 +11,7 @@ import { CardComponent } from './component/card/card.component';
 import { BadgeComponent } from './component/badge/badge.component';
 import { UpdateCardComponent } from './component/card/update-card/update-card.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FormsModule,
     MatDialogModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
