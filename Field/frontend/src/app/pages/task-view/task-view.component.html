@@ -1,0 +1,72 @@
+<div class="centered-content">
+    <div class="task-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                Cards
+            </h1>
+            <div class="list-menu">
+                
+                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
+                    <p>{{ list.title }}</p>
+                </a>
+
+            </div>
+
+            <button class="button is-primary has-text-white" routerLink="/new-list">+ Novo Card</button>
+
+        </div>
+        <div class="task-list-container has-background-light">
+            <div *ngIf="tasks">
+                <div class="top-bar">
+                    <h1 class="title has-text-primary">
+                        Tasks
+                    </h1>
+                    <div class="dropdown is-hoverable is-right">
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span class="icon is-small">
+                              <i class="fas fa-cog" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                          <div class="dropdown-content">
+                            <a [routerLink]="['/edit-list', selectedListId]" class="dropdown-item">
+                              Editar
+                            </a>
+                            <a (click)="onDeleteListClick()" class="dropdown-item has-text-danger">
+                              Deletar
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+    
+                <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{'completed': task.completed}">
+                    <div class="task-text">
+                        <p>{{ task.title }}</p>
+                    </div>
+                    <div class="task-buttons">
+                        <button class="button" style="margin-right: 10px;" [routerLink]="['/lists', selectedListId, 'edit-task', task._id]">
+                            <div class="icon">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </div>
+                        </button>
+                        <button class="button is-danger" (click)="onDeleteTaskClick(task._id)">
+                            <div class="icon">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <h3 class="empty-state-text" *ngIf="tasks.length === 0">Opa! Não encontramos nenhuma task! <br>Clique no botão para adicionar. </h3>
+
+                <button class="circle-add-button button is-primary" routerLink="./new-task"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div *ngIf="!tasks">
+                <h3 class="empty-state-text">Selecione um card para começar!<br>Se não há nenhum, clique no botão 'Novo Card'</h3>
+            </div>
+        </div>
+    </div>
+</div>
