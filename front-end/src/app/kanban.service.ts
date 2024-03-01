@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Kanban } from './component/kanban';
+import { Card } from './component/card';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class KanbanService {
   update(kanban:Kanban): Observable<Kanban> {
     const url = `${this.API}/${kanban.id}`;
     return this.http.put<Kanban>(url,kanban)
+  }
+
+  createCard(card:Card, idList: number){
+    const url = `${this.API}/${idList}/card`;
+    return this.http.post<Card>(url,card)
   }
 
 }

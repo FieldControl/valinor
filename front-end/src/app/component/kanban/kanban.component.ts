@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
 import { KanbanService } from 'src/app/kanban.service';
+import { Card } from '../card';
 
 @Component({
   selector: 'app-kanban',
@@ -15,6 +16,7 @@ export class KanbanComponent implements OnInit {
   addCardName: number = 0;
 
   constructor(private service: KanbanService) { }
+
   saveListName(kanban: Kanban) {
     this.service.update(kanban).subscribe((kanban: Kanban) => {
       this.editListName = 0;
@@ -77,19 +79,22 @@ export class KanbanComponent implements OnInit {
     }
   }
 
-  addCard(newCardTitle: HTMLInputElement, idList: Number) {
+  addCard(newCardTitle: HTMLInputElement, idList: number) {
     const indexList = this.kanban.findIndex(obj => obj.id === idList);
     const lastId = this.kanban.reduce((maior, obj) => {
       const maxId = obj.cards.reduce((max, card) => Math.max(max, card.id), 0);
       return Math.max(maior, maxId);
     }, 0);
-    this.kanban[indexList].cards.push({
+    const newCard: Card = {
       id: lastId + 1,
       title: newCardTitle.value,
       date_created: new Date(),
       date_end: null,
       badges: [],
       description: null
+    }
+    this.service.createCard(newCard,idList).subscribe((card: Card) => {
+      this.kanban[indexList].cards.push(card);
     })
     newCardTitle.value = "";
   }

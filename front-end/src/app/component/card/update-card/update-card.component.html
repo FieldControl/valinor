@@ -1,4 +1,4 @@
-<div class="bg-white p-4" >
+<div class="bg-white p-4 relative h-full" >
   <div class="w-full text-right">
     <div class="rounded-full relative px-2 self-center text-gray-400 text-xl">
       <span class="absolute fas fa-times transition duration-150 ease-in-out hover:text-red-500"
@@ -25,7 +25,7 @@
     <div (click)="openBadge = true" class="p-2 bg-gray-400 rounded-md text-gray-100 mr-1 font-thin cursor-pointer">
       <span class='fas fa-plus'></span>
     </div>
-    <div *ngIf="openBadge" class="py-4 pl-4 pr-8 absolute top-full w-1/2 bg-white shadow-md rounded-md">
+    <div *ngIf="openBadge" class="py-4 pl-4 pr-8 absolute top-full sm:w-1/2 bg-white shadow-md rounded-md">
       <div class="flex flex-row">
         <div class="text-center text-gray-700 w-full font-semibold text-sm">
           Etiquetas
@@ -64,6 +64,11 @@
         <label class="text-gray-500 text-sm font-semibold block">Entregar até:</label>
         <input type="date" [value]="data.card.date_end | date:'yyyy-MM-dd'" class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
       </div>
+    </div>
+  </div>
+  <div class="mt-24 mb-4">
+    <div class="p-2 bg-red-400 text-center rounded-md font-medium text-gray-100">
+      Deletar Cartão <span class="fas fa-trash"></span>
     </div>
   </div>
 </div>

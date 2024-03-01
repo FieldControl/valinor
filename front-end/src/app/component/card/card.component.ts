@@ -24,10 +24,13 @@ export class CardComponent implements OnInit {
 
   async editCard(idCard: number) {
     console.log(this.card);
+    //TODO: PENSAR EM RESPONSIVIDADE
+    // const screenWidth:number = window.innerWidth;
+    // console.log(`Width: ${screenWidth}`);
+
     this.dialog.open(UpdateCardComponent,{
-      width:'50%',
-      height: "70%",
-      data: {card: this.card, nameList: this.nameList, idList: this.idList}
+      data: {card: this.card, nameList: this.nameList, idList: this.idList},
+      width: `639px`,
     })
   }
 
