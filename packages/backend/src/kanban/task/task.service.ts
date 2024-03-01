@@ -10,8 +10,10 @@ export class TaskService {
     @Inject('ARCHIVE_MODEL') private archiveModel: Model<Archive>,
   ) {}
 
-  async getAllTasks(id: string): Promise<Task[]> {
-    return await this.taskModel.find({ _id_project: id }).exec();
+  async getAllTasks(projectId: string, columnId: string): Promise<Task[]> {
+    return await this.taskModel
+      .find({ _id_project: projectId, _id_column: columnId })
+      .exec();
   }
 
   async getByIdTask(projectId: string, taskId: string): Promise<Task> {

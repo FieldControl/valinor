@@ -1,37 +1,30 @@
 .container-column-component {
-  width: 20rem;
   display: flex;
+  width: 330px;
   flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--color-grey-700);
+  border-radius: 14px;
+  padding: 1.6rem;
+  gap: 1.4rem;
+}
+
+.container-column-title {
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
 }
 
-.container-column-component > div {
-  border-radius: 10px;
-  background-color: #42677b36;
-  border: 1px solid rgba(0, 0, 0, 0.137);
-  padding: 12px;
-}
-
 .container-column-title h2 {
+  text-align: center;
   padding-left: 24px;
   font-size: 1.6rem;
 }
 
-.container-column-new-btn {
-  text-align: center;
-}
-
-.container-column-new-btn a {
-  justify-content: center;
-}
-
-.container-column-new-btn a > p {
-  font-size: 1.4rem;
-}
-
 .container-tasks {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  min-height: 250px;
+  padding: 0 12px;
   gap: 12px;
 }

@@ -1,0 +1,12 @@
+<aside>
+  <ul>
+    <figcaption>Kanban</figcaption>
+    @for (project of projects; track $index) {
+      <li>
+        <a routerLink="/" [queryParams]="{ project_id: project._id }" (click)="getProjectId(project._id)"
+          ><mat-icon svgIcon="custom-svg-list" class="mat-icon"></mat-icon>{{ project.title }}</a
+        >
+      </li>
+    }
+  </ul>
+</aside>

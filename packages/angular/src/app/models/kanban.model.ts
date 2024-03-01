@@ -3,6 +3,7 @@ export interface Project {
 }
 
 export interface Column {
+  _id: string;
   _id_project: string;
   title: string;
 }

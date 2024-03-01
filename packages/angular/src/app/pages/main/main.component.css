@@ -1,13 +1,43 @@
+main {
+  flex: 1;
+}
+
 section {
-  width: 100vw;
   height: 100%;
-  background-color: #42677b1f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 10px;
   overflow: auto;
+  padding: 5rem;
+  gap: 10px;
+}
+
+.container-project-title {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+}
+
+.container-project-title h1 {
+  font-family: Mulish;
+  font-weight: 900;
 }
 
 .container-column {
-  display: flex;
-  margin: 24px 4px;
-  gap: 14px;
+  display: inline-flex;
+  height: 100%;
+  padding: 2rem 2rem;
+  background-color: transparent;
+  border: 1px solid var(--color-grey-700);
+  border-radius: 14px;
+  gap: 18px;
+  overflow: scroll;
+}
+
+.container-column::-webkit-scrollbar {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: var(--color-grey-200);
 }

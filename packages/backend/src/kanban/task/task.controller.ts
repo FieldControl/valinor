@@ -15,8 +15,11 @@ export class TaskController {
   constructor(private taskService: TaskService) {}
 
   @Get()
-  async getAllTasks(@Query('project_id') projectId: string): Promise<Task[]> {
-    return this.taskService.getAllTasks(projectId);
+  async getAllTasks(
+    @Query('project_id') projectId: string,
+    @Query('column_id') columnId: string,
+  ): Promise<Task[]> {
+    return this.taskService.getAllTasks(projectId, columnId);
   }
 
   @Get('query')

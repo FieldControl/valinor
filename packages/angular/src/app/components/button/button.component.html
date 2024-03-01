@@ -1,14 +1,3 @@
-@if (buttonType == "flat") {
-  <div class="container-button">
-    <button mat-flat-button color="primary" (click)="sendEventEmitNewColumn()">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
-} @else if (buttonType == "fab") {
-  <div class="container-button">
-    <button mat-mini-fab color="accent" (click)="sendEventEmitNewProject()">
-      <mat-icon>add</mat-icon>
-      <ng-content></ng-content>
-    </button>
-  </div>
-}
+<button (click)="sendEventEmitNewColumn()">
+  <mat-icon>add</mat-icon>
+</button>

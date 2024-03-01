@@ -1,18 +1,17 @@
-<mat-grid-list cols="5" rowHeight="1:2">
-  <mat-grid-header>
-    <app-header></app-header>
-  </mat-grid-header>
-  <mat-grid-tile rowspan="1" colspan="1">
-    <app-projects-list [projects]="projects"></app-projects-list>
-  </mat-grid-tile>
-  <mat-grid-tile rowspan="1" colspan="4">
-    <section>
-      <div class="container-column">
-        <app-column title="Columntest">
-          <app-task-card title="cardTest"></app-task-card>
-        </app-column>
-        <app-button buttonType="flat" />
-      </div>
-    </section>
-  </mat-grid-tile>
-</mat-grid-list>
+<app-side-menu [projects]="projects" (projectIdValue)="updateProjectColumns($event)"></app-side-menu>
+<main>
+  <section>
+    <div class="container-project-title">
+      <h1>Front end</h1>
+      <button class="edit-button">
+        <mat-icon class="icon" fontIcon="border_color">border_color</mat-icon>
+      </button>
+    </div>
+    <div class="container-column">
+      @for (column of columns; track $index) {
+        <app-column title="{{ column.title }}" projectId="{{ column._id_project }}" columnId="{{ column._id }}" />
+      }
+      <app-button buttonType="flat" />
+    </div>
+  </section>
+</main>

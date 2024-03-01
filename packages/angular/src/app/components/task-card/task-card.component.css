@@ -1,0 +1,21 @@
+.container-task-card {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+  border: 1px solid var(--color-grey-600);
+  border-radius: 14px;
+  font-family: Mulish, sans-serif;
+  background-color: var(--color-bg-card);
+  padding: 12px 34px;
+  gap: 8px;
+}
+
+.container-task-card p {
+  color: var(--color-font-grey);
+  font-size: 12px;
+}
+
+.container-task-card a {
+  font-size: 24px;
+  font-weight: 700;
+}

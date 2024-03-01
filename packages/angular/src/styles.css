@@ -1,3 +1,18 @@
+:root {
+  --color-bg-card: #171717;
+  --color-grey-100: #232322;
+  --color-grey-200: #2b2b29;
+  --color-grey-300: #323230;
+  --color-grey-400: #393938;
+  --color-grey-500: #484847;
+  --color-grey-600: #525251;
+  --color-grey-700: #5d5d5b;
+  --color-grey-800: #676765;
+  --color-font-white: #efefef;
+  --color-font-grey: #b3b3b3;
+  --color-custom-red: #c92828;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,22 +29,59 @@ app-main {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family:
+    Quicksand,
+    Roboto,
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-size: 62.5%;
+  background-color: var(--color-grey-100);
 }
 
 h1,
 h2,
 h3,
 figcaption {
+  color: var(--color-font-white);
   font-size: 2.4rem;
 }
 
 p,
 a {
+  color: #efefef;
   font-size: 2rem;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+}
+
+button > .icon {
+  color: var(--color-font-grey);
+}
+button:hover {
+  cursor: pointer;
 }
 
 .flex {
   display: flex;
+}
+
+app-side-menu {
+  display: flex;
+  align-items: center;
+  padding: 1.6rem;
+}
+
+app-main {
+  display: flex;
+  width: 100dvw;
+  height: 100dvh;
 }
