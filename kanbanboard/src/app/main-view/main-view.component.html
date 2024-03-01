@@ -1,0 +1,49 @@
+<div class="root">
+    <div class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <h1 class="name">Kanban</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="board">
+
+        <div class="board-bar">
+            <p class="board-name">Ice Creams!</p>
+        </div>
+
+        <div class="board-column-button">
+            <button class="button" (click)="addColumn()">Add Column</button>
+        </div>
+        
+        <div class="board-wrapper" *ngIf="board">
+
+            <div class="board-columns" cdkDropListGroup>
+
+                <div class="board-column" *ngFor="let column of board.columns">
+
+                    <div class="column-title">
+                    {{ column.name }}
+                    </div>
+
+                    <div class="card-container"
+                        cdkDropList
+                        [cdkDropListData]="column.cards"
+                        (cdkDropListDropped)="drop($event)">
+
+                        <div class="card" *ngFor="let item of column.cards" cdkDrag>
+                            {{ item }}
+                        </div>
+                        
+                        <div class="card">
+                            <input class="input" type="text" #newCardInput placeholder="Add a new card">
+                            <button class="button" (click)="addCard(column.name, newCardInput.value); newCardInput.value = ''">Add Card</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
