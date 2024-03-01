@@ -1,0 +1,55 @@
+<div class="root">
+    <div class="navbar has-background-dark">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <h1 class="app-name has-gradient-text">kanban</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="board">
+
+        <div class="board-bar">
+            <p class="board-name">Gabriel's Test
+                <button mat-button (click)="addColumn()">
+                    <p class="createButton">Create Column</p>
+                </button>
+            </p>
+        </div>
+
+        <div class="board-wrapper">
+            <div class="board-columns" cdkDropListGroup>
+                <div class="board-column" *ngFor="let column of board.columns">
+
+                    <div class="column-title">
+                        <mat-icon (click)="deleteColumn(column)">delete</mat-icon>
+                        <input type="text" [(ngModel)]="column.name" (ngModelChange)="editColumnName(column, $event)"
+                            placeholder="Column Name" class="input-column">
+                    </div>
+
+                    <div class="tasks-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="column.tasks"
+                        (cdkDropListDropped)="drop($event)">
+                        <div class="task" *ngFor="let item of column.tasks; let i = index" cdkDrag>
+                            <mat-icon (click)="deleteTask(column, i)">delete</mat-icon>
+                            <div class="task-content">
+                                <input type="text" class="name" [(ngModel)]="column.temporaryTaskNames[i].taskName"
+                                    (focus)="setTemporaryTaskValue(column, column.tasks[i], i)"
+                                    (blur)="editTaskName(column, i)" placeholder="Task Name">
+                                <input type="text" class="description" [(ngModel)]="column.temporaryTaskNames[i].taskDescription"
+                                    (focus)="setTemporaryTaskValue(column, column.tasks[i], i)"
+                                    (blur)="editTaskName(column, i)" placeholder="Task Description">
+                            </div>
+                        </div>
+                        <button mat-button (click)="addTask(column)">
+                            Create Task
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
