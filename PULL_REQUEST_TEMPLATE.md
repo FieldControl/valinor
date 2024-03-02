@@ -1,41 +1,50 @@
 ## Envio de solução
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
+Durante todo o trabalho pensei em aprender mais sobre o que estava sendo pedido, mas ainda era muita cois para mim em tão pouco tempo então decidi terminar de estudar javascript. estudei o que pude de angular mas senti que não seria capas de entragar algo decente a tempo.  
 
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+html, css(bootstrap),  javascript.
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
-
+decidi fazer em  HTML/CSS pois é a linguagem mais básica necessária para o projeto, além disso, tenho conhecimento
+- Utilização da estrutura HTML5 para a construção do layout da página;
+- Uso do framework CSS Bootstrap para criar um design responsivo e atractivo;
+- Implementação de interatividade com o JavaScript, utilizando eventos de clique no botão "Enviar" para dispar
+- Implementação de interatividade com o JavaScript para adicionar funcionalidades ao site (ex: menu hamburguer);
+- Implementação de interações com o usuário utilizando JavaScript;
 **Princípios de software**
 
-Quais princípios da engenharia de software que você usou?
+O maior princípio que norteia o projeto e a de   "Usabilidade". A interface é minimalista e intuitiva, facilitando ao máximo
+- Modularidade: Toda a aplicação foi desenvolvida em módulos separados, cada um deles realizando uma tarefa específica.
+- Reutilização: Em casos de  múltiplos componentes semelhantes na aplicação, como botões ou caixas de seleção, foram reaproveitados os codigos ja existententes.
+
+
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+infelizmente era muito conteudo para absorver eu não pude fazer melhor.
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+nas proximas verções pretendo utilizar angular, next.js, mySql e  typescript em vez de js puro.
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
+Me chamo Eric Luis Domingues, tenho 28 anos, nasci em Barretos e quando meu pai faleceu viemos para José Bonifácio, onde eu moro até hoje.
+tenho duas faculdade na area da educação, mas minha grande paixão sempre foi a tecnologia e hoje venho buscando esse sonho, de viver disso.
 
 **Outros detalhes**
 
-Se quiser enviar alguma informação adicional sobre o desafio..
+Aprendi muito com esse desafio, sinto não poder ter sido melhor, porem me esforçarei para melhorar no futuro.
 
 
 ---
+email:eric.domingues@fatec.sp.gov.br
+email:ericld.eld@gmail.com
+telefone: (17)992547828
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
 
 
 

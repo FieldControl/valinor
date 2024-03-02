@@ -1,0 +1,318 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --color-header:#049df5;
+    --color-box-menu:#9ce8f4;
+    --color-menu-lateral:#8ebbef;
+    --color-main-sec:#F4F3F3;
+    --color-postit-amarelo:#FAE423;
+    --color-postit-verde:#E9FFDF;
+    --color-postit-vermelho:#FC9C9C;
+    --shadow-box: 2px 2px 5px rgba(0, 0, 0, 0.39);
+    --shadow-text:2px 2px 4px rgba(0, 0, 0, 0.895);
+    --shadow-active:1px 1px 3px rgba(255, 255, 255, 0.607);
+    --shadow-hover:1px 1px 3px rgba(0, 0, 0, 0.739);
+    --shadow-profundidade: inset 1px 1px 2px rgba(0, 0, 0, 0.171);
+    background-color: rgb(0, 64, 85);
+}
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow:hidden;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height:  40px;
+    background-color: var(--color-header);
+    box-shadow: var(--shadow-box);
+    flex-direction: row-reverse;
+    z-index:1;
+    
+}
+#menuPrinc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:15px ;
+
+}
+#btnMenu{
+    margin: 10px 40px 10px 0px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+    background-color: var(--color-box-menu);
+    border: none;
+    box-shadow: var(--shadow-box);
+    border-radius: 3px;
+    
+}
+#btnMenu:hover{
+    box-shadow: var(--shadow-hover);
+}
+#btnMenu:active{
+    box-shadow: var(--shadow-active);
+}
+.traco{
+    background-color: white;
+    width: 80%;
+    height: 4px;
+    border-radius: 7px;
+    margin:1.5px ;
+    box-shadow: var(--shadow-profundidade);
+
+}
+#listaMenu{
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    width: auto;
+}
+.itemMenu a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    text-shadow: var(--shadow-text);
+    font-size: 18px;
+}
+.itemMenu a:hover{
+    text-shadow: var(--shadow-hover);
+}
+.itemMenu a:active{
+    text-shadow: var(--shadow-selecao);
+}
+
+#telaPrincipal{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 90vh;
+
+}
+.mainSec{
+    margin: 1%;
+    width:100%;
+    height: auto;
+    background-color:var(--color-main-sec) ;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+#menuLateral{    
+    background-color: var(--color-menu-lateral);
+    z-index: 0;
+    min-width: 150px;
+}
+#menuLateral ul{
+    padding: 0px;
+    margin: 0;
+}
+
+#janelaTarefa{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.373);
+    z-index: 3;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.janela{
+    width: 70%;
+    height: auto;
+    background-color: white;
+    box-shadow: var(--shadow-box);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.jaHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    margin:10px;
+    font-size:100%;
+}
+
+#fechar{
+    margin:5px 20px 0px 0px ;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+.containerJanela{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex: 15;
+    margin-bottom:10px ;
+    margin-top:10px
+}
+#tNome, #tEtapa{
+    width: 100%;
+    display: flex;
+    
+}
+#tNome input {
+    width: 75%;
+    
+}
+#tEtapa input{
+    width: 50%;
+}
+#tDescricao{
+    width: 100%;
+}
+#tDescricao textarea{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+#tAdicionar{
+    border-radius:0px 5px 5px 0px;
+}
+#tetapas{
+    min-height:30px ;
+}
+.mainSec h2{
+    margin: 10px;
+}
+.mainSec2{
+    width:  96% !important;
+    height: 90%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+
+.postits{
+    width:150px;
+    height:150px;
+    box-shadow:var(--shadow-box);
+    display:inline-flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content:start;
+    font-size:14px ;
+    margin: 10px;
+    white-space: wrap; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: black;
+}
+
+
+
+.postits h2{
+    font-size: 100%;
+    font-weight:bolder;
+    
+}
+.Afazer{
+    background-color:var(--color-postit-amarelo);
+}
+.EmRealizacao{
+    background-color:var(--color-postit-vermelho);
+    width: 90%;
+    font-size:none;
+    height: 90%;
+
+}
+.EmRealizacao:hover{
+    position: relative;
+    width: 90%;
+    
+    
+}
+.Concluido{
+    background-color:var(--color-postit-verde);
+}
+
+.postits p{
+    font-size: 100%;
+    margin: 5px;
+}
+#botaoPostits{
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    z-index: 3;
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+}
+#botaoPostits button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: #F4F3F3;
+}
+
+#drop1{
+    align-self: center;
+    border-radius: 50%;
+}
+#drop1 div{
+    border-radius: 50%;
+}
+ #drop1 > div > button{
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;   
+    border-color: #00000000; 
+    border-radius: 50%;
+    box-shadow: var(--shadow-box),var(--shadow-box)inset;
+}
+#drop1 > div > button::after{
+    margin: 0px;
+    margin-top: -6px ;
+    
+    
+}
+#drop li{
+    height: 20px;
+    justify-self:start ;
+    text-shadow: var(--shadow-text);
+}
+#drop li:hover{
+    text-shadow: var(--shadow-hover);
+}
+#drop{
+    margin: 0px;
+    overflow: hidden;
+}
+.postits >#drop{
+    
+    overflow: none;
+
+}
+
+
