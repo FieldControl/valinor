@@ -1,0 +1,36 @@
+<div class="root">
+  <div class="navbar has-background-dark">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1 class="app-name has-gradient-text">Kanban</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="board">
+    <div class="board-bar">
+      <p class="board-name">Nome</p>
+    </div>
+
+    <div class="board-wrapper">
+      <div class="board-columns">
+        <div class="board-column" *ngFor="let column of board.columns">
+
+          <div class="column-title">Ideias</div>
+
+          <div class="tasks-container">
+            <div class="task">
+              Algo que quero fazer
+            </div>
+            <div class="task">
+             Nova ideia
+            </div>
+            <div class="task">
+             Possível ideia
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
