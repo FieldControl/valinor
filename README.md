@@ -1,27 +1,35 @@
-# Kanban
+## Envio de solução
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+**Framework, linguagem e ferramentas**
 
-## Development server
+Usei apenas o Angular com CSS básico.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Técnologias X e Y**
 
-## Code scaffolding
+Optei pelo CSS básico no lugar do less porque minha prioridade era entender o Node e também o Angular.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Princípios de software**
 
-## Build
+Tive o Agile em mente, mas a complexidade do projeto entregue não justificaria mais que um único sprint.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Desafios e problemas**
 
-## Running unit tests
+Passei a maior parte do tempo lendo sobre o Angular e o próprio Node. Não estou habituado com as stacks em TS/JS. Também precisei dedicar um período trabalhando.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Melhorias e próximas implementações**
 
-## Running end-to-end tests
+Falta reaproveitamento de código e terminar (!) o projeto. Um back-end usando o Firebase seria uma maneira rápida de colocar tudo pra funcionar. Acabei gostando do Angular e vou pessoalmente seguir com o projeto pra aprender a usá-lo integralmente.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Sobre você**
 
-## Further help
+Cresci numa espécie de asssistência técnica e sempre gostei de computação, mas também de certas ciências exatas. Amo joguinhos também rsrs
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Sou daqui de Rio Preto, morei em Curitiba por dois anos cursando Eng de Computação na federal, depois em São Carlos, na USP e no mesmo curso, além de Física Computacional. Infelizmente tive que trancar por motivos de saúde e decidi seguir na fatec enquanto me decido se volto pra lá ou trabalho por aqui mesmo.
+
+Ao editar um html na oficina, pelos meus 16 anos, um cliente do meu pai me convidou para ser dev na empresa dele. Aceitei de prontidão e fui aprendendo php com eles.
+Decidi sair da empresa um tempo depois e fui fazendo freelances, que destes, incluía o site do prefeito.
+
+**Outros detalhes**
+
+bmbanho@gmail.com
+(17) 9 9684-3812 ou +5517996843812 pro CTRL+C
