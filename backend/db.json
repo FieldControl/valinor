@@ -3,6 +3,7 @@
     {
       "id": "1",
       "name": "To Do",
+      "searchCard": "",
       "cards": [
         {
           "id": 3,
@@ -78,6 +79,7 @@
     {
       "id": "2",
       "name": "In Progress",
+      "searchCard": "",
       "cards": [
         {
           "id": 1,
@@ -122,6 +124,7 @@
     {
       "id": "3",
       "name": "Done",
+      "searchCard": "",
       "cards": [
         {
           "id": 4,

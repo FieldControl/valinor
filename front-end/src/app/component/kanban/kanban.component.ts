@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
 import { KanbanService } from 'src/app/kanban.service';
 import { Card } from '../card';
-import { CdkDragDrop,moveItemInArray,transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-kanban',
@@ -15,19 +15,20 @@ export class KanbanComponent implements OnInit {
   @Input() kanban: Kanban[] = [];
   editListName: number = 0;
   addCardName: number = 0;
+  searchCard: any;
 
   constructor(private service: KanbanService) { }
 
-  drop(event: CdkDragDrop<Card[],any>, kanban:Kanban) {
+  drop(event: CdkDragDrop<Card[], any>, kanban: Kanban) {
     console.log(event);
     console.log(kanban);
-    if(event.previousContainer === event.container){
+    if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       // this.service.update(kanban).subscribe((kanban: Kanban) => {
 
       // })
-    }else{
-      transferArrayItem(event.previousContainer.data,event.container.data,event.previousIndex,event.currentIndex)
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
     }
   }
 
@@ -81,8 +82,9 @@ export class KanbanComponent implements OnInit {
 
     if (nameList) {
       const lastId = this.kanban[this.kanban.length - 1].id;
-      const newList = {
+      const newList: Kanban = {
         id: lastId + 1,
+        searchCard: "",
         name: nameList,
         cards: []
       }
@@ -107,9 +109,9 @@ export class KanbanComponent implements OnInit {
       badges: [],
       description: null
     }
-    this.service.createCard(newCard,idList).subscribe((card: Card) => {
-      this.kanban[indexList].cards.push(card);
-    })
+    // this.service.createCard(newCard, idList).subscribe((card: Card) => {
+    // })
+    this.kanban[indexList].cards.push(newCard);
     newCardTitle.value = "";
   }
 
@@ -146,5 +148,4 @@ export class KanbanComponent implements OnInit {
       slider.scrollLeft = scrollLeft - walk;
     });
   }
-
 }

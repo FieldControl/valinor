@@ -13,6 +13,7 @@ import { UpdateCardComponent } from './component/card/update-card/update-card.co
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FilterPipe } from './component/kanban/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ShortDatePipe,
     CardComponent,
     BadgeComponent,
-    UpdateCardComponent
+    UpdateCardComponent,
+    FilterPipe
   ],
   entryComponents: [UpdateCardComponent],
   imports: [

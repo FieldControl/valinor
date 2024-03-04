@@ -15,8 +15,16 @@
               (click)="deleteList(list.id)"></span>
           </div>
         </div>
+        <div class="flex flex-row mb-2 border-b-2 ">
+          <div class="basis-full">
+            <input class="py-1 px-2 bg-gray-100 w-full" placeholder="Filtrar nome cartão" type="text" [(ngModel)]="list.searchCard">
+          </div>
+          <div class="text-right px-2 rounded-sm self-center">
+            <span class="fas fa-search text-gray-500 hover:text-blue-500"></span>
+          </div>
+        </div>
         <div cdkDropList [cdkDropListData]="list.cards" (cdkDropListDropped)="drop($event,list)">
-          <div cdkDrag *ngFor="let card of list.cards">
+          <div cdkDrag *ngFor="let card of list.cards | filter: list.searchCard">
             <app-card [card]="card" [idList]="list.id" [nameList]="list.name.toString()"></app-card>
           </div>
         </div>
@@ -26,7 +34,8 @@
             <div class="flex flex-row mb-3">
               <div class="basis-full line-clamp-1 overflow-ellipsi">
                 <input #newCardTitle id="editNamelist{{list.id}}"
-                  class="w-full rounded-md shadow-sm text-lg focus:outline-none" type="text" placeholder="Insira um titulo para esse cartão">
+                  class="w-full rounded-md shado
+                  w-sm text-lg focus:outline-none" type="text" placeholder="Insira um titulo para esse cartão">
               </div>
             </div>
           </div>
