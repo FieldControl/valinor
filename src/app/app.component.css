@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.kanban-board {
+    display: flex;
+    justify-content: space-around;
+}
+
+.kanban-column {
+    width: 30%;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.kanban-column h2 {
+    text-align: center;
+}
+
+.kanban-cards {
+    min-height: 200px;
+}
+
+.post-it-note {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #ffff88;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+    margin: 10px;
+  }
