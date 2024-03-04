@@ -30,5 +30,13 @@ export class KanbanService {
     const url = `${this.API}/${idList}/card`;
     return this.http.post<Card>(url,card)
   }
+  deleteCard(idCard: number,idList: number) {
+    const url = `${this.API}/${idList}/card/${idCard}`;
+    return this.http.delete<Card>(url);
+  }
+  updateCard(card: Card, idList: number) {
+    const url = `${this.API}/${idList}/card/${card.id}`;
+    return this.http.put<Card>(url, card)
+  }
 
 }
