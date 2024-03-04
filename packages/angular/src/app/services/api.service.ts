@@ -18,10 +18,6 @@ export class ApiService {
     return this.http.get<Project[]>(`${this.apiUrl}/projects`);
   }
 
-  getProjectById(projectId: string): Observable<Project> {
-    return this.http.get<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}`);
-  }
-
   getAllColumns(projectId: string): Observable<Column[]> {
     return this.http.get<Column[]>(`${this.apiUrl}/columns/query?project_id=${projectId}`);
   }
@@ -30,9 +26,75 @@ export class ApiService {
     return this.http.get<Task[]>(`${this.apiUrl}/tasks?project_id=${projectId}&column_id=${columnId}`);
   }
 
-  postCreateNewProject() {
-    this.http.post(`${this.apiUrl}/projects`, {
-      headers: { 'Access-Control-Allow-Origin': '*' },
+  getProjectById(projectId: string): Observable<Project> {
+    return this.http.get<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}`);
+  }
+
+  getColumnById(projectId: string): Observable<Column> {
+    return this.http.get<Column>(`${this.apiUrl}/columns/query?project_id=${projectId}`);
+  }
+
+  getTaskById(projectId: string): Observable<Task> {
+    return this.http.get<Task>(`${this.apiUrl}/tasks/query?project_id=${projectId}`);
+  }
+
+  createProject(projectTitle: any): Observable<Project> {
+    let body = {
+      title: projectTitle,
+    };
+    return this.http.post<Project>(`${this.apiUrl}/projects`, body);
+  }
+
+  createColumn(projectId: any, projectTitle: any): Observable<Column> {
+    let body = {
+      _id_project: projectId,
+      title: projectTitle,
+    };
+    return this.http.post<Column>(`${this.apiUrl}/columns`, body);
+  }
+
+  createTask(projectId: any, columnId: any, taskTitle: any, descriptionTask: any): Observable<Task> {
+    let body = {
+      _id_project: projectId,
+      _id_column: columnId,
+      title: taskTitle,
+      description: descriptionTask,
+    };
+    return this.http.post<Task>(`${this.apiUrl}/tasks`, body);
+  }
+
+  updateProjectTitle(projectId: string, projectTitle: string): Observable<Project> {
+    return this.http.put<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}`, { title: projectTitle });
+  }
+
+  updateColumnTitle(columnId: string, columnTitle: string): Observable<Column> {
+    return this.http.put<Column>(`${this.apiUrl}/columns/query?column_id=${columnId}`, { title: columnTitle });
+  }
+
+  updateTask(taskId: string, taskBody: Task): Observable<Task> {
+    return this.http.post<Task>(`${this.apiUrl}/tasks/query?task_id=${taskId}`, {
+      title: taskBody.title,
+      description: taskBody.description,
     });
+  }
+
+  deleteProject(projectId: string): Observable<Project> {
+    return this.http.delete<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}`);
+  }
+
+  deleteColumn(projectId: string, columnId: string): Observable<Project> {
+    return this.http.delete<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}&column_id=${columnId}`);
+  }
+
+  deleteTask(taskId: string): Observable<Task> {
+    return this.http.delete<Task>(`${this.apiUrl}/projects/query?task_id=${taskId}`);
+  }
+
+  archiveTask(taskId: string): Observable<Task> {
+    return this.http.delete<Task>(`${this.apiUrl}/projects/archive?task_id=${taskId}`);
+  }
+
+  recoveryTask(taskId: string): Observable<Task> {
+    return this.http.delete<Task>(`${this.apiUrl}/projects/recovery?task_id=${taskId}`);
   }
 }

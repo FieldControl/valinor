@@ -1,34 +1,101 @@
-ul {
-  margin: 2rem;
-  padding: 2rem;
+.container-project-list {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-figcaption {
+.logo {
+  width: 18rem;
+}
+
+.project-list, form {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.project-list-title {
   font-size: 1.6rem;
   font-family: Mulish, sans-serif;
   font-weight: 800;
   margin: 12px;
 }
 
-ul li {
+.project {
   list-style: none;
   padding: 2px;
 }
 
-ul li a {
+.project a {
   padding-left: 24px;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-ul li a:hover {
+.project a:hover {
   text-decoration: underline;
 }
 
-.mat-icon {
-  width: 1.8rem;
+.project-list-icon {
+  width: 1.6rem;
   color: var(--color-custom-red);
   vertical-align: middle;
   padding-right: 8px;
+}
+
+.container-btn {
+  display: flex;
+  align-items: center;
+}
+
+.add-btn {
+  font-size: 1.4rem;
+}
+
+.add-btn .add-btn-icon {
+  font-weight: 800;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.add-btn-icon,
+.add-btn {
+  color: var(--color-font-grey);
+}
+
+input {
+  color: var(--color-font-grey);
+  padding: 12px;
+  background-color: transparent;
+  border: 1px solid var(--color-grey-600);
+  border-radius: 8px;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 8px;
+}
+
+.form label{
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: Mulish, sans-serif;
+  color: var(--color-font-white);
+  align-self: flex-start;
+}
+
+.create-btn {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-font-grey);
+  border: 1px solid var(--color-grey-600);
+  border-radius: 12px;
+  padding: 12px;
 }

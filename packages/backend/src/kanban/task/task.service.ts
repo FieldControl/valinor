@@ -28,31 +28,18 @@ export class TaskService {
     return this.taskModel.find().exec();
   }
 
-  async updateTitleTask(body: Task): Promise<Task[]> {
+  async updateTask(taskId: string, body: Task): Promise<Task[]> {
     await this.taskModel.updateOne(
       {
-        _id: body._id,
+        _id: taskId,
       },
-      { title: body.title },
-    );
-    return this.taskModel.find().exec();
-  }
-
-  async updateDescriptionTask(body: Task): Promise<Task[]> {
-    await this.taskModel.updateOne(
-      {
-        _id: body._id,
-      },
-      { title: body.description },
+      { title: body.title, description: body.description },
     );
     return this.taskModel.find().exec();
   }
 
   async archiveTask(taskId: string): Promise<Archive[]> {
     const task = await this.taskModel.findById({
-      _id: taskId,
-    });
-    await this.taskModel.deleteOne({
       _id: taskId,
     });
     const archivedTask = new this.archiveModel({
@@ -63,24 +50,27 @@ export class TaskService {
       description: task.description,
       archived: true,
     });
+    await this.taskModel.deleteOne({
+      _id: taskId,
+    });
     await archivedTask.save();
     return this.archiveModel.find().exec();
   }
 
-  async recoveryArchivedTask(taskId: string) {
+  async recoveryArchivedTask(taskId: string): Promise<Archive[]> {
     const task = await this.archiveModel.findById({
       _id: taskId,
     });
     await this.archiveModel.deleteOne({
       _id: taskId,
     });
-    const recoveryTask = new this.archiveModel({
+    const recoveryTask = new this.taskModel({
       _id: task._id,
       _id_project: task._id_project,
       _id_column: task._id_column,
       title: task.title,
       description: task.description,
-      archived: true,
+      archived: false,
     });
     await recoveryTask.save();
     return this.taskModel.find().exec();

@@ -36,7 +36,7 @@ export class ColumnController {
 
   @Put('query')
   async updateTitleColumn(
-    @Query('id') columnId: string,
+    @Query('column_id') columnId: string,
     @Body() body: Column,
   ): Promise<Column[]> {
     return this.columnService.renameColumn(columnId, body);

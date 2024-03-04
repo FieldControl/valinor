@@ -22,10 +22,7 @@ export class ColumnService {
   }
 
   async renameColumn(columnId: string, body: Column): Promise<Column[]> {
-    await this.columnModel.updateOne(
-      { _id: columnId, _id_project: body._id_project },
-      { title: body.title },
-    );
+    await this.columnModel.updateOne({ _id: columnId }, { title: body.title });
     return this.columnModel.find().exec();
   }
 

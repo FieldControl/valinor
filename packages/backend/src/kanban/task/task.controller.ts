@@ -2,10 +2,10 @@ import {
   Body,
   Controller,
   Get,
-  Put,
   Post,
   Delete,
   Query,
+  Patch,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { Task } from 'src/interfaces/task.interface';
@@ -35,24 +35,22 @@ export class TaskController {
     return this.taskService.createTask(body);
   }
 
-  @Put('updateTitle')
-  async updateTitleTask(@Body() bodyReq: Task) {
-    return this.taskService.updateTitleTask(bodyReq);
-  }
-
-  @Put('updateDescription')
-  async updateDescriptionTask(@Body() bodyReq: Task) {
-    return this.taskService.updateDescriptionTask(bodyReq);
-  }
-
-  @Put('archive')
+  @Post('archive')
   async archiveTask(@Query('task_id') taskId: string) {
     return this.taskService.archiveTask(taskId);
   }
 
-  @Put('recovery')
-  async recoveryArchivedTask(@Query('task_id') taskId: string) {
+  @Post('recovery')
+  async recoveryTask(@Query('task_id') taskId: string) {
     return this.taskService.recoveryArchivedTask(taskId);
+  }
+
+  @Patch('query')
+  async updateTitleTask(
+    @Query('task_id') taskId: string,
+    @Body() reqBody: Task,
+  ) {
+    return this.taskService.updateTask(taskId, reqBody);
   }
 
   @Delete('query')

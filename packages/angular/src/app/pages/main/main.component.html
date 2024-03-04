@@ -1,17 +1,13 @@
-<app-side-menu [projects]="projects" (projectIdValue)="updateProjectColumns($event)"></app-side-menu>
+<app-side-menu [projects]="projects"></app-side-menu>
 <main>
   <section>
     <div class="container-project-title">
-      <h1>Front end</h1>
+      <h1>{{ projectTitle }}</h1>
       <button class="edit-button">
         <mat-icon class="icon" fontIcon="border_color">border_color</mat-icon>
       </button>
     </div>
-    <div class="container-column">
-      @for (column of columns; track $index) {
-        <app-column title="{{ column.title }}" projectId="{{ column._id_project }}" columnId="{{ column._id }}" />
-      }
-      <app-button buttonType="flat" />
-    </div>
+    <app-kanban-board />
   </section>
 </main>
+cd

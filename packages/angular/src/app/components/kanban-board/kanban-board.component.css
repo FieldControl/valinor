@@ -1,0 +1,17 @@
+.container-board {
+  display: inline-flex;
+  height: 100%;
+  padding: 2rem 2rem;
+  background-color: transparent;
+  border: 1px solid var(--color-grey-700);
+  border-radius: 14px;
+  gap: 18px;
+  overflow: scroll;
+}
+
+.container-board::-webkit-scrollbar {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: var(--color-grey-200);
+}
