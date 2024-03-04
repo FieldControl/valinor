@@ -31,5 +31,5 @@ Decidi sair da empresa um tempo depois e fui fazendo freelances, que destes, inc
 
 **Outros detalhes**
 
-bmbanho@gmail.com
+bmbanho@gmail.com  
 (17) 9 9684-3812 ou +5517996843812 pro CTRL+C
