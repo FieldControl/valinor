@@ -1,4 +1,6 @@
 .container-board {
+  height: 100%;
+  flex: 1;
   display: inline-flex;
   height: 100%;
   padding: 2rem 2rem;

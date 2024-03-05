@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api.service';
-import { Project } from '../models/kanban.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class KanbanService {
-  projectsData: Array<Project> = [];
+  project_id = '';
 
-  constructor(private apiService: ApiService) {}
+  getId(id: string) {
+    this.project_id = id;
+    return this.project_id;
+  }
 }

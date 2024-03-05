@@ -1,28 +1,28 @@
 <aside class="container-project-list">
   <mat-icon class="logo" svgIcon="logo-custom"></mat-icon>
   <div></div>
-  @if (!popover) {
-  <ul class="project-list">
-    <figcaption class="project-list-title">Kanban</figcaption>
-    @for (project of projects; track $index) {
-    <li class="project">
-      <a routerLink="{project_id}" routerLinkActive="active" [queryParams]="{ project_id: project._id }" (click)="getProjectId(project._id)"
-        ><mat-icon svgIcon="custom-svg-list" class="project-list-icon"></mat-icon>{{ project.title }}</a
-      >
-    </li>
-    }
-  </ul>
-  <div class="container-btn">
-    <button class="add-btn" (click)="popoverNewProject()">
-      <mat-icon class="add-btn-icon" fontIcon="add"></mat-icon>
-      Add new project
-    </button>
-  </div>
+  @if (!modal) {
+    <ul class="project-list">
+      <figcaption class="project-list-title">Kanban</figcaption>
+      @for (project of projects; track $index) {
+        <li class="project">
+          <button (click)="getProjectId(project._id)">
+            <mat-icon svgIcon="custom-svg-list" class="project-list-icon"></mat-icon>{{ project.title }}
+          </button>
+        </li>
+      }
+    </ul>
+    <div class="container-btn">
+      <button class="add-btn" (click)="modalNewProject()">
+        <mat-icon class="add-btn-icon" fontIcon="add"></mat-icon>
+        Add new project
+      </button>
+    </div>
   } @else {
-  <div class="form">
-    <label for="projectName">What is the project name?</label>
-    <input name="projectName" id="projectName" type="text" placeholder="type here..." [formControl]="projectName" />
-    <button class="create-btn" (click)="createProject()">Create</button>
-  </div>
+    <div class="form">
+      <label for="projectName">What is the project name?</label>
+      <input name="projectName" id="projectName" type="text" placeholder="type here..." [formControl]="projectName" />
+      <app-button (click)="createProject()" buttonType="actionBtn">Create</app-button>
+    </div>
   }
 </aside>

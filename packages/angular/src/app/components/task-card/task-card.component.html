@@ -1,10 +1,36 @@
 <div class="container-task-card" draggable="true">
-  <div>
-    <p>20/Feb</p>
+  <div class="container-date-btn">
+    <p>{{ task.createdAt | date: "dd MMM" }}</p>
   </div>
   <div>
-    <a href="/">
-      {{ title }}
-    </a>
+    <button href="" class="more-btn" (click)="openCloseModal()">
+      {{ task.title }}
+    </button>
   </div>
 </div>
+@if (modal) {
+  <app-modal>
+    <div class="container-modal-task">
+      <div class="container-modal-task-title">
+        @if (inputTitle) {
+          <input type="text" [formControl]="editTitle" (keyup.enter)="editTitleTask(task._id)" />
+        } @else if (!inputTitle) {
+          <h1>{{ task.title }}</h1>
+        }
+        <app-button buttonType="editBtn" (click)="showInputTitle()"></app-button>
+      </div>
+      <div class="container-modal-task-description">
+        @if (inputDescription) {
+          <input type="text" [formControl]="editDescription" (keyup.enter)="editDescriptionTask(task._id)" />
+        } @else if (!inputDescription) {
+          <p>{{ task.description }}</p>
+        }
+        <app-button buttonType="editBtn" (click)="showInputDescription()"></app-button>
+      </div>
+    </div>
+    <div class="container-modal-task-buttons">
+      <app-button buttonType="actionBtn" (click)="deleteTask(task._id)">Delete</app-button>
+      <app-button buttonType="actionBtn" (click)="archiveTask(task._id)">Archive</app-button>
+    </div>
+  </app-modal>
+}

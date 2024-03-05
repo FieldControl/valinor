@@ -1,4 +1,5 @@
 export interface Project {
+  _id: string;
   title: string;
 }
 
@@ -9,9 +10,11 @@ export interface Column {
 }
 
 export interface Task {
+  _id: string;
   _id_project: string;
   _id_column: string;
   title: string;
   description: string;
   archived: boolean;
+  createdAt: Date;
 }

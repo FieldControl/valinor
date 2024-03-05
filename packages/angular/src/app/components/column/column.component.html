@@ -1,13 +1,24 @@
 <div class="container-column-component" draggable="true">
   <div class="container-column-title">
     <h2>{{ title }}</h2>
-    <button>
-      <mat-icon class="icon" fontIcon="border_color">border_color</mat-icon>
-    </button>
+    <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
   </div>
   <div class="container-tasks">
-    @for (item of tasks; track $index) {
-      <app-task-card title="{{ item.title }}" />
+    @for (task of tasks; track $index) {
+    <app-task-card [task]="task" />
     }
   </div>
+  <div class="container-create-task">
+    <button class="create-task-button" (click)="createTask()">
+      <mat-icon>add</mat-icon>
+      Create a new Task
+    </button>
+  </div>
 </div>
+@if (modal) {
+<app-modal title="Editar coluna">
+  <input name="editColumnTitle" type="text" [formControl]="editColumnTitle" />
+  <app-button buttonType="actionBtn" (click)="deleteColumn()">Delete</app-button>
+  <app-button buttonType="actionBtn" (click)="renameColumn()">Edit</app-button>
+</app-modal>
+}

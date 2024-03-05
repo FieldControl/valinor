@@ -10,6 +10,21 @@
   gap: 8px;
 }
 
+.container-date-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.more-btn {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-font-white);
+}
+
+.more-btn:hover {
+  text-decoration: underline;
+}
+
 .container-task-card p {
   color: var(--color-font-grey);
   font-size: 12px;
@@ -18,4 +33,11 @@
 .container-task-card a {
   font-size: 24px;
   font-weight: 700;
+}
+
+.container-modal-task-title,
+.container-modal-task-description {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }

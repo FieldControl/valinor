@@ -9,7 +9,8 @@
   width: 18rem;
 }
 
-.project-list, form {
+.project-list,
+form {
   margin: 1rem;
   padding: 1rem;
 }
@@ -26,14 +27,15 @@
   padding: 2px;
 }
 
-.project a {
+.project button {
+  color: var(--color-font-white);
   padding-left: 24px;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-.project a:hover {
+.project button:hover {
   text-decoration: underline;
 }
 
@@ -62,40 +64,4 @@
 .add-btn-icon,
 .add-btn {
   color: var(--color-font-grey);
-}
-
-input {
-  color: var(--color-font-grey);
-  padding: 12px;
-  background-color: transparent;
-  border: 1px solid var(--color-grey-600);
-  border-radius: 8px;
-}
-
-input::placeholder {
-  font-style: italic;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 8px;
-}
-
-.form label{
-  font-size: 1rem;
-  font-weight: 700;
-  font-family: Mulish, sans-serif;
-  color: var(--color-font-white);
-  align-self: flex-start;
-}
-
-.create-btn {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--color-font-grey);
-  border: 1px solid var(--color-grey-600);
-  border-radius: 12px;
-  padding: 12px;
 }

@@ -11,15 +11,11 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
+  @Input() title: string = '';
   @Input() buttonType = '';
   @Output() clickEventProject = new EventEmitter<void>();
-  @Output() clickEventColumn = new EventEmitter<void>();
 
   sendEventEmitNewProject() {
     this.clickEventProject.emit();
-  }
-
-  sendEventEmitNewColumn() {
-    this.clickEventColumn.emit();
   }
 }

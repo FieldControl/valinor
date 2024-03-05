@@ -1,3 +1,9 @@
-<button (click)="sendEventEmitNewColumn()">
-  <mat-icon>add</mat-icon>
-</button>
+@if (buttonType === "actionBtn") {
+  <button class="create-btn">
+    <ng-content></ng-content>
+  </button>
+} @else if (buttonType === "editBtn") {
+  <button class="edit-btn">
+    <mat-icon class="icon" fontIcon="border_color"></mat-icon>
+  </button>
+}

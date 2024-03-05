@@ -26,8 +26,8 @@ export class ColumnService {
     return this.columnModel.find().exec();
   }
 
-  async deleteColumn(columnId: string, projectId: string): Promise<Column[]> {
-    await this.columnModel.deleteOne({ _id: columnId, _id_project: projectId });
+  async deleteColumn(columnId: string): Promise<Column[]> {
+    await this.columnModel.deleteOne({ _id: columnId });
     return this.columnModel.find().exec();
   }
 }

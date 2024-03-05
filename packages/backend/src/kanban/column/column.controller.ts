@@ -43,10 +43,7 @@ export class ColumnController {
   }
 
   @Delete('query')
-  async deleteColumn(
-    @Query('project_id') projectId: string,
-    @Query('column_id') columnId: string,
-  ): Promise<Column[]> {
-    return this.columnService.deleteColumn(projectId, columnId);
+  async deleteColumn(@Query('column_id') columnId: string): Promise<Column[]> {
+    return this.columnService.deleteColumn(columnId);
   }
 }
