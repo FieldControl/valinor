@@ -1,0 +1,120 @@
+/* Redefinição de estilos padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cores */
+body {
+  background-color: #f2f3f4; /* Cor de fundo do corpo */
+}
+
+h1, h2, h3 {
+  color: #333; /* Cor do texto dos títulos */
+}
+
+a {
+  color: #007bff; /* Cor dos links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  background-color: #007bff; /* Cor de fundo dos botões */
+  color: #fff; /* Cor do texto dos botões */
+  border: 1px solid #0077ff; /* Cor da borda dos botões */
+  border-radius: 5px; /* Arredondamento dos botões */
+  cursor: pointer; /* Indicador de cursor para botões */
+  transition: all 0.2s ease-in-out; /* Transição de cores nos botões */
+}
+
+.button:hover {
+  background-color: #0077ff; /* Cor de fundo dos botões ao passar o mouse */
+}
+
+/* Layout geral */
+.kanban-board {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  max-width: 960px;
+  background-color: #fff; /* Cor de fundo do kanban */
+  border-radius: 5px; /* Arredondamento do kanban */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); /* Sombra do kanban */
+}
+
+.column {
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px; /* Arredondamento das colunas */
+  background-color: #f7f7f7; /* Cor de fundo das colunas */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Sombra das colunas */
+}
+
+.column:first-of-type {
+  margin-left: 0;
+}
+
+.column:last-of-type {
+  margin-right: 0;
+}
+
+.column__title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  margin: 5px;
+  padding: 15px;
+  border-radius: 5px; /* Arredondamento dos cards */
+  background-color: #fff; /* Cor de fundo dos cards */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1); /* Sombra dos cards */
+  cursor: pointer; /* Indicador de cursor para cards */
+  transition: all 0.2s ease-in-out; /* Transição de cores nos cards */
+}
+
+.card:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+}
+
+.card__title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.card__description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Estilos específicos para cada coluna */
+.column.pending .card {
+  background-color: #f44336; /* Cor de fundo dos cards pendentes */
+}
+
+.column.in-progress .card {
+  background-color: #ffc107; /* Cor de fundo dos cards em progresso */
+}
+
+.column.done .card {
+  background-color: #4caf50; /* Cor de fundo dos cards concluídos */
+}
+
+/* Personalização adicional */
+.kanban-board .header {
+  background-color: #007bff
+}

@@ -1,0 +1,14 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "password",
+    "database": "kanban",
+    "synchronize": true,
+    "entities": [
+      "entities/column.entity.ts",
+      "entities/card.entity.ts"
+    ]
+  }
+  
