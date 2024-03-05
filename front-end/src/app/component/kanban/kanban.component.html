@@ -1,0 +1,67 @@
+<div id='page_kanban' class='overflow-x-auto h-full inner-container select-none'>
+  <div cdkDropListGroup class="flex">
+    <div *ngFor="let list of kanban" class="basis-96 flex-shrink-0 p-4">
+      <div #listCardDiv class="bg-gray-100 rounded-xl p-4 drop-shadow-md mb-3">
+        <div class="flex flex-row">
+          <div class="basis-full">
+            <h2 *ngIf="editListName != list.id" (click)="editListName = list.id"
+              class="text-xl rounded-md font-semibold cursor-pointer hover:bg-gray-200">{{list.name}}</h2>
+            <input id="editNamelist{{list.id}}" *ngIf="editListName == list.id" [(ngModel)]="list.name"
+              (keyup.enter)="saveListName(list)"
+              class="w-full rounded-md shadow-sm bg-gray-200 font-semibold text-xl" type="text">
+          </div>
+          <div class="text-right px-2 rounded-sm align-middle">
+            <span class="text-gray-500 fas fa-trash transition duration-150 ease-in-out hover:text-red-500"
+              (click)="deleteList(list.id)"></span>
+          </div>
+        </div>
+        <div class="flex flex-row mb-2 border-b-2 ">
+          <div class="basis-full">
+            <input class="py-1 px-2 bg-gray-100 w-full" placeholder="Filtrar nome cartão" type="text" [(ngModel)]="list.searchCard">
+          </div>
+          <div class="text-right px-2 rounded-sm self-center">
+            <span class="fas fa-search text-gray-500 hover:text-blue-500"></span>
+          </div>
+        </div>
+        <div cdkDropList [cdkDropListData]="list.cards" (cdkDropListDropped)="drop($event,list)">
+          <div cdkDrag *ngFor="let card of list.cards | filter: list.searchCard">
+            <app-card [card]="card" [idList]="list.id" [nameList]="list.name.toString()"></app-card>
+          </div>
+        </div>
+
+        <div *ngIf="addCardName == list.id">
+          <div class='bg-white rounded-xl p-3 drop-shadow-sm my-2' >
+            <div class="flex flex-row mb-3">
+              <div class="basis-full line-clamp-1 overflow-ellipsi">
+                <input #newCardTitle id="editNamelist{{list.id}}"
+                  class="w-full rounded-md shado
+                  w-sm text-lg focus:outline-none" type="text" placeholder="Insira um titulo para esse cartão">
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <div class="bg-green-600 w-full p-1.5 mr-2 text-center text-white rounded-md" (click)="addCard(newCardTitle,list.id)">Salvar</div>
+            <div class="text-right px-2 rounded-sm flex items-center" >
+              <span class='fas fa-times text-gray-500 text-lg transition duration-150 ease-in-out hover:text-red-500' (click)="addCardName = 0"></span>
+            </div>
+          </div>
+        </div>
+
+
+        <div
+          class='p-2 mt-4 rounded-md cursor-pointer transition duration-150 ease-in-out text-slate-500 hover:bg-gray-200' *ngIf="addCardName != list.id" (click)="addCardName = list.id">
+          <span class="fas fa-plus stroke-0"></span> <span class="font-semibold"> Adicionar cartão</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="basis-96 flex-shrink-0 p-4">
+      <div
+        class="bg-gray-400/50 p-4 rounded-lg transition duration-150 ease-in-out text-slate-600 hover:bg-gray-400/25 hover:text-slate-400 cursor-pointer"
+        (click)="addList()">
+        <span class="fas fa-plus stroke-0"></span> <span class="font-semibold"> Adicionar lista</span>
+      </div>
+    </div>
+
+  </div>
+</div>

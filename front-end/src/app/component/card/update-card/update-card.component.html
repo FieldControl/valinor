@@ -1,0 +1,78 @@
+<div class="bg-white p-4 relative h-full">
+  <div class="w-full text-right">
+    <div class="rounded-full relative px-2 self-center text-gray-400 text-xl">
+      <span class="absolute fas fa-times transition duration-150 ease-in-out hover:text-red-500"
+        (click)="closeModal()"></span>
+    </div>
+  </div>
+  <div class="flex flex-row">
+    <div class='items-center text-lg mr-2'>
+      <span class="fas fa-newspaper"></span>
+    </div>
+    <div *ngIf="!habilityUpdateTitle" class="mr-3 basis-full cursor-pointer" (click)="habilityUpdateTitle = true;">
+      <h2 class='text-xl'>{{data.card.title}}</h2>
+    </div>
+    <input #inputTitle *ngIf="habilityUpdateTitle" class="w-full mr-3 px-2 rounded-md shadow-sm bg-white text-xl"
+      type="text" (blur)="habilityUpdateTitle = false; updateCard(data.card,data.idList)" [(ngModel)]="data.card.title"
+      (keyup.enter)="updateCard(data.card,data.idList)">
+  </div>
+  <span class="text-gray-500 text-sm font-light">Na lista: {{data.nameList}}</span>
+  <p class="mt-4 text-sm text-gray-500 font-thin">Etiquetas</p>
+  <div class="flex flex-row relative">
+    <div *ngFor="let badge of data.card.badges">
+      <div (click)="openBadge = true" class='p-2 w-max rounded-md mr-1 font-semibold cursor-pointer'
+        [style.background-color]="badge.cor">
+        <span>{{badge.name}}</span>
+      </div>
+    </div>
+    <div (click)="openBadge = true" class="p-2 bg-gray-400 rounded-md text-gray-100 mr-1 font-thin cursor-pointer">
+      <span class='fas fa-plus'></span>
+    </div>
+    <div *ngIf="openBadge" class="py-4 pl-4 pr-8 absolute top-full sm:w-1/2 bg-white shadow-md rounded-md">
+      <div class="flex flex-row">
+        <div class="text-center text-gray-700 w-full font-semibold text-sm">
+          Etiquetas
+        </div>
+        <div class="right-0 text-gray-700 text-lg">
+          <span class="absolute fas fa-times transition duration-150 ease-in-out hover:text-red-500"
+            (click)="openBadge = false"></span>
+        </div>
+      </div>
+      <div *ngFor="let badge of badges">
+        <div class="my-2">
+          <mat-checkbox value="{{badge.id}}" color="primary">
+            <div class='p-2 w-max rounded-md font-semibold cursor-pointer' [style.background-color]="badge.cor">
+              <span class='text-gray-700'>{{badge.name}}</span>
+            </div>
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <label class="text-gray-500 text-sm font-semibold block">Descrição</label>
+    <textarea name="" id="" rows="5" placeholder="Adicione uma descrição mais detalhada..."
+      class="w-full shadow-sm bg-gray-100 p-2 rounded-md" [(ngModel)]="data.card.description"  (change)="updateCard(data.card,data.idList)">
+    </textarea>
+  </div>
+  <div class="mt-4">
+    <div class="flex flex-row">
+      <div class="w-1/2 mr-2">
+        <label class="text-gray-500 text-sm font-semibold block">Criado em:</label>
+        <input disabled type="date" [value]="data.card.date_created | date:'yyyy-MM-dd'"
+          class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
+      </div>
+      <div class="w-1/2 ml-2">
+        <label class="text-gray-500 text-sm font-semibold block">Entregar até:</label>
+        <input type="date" [value]="data.card.date_end | date:'yyyy-MM-dd'"
+          class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
+      </div>
+    </div>
+  </div>
+  <div class="mt-24 mb-4">
+    <div class="p-2 bg-red-400 text-center rounded-md font-medium cursor-pointer text-white"
+      (click)="deleteCard(data.card.id,data.idList)">
+      Deletar Cartão <span class="fas fa-trash"></span>
+    </div>
+  </div>
+</div>
