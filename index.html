@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kanban</title>   
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="shortcut icon" type="image/jpg" href="/favico.ico"/>
+  </head>
+  <body>
+    <header>
+      <h1><br /><span> Kanban </span></h1>
+    </header>
+    <div class="add-task-container">
+      <input
+        type="text"
+        maxlength="24"
+        id="taskText"
+        placeholder="New Task..."
+        onkeydown="if (event.keyCode == 13)
+                        document.getElementById('add').click()"
+      />
+      <button id="add" class="button add-button" onclick="addTask()">
+        Adicionar Tarefa
+      </button>
+    </div>
+
+    <div class="main-container">
+      <ul class="columns">
+        <li class="column to-do-column">
+          <div class="column-header">
+            <h4>A Fazer</h4>
+          </div>
+          <ul class="task-list" id="to-do">
+            
+          </ul>
+        </li>
+
+        <li class="column doing-column">
+          <div class="column-header">
+            <h4>Fazendo</h4>
+          </div>
+          <ul class="task-list" id="doing">
+            
+          </ul>
+        </li>
+        <li class="column trash-column">
+          <div class="column-header">
+            <h4>Feito</h4>
+          </div>
+          <ul class="task-list" id="trash">
+          </ul>
+          <div class="column-button">
+            <button class="button delete-button" onclick="emptyTrash()">
+              Deletar
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js"></script>
+    <script src="./src/script.js"></script>
+  </body>
+</html>
