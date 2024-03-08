@@ -44,7 +44,6 @@ export class KanbansController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     const kanban = await this.kanbansService.remove(id);
-
     return {
       kanban: kanban,
       message: "Lista deletada com sucesso !"

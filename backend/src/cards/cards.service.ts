@@ -24,6 +24,7 @@ export class CardsService {
       .createQueryBuilder('cards')
       .leftJoinAndSelect('cards.badges','badges')
       .where('cards.kanban_id = :kanban_id', { kanban_id })
+      .orderBy('cards.createdAt','ASC')
       .getMany();
     return cards;
   }

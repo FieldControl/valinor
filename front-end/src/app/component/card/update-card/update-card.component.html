@@ -13,15 +13,15 @@
       <h2 class='text-xl'>{{data.card.title}}</h2>
     </div>
     <input #inputTitle *ngIf="habilityUpdateTitle" class="w-full mr-3 px-2 rounded-md shadow-sm bg-white text-xl"
-      type="text" (blur)="habilityUpdateTitle = false; updateCard(data.card,data.idList)" [(ngModel)]="data.card.title"
-      (keyup.enter)="updateCard(data.card,data.idList)">
+      type="text" (blur)="habilityUpdateTitle = false; updateCard(data.card)" [(ngModel)]="data.card.title"
+      (keyup.enter)="updateCard(data.card)">
   </div>
   <span class="text-gray-500 text-sm font-light">Na lista: {{data.nameList}}</span>
   <p class="mt-4 text-sm text-gray-500 font-thin">Etiquetas</p>
   <div class="flex flex-row relative">
     <div *ngFor="let badge of data.card.badges">
       <div (click)="openBadge = true" class='p-2 w-max rounded-md mr-1 font-semibold cursor-pointer'
-        [style.background-color]="badge.cor">
+        [style.background-color]="badge.color">
         <span>{{badge.name}}</span>
       </div>
     </div>
@@ -40,8 +40,8 @@
       </div>
       <div *ngFor="let badge of badges">
         <div class="my-2">
-          <mat-checkbox value="{{badge.id}}" color="primary">
-            <div class='p-2 w-max rounded-md font-semibold cursor-pointer' [style.background-color]="badge.cor">
+          <mat-checkbox [checked]="isBadgeChecked(badge.id)" value="{{badge.id}}" (change)="onCheckboxChange($event,data.card.id!)" color="primary">
+            <div class='p-2 w-max rounded-md font-semibold cursor-pointer' [style.background-color]="badge.color">
               <span class='text-gray-700'>{{badge.name}}</span>
             </div>
           </mat-checkbox>
@@ -52,7 +52,7 @@
   <div class="mt-4">
     <label class="text-gray-500 text-sm font-semibold block">Descrição</label>
     <textarea name="" id="" rows="5" placeholder="Adicione uma descrição mais detalhada..."
-      class="w-full shadow-sm bg-gray-100 p-2 rounded-md" [(ngModel)]="data.card.description"  (change)="updateCard(data.card,data.idList)">
+      class="w-full shadow-sm bg-gray-100 p-2 rounded-md" [(ngModel)]="data.card.description"  (change)="updateCard(data.card)">
     </textarea>
   </div>
   <div class="mt-4">
@@ -71,7 +71,7 @@
   </div>
   <div class="mt-24 mb-4">
     <div class="p-2 bg-red-400 text-center rounded-md font-medium cursor-pointer text-white"
-      (click)="deleteCard(data.card.id,data.idList)">
+      (click)="deleteCard(data.card.id!)">
       Deletar Cartão <span class="fas fa-trash"></span>
     </div>
   </div>
