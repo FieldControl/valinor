@@ -1,44 +1,40 @@
 import { Injectable } from '@nestjs/common';
 import { Kanban } from './entities/kanban.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { ListKanbanDto } from './dto/list-kanban.dto';
+// import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class KanbansService {
-  private array: Kanban[] = [];
+  constructor(
+    @InjectRepository(Kanban)
+    private readonly kanbanRepository: Repository<Kanban>
+  ){}
 
   async create(createKanbanDto: Kanban) {
-    return this.array.push(createKanbanDto);
+    return await this.kanbanRepository.save(createKanbanDto)
   }
 
   async findAll() {
-    return this.array;
+    const lists = await this.kanbanRepository.find()
+    const responseLists = lists.map(
+      (list) => new ListKanbanDto(list.id, list.name)
+    )
+
+    return responseLists;
   }
 
-  findOne(id: string) {
-    const existKanban = this.array.find(
-      kanbans => kanbans.id === id
-    );
-    if (!existKanban) {
-      throw new Error("Lista não existe: "+ id + " Json: " + JSON.stringify(this.array));
-    }
-    return existKanban;
+  async findOne(id: string) {
+    const kanban = await this.kanbanRepository.findOne({where: {id: id}});
+    return kanban;
   }
 
   async update(id: string, updateKanbanDto: Partial<Kanban>) {
-    const kanban = this.findOne(id);
-    Object.entries(updateKanbanDto).forEach(([key, value]) => {
-      if (key === 'id') {
-        return;
-      }
-      kanban[key] = value
-    })
-    return kanban;
+    return await this.kanbanRepository.update(id,updateKanbanDto);
   }
 
   async remove(id: string) {
-    const kanban = this.findOne(id);
-    this.array = this.array.filter(
-      kanbanRemove => kanbanRemove.id !== id
-    );
-    return kanban;
+    return await this.kanbanRepository.delete(id);
   }
 }

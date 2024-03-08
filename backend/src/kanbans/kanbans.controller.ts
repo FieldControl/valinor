@@ -14,7 +14,6 @@ export class KanbansController {
   async create(@Body() createKanbanDto: CreateKanbanDto) {
     const kanban = new Kanban();
     kanban.name = createKanbanDto.name
-    kanban.cards = createKanbanDto.cards
     kanban.id = uuid();
     this.kanbansService.create(kanban);
     return {
@@ -24,8 +23,8 @@ export class KanbansController {
   }
 
   @Get()
-  findAll() {
-    return this.kanbansService.findAll();
+  async findAll() {
+    return await this.kanbansService.findAll();
   }
 
   @Get(':id')

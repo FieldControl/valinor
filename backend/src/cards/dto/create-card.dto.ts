@@ -1,9 +1,14 @@
 import { IsNotEmpty, IsUUID } from "class-validator";
-import { BadgeDto } from "./badge.dto";
+
+export class BadgeDto {
+    id: string
+    name: string;
+    color: string;
+}
 
 export class CreateCardDto {
-    @IsUUID(undefined,{message:'Id de usuário inválido'})
-    kanbanId: string
+    @IsUUID(undefined,{message:'Id da lista inválido'})
+    kanban_id: string
     @IsNotEmpty({ message: "O nome da lista não pode ser vazio" })
     title: string;
     description: string;
