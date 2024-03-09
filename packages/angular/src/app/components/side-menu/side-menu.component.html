@@ -2,27 +2,27 @@
   <mat-icon class="logo" svgIcon="logo-custom"></mat-icon>
   <div></div>
   @if (!modal) {
-    <ul class="project-list">
-      <figcaption class="project-list-title">Kanban</figcaption>
-      @for (project of projects; track $index) {
-        <li class="project">
-          <button (click)="getProjectId(project._id)">
-            <mat-icon svgIcon="custom-svg-list" class="project-list-icon"></mat-icon>{{ project.title }}
-          </button>
-        </li>
-      }
-    </ul>
-    <div class="container-btn">
-      <button class="add-btn" (click)="modalNewProject()">
-        <mat-icon class="add-btn-icon" fontIcon="add"></mat-icon>
-        Add new project
+  <ul class="project-list">
+    <figcaption class="project-list-title">Kanban</figcaption>
+    @for (project of projects; track $index) {
+    <li class="project">
+      <button (click)="getProjectId(project._id)">
+        <mat-icon svgIcon="custom-svg-list" class="project-list-icon"></mat-icon>{{ project.title }}
       </button>
-    </div>
+    </li>
+    }
+  </ul>
+  <div class="container-btn">
+    <button class="add-btn" (click)="modalCreateProject()">
+      <mat-icon class="add-btn-icon" fontIcon="add"></mat-icon>
+      Add new project
+    </button>
+  </div>
   } @else {
-    <div class="form">
-      <label for="projectName">What is the project name?</label>
-      <input name="projectName" id="projectName" type="text" placeholder="type here..." [formControl]="projectName" />
-      <app-button (click)="createProject()" buttonType="actionBtn">Create</app-button>
-    </div>
+  <div class="form">
+    <label for="projectTitle">What is the project name?</label>
+    <input name="projectTitle" id="projectName" type="text" placeholder="type here..." [formControl]="projectTitle" />
+    <app-button (click)="createProject()" buttonType="actionBtn">Create</app-button>
+  </div>
   }
 </aside>

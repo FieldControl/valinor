@@ -1,11 +1,15 @@
-<div class="container-column-component" draggable="true">
+<div class="container-column-component">
   <div class="container-column-title">
     <h2>{{ title }}</h2>
     <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
   </div>
-  <div class="container-tasks">
+  <div
+    class="container-tasks"
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+  >
     @for (task of tasks; track $index) {
-    <app-task-card [task]="task" />
+    <app-task-card [task]="task" (updateTasks)="updateTasks()" cdkDrag [cdkDragData]="task"/>
     }
   </div>
   <div class="container-create-task">

@@ -1,14 +1,16 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ColumnComponent } from '../column/column.component';
 import { ApiService } from '../../services/api.service';
-import { Column, Project } from '../../models/kanban.model';
+import { Column, Project, Task } from '../../models/kanban.model';
 import { ButtonComponent } from '../button/button.component';
 import { MatIconModule } from '@angular/material/icon';
+import { TaskCardComponent } from '../task-card/task-card.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-kanban-board',
   standalone: true,
-  imports: [ColumnComponent, ButtonComponent, MatIconModule],
+  imports: [ColumnComponent, ButtonComponent, MatIconModule, TaskCardComponent],
   templateUrl: './kanban-board.component.html',
   styleUrl: './kanban-board.component.css',
 })
@@ -20,11 +22,13 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => (this.columns = columnsData));
+    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => {
+      this.columns = columnsData;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['projectId'] || changes['columns']) {
+    if (changes['projectId']) {
       this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => (this.columns = columnsData));
     }
   }
@@ -32,7 +36,11 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
   createColumn() {
     this.apiService.createColumn(this.projectId, 'New column').subscribe((res) => {
       console.log('coluna criada'), res;
+      this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => (this.columns = columnsData));
     });
-    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => (this.columns = columnsData));
+  }
+
+  updateColumn() {
+    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => this.columns = columnsData);
   }
 }

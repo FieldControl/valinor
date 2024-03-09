@@ -1,8 +1,7 @@
 .container-board {
-  height: 100%;
-  flex: 1;
-  display: inline-flex;
-  height: 100%;
+  width: 60rem;
+  height: 30rem;
+  display: flex;
   padding: 2rem 2rem;
   background-color: transparent;
   border: 1px solid var(--color-grey-700);
@@ -11,9 +10,3 @@
   overflow: scroll;
 }
 
-.container-board::-webkit-scrollbar {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background-color: var(--color-grey-200);
-}

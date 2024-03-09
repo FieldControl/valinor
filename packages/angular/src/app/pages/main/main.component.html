@@ -3,15 +3,15 @@
   <section>
     <div class="container-project-title">
       <h1>{{ project.title }}</h1>
-      <app-button buttonType="editBtn" (click)="openModal()"></app-button>
+      <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
     </div>
     <app-kanban-board projectId="{{ project._id }}" />
   </section>
 </main>
-@if (modalOpen) {
-  <app-modal title="Edit Project">
-    <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..." />
-    <app-button buttonType="actionBtn" (click)="editProject(project._id)">Edit</app-button>
-    <app-button buttonType="actionBtn" (click)="deleteProject(project._id)">Delete</app-button>
-  </app-modal>
+@if (modal) {
+<app-modal title="Edit Project">
+  <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..." />
+  <app-button buttonType="actionBtn" (click)="editProject(project._id)">Edit</app-button>
+  <app-button buttonType="actionBtn" (click)="deleteProject(project._id)">Delete</app-button>
+</app-modal>
 }

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
+import { Project } from '../models/kanban.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class KanbanService {
-  project_id = '';
+  allProjects!: Project[];
 
-  getId(id: string) {
-    this.project_id = id;
-    return this.project_id;
-  }
+  constructor(private api: ApiService) {}
+
 }
