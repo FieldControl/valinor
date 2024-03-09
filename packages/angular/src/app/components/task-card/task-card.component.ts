@@ -22,7 +22,7 @@ export class TaskCardComponent {
   editDescription = new FormControl('');
   inputTitle: boolean = false;
   inputDescription: boolean = false;
-  modal: boolean = false;
+  openModal: boolean = false;
 
   constructor(private api: ApiService) {}
 
@@ -31,8 +31,8 @@ export class TaskCardComponent {
     console.log(title);
     this.api.updateTaskTitle(taskId, title).subscribe((res) => {
       console.log('Titulo task editado', res);
-      this.inputTitle = !this.inputTitle
-      this.update();
+      this.inputTitle = !this.inputTitle;
+      this.updateTask();
     });
   }
 
@@ -40,14 +40,14 @@ export class TaskCardComponent {
     const description = this.editDescription.value;
     this.api.updateTaskDescription(taskId, description).subscribe((res) => {
       console.log('Titulo editado task', res);
-      this.update();
+      this.updateTask();
     });
   }
 
   deleteTask(taskId: string) {
     this.api.deleteTask(taskId).subscribe((res) => {
       console.log('Task deletada', res);
-      this.update();
+      this.updateTask();
     });
     this.openCloseModal();
   }
@@ -55,13 +55,13 @@ export class TaskCardComponent {
   archiveTask(taskId: string) {
     this.api.archiveTask(taskId).subscribe((res) => {
       console.log('Task arquivada', res);
-      this.update();
+      this.updateTask();
     });
     this.openCloseModal();
   }
 
   openCloseModal() {
-    this.modal = !this.modal;
+    this.openModal = !this.openModal;
   }
 
   showInputTitle() {
@@ -72,7 +72,7 @@ export class TaskCardComponent {
     this.inputDescription = !this.inputDescription;
   }
 
-  update() {
+  updateTask() {
     this.updateTasks.emit();
   }
 }

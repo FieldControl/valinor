@@ -1,17 +1,22 @@
 <app-side-menu (projectIdValue)="getProjectId($event)"></app-side-menu>
 <main>
-  <section>
-    <div class="container-project-title">
+  <section class="kanban">
+    <div class="container-kanban-title">
       <h1>{{ project.title }}</h1>
-      <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
+      <app-button buttonType="editBtn" (click)="openCloseModal()" />
     </div>
     <app-kanban-board projectId="{{ project._id }}" />
   </section>
 </main>
-@if (modal) {
-<app-modal title="Edit Project">
+@if (openModal) {
+<app-modal title="Rename or Delete">
+  <div>
+    <p>{{ project.title }}</p>
+  </div>
   <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..." />
-  <app-button buttonType="actionBtn" (click)="editProject(project._id)">Edit</app-button>
-  <app-button buttonType="actionBtn" (click)="deleteProject(project._id)">Delete</app-button>
+  <div class="edit-btn">
+    <app-button buttonType="dangerBtn" (click)="deleteProject(project._id)" title="Delete" />
+    <app-button buttonType="actionBtn" (click)="editProject(project._id)" title="Edit" />
+  </div>
 </app-modal>
 }

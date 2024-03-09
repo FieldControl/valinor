@@ -1,10 +1,17 @@
 <div class="container-board">
-  @for (column of columns; track $index) {
-  <app-column title="{{ column.title }}" projectId="{{ column._id_project }}" columnId="{{ column._id }}" (update)="updateColumn()"></app-column>
-  }
-  <div>
-    <app-button buttonType="actionBtn" (click)="createColumn()">
-      <mat-icon>add</mat-icon>
-    </app-button>
+  <div class="container-columns">
+    @for (column of columns; track $index) {
+    <app-column
+      title="{{ column.title }}"
+      projectId="{{ column._id_project }}"
+      columnId="{{ column._id }}"
+      (updateColumn)="updateColumn()"
+    />
+    }
+    <div>
+      <app-button buttonType="iconBtn" (click)="createColumn()">
+        <mat-icon>add</mat-icon>
+      </app-button>
+    </div>
   </div>
 </div>

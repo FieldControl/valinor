@@ -3,26 +3,27 @@
     <h2>{{ title }}</h2>
     <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
   </div>
-  <div
-    class="container-tasks"
-    cdkDropList
-    (cdkDropListDropped)="drop($event)"
-  >
+  <div class="container-tasks" >
     @for (task of tasks; track $index) {
-    <app-task-card [task]="task" (updateTasks)="updateTasks()" cdkDrag [cdkDragData]="task"/>
+    <app-task-card [task]="task" (updateTasks)="updateTasks()" />
     }
   </div>
   <div class="container-create-task">
     <button class="create-task-button" (click)="createTask()">
       <mat-icon>add</mat-icon>
-      Create a new Task
+      Create a new task
     </button>
   </div>
 </div>
-@if (modal) {
-<app-modal title="Editar coluna">
-  <input name="editColumnTitle" type="text" [formControl]="editColumnTitle" />
-  <app-button buttonType="actionBtn" (click)="deleteColumn()">Delete</app-button>
-  <app-button buttonType="actionBtn" (click)="renameColumn()">Edit</app-button>
+@if (openModal) {
+<app-modal title="Rename or Delete">
+  <div class="container-modal-input">
+    <p>{{ title }}</p>
+    <input name="editColumnTitle" type="text" [formControl]="editColumnTitle" placeholder="Rename Column here..." />
+  </div>
+  <div class="container-modal-btn">
+    <app-button buttonType="dangerBtn" (click)="deleteColumn()" title="Delete">Delete</app-button>
+    <app-button buttonType="actionBtn" (click)="renameColumn()" title="Edit">Edit</app-button>
+  </div>
 </app-modal>
 }

@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ColumnComponent } from '../column/column.component';
 import { ApiService } from '../../services/api.service';
-import { Column, Project, Task } from '../../models/kanban.model';
+import { Column, Project } from '../../models/kanban.model';
 import { ButtonComponent } from '../button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskCardComponent } from '../task-card/task-card.component';
 import { Subject } from 'rxjs';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-kanban-board',
@@ -29,7 +30,7 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['projectId']) {
-      this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => (this.columns = columnsData));
+      this.updateColumn()
     }
   }
 
@@ -41,6 +42,12 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
   }
 
   updateColumn() {
-    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => this.columns = columnsData);
+    console.log("update column")
+    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => {this.columns = columnsData
+    console.log(columnsData)});
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
   }
 }

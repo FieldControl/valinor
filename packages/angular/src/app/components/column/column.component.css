@@ -3,7 +3,7 @@
   width: 330px;
   flex-direction: column;
   align-items: center;
-  border: 1px solid var(--color-grey-700);
+  border: 1px solid var(--color-grey-600);
   border-radius: 14px;
   padding: 1.6rem;
   gap: 1.4rem;
@@ -12,36 +12,48 @@
 .container-column-title {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
 }
 
 .container-column-title h2 {
+  font-family: Mulish, sans-serif;
   text-align: center;
-  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-size: 2.2rem;
 }
 
-.container-create-task {
-  background-color: var(--color-grey-700);
-  padding: 8px 12px;
-  border: 1px solid var(--color-grey-100);
-  border-radius: 10px;
+.container-column-title app-button {
+  transform: scale(0.8);
 }
+
 
 .create-task-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--color-grey-300);
+  color: var(--color-font-white);
+  font-size: 18px;
   font-weight: 200;
   font-family: Mulish, sans-serif;
   font-style: italic;
-  color: var(--color-font-white);
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  padding: 0 8px;
+  border-radius: 10px;
   gap: 12px;
 }
 
 .container-tasks {
+  width: 100%;
+  min-height: 80px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.container-modal-input > * {
+  margin: 4px 0;
+}
+
+.container-modal-btn > * {
+  margin: 0 6px;
 }

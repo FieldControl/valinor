@@ -1,4 +1,6 @@
 .create-btn {
+  text-align: center;
+  min-width: 60px;
   font-size: 12px;
   font-weight: 700;
   color: var(--color-font-grey);
@@ -6,3 +8,14 @@
   border-radius: 12px;
   padding: 12px;
 }
+
+.delete-btn {
+  min-width: 60px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-custom-red);
+  border: 1px solid var(--color-custom-red);
+  border-radius: 12px;
+  padding: 12px;
+}
+

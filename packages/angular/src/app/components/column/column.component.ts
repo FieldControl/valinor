@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TaskCardComponent } from '../task-card/task-card.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../../services/api.service';
@@ -6,30 +6,23 @@ import { Task } from '../../models/kanban.model';
 import { ButtonComponent } from '../button/button.component';
 import { ModalComponent } from '../modal/modal.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { KanbanBoardComponent } from '../kanban-board/kanban-board.component';
-import { CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-column',
   standalone: true,
   templateUrl: './column.component.html',
   styleUrl: './column.component.css',
-  imports: [MatIconModule, TaskCardComponent, ButtonComponent, ModalComponent, ReactiveFormsModule, CdkDropListGroup, CdkDrag, CdkDropList],
+  imports: [MatIconModule, TaskCardComponent, ButtonComponent, ModalComponent, ReactiveFormsModule, DragDropModule],
 })
 export class ColumnComponent implements OnInit {
-
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
-  }
-
-
   @Input() title: string = '';
   @Input() projectId!: string;
   @Input() columnId!: string;
   @Output() update = new EventEmitter<void>();
-  tasks!: Task[];
   editColumnTitle = new FormControl('');
-  modal: boolean = false;
+  tasks!: Task[];
+  openModal: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
@@ -38,38 +31,45 @@ export class ColumnComponent implements OnInit {
   }
 
   createTask() {
-    this.apiService.createTask(this.projectId, this.columnId, 'New task', 'description').subscribe((res) => {
-      console.log('task criada', res);
-      this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
+    this.apiService.createTask(this.projectId, this.columnId, 'New task', 'description').subscribe(() => {
+      this.updateTasks();
     });
   }
 
   renameColumn() {
     const title = this.editColumnTitle.value;
-    this.apiService.updateColumnTitle(this.columnId, title).subscribe((data) => {
-      console.log('Renomeado');
-      this.updateTest();
+    this.apiService.updateColumnTitle(this.columnId, title).subscribe(() => {
+      this.updateColumns();
     });
     this.openCloseModal();
   }
 
   deleteColumn() {
-    this.apiService.deleteColumn(this.columnId).subscribe((res) => {
-      console.log('coluna deletada', res);
-      this.updateTest();
+    this.apiService.deleteColumn(this.columnId).subscribe(() => {
+      this.updateColumns();
     });
     this.openCloseModal();
   }
 
   openCloseModal() {
-    this.modal = !this.modal;
+    this.openModal = !this.openModal;
   }
 
-  updateTest() {
+  updateColumns() {
     this.update.emit();
   }
 
   updateTasks() {
+    console.log("rodou")
     this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
+  }
+
+  drop(event: CdkDragDrop<any>) {
+    console.log(event.container);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
   }
 }

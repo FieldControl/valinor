@@ -23,19 +23,13 @@ html,
 body,
 app-root,
 app-main {
-  display: block;
-  height: 100%;
+  height: 100dvh;
+  font-size: 62.5%;
 }
 
 body {
   margin: 0;
-  font-family:
-    Quicksand,
-    Roboto,
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-size: 62.5%;
+  font-family: Quicksand, Roboto, system-ui, -apple-system, sans-serif;
   background-color: var(--color-grey-100);
 }
 
@@ -44,13 +38,13 @@ h2,
 h3,
 figcaption {
   color: var(--color-font-white);
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 p,
 a {
   color: #efefef;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-decoration: none;
 }
 
@@ -70,20 +64,15 @@ button:hover {
   cursor: pointer;
 }
 
-.flex {
-  display: flex;
-}
-
 app-side-menu {
   display: flex;
   align-items: center;
-  padding: 1.6rem;
+  flex-basis: 24vw;
+  justify-content: center;
 }
 
 app-main {
   display: flex;
-  width: 100dvw;
-  height: 100dvh;
 }
 
 input {
@@ -98,17 +87,11 @@ input::placeholder {
   font-style: italic;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 8px;
-}
-
-.form label {
-  font-size: 1rem;
-  font-weight: 700;
-  font-family: Mulish, sans-serif;
-  color: var(--color-font-white);
-  align-self: flex-start;
+@media only screen and (max-width: 480px) {
+  app-main {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 10rem;
+  }
 }

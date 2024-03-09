@@ -1,12 +1,7 @@
 .container-project-list {
-  width: 20vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.logo {
-  width: 18rem;
 }
 
 .project-list,
@@ -15,9 +10,12 @@ form {
   padding: 1rem;
 }
 
-.project-list-title {
-  font-size: 1.6rem;
-  font-family: Mulish, sans-serif;
+.logo {
+  width: 100%;
+}
+
+.project-figcaption {
+  font-family: Mulish, Arial, Helvetica, sans-serif;
   font-weight: 800;
   margin: 12px;
 }
@@ -27,41 +25,79 @@ form {
   padding: 2px;
 }
 
-.project button {
+.project-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: capitalize;
   color: var(--color-font-white);
   padding-left: 24px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
 }
 
-.project button:hover {
+.project-name:hover {
   text-decoration: underline;
 }
 
 .project-list-icon {
-  width: 1.6rem;
+  width: 28px;
   color: var(--color-custom-red);
   vertical-align: middle;
   padding-right: 8px;
 }
 
-.container-btn {
+.container-create-btn {
   display: flex;
   align-items: center;
 }
 
-.add-btn {
-  font-size: 1.4rem;
+.create-btn {
+  font-family: Mulish;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--color-font-grey);
 }
 
-.add-btn .add-btn-icon {
-  font-weight: 800;
+.create-btn .create-btn-icon {
   vertical-align: middle;
   margin-bottom: 2px;
 }
 
-.add-btn-icon,
-.add-btn {
-  color: var(--color-font-grey);
+.create-project-form label {
+  font-size: 1.8rem;
+}
+
+.create-project-form {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  gap: 8px;
+}
+
+.create-project-form label {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: Mulish, sans-serif;
+  color: var(--color-font-white);
+}
+
+.create-project-form app-button {
+  align-self: flex-end;
+}
+
+@media only screen and (max-width: 480px) {
+  .container-project-list {
+    margin-top: 3rem;
+    padding-top: 8rem;
+    gap: 20px;
+  }
+
+  .project {
+    padding: 6px;
+  }
+
+  .project-name {
+    font-size: 1.8rem;
+    padding-left: 0;
+  }
 }

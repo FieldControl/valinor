@@ -3,7 +3,7 @@
   width: 250px;
   flex-direction: column;
   border: 1px solid var(--color-grey-600);
-  border-radius: 14px;
+  border-radius: 12px;
   font-family: Mulish, sans-serif;
   background-color: var(--color-bg-card);
   padding: 12px 34px;
@@ -15,13 +15,13 @@
   justify-content: space-between;
 }
 
-.more-btn {
-  font-size: 20px;
+.task-title-btn {
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--color-font-white);
 }
 
-.more-btn:hover {
+.task-title-btn:hover {
   text-decoration: underline;
 }
 
@@ -35,9 +35,24 @@
   font-weight: 700;
 }
 
+.container-modal-task-title {
+  font-family: Mulish, sans-serif;
+  font-size: 3.2rem;
+}
+
+.container-modal-task-description {
+  font-size: 1.4rem;
+}
+
 .container-modal-task-title,
 .container-modal-task-description {
   display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 12px 18px;
   gap: 14px;
+}
+
+.container-modal-task-buttons > app-button {
+  padding: 0 8px;
 }

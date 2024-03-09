@@ -8,7 +8,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HeaderComponent } from '../../components/header/header.component';
 import { ColumnComponent } from '../../components/column/column.component';
 import { TaskCardComponent } from '../../components/task-card/task-card.component';
 import { ButtonComponent } from '../../components/button/button.component';
@@ -19,8 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { KanbanBoardComponent } from '../../components/kanban-board/kanban-board.component';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { KanbanService } from '../../services/kanban.service';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -29,7 +26,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
   imports: [
-    HeaderComponent,
     SideMenuComponent,
     ColumnComponent,
     MatGridListModule,
@@ -48,13 +44,13 @@ import { CommonModule } from '@angular/common';
 export class MainComponent implements OnInit {
   @ViewChild(SideMenuComponent) private sideMenu!: SideMenuComponent;
   @Input() projectId = signal<string>('');
+  editProjectTitle = new FormControl('');
   project: Project = {
     _id: '',
     title: '',
   };
   projects!: Project[];
-  editProjectTitle = new FormControl('Project');
-  modal: boolean = false;
+  openModal: boolean = false;
 
   constructor(private api: ApiService) {}
 
@@ -81,6 +77,6 @@ export class MainComponent implements OnInit {
   }
 
   openCloseModal() {
-    this.modal = !this.modal;
+    this.openModal = !this.openModal;
   }
 }

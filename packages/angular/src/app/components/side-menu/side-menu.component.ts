@@ -7,7 +7,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Project } from '../../models/kanban.model';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-side-menu',
@@ -22,7 +21,7 @@ export class SideMenuComponent implements OnInit {
   projects!: Project[];
   projectTitle = new FormControl('');
   project_id!: string;
-  modal: boolean = false;
+  createProjectModal: boolean = false;
 
   constructor(private icon: MatIconRegistry, sanitizer: DomSanitizer, private apiService: ApiService) {
     this.icon.addSvgIcon('custom-svg-list', sanitizer.bypassSecurityTrustResourceUrl('assets/list-icon.svg'));
@@ -67,10 +66,10 @@ export class SideMenuComponent implements OnInit {
         });
       });
     }
-    this.modal = false;
+    this.createProjectModal = !this.createProjectModal;
   }
 
   modalCreateProject() {
-    this.modal = true;
+    this.createProjectModal = !this.createProjectModal;
   }
 }

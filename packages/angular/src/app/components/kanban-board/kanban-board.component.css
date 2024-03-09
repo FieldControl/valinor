@@ -1,12 +1,35 @@
 .container-board {
-  width: 60rem;
-  height: 30rem;
-  display: flex;
-  padding: 2rem 2rem;
+  width: 80dvw;
+  height: 80dvh;
+  margin: 12px 24px;
+  padding: 2rem 2.6rem;
+  border: 1px solid var(--color-grey-500);
   background-color: transparent;
-  border: 1px solid var(--color-grey-700);
-  border-radius: 14px;
-  gap: 18px;
-  overflow: scroll;
+  border-radius: 12px;
+  overflow: auto;
 }
 
+.container-columns {
+  display: flex;
+  gap: 24px;
+}
+
+@media only screen and (max-width: 480px) {
+  .container-board {
+    width: 90dvw;
+    height: 120dvh;
+    padding: 2rem 0;
+    border: 1px solid var(--color-grey-500);
+    background-color: transparent;
+    border-radius: 12px;
+    overflow: auto;
+  }
+
+  .container-columns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+  }
+}

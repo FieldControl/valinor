@@ -5,9 +5,11 @@
         <mat-icon>close</mat-icon>
       </button>
     </div>
-    <div class="container-title">
+    <div class="container-content">
       <h1>{{ title }}</h1>
+      <ng-content></ng-content>
     </div>
-    <ng-content></ng-content>
   </div>
 }
+
+
