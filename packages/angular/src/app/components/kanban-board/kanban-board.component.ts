@@ -5,7 +5,6 @@ import { Column, Project } from '../../models/kanban.model';
 import { ButtonComponent } from '../button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskCardComponent } from '../task-card/task-card.component';
-import { Subject } from 'rxjs';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({

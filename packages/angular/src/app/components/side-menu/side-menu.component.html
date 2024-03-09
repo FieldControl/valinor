@@ -5,7 +5,7 @@
     <figcaption class="project-figcaption">Kanban</figcaption>
     @for (project of projects; track $index) {
     <li class="project">
-      <button class="project-name" type="button" (click)="getProjectId(project._id)">
+      <button class="project-name" (click)="getProjectId(project._id)">
         <mat-icon svgIcon="custom-svg-list" class="project-list-icon" />{{ project.title }}
       </button>
     </li>

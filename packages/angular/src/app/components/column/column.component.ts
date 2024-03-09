@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { TaskCardComponent } from '../task-card/task-card.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../../services/api.service';
@@ -15,12 +15,12 @@ import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from 
   styleUrl: './column.component.css',
   imports: [MatIconModule, TaskCardComponent, ButtonComponent, ModalComponent, ReactiveFormsModule, DragDropModule],
 })
-export class ColumnComponent implements OnInit {
+export class ColumnComponent implements OnInit, OnChanges {
   @Input() title: string = '';
   @Input() projectId!: string;
   @Input() columnId!: string;
-  @Output() update = new EventEmitter<void>();
-  editColumnTitle = new FormControl('');
+  @Output() updateColumnsEmit = new EventEmitter<void>();
+  editColumnTitle = new FormControl('', { nonNullable: true});
   tasks!: Task[];
   openModal: boolean = false;
 
@@ -28,6 +28,13 @@ export class ColumnComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['projectId']) {
+      this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
+    }
   }
 
   createTask() {
@@ -38,7 +45,8 @@ export class ColumnComponent implements OnInit {
 
   renameColumn() {
     const title = this.editColumnTitle.value;
-    this.apiService.updateColumnTitle(this.columnId, title).subscribe(() => {
+    this.apiService.updateColumnTitle(this.columnId, title).subscribe((res) => {
+      console.log(res)
       this.updateColumns();
     });
     this.openCloseModal();
@@ -56,15 +64,14 @@ export class ColumnComponent implements OnInit {
   }
 
   updateColumns() {
-    this.update.emit();
+    this.updateColumnsEmit.emit();
   }
 
   updateTasks() {
-    console.log("rodou")
     this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
   }
 
-  drop(event: CdkDragDrop<any>) {
+  drop(event: CdkDragDrop<string[]>) {
     console.log(event.container);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

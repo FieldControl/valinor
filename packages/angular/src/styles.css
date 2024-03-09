@@ -73,6 +73,7 @@ app-side-menu {
 
 app-main {
   display: flex;
+  align-items: center;
 }
 
 input {
@@ -89,7 +90,6 @@ input::placeholder {
 
 @media only screen and (max-width: 480px) {
   app-main {
-    display: flex;
     flex-direction: column;
     height: auto;
     gap: 10rem;

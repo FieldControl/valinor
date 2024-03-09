@@ -2,9 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
-  Input,
-  OnInit,
-  signal,
   ViewChild,
 } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -41,10 +38,9 @@ import { CommonModule } from '@angular/common';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
   @ViewChild(SideMenuComponent) private sideMenu!: SideMenuComponent;
-  @Input() projectId = signal<string>('');
-  editProjectTitle = new FormControl('');
+  editProjectTitle = new FormControl('', {nonNullable: true});
   project: Project = {
     _id: '',
     title: '',
@@ -54,16 +50,13 @@ export class MainComponent implements OnInit {
 
   constructor(private api: ApiService) {}
 
-  ngOnInit() {}
-
-  getProjectId(value: any) {
-    this.projectId = value;
+  getProjectId(value: string) {
     this.api.getProjectById(value).subscribe({ next: (data) => (this.project = data) });
   }
 
   editProject(projectId: string) {
     const title = this.editProjectTitle.value;
-    this.api.updateProjectTitle(projectId, title).subscribe((res) => {
+    this.api.updateProjectTitle(projectId, title).subscribe(() => {
       this.api.getProjectById(projectId).subscribe({ next: (data) => (this.project = data) });
       this.sideMenu.updateList();
     });
@@ -71,7 +64,7 @@ export class MainComponent implements OnInit {
   }
 
   deleteProject(projectId: string) {
-    this.api.deleteProject(projectId).subscribe((res) => {
+    this.api.deleteProject(projectId).subscribe(() => {
       window.location.reload();
     });
   }

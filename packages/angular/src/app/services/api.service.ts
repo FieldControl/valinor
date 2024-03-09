@@ -38,23 +38,23 @@ export class ApiService {
     return this.http.get<Task>(`${this.apiUrl}/tasks/query?project_id=${projectId}`);
   }
 
-  createProject(projectTitle: any): Observable<Project> {
-    let body = {
+  createProject(projectTitle: string): Observable<Project> {
+    const body = {
       title: projectTitle,
     };
     return this.http.post<Project>(`${this.apiUrl}/projects`, body);
   }
 
-  createColumn(projectId: any, columnTitle: any): Observable<Column> {
-    let body = {
+  createColumn(projectId: string, columnTitle: string): Observable<Column> {
+    const body = {
       _id_project: projectId,
       title: columnTitle,
     };
     return this.http.post<Column>(`${this.apiUrl}/columns`, body);
   }
 
-  createTask(projectId: any, columnId: any, taskTitle: any, descriptionTask: any): Observable<Task> {
-    let body = {
+  createTask(projectId: string, columnId: string, taskTitle: string, descriptionTask: string): Observable<Task> {
+    const body = {
       _id_project: projectId,
       _id_column: columnId,
       title: taskTitle,
@@ -63,21 +63,21 @@ export class ApiService {
     return this.http.post<Task>(`${this.apiUrl}/tasks`, body);
   }
 
-  updateProjectTitle(projectId: string, projectTitle: any): Observable<Project> {
+  updateProjectTitle(projectId: string, projectTitle: string): Observable<Project> {
     return this.http.put<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}`, { title: projectTitle });
   }
 
-  updateColumnTitle(columnId: string, columnTitle: any): Observable<Column> {
+  updateColumnTitle(columnId: string, columnTitle: string): Observable<Column> {
     return this.http.put<Column>(`${this.apiUrl}/columns/query?column_id=${columnId}`, { title: columnTitle });
   }
 
-  updateTaskTitle(taskId: string, title: any): Observable<Task> {
+  updateTaskTitle(taskId: string, title: string): Observable<Task> {
     return this.http.patch<Task>(`${this.apiUrl}/tasks/query?task_id=${taskId}`, {
       title: title,
     });
   }
 
-  updateTaskDescription(taskId: string, description: any): Observable<Task> {
+  updateTaskDescription(taskId: string, description: string): Observable<Task> {
     return this.http.patch<Task>(`${this.apiUrl}/tasks/query?task_id=${taskId}`, {
       description: description,
     });

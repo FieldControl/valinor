@@ -18,8 +18,8 @@ import { CdkDrag } from '@angular/cdk/drag-drop';
 export class TaskCardComponent {
   @Input() task!: Task;
   @Output() updateTasks = new EventEmitter<void>();
-  editTitle = new FormControl('');
-  editDescription = new FormControl('');
+  editTitle = new FormControl('', { nonNullable: true });
+  editDescription = new FormControl('', { nonNullable: true });
   inputTitle: boolean = false;
   inputDescription: boolean = false;
   openModal: boolean = false;

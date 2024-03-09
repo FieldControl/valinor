@@ -13,7 +13,7 @@
   <div>
     <p>{{ project.title }}</p>
   </div>
-  <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..." />
+  <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..."/>
   <div class="edit-btn">
     <app-button buttonType="dangerBtn" (click)="deleteProject(project._id)" title="Delete" />
     <app-button buttonType="actionBtn" (click)="editProject(project._id)" title="Edit" />

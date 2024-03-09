@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
 export class SideMenuComponent implements OnInit {
   @Output() projectIdValue = new EventEmitter<string>();
   projects!: Project[];
-  projectTitle = new FormControl('');
+  projectTitle = new FormControl('', { nonNullable: true});
   project_id!: string;
   createProjectModal: boolean = false;
 
@@ -66,10 +66,10 @@ export class SideMenuComponent implements OnInit {
         });
       });
     }
-    this.createProjectModal = !this.createProjectModal;
+    this.createProjectModal = false;
   }
 
   modalCreateProject() {
-    this.createProjectModal = !this.createProjectModal;
+    this.createProjectModal = false;
   }
 }
