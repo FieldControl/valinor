@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Badge } from './component/badge';
+import { Badge } from '../models/badge';
 
 @Injectable({
   providedIn: 'root'

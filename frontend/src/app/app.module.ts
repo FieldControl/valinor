@@ -5,15 +5,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { KanbanComponent } from './component/kanban/kanban.component';
-import { ShortDatePipe } from './component/kanban/short-date.pipe';
-import { CardComponent } from './component/card/card.component';
-import { BadgeComponent } from './component/badge/badge.component';
-import { UpdateCardComponent } from './component/card/update-card/update-card.component';
+import { KanbanComponent } from './components/kanban/kanban.component';
+import { ShortDatePipe } from './pipes/short-date.pipe';
+import { CardComponent } from './components/card/card.component';
+import { BadgeComponent } from './components/badge/badge.component';
+import { UpdateCardComponent } from './components/update-card/update-card.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FilterPipe } from './component/kanban/filter.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,

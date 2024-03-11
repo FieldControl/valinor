@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Kanban } from './component/kanban';
-import { Card } from './component/card';
-import { environment } from '../environments/environment'
+import { Kanban } from '../models/kanban';
+import { Card } from '../models/card';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'

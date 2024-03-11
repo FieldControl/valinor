@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Card, CardUpdate } from './component/card';
+import { Card, CardUpdate } from '../models/card';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';

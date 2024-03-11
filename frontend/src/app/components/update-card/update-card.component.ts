@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { Card } from '../../card';
+import { Card } from '../../models/card';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Badge } from '../../badge';
-import { BadgeService } from 'src/app/badge.service';
-import { KanbanService } from 'src/app/kanban.service';
+import { Badge } from '../../models/badge';
+import { BadgeService } from 'src/app/services/badge.service';
+import { KanbanService } from 'src/app/services/kanban.service';
 import Swal from 'sweetalert2';
-import { CardService } from 'src/app/card.service';
+import { CardService } from 'src/app/services/card.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ExceptionErrorsMessage } from 'src/app/utils/exception-errors-message';
