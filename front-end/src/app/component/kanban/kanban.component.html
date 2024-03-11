@@ -24,10 +24,11 @@
             <span class="fas fa-search text-gray-500 hover:text-blue-500"></span>
           </div>
         </div>
-        <div cdkDropList *ngIf="list.cards" [cdkDropListData]="list.cards" (cdkDropListDropped)="drop($event,list.id!)">
+        <div cdkDropList [cdkDropListData]="list.cards" (cdkDropListDropped)="drop($event,list.id!)">
           <div cdkDrag [cdkDragData]="card.id" *ngFor="let card of list.cards! | filter: list.searchCard!">
             <app-card (cardRemoved)="onCardRemoved(card.id)" [card]="card" [idList]="list.id!" [nameList]="list.name.toString()"></app-card>
           </div>
+          <div cdkDrag *ngIf="!list.cards || list.cards.length === 0" class="h-5 w-full"></div>
         </div>
 
         <div *ngIf="addCardName == list.id">

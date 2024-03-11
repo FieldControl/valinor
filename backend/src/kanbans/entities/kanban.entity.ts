@@ -13,6 +13,6 @@ export class Kanban {
     updatedAt: string;
     @DeleteDateColumn({ name: 'deleted_at' })
     deletedAt: string;
-    @OneToMany(() => Card, (card) => card.kanban_id)
+    @OneToMany(() => Card, (card) => card.kanban_id,{cascade:true})
     cards: Card[]
 }

@@ -3,13 +3,16 @@ import { Kanban } from './entities/kanban.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ListKanbanDto } from './dto/list-kanban.dto';
+import { Card } from 'src/cards/entities/card.entity';
 // import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class KanbansService {
   constructor(
     @InjectRepository(Kanban)
-    private readonly kanbanRepository: Repository<Kanban>
+    private readonly kanbanRepository: Repository<Kanban>,
+    @InjectRepository(Card)
+    private readonly cardRepository: Repository<Card>
   ){}
 
   async create(createKanbanDto: Kanban) {
@@ -17,7 +20,9 @@ export class KanbansService {
   }
 
   async findAll() {
-    const lists = await this.kanbanRepository.find()
+    const lists = await this.kanbanRepository.find({
+      order: {createdAt:'ASC'}
+    })
     const responseLists = lists.map(
       (list) => new ListKanbanDto(list.id, list.name)
     )
@@ -26,7 +31,7 @@ export class KanbansService {
   }
 
   async findOne(id: string) {
-    const kanban = await this.kanbanRepository.findOne({where: {id: id}});
+    const kanban = await this.kanbanRepository.findOne({where: {id: id},relations: ['cards']});
     return kanban;
   }
 
@@ -35,8 +40,16 @@ export class KanbansService {
   }
 
   async remove(id: string) {
-    const kanban = await this.findOne(id);
-    await this.kanbanRepository.delete(id);
-    return kanban
+    try {
+      const kanban = await this.findOne(id);
+      console.log(kanban.cards)
+      for (const card of kanban.cards) {
+        await this.cardRepository.delete(card.id)
+      }
+      await this.kanbanRepository.delete(id);
+      return kanban
+    } catch (error) {
+      console.error("Erro ao remover lista: ",error)
+    }
   }
 }
