@@ -3,9 +3,9 @@
     <h2>{{ title }}</h2>
     <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
   </div>
-  <div class="container-tasks" >
+  <div class="container-tasks" [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)" cdkDropList>
     @for (task of tasks; track $index) {
-    <app-task-card [task]="task" (updateTasks)="updateTasks()" />
+    <app-task-card [task]="task" (updateTasks)="updateTasks()" cdkDrag/>
     }
   </div>
   <div class="container-create-task">

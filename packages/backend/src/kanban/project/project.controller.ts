@@ -15,19 +15,19 @@ export class ProjectsController {
   constructor(private projectService: ProjectService) {}
 
   @Get()
-  async getAllProjects(): Promise<Project[]> {
+  async getAllProjects(): Promise<Project[] | { message: string }> {
     return this.projectService.getAllProjects();
   }
 
   @Get('query')
   async getByIdProject(
     @Query('project_id') projectId: string,
-  ): Promise<Project> {
+  ): Promise<Project | { message: string }> {
     return this.projectService.getByIdProject(projectId);
   }
 
   @Post()
-  async createProject(@Body() reqBody: Project): Promise<Project[]> {
+  async createProject(@Body() reqBody: Project): Promise<{ message: string }> {
     return this.projectService.createProject(reqBody);
   }
 
@@ -35,14 +35,14 @@ export class ProjectsController {
   async updateTitleProject(
     @Query('project_id') projectId: string,
     @Body() body: Project,
-  ): Promise<Project[]> {
+  ): Promise<{ message: string }> {
     return this.projectService.renameProject(projectId, body);
   }
 
   @Delete('query')
   async deleteProject(
     @Query('project_id') projectId: string,
-  ): Promise<Project[]> {
+  ): Promise<{ message: string }> {
     return this.projectService.deleteProject(projectId);
   }
 }

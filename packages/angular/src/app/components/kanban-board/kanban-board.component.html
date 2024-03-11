@@ -1,5 +1,5 @@
-<div class="container-board">
-  <div class="container-columns">
+<div class="container-board" >
+  <div class="container-columns" cdkDropListGroup>
     @for (column of columns; track $index) {
     <app-column
       title="{{ column.title }}"
@@ -15,3 +15,5 @@
     </div>
   </div>
 </div>
+
+

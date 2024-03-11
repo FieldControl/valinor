@@ -5,12 +5,12 @@ import { Column, Project } from '../../models/kanban.model';
 import { ButtonComponent } from '../button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskCardComponent } from '../task-card/task-card.component';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragStart, DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-kanban-board',
   standalone: true,
-  imports: [ColumnComponent, ButtonComponent, MatIconModule, TaskCardComponent],
+  imports: [ColumnComponent, ButtonComponent, MatIconModule, TaskCardComponent, DragDropModule],
   templateUrl: './kanban-board.component.html',
   styleUrl: './kanban-board.component.css',
 })
@@ -33,6 +33,7 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
     }
   }
 
+
   createColumn() {
     this.apiService.createColumn(this.projectId, 'New column').subscribe((res) => {
       console.log('coluna criada'), res;
@@ -44,9 +45,5 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
     console.log("update column")
     this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => {this.columns = columnsData
     console.log(columnsData)});
-  }
-
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
   }
 }

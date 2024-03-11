@@ -17,7 +17,7 @@ export class ColumnController {
   @Get('query')
   async getAllColumns(
     @Query('project_id') projectId: string,
-  ): Promise<Column[]> {
+  ): Promise<Column[] | { message: string }> {
     return this.columnService.getAllColumns(projectId);
   }
 
@@ -25,12 +25,12 @@ export class ColumnController {
   async getByIdColumn(
     @Query('project_id') projectId: string,
     @Query('column_id') columnId: string,
-  ): Promise<Column> {
+  ): Promise<Column | { message: string }> {
     return this.columnService.getByIdColumns(projectId, columnId);
   }
 
   @Post()
-  async createColumn(@Body() bodyReq: Column): Promise<Column[]> {
+  async createColumn(@Body() bodyReq: Column): Promise<{ message: string }> {
     return this.columnService.createColumn(bodyReq);
   }
 
@@ -38,12 +38,14 @@ export class ColumnController {
   async updateTitleColumn(
     @Query('column_id') columnId: string,
     @Body() body: Column,
-  ): Promise<Column[]> {
+  ): Promise<{ message: string }> {
     return this.columnService.renameColumn(columnId, body);
   }
 
   @Delete('query')
-  async deleteColumn(@Query('column_id') columnId: string): Promise<Column[]> {
+  async deleteColumn(
+    @Query('column_id') columnId: string,
+  ): Promise<{ message: string }> {
     return this.columnService.deleteColumn(columnId);
   }
 }
