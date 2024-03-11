@@ -7,6 +7,8 @@ import { KanbanService } from 'src/app/kanban.service';
 import Swal from 'sweetalert2';
 import { CardService } from 'src/app/card.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ExceptionErrorsMessage } from 'src/app/utils/exception-errors-message';
 
 export interface DialogData {
   idList: number
@@ -26,8 +28,14 @@ export class UpdateCardComponent implements OnInit {
   habilityUpdateTitle: boolean = false;
   @ViewChild('inputTitle') inputTitle: any;
 
-  constructor(public dialogRef: MatDialogRef<UpdateCardComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private serviceBadge: BadgeService, private serviceCard: CardService) { }
+  constructor(
+      public dialogRef: MatDialogRef<UpdateCardComponent>,
+      @Inject(MAT_DIALOG_DATA)
+      public data: DialogData,
+      private serviceBadge: BadgeService,
+      private serviceCard: CardService,
+      private errorMessages: ExceptionErrorsMessage
+    ) { }
 
   closeModal(): void {
     this.dialogRef.close();
@@ -54,15 +62,14 @@ export class UpdateCardComponent implements OnInit {
           }).then(() => {
             this.dialogRef.close({deleted: true});
           })
-        })
+        }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
       }
     });
   }
 
   updateCard(card: Card) {
     this.data.card = card;
-    this.serviceCard.updateCard(card).subscribe((response: any) => {
-    })
+    this.serviceCard.updateCard(card).subscribe()
   }
 
   isBadgeChecked(badgeId: string): boolean {
@@ -77,15 +84,12 @@ export class UpdateCardComponent implements OnInit {
       });
     }else{
       this.serviceCard.unlinkBadgeToCard(card_id, $event.source.value).subscribe((response: any) => {
-        debugger
         this.data.card.badges = response.unlink.badges;
       });
     }
   }
 
   ngOnInit(): void {
-    console.log(this.dialogRef);
-
     this.serviceBadge.list().subscribe((badges: Badge[]) => {
       this.badges = badges;
     });

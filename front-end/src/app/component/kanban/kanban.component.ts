@@ -1,3 +1,4 @@
+import { ExceptionErrorsMessage } from './../../utils/exception-errors-message';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
@@ -5,6 +6,8 @@ import { KanbanService } from 'src/app/kanban.service';
 import { Card, CardUpdate } from '../card';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CardService } from 'src/app/card.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { TranslateErrorsService } from 'src/app/utils/translate-errors-service';
 
 @Component({
   selector: 'app-kanban',
@@ -20,7 +23,8 @@ export class KanbanComponent implements OnInit {
 
   constructor(
     private serviceKanban: KanbanService,
-    private serviceCard: CardService
+    private serviceCard: CardService,
+    private errorMessages: ExceptionErrorsMessage
   ) { }
 
   drop(event: CdkDragDrop<Card[], any>, kanban_id: string) {
@@ -40,7 +44,7 @@ export class KanbanComponent implements OnInit {
 
   }
 
-  private attOrderCard(cards:Card[]) {
+  private attOrderCard(cards: Card[]) {
     cards.map((card: Card, index: number) => {
       card.order = index;
       this.serviceCard.updateCard(card).subscribe();
@@ -50,7 +54,8 @@ export class KanbanComponent implements OnInit {
   saveListName(kanban: Kanban) {
     this.serviceKanban.update(kanban).subscribe((response: any) => {
       this.editListName = "";
-    })
+    }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception)
+    )
   }
 
   deleteList(id: string) {
@@ -72,7 +77,7 @@ export class KanbanComponent implements OnInit {
             icon: 'success',
             title: `${response.kanban.name} deletado com sucesso`
           })
-        })
+        }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
       }
     })
   }
@@ -97,7 +102,8 @@ export class KanbanComponent implements OnInit {
 
     if (nameList) {
       const newList: Kanban = {
-        name: nameList
+        name: nameList,
+        cards: []
       }
       this.serviceKanban.create(newList).subscribe((response: any) => {
         this.kanban.push(response.kanban);
@@ -105,7 +111,7 @@ export class KanbanComponent implements OnInit {
           title: response.message,
           icon: 'success'
         })
-      })
+      }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
 
     }
   }
@@ -121,15 +127,20 @@ export class KanbanComponent implements OnInit {
       kanban_id: kanban_id,
       order: newOrder
     }
-    this.serviceKanban.createCardInKanban(newCard, kanban_id).subscribe((response: any) => {
-      console.log(response);
-      this.kanban[indexList].cards!.push(newCard);
-    })
+    this.serviceKanban.createCardInKanban(newCard, kanban_id).subscribe(
+      (response: any) => {
+        console.log(response);
+        if (!this.kanban[indexList].cards){
+          this.kanban[indexList].cards = []
+        }
+        this.kanban[indexList].cards.push(newCard);
+      },
+      (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception)
+    );
     newCardTitle.value = "";
   }
 
   onCardRemoved(card_id: string) {
-    debugger
     this.kanban.forEach((kanban) => {
       kanban.cards = kanban.cards!.filter(card => card.id !== card_id)
     })

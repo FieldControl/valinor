@@ -17,7 +17,8 @@ export class KanbanService {
   }
 
   create(kanban: Kanban): Observable<Kanban> {
-    return this.http.post<Kanban>(this.API, kanban)
+    const body = {name: kanban.name}
+    return this.http.post<Kanban>(this.API, body)
   }
   delete(id: string): Observable<Kanban>{
     const url = `${this.API}/${id}`;
@@ -33,7 +34,7 @@ export class KanbanService {
   }
 
   createCardInKanban(card:Card, kanban_id: string){
-    const url = `${this.API}/$ kanban_id}/cards`;
+    const url = `${this.API}/${kanban_id}}/cards`;
     return this.http.post<Card>(url,card)
   }
 }

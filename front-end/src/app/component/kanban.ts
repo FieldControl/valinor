@@ -4,5 +4,5 @@ export interface Kanban{
   id?: string,
   name: String,
   searchCard?:string,
-  cards?: Card[]
+  cards: Card[]
 }
