@@ -1,11 +1,11 @@
 import { ExceptionErrorsMessage } from './../../utils/exception-errors-message';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Kanban } from '../kanban';
+import { Kanban } from '../../models/kanban';
 import Swal from 'sweetalert2'
-import { KanbanService } from 'src/app/kanban.service';
-import { Card, CardUpdate } from '../card';
+import { KanbanService } from 'src/app/services/kanban.service';
+import { Card, CardUpdate } from '../../models/card';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { CardService } from 'src/app/card.service';
+import { CardService } from 'src/app/services/card.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TranslateErrorsService } from 'src/app/utils/translate-errors-service';
 

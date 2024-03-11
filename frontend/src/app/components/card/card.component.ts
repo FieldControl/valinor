@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Card } from '../card';
+import { Card } from '../../models/card';
 // import { MatDialog } from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UpdateCardComponent } from './update-card/update-card.component';
+import { UpdateCardComponent } from '../update-card/update-card.component';
 import { isEmpty } from 'rxjs';
 @Component({
   selector: 'app-card',
