@@ -3,6 +3,7 @@ import { Card } from '../card';
 // import { MatDialog } from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UpdateCardComponent } from './update-card/update-card.component';
+import { isEmpty } from 'rxjs';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -13,8 +14,9 @@ export class CardComponent implements OnInit {
     id: "",
     kanban_id: "",
     title: "",
-    date_created: new Date(),
+    createdAt: new Date(),
     date_end: null,
+    order: 0,
     badges: [],
     description: null
   }
@@ -36,8 +38,10 @@ export class CardComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result.deleted){
-        this.cardRemoved.emit(idCard);
+      if(result !== undefined){
+        if(result.deleted){
+          this.cardRemoved.emit(idCard);
+        }
       }
     });
   }

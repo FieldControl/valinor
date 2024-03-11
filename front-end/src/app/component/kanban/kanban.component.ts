@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
 import { KanbanService } from 'src/app/kanban.service';
-import { Card } from '../card';
+import { Card, CardUpdate } from '../card';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CardService } from 'src/app/card.service';
 
@@ -23,15 +23,28 @@ export class KanbanComponent implements OnInit {
     private serviceCard: CardService
   ) { }
 
-  drop(event: CdkDragDrop<Card[], any>, kanban: Kanban) {
+  drop(event: CdkDragDrop<Card[], any>, kanban_id: string) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      // this.serviceKanban.update(kanban).subscribe((kanban: Kanban) => {
-
-      // })
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
+      const moveCardUpdate: CardUpdate = {
+        id: event.item.data,
+        kanban_id: kanban_id,
+      };
+      this.serviceCard.updateCard(moveCardUpdate).subscribe();
+      this.attOrderCard(event.previousContainer.data);
     }
+
+    this.attOrderCard(event.container.data);
+
+  }
+
+  private attOrderCard(cards:Card[]) {
+    cards.map((card: Card, index: number) => {
+      card.order = index;
+      this.serviceCard.updateCard(card).subscribe();
+    });
   }
 
   saveListName(kanban: Kanban) {
@@ -99,9 +112,14 @@ export class KanbanComponent implements OnInit {
 
   addCard(newCardTitle: HTMLInputElement, kanban_id: string) {
     const indexList = this.kanban.findIndex(obj => obj.id === kanban_id);
+    let newOrder: number = 0;
+    if (this.kanban[indexList].cards && this.kanban[indexList].cards!.length > 0) {
+      newOrder = this.kanban[indexList].cards!.length;
+    }
     const newCard: Card = {
       title: newCardTitle.value,
-      kanban_id: kanban_id
+      kanban_id: kanban_id,
+      order: newOrder
     }
     this.serviceKanban.createCardInKanban(newCard, kanban_id).subscribe((response: any) => {
       console.log(response);
@@ -110,7 +128,7 @@ export class KanbanComponent implements OnInit {
     newCardTitle.value = "";
   }
 
-  onCardRemoved(card_id:string){
+  onCardRemoved(card_id: string) {
     debugger
     this.kanban.forEach((kanban) => {
       kanban.cards = kanban.cards!.filter(card => card.id !== card_id)
@@ -121,7 +139,7 @@ export class KanbanComponent implements OnInit {
     this.serviceKanban.list().subscribe((kanban: Kanban[]) => {
       this.kanban = kanban;
       this.kanban.forEach((kanban) => {
-        this.serviceKanban.listCardKanban(kanban.id!).subscribe((card: Card[])=>{
+        this.serviceKanban.listCardKanban(kanban.id!).subscribe((card: Card[]) => {
           kanban.cards = card
         })
       })

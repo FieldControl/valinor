@@ -15,6 +15,8 @@ export class Card {
     description: string;
     @Column({ name: 'date_end', type: "datetime", nullable: true })
     date_end: Date
+    @Column({name: 'order', nullable: false, default: 0})
+    order: number
     @CreateDateColumn({ name: 'created_at' })
     createdAt: string;
     @UpdateDateColumn({ name: 'updated_at' })
