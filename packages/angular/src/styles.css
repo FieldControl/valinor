@@ -29,7 +29,12 @@ app-main {
 
 body {
   margin: 0;
-  font-family: Quicksand, Roboto, system-ui, -apple-system, sans-serif;
+  font-family:
+    Quicksand,
+    Roboto,
+    system-ui,
+    -apple-system,
+    sans-serif;
   background-color: var(--color-grey-100);
 }
 

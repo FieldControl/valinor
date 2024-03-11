@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ColumnComponent } from '../../components/column/column.component';
 import { TaskCardComponent } from '../../components/task-card/task-card.component';
@@ -40,7 +35,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MainComponent {
   @ViewChild(SideMenuComponent) private sideMenu!: SideMenuComponent;
-  editProjectTitle = new FormControl('', {nonNullable: true});
+  editProjectTitle = new FormControl('', { nonNullable: true });
   project: Project = {
     _id: '',
     title: '',

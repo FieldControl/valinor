@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { ColumnService } from './column.service';
 import { Column } from 'src/interfaces/column.interface';
+import { HandleMessage } from 'src/interfaces/handleMessage.interface';
 
 @Controller('columns')
 export class ColumnController {
@@ -17,19 +18,19 @@ export class ColumnController {
   @Get('query')
   async getAllColumns(
     @Query('project_id') projectId: string,
-  ): Promise<Column[] | { message: string }> {
+  ): Promise<Column[] | HandleMessage> {
     return this.columnService.getAllColumns(projectId);
   }
 
   @Get('column/query')
   async getByIdColumn(
     @Query('column_id') columnId: string,
-  ): Promise<Column | { message: string }> {
+  ): Promise<Column | HandleMessage> {
     return this.columnService.getByIdColumns(columnId);
   }
 
   @Post()
-  async createColumn(@Body() bodyReq: Column): Promise<{ message: string }> {
+  async createColumn(@Body() bodyReq: Column): Promise<HandleMessage> {
     return this.columnService.createColumn(bodyReq);
   }
 
@@ -37,14 +38,14 @@ export class ColumnController {
   async updateTitleColumn(
     @Query('column_id') columnId: string,
     @Body() body: Column,
-  ): Promise<{ message: string }> {
+  ): Promise<HandleMessage> {
     return this.columnService.renameColumn(columnId, body);
   }
 
   @Delete('query')
   async deleteColumn(
     @Query('column_id') columnId: string,
-  ): Promise<{ message: string }> {
+  ): Promise<HandleMessage> {
     return this.columnService.deleteColumn(columnId);
   }
 }

@@ -5,7 +5,7 @@ import { Column, Project } from '../../models/kanban.model';
 import { ButtonComponent } from '../button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskCardComponent } from '../task-card/task-card.component';
-import { CdkDragStart, DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-kanban-board',
@@ -29,10 +29,9 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['projectId']) {
-      this.updateColumn()
+      this.updateColumn();
     }
   }
-
 
   createColumn() {
     this.apiService.createColumn(this.projectId, 'New column').subscribe((res) => {
@@ -42,8 +41,10 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
   }
 
   updateColumn() {
-    console.log("update column")
-    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => {this.columns = columnsData
-    console.log(columnsData)});
+    console.log('update column');
+    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => {
+      this.columns = columnsData;
+      console.log(columnsData);
+    });
   }
 }

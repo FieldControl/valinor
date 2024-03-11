@@ -19,11 +19,15 @@ import { CommonModule } from '@angular/common';
 export class SideMenuComponent implements OnInit {
   @Output() projectIdValue = new EventEmitter<string>();
   projects!: Project[];
-  projectTitle = new FormControl('', { nonNullable: true});
+  projectTitle = new FormControl('', { nonNullable: true });
   project_id!: string;
   createProjectModal: boolean = false;
 
-  constructor(private icon: MatIconRegistry, sanitizer: DomSanitizer, private apiService: ApiService) {
+  constructor(
+    private icon: MatIconRegistry,
+    sanitizer: DomSanitizer,
+    private apiService: ApiService,
+  ) {
     this.icon.addSvgIcon('custom-svg-list', sanitizer.bypassSecurityTrustResourceUrl('assets/list-icon.svg'));
     this.icon.addSvgIcon('logo-custom', sanitizer.bypassSecurityTrustResourceUrl('assets/logo.svg'));
   }

@@ -3,6 +3,7 @@ import { Model } from 'mongoose';
 import { Project } from '../../interfaces/project.interface';
 import { Column } from 'src/interfaces/column.interface';
 import { Task } from 'src/interfaces/task.interface';
+import { HandleMessage } from 'src/interfaces/handleMessage.interface';
 
 @Injectable()
 export class ProjectService {
@@ -12,7 +13,7 @@ export class ProjectService {
     @Inject('TASK_MODEL') private taskModel: Model<Task>,
   ) {}
 
-  async createProject(body: Project): Promise<{ message: string }> {
+  async createProject(body: Project): Promise<HandleMessage> {
     const createProject = new this.projectModel(body);
     try {
       const numberOfProjects = await this.projectModel.countDocuments();
@@ -20,6 +21,7 @@ export class ProjectService {
       if (numberOfProjects >= 4) {
         return {
           message: 'Atingiu o numero maximo de projetos',
+          code: 400,
         };
       }
 
@@ -27,37 +29,39 @@ export class ProjectService {
 
       return {
         message: `Projeto ${body.title} criado!`,
+        code: 200,
       };
     } catch (error) {
       return {
         message: `Ocorreu um erro: ${error}`,
+        code: 500,
       };
     }
   }
 
-  async getAllProjects(): Promise<Project[] | { message: string }> {
+  async getAllProjects(): Promise<Project[] | HandleMessage> {
     try {
       return await this.projectModel.find().exec();
     } catch (error) {
       return {
         message: `Ocorreu um erro: ${error}`,
+        code: 500,
       };
     }
   }
 
-  async getByIdProject(
-    projectId: string,
-  ): Promise<Project | { message: string }> {
+  async getByIdProject(projectId: string): Promise<Project | HandleMessage> {
     try {
       const projectExists = await this.projectModel.findById(projectId);
       if (!projectExists) {
-        return { message: `Projeto não encontrada` };
+        return { message: `Projeto não encontrada`, code: 400 };
       }
 
       return this.projectModel.findById(projectId).exec();
     } catch (error) {
       return {
         message: `Ocorreu um erro: ${error}`,
+        code: 500,
       };
     }
   }
@@ -65,17 +69,18 @@ export class ProjectService {
   async renameProject(
     projectId: string,
     body: Project,
-  ): Promise<{ message: string }> {
+  ): Promise<HandleMessage> {
     if (!body.title) {
       return {
         message: 'Requer um titulo',
+        code: 400,
       };
     }
 
     try {
       const projectExists = await this.projectModel.findById(projectId);
       if (!projectExists) {
-        return { message: `Projeto não encontrada` };
+        return { message: `Projeto não encontrada`, code: 400 };
       }
       await this.projectModel.updateOne(
         { _id: projectId },
@@ -84,19 +89,21 @@ export class ProjectService {
 
       return {
         message: `Projeto renomeado para ${body.title}!`,
+        code: 200,
       };
     } catch (error) {
       return {
         message: `Ocorreu um erro: ${error}`,
+        code: 500,
       };
     }
   }
 
-  async deleteProject(projectId: string): Promise<{ message: string }> {
+  async deleteProject(projectId: string): Promise<HandleMessage> {
     try {
       const projectExists = await this.projectModel.findById(projectId);
       if (!projectExists) {
-        return { message: `Projeto não encontrada` };
+        return { message: `Projeto não encontrada`, code: 400 };
       }
 
       await this.projectModel.deleteOne({ _id: projectId });
@@ -105,10 +112,12 @@ export class ProjectService {
 
       return {
         message: `Projeto id: ${projectId} deletado com sucesso!`,
+        code: 200,
       };
     } catch (error) {
       return {
         message: `Ocorreu um erro: ${error}`,
+        code: 500,
       };
     }
   }

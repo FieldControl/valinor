@@ -1,15 +1,15 @@
 @if (buttonType === "actionBtn") {
-<button type="button" class="create-btn">
-  {{ title }}
-</button>
+  <button type="button" class="create-btn">
+    {{ title }}
+  </button>
 } @else if (buttonType === "dangerBtn") {
-<button type="button" class="delete-btn">
-  {{ title }}
-</button>
+  <button type="button" class="delete-btn">
+    {{ title }}
+  </button>
 } @else if (buttonType === "editBtn") {
-<button type="button" class="edit-btn">
-  <mat-icon class="icon" fontIcon="border_color"></mat-icon>
-</button>
+  <button type="button" class="edit-btn">
+    <mat-icon class="icon" fontIcon="border_color"></mat-icon>
+  </button>
 } @else if (buttonType === "iconBtn") {
   <button type="button" class="create-btn">
     <ng-content></ng-content>

@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { Task } from 'src/interfaces/task.interface';
+import { HandleMessage } from 'src/interfaces/handleMessage.interface';
 
 @Controller('tasks')
 export class TaskController {
@@ -18,33 +19,29 @@ export class TaskController {
   async getAllTasks(
     @Query('project_id') projectId: string,
     @Query('column_id') columnId: string,
-  ): Promise<Task[] | { message: string }> {
+  ): Promise<Task[] | HandleMessage> {
     return this.taskService.getAllTasks(projectId, columnId);
   }
 
   @Get('task/query')
   async getByIdTasks(
     @Query('task_id') taskId: string,
-  ): Promise<Task | { message: string }> {
+  ): Promise<Task | HandleMessage> {
     return this.taskService.getByIdTask(taskId);
   }
 
   @Post()
-  async createTask(@Body() body: Task): Promise<{ message: string }> {
+  async createTask(@Body() body: Task): Promise<HandleMessage> {
     return this.taskService.createTask(body);
   }
 
   @Post('archive')
-  async archiveTask(
-    @Query('task_id') taskId: string,
-  ): Promise<{ message: string }> {
+  async archiveTask(@Query('task_id') taskId: string): Promise<HandleMessage> {
     return this.taskService.archiveTask(taskId);
   }
 
   @Post('recovery')
-  async recoveryTask(
-    @Query('task_id') taskId: string,
-  ): Promise<{ message: string }> {
+  async recoveryTask(@Query('task_id') taskId: string): Promise<HandleMessage> {
     return this.taskService.recoveryArchivedTask(taskId);
   }
 
@@ -52,7 +49,7 @@ export class TaskController {
   async updateTitleTask(
     @Query('task_id') taskId: string,
     @Body() reqBody: Task,
-  ): Promise<{ message: string }> {
+  ): Promise<HandleMessage> {
     return this.taskService.updateTask(taskId, reqBody);
   }
 

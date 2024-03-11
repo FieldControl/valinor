@@ -20,7 +20,7 @@ export class ColumnComponent implements OnInit, OnChanges {
   @Input() projectId!: string;
   @Input() columnId!: string;
   @Output() updateColumnsEmit = new EventEmitter<void>();
-  editColumnTitle = new FormControl('', { nonNullable: true});
+  editColumnTitle = new FormControl('', { nonNullable: true });
   tasks!: Task[];
   openModal: boolean = false;
 
@@ -30,9 +30,8 @@ export class ColumnComponent implements OnInit, OnChanges {
     this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
   }
 
-
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes['projectId']) {
+    if (changes['projectId']) {
       this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
     }
   }
@@ -46,7 +45,7 @@ export class ColumnComponent implements OnInit, OnChanges {
   renameColumn() {
     const title = this.editColumnTitle.value;
     this.apiService.updateColumnTitle(this.columnId, title).subscribe((res) => {
-      console.log(res)
+      console.log(res);
       this.updateColumns();
     });
     this.openCloseModal();
