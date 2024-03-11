@@ -21,12 +21,11 @@ export class ColumnController {
     return this.columnService.getAllColumns(projectId);
   }
 
-  @Get('query')
+  @Get('column/query')
   async getByIdColumn(
-    @Query('project_id') projectId: string,
     @Query('column_id') columnId: string,
   ): Promise<Column | { message: string }> {
-    return this.columnService.getByIdColumns(projectId, columnId);
+    return this.columnService.getByIdColumns(columnId);
   }
 
   @Post()
