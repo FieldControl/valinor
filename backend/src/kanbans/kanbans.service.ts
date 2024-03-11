@@ -35,6 +35,8 @@ export class KanbansService {
   }
 
   async remove(id: string) {
-    return await this.kanbanRepository.delete(id);
+    const kanban = await this.findOne(id);
+    await this.kanbanRepository.delete(id);
+    return kanban
   }
 }

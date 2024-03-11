@@ -2,8 +2,9 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Kanban } from '../kanban';
 import Swal from 'sweetalert2'
 import { KanbanService } from 'src/app/kanban.service';
-import { Card } from '../card';
+import { Card, CardUpdate } from '../card';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CardService } from 'src/app/card.service';
 
 @Component({
   selector: 'app-kanban',
@@ -13,32 +14,46 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 export class KanbanComponent implements OnInit {
 
   @Input() kanban: Kanban[] = [];
-  editListName: number = 0;
-  addCardName: number = 0;
+  editListName: string = "";
+  addCardName: string = "";
   searchCard: any;
 
-  constructor(private service: KanbanService) { }
+  constructor(
+    private serviceKanban: KanbanService,
+    private serviceCard: CardService
+  ) { }
 
-  drop(event: CdkDragDrop<Card[], any>, kanban: Kanban) {
-    console.log(event);
-    console.log(kanban);
+  drop(event: CdkDragDrop<Card[], any>, kanban_id: string) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      // this.service.update(kanban).subscribe((kanban: Kanban) => {
-
-      // })
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
+      const moveCardUpdate: CardUpdate = {
+        id: event.item.data,
+        kanban_id: kanban_id,
+      };
+      this.serviceCard.updateCard(moveCardUpdate).subscribe();
+      this.attOrderCard(event.previousContainer.data);
     }
+
+    this.attOrderCard(event.container.data);
+
+  }
+
+  private attOrderCard(cards:Card[]) {
+    cards.map((card: Card, index: number) => {
+      card.order = index;
+      this.serviceCard.updateCard(card).subscribe();
+    });
   }
 
   saveListName(kanban: Kanban) {
-    this.service.update(kanban).subscribe((kanban: Kanban) => {
-      this.editListName = 0;
+    this.serviceKanban.update(kanban).subscribe((response: any) => {
+      this.editListName = "";
     })
   }
 
-  deleteList(id: number) {
+  deleteList(id: string) {
     Swal.fire({
       icon: "error",
       title: "Deletar Lista ?",
@@ -51,11 +66,11 @@ export class KanbanComponent implements OnInit {
       allowOutsideClick: false
     }).then((response) => {
       if (response.isConfirmed) {
-        this.service.delete(id).subscribe((kanban: Kanban) => {
+        this.serviceKanban.delete(id).subscribe((response: any) => {
           this.kanban = this.kanban?.filter(obj => obj.id !== id);
           Swal.fire({
             icon: 'success',
-            title: `${kanban.name} deletado com sucesso`
+            title: `${response.kanban.name} deletado com sucesso`
           })
         })
       }
@@ -81,43 +96,53 @@ export class KanbanComponent implements OnInit {
     });
 
     if (nameList) {
-      const lastId = this.kanban[this.kanban.length - 1].id;
       const newList: Kanban = {
-        id: lastId + 1,
-        searchCard: "",
-        name: nameList,
-        cards: []
+        name: nameList
       }
-      this.service.create(newList).subscribe((kanban: Kanban) => {
-        this.kanban.push(kanban);
+      this.serviceKanban.create(newList).subscribe((response: any) => {
+        this.kanban.push(response.kanban);
+        Swal.fire({
+          title: response.message,
+          icon: 'success'
+        })
       })
 
     }
   }
 
-  addCard(newCardTitle: HTMLInputElement, idList: number) {
-    const indexList = this.kanban.findIndex(obj => obj.id === idList);
-    const lastId = this.kanban.reduce((maior, obj) => {
-      const maxId = obj.cards.reduce((max, card) => Math.max(max, card.id), 0);
-      return Math.max(maior, maxId);
-    }, 0);
-    const newCard: Card = {
-      id: lastId + 1,
-      title: newCardTitle.value,
-      date_created: new Date(),
-      date_end: null,
-      badges: [],
-      description: null
+  addCard(newCardTitle: HTMLInputElement, kanban_id: string) {
+    const indexList = this.kanban.findIndex(obj => obj.id === kanban_id);
+    let newOrder: number = 0;
+    if (this.kanban[indexList].cards && this.kanban[indexList].cards!.length > 0) {
+      newOrder = this.kanban[indexList].cards!.length;
     }
-    // this.service.createCard(newCard, idList).subscribe((card: Card) => {
-    // })
-    this.kanban[indexList].cards.push(newCard);
+    const newCard: Card = {
+      title: newCardTitle.value,
+      kanban_id: kanban_id,
+      order: newOrder
+    }
+    this.serviceKanban.createCardInKanban(newCard, kanban_id).subscribe((response: any) => {
+      console.log(response);
+      this.kanban[indexList].cards!.push(newCard);
+    })
     newCardTitle.value = "";
   }
 
+  onCardRemoved(card_id: string) {
+    debugger
+    this.kanban.forEach((kanban) => {
+      kanban.cards = kanban.cards!.filter(card => card.id !== card_id)
+    })
+  }
+
   ngOnInit(): void {
-    this.service.list().subscribe((kanban: Kanban[]) => {
+    this.serviceKanban.list().subscribe((kanban: Kanban[]) => {
       this.kanban = kanban;
+      this.kanban.forEach((kanban) => {
+        this.serviceKanban.listCardKanban(kanban.id!).subscribe((card: Card[]) => {
+          kanban.cards = card
+        })
+      })
     });
 
     const slider = document.getElementById("page_kanban");
@@ -128,8 +153,6 @@ export class KanbanComponent implements OnInit {
       isDown = true;
       startX = e.pageX - slider.offsetLeft
       scrollLeft = slider.scrollLeft
-      console.log(startX);
-
     });
     slider?.addEventListener('mouseleave', (e) => {
       isDown = false
@@ -143,7 +166,6 @@ export class KanbanComponent implements OnInit {
       }
       e.preventDefault
       const x = e.pageX - slider.offsetLeft
-      // console.count(isDown);
       const walk = x - startX
       slider.scrollLeft = scrollLeft - walk;
     });

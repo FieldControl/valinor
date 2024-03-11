@@ -9,9 +9,9 @@ import { Badge } from '../badge';
 export class BadgeComponent implements OnInit {
 
   @Input() badge: Badge = {
-    id: 0,
+    id: "",
     name: "",
-    cor: ""
+    color: ""
   }
   constructor() { }
 
