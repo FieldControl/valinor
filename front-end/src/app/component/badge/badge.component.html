@@ -1,5 +1,5 @@
 <div #badgeElement
-  class="tooltip p-1.5 mr-2 transition duration-100 ease-in-out w-20 rounded-full cursor-pointer shadow-md" (mouseover)="badgeElement.style.backgroundColor = darkenColor(badge.cor,0.25)" (mouseleave)="badgeElement.style.backgroundColor=badge.cor" [style.background-color]="badge.cor">
+  class="tooltip p-1.5 mr-2 transition duration-100 ease-in-out w-20 rounded-full cursor-pointer shadow-md" (mouseover)="badgeElement.style.backgroundColor = darkenColor(badge.color,0.25)" (mouseleave)="badgeElement.style.backgroundColor=badge.color" [style.background-color]="badge.color">
   <div>
     <span class='tooltiptext tooltip-top'>{{badge.name}}</span>
   </div>

@@ -1,4 +1,4 @@
-<div class='bg-white rounded-xl p-3 drop-shadow-sm my-2 transition duration-150 ease-in-out hover:ring-2 hover:shadow-md cursor-pointer' (click)="editCard(card.id)">
+<div class='bg-white rounded-xl p-3 drop-shadow-sm my-2 transition duration-150 ease-in-out hover:ring-2 hover:shadow-md cursor-pointer' (click)="editCard(card.id!)">
   <div class="flex flex-row my-1">
     <div *ngFor="let badge of card.badges">
       <app-badge [badge]="badge"></app-badge>

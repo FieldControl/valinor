@@ -1,8 +1,8 @@
 import { Card } from "./card";
 
 export interface Kanban{
-  id: number,
+  id?: string,
   name: String,
-  searchCard:string,
-  cards: Card[]
+  searchCard?:string,
+  cards?: Card[]
 }
