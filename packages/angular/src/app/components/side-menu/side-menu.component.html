@@ -1,0 +1,34 @@
+<aside class="container-project-list">
+  <mat-icon class="logo" svgIcon="logo-custom" />
+  @if (!createProjectModal) {
+    <ul class="project-list">
+      <figcaption class="project-figcaption">Kanban</figcaption>
+      @for (project of projects; track $index) {
+        <li class="project">
+          <button class="project-name" (click)="getProjectId(project._id)">
+            <mat-icon svgIcon="custom-svg-list" class="project-list-icon" />{{ project.title }}
+          </button>
+        </li>
+      }
+    </ul>
+    <div class="container-create-btn">
+      <button class="create-btn" (click)="modalCreateProject()">
+        <mat-icon class="create-btn-icon" fontIcon="add" />
+        Add new project
+      </button>
+    </div>
+  } @else {
+    <div class="create-project-form">
+      <label for="projectTitle">What is the project name?</label>
+      <input
+        name="projectTitle"
+        id="projectName"
+        type="text"
+        placeholder="Type project name here..."
+        [formControl]="projectTitle"
+        maxlength="15"
+      />
+      <app-button (click)="createProject()" buttonType="actionBtn" title="Create" />
+    </div>
+  }
+</aside>

@@ -1,0 +1,28 @@
+<app-side-menu (projectIdValue)="getProjectId($event)"></app-side-menu>
+<main>
+  <section class="kanban">
+    <div class="container-kanban-title">
+      <h1>{{ project.title }}</h1>
+      <app-button buttonType="editBtn" (click)="openCloseModal()" />
+    </div>
+    <app-kanban-board projectId="{{ project._id }}" />
+  </section>
+</main>
+@if (openModal) {
+<app-modal title="Rename or Delete">
+  <div>
+    <p>{{ project.title }}</p>
+  </div>
+  <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..." />
+  <div class="edit-btn">
+    <app-button buttonType="dangerBtn" (click)="deleteProject(project._id)" title="Delete" />
+    <app-button buttonType="actionBtn" (click)="editProject(project._id)" title="Edit" />
+  </div>
+  <div class="delete-info">
+    <p>
+      <strong>Atenção:</strong> ao deletar este projeto, todas as tarefas e colunas que pertencem a este projeto serão
+      excluidas
+    </p>
+  </div>
+</app-modal>
+}

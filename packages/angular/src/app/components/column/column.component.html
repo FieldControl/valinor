@@ -1,0 +1,35 @@
+<div class="container-column-component">
+  <div class="container-column-title">
+    <h2>{{ title }}</h2>
+    <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
+  </div>
+  <div class="container-tasks" [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)" cdkDropList>
+    <ng-content />
+    <!--
+      @for (task of tasks; track $index) {
+        <app-task-card [task]="task" (updateTasks)="updateTasks()" cdkDrag />
+      }
+    -->
+  </div>
+  <div class="container-create-task">
+    <button class="create-task-button" (click)="createTask()">
+      <mat-icon>add</mat-icon>
+      Create a new task
+    </button>
+  </div>
+</div>
+@if (openModal) {
+<app-modal title="Rename or Delete">
+  <div class="container-modal-input">
+    <p>{{ title }}</p>
+    <input name="editColumnTitle" type="text" [formControl]="editColumnTitle" placeholder="Rename Column here..." />
+  </div>
+  <div class="container-modal-btn">
+    <app-button buttonType="dangerBtn" (click)="deleteColumn()" title="Delete">Delete</app-button>
+    <app-button buttonType="actionBtn" (click)="renameColumn()" title="Edit">Edit</app-button>
+  </div>
+  <div class="delete-info">
+    <p><strong>Atenção:</strong> ao deletar esta coluna, todas as tasks que pertencem a esta coluna serão excluidas</p>
+  </div>
+</app-modal>
+}

@@ -1,0 +1,13 @@
+@if (!close) {
+  <div class="modal">
+    <div class="container-close-btn">
+      <button (click)="closeModal()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="container-content">
+      <h1>{{ title }}</h1>
+      <ng-content></ng-content>
+    </div>
+  </div>
+}

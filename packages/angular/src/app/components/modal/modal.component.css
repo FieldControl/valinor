@@ -1,0 +1,55 @@
+.modal {
+  width: 25vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background-color: #0f0f11;
+  border-left: 1px solid var(--color-grey-300);
+  z-index: 20;
+  text-align: center;
+  gap: 14px;
+}
+
+.container-close-btn {
+  align-self: flex-end;
+  margin: 0 32px;
+}
+
+.container-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 8rem 0;
+}
+
+button {
+  color: var(--color-font-white);
+}
+
+h1 {
+  font-family: Mulish;
+}
+
+@media only screen and (max-width: 480px) {
+  .modal {
+    width: 80vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background-color: #0f0f11;
+    border-left: 1px solid var(--color-grey-300);
+    z-index: 20;
+    text-align: center;
+    gap: 14px;
+  }
+}

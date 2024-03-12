@@ -1,0 +1,58 @@
+.container-task-card {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+  border: 1px solid var(--color-grey-600);
+  border-radius: 12px;
+  font-family: Mulish, sans-serif;
+  background-color: var(--color-bg-card);
+  padding: 12px 34px;
+  gap: 8px;
+}
+
+.container-date-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-title-btn {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-font-white);
+}
+
+.task-title-btn:hover {
+  text-decoration: underline;
+}
+
+.container-task-card p {
+  color: var(--color-font-grey);
+  font-size: 12px;
+}
+
+.container-task-card a {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.container-modal-task-title {
+  font-family: Mulish, sans-serif;
+  font-size: 3.2rem;
+}
+
+.container-modal-task-description {
+  font-size: 1.4rem;
+}
+
+.container-modal-task-title,
+.container-modal-task-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 18px;
+  gap: 14px;
+}
+
+.container-modal-task-buttons > app-button {
+  padding: 0 8px;
+}

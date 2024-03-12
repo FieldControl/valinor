@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ProjectsModule } from './kanban/project/project.module';
+import { TaskModule } from './kanban/task/task.module';
+import { ColumnModule } from './kanban/column/column.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [ProjectsModule, TaskModule, ColumnModule],
 })
 export class AppModule {}

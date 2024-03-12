@@ -1,0 +1,39 @@
+<div class="container-task-card">
+  <div class="container-date-btn">
+    <p>{{ task.createdAt | date : "dd MMM" }}</p>
+  </div>
+  <div>
+    <button type="button" class="task-title-btn" (click)="openCloseModal()">
+      {{ task.title }}
+    </button>
+  </div>
+</div>
+@if (openModal) {
+<app-modal>
+  <div class="container-modal-task">
+    <div class="container-modal-task-title">
+      @if (inputTitle) {
+      <input type="text" [formControl]="editTitle" (keyup.enter)="editTitleTask(task._id)" />
+      } @else if (!inputTitle) {
+      <h1>{{ task.title }}</h1>
+      }
+      <app-button buttonType="editBtn" (click)="showInputTitle()"></app-button>
+    </div>
+    <div class="container-modal-task-description">
+      @if (inputDescription) {
+      <input type="text" [formControl]="editDescription" (keyup.enter)="editDescriptionTask(task._id)" />
+      } @else if (!inputDescription) {
+      <p>{{ task.description }}</p>
+      }
+      <app-button buttonType="editBtn" (click)="showInputDescription()"></app-button>
+    </div>
+  </div>
+  <div class="container-modal-task-buttons">
+    <app-button buttonType="dangerBtn" (click)="deleteTask(task._id)" title="Delete" />
+    <app-button buttonType="actionBtn" (click)="archiveTask(task._id)" title="Archive" />
+  </div>
+  <div class="delete-info">
+    <p><strong>Atenção:</strong> ao clicar em delete, esta task será permanentemente excluida</p>
+  </div>
+</app-modal>
+}
