@@ -7,7 +7,6 @@ import { Card, CardUpdate } from '../../models/card';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CardService } from 'src/app/services/card.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { TranslateErrorsService } from 'src/app/utils/translate-errors-service';
 
 @Component({
   selector: 'app-kanban',
@@ -51,14 +50,14 @@ export class KanbanComponent implements OnInit {
     });
   }
 
-  saveListName(kanban: Kanban) {
+  async   saveListName(kanban: Kanban) {
     this.serviceKanban.update(kanban).subscribe((response: any) => {
       this.editListName = "";
     }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception)
     )
   }
 
-  deleteList(id: string) {
+  deleteListQuestion(id: string) {
     Swal.fire({
       icon: "error",
       title: "Deletar Lista ?",
@@ -71,18 +70,48 @@ export class KanbanComponent implements OnInit {
       allowOutsideClick: false
     }).then((response) => {
       if (response.isConfirmed) {
-        this.serviceKanban.delete(id).subscribe((response: any) => {
-          this.kanban = this.kanban?.filter(obj => obj.id !== id);
-          Swal.fire({
-            icon: 'success',
-            title: `${response.kanban.name} deletado com sucesso`
-          })
-        }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
+        this.deleteList(id);
       }
     })
   }
 
+  async deleteList(id: string) {
+    this.serviceKanban.delete(id).subscribe((response: any) => {
+      this.kanban = this.kanban?.filter(obj => obj.id !== id);
+      Swal.fire({
+        icon: 'success',
+        title: `${response.kanban.name} deletado com sucesso`
+      })
+    }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
+  }
+
   async addList() {
+    const nameList = await this.showAddListSwal();
+
+    if (nameList) {
+      const newList: Kanban = {
+        name: nameList,
+        cards: []
+      }
+
+      return this.createAndAddKanban(newList)
+    }
+  }
+
+  async createAndAddKanban(newList: Kanban) {
+    this.serviceKanban.create(newList).subscribe((response: any) => {
+      console.log('Response', response.kanban);
+
+      this.kanban.push(response.kanban);
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      });
+      return newList;
+    }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
+  }
+
+  private async showAddListSwal(): Promise<string | undefined> {
     const { value: nameList } = await Swal.fire({
       title: "Adicionar Lista",
       input: 'text',
@@ -100,44 +129,32 @@ export class KanbanComponent implements OnInit {
       },
     });
 
-    if (nameList) {
-      const newList: Kanban = {
-        name: nameList,
-        cards: []
-      }
-      this.serviceKanban.create(newList).subscribe((response: any) => {
-        this.kanban.push(response.kanban);
-        Swal.fire({
-          title: response.message,
-          icon: 'success'
-        })
-      }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
-
-    }
+    return nameList
   }
 
-  addCard(newCardTitle: HTMLInputElement, kanban_id: string) {
+  async addCard(newCardTitle: string, kanban_id: string) {
     const indexList = this.kanban.findIndex(obj => obj.id === kanban_id);
     let newOrder: number = 0;
     if (this.kanban[indexList].cards && this.kanban[indexList].cards!.length > 0) {
       newOrder = this.kanban[indexList].cards!.length;
     }
     const newCard: Card = {
-      title: newCardTitle.value,
+      id: '',
+      title: newCardTitle,
       kanban_id: kanban_id,
       order: newOrder
     }
     this.serviceKanban.createCardInKanban(newCard, kanban_id).subscribe(
       (response: any) => {
-        console.log(response);
-        if (!this.kanban[indexList].cards){
+        newCard.id = response.card.id
+        if (!this.kanban[indexList].cards) {
           this.kanban[indexList].cards = []
         }
         this.kanban[indexList].cards.push(newCard);
       },
       (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception)
     );
-    newCardTitle.value = "";
+    newCardTitle = "";
   }
 
   onCardRemoved(card_id: string) {

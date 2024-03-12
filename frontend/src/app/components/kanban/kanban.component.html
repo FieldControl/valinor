@@ -12,7 +12,7 @@
           </div>
           <div class="text-right px-2 rounded-sm align-middle">
             <span class="text-gray-500 fas fa-trash transition duration-150 ease-in-out hover:text-red-500"
-              (click)="deleteList(list.id!)"></span>
+              (click)="deleteListQuestion(list.id!)"></span>
           </div>
         </div>
         <div class="flex flex-row mb-2 border-b-2 ">
@@ -42,7 +42,7 @@
           </div>
           <div class="flex flex-row">
             <div class="bg-green-600 w-full p-1.5 mr-2 text-center text-white rounded-md"
-              (click)="addCard(newCardTitle,list.id)">Salvar</div>
+              (click)="addCard(newCardTitle.value,list.id)">Salvar</div>
             <div class="text-right px-2 rounded-sm flex items-center">
               <span class='fas fa-times text-gray-500 text-lg transition duration-150 ease-in-out hover:text-red-500'
                 (click)="addCardName = ''"></span>
