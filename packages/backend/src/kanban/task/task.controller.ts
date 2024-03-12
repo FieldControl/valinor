@@ -6,6 +6,7 @@ import {
   Delete,
   Query,
   Patch,
+  Put,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { Task } from 'src/interfaces/task.interface';
@@ -51,6 +52,14 @@ export class TaskController {
     @Body() reqBody: Task,
   ): Promise<HandleMessage> {
     return this.taskService.updateTask(taskId, reqBody);
+  }
+
+  @Put('move/query')
+  async moveTask(
+    @Query('task_id') taskId: string,
+    @Body() reqBody: Task,
+  ): Promise<HandleMessage> {
+    return this.taskService.moveTask(taskId, reqBody);
   }
 
   @Delete('query')

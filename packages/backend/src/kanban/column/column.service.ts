@@ -114,7 +114,7 @@ export class ColumnService {
 
   async deleteColumn(columnId: string): Promise<HandleMessage> {
     try {
-      const columnExists = await this.taskModel.findById(columnId);
+      const columnExists = await this.columnModel.findById(columnId);
       if (!columnExists) {
         return { message: `Coluna não encontrada`, code: 400 };
       }

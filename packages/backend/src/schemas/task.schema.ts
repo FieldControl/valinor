@@ -16,6 +16,7 @@ export const taskSchema = new mongoose.Schema<Task>(
       required: [true, 'requer um titulo para a task'],
     },
     description: String,
+    order: Number,
     archived: Boolean,
   },
   { timestamps: true },
