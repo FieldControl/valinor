@@ -27,6 +27,7 @@ main {
   padding: 8px;
 }
 
+
 @media only screen and (max-width: 480px) {
   .container-kanban-title {
     display: flex;

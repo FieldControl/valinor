@@ -93,6 +93,13 @@ input::placeholder {
   font-style: italic;
 }
 
+.delete-info p {
+  width: 200px;
+  color: var(--color-custom-red);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 480px) {
   app-main {
     flex-direction: column;

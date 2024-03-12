@@ -18,3 +18,8 @@ export interface Task {
   archived: boolean;
   createdAt: Date;
 }
+
+export interface HandleMessage {
+  message: string;
+  code: number;
+}

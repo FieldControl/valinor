@@ -21,6 +21,7 @@
     "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
+    "noPropertyAccessFromIndexSignature": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

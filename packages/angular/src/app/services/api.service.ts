@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { Column, Project, Task } from '../models/kanban.model';
+import { Column, HandleMessage, Project, Task } from '../models/kanban.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class ApiService {
     return this.http.get<Project[]>(`${this.apiUrl}/projects`);
   }
 
-  getAllColumns(projectId: string): Observable<Column[]> {
+  getAllColumns(projectId: string): Observable<Column[] | HandleMessage> {
     return this.http.get<Column[]>(`${this.apiUrl}/columns/query?project_id=${projectId}`);
   }
 

@@ -22,29 +22,31 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => {
-      this.columns = columnsData;
-    });
+    this.getAllColumns(this.projectId);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['projectId']) {
-      this.updateColumn();
+      this.updateColumns();
     }
   }
 
-  createColumn() {
-    this.apiService.createColumn(this.projectId, 'New column').subscribe((res) => {
-      console.log('coluna criada'), res;
-      this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => (this.columns = columnsData));
+  getAllColumns(projectId: string) {
+    this.apiService.getAllColumns(projectId).subscribe((columnsData) => {
+      if ('message' in columnsData && 'code' in columnsData) {
+        return;
+      }
+      this.columns = columnsData;
     });
   }
 
-  updateColumn() {
-    console.log('update column');
-    this.apiService.getAllColumns(this.projectId).subscribe((columnsData) => {
-      this.columns = columnsData;
-      console.log(columnsData);
+  createColumn() {
+    this.apiService.createColumn(this.projectId, 'New column').subscribe(() => {
+      this.getAllColumns(this.projectId);
     });
+  }
+// Amanhã - Proxima etapa: Realizar a verificação para resetar quando não há colunas
+  updateColumns() {
+    this.getAllColumns(this.projectId);
   }
 }

@@ -56,15 +56,13 @@ export class SideMenuComponent implements OnInit {
 
   createProject() {
     if (this.projectTitle.value === '') {
-      this.apiService.createProject('New project').subscribe((res) => {
-        console.log('Projeto criado'), res;
+      this.apiService.createProject('New project').subscribe(() => {
         this.apiService.getAllProjects().subscribe((projectsData) => {
           this.projects = projectsData;
         });
       });
     } else {
-      this.apiService.createProject(this.projectTitle.value).subscribe((res) => {
-        console.log('Projeto criado'), res;
+      this.apiService.createProject(this.projectTitle.value).subscribe(() => {
         this.apiService.getAllProjects().subscribe((projectsData) => {
           this.projects = projectsData;
         });
@@ -74,6 +72,6 @@ export class SideMenuComponent implements OnInit {
   }
 
   modalCreateProject() {
-    this.createProjectModal = false;
+    this.createProjectModal = !this.createProjectModal;
   }
 }

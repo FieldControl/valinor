@@ -9,14 +9,20 @@
   </section>
 </main>
 @if (openModal) {
-  <app-modal title="Rename or Delete">
-    <div>
-      <p>{{ project.title }}</p>
-    </div>
-    <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..." />
-    <div class="edit-btn">
-      <app-button buttonType="dangerBtn" (click)="deleteProject(project._id)" title="Delete" />
-      <app-button buttonType="actionBtn" (click)="editProject(project._id)" title="Edit" />
-    </div>
-  </app-modal>
+<app-modal title="Rename or Delete">
+  <div>
+    <p>{{ project.title }}</p>
+  </div>
+  <input name="editProjectTitle" type="text" [formControl]="editProjectTitle" placeholder="Edit project title..." />
+  <div class="edit-btn">
+    <app-button buttonType="dangerBtn" (click)="deleteProject(project._id)" title="Delete" />
+    <app-button buttonType="actionBtn" (click)="editProject(project._id)" title="Edit" />
+  </div>
+  <div class="delete-info">
+    <p>
+      <strong>Atenção:</strong> ao deletar este projeto, todas as tarefas e colunas que pertencem a este projeto serão
+      excluidas
+    </p>
+  </div>
+</app-modal>
 }
