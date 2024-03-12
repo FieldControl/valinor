@@ -1,5 +1,8 @@
 {
     "version": 2,
+    "env": {
+        "URI": "@uri"
+    },
     "builds": [
         {
             "src": "src/main.ts",
@@ -14,6 +17,7 @@
                 "GET",
                 "POST",
                 "PUT",
+                "PATH",
                 "DELETE"
             ]
         }
