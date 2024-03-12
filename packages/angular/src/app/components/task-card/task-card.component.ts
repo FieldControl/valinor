@@ -38,8 +38,7 @@ export class TaskCardComponent {
 
   editDescriptionTask(taskId: string) {
     const description = this.editDescription.value;
-    this.api.updateTaskDescription(taskId, description).subscribe((res) => {
-      console.log('Titulo editado task', res);
+    this.api.updateTaskDescription(taskId, description).subscribe(() => {
       this.updateTask();
     });
   }
@@ -47,14 +46,6 @@ export class TaskCardComponent {
   deleteTask(taskId: string) {
     this.api.deleteTask(taskId).subscribe((res) => {
       console.log('Task deletada', res);
-      this.updateTask();
-    });
-    this.openCloseModal();
-  }
-
-  archiveTask(taskId: string) {
-    this.api.archiveTask(taskId).subscribe((res) => {
-      console.log('Task arquivada', res);
       this.updateTask();
     });
     this.openCloseModal();

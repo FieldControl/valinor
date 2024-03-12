@@ -3,13 +3,10 @@
     <h2>{{ title }}</h2>
     <app-button buttonType="editBtn" (click)="openCloseModal()"></app-button>
   </div>
-  <div class="container-tasks" [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)" cdkDropList>
-    <ng-content />
-    <!--
-      @for (task of tasks; track $index) {
-        <app-task-card [task]="task" (updateTasks)="updateTasks()" cdkDrag />
+  <div class="container-tasks" [id]="columnId" [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)" cdkDropList>
+      @for (task of tasks; track task._id) {
+        <app-task-card [task]="task" [cdkDragData]="task" (updateTasks)="updateTasks()" cdkDrag />
       }
-    -->
   </div>
   <div class="container-create-task">
     <button class="create-task-button" (click)="createTask()">

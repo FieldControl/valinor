@@ -112,6 +112,27 @@ export class TaskService {
     }
   }
 
+  async moveTask(taskId: string, body: Task): Promise<HandleMessage> {
+    const taskExists = await this.taskModel.findById(taskId);
+
+    if (!taskExists) {
+      return { message: `Task não encontrada`, code: 400 };
+    }
+
+    try {
+      await this.taskModel.updateOne(
+        {
+          _id: taskId,
+        },
+        { _id_column: body._id_column },
+      );
+
+      return { message: `Task movida`, code: 200 };
+    } catch (error) {
+      return { message: `Ocorreu um erro: ${error}`, code: 500 };
+    }
+  }
+
   async archiveTask(taskId: string): Promise<HandleMessage> {
     try {
       const task = await this.taskModel.findById({

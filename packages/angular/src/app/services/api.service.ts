@@ -83,6 +83,12 @@ export class ApiService {
     });
   }
 
+  moveTask(taskId: string, columnId: string): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/tasks/move/query?task_id=${taskId}`, {
+      _id_column: columnId,
+    });
+  }
+
   deleteProject(projectId: string): Observable<Project> {
     return this.http.delete<Project>(`${this.apiUrl}/projects/query?project_id=${projectId}`);
   }

@@ -34,9 +34,9 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
   getAllColumns(projectId: string) {
     this.apiService.getAllColumns(projectId).subscribe((columnsData) => {
       if ('message' in columnsData && 'code' in columnsData) {
-        return;
+        return (this.columns = []);
       }
-      this.columns = columnsData;
+      return (this.columns = columnsData);
     });
   }
 
@@ -45,7 +45,7 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
       this.getAllColumns(this.projectId);
     });
   }
-// Amanhã - Proxima etapa: Realizar a verificação para resetar quando não há colunas
+
   updateColumns() {
     this.getAllColumns(this.projectId);
   }

@@ -27,25 +27,27 @@ export class ColumnComponent implements OnInit, OnChanges {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
+    this.getAllTasks(this.projectId, this.columnId);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['projectId']) {
-      this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
+      this.getAllTasks(this.projectId, this.columnId);
     }
   }
 
-  createTask() {
-    this.apiService.createTask(this.projectId, this.columnId, 'New task', 'description').subscribe(() => {
-      this.updateTasks();
+  getAllTasks(projectId: string, columnId: string) {
+    this.apiService.getAllTasks(projectId, columnId).subscribe((taskData) => {
+      if ('message' in taskData && 'code' in taskData) {
+        return (this.tasks = []);
+      }
+      return (this.tasks = taskData);
     });
   }
 
   renameColumn() {
     const title = this.editColumnTitle.value;
-    this.apiService.updateColumnTitle(this.columnId, title).subscribe((res) => {
-      console.log(res);
+    this.apiService.updateColumnTitle(this.columnId, title).subscribe(() => {
       this.updateColumns();
     });
     this.openCloseModal();
@@ -56,6 +58,12 @@ export class ColumnComponent implements OnInit, OnChanges {
       this.updateColumns();
     });
     this.openCloseModal();
+  }
+
+  createTask() {
+    this.apiService.createTask(this.projectId, this.columnId, 'New task', 'description').subscribe(() => {
+      this.getAllTasks(this.projectId, this.columnId);
+    });
   }
 
   openCloseModal() {
@@ -69,8 +77,11 @@ export class ColumnComponent implements OnInit, OnChanges {
   updateTasks() {
     this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
   }
+
   drop(event: CdkDragDrop<Task[]>) {
-    console.log(event.container);
+    const cardId: string = event.item.data._id;
+    const columnId: string = event.container.id
+    this.apiService.moveTask(cardId, columnId).subscribe();
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
