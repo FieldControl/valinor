@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://fieldflow-backend-dants.up.railway.app',
+  production: false,
+  apiUrl: 'http://201.56.249.42:9003',
 };

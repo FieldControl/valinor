@@ -93,8 +93,12 @@ input::placeholder {
   font-style: italic;
 }
 
+.delete-info {
+  margin: 0 20px;
+  text-align: center;
+}
+
 .delete-info p {
-  width: 200px;
   color: var(--color-custom-red);
   font-style: italic;
   font-size: 1.2rem;

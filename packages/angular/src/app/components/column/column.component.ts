@@ -75,12 +75,12 @@ export class ColumnComponent implements OnInit, OnChanges {
   }
 
   updateTasks() {
-    this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
+    this.getAllTasks(this.projectId, this.columnId);
   }
 
   drop(event: CdkDragDrop<Task[]>) {
     const cardId: string = event.item.data._id;
-    const columnId: string = event.container.id
+    const columnId: string = event.container.id;
     this.apiService.moveTask(cardId, columnId).subscribe();
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
