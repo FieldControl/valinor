@@ -11,9 +11,9 @@ export class CardService {
 
   constructor(private http: HttpClient) { }
 
-  deleteCard(idCard: string) {
+  deleteCard(idCard: string):Observable<{card:Card,message:string}> {
     const url = `${environment.baseApiUrl}/cards/${idCard}`;
-    return this.http.delete<Card>(url);
+    return this.http.delete<{card:Card, message: string}>(url);
   }
   updateCard(card: Card | CardUpdate) {
     const url = `${environment.baseApiUrl}/cards/${card.id}`;

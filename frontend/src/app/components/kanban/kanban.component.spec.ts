@@ -27,9 +27,6 @@ describe('KanbanComponent', () => {
       createCardInKanban: (card: Card, kanban_id: string) => of({} as { card: Card, message: string })
     };
 
-    mockCardService = {
-      linkBadgeToCard: (card_id: string, badge_id: string) => of({} as Card)
-    }
     await TestBed.configureTestingModule({
       declarations: [KanbanComponent],
       imports: [HttpClientTestingModule, FormsModule],

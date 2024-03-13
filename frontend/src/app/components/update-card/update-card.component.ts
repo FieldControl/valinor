@@ -37,11 +37,23 @@ export class UpdateCardComponent implements OnInit {
       private errorMessages: ExceptionErrorsMessage
     ) { }
 
-  closeModal(): void {
-    this.dialogRef.close();
+  closeModal(params?: object): void {
+    this.dialogRef.close(params);
   }
 
-  deleteCard(idCard: string) {
+  async deleteCard(idCard: string) {
+    this.serviceCard.deleteCard(idCard).subscribe((response: any) => {
+      console.log('log response card',response.card);
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        this.closeModal({deleted: true})
+      })
+    }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
+  }
+
+  async deleteCardQuestion(idCard: string){
     Swal.fire({
       icon: "error",
       title: "Deletar Lista ?",
@@ -53,16 +65,8 @@ export class UpdateCardComponent implements OnInit {
       showCancelButton: true,
       allowOutsideClick: false
     }).then((response) => {
-      if(response.isConfirmed){
-        this.serviceCard.deleteCard(idCard).subscribe((response: any) => {
-          console.log(response);
-          Swal.fire({
-            title: response.message,
-            icon: 'success'
-          }).then(() => {
-            this.dialogRef.close({deleted: true});
-          })
-        }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
+      if (response.isConfirmed) {
+        this.deleteCard(idCard)
       }
     });
   }
