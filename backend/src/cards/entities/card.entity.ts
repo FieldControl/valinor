@@ -1,4 +1,4 @@
-import { Kanban } from "src/kanbans/entities/kanban.entity";
+import { Kanban } from "../../kanbans/entities/kanban.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Badge } from "../../badges/entities/badge.entity";
 

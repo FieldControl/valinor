@@ -10,7 +10,7 @@ export class CardsController {
   constructor(private readonly cardsService: CardsService) {}
 
   @Post('kanbans/:kanban_id/cards')
-  create(@Body() createCardDto: CreateCardDto) {
+  async create(@Body() createCardDto: CreateCardDto) {
     const card = new Card();
     card.id = uuid();
     card.title = createCardDto.title
