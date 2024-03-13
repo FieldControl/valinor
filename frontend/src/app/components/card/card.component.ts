@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Card } from '../../models/card';
-// import { MatDialog } from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UpdateCardComponent } from '../update-card/update-card.component';
-import { isEmpty } from 'rxjs';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -28,10 +26,6 @@ export class CardComponent implements OnInit {
 
   async editCard(idCard: string) {
     console.log(this.card);
-    //TODO: PENSAR EM RESPONSIVIDADE
-    // const screenWidth:number = window.innerWidth;
-    // console.log(`Width: ${screenWidth}`);
-
     const dialogRef = this.dialog.open(UpdateCardComponent,{
       data: {card: this.card, nameList: this.nameList, idList: this.idList.toString()},
       width: `639px`,

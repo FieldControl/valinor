@@ -64,14 +64,14 @@
       </div>
       <div class="w-1/2 ml-2">
         <label class="text-gray-500 text-sm font-semibold block">Entregar até:</label>
-        <input type="date" [value]="data.card.date_end | date:'yyyy-MM-dd'"
+        <input id='date_end' type="date" (change)="updateCard(data.card)" [value]="data.card.date_end | date:'yyyy-MM-dd'"
           class="bg-gray-100 p-2 rounded-md w-full text-gray-700">
       </div>
     </div>
   </div>
   <div class="mt-24 mb-4">
     <div class="p-2 bg-red-400 text-center rounded-md font-medium cursor-pointer text-white"
-      (click)="deleteCard(data.card.id!)">
+      (click)="deleteCardQuestion(data.card.id!)">
       Deletar Cartão <span class="fas fa-trash"></span>
     </div>
   </div>

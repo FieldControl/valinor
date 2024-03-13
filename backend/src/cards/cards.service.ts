@@ -3,7 +3,7 @@ import { CreateCardDto } from './dto/create-card.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Card } from './entities/card.entity';
 import { Repository } from 'typeorm';
-import { Badge } from 'src/badges/entities/badge.entity';
+import { Badge } from '../badges/entities/badge.entity';
 
 @Injectable()
 export class CardsService {
@@ -38,18 +38,19 @@ export class CardsService {
   }
 
   async update(id: string, updateCardDto: Partial<Card>) {
-    console.log(id);
-    console.log(updateCardDto);
-    return await this.cardRepository.update(id, updateCardDto);
+    await this.cardRepository.update(id, updateCardDto);
+    return await this.findOne(id)
   }
 
   async remove(id: string) {
-    return await this.cardRepository.delete(id);
+    const card: Card = await this.findOne(id);
+    await this.cardRepository.delete(id);
+    return card
   }
   
   async linkBadgeToCard(card_id: string, badge_id: string) {
     const card = await this.cardRepository.findOne({ where: { id: card_id }, relations: ['badges'] });
-    const badge = await this.badgeRepository.findOneBy({ id: badge_id });
+    const badge = await this.badgeRepository.findOne({ where: {id: badge_id }});
     if (!badge) {
       throw new NotFoundException('Badge not found');
     }

@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsUUID } from "class-validator";
+import { IsNotEmpty, IsOptional, IsUUID } from "class-validator";
 
 export class BadgeDto {
     id: string
@@ -7,6 +7,8 @@ export class BadgeDto {
 }
 
 export class CreateCardDto {
+    @IsOptional()
+    id?: string
     @IsUUID(undefined,{message:'Id da lista inválido'})
     kanban_id: string
     @IsNotEmpty({ message: "O nome do cartão não pode ser vazio" })

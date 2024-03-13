@@ -12,7 +12,7 @@
           </div>
           <div class="text-right px-2 rounded-sm align-middle">
             <span class="text-gray-500 fas fa-trash transition duration-150 ease-in-out hover:text-red-500"
-              (click)="deleteList(list.id!)"></span>
+              (click)="deleteListQuestion(list.id!)"></span>
           </div>
         </div>
         <div class="flex flex-row mb-2 border-b-2 ">
@@ -35,14 +35,14 @@
           <div class='bg-white rounded-xl p-3 drop-shadow-sm my-2'>
             <div class="flex flex-row mb-3">
               <div class="basis-full line-clamp-1 overflow-ellipsi">
-                <input #newCardTitle id="editNamelist{{list.id}}" class="w-full rounded-md shado
+                <input #newCardTitle id="newCardTitle" (keyup.enter)="addCard(newCardTitle.value,list.id)" class="w-full rounded-md shado
                   w-sm text-lg focus:outline-none" type="text" placeholder="Insira um titulo para esse cartão">
               </div>
             </div>
           </div>
           <div class="flex flex-row">
             <div class="bg-green-600 w-full p-1.5 mr-2 text-center text-white rounded-md"
-              (click)="addCard(newCardTitle,list.id)">Salvar</div>
+              (click)="addCard(newCardTitle.value,list.id)">Salvar</div>
             <div class="text-right px-2 rounded-sm flex items-center">
               <span class='fas fa-times text-gray-500 text-lg transition duration-150 ease-in-out hover:text-red-500'
                 (click)="addCardName = ''"></span>

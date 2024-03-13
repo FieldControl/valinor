@@ -21,15 +21,18 @@ export class BadgesService {
   }
 
   async findOne(id: string) {
-    const badge = await this.badgeRepository.findOneBy({id:id})
+    const badge = await this.badgeRepository.findOne({ where:{id:id}})
     return badge;
   }
 
   async update(id: string, updateBadgeDto: Partial<Badge>) {
-    return await this.badgeRepository.update(id,updateBadgeDto);
+    await this.badgeRepository.update(id, updateBadgeDto);
+    return await this.findOne(id)
   }
 
   async remove(id: string) {
-    return await this.badgeRepository.delete(id);
+    const badge: Badge = await this.findOne(id)
+    await this.badgeRepository.delete(id);
+    return badge
   }
 }

@@ -3,7 +3,6 @@ import { Card } from '../../models/card';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Badge } from '../../models/badge';
 import { BadgeService } from 'src/app/services/badge.service';
-import { KanbanService } from 'src/app/services/kanban.service';
 import Swal from 'sweetalert2';
 import { CardService } from 'src/app/services/card.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
@@ -37,11 +36,23 @@ export class UpdateCardComponent implements OnInit {
       private errorMessages: ExceptionErrorsMessage
     ) { }
 
-  closeModal(): void {
-    this.dialogRef.close();
+  closeModal(params?: object): void {
+    this.dialogRef.close(params);
   }
 
-  deleteCard(idCard: string) {
+  async deleteCard(idCard: string) {
+    this.serviceCard.deleteCard(idCard).subscribe((response: any) => {
+      console.log('log response card',response.card);
+      Swal.fire({
+        title: response.message,
+        icon: 'success'
+      }).then(() => {
+        this.closeModal({deleted: true})
+      })
+    }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
+  }
+
+  async deleteCardQuestion(idCard: string){
     Swal.fire({
       icon: "error",
       title: "Deletar Lista ?",
@@ -53,27 +64,26 @@ export class UpdateCardComponent implements OnInit {
       showCancelButton: true,
       allowOutsideClick: false
     }).then((response) => {
-      if(response.isConfirmed){
-        this.serviceCard.deleteCard(idCard).subscribe((response: any) => {
-          console.log(response);
-          Swal.fire({
-            title: response.message,
-            icon: 'success'
-          }).then(() => {
-            this.dialogRef.close({deleted: true});
-          })
-        }, (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception))
+      if (response.isConfirmed) {
+        this.deleteCard(idCard)
       }
     });
   }
 
   updateCard(card: Card) {
+    const inputElement = document.querySelector("#date_end");
+    let date_end: Date|null|undefined = null;
+    if(inputElement){
+      const input = inputElement as HTMLInputElement
+      date_end = new Date(`${input.value} 00:00:00`);
+    }
+    card.date_end = date_end;
     this.data.card = card;
     this.serviceCard.updateCard(card).subscribe()
   }
 
   isBadgeChecked(badgeId: string): boolean {
-    return !!this.data.card.badges!.find(badge => badge.id === badgeId);
+    return !!this.data.card.badges?.find(badge => badge.id === badgeId);
   }
 
   onCheckboxChange($event: MatCheckboxChange, card_id:string) {

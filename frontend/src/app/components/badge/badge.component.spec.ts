@@ -20,4 +20,13 @@ describe('BadgeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should darken color correctly', () => {
+    const hexColor = '#FF0000';
+    const percent = 0.5;
+    const darkenedColor = '#800000';
+
+    const result = component.darkenColor(hexColor, percent);
+    expect(result).toEqual(darkenedColor);
+  });
 });

@@ -10,7 +10,7 @@ export class BadgesController {
   constructor(private readonly badgesService: BadgesService) {}
 
   @Post()
-  create(@Body() createBadgeDto: CreateBadgeDto) {
+  async create(@Body() createBadgeDto: CreateBadgeDto) {
     const badge = new Badge();
     badge.id = uuid();
     badge.name = createBadgeDto.name;

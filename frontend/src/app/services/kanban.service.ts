@@ -16,25 +16,25 @@ export class KanbanService {
     return this.http.get<Kanban[]>(this.API)
   }
 
-  create(kanban: Kanban): Observable<Kanban> {
-    const body = {name: kanban.name}
-    return this.http.post<Kanban>(this.API, body)
+  create(kanban: Kanban): Observable<{ kanban: Kanban, message: string }> {
+    const body = { name: kanban.name }
+    return this.http.post<{ kanban: Kanban, message: string }>(this.API, body)
   }
-  delete(id: string): Observable<Kanban>{
+  delete(id: string): Observable<{ kanban: Kanban, message: string }> {
     const url = `${this.API}/${id}`;
-    return this.http.delete<Kanban>(url);
+    return this.http.delete<{ kanban: Kanban, message: string }>(url);
   }
-  update(kanban:Kanban): Observable<Kanban> {
+  update(kanban: Kanban): Observable<Kanban> {
     const url = `${this.API}/${kanban.id}`;
-    return this.http.patch<Kanban>(url,{name:kanban.name})
+    return this.http.patch<Kanban>(url, { name: kanban.name })
   }
 
   listCardKanban(kanban_id: string): Observable<Card[]> {
     return this.http.get<Card[]>(`${environment.baseApiUrl}/kanbans/${kanban_id}/cards`)
   }
 
-  createCardInKanban(card:Card, kanban_id: string){
-    const url = `${this.API}/${kanban_id}}/cards`;
-    return this.http.post<Card>(url,card)
+  createCardInKanban(card: Card, kanban_id: string): Observable<{ card: Card, message: string }> {
+    const url = `${this.API}/${kanban_id}/cards`;
+    return this.http.post<{ card: Card, message: string }>(url, card)
   }
 }

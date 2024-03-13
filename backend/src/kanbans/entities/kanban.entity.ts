@@ -1,4 +1,4 @@
-import { Card } from "src/cards/entities/card.entity";
+import { Card } from "../../cards/entities/card.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({name:'kanbans'})

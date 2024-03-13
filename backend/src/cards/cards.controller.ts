@@ -10,13 +10,14 @@ export class CardsController {
   constructor(private readonly cardsService: CardsService) {}
 
   @Post('kanbans/:kanban_id/cards')
-  create(@Body() createCardDto: CreateCardDto) {
+  async create(@Body() createCardDto: CreateCardDto) {
     const card = new Card();
     card.id = uuid();
     card.title = createCardDto.title
     card.description = createCardDto.description
     card.kanban_id = createCardDto.kanban_id
     card.date_end = createCardDto.date_end
+    card.order = createCardDto.order
     this.cardsService.create(card)
     return {
       card: card,
