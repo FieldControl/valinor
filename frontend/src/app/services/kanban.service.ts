@@ -34,7 +34,7 @@ export class KanbanService {
   }
 
   createCardInKanban(card: Card, kanban_id: string): Observable<{ card: Card, message: string }> {
-    const url = `${this.API}/${kanban_id}}/cards`;
+    const url = `${this.API}/${kanban_id}/cards`;
     return this.http.post<{ card: Card, message: string }>(url, card)
   }
 }
