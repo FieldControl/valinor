@@ -17,6 +17,7 @@ export class CardsController {
     card.description = createCardDto.description
     card.kanban_id = createCardDto.kanban_id
     card.date_end = createCardDto.date_end
+    card.order = createCardDto.order
     this.cardsService.create(card)
     return {
       card: card,

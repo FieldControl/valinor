@@ -154,7 +154,11 @@ export class KanbanComponent implements OnInit {
       },
       (exception: HttpErrorResponse) => this.errorMessages.exceptionError(exception)
     );
-    newCardTitle = "";
+    const inputElement = document.querySelector('#newCardTitle');
+    if (inputElement!==null){
+      const input: HTMLInputElement = inputElement as HTMLInputElement;
+      input.value = '';
+    }
   }
 
   onCardRemoved(card_id: string) {

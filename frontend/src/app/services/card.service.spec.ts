@@ -18,7 +18,7 @@ describe('CardService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify(); // Verifica se não há solicitações pendentes.
+    httpMock.verify();
   });
 
   it('should be created', () => {

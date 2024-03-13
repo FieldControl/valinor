@@ -35,7 +35,7 @@
           <div class='bg-white rounded-xl p-3 drop-shadow-sm my-2'>
             <div class="flex flex-row mb-3">
               <div class="basis-full line-clamp-1 overflow-ellipsi">
-                <input #newCardTitle id="editNamelist{{list.id}}" class="w-full rounded-md shado
+                <input #newCardTitle id="newCardTitle" (keyup.enter)="addCard(newCardTitle.value,list.id)" class="w-full rounded-md shado
                   w-sm text-lg focus:outline-none" type="text" placeholder="Insira um titulo para esse cartão">
               </div>
             </div>

@@ -4,7 +4,6 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ListKanbanDto } from './dto/list-kanban.dto';
 import { Card } from '../cards/entities/card.entity';
-// import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class KanbansService {

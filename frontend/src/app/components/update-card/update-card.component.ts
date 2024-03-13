@@ -3,7 +3,6 @@ import { Card } from '../../models/card';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Badge } from '../../models/badge';
 import { BadgeService } from 'src/app/services/badge.service';
-import { KanbanService } from 'src/app/services/kanban.service';
 import Swal from 'sweetalert2';
 import { CardService } from 'src/app/services/card.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
@@ -72,12 +71,19 @@ export class UpdateCardComponent implements OnInit {
   }
 
   updateCard(card: Card) {
+    const inputElement = document.querySelector("#date_end");
+    let date_end: Date|null|undefined = null;
+    if(inputElement){
+      const input = inputElement as HTMLInputElement
+      date_end = new Date(`${input.value} 00:00:00`);
+    }
+    card.date_end = date_end;
     this.data.card = card;
     this.serviceCard.updateCard(card).subscribe()
   }
 
   isBadgeChecked(badgeId: string): boolean {
-    return !!this.data.card.badges!.find(badge => badge.id === badgeId);
+    return !!this.data.card.badges?.find(badge => badge.id === badgeId);
   }
 
   onCheckboxChange($event: MatCheckboxChange, card_id:string) {

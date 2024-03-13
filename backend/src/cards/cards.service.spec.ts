@@ -106,7 +106,7 @@ describe('CardsService', () => {
         ],
       };
 
-      jest.spyOn(service, 'create').mockResolvedValueOnce(mockCard as any); // Substitua `cardRepository` por `service`
+      jest.spyOn(service, 'create').mockResolvedValueOnce(mockCard as any);
 
       const result = await service.create(createCardDto);
 

@@ -45,7 +45,7 @@ describe('KanbansService', () => {
         deletedAt: null,
         cards: [],
       };
-      const savedKanban: Kanban = { ...createKanbanDto }; // Consider modifying as needed
+      const savedKanban: Kanban = { ...createKanbanDto };
       jest.spyOn(kanbanRepository, 'save').mockResolvedValueOnce(savedKanban);
 
       const result = await service.create(createKanbanDto);
@@ -82,7 +82,7 @@ describe('KanbansService', () => {
       const id = '1';
       const updateData: Partial<Kanban> = { name: 'Updated Kanban' };
       const updatedKanban: Kanban = { id: '1', name: 'Updated Kanban', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), deletedAt: null, cards: [] };
-      jest.spyOn(kanbanRepository, 'update').mockResolvedValueOnce(updatedKanban as any); // Assuming 1 row affected
+      jest.spyOn(kanbanRepository, 'update').mockResolvedValueOnce(updatedKanban as any);
       jest.spyOn(kanbanRepository, 'findOne').mockResolvedValueOnce(updatedKanban);
 
       const result = await service.update(id, updateData);
@@ -96,7 +96,7 @@ describe('KanbansService', () => {
       const id = '1';
       const kanbanToRemove: Kanban = { id: '1', name: 'Test Kanban', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), deletedAt: null, cards: [] };
       jest.spyOn(kanbanRepository, 'findOne').mockResolvedValueOnce(kanbanToRemove);
-      jest.spyOn(cardRepository, 'delete').mockResolvedValueOnce(undefined); // Assuming deletion of cards is successful
+      jest.spyOn(cardRepository, 'delete').mockResolvedValueOnce(undefined);
       jest.spyOn(kanbanRepository, 'delete').mockResolvedValueOnce(kanbanToRemove as any);
 
       const result = await service.remove(id);

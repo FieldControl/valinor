@@ -4,6 +4,8 @@ import { IsNotEmpty, IsOptional } from 'class-validator';
 import { Badge } from '../../badges/entities/badge.entity';
 
 export class UpdateCardDto extends PartialType(CreateCardDto) {
+    @IsOptional()
+    id?: string 
     @IsNotEmpty({ message: "O cartão tem que estar vinculado a uma lista" })
     @IsOptional()
     kanban_id?: string;

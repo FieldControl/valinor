@@ -7,7 +7,6 @@ import { Badge } from '../../models/badge';
 import { Card } from '../../models/card';
 import { BadgeService } from 'src/app/services/badge.service';
 import { CardService } from 'src/app/services/card.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 describe('UpdateCardComponent', () => {
   let component: UpdateCardComponent;
@@ -103,6 +102,5 @@ describe('UpdateCardComponent', () => {
     expect(component.badges).toEqual(badges);
   });
 
-  // Add more test cases as needed
 });
 
