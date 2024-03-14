@@ -8,6 +8,7 @@ import { BadgesModule } from './badges/badges.module';
 import { CorsMiddleware } from './cors.middleware';
 import { APP_FILTER } from '@nestjs/core';
 import { FilterExceptionsHttp } from './filters/filter-exceptions-http';
+import { BadgeInit } from './badge-init';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { FilterExceptionsHttp } from './filters/filter-exceptions-http';
     BadgesModule
   ],
   providers: [
+    BadgeInit,
     {
       provide: APP_FILTER,
       useClass: FilterExceptionsHttp
@@ -30,7 +32,16 @@ import { FilterExceptionsHttp } from './filters/filter-exceptions-http';
   ],
 })
 export class AppModule implements NestModule {
+  
+  constructor(
+    private readonly badgeInit: BadgeInit
+  ) { }
+
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(CorsMiddleware).forRoutes('*')
+  }
+
+  async onModuleInit() {
+    await this.badgeInit.initBadgesIfNeeded();
   }
 }
