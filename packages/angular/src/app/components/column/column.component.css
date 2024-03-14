@@ -49,14 +49,6 @@
   gap: 12px;
 }
 
-.container-modal-input > * {
-  margin: 4px 0;
-}
-
-.container-modal-btn > * {
-  margin: 0 6px;
-}
-
 @media only screen and (max-width: 480px) {
   .container-column-component {
     display: flex;

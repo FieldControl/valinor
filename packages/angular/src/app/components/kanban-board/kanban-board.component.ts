@@ -5,7 +5,7 @@ import { Column, Project } from '../../models/kanban.model';
 import { ButtonComponent } from '../button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskCardComponent } from '../task-card/task-card.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-kanban-board',
@@ -48,5 +48,9 @@ export class KanbanBoardComponent implements OnInit, OnChanges {
 
   updateColumns() {
     this.getAllColumns(this.projectId);
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
   }
 }

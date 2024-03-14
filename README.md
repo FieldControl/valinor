@@ -1,79 +1,43 @@
-# Desafio Fieldflow - Modo Kanban
+<div align="center">
+  <img width="80px" src="https://raw.githubusercontent.com/ldantsc/fieldflow-challenger/master/packages/angular/src/assets/logo.svg">
 
-Olá candidato(a),
+  # Workflow Kanban
 
-Este desafio será uma oportunidade empolgante para você demonstrar suas habilidades de desenvolvimento! Estamos animados para ver como você lidará com este desafio e a qualidade da sua solução. Vamos mergulhar no desenvolvimento de uma aplicação de gerenciamento de fluxo de trabalho com um kanban, semelhante ao GitHub Projects.
+</div>
 
-![Gitub projects preview](image-2.png)
+## Sobre este projeto
 
-## Objetivo
+Este é um projeto de fluxo de trabalho no estilo Kanban que contém criação de projetos, colunas e tarefas com intuito de controlar a organização das tarefas e ter um fluxo de trabalho eficiente, normalmente utiliza-se as colunas principais To Do no Kaban, mas neste quadro como é possivel criar demais colunas e definir um titulo, o usuário poderá usar da forma que desejar.
 
-O objetivo deste projeto é desenvolver uma aplicação "clone" do GitHub Projects, com funcionalidades que permitam aos usuários gerenciar tarefas em um kanban com colunas configuráveis.
+Projeto realizado para o desafio [Field Control Valinor](https://github.com/FieldControl/valinor) !
 
-> [!TIP]
-> Uma dica para entender um pouco de como realizar esse desafio é explorar o github projects pelo seu proprio github, [Github Projects - Quick Start](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)
 
-## Requisitos
+## Funcionalidades
 
-A aplicação deve atender aos seguintes requisitos:
+- Permite criar até Projetos/Quadros com título personalizado.
 
-### Frontend
+- Criar colunas (maximo 10 colunas por projeto)
 
-- **Gerenciamento de Colunas**
+- Edição do título da coluna.
 
-  - Permitir a criação de novas colunas.
-  - Possibilitar a edição do nome de uma coluna existente.
+- Criar Cards/Tarefas (maximo 12 cards por coluna).
 
-- **Gerenciamento de Tarefas**
+- Editar o título e a descrição do card.
 
-  - Capacidade de adicionar novas tarefas a uma coluna.
-  - Permitir a edição do nome de uma tarefa existente.
-  - Opção para arquivar ou excluir uma tarefa.
+- Excluir Projetos, Colunas e Tarefas.
 
-- **Funcionalidades Essenciais**
-  - Capacidade de mover uma tarefa de uma coluna para outra.
-  - Permitir a reordenação das colunas.
-  - Opção para filtrar tarefas por nome.
 
-### Backend
+# Índice 
 
-- **Persistência de Dados**
-
-  - Preparar o backend para persistir as alterações feitas no frontend.
-
-- **Operações CRUD**
-
-  - Implementar operações CRUD (Create, Read, Update, Delete) para manipulação das tarefas.
-
-- **Comunicação Frontend-Backend**
-  - Permitir que o frontend se comunique com o backend para realizar operações necessárias.
-
-## Tecnologias Recomendadas
-
-### Node version
-
-- **NodeJS:** versão 18
-
-### Frontend
-
-- **Framework:** Angular 17
-- **Estilização:** Utilizar CSS, SASS ou Styled Components para estilização.
-
-### Backend
-
-- **Tecnologia:** NestJS
-- **Banco de Dados:** Utilizar PostgreSQL, MySQL, MongoDB, ou outra opção conforme preferência.
-
-## Critérios de Avaliação
-
-Os candidatos serão avaliados com base nos seguintes critérios:
-
-- **Adesão aos Requisitos:** Cumprimento dos requisitos especificados.
-- **Qualidade do Código:** Código legível, seguindo boas práticas e modularidade.
-- **Funcionalidades Corretas:** Garantia de funcionamento correto de todas as funcionalidades.
-- **Resolução de Problemas:** Habilidade para resolver problemas e tomar decisões de design.
-- **Comunicação Eficaz:** Clareza na comunicação das decisões de design e implementação.
-
----
-
-Esperamos que este desafio seja empolgante e aguardamos sua contribuição! Se tiver alguma dúvida ou precisar de mais informações, por favor, não hesite em entrar em contato. Boa sorte!
+* [Título e Imagem de capa](#Título-e-Imagem-de-capa)
+* [Badges](#badges)
+* [Índice](#índice)
+* [Descrição do Projeto](#descrição-do-projeto)
+* [Status do Projeto](#status-do-Projeto)
+* [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
+* [Acesso ao Projeto](#acesso-ao-projeto)
+* [Tecnologias utilizadas](#tecnologias-utilizadas)
+* [Pessoas Contribuidoras](#pessoas-contribuidoras)
+* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
+* [Licença](#licença)
+* [Conclusão](#conclusão)

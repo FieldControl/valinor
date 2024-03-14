@@ -1,4 +1,16 @@
-.modal {
+.modal-backdrop {
+  content: "";
+  width: 100dvw;
+  height: 100%;
+  z-index: 15;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.modal-dialog {
   width: 25vw;
   height: 100vh;
   display: flex;
@@ -36,7 +48,11 @@ h1 {
 }
 
 @media only screen and (max-width: 480px) {
-  .modal {
+  .modal-backdrop {
+    display: none;
+  }
+
+  .modal-dialog {
     width: 80vw;
     height: 100%;
     display: flex;

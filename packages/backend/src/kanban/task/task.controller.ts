@@ -64,6 +64,6 @@ export class TaskController {
 
   @Delete('query')
   async deleteTask(@Query('task_id') taskId: string) {
-    return this.taskService.archiveTask(taskId);
+    return this.taskService.deleteTask(taskId);
   }
 }

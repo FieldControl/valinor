@@ -40,19 +40,28 @@ export class MainComponent {
     _id: '',
     title: '',
   };
-  projects!: Project[];
+  isUnique: boolean = false;
   openModal: boolean = false;
 
   constructor(private api: ApiService) {}
 
-  getProjectId(value: string) {
-    this.api.getProjectById(value).subscribe({ next: (data) => (this.project = data) });
+  getProjectId(value: { projectId: string; length: number }) {
+    if (value.length === 1) {
+      this.isUnique = false;
+    } else {
+      this.isUnique = true;
+    }
+    this.api.getProjectById(value.projectId).subscribe({
+      next: (projectData) => {
+        this.project = projectData;
+      },
+    });
   }
 
   editProject(projectId: string) {
     const title = this.editProjectTitle.value;
     this.api.updateProjectTitle(projectId, title).subscribe(() => {
-      this.api.getProjectById(projectId).subscribe({ next: (data) => (this.project = data) });
+      this.api.getProjectById(projectId).subscribe({ next: (projectData) => (this.project = projectData) });
       this.sideMenu.updateList();
     });
     this.openCloseModal();
@@ -62,6 +71,10 @@ export class MainComponent {
     this.api.deleteProject(projectId).subscribe(() => {
       window.location.reload();
     });
+  }
+
+  verifyIsUniqueProject(length: number) {
+    console.log(length);
   }
 
   openCloseModal() {

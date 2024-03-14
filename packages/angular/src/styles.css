@@ -93,11 +93,19 @@ input::placeholder {
   font-style: italic;
 }
 
+.container-modal-input > * {
+  margin: 4px 0;
+}
+
+.container-modal-btn > * {
+  margin: 0 6px;
+}
+
 .delete-info p {
-  width: 200px;
   color: var(--color-custom-red);
   font-style: italic;
   font-size: 1.2rem;
+  padding: 0 8px;
 }
 
 @media only screen and (max-width: 480px) {

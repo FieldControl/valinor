@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { ModalComponent } from '../modal/modal.component';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
 import { Task } from '../../models/kanban.model';
 import { ApiService } from '../../services/api.service';
-import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 import { CdkDrag } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -18,8 +18,8 @@ import { CdkDrag } from '@angular/cdk/drag-drop';
 export class TaskCardComponent {
   @Input() task!: Task;
   @Output() updateTasks = new EventEmitter<void>();
-  editTitle = new FormControl('', { nonNullable: true });
-  editDescription = new FormControl('', { nonNullable: true });
+  editTitle = new FormControl('', { nonNullable: true, validators: Validators.required });
+  editDescription = new FormControl('', { nonNullable: true, validators: Validators.required });
   inputTitle: boolean = false;
   inputDescription: boolean = false;
   openModal: boolean = false;
@@ -28,9 +28,13 @@ export class TaskCardComponent {
 
   editTitleTask(taskId: string) {
     const title = this.editTitle.value;
-    console.log(title);
-    this.api.updateTaskTitle(taskId, title).subscribe((res) => {
-      console.log('Titulo task editado', res);
+    const validation = this.editTitle.valid;
+
+    if (!validation) {
+      return alert('Preenchimento do campo obrigatório');
+    }
+
+    this.api.updateTaskTitle(taskId, title).subscribe(() => {
       this.inputTitle = !this.inputTitle;
       this.updateTask();
     });
@@ -38,14 +42,20 @@ export class TaskCardComponent {
 
   editDescriptionTask(taskId: string) {
     const description = this.editDescription.value;
+    const validation = this.editDescription.valid;
+
+    if (!validation) {
+      return alert('Preenchimento do campo obrigatório');
+    }
+
     this.api.updateTaskDescription(taskId, description).subscribe(() => {
+      this.inputDescription = !this.inputDescription;
       this.updateTask();
     });
   }
 
   deleteTask(taskId: string) {
-    this.api.deleteTask(taskId).subscribe((res) => {
-      console.log('Task deletada', res);
+    this.api.deleteTask(taskId).subscribe(() => {
       this.updateTask();
     });
     this.openCloseModal();

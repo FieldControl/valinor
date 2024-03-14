@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class SideMenuComponent implements OnInit {
-  @Output() projectIdValue = new EventEmitter<string>();
+  @Output() projectIdValue = new EventEmitter<{ projectId: string; length: number }>();
   projects!: Project[];
   projectTitle = new FormControl('', { nonNullable: true });
   project_id!: string;
@@ -37,7 +37,7 @@ export class SideMenuComponent implements OnInit {
       if (projectsData.length) {
         this.projects = projectsData;
         this.project_id = this.projects[0]._id;
-        this.projectIdValue.emit(this.projects[0]._id);
+        this.projectIdValue.emit({ projectId: this.projects[0]._id, length: this.projects.length });
       } else {
         this.createProject();
       }
@@ -51,7 +51,7 @@ export class SideMenuComponent implements OnInit {
   }
 
   getProjectId(projectId: string) {
-    this.projectIdValue.emit(projectId);
+    this.projectIdValue.emit({ projectId: projectId, length: this.projects.length });
   }
 
   createProject() {
