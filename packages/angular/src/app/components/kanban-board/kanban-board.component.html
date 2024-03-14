@@ -1,0 +1,19 @@
+<div class="container-board" (cdkDropListDropped)="drop($event)" cdkDropList>
+  <div class="container-columns" cdkDropListGroup>
+    @for (column of columns; track column._id) {
+      <app-column
+        title="{{ column.title }}"
+        projectId="{{ column._id_project }}"
+        columnId="{{ column._id }}"
+        (updateColumnsEmit)="updateColumns()"
+        cdkDrag
+      >
+      </app-column>
+    }
+    <div>
+      <app-button buttonType="iconBtn" (click)="createColumn()">
+        <mat-icon>add</mat-icon>
+      </app-button>
+    </div>
+  </div>
+</div>
