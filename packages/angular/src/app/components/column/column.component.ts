@@ -76,46 +76,7 @@ export class ColumnComponent implements OnInit, OnChanges {
   }
 
   updateTasks() {
-    this.getAllTasks(this.projectId, this.columnId);
-  }
-
-  sortTasks() {
-    if (this.tasks !== undefined) {
-      if (this.sort) {
-        this.sort = !this.sort;
-        return this.sortTasksDec();
-      } else {
-        this.sort = !this.sort;
-        return this.sortTasksAsc();
-      }
-    }
-  }
-
-  sortTasksAsc() {
-    this.tasks.sort((a: Task, b: Task) => {
-      if (a.title > b.title) {
-        return 1;
-      }
-
-      if (a.title < b.title) {
-        return -1;
-      }
-
-      return 0;
-    });
-  }
-
-  sortTasksDec() {
-    this.tasks.sort((a: Task, b: Task) => {
-      if (a.title < b.title) {
-        return 1;
-      }
-      if (a.title > b.title) {
-        return -1;
-      }
-      console.log('rodou');
-      return 0;
-    });
+    this.apiService.getAllTasks(this.projectId, this.columnId).subscribe((data) => (this.tasks = data));
   }
 
   drop(event: CdkDragDrop<Task[]>) {

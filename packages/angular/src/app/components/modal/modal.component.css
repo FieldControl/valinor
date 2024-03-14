@@ -33,10 +33,13 @@
 }
 
 .container-content {
-  display: flex;
   flex-direction: column;
   gap: 18px;
   margin: 8rem 0;
+}
+
+.container-content > * {
+  margin: 12px 0;
 }
 
 button {
