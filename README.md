@@ -34,7 +34,7 @@ O Workflow Kanban utiliza o Angular 17, NestJS e MongoDB
 
 <div align="center">
 
-![projeto](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGV4ODF1NXczZGlldGc3dWI4bmxsNXJncDQzcXFpYWtrZXk2bTd1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/miKZf3vSmZ8eep5cLd/giphy.gif)
+<img width="620" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGV4ODF1NXczZGlldGc3dWI4bmxsNXJncDQzcXFpYWtrZXk2bTd1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/miKZf3vSmZ8eep5cLd/giphy.gif"/>
 
 </div>
 
