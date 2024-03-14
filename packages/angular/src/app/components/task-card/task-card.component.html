@@ -17,7 +17,7 @@
             type="text"
             [formControl]="editTitle"
             (keyup.enter)="editTitleTask(task._id)"
-            maxlength="15"
+            maxlength="35"
             placeholder="Edit task title..."
           />
           <app-button buttonType="editBtn" (click)="editTitleTask(task._id)"></app-button>

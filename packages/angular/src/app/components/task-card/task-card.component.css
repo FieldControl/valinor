@@ -19,6 +19,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--color-font-white);
+  text-align: start;
 }
 
 .task-title-btn:hover {

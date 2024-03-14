@@ -29,12 +29,7 @@ app-main {
 
 body {
   margin: 0;
-  font-family:
-    Quicksand,
-    Roboto,
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: Quicksand, Roboto, system-ui, -apple-system, sans-serif;
   background-color: var(--color-grey-100);
 }
 
@@ -106,6 +101,31 @@ input::placeholder {
   font-style: italic;
   font-size: 1.2rem;
   padding: 0 8px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  color: #171717;
+  border-radius: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey-800);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-grey-700);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 14px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 480px) {
