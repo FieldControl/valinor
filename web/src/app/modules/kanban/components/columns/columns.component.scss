@@ -1,0 +1,105 @@
+@import "../../../../../partials/rem-calc.scss";
+@import "primeicons/primeicons.css";
+
+.column-container {
+  width: rem-calc(350);
+  position: relative;
+
+  border-radius: rem-calc(20);
+
+  height: 80vh;
+  background-color: var(--background-secondary);
+
+  overflow-y: auto;
+}
+
+.column-container .column-header {
+  width: 100%;
+  padding: rem-calc(30);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--secondary);
+  color: var(--text-dark);
+  border-top-left-radius: rem-calc(20);
+  border-top-right-radius: rem-calc(20);
+}
+
+.column-container .column-header .btn-area {
+  display: flex;
+
+  border-top-right-radius: rem-calc(18);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.column-container .column-header .btn-area .btn {
+  border: none;
+  padding: rem-calc(11);
+}
+
+// .btn-area .btn-plus {
+//   background-color: var(--button);
+//   color: var(--text-dark);
+
+//   &:hover {
+//     background-color: var(--button-hover);
+//   }
+// }
+
+.btn-area .btn-alter {
+  border-bottom-left-radius: rem-calc(5);
+
+  background-color: var(--blue);
+  color: var(--text-dark);
+
+  &:hover {
+    background-color: var(--blue-hover);
+  }
+}
+
+.btn-area .btn-trash {
+  border-top-right-radius: rem-calc(18);
+
+  background-color: var(--error);
+  color: var(--text-dark);
+
+  &:hover {
+    background-color: var(--error-hover);
+  }
+}
+
+.column-container .card-area {
+  width: 100%;
+  padding: rem-calc(15) 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.column-container .btn-plus {
+  position: absolute;
+
+  padding: rem-calc(5);
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: var(--blue);
+  color: var(--text-dark);
+
+  &:hover {
+    background-color: var(--blue-hover);
+  }
+
+  font-size: rem-calc(20);
+
+  bottom: rem-calc(15);
+  right: rem-calc(15);
+}

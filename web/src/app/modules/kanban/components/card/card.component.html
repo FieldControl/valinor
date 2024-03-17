@@ -1,0 +1,36 @@
+<div class="card-container">
+  <div>
+    <strong>{{ title }}</strong>
+
+    <p class="description">{{ description }}</p>
+    <p class="responsable">
+      Responsavel: <span>{{ responsable }}</span>
+    </p>
+  </div>
+
+  <div class="btn-area">
+    <button
+      class="btn btn-alter"
+      (click)="handleEditCardEvent(cardEventEdit, id)"
+      id="btn-alter-card"
+    >
+      <i class="pi pi-pencil"></i>
+    </button>
+
+    <button
+      class="btn btn-trash"
+      (click)="handleCardDeleteEvent(title, id)"
+      id="btn-trash-card"
+    >
+      <i class="pi pi-trash"></i>
+    </button>
+
+    <button
+      class="btn btn-alter-column"
+      (click)="handleEditColumnToCardEvent(cardAlterColumnEdit, id)"
+      id="btn-alter-column-card"
+    >
+      <i class="pi pi-arrow-right-arrow-left"></i>
+    </button>
+  </div>
+</div>

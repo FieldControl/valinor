@@ -1,0 +1,42 @@
+<div class="column-container">
+  <div class="column-header">
+    <h3>{{ title }}</h3>
+
+    <div class="btn-area">
+      <button
+        class="btn btn-alter"
+        (click)="handleColumnEditEvent(columnEventEdit, id)"
+        id="btn-alter-column"
+      >
+        <i class="pi pi-pencil"></i>
+      </button>
+      <button
+        class="btn btn-trash"
+        (click)="handleColumnDeleteEvent(title, id)"
+        id="btn-trash-column"
+      >
+        <i class="pi pi-trash"></i>
+      </button>
+    </div>
+  </div>
+
+  <app-card
+    class="card-area"
+    *ngFor="let item of cards"
+    [id]="item.id"
+    [title]="item.title"
+    [description]="item.description"
+    [responsable]="item.user.name"
+    (editCardEvent)="handleEditCardEvent($event)"
+    (deleteCardEvent)="handleDeleteCardEvent($event)"
+    (editColumnToCardEvent)="handleEditColumnToCardEvent($event)"
+  ></app-card>
+
+  <button
+    class="btn-plus"
+    id="btn-add-card"
+    (click)="handleAddCardEvent(AddCardEvent, id)"
+  >
+    <i class="pi pi-plus"></i>
+  </button>
+</div>

@@ -1,0 +1,119 @@
+<section class="dialog-container">
+  <button class="btn-close" (click)="closeModal(null)">
+    <i class="pi pi-times-circle"></i>
+  </button>
+  <span>{{ dialogAction.event.action }}</span>
+  <form
+    [formGroup]="columnForm"
+    (ngSubmit)="handleSubmitAddColumn()"
+    *ngIf="dialogAction.event.action === addColumnEvent"
+  >
+    <input placeholder="Titulo" formControlName="title" />
+    <button type="submit" [disabled]="!this.columnForm.valid">Enviar</button>
+
+    <app-message-error
+      class="msg-error slideInDown"
+      [text]="textError"
+      [isError]="isError"
+    ></app-message-error>
+  </form>
+
+  <form
+    [formGroup]="columnForm"
+    (ngSubmit)="handleSubmitEditColumn()"
+    *ngIf="dialogAction.event.action === editColumnEvent"
+  >
+    <input
+      [placeholder]="columnTitle"
+      formControlName="title"
+      id="input-alter-title-column"
+    />
+    <button type="submit" [disabled]="!this.columnForm.valid">Enviar</button>
+
+    <app-message-error
+      class="msg-error slideInDown"
+      [text]="textError"
+      [isError]="isError"
+    ></app-message-error>
+  </form>
+
+  <form
+    [formGroup]="editCardForm"
+    (ngSubmit)="handleSubmitEditCard()"
+    *ngIf="dialogAction.event.action === editCardEvent && !isLoadingUser"
+  >
+    <input
+      [placeholder]="cardTitle"
+      formControlName="title"
+      id="input-alter-title"
+    />
+    <input
+      [placeholder]="cardTitle"
+      formControlName="description"
+      id="input-alter-description"
+    />
+    <select formControlName="responsable">
+      <option
+        *ngFor="let user of userDatas"
+        [ngValue]="user.id"
+        [selected]="user.id === userResponsable?.id"
+      >
+        {{ user.name }}
+      </option>
+    </select>
+
+    <button type="submit" [disabled]="!this.editCardForm.valid">Enviar</button>
+
+    <app-message-error
+      class="msg-error slideInDown"
+      [text]="textError"
+      [isError]="isError"
+    ></app-message-error>
+  </form>
+
+  <form
+    [formGroup]="addCardForm"
+    (ngSubmit)="handleSubmitAddCard()"
+    *ngIf="dialogAction.event.action === addCardEvent && !isLoadingUser"
+  >
+    <input placeholder="Titulo" formControlName="title" />
+    <input placeholder="Descrição" formControlName="description" />
+    <select formControlName="responsable" id="select-responsable">
+      <option value="" disabled selected hidden>Selecione</option>
+      <option *ngFor="let user of userDatas" [ngValue]="user.id">
+        {{ user.name }}
+      </option>
+    </select>
+
+    <button type="submit" [disabled]="!this.addCardForm.valid">Enviar</button>
+
+    <app-message-error
+      class="msg-error slideInDown"
+      [text]="textError"
+      [isError]="isError"
+    ></app-message-error>
+  </form>
+
+  <form
+    [formGroup]="editColumnToCardForm"
+    (ngSubmit)="handleEditColumnToCard()"
+    *ngIf="dialogAction.event.action === editColumnToCard"
+  >
+    <select formControlName="column" id="select-column">
+      <option value="" disabled selected hidden>Selecione</option>
+      <option *ngFor="let column of dialogAction.data" [ngValue]="column.id">
+        {{ column.title }}
+      </option>
+    </select>
+
+    <button type="submit" [disabled]="!this.editColumnToCardForm.valid">
+      Enviar
+    </button>
+
+    <app-message-error
+      class="msg-error slideInDown"
+      [text]="textError"
+      [isError]="isError"
+    ></app-message-error>
+  </form>
+</section>

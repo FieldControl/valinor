@@ -1,0 +1,23 @@
+<main class="container">
+  <h1>Bem vindo ao <span>!Kanban</span></h1>
+  <strong>Cadastre-se</strong>
+
+  <form [formGroup]="createUserForm" (ngSubmit)="onSubmitcreateUserForm()">
+    <input type="text" placeholder="Nome" formControlName="name" />
+    <input type="email" placeholder="Email" formControlName="email" />
+    <input type="password" placeholder="Senha" formControlName="password" />
+    <button type="submit" [disabled]="!this.createUserForm.valid">
+      Cadastrar
+    </button>
+
+    <app-message-error
+      class="msg-error slideInDown"
+      text="{{ textError }}"
+      [isError]="isError"
+    ></app-message-error>
+  </form>
+
+  <a routerLink="/" class="register">
+    <i class="pi pi-sign-in"></i>Já possui uma conta? Logar
+  </a>
+</main>

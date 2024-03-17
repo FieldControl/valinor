@@ -1,0 +1,54 @@
+@import "primeicons/primeicons.css";
+@import "../../../../partials/rem-calc.scss";
+
+header {
+  width: 100%;
+  background-color: var(--background-secondary);
+}
+
+header .header-container {
+  width: 100%;
+  max-width: 1440px;
+
+  margin: 0 auto;
+  padding: rem-calc(10) rem-calc(15);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .header-container .logo {
+  display: flex;
+
+  font-size: rem-calc(25);
+
+  span {
+    font-weight: 500;
+    font-style: italic;
+    color: var(--secondary);
+  }
+
+  h2 {
+    margin-left: rem-calc(5);
+    font-weight: 200;
+  }
+}
+
+header .header-container .btn-signout {
+  border: none;
+  background: none;
+
+  padding: rem-calc(10);
+
+  border-radius: 50%;
+
+  &:hover {
+    background-color: var(--background);
+  }
+}
+
+header .header-container .btn-signout i {
+  color: var(--text);
+  font-size: rem-calc(18);
+}

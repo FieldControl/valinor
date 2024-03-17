@@ -1,0 +1,21 @@
+<main class="container">
+  <h1>Bem vindo ao <span>!Kanban</span></h1>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()">
+    <input type="email" placeholder="Email" formControlName="email" />
+    <input type="password" placeholder="Senha" formControlName="password" />
+    <button type="submit" [disabled]="!this.loginForm.valid || isLoading">
+      Fazer login
+    </button>
+
+    <app-message-error
+      class="msg-error slideInDown"
+      [text]="textError"
+      [isError]="isError"
+    ></app-message-error>
+  </form>
+
+  <a routerLink="/register" class="register">
+    <i class="pi pi-user-plus"></i>Registre-se
+  </a>
+</main>

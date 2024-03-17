@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<main class="kanban-container">
+  <div class="btn-area">
+    <button class="btn btn-plus" (click)="handleColumnEvent(addColumnEvent)">
+      <i class="pi pi-plus"></i>
+      <p>Criar coluna</p>
+    </button>
+  </div>
+
+  <section class="columns-area">
+    <app-columns
+      *ngFor="let item of columnsDatas"
+      [title]="item.title"
+      [id]="item.id"
+      [cards]="getCardsByColumn(item.id)"
+      (editColumnEvent)="handleColumnEvent($event.action, $event.id)"
+      (deleteColumnEvent)="handleDeleteColumnEvent($event)"
+      (editCardEvent)="handleCardEvent($event.action, $event.id)"
+      (deleteCardEvent)="handleEventDeleteCard($event)"
+      (addCardEvent)="handleCardEvent($event.action, $event.id)"
+      (editColumnToCardEvent)="handleColumnEvent($event.action, $event.id)"
+    ></app-columns>
+  </section>
+</main>
