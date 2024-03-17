@@ -1,0 +1,19 @@
+@import "primeicons/primeicons.css";
+@import "../../../../partials/rem-calc.scss";
+
+.content {
+  i {
+    margin-right: rem-calc(10);
+  }
+
+  padding: rem-calc(10);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: rem-calc(15);
+  font-weight: 800;
+
+  background-color: var(--error);
+}

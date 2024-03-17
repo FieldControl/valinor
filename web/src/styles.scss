@@ -1,0 +1,35 @@
+@import "./partials/reset.scss";
+@import "./partials/variables.scss";
+@import "./partials/rem-calc.scss";
+@import "./partials/animations.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  background-color: var(--background);
+  color: var(--text);
+
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.msg-error {
+  width: 100%;
+}
+
+.border {
+  border: 1px solid red;
+}

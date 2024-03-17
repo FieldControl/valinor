@@ -1,0 +1,63 @@
+@import "primeicons/primeicons.css";
+@import "../../../../../partials/rem-calc.scss";
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 90%;
+  height: rem-calc(180);
+  padding: rem-calc(20);
+  background-color: var(--background);
+
+  border-radius: rem-calc(5);
+}
+
+.card-container .description {
+  margin-top: rem-calc(5);
+}
+
+.card-container .responsable {
+  margin-top: rem-calc(5);
+}
+
+.card-container .btn-area {
+  display: flex;
+  gap: rem-calc(5);
+}
+
+.card-container .btn-area .btn {
+  border: none;
+  padding: rem-calc(11);
+
+  border-radius: 50%;
+}
+
+.btn-area .btn-alter-column {
+  background-color: var(--button);
+  color: var(--text-dark);
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+}
+
+.btn-area .btn-alter {
+  background-color: var(--blue);
+  color: var(--text-dark);
+
+  &:hover {
+    background-color: var(--blue-hover);
+  }
+}
+
+.btn-area .btn-trash {
+  background-color: var(--error);
+  color: var(--text-dark);
+
+  &:hover {
+    background-color: var(--error-hover);
+  }
+}

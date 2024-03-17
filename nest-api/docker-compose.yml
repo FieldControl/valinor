@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  database:
+    container_name: nest_db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: apinestjs
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker

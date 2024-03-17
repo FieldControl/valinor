@@ -1,0 +1,98 @@
+@import "../../../../../partials/rem-calc.scss";
+@import "primeicons/primeicons.css";
+
+.dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+
+  background-color: var(--primary);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+  height: 40vh;
+  border-radius: rem-calc(15);
+
+  span {
+    font-size: rem-calc(25);
+    font-weight: 700;
+
+    color: var(--background);
+  }
+
+  form {
+    margin-top: rem-calc(20);
+
+    display: flex;
+    flex-direction: column;
+
+    width: rem-calc(300);
+
+    input {
+      width: 100%;
+      margin-top: rem-calc(5);
+
+      font-size: rem-calc(15);
+      padding: rem-calc(10);
+    }
+
+    select {
+      margin-top: rem-calc(5);
+
+      width: 100%;
+      font-size: rem-calc(15);
+      padding: rem-calc(10);
+    }
+
+    button {
+      width: 100%;
+      padding: rem-calc(10);
+
+      margin-top: rem-calc(10);
+
+      border: none;
+      background-color: var(--button);
+      color: var(--text);
+
+      font-size: rem-calc(15);
+      font-weight: 800;
+
+      transform: translate(0.5s);
+
+      &:hover {
+        background-color: var(--button-hover);
+      }
+
+      &:disabled {
+        background-color: var(--button-disabled);
+        cursor: not-allowed;
+      }
+
+      margin-bottom: rem-calc(5);
+    }
+  }
+}
+
+.dialog-container .btn-close {
+  border: none;
+  background: none;
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  i {
+    color: var(--button);
+    font-size: rem-calc(18);
+    font-weight: 600;
+
+    border: none;
+
+    &:hover {
+      color: var(--button-hover);
+    }
+  }
+}
