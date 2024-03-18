@@ -1,8 +1,6 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# 👨‍💻 Vaga para apaixonados por criação de software
 
-A empresa
-----------
+## A empresa
 
 Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
 
@@ -16,15 +14,14 @@ Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso i
   <img src="assets/fielders.jpeg" width="855"/>
 </p>
 
-Origem
-----------
+## Origem
 
 Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
 
 Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
 
-Condições
-----------
+## Condições
+
 - Período: Integral
 - Onde: Qualquer lugar :)
 - Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
@@ -51,8 +48,7 @@ Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas apl
 
 Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
 
-Oportunidade
-----------
+## Oportunidade
 
 Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
 
@@ -60,23 +56,23 @@ Na Field, o seu dia-a-dia será repleto de:
 
 ```javascript
 [
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
+  "GitHub & Git <3",
+  "Muito, muito e muito JavaScript",
+  "Object-oriented programming, SOLID Principles & Design Patterns",
+  "Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)",
+  "Testes de software (unitários, integração, e2e..)",
+  "Desafios de escalabilidade",
+  "Desafios de alta disponibilidade",
+  "Micro services e aplicações distribuídas",
+  "Amazon Web Services",
+  "PAAS & Cloud Services",
+  "Serverless apps",
+  "AngularJS, Angular",
+  "REST APIs",
+  "GraphQL APIs",
+  "Material Design",
+  "Open source software",
+];
 ```
 
 Nossa stack tecnológica é predominantemente JavaScript, abrangendo Node.js, Single Page Applications (SPA) e Hybrid Mobile Apps.
@@ -117,14 +113,13 @@ Aqui está a seção com emojis adicionados:
 
 Estes requisitos refletem nossa busca por profissionais qualificados e comprometidos, capazes de contribuir de forma significativa para o sucesso de nossos projetos.
 
-O desafio de programação
-----------
+## O desafio de programação
 
 Se você é apaixonado por desenvolvimento de software e busca desafios para impulsionar sua carreira, este teste é para você! Realize o desafio abaixo e faça um fork deste repositório para começar a codificar. [Let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)! 🚀
 
 # Teste de Programação: Kanban
 
-Este é um teste de programação que consiste em implementar um Kanban, utilizando Angular para o client side e NestJs para o back-end. 
+Este é um teste de programação que consiste em implementar um Kanban, utilizando Angular para o client side e NestJs para o back-end.
 
 O objetivo é avaliar a capacidade do candidato em estruturar um projeto seguindo as boas práticas de ambos os frameworks e implementar um fluxo básico de colunas e cards dentro do Kanban.
 
@@ -218,9 +213,8 @@ Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais p
 
 A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a aplicação de tecnologias modernas e práticas de desenvolvimento de software, elevando a qualidade e a experiência do usuário final.
 
+## Dúvidas?
 
-Dúvidas?
-----------
 Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
 
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:

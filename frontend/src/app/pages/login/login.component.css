@@ -1,0 +1,147 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-login {
+  max-width: 400px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 32px 40px;
+}
+
+.logo {
+  color: #172b4d;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.proceed {
+  font-weight: 500;
+  font-size: 14px;
+  margin: 5px 0;
+  line-height: 20px;
+  color: #172b4d;
+}
+
+input {
+  background-color: transparent;
+  border: 0px;
+  box-sizing: border-box;
+  color: inherit;
+  cursor: inherit;
+  font-size: 14px;
+  max-width: 320px;
+  width: 100%;
+  outline: none;
+  line-height: 1.42857;
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #dfe1e6;
+}
+
+input[type="password"] {
+  margin-top: 10px;
+}
+
+.button-continue {
+  background: #0052cc;
+  font-weight: 600;
+  margin: 10px 0;
+  font-size: 14px;
+  max-width: 320px;
+  height: 35px;
+  border-radius: 3px;
+  width: 100%;
+  color: #fff;
+}
+
+.or {
+  color: rgb(94, 108, 132);
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 320px;
+}
+
+.social-button {
+  box-shadow: none;
+  font-weight: bold;
+  border: 1px solid rgb(193, 199, 208);
+  border-radius: 3px;
+  color: rgb(23, 43, 77);
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  background: rgb(255, 255, 255);
+}
+
+.create-account {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0px;
+  gap: 5px;
+
+  margin-top: 24px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+}
+
+a,
+p {
+  color: #0052cc;
+}
+
+.footer {
+  background: transparent;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin: 10px auto;
+  border-top: 1px solid rgb(193, 199, 208);
+  font-size: 11px;
+  color: rgb(23, 43, 77);
+  padding: 10px 0px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer > h1 {
+  color: #222;
+}
+
+.jira-account {
+  font-size: 11px;
+  color: rgb(23, 43, 77);
+  text-align: center;
+}
