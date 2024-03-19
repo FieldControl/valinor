@@ -1,0 +1,80 @@
+<header>
+  <nav>
+    <div>
+      <a class="logo">Field Control</a>
+      <a href="">Áreas de trabalho</a>
+      <a href="">Recente</a>
+      <a href="">Marcado com estrela</a>
+      <a href="">Templates</a>
+    </div>
+    <div>
+      <input type="text" placeholder="Pesquisar" />
+    </div>
+  </nav>
+</header>
+<div class="layout">
+  <div class="columns">
+    <div *ngFor="let columnResponse of dataColumn" (click)="selectColumn(columnResponse.id)">
+      <div class="container-column">
+        <div class="column">
+          <h1 class="column-title">{{ columnResponse.title }}</h1>
+          <div class="column-item" *ngFor="let taskResponse of dataTasks[columnResponse.id]">
+            <span>{{ taskResponse.title }}</span>
+          </div>
+          <h1 (click)="openCardModal()" class="column-create-card">+ Adicionar um cartão</h1>
+        </div>
+      </div>
+    </div>
+    <div #myCardModal id="myCardModal" class="modal">
+      <div class="modal-content">
+        <form [formGroup]="cardModalForm">
+          <input
+            formControlName="titleCard"
+            type="text"
+            id="titleCard"
+            name="titleCard"
+            required
+            placeholder="Insira um titulo para este cartão"
+          />
+          <textarea
+            formControlName="description"
+            type="text"
+            id="description"
+            name="description"
+            required
+            placeholder="Insira uma descrição para este cartão"
+            style="height: 200px"
+          ></textarea>
+          <label for="archived">Arquivar?</label>
+          <select formControlName="archived" name="archived" id="archived">
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+          </select>
+          <div class="create">
+            <button (click)="createCard()" type="submit">Criar</button>
+            <span (click)="closeCardModal()" class="close">&times;</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="create-column" (click)="openModal()">+ Adicionar outra lista</div>
+    <div #myModal id="myModal" class="modal">
+      <div class="modal-content">
+        <form [formGroup]="listForm">
+          <input
+            formControlName="title"
+            type="text"
+            id="title"
+            name="title"
+            required
+            placeholder="Insira um titulo da lista"
+          />
+          <div class="create">
+            <button (click)="createColumn()" type="submit">Criar</button>
+            <span (click)="closeModal()" class="close">&times;</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

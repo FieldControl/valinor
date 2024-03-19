@@ -1,0 +1,32 @@
+<div class="register">
+  <form class="form-register" [formGroup]="registerForm">
+    <h1 class="logo">Field Control</h1>
+    <span class="proceed">Registre-se para continuar</span>
+    <input #inputEmail formControlName="email" type="text" placeholder="Insira seu e-mail" />
+    <input #inputName formControlName="name" type="name" placeholder="Insira seu nome" />
+    <input formControlName="password" type="password" placeholder="Insira sua senha" />
+    <button type="button" class="button-continue" (click)="onSubmit()">Continuar</button>
+
+    <span class="or">Ou prossiga com:</span>
+    <div class="social-register">
+      <button class="social-button">Google</button>
+      <button class="social-button">Microsoft</button>
+      <button class="social-button">Apple</button>
+      <button class="social-button">Slack</button>
+    </div>
+    <div class="create-account">
+      <a href="">Não consegue entrar?</a>
+      <p>•</p>
+      <a href="">Criar uma conta</a>
+    </div>
+    <div class="footer">
+      <h1>Gabriel Fragoso</h1>
+      <span class="jira-account">Uma conta para Trello, Jira, Confluence e mais.</span>
+      <span class="privacy-policy">Política de Privacidade • Aviso ao usuário</span>
+      <span class="recaptcha"
+        >Esta página é protegida pelo reCAPTCHA e a Política de Privacidade e os Termos de Serviço do Google são
+        aplicados.</span
+      >
+    </div>
+  </form>
+</div>

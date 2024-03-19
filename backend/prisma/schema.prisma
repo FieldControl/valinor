@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  password String
+  name     String
+  projects Project[]
+
+  @@map("users")
+}
+
+model Project {
+  id         String @id @default(uuid())
+  title      String
+  isTemplate String
+
+  Column  Column[]
+  Archive Archive[]
+  Task    Task[]
+  User    User?     @relation(fields: [userId], references: [id])
+  userId  String?
+
+  @@map("projects")
+}
+
+model Column {
+  id    String @id @default(uuid())
+  title String
+
+  projectId String
+  project   Project   @relation(fields: [projectId], references: [id])
+  Archive   Archive[]
+  Task      Task[]
+
+  @@map("columns")
+}
+
+model Task {
+  id          String  @id @default(uuid())
+  title       String
+  description String
+  archived    Boolean
+
+  columnId String
+  column   Column @relation(fields: [columnId], references: [id])
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  @@map("tasks")
+}
+
+model Archive {
+  id          String  @id @default(uuid())
+  title       String
+  description String
+  archived    Boolean
+
+  columnId String
+  column   Column @relation(fields: [columnId], references: [id])
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  @@map("archives")
+}

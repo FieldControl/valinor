@@ -1,0 +1,72 @@
+<header>
+  <nav>
+    <div>
+      <a class="logo">Field Control</a>
+      <a href="">Áreas de trabalho</a>
+      <a href="">Recente</a>
+      <a href="">Marcado com estrela</a>
+      <a href="">Templates</a>
+    </div>
+    <div>
+      <input type="text" placeholder="Pesquisar" />
+    </div>
+  </nav>
+</header>
+<div class="layout">
+  <div class="sidebar">
+    <ul class="boards">
+      <li class="board">Quadros</li>
+      <li>Templates</li>
+      <li>Início</li>
+    </ul>
+    <ul class="worktable">
+      <li class="title">Área de trabalho do Trello</li>
+    </ul>
+  </div>
+  <div class="main">
+    <h1>Templates mais populares</h1>
+    <span class="select">
+      <p>Comece a produzir mais rapidamente com um template da comunidade do Trello ou</p>
+      <select name="" id="">
+        <option value="">Populares</option>
+        <option value="">Pequena empresa</option>
+        <option value="">Design</option>
+        <option value="">Educação</option>
+      </select>
+    </span>
+    <div class="cards">
+      <div class="card">
+        <span>Template</span>
+        <h1>Gestão de Projetos</h1>
+      </div>
+    </div>
+    <span class="navigate">Navegue por toda a galeria de templates</span>
+    <div *ngFor="let project of projects"></div>
+    <div class="recent">
+      <h1>Visualizado recentemente</h1>
+      <div class="cards">
+        <div class="card" *ngFor="let project of projects" (click)="onNavigateToProjectId(project.id)">
+          <span>{{ project.isTemplate }}</span>
+          <h1>{{ project.title }}</h1>
+        </div>
+        <div (click)="openModal()" class="card">
+          <span>CRIAR</span>
+          <h1>Criar meu projeto</h1>
+        </div>
+        <div #myModal id="myModal" class="modal">
+          <div class="modal-content">
+            <span (click)="closeModal()" class="close">&times;</span>
+            <h2>Criar projeto</h2>
+            <form [formGroup]="projectForm">
+              <label for="title">Título do projeto:</label>
+              <input formControlName="title" type="text" id="title" name="title" required />
+              <label for="isTemplate">Categoria:</label>
+              <input formControlName="isTemplate" type="text" id="isTemplate" name="isTemplate" required />
+              <button (click)="onSubmit()" type="submit">Criar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
