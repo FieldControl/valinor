@@ -28,7 +28,7 @@ Para usar o Kanban:
 Para utilizar o Kanban, siga estes passos:
 1. Baixe o Node.js em sua máquina
 2. Instale o Angular CLI globalmente executando o seguinte comando no terminal:`npm install -g @angular/cli@14`
-5. Clone o repositório do Kanban para o seu ambiente local: `git clone https://github.com/chichq/valinor.git`
+3. Clone o repositório do Kanban para o seu ambiente local: `git clone https://github.com/chichq/valinor.git`
 
 ## Quais princípios da engenharia de software que você usou
 Apliquei principios de clean code no código tentando evitar o máximo possivel comentários.
