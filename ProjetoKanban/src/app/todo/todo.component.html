@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="background: #6b8add;height:93vh" class="col-md-2">
+      <div>
+        <mat-card class="mt-3">
+          <form [formGroup]="todoForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Nome da Tarefa</mat-label>
+              <input formControlName="item" matInput placeholder="Placeholder">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button [disabled]="todoForm.invalid" color="primary">Criar</button>
+            <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button [disabled]="todoForm.invalid" color="primary">Atualizar</button>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div cdkDropListGroup>
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Tarefas -->
+            <div class="example-container">
+              <h2>TAREFAS</h2>
+              <div cdkDropList [cdkDropListData]="tarefas" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of tarefas; let i = index" cdkDrag>{{item.description}}
+                  <div class="box">
+                    <button mat-icon-button color="warn" (click)="deleteTarefa(i)"><mat-icon>delete</mat-icon></button>
+                    <button mat-icon-button color="primary" (click)="edit(item, i)"><mat-icon>edit</mat-icon></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- Em Progresso -->
+            <div class="example-container">
+              <h2>EM PROGRESSO</h2>
+              <div cdkDropList [cdkDropListData]="emprogresso" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of emprogresso; let i = index" cdkDrag>{{item.description}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- Feitas -->
+            <div class="example-container">
+              <h2>FEITAS</h2>
+              <div cdkDropList [cdkDropListData]="feitas" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of feitas" cdkDrag>{{item.description}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
