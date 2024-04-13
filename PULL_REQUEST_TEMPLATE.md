@@ -2,6 +2,20 @@
 
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
+-Preciso pesquisar ainda muitas coisa de como eu farei essa aplicação.
+-A principio montarei os prototipos
+    - DER
+    - Diagrama de classes
+    - Prototipo da interface no Figma
+-Em segundo lugar vou fazer as pesquisas de tudo que sera necessario para relizar a aplicação
+    - Banco de dados (mySql)
+    - API
+    - Framework(Angular,next.js,node.js)
+    - Linguagem(javaScript)
+-Depois disso desenvolverei o backend
+-Para finalizar o forntend
+
+
 **Framework, linguagem e ferramentas**
 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
