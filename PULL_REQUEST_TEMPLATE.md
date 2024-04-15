@@ -9,7 +9,7 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
     - Prototipo da interface no Figma
 -Em segundo lugar vou fazer as pesquisas de tudo que sera necessario para relizar a aplicação
     - Banco de dados (mySql)
-    - API
+    - API(calendario - )
     - Framework(Angular,next.js,node.js)
     - Linguagem(javaScript)
 -Depois disso desenvolverei o backend
