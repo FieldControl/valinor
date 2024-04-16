@@ -9,7 +9,7 @@ export class Column {
   @Prop()
   name: string;
 
-  @Prop()
+  @Prop({ref: "Card"})
   cards: Card[];
 }
 

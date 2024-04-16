@@ -1,26 +1,39 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Card, CardDocument } from './entities/card.entity';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class CardsService {
+
+  constructor(@InjectModel(Card.name) private cardModel: Model<CardDocument>) {}
+
   create(createCardDto: CreateCardDto) {
-    return 'This action adds a new card';
+    const column = new this.cardModel(createCardDto);
+
+    return column.save();
   }
 
   findAll() {
-    return `This action returns all cards`;
+    return this.cardModel.find().populate('responsible').populate('column');
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} card`;
+  findOne(id: string) {
+    return this.cardModel.findById(id).populate('responsible').populate('column'); // id do mongo é string
   }
 
-  update(id: number, updateCardDto: UpdateCardDto) {
-    return `This action updates a #${id} card`;
+  update(id: string, updateCardDto: UpdateCardDto) {
+    return this.cardModel.findByIdAndUpdate(
+      id, updateCardDto, { new: true }
+    )
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} card`;
+  remove(id: string) {
+    return this.cardModel.deleteOne(
+      {
+        _id: id
+      }).exec();
   }
 }

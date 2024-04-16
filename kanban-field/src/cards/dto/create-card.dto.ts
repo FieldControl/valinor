@@ -6,4 +6,5 @@ export class CreateCardDto {
     createdAt: Date;
     dueDate: Date;
     responsible: User;
+    columnName: string;
 }
