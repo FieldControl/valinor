@@ -8,5 +8,6 @@ import { Card, CardSchema } from './entities/card.entity';
   imports: [MongooseModule.forFeature([{ name: Card.name, schema: CardSchema }])],
   controllers: [CardsController],
   providers: [CardsService],
+  exports: [CardsService],
 })
 export class CardsModule {}

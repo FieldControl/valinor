@@ -23,7 +23,7 @@ export class Card {
   responsible: User;
 
   @Prop({type: mongoose.Schema.Types.ObjectId, ref: "Column"}) // Referência à coluna
-  column: Column;
+  column: string;
 }
 
 export const CardSchema = SchemaFactory.createForClass(Card);

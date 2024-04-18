@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import mongoose, { HydratedDocument } from 'mongoose';
 import { Card } from 'src/cards/entities/card.entity';
 
 export type ColumnDocument = HydratedDocument<Column>;
@@ -9,7 +9,7 @@ export class Column {
   @Prop()
   name: string;
 
-  @Prop({ref: "Card"})
+  @Prop({type: mongoose.Schema.Types.Array, ref: "Card"})
   cards: Card[];
 }
 

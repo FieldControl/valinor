@@ -24,6 +24,10 @@ export class CardsService {
     return this.cardModel.findById(id).populate('responsible').populate('column'); // id do mongo é string
   }
 
+  find(conditions: any) {
+    return this.cardModel.find(conditions);  // responsavel por achar a coluna que pertence
+  }  
+
   update(id: string, updateCardDto: UpdateCardDto) {
     return this.cardModel.findByIdAndUpdate(
       id, updateCardDto, { new: true }

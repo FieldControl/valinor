@@ -22,11 +22,6 @@ export class ColumnsController {
     return this.columnsService.findOne(id);
   }
 
-  @Get(':name')
-  findByName(@Param('name') name: string) {
-    return this.columnsService.findByName(name);
-  }
-
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateColumnDto: UpdateColumnDto) {
     return this.columnsService.update(id, updateColumnDto);
