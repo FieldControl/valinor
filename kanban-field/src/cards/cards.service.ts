@@ -1,43 +1,69 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Card, CardDocument } from './entities/card.entity';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 
 @Injectable()
 export class CardsService {
 
   constructor(@InjectModel(Card.name) private cardModel: Model<CardDocument>) {}
 
-  create(createCardDto: CreateCardDto) {
-    const column = new this.cardModel(createCardDto);
-
-    return column.save();
+  async create(createCardDto: CreateCardDto) {
+    try {
+      const column = new this.cardModel(createCardDto);
+      return await column.save();
+    } catch (error) {
+      throw new Error(`Falha ao criar o cartão: ${error.message}`);
+    }
   }
 
-  findAll() {
-    return this.cardModel.find().populate('responsible').populate('column');
+  async findAll() {
+    try {
+      return await this.cardModel.find().populate('responsible').populate('column');
+    } catch (error) {
+      throw new Error(`Falha ao consultar todos os cartões: ${error.message}`);
+    }
   }
 
-  findOne(id: string) {
-    return this.cardModel.findById(id).populate('responsible').populate('column'); // id do mongo é string
+  async findOne(id: string) {
+    const card = await this.cardModel.findById(id).populate('responsible').populate('column');
+    
+    if (!card) {
+      throw new NotFoundException('Cartão não encontrado');
+    }
+    
+    return card;
   }
 
-  find(conditions: any) {
-    return this.cardModel.find(conditions);  // responsavel por achar a coluna que pertence
+  async find(conditions: any) {
+    try {
+      return this.cardModel.find(conditions);  // responsavel por achar a coluna que pertence
+    } catch (error) {
+      throw new Error(`Falha ao encontrar o cartão: ${error.message}`);
+    }
   }  
 
-  update(id: string, updateCardDto: UpdateCardDto) {
-    return this.cardModel.findByIdAndUpdate(
+  async update(id: string, updateCardDto: UpdateCardDto) {
+    const card = await this.cardModel.findByIdAndUpdate(
       id, updateCardDto, { new: true }
     )
+    
+    if (!card) {
+      throw new NotFoundException('Cartão não encontrado');
+    }
+    
+    return card
   }
 
-  remove(id: string) {
-    return this.cardModel.deleteOne(
-      {
-        _id: id
-      }).exec();
+  async remove(id: string) {
+    const card = await this.cardModel.findByIdAndDelete(id);
+    
+    if (!card) {
+      throw new NotFoundException('Cartão não encontrado');
+    }
+    
+    return card
   }
 }
