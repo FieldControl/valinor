@@ -4,7 +4,6 @@ Esse projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 
 ## Como rodar
 
-No back-end execute o comando `npm install`.
 Logo em seguida execute o comando `npm run dev`, desse modo, nossa api estará rodando em `http://localhost:3000`.
 
 No front-end execute o comando `npm install`.
