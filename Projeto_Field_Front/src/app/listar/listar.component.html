@@ -1,0 +1,151 @@
+<div class="title">
+  <div><h1>KANBAN SERVICE</h1></div>
+  <div>
+    <div class="align">
+      <a href="/cadastrar" class="button">+</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="pix">
+    <div class="title_tarefa_1">A FAZER</div>
+    <div class="container">
+      <div class="pix">
+        <div class="card_tarefa">
+          <div *ngFor="let tarefa of arrayTarefas" class="column">
+            <div class="card" *ngIf="tarefa.estado === 'A ser iniciada'">
+              <div>
+                <div>
+                  <h3>{{ tarefa.descricao }}</h3>
+                </div>
+              </div>
+              <div class="but">
+                <button
+                  (click)="alterarEstado(tarefa, 'Em andamento')"
+                  class="but_2"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Concluida')"
+                  class="but_3"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Parada')"
+                  class="but_4"
+                ></button>
+                <button (click)="excluirTarefa(tarefa)" class="but_del">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pix">
+    <div class="title_tarefa_2">EM ANDAMENTO</div>
+    <div class="container">
+      <div class="pix">
+        <div class="card_tarefa">
+          <div *ngFor="let tarefa of arrayTarefas" class="column">
+            <div class="card" *ngIf="tarefa.estado === 'Em andamento'">
+              <div>
+                <div>
+                  <h3>{{ tarefa.descricao }}</h3>
+                </div>
+              </div>
+              <div class="but">
+                <button
+                  (click)="alterarEstado(tarefa, 'A ser iniciada')"
+                  class="but_1"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Concluida')"
+                  class="but_3"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Parada')"
+                  class="but_4"
+                ></button>
+                <button (click)="excluirTarefa(tarefa)" class="but_del">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pix">
+    <div class="title_tarefa_3">PRONTO</div>
+    <!-- card-pronto.component.html -->
+    <div class="container">
+      <div class="pix">
+        <div class="card_tarefa">
+          <div *ngFor="let tarefa of arrayTarefas" class="column">
+            <div class="card" *ngIf="tarefa.estado === 'Concluida'">
+              <div>
+                <div>
+                  <h3>{{ tarefa.descricao }}</h3>
+                </div>
+              </div>
+              <div class="but">
+                <button
+                  (click)="alterarEstado(tarefa, 'A ser iniciada')"
+                  class="but_1"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Em andamento')"
+                  class="but_2"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Parada')"
+                  class="but_4"
+                ></button>
+                <button (click)="excluirTarefa(tarefa)" class="but_del">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pix">
+    <div class="title_tarefa_4">PARADO</div>
+    <div class="container">
+      <div class="pix">
+        <div class="card_tarefa">
+          <div *ngFor="let tarefa of arrayTarefas" class="column">
+            <div class="card" *ngIf="tarefa.estado === 'Parada'">
+              <div>
+                <div>
+                  <h3>{{ tarefa.descricao }}</h3>
+                </div>
+              </div>
+              <div class="but">
+                <button
+                  (click)="alterarEstado(tarefa, 'A ser iniciada')"
+                  class="but_1"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Em andamento')"
+                  class="but_2"
+                ></button>
+                <button
+                  (click)="alterarEstado(tarefa, 'Concluida')"
+                  class="but_3"
+                ></button>
+                <button (click)="excluirTarefa(tarefa)" class="but_del">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

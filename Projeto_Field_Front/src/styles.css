@@ -1,0 +1,161 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+}
+
+body {
+  background: linear-gradient(to right, #00f7ff,rgb(10, 0, 150), #690092);
+  min-height: 90vh;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5% 0.5% 0% 0.5%; 
+  min-height: 73vh;
+  max-height: 85vh;
+}
+
+.pix {
+  flex: auto; 
+  margin: 0% 0.5%; 
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 20%;
+}
+.title_tarefa_1 {
+  color: rgb(75, 75, 75);
+  background-color: rgba(75, 75, 75, 0.233);
+  border: 1px solid rgb(75, 75, 75);
+  border-radius: 5px;
+  margin-top: 0%;
+  margin-bottom: 7%;
+  padding: 2%;
+}
+.title_tarefa_2 {
+  color: rgb(100, 85, 0);
+  background-color: rgba(251, 255, 0, 0.233);
+  border: 1px solid rgb(100, 85, 0);
+  border-radius: 5px;
+  margin-top: 0%;
+  margin-bottom: 7%;
+  padding: 2%;
+}
+.title_tarefa_3 {
+  color: rgb(13, 80, 0);
+  background-color: rgba(30, 255, 0, 0.233);
+  border: 1px solid rgb(13, 80, 0);
+  border-radius: 5px;
+  margin-top: 0%;
+  margin-bottom: 7%;
+  padding: 2%;
+}
+.title_tarefa_4 {
+  color: rgb(0, 1, 59);
+  background-color: rgba(4, 0, 255, 0.568);
+  border: 1px solid rgb(1, 0, 59);
+  border-radius: 5px;
+  margin-top: 0%;
+  margin-bottom: 7%;
+  padding: 2%;
+}
+.column{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+}
+.card {
+  display: flex;
+  align-items: center; 
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1%;
+  margin-top: 2.2%;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card h3 {
+  margin: 0; 
+}
+
+.but {
+  display: flex;
+  align-items: center; 
+  max-width: 30%;
+}
+.card_tarefa{
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  text-align: left;
+  padding: 2%;
+  margin-top: 0.2%;
+}
+
+.card_tarefa .but {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.but_1{
+  width: 25px; 
+  height: 25px; 
+  border-radius: 50%;
+  border: 0.5px solid gray; 
+  background-color: rgba(75, 75, 75, 0.671);; 
+  color: transparent; 
+  cursor: pointer; 
+  margin: 1px;
+}
+.but_2{
+  width: 25px; 
+  height: 25px; 
+  border-radius: 50%; 
+  border: 0.5px solid gray; 
+  background-color: rgba(251, 255, 0, 0.664); 
+  color: transparent;
+  cursor: pointer; 
+  margin: 1px;
+}
+
+.but_3{
+  width: 25px; 
+  height: 25px; 
+  border-radius: 50%; 
+  border: 0.5px solid gray; 
+  background-color: rgba(30, 255, 0, 0.699); 
+  color: transparent;
+  cursor: pointer; 
+  margin: 1px;
+}
+.but_4{
+  width: 25px; 
+  height: 25px; 
+  border-radius: 50%; 
+  border: 0.5px solid gray; 
+  background-color: rgba(4, 0, 255, 0.568); 
+  color: transparent;
+  cursor: pointer; 
+  margin: 1px;
+}
+.but_del{
+  width: 25px; 
+  height: 25px; 
+  border-radius: 50%; 
+  border: 0.5px solid gray; 
+  background-color: rgb(255, 0, 0); 
+  color: white;
+  cursor: pointer; 
+  font-size: 0.75em;
+  margin: 1px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

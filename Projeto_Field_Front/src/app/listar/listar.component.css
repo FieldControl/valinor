@@ -1,0 +1,23 @@
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none; /* Removendo sublinhado */
+  color: white; /* Cor do texto */
+  background: linear-gradient(to right, #000f96, #ff00ff); /* Gradiente de cor de fundo */
+  border-radius: 50px; /* Arredondamento total para tornar completamente redondo */
+  border: 1px solid black; /* Adicionando borda preta de 1px */
+  font-weight: bold;
+}
+
+.align{
+  text-align: center;
+}
+
+
+.title h1{
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  padding-top: 0.5%;
+}

@@ -1,0 +1,48 @@
+.center {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Define a altura da div para ocupar toda a altura da tela */
+  }
+  
+  .form {
+    padding: 20px;
+    background-color: rgb(126, 208, 255);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: rgb(80, 0, 145);
+    background-color: rgb(0, 255, 234);
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    margin:0% 2%;
+  }
+  
+  .button:hover {
+    background-color: #6a5acd;
+  }
+  .title{
+    text-transform: uppercase;
+    margin-bottom:20%;
+    font-size: 2em;
+  }
+  .label{
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  .central{
+    text-align: center;
+  }
+  .margin{
+    margin-bottom: 8%;
+  }
+  .entrada{
+    border-radius: 5px;
+    width: 59%;
+  }

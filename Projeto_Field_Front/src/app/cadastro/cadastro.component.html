@@ -1,0 +1,32 @@
+<div class="center">
+  <div class="form">
+    <h2 class="title">Cadastro de Tarefa</h2>
+
+    <form (ngSubmit)="salvarTarefa()">
+      <div class="margin">
+        <label for="descricao" class="label">Descrição:</label>
+        <input
+        class="entrada"
+          type="text"
+          id="descricao"
+          name="descricao"
+          [(ngModel)]="novaTarefa.descricao"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="hidden"
+          id="estado"
+          name="estado"
+          [(ngModel)]="novaTarefa.estado"
+          required
+        />
+      </div>
+      <div class="central">
+        <button type="submit" class="button">Salvar</button>
+        <a href="/listar" class="button">Voltar</a>
+      </div>
+    </form>
+  </div>
+</div>

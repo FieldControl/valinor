@@ -1,41 +1,38 @@
 ## Envio de solução
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
+De início eu procurei aprender sobre angular, já que nunca tinha visto nada da tecnologia, posteriormente desenvolvi a api e parti para o desenvolvimento do client.
 
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+Foram usados nesse projeto;
+--Node.Js
+--Angular
+--MySql
 
-**Técnologias X e Y**
+**Tecnologias Usadas**
 
-Justifique porque você optou pela tecnologia X e não a Y?
-
-**Princípios de software**
-
-Quais princípios da engenharia de software que você usou?
+Eu optei pelo uso do Node.Js para a criação da api, visto já ter trabalhado algumas vezes com a tecnologia, e assim poderia focar mais no aprendizado do framework Angular.
+O framework angular foi usado a pedido da empresa, além de servir como um desafio para alguém como eu, que nunca usou na vida.
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+Meu principal desafio foi começar aprender angular do zero para esse projeto, eu não conhecia pacotes, módulos, componentes, rotas, tão pouco sabia como utilizar o angular CLI.
+Meu principal problema foi na inserção de dados, eu precisei criar uma nova model para não conflitar os dados com a API.
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+O principal ponto aa ser melhorado é a implementação do Drag and Drop, para maior fluidez do sistema.
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
+Eu me chamo Raul, sou de São Francisco - SP, sou estudante de ADS na Fatec - Jales.
+Possuo poucas experiencia, a principal na Prefeitura Municipal da minha cidade, na qual eu trabalhava com digitalização de documentos e, em casos específicos, no recebimento e conferencia de equipamentos adquiridos.
+Eu me envolvi com desenvolvimento quando entrei na Fatec, com conhecimento de desenvolvimento quase nulo, comecei  do zero a aprender tudo.
+Em algum momento encontrei meu nicho como Front-End Developer.
 
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
+**Contato**
 
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
-
-
----
-
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
-
+E-Mail: raul.bastos.souza@gmail.com
+Telefone: (17) 99619-4568
 
 
