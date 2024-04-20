@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "kanban-gabriel"
+  },
+  "targets": {
+    "kanban-gabriel": {
+      "hosting": {
+        "kanban": [
+          "kanban-gabriel"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

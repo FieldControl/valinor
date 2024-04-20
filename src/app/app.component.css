@@ -1,0 +1,90 @@
+mat-toolbar {
+    margin-bottom: 20px;
+}
+
+mat-toolbar > span {
+    margin-left: 10px;
+}
+
+mat-card {
+  overflow: auto;
+}
+
+app-new-task {
+  margin-bottom: 30px;
+}
+
+.cor-botao {
+  background-color: #7a78ea;
+  color: white;
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+#nomeColuna{
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.content-wrapper {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    width: 400px;
+    margin: 0 25px 25 px 0;
+    min-height: 600px;
+    padding:20px;
+    margin-right: 20px;
+}
+
+.container:last-child{
+  margin-right: 0;}
+
+.list {
+    background-color: #f1f1f1;
+    border: solid 1px #ccc;
+    min-height: 450px;
+    max-height: 450px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.empty-label {
+    font-size: 2em;
+    padding-top: 30px;
+    height: 410px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.2;
+}
+
+.cdk-drag-animating {
+    transition: trasform 250ms;
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.title-page {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
