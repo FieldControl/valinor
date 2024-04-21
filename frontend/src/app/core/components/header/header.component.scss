@@ -1,0 +1,44 @@
+@use "variables.scss" as v;
+@use "typography.scss" as t;
+
+nav {
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  height: 60px;
+  line-height: 60px;
+  padding: 0 12px;
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+
+    .menu-items {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    svg{
+      min-width:40px;
+      padding:10px;
+    }
+
+    a {
+      @include t.kb-link;
+    }
+
+    @media screen and (max-width:180px){
+      svg{
+        min-width:30px;
+        padding:5px;
+      }
+
+      .menu-items{
+        gap:10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<form class="small-centered-form" [formGroup]="registerForm">
+  <h1>Registrar</h1>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Ex. pat@example.com"
+    />
+
+    @if (registerForm.controls.email.hasError('email') &&
+    !registerForm.controls.email.hasError('required')) {
+    <mat-error>Por favor coloque um email válido</mat-error>
+    } @if (registerForm.controls.email.hasError('required')) {
+    <mat-error>Email é <strong>obrigatório</strong></mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Primeiro nome</mat-label>
+    <input matInput formControlName="firstName" />
+
+    @if (!registerForm.controls.firstName.hasError('required')) {
+    <mat-error>Por favor, digite um primeiro nome válido</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sobrenome</mat-label>
+    <input matInput formControlName="lastName" />
+
+    @if (!registerForm.controls.lastName.hasError('required')) {
+    <mat-error>Por favor, digite um sobrenome válido</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput formControlName="password" />
+
+    @if (!registerForm.controls.password.hasError('required')) {
+    <mat-error>Por favor, digite uma senha válida</mat-error>
+    } @if (!registerForm.controls.password.hasError('minlength')) {
+    <mat-error>Tamanho mínimo de 8 caracteres</mat-error>
+    }
+  </mat-form-field>
+
+  <button (click)="register()" mat-flat-button color="primary">Registrar</button>
+  <a [routerLink]="['/login']">
+    <button tabindex="-1" mat-flat-button color="secondary">
+      Já possui uma conta? <u>Entre</u>
+    </button>
+  </a>
+</form>
