@@ -1,6 +1,9 @@
+import { Card } from "./card";
+
 export interface User {
     _id: string;
     name: string;
     email: string;
-    creation: Date;
+    cards: Card[];
+    creation: string;
 }
