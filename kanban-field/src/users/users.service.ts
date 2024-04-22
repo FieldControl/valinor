@@ -4,11 +4,13 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './entities/user.entity';
 import { Model } from 'mongoose';
+import { CardsService } from 'src/cards/cards.service';
 
 @Injectable()
 export class UsersService {
 
-  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
+  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>,
+              private cardService: CardsService) {}
 
   async create(createUserDto: CreateUserDto) {
     try {
@@ -21,7 +23,14 @@ export class UsersService {
 
   async findAll() {
     try {
-      return await this.userModel.find();
+      const users = await this.userModel.find()
+
+      const usersWithCards = await Promise.all(users.map(async (user) => {
+        user.cards = await this.cardService.find({ responsible: user._id})
+        return user
+      }))
+
+      return usersWithCards
     } catch (error) {
       throw new Error(`Falha ao consultar todos os usuários: ${error.message}`);
     }
@@ -33,6 +42,8 @@ export class UsersService {
     if (!user) {
       throw new NotFoundException('Usuário não encontrado');
     } 
+
+    user.cards = await this.cardService.find({ responsible: id });
 
     return user
   }

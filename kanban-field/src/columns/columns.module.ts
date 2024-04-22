@@ -10,8 +10,6 @@ import { CardsModule } from 'src/cards/cards.module';
     MongooseModule.forFeature([{ name: Column.name, schema: ColumnSchema }]),
     CardsModule],
   controllers: [ColumnsController],
-  providers: [
-    ColumnsService,
-    ],
+  providers: [ColumnsService],
 })
 export class ColumnsModule {}
