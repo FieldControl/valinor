@@ -43,7 +43,8 @@
 - Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
   Me chamo Gabriel Alves, tenho 21 anos, e atualmente resido em São José do Rio Preto-SP, nasci do sul do país, em Blumenau-SC.<br>
   Já fiz cursos de web design, hardware, hospedagem de sites, e vários outros cursos em plataformas com por exemplo a DIO, que é a que uso atualmente.<br>
-  Atualmente sou estágiario em desenvolimento web na EMPRO, onde já trabalho desde de outubro de 2022, onde participo em todo o processo de desenvolvimento, atuando tanto no frontend, quanto no backend.<br>
+  Atualmente sou estágiario em desenvolimento web na EMPRO, onde já trabalho desde de outubro de 2022, participo em todo o processo de desenvolvimento, atuando tanto no frontend, quanto no backend.<br>
+  Utilizo as tecnologias HTML, CSS, Bootstrap, Jquery e AngularJs no frontend e PHP e Banco de dados Oracle no backend, e possuo conhecimento em outra linguagens como Python, C#, Angular, TypeScript, C++.<br>
   Estou no penúltimo semestre de Análise e Desenvolvimento de Sistemas na UNIRP, e minha jornada com programação vem desde muito novo, sempre tive afinidade e mais facilidade com area da tecnologia, sempre fui apaixonado por coisas dessa area como video game, jogos, computador, softwares e area de programação foi onde mais me indentifiquei, e gosto muito como a tecnologa pode proporcionar para pessoas muita facilidade, agilidade e simplicidade para tarefas extremamente complicadas.
 
 - Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou?<br>
@@ -69,8 +70,9 @@
 - O que você entende que pode ser melhorado e como fazer isso:
   - Creio que layout, pesquisar por temas e fontes mais agradavéis.<br>
   - Melhorar a responsividade das ações, como mensagens indicando que certas ações foram feitas, como inserir um novo card.<br>
+  - E melhorar a responsividade no site para que ele se adpate a diferentes tamanho e formatos de telas, faria usando o bootstrao ou proprio angular material.<br>
   - Colocar uma tela de login, onde a pessoa loga e salva os cards dela, assim quando ela entra novamente, os dados não serão perdidos, além de proporcionar segurança tanto para o usuário, quanto para o sistema.<br>
-  - Melhoria tanto os testes, tanto os unitários, quanto os E2E, verificando mais elementos da página.<br>
+  - Melhoria os teste unitários, quanto os E2E, verificando mais elementos da página e garantindo melhor robustez e qualidade da aplicação.<br>
 ## Descrição do projeto 
 
 <p align="justify">
