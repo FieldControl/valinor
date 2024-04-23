@@ -230,3 +230,63 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 - Quais princípios da engenharia de software que você usou?
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
+
+
+Projeto Full Stack
+Este repositório é a base para um projeto full stack construído com o NestJS para o backend e Angular CLI para o frontend. Este projeto foi concebido para ser eficiente e escalável, utilizando as melhores práticas de engenharia de software para criar uma aplicação robusta e de fácil manutenção.
+
+Backend
+O backend é construído com Nest, um framework progressivo para Node.js que fornece uma arquitetura out-of-the-box para a criação de aplicações server-side eficientes e escaláveis.
+
+Instalação
+bash
+Copy code
+$ npm install
+Rodando a aplicação
+bash
+Copy code
+# desenvolvimento
+$ npm run start
+
+# modo observação
+$ npm run start:dev
+
+# modo produção
+$ npm run start:prod
+Testes
+bash
+Copy code
+# testes unitários
+$ npm run test
+
+# testes e2e
+$ npm run test:e2e
+
+# cobertura de testes
+$ npm run test:cov
+Frontend
+O frontend foi gerado com Angular CLI versão 17.2.3 e é projetado para oferecer uma interface de usuário rica e responsiva.
+
+Servidor de Desenvolvimento
+Execute ng serve para um servidor de dev. Navegue até http://localhost:4200/. A aplicação recarregará automaticamente se você alterar qualquer um dos arquivos fonte.
+
+Criação de Código
+Use ng generate component component-name para gerar um novo componente. Você também pode usar ng generate directive|pipe|service|class|guard|interface|enum|module.
+
+Build
+Execute ng build para construir o projeto. Os artefatos de construção serão armazenados no diretório dist/.
+
+Rodando Testes Unitários
+Execute ng test para executar os testes unitários via Karma.
+
+Rodando Testes End-to-End
+Execute ng e2e para executar os testes end-to-end através de uma plataforma de sua escolha. Para usar este comando, você precisa adicionar primeiro um pacote que implementa capacidades de teste end-to-end.
+
+Suporte
+Este é um projeto open source licenciado pelo MIT. Ele pode crescer graças aos patrocinadores e ao suporte de incríveis apoiadores. Se você gostaria de se juntar a eles, leia mais aqui.
+
+Mantenha-se em Contato
+Website - https://nestjs.com e Angular
+Twitter - @nestframework
+Licença
+O projeto é licenciado pelo MIT. Veja LICENSE para mais detalhes.

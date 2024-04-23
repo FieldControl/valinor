@@ -1,0 +1,90 @@
+@use "variables.scss" as v;
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .kb-board-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid v.$border-color;
+    gap: 24px;
+
+    .kb-board-title {
+      margin: 0;
+      color: v.$gray;
+    }
+  }
+
+  .swimlanes-wrapper {
+    flex-grow: 1;
+    overflow: auto;
+    padding: 0 16px 20px;
+    display: flex;
+    margin: 0 -16px;
+    flex-wrap: nowrap;
+    gap: 24px;
+    height: 100%;
+
+    .swimlane {
+      width: 240px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      height: 100%;
+
+      .swimlane-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: v.$background-color;
+        margin-bottom: 16px;
+        margin: 0 -2px 16px;
+        padding: 0 2px;
+        position: sticky;
+        top: 0;
+        z-index: 3;
+
+        h2 {
+          margin: 0;
+        }
+
+        button {
+          width: 40px;
+          padding: 4px;
+          border-radius: 4px;
+          background-color: #f7f7f7;
+          border: none;
+          cursor: pointer;
+        }
+      }
+
+      .swimlane__card {
+        margin-bottom: 16px;
+        border: 2px solid #eee;
+        padding: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      mat-form-field,
+      input,
+      button {
+        width: 100%;
+      }
+
+      .swimlane-inner {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 16px 16px 24px;
+        border-radius: 4px;
+
+        .swimlane-inner__dragzone {
+          min-height: 50px;
+        }
+      }
+    }
+  }
+}

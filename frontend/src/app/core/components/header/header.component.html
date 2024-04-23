@@ -1,0 +1,17 @@
+<nav>
+  <ul>
+    <li>
+      <img src="../../../../assets/download.png">
+    </li>
+    <li class="menu-items">
+      @if(isLoggedIn()){
+      <a [routerLinkActive]="'active'" routerLink="/boards">Boards</a>
+      <button mat-button (click)="signOut()">
+        <mat-icon>exit_to_app</mat-icon> Sair
+      </button>
+      } @else {
+      <a [routerLinkActive]="'active'" routerLink="/login">Login/Register</a>
+      }
+    </li>
+  </ul>
+</nav>
