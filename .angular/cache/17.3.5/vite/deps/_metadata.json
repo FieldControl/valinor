@@ -1,0 +1,58 @@
+{
+  "hash": "0c18db6c",
+  "configHash": "50a94c9c",
+  "lockfileHash": "d0cbc62b",
+  "browserHash": "a9ac79b7",
+  "optimized": {
+    "@angular/cdk/drag-drop": {
+      "src": "../../../../../node_modules/@angular/cdk/fesm2022/drag-drop.mjs",
+      "file": "@angular_cdk_drag-drop.js",
+      "fileHash": "0e881e7e",
+      "needsInterop": false
+    },
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "4a2342dc",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "40310859",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "632cd3ae",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations/async": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
+      "file": "@angular_platform-browser_animations_async.js",
+      "fileHash": "47508b45",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "079ffb7e",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-IBUN7BPS": {
+      "file": "chunk-IBUN7BPS.js"
+    },
+    "browser-QOAIZVLD": {
+      "file": "browser-QOAIZVLD.js"
+    },
+    "chunk-YSFMYBZ3": {
+      "file": "chunk-YSFMYBZ3.js"
+    },
+    "chunk-YV52MFTZ": {
+      "file": "chunk-YV52MFTZ.js"
+    }
+  }
+}

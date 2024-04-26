@@ -1,0 +1,43 @@
+<header>
+  <app-navBar></app-navBar>
+</header>
+<div class="container" cdkDropListGroup>
+  <div class="column-container" id="todo">
+    <h2>To do</h2>
+    <button (click)="addTask('todo')">Adicionar tarefa</button>
+
+    <div cdkDropList [cdkDropListData]="cards['todo']" class="card-list to-do" (cdkDropListDropped)="drop($event)"
+      cdkDropListConnectedTo="#inprogress, #done">
+
+      <div *ngFor="let card of getCards('todo')" cdkDrag>
+        <app-card [card]="card"></app-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="column-container" id="inprogress">
+    <h2>Doing</h2>
+    <button (click)="addTask('doing')">Adicionar tarefa</button>
+
+    <div cdkDropList [cdkDropListData]="cards['doing']" class="card-list inprogress" (cdkDropListDropped)="drop($event)"
+      cdkDropListConnectedTo="#todo, #done">
+
+      <div *ngFor="let card of getCards('doing')" cdkDrag>
+        <app-card [card]="card"></app-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="column-container" id="done">
+    <h2>Done</h2>
+    <button (click)="addTask('done')">Adicionar tarefa</button>
+
+    <div cdkDropList [cdkDropListData]="cards['done']" class="card-list done" (cdkDropListDropped)="drop($event)"
+      cdkDropListConnectedTo="#todo, #inprogress">
+
+      <div *ngFor="let card of getCards('done')" cdkDrag>
+        <app-card [card]="card"></app-card>
+      </div>
+    </div>
+  </div>
+</div>
