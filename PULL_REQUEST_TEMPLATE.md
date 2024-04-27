@@ -1,41 +1,18 @@
-## Envio de solução
+ # Envio de solução
+Fiz a aplicação desse projeto usando Nestjs para o backend, utilizando TypeOrm e também mysql. Para o frontend, utilizei Angular.
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
+# Desafios e problemas
 
-**Framework, linguagem e ferramentas**
+Tive vários problemas durante a execução do projeto, a aplicação parou de rodar várias vezes, e na maioria, não fazia ideia do erro, ou como poderia arrumar. Mas consegui procurar na internet e entregar da melhor maneira que consegui fazer.
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+# Melhorias e próximas implementações
 
-**Técnologias X e Y**
+Entendo que devo procurar maneiras de aprimorar o backend da aplicação, pois foi a parte que tive maior dificuldade para conseguir fazer.
 
-Justifique porque você optou pela tecnologia X e não a Y?
+# Sobre você
 
-**Princípios de software**
+Sou de São José do Rio Preto desde que nasci, estou cursando ADS na Fatec, e fiz estágio na empresa Geodados, mas na parte de photoshop. Sempre gostei de computadores, videogames, então vi na área de tecnologia uma possibilidade de trabalhar com o que gosto.
 
-Quais princípios da engenharia de software que você usou?
+# Outros detalhes
 
-**Desafios e problemas**
-
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
-
-**Melhorias e próximas implementações**
-
-O que você entende que pode ser melhorado e como isso pode ser feito?
-
-**Sobre você**
-
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
-
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
-
-
----
-
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
-
-
-
+E-mail: rafaelbertasso06@gmail.com
