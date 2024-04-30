@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { BoardComponent } from './board.component';
 import { ColumnComponent } from '../column/column.component';
 
@@ -8,9 +9,10 @@ describe('BoardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BoardComponent, ColumnComponent] // Adicionando ColumnComponent como declaração
+      declarations: [BoardComponent, ColumnComponent],
+      imports: [FormsModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -25,7 +27,7 @@ describe('BoardComponent', () => {
 
   it('should render columns', () => {
     const compiled = fixture.nativeElement;
-    const columnElements = compiled.querySelectorAll('app-column'); // Selecionando elementos com seletor 'app-column'
+    const columnElements = compiled.querySelectorAll('.kanban-column');
     expect(columnElements.length).toBe(component.columns.length);
   });
 
@@ -33,7 +35,6 @@ describe('BoardComponent', () => {
     const initialColumnCount = component.columns.length;
     component.newColumnTitle = 'New Column';
     component.addColumn();
-    fixture.detectChanges(); // Detectar as alterações na visualização
     expect(component.columns.length).toBe(initialColumnCount + 1);
     expect(component.columns[initialColumnCount].title).toBe('New Column');
   });
