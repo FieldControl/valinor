@@ -1,7 +1,7 @@
-import { Card } from "./card";
+import { ICard } from "./card";
 
-export interface Column {
+export interface IColumn {
     _id: string;
     name: string;
-    cards: Card[];
+    cards: ICard[];
 }

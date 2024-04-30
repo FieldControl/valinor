@@ -1,9 +1,9 @@
-import { Card } from "./card";
+import { ICard } from "./card";
 
-export interface User {
+export interface IUser {
     _id: string;
     name: string;
     email: string;
-    cards: Card[];
+    cards: ICard[];
     creation: string;
 }
