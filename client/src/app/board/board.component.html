@@ -1,0 +1,15 @@
+<div class="kanban-board">
+    <!-- Renderiza as colunas do quadro Kanban -->
+    <app-column *ngFor="let column of columns" [title]="column.title"></app-column>
+  
+    <!-- Botão para adicionar nova coluna -->
+    <div class="add-column">
+      <button (click)="showAddColumnInput()">Adicionar Coluna</button>
+  
+      <!-- Campo de entrada para digitar o título da nova coluna -->
+      <div *ngIf="showAddColumn">
+        <input type="text" placeholder="Digite o título da coluna" [(ngModel)]="newColumnTitle">
+        <button (click)="addColumn()">Confirmar</button>
+      </div>
+    </div>
+</div>

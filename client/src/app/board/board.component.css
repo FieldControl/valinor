@@ -1,0 +1,60 @@
+/* 
+   Estilos para o componente de quadro Kanban
+*/
+
+/* Estilos para o quadro Kanban */
+.kanban-board {
+    display: flex;
+    padding: 20px;
+}
+  
+/* Estilos para cada coluna no quadro Kanban */
+.kanban-column {
+    flex: 1;
+    margin-right: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 10px;
+}
+  
+/* Estilos para os cartões dentro de cada coluna */
+.kanban-cards {
+    margin-top: 10px;
+}
+  
+/* Estilos para cada cartão dentro de uma coluna */
+.kanban-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+  
+/* Estilos para o botão "Adicionar Coluna" */
+.add-column {
+    margin-top: 20px;
+}
+  
+/* Estilos para o campo de entrada dentro do botão "Adicionar Coluna" */
+.add-column input[type="text"] {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+/* Estilos para o botão de confirmação dentro do botão "Adicionar Coluna" */
+.add-column button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+/* Estilos de hover para o botão de confirmação */
+.add-column button:hover {
+    background-color: #0056b3;
+}
