@@ -33,4 +33,9 @@ export class BoardComponent {
       this.showAddColumn = false;
     }
   }
+
+  // Método para remover a coluna
+  removeColumn(columnIndex: number) {
+    this.columns.splice(columnIndex, 1);
+  }
 }

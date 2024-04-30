@@ -2,8 +2,14 @@
   <h2>{{ title }}</h2>
   <!-- Renderiza os cartões da coluna -->
   <div class="kanban-cards">
-      <app-card *ngFor="let card of cards" [title]="card.title"></app-card>
+      <app-card 
+        *ngFor="let card of cards; let i = index" 
+        [title]="card.title"
+        (remove)="removeCard(i)"
+      ></app-card>
   </div>
+  <!-- Botão para remover a coluna -->
+  <button (click)="removeColumn()">Remover Coluna</button>
   <!-- Formulário para adicionar novo cartão -->
   <form (submit)="addCard(newCardTitle.value)">
       <input type="text" #newCardTitle placeholder="Novo Cartão">

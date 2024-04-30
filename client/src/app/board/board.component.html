@@ -1,10 +1,13 @@
 <div class="kanban-board">
   <!-- Renderiza as colunas do quadro Kanban -->
   <app-column
-    *ngFor="let column of columns"
-    [title]="column.title"
-    [cards]="column.cards"
+  *ngFor="let column of columns; let i = index"
+  [title]="column.title"
+  [cards]="column.cards"
+  (cardRemoved)="columns[i].cards.splice($event, 1)"
+  (columnRemoved)="removeColumn(i)"
   ></app-column>
+
 
   <!-- Botão para adicionar nova coluna -->
   <div class="add-column">
