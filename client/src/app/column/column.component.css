@@ -6,3 +6,8 @@
     border-radius: 8px;
     padding: 10px;
 }
+
+/* Estilos para os cartões dentro de cada coluna */
+.kanban-cards {
+    margin-top: 10px;
+}

@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class BoardComponent {
   // Array para armazenar as colunas do quadro Kanban
-  columns: { title: string }[] = [];
+  columns: { title: string, cards: { title: string }[] }[] = [
+    { title: 'Pendente', cards: [] },
+    { title: 'Em Andamento', cards: [] },
+    { title: 'Concluído', cards: [] }
+  ];
 
   // Variáveis para controlar a exibição do campo de entrada para adicionar nova coluna
   showAddColumn: boolean = false;
@@ -23,7 +27,7 @@ export class BoardComponent {
     // Verifica se o título da nova coluna não está vazio
     if (this.newColumnTitle.trim() !== '') {
       // Adiciona a nova coluna ao array de colunas
-      this.columns.push({ title: this.newColumnTitle });
+      this.columns.push({ title: this.newColumnTitle, cards: [] });
       // Limpa o campo de entrada e oculta o campo de entrada novamente
       this.newColumnTitle = '';
       this.showAddColumn = false;

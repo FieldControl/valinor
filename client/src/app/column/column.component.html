@@ -1,7 +1,12 @@
 <div class="kanban-column">
-    <h2>{{ title }}</h2>
-    <!-- Renderiza os cartões dentro da coluna -->
-    <div class="kanban-cards">
-      <!-- Aqui você pode adicionar a renderização dos cartões, se houver -->
-    </div>
+  <h2>{{ title }}</h2>
+  <!-- Renderiza os cartões da coluna -->
+  <div class="kanban-cards">
+      <app-card *ngFor="let card of cards" [title]="card.title"></app-card>
+  </div>
+  <!-- Formulário para adicionar novo cartão -->
+  <form (submit)="addCard(newCardTitle.value)">
+      <input type="text" #newCardTitle placeholder="Novo Cartão">
+      <button type="submit">Adicionar</button>
+  </form>
 </div>
