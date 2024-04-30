@@ -12,8 +12,6 @@
 
 ### Tópicos 
 
-:small_blue_diamond: [Repondendo Perguntas](#respondendo-perguntas)
-
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
@@ -36,43 +34,6 @@
 
 :small_blue_diamond: [Desenvolvedores/Contribuintes](#desenvolvedores-do-projeto)
 
-## Respondendo Perguntas
-
-- Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-- Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
-  Me chamo Gabriel Alves, tenho 21 anos, e atualmente resido em São José do Rio Preto-SP, nasci do sul do país, em Blumenau-SC.<br>
-  Já fiz cursos de web design, hardware, hospedagem de sites, e vários outros cursos em plataformas com por exemplo a DIO, que é a que uso atualmente.<br>
-  Atualmente sou estágiario em desenvolimento web na EMPRO, onde já trabalho desde de outubro de 2022, participo em todo o processo de desenvolvimento, atuando tanto no frontend, quanto no backend.<br>
-  Utilizo as tecnologias HTML, CSS, Bootstrap, Jquery e AngularJs no frontend e PHP e Banco de dados Oracle no backend, e possuo conhecimento em outra linguagens como Python, C#, Angular, TypeScript, C++.<br>
-  Estou no penúltimo semestre de Análise e Desenvolvimento de Sistemas na UNIRP, e minha jornada com programação vem desde muito novo, sempre tive afinidade e mais facilidade com area da tecnologia, sempre fui apaixonado por coisas dessa area como video game, jogos, computador, softwares e area de programação foi onde mais me indentifiquei, e gosto muito como a tecnologa pode proporcionar para pessoas muita facilidade, agilidade e simplicidade para tarefas extremamente complicadas.
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou?<br>
-  - VSCode, NodeJS, Angular, Typescript, HTML, CSS, Firebase, git, angular-material, Jasmine, Karma, Cypress, NPM, Chrome.
-  
-- Porque você optou pela tecnologia X e não a Y?<br>
-  - O angular tem um ótimo desempenho para aplicação SPA, já vem pré configurado para realização de teste unitários e E2E, e possui facil integração com o firebase que proporciona otimas funcionalidades como o hosting, BD em nuvem e sistema de autenticação em 2 etapas que fornece mais segurança para o sistema.
-  
-- Quais princípios da engenharia de software que você usou?<br>
-  - Usei principios como Componentização, principio muito presente no angular, encapsulando os componentes.<br>
-  - Injeção de dependência e Injeção inversa de dependência.<br>
-  - Variavéis e funções com nomes significativos e explicativos, evitando confusão no entendimento do código.<br>
-  - Princípio da Decomposição, dividindo as funções em unidades menores e mais específicas.<br>
-  - Comentários no código para um fácil entendimento em manutenções do código.<br>
-  - Boa indentação e código limpo, ajudando a melhor entendimento visual do código.<br>
-  - Princípio OCP, onde classes, módulos e funções devem sempre estar abertos para extensão, mas fechados para alteração.<br>
-  - Teste unitários e E2E, garantem a qualidade e rigidez do projeto, além de diminuir o tempo de produção, pois os teste são realizados automaticamente após cada alteração no código.<br>
-  - E alguns princípios de IHC como paleta de cores, formato de icones da tela e facilidade de entendimento do usuário para usar a aplicação.
- 
-- Desafios e problemas que você enfrentou e como você resolveu?
-  - Devido ao meu pc não conseguir rodar o servidor usando NestJs, para poder realizar os testes(pois, não sei o motivo, ele travava) esse foi o maior problema que enfrentei e não consegui solucionar, então, fiz a parte que seria feita no backend no frontend, visualmente falando o resultado é o mesmo, porém subi ele no housting do firebase, pensando em consumir o BD em nuvem deles.
- 
-- O que você entende que pode ser melhorado e como fazer isso:
-  - Creio que layout, pesquisar por temas e fontes mais agradavéis.<br>
-  - Melhorar a responsividade das ações, como mensagens indicando que certas ações foram feitas, como inserir um novo card.<br>
-  - E melhorar a responsividade no site para que ele se adpate a diferentes tamanho e formatos de telas, faria usando o bootstrao ou proprio angular material.<br>
-  - Colocar uma tela de login, onde a pessoa loga e salva os cards dela, assim quando ela entra novamente, os dados não serão perdidos, além de proporcionar segurança tanto para o usuário, quanto para o sistema.<br>
-  - Melhoria os teste unitários, quanto os E2E, verificando mais elementos da página e garantindo melhor robustez e qualidade da aplicação.<br>
 ## Descrição do projeto 
 
 <p align="justify">
