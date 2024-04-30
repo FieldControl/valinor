@@ -1,0 +1,8 @@
+/* Estilos para os cartões dentro de cada coluna */
+.kanban-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}

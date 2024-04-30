@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh; /* Define a altura do contêiner para ocupar a altura total da tela */
+  flex-direction: column;
+}

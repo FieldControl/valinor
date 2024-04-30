@@ -7,11 +7,7 @@ import { Component } from '@angular/core';
 })
 export class BoardComponent {
   // Array para armazenar as colunas do quadro Kanban
-  columns: { title: string }[] = [
-    { title: 'To Do' },
-    { title: 'Doing' },
-    { title: 'Done' }
-  ];
+  columns: { title: string }[] = [];
 
   // Variáveis para controlar a exibição do campo de entrada para adicionar nova coluna
   showAddColumn: boolean = false;
