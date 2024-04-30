@@ -48,6 +48,14 @@ export class ColumnsService {
     return column; // retorna a coluna e os cards pertencentes a ela
   }
 
+  async find(conditions: any) {
+    try {
+      return this.columnModel.find(conditions);  // responsavel por achar a coluna que pertence
+    } catch (error) {
+      throw new Error(`Falha ao encontrar a coluna: ${error.message}`);
+    }
+  }  
+
   async update(id: string, updateColumnDto: UpdateColumnDto) {
     const column = await this.columnModel.findByIdAndUpdate(
       id, updateColumnDto, { new: true }

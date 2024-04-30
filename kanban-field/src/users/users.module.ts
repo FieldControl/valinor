@@ -10,5 +10,6 @@ import { CardsModule } from 'src/cards/cards.module';
             CardsModule],
   controllers: [UsersController],
   providers: [UsersService],
+  exports: [UsersService]
 })
 export class UsersModule {}

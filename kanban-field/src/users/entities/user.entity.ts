@@ -11,6 +11,9 @@ export class User {
 
   @Prop()
   email: string;
+  
+  @Prop()
+  password: string;
 
   @Prop({type: mongoose.Schema.Types.Array, ref: "Card"})
   cards: Card[];

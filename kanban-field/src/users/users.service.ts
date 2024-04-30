@@ -48,6 +48,10 @@ export class UsersService {
     return user
   }
 
+  async findByMail(email: string): Promise<User | undefined> {                 
+    return this.userModel.findOne({ email: email }); // encontrar user cadastrado por email
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto) {
     const user = await this.userModel.findByIdAndUpdate(
       id, updateUserDto, { new: true }

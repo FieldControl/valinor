@@ -11,5 +11,6 @@ import { CardsModule } from 'src/cards/cards.module';
     CardsModule],
   controllers: [ColumnsController],
   providers: [ColumnsService],
+  exports: [ColumnsService]
 })
 export class ColumnsModule {}
