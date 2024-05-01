@@ -1,5 +1,6 @@
 /* Estilos para cada cartão dentro de uma coluna */
 .kanban-card {
+    align-items: center;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;

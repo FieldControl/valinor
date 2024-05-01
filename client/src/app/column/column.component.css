@@ -5,9 +5,17 @@
     background-color: #f4f4f4;
     border-radius: 8px;
     padding: 10px;
+    max-width: 400px;
 }
 
 /* Estilos para os cartões dentro de cada coluna */
 .kanban-cards {
     margin-top: 10px;
+}
+
+/* Estilos para os botões da coluna */
+.column-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
