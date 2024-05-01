@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,4 +8,10 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
   @Input() title: string = ''; // Título do cartão
   @Input() description: string = ''; // Descrição do cartão
+  @Output() cardRemoved = new EventEmitter<void>(); // Evento emitido quando um cartão é removido
+
+  // Método para remover um cartão da coluna
+  removeCard() {
+    this.cardRemoved.emit();
+  }
 }

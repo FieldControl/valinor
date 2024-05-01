@@ -5,7 +5,7 @@
       <app-card 
         *ngFor="let card of cards; let i = index" 
         [title]="card.title"
-        (remove)="removeCard(i)"
+        (cardRemoved)="removeCard(i)"
       ></app-card>
   </div>
   <!-- Botão para remover a coluna -->
