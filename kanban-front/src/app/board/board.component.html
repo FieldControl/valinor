@@ -1,0 +1,28 @@
+<div class="board">
+    <!-- Primeira coluna: Tarefas a Fazer -->
+    <div class="column">
+        <div class="column-header"><h2>A Fazer</h2></div>
+        <!-- Botão para adicionar nova tarefa -->
+        <button class="btn">Nova Tarefa</button>
+        <!-- Lista de tarefas a fazer, onde é possível arrastar e soltar -->
+        <div class="example-box" cdkDropListGroup>
+            <!-- Caixa representando uma tarefa (componente de cards) -->
+            <div class="example-box" cdkDrag><app-cards></app-cards></div>
+            <div class="example-box" cdkDrag><app-cards></app-cards></div>
+            <div class="example-box" cdkDrag><app-cards></app-cards></div>
+            <div class="example-box" cdkDrag><app-cards></app-cards></div>
+        </div>
+    </div>
+    
+    <!-- Segunda coluna: Tarefas em Progresso -->
+    <div class="column">
+        <div class="column-header"><h2>Em Progresso</h2></div>
+        <button class="btn">Nova Tarefa</button>
+    </div>
+    
+    <!-- Terceira coluna: Tarefas Concluídas -->
+    <div class="column">
+        <div class="column-header"><h2>Feito</h2></div>
+        <button class="btn">Nova Tarefa</button>
+    </div>
+</div>
