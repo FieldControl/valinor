@@ -1,0 +1,15 @@
+<div class="sidebar" [class.expanded]="sidebarExpanded">
+    <button class="toggle-button" (click)="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+  
+    <div *ngIf="sidebarExpanded">
+        <button (click)="goToBoard()"><i class="fas fa-columns"></i> Quadro Kanban</button>
+        <button (click)="goToProfile()"><i class="fas fa-user"></i> Meu perfil</button>
+        <button (click)="changeTheme()"><i class="fas fa-moon"></i> Alterar o tema</button>
+        <button (click)="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
+    </div>
+</div>
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>

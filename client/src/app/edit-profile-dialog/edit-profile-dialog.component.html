@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Alterar dados</h2>
+<form #editForm="ngForm" (ngSubmit)="saveChanges(editForm)">
+    <mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="user.name" type="text" name="name" required #nameField="ngModel">
+            <mat-error *ngIf="nameField.invalid && nameField.touched">
+                Por favor, insira o nome.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input matInput [(ngModel)]="user.email" type="email" name="email" required #emailField="ngModel">
+            <mat-error *ngIf="emailField.invalid && emailField.touched">
+                Por favor, insira um e-mail válido.
+            </mat-error>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button [disabled]="!editForm.valid">Salvar</button>
+    </mat-dialog-actions>
+</form>

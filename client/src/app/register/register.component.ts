@@ -8,6 +8,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  name: string = '';
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
@@ -18,7 +19,7 @@ export class RegisterComponent {
   // Método para registrar com a API
   /*
   register() {
-    this.authService.register(this.email, this.password).subscribe({
+    this.authService.register(this.name, this.email, this.password).subscribe({
       next: () => this.router.navigate(['/board']),
       error: err => this.error = 'Erro no registro'
     });

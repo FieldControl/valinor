@@ -1,1 +1,15 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <h2>Perfil</h2>
+    <div class="form-group">
+        <label>Nome</label>
+        <p>{{ user.name }}</p>
+    </div>
+
+    <div class="form-group">
+        <label>E-mail</label>
+        <p>{{ user.email }}</p>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="openEditProfileDialog()">Alterar dados</button>
+    <button mat-raised-button color="primary" (click)="openChangePasswordDialog()">Alterar senha</button>
+</div>

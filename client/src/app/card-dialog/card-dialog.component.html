@@ -1,0 +1,12 @@
+<div mat-dialog-title>
+    <span class="label">Título</span>
+    <p>{{ data.title }}</p>
+</div>
+<div mat-dialog-content>
+    <span class="label">Descrição</span>
+    <p>{{ data.description }}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Fechar</button>
+    <button mat-button cdkFocusInitial (click)="deleteCard()">Deletar</button>
+</div>

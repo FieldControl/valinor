@@ -1,31 +1,20 @@
-<!-- Barra lateral-->
-<div class="sidebar" [class.expanded]="sidebarExpanded">
-  <button class="toggle-button" (click)="toggleSidebar()">
-    <i class="fas fa-bars"></i>  <!-- ícone de menu -->
-  </button>
-
-  <div *ngIf="sidebarExpanded">
-    <button (click)="goToProfile()"><i class="fas fa-user"></i> Meu perfil</button>
-    <button (click)="changeTheme()"><i class="fas fa-moon"></i> Alterar o tema</button>
-    <button (click)="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
-  </div>
-</div>
-
-<!-- Quadro do Kanbab -->
-<div class="kanban-board">
-  <app-column
-    *ngFor="let column of columns; let i = index"
-    [title]="column.title"
-    [cards]="column.cards"
-    (columnRemoved)="removeColumn(i)"
-  ></app-column>
+<div class="container">
+  <!-- Quadro do Kanbab -->
+  <div class="kanban-board">
+    <app-column
+      *ngFor="let column of columns; let i = index"
+      [title]="column.title"
+      [cards]="column.cards"
+      (columnRemoved)="removeColumn(i)"
+    ></app-column>
 
     <div class="add-column">
-    <button (click)="showAddColumnInput()">Adicionar Coluna</button>
+      <button (click)="showAddColumnInput()">Adicionar Coluna</button>
 
-    <div *ngIf="showAddColumn">
-      <input type="text" placeholder="Digite o título da coluna" [(ngModel)]="newColumnTitle">
-      <button (click)="addColumn()">Confirmar</button>
+      <div *ngIf="showAddColumn">
+        <input type="text" placeholder="Digite o título da coluna" [(ngModel)]="newColumnTitle">
+        <button (click)="addColumn()">Confirmar</button>
+      </div>
     </div>
   </div>
 </div>

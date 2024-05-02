@@ -1,0 +1,37 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background-color: #333;
+    color: white;
+    transition: width 0.3s ease;
+}
+
+.sidebar.expanded {
+  width: 200px;
+}
+  
+.sidebar .icon {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.sidebar button {
+  display: none;
+  margin: 10px;
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar .toggle-button {
+    display: block !important;
+  }
+
+.sidebar.expanded button {
+  display: block;
+}

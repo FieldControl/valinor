@@ -1,4 +1,10 @@
 <form (submit)="register()" #registerForm="ngForm" class="register-form">
+    <label for="name">Nome:</label><br>
+    <input type="text" id="name" name="name" [(ngModel)]="name" required><br>
+    <div *ngIf="registerForm.controls['name']?.invalid && (registerForm.controls['name']?.dirty || registerForm.controls['name']?.touched)">
+        Informe o nome.
+    </div>
+
     <label for="email">E-mail:</label><br>
     <input type="email" id="email" name="email" [(ngModel)]="email" required><br>
     <div *ngIf="registerForm.controls['email']?.invalid && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)">
