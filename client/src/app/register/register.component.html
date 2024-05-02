@@ -1,0 +1,22 @@
+<form (submit)="register()" #registerForm="ngForm" class="register-form">
+    <label for="email">E-mail:</label><br>
+    <input type="email" id="email" name="email" [(ngModel)]="email" required><br>
+    <div *ngIf="registerForm.controls['email']?.invalid && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)">
+        Informe o e-mail.
+    </div>
+
+    <label for="password">Senha:</label><br>
+    <input type="password" id="password" name="password" [(ngModel)]="password" required><br>
+    <div *ngIf="registerForm.controls['password']?.invalid && (registerForm.controls['password']?.dirty || registerForm.controls['password']?.touched)">
+        Informe a senha.
+    </div>
+
+    <label for="confirmPassword">Confirme a senha:</label><br>
+    <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required><br>
+    <div *ngIf="registerForm.controls['confirmPassword']?.invalid && (registerForm.controls['confirmPassword']?.dirty || registerForm.controls['confirmPassword']?.touched)">
+        Informe novamente a senha.
+    </div>
+
+    <input type="submit" value="Cadastrar-se" [disabled]="registerForm.invalid || password != confirmPassword">
+    <button type="button" (click)="goToLogin()">Voltar para o login</button>
+</form>

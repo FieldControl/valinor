@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-board',
@@ -6,12 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent {
+  sidebarExpanded = false;
   // Array para armazenar as colunas do quadro Kanban
   columns: { title: string, cards: { title: string, description: string }[] }[] = [
     { title: 'Pendente', cards: [] },
     { title: 'Em Andamento', cards: [] },
     { title: 'Concluído', cards: [] }
   ];
+
+  constructor(private router: Router) { }
 
   // Variáveis para controlar a exibição do campo de entrada para adicionar nova coluna
   showAddColumn: boolean = false;
@@ -37,5 +41,21 @@ export class BoardComponent {
   // Método para remover a coluna
   removeColumn(columnIndex: number) {
     this.columns.splice(columnIndex, 1);
+  }
+
+  toggleSidebar() {
+    this.sidebarExpanded = !this.sidebarExpanded;
+  }
+  
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  changeTheme() {
+    // Implementar mudança de tema depois (Claro/Escuro)
+  }
+  
+  logout() {
+    this.router.navigate(['/']);
   }
 }

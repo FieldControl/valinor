@@ -1,0 +1,16 @@
+<form (submit)="login()" #loginForm="ngForm" class="login-form">
+  <label for="email">E-mail:</label><br>
+  <input type="email" id="email" name="email" [(ngModel)]="email" required><br>
+  <div *ngIf="loginForm.controls['email']?.invalid && (loginForm.controls['email']?.dirty || loginForm.controls['email']?.touched)">
+      Informe o e-mail.
+  </div>
+
+    <label for="password">Senha:</label><br>
+    <input type="password" id="password" name="password" [(ngModel)]="password" required><br>
+    <div *ngIf="loginForm.controls['password']?.invalid && (loginForm.controls['password']?.dirty || loginForm.controls['password']?.touched)">
+      Informe a senha
+    </div>
+
+    <input type="submit" value="Entrar" [disabled]="loginForm.invalid">
+    <button type="button" (click)="register()">Criar Conta</button>
+</form>
