@@ -1,12 +1,13 @@
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50px;
-    background-color: #333;
-    color: white;
-    transition: width 0.3s ease;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50px;
+  background-color: #333;
+  color: white;
+  transition: width 0.3s ease;
 }
 
 .sidebar.expanded {

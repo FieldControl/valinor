@@ -1,12 +1,14 @@
-<div mat-dialog-title>
-    <span class="label">Título</span>
-    <p>{{ data.title }}</p>
-</div>
-<div mat-dialog-content>
-    <span class="label">Descrição</span>
-    <p>{{ data.description }}</p>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Fechar</button>
-    <button mat-button cdkFocusInitial (click)="deleteCard()">Deletar</button>
+<div class="dialog-container">
+  <div mat-dialog-title class="dialog-title">
+      <span class="label">Título</span>
+      <p class="title">{{ data.title }}</p>
+  </div>
+  <div mat-dialog-content class="dialog-content">
+      <span class="label">Descrição</span>
+      <p class="description">{{ data.description }}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+      <button mat-button class="close-button" (click)="onNoClick()">Fechar</button>
+      <button mat-button class="delete-button" cdkFocusInitial (click)="deleteCard()">Deletar</button>
+  </div>
 </div>

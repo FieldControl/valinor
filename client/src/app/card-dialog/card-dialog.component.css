@@ -1,0 +1,16 @@
+.dialog-container {
+    word-wrap: break-word; /* Quebra as palavras para a próxima linha */
+    overflow: auto; /* Adiciona uma barra de rolagem se o conteúdo ultrapassar o tamanho do diálogo */
+    max-height: 400px; /* Define uma altura máxima para o conteúdo do diálogo */
+}
+
+.dialog-title {
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.dialog-content {
+    word-wrap: break-word; /* Quebra as palavras para a próxima linha */
+    overflow: auto; /* Adiciona uma barra de rolagem se o conteúdo ultrapassar o tamanho do diálogo */
+    max-height: 400px; /* Define uma altura máxima para o conteúdo do diálogo */
+  }

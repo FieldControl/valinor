@@ -1,11 +1,12 @@
 <div class="container">
   <!-- Quadro do Kanbab -->
-  <div class="kanban-board">
+  <div class="kanban-board" cdkDropList (cdkDropListDropped)="dropColumn($event)">
     <app-column
       *ngFor="let column of columns; let i = index"
       [title]="column.title"
       [cards]="column.cards"
       (columnRemoved)="removeColumn(i)"
+      cdkDrag
     ></app-column>
 
     <div class="add-column">

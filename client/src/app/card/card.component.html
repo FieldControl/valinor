@@ -1,4 +1,6 @@
-<div class="kanban-card" (click)="openCardDialog()">
-    <h3>{{ title }}</h3>
+<div class="card" cdkDrag (click)="openCardDialog()">
+    <div class="drag-handle">
+        <h3><i class="fas fa-grip-vertical"></i> {{ title }}</h3>
+    </div>
     <p>{{ description }}</p>
 </div>

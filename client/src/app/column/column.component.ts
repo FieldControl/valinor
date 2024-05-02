@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 import { AddCardDialogComponent } from '../add-card-dialog/add-card-dialog.component';
 
@@ -9,12 +10,13 @@ import { AddCardDialogComponent } from '../add-card-dialog/add-card-dialog.compo
   styleUrls: ['./column.component.css']
 })
 export class ColumnComponent {
-  @Input() title: string = ''; // Título da coluna recebido do componente pai
-  @Input() cards: { title: string, description: string}[] = []; // Array para armazenar os cartões
-  @Output() cardMoved = new EventEmitter<{ card: any, toColumnIndex: number }>(); // Evento emitido quando um cartão é movido
-  @Output() columnRemoved = new EventEmitter<void>(); // Evento emitido quando a coluna é removida
+  @Input() title: string = '';
+  @Input() cards: { title: string, description: string }[] = [];
+  @Output() columnRemoved = new EventEmitter<void>();
+  @Output() cardMoved = new EventEmitter<any>();
+  @Output() cardRemoved = new EventEmitter<number>();
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   // Método para adicionar um novo cartão à coluna
   addCard(newCardTitle: string, newCardDescription: string) {
@@ -24,16 +26,16 @@ export class ColumnComponent {
     }
   }
 
-  
-  openAddCardDialog(): void {
-    const dialogRef = this.dialog.open(AddCardDialogComponent, {
-      width: '600px',
-      data: { /* Dados que você quer passar para o diálogo */ }
-    });
-  
-    dialogRef.componentInstance.cardAdded.subscribe(({ title, description }) => {
-      this.addCard(title, description);
-    });
+  // Método para lidar com o evento de soltar um cartão
+  dropCard(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
   // Método para remover a coluna
@@ -41,8 +43,23 @@ export class ColumnComponent {
     this.columnRemoved.emit();
   }
 
-  // Método para remover o card
-  removeCard(columnIndex: number) {
-    this.cards.splice(columnIndex, 1);
+  // Método para remover um cartão
+  removeCard(index: number) { // Adicione este método
+    this.cards.splice(index, 1);
+    this.cardRemoved.emit(index);
+  }
+
+  // Método para abrir o diálogo de adicionar cartão
+  openAddCardDialog() {
+    const dialogRef = this.dialog.open(AddCardDialogComponent, {
+      width: '600px',
+      data: { title: '', description: '' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.addCard(result.title, result.description);
+      }
+    });
   }
 }

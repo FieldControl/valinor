@@ -1,5 +1,7 @@
-<div class="kanban-column">
-  <h2>{{ title }}</h2>
+<div class="kanban-column" cdkDropList [id]="title" (cdkDropListDropped)="dropCard($event)">
+  <div class="drag-handle">
+    <h2><i class="fas fa-grip-vertical"></i> {{ title }}</h2>
+  </div>
   <!-- Botão para remover a coluna -->
   <button class="delete-button" (click)="removeColumn()">x</button>
   <!-- Renderiza os cartões da coluna -->
@@ -9,6 +11,7 @@
       [title]="card.title"
       [description]="card.description"
       (cardRemoved)="removeCard(i)"
+      cdkDrag
     ></app-card>
   </div>
   <!-- Botão para abrir o diálogo -->

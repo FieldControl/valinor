@@ -1,5 +1,5 @@
 /* Estilos para cada cartão dentro de uma coluna */
-.kanban-card {
+.card {
     align-items: center;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -7,4 +7,17 @@
     padding: 10px;
     margin-bottom: 10px;
     cursor: pointer;
+    font-size: 0.9em;
+}
+
+.card .drag-handle i {
+    font-size: 0.8em;
+}
+
+.drag-handle {
+    cursor: grab;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
 }

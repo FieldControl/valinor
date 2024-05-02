@@ -2,18 +2,14 @@
     display: flex;
 }
 
-/* 
-   Estilização do quadro do Kanban
-*/
-
-/* Estilos para o quadro Kanban */
+/* Quadro Kanban */
 .kanban-board {
     display: flex;
     padding: 20px;
     overflow-x: auto;
 }
   
-/* Estilos para cada coluna no quadro Kanban */
+/* Coluna no quadro Kanban */
 .kanban-column {
     flex: 1;
     margin-right: 20px;
@@ -22,12 +18,12 @@
     padding: 10px;
 }
   
-/* Estilos para os cartões dentro de cada coluna */
+/* Cartões dentro de cada coluna */
 .kanban-cards {
     margin-top: 10px;
 }
   
-/* Estilos para cada cartão dentro de uma coluna */
+/* Cartão dentro de uma coluna */
 .kanban-card {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -36,12 +32,12 @@
     margin-bottom: 10px;
 }
   
-/* Estilos para o botão "Adicionar Coluna" */
+/* Botão "Adicionar Coluna" */
 .add-column {
     margin-top: 20px;
 }
   
-/* Estilos para o campo de entrada dentro do botão "Adicionar Coluna" */
+/* Campo de entrada dentro do botão "Adicionar Coluna" */
 .add-column input[type="text"] {
     margin-right: 10px;
     padding: 5px;
@@ -49,7 +45,7 @@
     border-radius: 4px;
 }
   
-/* Estilos para o botão de confirmação dentro do botão "Adicionar Coluna" */
+/* Botão de confirmação dentro do botão "Adicionar Coluna" */
 .add-column button {
     padding: 5px 10px;
     background-color: #007bff;
@@ -59,7 +55,25 @@
     cursor: pointer;
 }
   
-/* Estilos de hover para o botão de confirmação */
+/* Hover para o botão de confirmação */
 .add-column button:hover {
     background-color: #0056b3;
+}
+
+.cdk-drag-preview {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                            0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                            0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
