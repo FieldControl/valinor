@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../auth.service';
 import { ChangePasswordDialogComponent } from '../change-password-dialog/change-password-dialog.component';
 import { EditProfileDialogComponent } from '../edit-profile-dialog/edit-profile-dialog.component';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,10 +12,10 @@ import { EditProfileDialogComponent } from '../edit-profile-dialog/edit-profile-
 export class ProfileComponent implements OnInit {
   user: any;
 
-  constructor(public dialog: MatDialog, private authService: AuthService) { }
+  constructor(public dialog: MatDialog, private profileService: ProfileService) { }
 
   ngOnInit() {
-    this.user = this.authService.user;
+    this.user = this.profileService.user;
   }
 
   openEditProfileDialog() {

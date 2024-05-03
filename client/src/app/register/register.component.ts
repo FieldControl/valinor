@@ -17,19 +17,19 @@ export class RegisterComponent {
   constructor(private router: Router, private authService: AuthService) { }
 
   // Método para registrar com a API
-  /*
   register() {
-    this.authService.register(this.name, this.email, this.password).subscribe({
+    this.authService.register(this.name, this.email, this.confirmPassword).subscribe({
       next: () => this.router.navigate(['/board']),
       error: err => this.error = 'Erro no registro'
     });
   }
-  */
 
   // Método temporário para passar sem registrar com a API
+  /*
   register() {
     this.router.navigate(['/board']);
   }
+  */
 
   goToLogin() {
     this.router.navigate(['/']);

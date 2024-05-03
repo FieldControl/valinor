@@ -1,7 +1,7 @@
 import { Component, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-edit-profile-dialog',
@@ -15,7 +15,7 @@ export class EditProfileDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<EditProfileDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private authService: AuthService
+    private profileService: ProfileService
   ) {
     if (data && data.user) {
       this.user = { ...data.user };
@@ -24,9 +24,15 @@ export class EditProfileDialogComponent {
 
   saveChanges(form: NgForm) {
     if (form.valid) {
-      // Implementar a lógica para salvar as alterações aqui
+      
+      this.profileService.updatedUser(this.user).subscribe({
+        next: () => {
+          console.log('Dados alterados com sucesso!');
+        },
+        error: err => console.error('Erro ao atualizar usuário:', err)
+      });
 
-      this.authService.updatedUser(this.user);
+      this.profileService.updatedUser(this.user);
       this.userUpdated.emit(this.user);
       this.dialogRef.close(this.user);
     }

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-change-password-dialog',
@@ -11,15 +12,21 @@ export class ChangePasswordDialogComponent {
   @ViewChild('passwordForm') passwordForm!: NgForm;
   currentPassword = '';
   newPassword = '';
-  confirmNewPassword = ';'
+  confirmNewPassword = '';
+  profileService: ProfileService;
 
-  constructor(public dialogRef: MatDialogRef<ChangePasswordDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<ChangePasswordDialogComponent>, profileService: ProfileService) {
+    this.profileService = profileService;
+  }
 
   changePassword() {
     if (this.passwordForm.valid) {
-      // Implemente a lógica para alterar a senha aqui
-      // Por exemplo, se você estiver usando o serviço de autenticação do Angular:
-      // this.authService.changePassword(this.newPassword);
+      this.profileService.updatedUser(this.newPassword).subscribe({
+        next: () => {
+          console.log('Dados alterados com sucesso!');
+        },
+        error: err => console.error('Erro ao atualizar usuário:', err)
+      });
 
       console.log('Senha alterada para:', this.newPassword);
       this.dialogRef.close();

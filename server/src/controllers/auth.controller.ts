@@ -2,7 +2,7 @@ import { Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/commo
 
 import { AuthService } from '../services/auth.service';
 import { LoginDto } from '../dtos/login.dto';
-import { RegisterDto } from 'src/dtos/register.dto';
+import { RegisterDto } from '../dtos/register.dto';
 
 @Controller('auth')
 export class AuthController {
