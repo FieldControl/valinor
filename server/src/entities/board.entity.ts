@@ -8,6 +8,9 @@ export class BoardEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({ unique: true })
+  user_id: number;
+
   @Column()
   title: string;
 

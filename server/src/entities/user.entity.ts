@@ -8,11 +8,23 @@ export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  name: string;
+
   @Column({ unique: true })
   email: string;
 
   @Column()
   password: string;
+
+  @Column()
+  theme: string;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+  creation_date: Date;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+  change_date: Date;
 
   @OneToMany(() => BoardEntity, board => board.user) 
   boards: BoardEntity[];
@@ -23,6 +35,10 @@ export class UserEntity {
   }
 
   async comparePassword(password: string): Promise<boolean> {
+    return password === this.password;
+  }
+
+  async comparePasswordCrypt(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
   }
 }

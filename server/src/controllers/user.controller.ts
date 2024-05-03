@@ -9,31 +9,31 @@ export class UserController {
 
     @Get()
     async getAllUsers(): Promise<UserEntity[]> {
-        return this.userService.findAll();
+        return this.userService.getAllUsers();
     }
 
     @Get(':id')
     async getUserById(@Param('id') id: number): Promise<UserEntity> {
-        return this.userService.findById(id);
+        return this.userService.getUserById(id);
     }
 
     @Get('email/:email')
     async getUserByEmail(@Param('email') email: string): Promise<UserEntity> {
-        return this.userService.findByEmail(email);
+        return this.userService.getUserByEmail(email);
     }
 
     @Post()
-    async create(@Body() user: UserEntity): Promise<UserEntity> {
-        return this.userService.create(user);
+    async createUser(@Body() user: UserEntity): Promise<UserEntity> {
+        return this.userService.createUser(user);
     }
 
     @Put(':id')
     async updateUser(@Param('id') id: number, @Body() user: UserEntity): Promise<UserEntity> {
-        return this.userService.update(id, user);
+        return this.userService.updateUser(id, user);
     }
 
     @Delete(':id')
     async deleteUser(@Param('id') id: number): Promise<void> {
-        return this.userService.delete(id);
+        return this.userService.deleteUser(id);
     }
 }
