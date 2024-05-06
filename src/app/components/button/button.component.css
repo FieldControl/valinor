@@ -1,0 +1,15 @@
+button{
+  border-radius:14rem;
+  background:#f36;
+  width:13rem;
+  height:fit-content;
+  outline:none;
+  border:none;
+  text-wrap:wrap;
+  cursor:pointer;
+}
+
+button:hover{
+  text-shadow: 2px 2px 3px #e84;
+  box-shadow:2px 2px 30px #e84;
+}

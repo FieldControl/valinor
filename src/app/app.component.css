@@ -1,0 +1,21 @@
+.adjustingToCenter{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4%;
+}
+
+.adjustingToCenter img:hover{
+  box-shadow: 2px 2px 30px #f36
+}
+
+.centeringButtons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.centeringButtons app-button{
+  padding:4%;
+}

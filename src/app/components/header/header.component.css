@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+header{
+  width:100%;
+  min-height:5rem;
+  height:fit-content;
+  background: linear-gradient(90deg, rgba(76,92,241,1) 0%, rgba(192,63,251,1) 0%, rgba(252,70,107,1) 100%);
+  text-align:center;
+  text-wrap:wrap;
+  font-family: "Bungee Shade", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:40px;
+}
+
+header:hover{
+  text-shadow:2px 2px 30px #fff;
+}

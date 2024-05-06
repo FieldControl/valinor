@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width:220px) {
+  body,html {
+    overflow-x: auto;
+    min-width:219px;
+  }
+}

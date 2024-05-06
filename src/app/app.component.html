@@ -1,0 +1,12 @@
+<!-- curl 'https://api.myanimelist.net/v2/anime?q=one&limit=4' \
+-H 'Authorization: Bearer bff157ed32f2649325c6c2e5b72f4ac8' -->
+<app-header></app-header>
+<div class="centeringButtons">
+<app-button (click)="gettingTenData()">Filtrar para apenas 10 keanus</app-button>
+<app-button (click)="gettingData()">Voltar ao padrão keanus(20)</app-button>
+</div>
+<div *ngFor="let keanu of data" class="adjustingToCenter">
+  <img src="{{keanu.poster}}" alt="" width="250px" height="250px">
+</div>
+<app-footer></app-footer>
+<router-outlet></router-outlet>
