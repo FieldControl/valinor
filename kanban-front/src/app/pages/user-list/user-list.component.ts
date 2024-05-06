@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [CommonModule],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })

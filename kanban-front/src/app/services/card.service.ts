@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
     providedIn: 'root',
 })
 
-export class UserService extends DefaultService {
+export class CardService extends DefaultService {
     constructor(private http: HttpClient) {
         super('cards');
     }

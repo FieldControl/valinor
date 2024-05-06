@@ -1,0 +1,47 @@
+<div class="container">
+    <h1> Registro de usuário </h1>
+    <form   [formGroup]="registerForm"
+            (ngSubmit)="register()">
+
+        <div class="form-group">
+            <label for="name">Nome</label><br>
+            <input  type="text" 
+                    formControlName="name" 
+                    class="form-control">
+
+            @if (registerForm.controls.name.hasError('name') && registerForm.controls.name.touched) {
+                <div class="invalid-feedback">Insira um nome válido</div>
+            } @if (registerForm.controls.name.hasError('required') && registerForm.controls.name.touched) {
+                <div class="invalid-feedback">O nome é obrigatório!</div>
+            }
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="email">E-mail</label><br>
+            <input  type="text" 
+                    formControlName="email" 
+                    class="form-control">
+
+            @if (registerForm.controls.email.hasError('email') && registerForm.controls.email.touched) {
+                <div class="invalid-feedback">Insira um email válido</div>
+            } @if (registerForm.controls.email.hasError('required') && registerForm.controls.email.touched) {
+                <div class="invalid-feedback">O email é obrigatório!</div>
+            }
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="password">Senha</label><br>
+            <input  type="text" 
+                    formControlName="password" 
+                    class="form-control">
+
+            @if (registerForm.controls.email.hasError('required') && registerForm.controls.email.touched) {
+                <div class="invalid-feedback">Insira um email válido</div>
+            }
+        </div>
+        <pre></pre>
+        <button class="btn btn-primary">Registrar</button>
+        <pre></pre>
+        <div class="register"><a [routerLink]="['/register']"></a></div>
+    </form>
+</div>

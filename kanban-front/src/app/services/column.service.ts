@@ -8,7 +8,7 @@ import { IColumn } from "../models/column";
     providedIn: 'root',
 })
 
-export class UserService extends DefaultService {
+export class ColumnService extends DefaultService {
     constructor(private http: HttpClient) {
         super('column');
     }

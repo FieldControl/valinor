@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
 import { Observable, retry } from "rxjs";
-import { IUser } from "../models/user";
+import { IRegister, IUser } from "../models/user";
 
 @Injectable({
     providedIn: 'root',
@@ -21,7 +21,7 @@ export class UserService extends DefaultService {
         return this.http.get<IUser>(`${this.url}/${id}`)
     }
 
-    create(user: IUser): Observable<IUser> {
+    create(user: IRegister): Observable<IUser> {
         return this.http.post<IUser>(this.url, user)
     }
 
@@ -31,5 +31,9 @@ export class UserService extends DefaultService {
 
     delete(id: String): Observable<IUser> {
         return this.http.delete<IUser>(`${this.url}/${id}`)
+    }
+
+    login(email: string, password: string): Observable<any> {
+        return this.http.post<any>(`${this.url}/login`, { email, password })
     }
 }

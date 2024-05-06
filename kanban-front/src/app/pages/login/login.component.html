@@ -1,0 +1,34 @@
+<div class="container">
+    <h1> Login de usuário </h1>
+    <form   [formGroup]="loginForm"
+            (ngSubmit)="login()">
+
+        <div class="form-group">
+            <label for="email">E-mail</label><br>
+            <input  type="text" 
+                    formControlName="email" 
+                    class="form-control">
+
+            @if (loginForm.controls.email.hasError('email') && loginForm.controls.email.touched) {
+                <div class="invalid-feedback">Insira um email válido</div>
+            } @if (loginForm.controls.email.hasError('required') && loginForm.controls.email.touched) {
+                <div class="invalid-feedback">O email é obrigatório!</div>
+            }
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="password">Senha</label><br>
+            <input  type="text" 
+                    formControlName="password" 
+                    class="form-control">
+
+            @if (loginForm.controls.email.hasError('required') && loginForm.controls.email.touched) {
+                <div class="invalid-feedback">Insira um email válido</div>
+            }
+        </div>
+        <pre></pre>
+        <button class="btn btn-primary">Login</button>
+        <pre></pre>
+        <div class="register"><a [routerLink]="['/register']">Não tem uma conta? Crie uma!</a></div>
+    </form>
+</div>
