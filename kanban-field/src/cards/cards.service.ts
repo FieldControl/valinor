@@ -39,7 +39,7 @@ export class CardsService {
 
   async find(conditions: any) {
     try {
-      return this.cardModel.find(conditions);  // responsavel por achar a coluna que pertence
+      return this.cardModel.find(conditions).populate('responsible');  // responsavel por achar a coluna que pertence
     } catch (error) {
       throw new Error(`Falha ao encontrar o cartão: ${error.message}`);
     }

@@ -39,6 +39,15 @@ export class ColumnsController {
     }
   }
 
+  @Get('boards/:boardId')
+  async findColumnsByBoard(@Param('boardId') boardId: string) {
+    try {
+      return this.columnsService.findByBoard(boardId);
+    } catch (error) {
+      throw new HttpException(`Falha ao encotrar as colunas: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
+  }
+
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateColumnDto: UpdateColumnDto) {
     try {

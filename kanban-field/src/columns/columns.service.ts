@@ -48,9 +48,25 @@ export class ColumnsService {
     return column; // retorna a coluna e os cards pertencentes a ela
   }
 
+  async findByBoard(id: string) {
+    try {
+      const columns = await this.columnModel.find({ board: id });
+      
+      const columnsWithCards = await Promise.all(columns.map(async (column) => {
+        column.cards = await this.cardService.find({ column: column._id });
+        return column;
+      }));
+  
+      return columnsWithCards;
+    } catch (error) {
+      throw new Error(`Falha ao consultar todas as colunas: ${error.message}`);
+    }
+    
+  }
+
   async find(conditions: any) {
     try {
-      return this.columnModel.find(conditions);  // responsavel por achar a coluna que pertence
+      return this.columnModel.find(conditions).populate('cards');
     } catch (error) {
       throw new Error(`Falha ao encontrar a coluna: ${error.message}`);
     }
