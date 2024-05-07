@@ -10,7 +10,7 @@ import { IColumn } from "../models/column";
 
 export class ColumnService extends DefaultService {
     constructor(private http: HttpClient) {
-        super('column');
+        super('columns');
     }
 
     list(): Observable<IColumn[]> {
@@ -19,6 +19,10 @@ export class ColumnService extends DefaultService {
 
     findById(id: string): Observable<IColumn> {
         return this.http.get<IColumn>(`${this.url}/${id}`)
+    }
+
+    findByBoard(boardId: string): Observable<IColumn[]> {
+        return this.http.get<IColumn[]>(`${this.url}/boards/${boardId}`);
     }
 
     create(column: IColumn): Observable<IColumn> {

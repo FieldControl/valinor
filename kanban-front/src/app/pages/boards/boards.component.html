@@ -1,0 +1,11 @@
+<h1>Meus quadros</h1>
+<div class="board-box">
+    @for (board of boards; track board) {
+        <a [routerLink]="['/boards', board._id]">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ board.name }}</h5>
+            </div></div>
+            </a>
+    }
+</div>

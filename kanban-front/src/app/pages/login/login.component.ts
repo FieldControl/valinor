@@ -31,7 +31,7 @@ export class LoginComponent {
     if (formData.email && formData.password){
       this.userService.login(formData.email, formData.password).subscribe({next: (response) => {
         console.log('Sucesso', response)
-        this.router.navigateByUrl('/users')
+        this.router.navigateByUrl('/boards')
       }})
     }
   }

@@ -11,13 +11,17 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.2.0",
+    "@angular/cdk": "^17.3.7",
     "@angular/common": "^17.2.0",
     "@angular/compiler": "^17.2.0",
     "@angular/core": "^17.2.0",
     "@angular/forms": "^17.2.0",
+    "@angular/material": "^17.3.7",
     "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
+    "@material/card": "^14.0.0",
+    "bootstrap": "^5.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

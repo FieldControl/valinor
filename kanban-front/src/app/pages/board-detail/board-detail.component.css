@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.column-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 10px;
+    width: 10rem;
+    height: 10rem;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title {
+    text-align: center;
+}

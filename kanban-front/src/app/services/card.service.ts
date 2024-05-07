@@ -17,16 +17,6 @@ export class CardService extends DefaultService {
         return this.http.get<ICard[]>(this.url)
     }
 
-    find(conditions: any): Observable<ICard> {
-        let params = new HttpParams();
-        for (const key in conditions) {
-            if (conditions.hasOwnProperty(key)) {
-                params = params.set(key, conditions[key]);
-            }
-        }
-        return this.http.get<ICard>(this.url, { params });
-    }
-
     findById(id: string): Observable<ICard> {
         return this.http.get<ICard>(`${this.url}/${id}`)
     }
