@@ -25,12 +25,7 @@ export class UsersService {
     try {
       const users = await this.userModel.find()
 
-      const usersWithCards = await Promise.all(users.map(async (user) => {
-        user.cards = await this.cardService.find({ responsible: user._id})
-        return user
-      }))
-
-      return usersWithCards
+      return users
     } catch (error) {
       throw new Error(`Falha ao consultar todos os usuários: ${error.message}`);
     }
@@ -43,7 +38,7 @@ export class UsersService {
       throw new NotFoundException('Usuário não encontrado');
     } 
 
-    user.cards = await this.cardService.find({ responsible: id });
+    user.cards = await this.cardService.find({ responsible: id }, id);
 
     return user
   }

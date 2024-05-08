@@ -10,25 +10,25 @@ export class CardsService {
 
   constructor(@InjectModel(Card.name) private cardModel: Model<CardDocument>) {}
 
-  async create(createCardDto: CreateCardDto) {
+  async create(createCardDto: CreateCardDto, userId: string) {
     try {
-      const column = new this.cardModel(createCardDto);
+      const column = new this.cardModel({...createCardDto, responsible: userId });
       return await column.save();
     } catch (error) {
       throw new Error(`Falha ao criar o cartão: ${error.message}`);
     }
   }
 
-  async findAll() {
+  async findAll(userId: string) {
     try {
-      return await this.cardModel.find().populate('responsible').populate('column');
+      return await this.cardModel.find({ responsible: userId }).populate('responsible').populate('column');
     } catch (error) {
       throw new Error(`Falha ao consultar todos os cartões: ${error.message}`);
     }
   }
 
-  async findOne(id: string) {
-    const card = await this.cardModel.findById(id).populate('responsible').populate('column');
+  async findOne(id: string, userId: string) {
+    const card = await this.cardModel.findById({_id: id, responsible: userId }).populate('responsible').populate('column');
     
     if (!card) {
       throw new NotFoundException('Cartão não encontrado');
@@ -37,17 +37,17 @@ export class CardsService {
     return card;
   }
 
-  async find(conditions: any) {
+  async find(conditions: any, userId: string) {
     try {
-      return this.cardModel.find(conditions).populate('responsible');  // responsavel por achar a coluna que pertence
+      return this.cardModel.find({...conditions, responsible: userId }).populate('responsible');  // responsavel por achar a coluna que pertence
     } catch (error) {
       throw new Error(`Falha ao encontrar o cartão: ${error.message}`);
     }
   }  
 
-  async update(id: string, updateCardDto: UpdateCardDto) {
+  async update(id: string, updateCardDto: UpdateCardDto, userId: string) {
     const card = await this.cardModel.findByIdAndUpdate(
-      id, updateCardDto, { new: true }
+      {_id: id, responsible: userId }, updateCardDto, { new: true }
     )
     
     if (!card) {
@@ -57,8 +57,8 @@ export class CardsService {
     return card
   }
 
-  async remove(id: string) {
-    const card = await this.cardModel.findByIdAndDelete(id);
+  async remove(id: string, userId: string) {
+    const card = await this.cardModel.findByIdAndDelete({_id: id, responsible: userId });
     
     if (!card) {
       throw new NotFoundException('Cartão não encontrado');

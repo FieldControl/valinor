@@ -1,34 +1,38 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus, NotFoundException, Req, UseGuards } from '@nestjs/common';
 import { ColumnsService } from './columns.service';
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('columns')
 export class ColumnsController {
   constructor(private readonly columnsService: ColumnsService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
-  async create(@Body() createColumnDto: CreateColumnDto) {
+  async create(@Body() createColumnDto: CreateColumnDto, @Req() req) {
     try {
-      return await this.columnsService.create(createColumnDto);
+      return await this.columnsService.create(createColumnDto, req.user.userId);
     } catch (error) {
       throw new HttpException(`Falha ao criar a coluna: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
-  async findAll() {
+  async findAll(@Req() req) {
     try {
-      return await this.columnsService.findAll();
+      return await this.columnsService.findAll(req.user.userId);
     } catch (error) {
       throw new HttpException(`Falha ao consultar todas as colunas: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string, @Req() req) {
     try {
-      return await this.columnsService.findOne(id);
+      return await this.columnsService.findOne(id, req.user.userId);
     } catch (error) {
 
       if (error instanceof NotFoundException) {
@@ -39,19 +43,21 @@ export class ColumnsController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('boards/:boardId')
-  async findColumnsByBoard(@Param('boardId') boardId: string) {
+  async findColumnsByBoard(@Param('boardId') boardId: string, @Req() req) {
     try {
-      return this.columnsService.findByBoard(boardId);
+      return this.columnsService.findByBoard(boardId, req.user.userId);
     } catch (error) {
       throw new HttpException(`Falha ao encotrar as colunas: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() updateColumnDto: UpdateColumnDto) {
+  async update(@Param('id') id: string, @Body() updateColumnDto: UpdateColumnDto, @Req() req) {
     try {
-      return await this.columnsService.update(id, updateColumnDto);
+      return await this.columnsService.update(id, updateColumnDto, req.user.userId);
     } catch (error) {
 
       if (error instanceof NotFoundException) {
@@ -62,10 +68,11 @@ export class ColumnsController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string, @Req() req) {
     try {
-      return await this.columnsService.remove(id);
+      return await this.columnsService.remove(id, req.user.userId);
     } catch (error) {
 
       if (error instanceof NotFoundException) {
