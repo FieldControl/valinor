@@ -1,0 +1,26 @@
+<section aria-labelledby="column-header" class="column">
+  <header class="column-header">
+    <h2>{{ column.title }}</h2>
+    <div id="add-task">
+      <button class="btn-add" type="button" (click)="openDialog()">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
+  </header>
+
+  <div
+    class="column-body"
+    role="list"
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+    [cdkDropListData]="column.tasks"
+    [id]="column.id"
+  >
+    <app-card
+      *ngFor="let task of column.tasks"
+      [task]="task"
+      cdkDrag
+      [cdkDragData]="task"
+    ></app-card>
+  </div>
+</section>

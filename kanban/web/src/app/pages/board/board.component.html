@@ -1,0 +1,31 @@
+<main>
+  <div id="panel">
+    <button class="btn-back" type="button" (click)="voltarPagina()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="btn-wrapper">
+      <button class="btn-edit" type="button" (click)="openEditDialog()">
+        <mat-icon>edit</mat-icon>Editar Quadro
+      </button>
+
+      <button class="btn-add" type="button" (click)="openAddColumnDialog()">
+        <mat-icon>add_circle</mat-icon>Adicionar Coluna
+      </button>
+    </div>
+  </div>
+  <div class="board-wrapper">
+    <div
+      class="board"
+      *ngIf="board?.columns?.length; else emptyMessage"
+      cdkDropListGroup
+    >
+      <app-column
+        [column]="column"
+        *ngFor="let column of board?.columns"
+      ></app-column>
+    </div>
+    <ng-template class="emptyMessage" #emptyMessage>
+      <p>Nenhuma coluna cadastrada...</p>
+    </ng-template>
+  </div>
+</main>

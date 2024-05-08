@@ -1,0 +1,51 @@
+<mat-dialog-content>
+  <header>
+    <h1>Adicionar tarefa</h1>
+  </header>
+
+  <form #tarefaForm="ngForm">
+    <mat-form-field>
+      <mat-label>Nome da tarefa</mat-label>
+      <input
+        matInput
+        placeholder="Nome da tarefa"
+        name="taskName"
+        [(ngModel)]="taskName"
+        required
+        #taskNameInput="ngModel"
+      />
+      <mat-icon matSuffix>post_add</mat-icon>
+      <mat-error *ngIf="taskNameInput.errors?.['required']">
+        O nome da tarefa é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Descrição</mat-label>
+      <textarea
+        matInput
+        placeholder="Descrição da tarefa"
+        name="description"
+        [(ngModel)]="description"
+        required
+        #descriptionInput="ngModel"
+      ></textarea>
+      <mat-icon matSuffix>description</mat-icon>
+      <mat-error *ngIf="descriptionInput.errors?.['required']">
+        A descrição da tarefa é obrigatória.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="addTask()"
+    [disabled]="!tarefaForm.valid"
+  >
+    Adicionar
+  </button>
+  <button mat-flat-button color="warn" matDialogClose>Cancelar</button>
+</mat-dialog-actions>

@@ -1,0 +1,45 @@
+.card {
+  background-color: #f3f1f1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-width: 20rem;
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.2rem;
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      
+      mat-icon {
+        font-size: 1.2rem;
+        height: 1.1rem;
+        text-align: center;
+      }
+      h2 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 90%;
+      }
+    }
+    .card-description {
+      font-size: 0.9rem;
+      overflow-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: wrap;
+      padding-left: 1.5rem;
+    }
+  }
+}

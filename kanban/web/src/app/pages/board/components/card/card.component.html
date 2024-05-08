@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-header">
+      <mat-icon>task_alt</mat-icon>
+      <h2>{{ task.title }}</h2>
+    </div>
+    <p class="card-description">
+      {{ task.description }}
+    </p>
+  </div>
+  <button mat-icon-button color="warn" matSuffix (click)="deleteTask(task.id)">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

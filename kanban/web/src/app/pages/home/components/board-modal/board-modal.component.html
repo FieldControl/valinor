@@ -1,0 +1,23 @@
+<mat-dialog-content>
+  <header>
+    <h1>Adicionar quadro</h1>
+  </header>
+
+  <form #quadroForm="ngForm">
+    <mat-form-field>
+      <mat-label>Nome do quadro</mat-label>
+      <input matInput placeholder="Ex. Meu quadro" name="boardName" [(ngModel)]="boardName" required #boardNameInput="ngModel">
+      <mat-icon matSuffix>post_add</mat-icon>
+      <mat-error *ngIf="boardNameInput.errors?.['required']">
+        O nome do quadro é obrigatório.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="primary" (click)="addBoard()" [disabled]="!quadroForm.valid">
+    Adicionar
+  </button>
+  <button mat-flat-button color="warn" matDialogClose>Cancelar</button>
+</mat-dialog-actions>

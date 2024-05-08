@@ -1,0 +1,22 @@
+<main>
+  <div id="add-board">
+    <h1>Meus Quadros</h1>
+    <button class="btn-add" type="button" (click)="openDialog()">
+      <mat-icon>add_circle</mat-icon>Adicionar Quadro
+    </button>
+  </div>
+  <div>
+    <div id="boards" *ngIf="boards.length > 0; else emptyMessage">
+      <div *ngFor="let board of boards">
+        <app-card-board
+          [routerLink]="['/board', board.id]"
+          [board]="board"
+        ></app-card-board>
+      </div>
+    </div>
+
+    <ng-template class="emptyMessage" #emptyMessage>
+      <p>Nenhum quadro cadastrado...</p>
+    </ng-template>
+  </div>
+</main>

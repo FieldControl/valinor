@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 1rem 10rem;
+  gap: 0.5rem;
+  mat-icon {
+    font-size: 2.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    h1 {
+      font-size: 3rem;
+      font-weight: 500;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    padding-inline: 1rem;
+  }
+}
+

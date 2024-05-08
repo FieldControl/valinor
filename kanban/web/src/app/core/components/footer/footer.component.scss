@@ -1,0 +1,34 @@
+footer {
+  background-color: #333;
+  color: white;
+  padding-inline: 10rem;
+  padding-block: 1rem;
+  display: flex;
+  justify-content: space-between;
+  p {
+    a {
+      color: white;
+      text-decoration: underline;
+      &:hover {
+        color: #86a8f1;
+      }
+    }
+  }
+  .repo {
+    a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      &:hover {
+        color: #86a8f1;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  footer {
+    padding-inline: 1rem;
+  }
+}

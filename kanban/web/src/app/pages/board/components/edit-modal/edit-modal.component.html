@@ -1,0 +1,57 @@
+<mat-dialog-content>
+  <header>
+    <h1>Editar dados</h1>
+  </header>
+  <mat-divider></mat-divider>
+  <h2>Quadro</h2>
+
+  <mat-form-field>
+    <label>Nome do Quadro</label>
+    <input
+      matInput
+      placeholder="Nome do Quadro"
+      [(ngModel)]="boardName"
+      value=""
+    />
+    <button mat-icon-button matSuffix color="primary" (click)="updateBoard()">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" matSuffix (click)="deleteBoard()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <h2>Colunas</h2>
+
+  <div class="columns" *ngFor="let column of columns">
+    <mat-form-field>
+      <mat-label>Nome da coluna</mat-label>
+      <input
+        matInput
+        placeholder="Nome da coluna"
+        [(ngModel)]="column.title"
+        value=""
+      />
+      <button
+        mat-icon-button
+        color="primary"
+        matSuffix
+        (click)="updateColumn(column)"
+      >
+        <mat-icon>save</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="warn"
+        matSuffix
+        (click)="deleteColumn(column.id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="warn" matDialogClose>Sair</button>
+</mat-dialog-actions>

@@ -1,0 +1,35 @@
+<mat-dialog-content>
+  <header>
+    <h1>Adicionar Coluna</h1>
+  </header>
+
+  <form #colunaForm="ngForm">
+    <mat-form-field>
+      <mat-label>Nome da coluna</mat-label>
+      <input
+        matInput
+        placeholder="Nome da coluna"
+        name="columnName"
+        [(ngModel)]="columnName"
+        required
+        #columnNameInput="ngModel"
+      />
+      <mat-icon matSuffix>post_add</mat-icon>
+      <mat-error *ngIf="columnNameInput.errors?.['required']">
+        O nome da coluna é obrigatório.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="addColumn()"
+    [disabled]="!colunaForm.valid"
+  >
+    Adicionar
+  </button>
+  <button mat-flat-button color="warn" matDialogClose>Cancelar</button>
+</mat-dialog-actions>
