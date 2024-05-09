@@ -5,16 +5,22 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Column, ColumnDocument } from './entities/column.entity';
 import { Model } from 'mongoose';
 import { CardsService } from 'src/cards/cards.service';
+import { BoardsService } from 'src/boards/boards.service';
 
 @Injectable()
 export class ColumnsService {
 
   constructor(@InjectModel(Column.name) private columnModel: Model<ColumnDocument>,
-              private cardService: CardsService) {}
+              private cardService: CardsService,
+              private boardService: BoardsService) {}
 
-  async create(createColumnDto: CreateColumnDto, userId: string) {
+  async create(createColumnDto: CreateColumnDto, boardId: string, userId: string, ) {
     try {
-      const column = new this.columnModel({...createColumnDto, responsible: userId});
+      const board = await this.boardService.findBoard(boardId, userId)
+
+      const userIds = board.responsibles  //  users responsaveis pela board compartilhada
+
+      const column = new this.columnModel({...createColumnDto, responsibles: userIds});
       return await column.save();
     } catch (error) {
       throw new Error(`Falha ao criar a coluna: ${error.message}`);
@@ -23,7 +29,7 @@ export class ColumnsService {
 
   async findAll(userId: string) {
     try {
-      const colums = await this.columnModel.find({ responsible: userId });
+      const colums = await this.columnModel.find({ responsibles: { $in: [userId] } }).populate('cards');
   
       const columnsWithCards = await Promise.all(colums.map(async (column) => {
         column.cards = await this.cardService.find({ column: column._id }, userId);
@@ -37,7 +43,7 @@ export class ColumnsService {
   }
 
   async findOne(id: string, userId: string) {
-    const column = await this.columnModel.findById(id);
+    const column = await this.columnModel.findById({_id: id, responsibles: { $in: [userId] } });
     
     if (!column) {
       throw new NotFoundException('Coluna não encontrada');
@@ -50,7 +56,7 @@ export class ColumnsService {
 
   async findByBoard(id: string, userId: string) {
     try {
-      const columns = await this.columnModel.find({ board: id, responsible: userId});
+      const columns = await this.columnModel.find({ board: id, responsibles: { $in: [userId] } });
       
       const columnsWithCards = await Promise.all(columns.map(async (column) => {
         column.cards = await this.cardService.find({ column: column._id },userId);
@@ -66,15 +72,15 @@ export class ColumnsService {
 
   async find(conditions: any, userId: string) {
     try {
-      return this.columnModel.find({...conditions, responsible: userId }).populate('cards');
+      return this.columnModel.find({...conditions, responsibles: { $in: [userId] } });
     } catch (error) {
       throw new Error(`Falha ao encontrar a coluna: ${error.message}`);
     }
-  }  
+  }
 
   async update(id: string, updateColumnDto: UpdateColumnDto, userId: string) {
     const column = await this.columnModel.findByIdAndUpdate(
-      {_id: id, responsible: userId }, updateColumnDto, { new: true }
+      {_id: id, responsibles: { $in: [userId] } }, updateColumnDto, { new: true }
     )
 
     if (!column) {
@@ -85,7 +91,7 @@ export class ColumnsService {
   }
 
   async remove(id: string, userId: string) {
-    const column = await this.columnModel.findByIdAndDelete({_id: id, responsible: userId });
+    const column = await this.columnModel.findByIdAndDelete({_id: id, responsibles: { $in: [userId] } });
     
     if (!column) {
       throw new NotFoundException('Coluna não encontrada');

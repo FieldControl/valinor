@@ -12,7 +12,7 @@ export class ColumnsController {
   @Post()
   async create(@Body() createColumnDto: CreateColumnDto, @Req() req) {
     try {
-      return await this.columnsService.create(createColumnDto, req.user.userId);
+      return await this.columnsService.create(createColumnDto, createColumnDto.board, req.user.userId);
     } catch (error) {
       throw new HttpException(`Falha ao criar a coluna: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
     }

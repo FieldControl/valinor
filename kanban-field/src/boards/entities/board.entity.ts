@@ -8,13 +8,13 @@ export type BoardDocument = HydratedDocument<Board>;
 @Schema()
 export class Board {
   @Prop()
-  name: string;
+  name: string
 
   @Prop({type: mongoose.Schema.Types.Array, ref: "Column"})
-  columns: Column[];
+  columns: Column[]
 
-  @Prop({type: mongoose.Schema.Types.ObjectId, ref: "User"})
-  responsible: User;
+  @Prop({type: mongoose.Schema.Types.Array, ref: "User"})
+  responsibles: User[]
 }
 
 export const BoardSchema = SchemaFactory.createForClass(Board);

@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -10,11 +10,12 @@ import { ColumnsService } from 'src/columns/columns.service';
 export class BoardsService {
 
   constructor(@InjectModel(Board.name) private boardModel: Model<BoardDocument>,
+              @Inject(forwardRef(() => ColumnsService))
               private columnsService: ColumnsService) {}
 
   async create(createBoardDto: CreateBoardDto, userId: string) {
     try {
-      const board = new this.boardModel({...createBoardDto, responsible: userId});
+      const board = new this.boardModel({...createBoardDto, responsibles: [userId]});
       return await board.save();
     } catch (error) {
       throw new Error(`Falha ao criar o quadro: ${error.message}`);
@@ -23,7 +24,7 @@ export class BoardsService {
 
   async findAll(userId: string) {
     try {
-      const boards = await this.boardModel.find({ responsible: userId });
+      const boards = await this.boardModel.find({ responsibles: { $in: [userId] } });
   
       const boardsWithColumms = await Promise.all(boards.map(async (board) => {
         board.columns = await this.columnsService.find({ board: board._id }, userId);
@@ -37,7 +38,7 @@ export class BoardsService {
   }
 
   async findOne(id: string, userId: string) {
-    const board = await this.boardModel.findById({_id: id, responsible: userId});
+    const board = await this.boardModel.findById({_id: id, responsibles: { $in: [userId] } });
     
     if (!board) {
       throw new NotFoundException('Quadro não encontrado');
@@ -48,9 +49,19 @@ export class BoardsService {
     return board; // retorna o quadro e as colunas pertencentes a ele
   }
 
+  async findBoard(id: string, userId: string) {  //  usado so pra pegar o id no createColumn
+    const board = await this.boardModel.findOne({ _id: id, responsibles: { $in: [userId] } });
+    
+    if (!board) {
+      throw new NotFoundException('Quadro não encontrado');
+    }
+    
+    return board;
+  }
+
   async update(id: string, updateBoardDto: UpdateBoardDto, userId: string) {
     const board = await this.boardModel.findByIdAndUpdate(
-      {_id: id, responsible: userId }, updateBoardDto, { new: true }
+      {_id: id, responsibles: { $in: [userId] } }, updateBoardDto, { new: true }
     )
 
     if (!board) {
@@ -61,7 +72,7 @@ export class BoardsService {
   }
 
   async remove(id: string, userId: string) {
-    const board = await this.boardModel.findByIdAndDelete({_id: id, responsible: userId});
+    const board = await this.boardModel.findByIdAndDelete({_id: id, responsibles: { $in: [userId] } });
     
     if (!board) {
       throw new NotFoundException('Quadro não encontrado');

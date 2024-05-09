@@ -1,16 +1,23 @@
 import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
-import { Observable, retry } from "rxjs";
-import { IRegister, IUser } from "../models/user";
+import { BehaviorSubject, Observable, of, retry, tap } from "rxjs";
+import { ILogin, IRegister, IUser } from "../models/user";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root',
 })
 
 export class UserService extends DefaultService {
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         super('users');
+    }
+
+    private loggedIn = new BehaviorSubject<boolean>(false);
+
+    get isLoggedIn() {
+        return this.loggedIn.asObservable();
     }
 
     list(): Observable<IUser[]> {
@@ -33,7 +40,19 @@ export class UserService extends DefaultService {
         return this.http.delete<IUser>(`${this.url}/${id}`)
     }
 
-    login(email: string, password: string): Observable<any> {
-        return this.http.post<any>(`${this.url}/login`, { email, password })
+    login(user: ILogin): Observable<any> {
+        if (user.email !== '' && user.password !== '' ) {
+            this.loggedIn.next(true);
+            return this.http.post(`${this.url}/login`, user).pipe(
+              tap(() => this.router.navigate(['/boards']))
+            );
+          } else {
+            return of(null);
+          }
+    }
+
+    logout() {
+        this.loggedIn.next(false);
+        this.router.navigate(['/']);
     }
 }

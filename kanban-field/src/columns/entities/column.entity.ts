@@ -9,16 +9,16 @@ export type ColumnDocument = HydratedDocument<Column>;
 @Schema()
 export class Column {
   @Prop()
-  name: string;
+  name: string
 
   @Prop({type: mongoose.Schema.Types.ObjectId, ref: "Board"})
-  board: Board;
+  board: string
 
-  @Prop({type: mongoose.Schema.Types.ObjectId, ref: "User"})
-  responsible: User;
+  @Prop({type: mongoose.Schema.Types.Array, ref: "User"})
+  responsibles: User[]
 
   @Prop({type: mongoose.Schema.Types.Array, ref: "Card"})
-  cards: Card[];
+  cards: Card[]
 }
 
 export const ColumnSchema = SchemaFactory.createForClass(Column);

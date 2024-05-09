@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { UserService } from '../../services/user.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -28,8 +28,11 @@ export class LoginComponent {
     }
 
     const formData = this.loginForm.value
-    if (formData.email && formData.password){
-      this.userService.login(formData.email, formData.password).subscribe({next: (response) => {
+    const email = formData.email || ''
+    const password = formData.password || ''
+
+    if (email && password){
+      this.userService.login({email, password}).subscribe({next: (response) => {
         console.log('Sucesso', response)
         this.router.navigateByUrl('/boards')
       }})

@@ -8,22 +8,22 @@ export type CardDocument = HydratedDocument<Card>;
 @Schema()
 export class Card {
   @Prop()
-  name: string;
+  name: string
 
   @Prop()
-  description: string;
+  description: string
 
   @Prop({default: Date.now})
-  createdAt: Date;
+  createdAt: Date
 
   @Prop()
-  dueDate: string;
+  dueDate: string
 
-  @Prop({type: mongoose.Schema.Types.ObjectId, ref: "User"})
-  responsible: User;
+  @Prop({type: mongoose.Schema.Types.Array, ref: "User"})
+  responsibles: User[]
 
   @Prop({type: mongoose.Schema.Types.ObjectId, ref: "Column"}) // Referência à coluna
-  column: string;
+  column: string
 }
 
 export const CardSchema = SchemaFactory.createForClass(Card);
