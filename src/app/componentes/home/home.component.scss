@@ -8,7 +8,38 @@
     margin: 50px;
     border-radius: 15px;
     min-height: 300px;
+    align-items: center;
 }
 .menu{
     display:flex;
 }
+h2{
+    padding: 25px;
+    width: 100%;
+    margin: -25px;
+    box-shadow: 0px 8px 16px 0px rgb(75, 75, 75);
+}
+.cli{
+    background-color: yellow ;
+    border-radius: 15px;
+}
+.neg {
+    border-radius: 15px;
+    background-color: aqua ;
+}
+.conc {
+    border-radius: 15px;
+    background-color: green ;
+}
+.canc {
+    border-radius: 15px;
+    background-color: rgba(255, 0, 0, 0.822);
+}
+
+button {
+    border-radius: 50px;
+    width: 25px;
+    height: 25px;
+    margin-left: 70px;
+}
+

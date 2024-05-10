@@ -1,23 +1,37 @@
 <section class="menu">
+
+
+          <!-- criando as colunas -->
 <div class="table">
-  <div class="column">
-    <h2>Contato C/ Cliente</h2>
+        <div class="column" >
+      
+          <!-- coluna contrato novo -->
+    <h2 class="cli">Contato C/ Cliente
+
+          <!-- botão para incluir novo card -->
+ <button (click)="addCampo()"> + </button></h2>
+
+        <div class="card" id="card"> </div>
   </div>
 
-  <div class="column">
-    <h2>Em negociação</h2>
-  </div>
-
-  <div class="column">
-    <h2>Venda Concluida</h2>
-    
- 
-  </div>
-
-  <div class="column">
-    <h2>Venda Cancelada</h2>
-  </div>
   
-   
-</div>
+          <!-- coluna em negociação -->
+  <div class="column">
+    <h2 class="neg">Em negociação</h2>
+        <div class="vendaneg"> </div>
+  </div>
+
+          <!-- coluna venda concluida -->
+  <div class="column">
+    <h2 class="conc">Venda Concluida</h2>
+       <div class="vendaconc"> </div>
+  </div>
+
+          <!-- coluna venda cancelada -->
+  <div class="column">
+    <h2 class="canc">Venda Cancelada</h2>
+       <div class="vendacanc"> </div>
+  </div>
+  </div>
+
 </section>
