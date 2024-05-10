@@ -1,15 +1,13 @@
 .header{
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:#5A776E;
     height: 130px;
+    border: 1px solid #1111;
+    box-shadow: 0px 8px 16px 0px rgb(75, 75, 75);
 }
-.Nav{
-    height: 50px;
-    width: 50px;
-    margin-top: 40px;
-    margin-left: 10PX;
-    border-radius: 50px;
-}
-.Nav:hover{
-    background-color: black;
-    color: aquamarine;
+.title{
+    display: flex;
+    padding-top: 45px;
+    padding-left: 45%;
+    margin: 0 auto;
+    color: white;
 }

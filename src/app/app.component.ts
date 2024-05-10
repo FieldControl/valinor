@@ -12,9 +12,4 @@ import { NavigationComponent } from './componentes/navigation/navigation.compone
 })
 export class AppComponent {
   title = 'kanban';
-  constructor(){
-    setTimeout(() => {
-      this.title = 'Lucas';
-    }, 1000);
-  }
 }
