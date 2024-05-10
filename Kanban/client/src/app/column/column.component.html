@@ -1,0 +1,24 @@
+<mat-card class="column">
+    <mat-card-header>
+      <mat-card-title>{{ column.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="cards-container" cdkDropList (cdkDropListDropped)="onCardDrop($event)">
+        <app-card *ngFor="let card of cards" [card]="card" cdkDrag></app-card>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button (click)="addColumn('Nova Coluna')">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-icon-button (click)="updateColumn(column._id, 'Novo Nome')">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteColumn(column._id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button (click)="addCard(column._id, 'Novo Título', 'Nova Descrição')">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-actions>
+</mat-card>  

@@ -1,0 +1,3 @@
+<div class="kanban-board">
+  <app-column *ngFor="let column of columns" [column]="column" [cards]="columnCardsMap[column._id]"></app-column>
+</div>
