@@ -1,0 +1,48 @@
+<div class="root">
+  <div class="navbar-brand">
+      <h1 class="app-name has-gradient-text">Kanban</h1>
+  </div>
+
+  <div class="board">
+      <div class="board-wrapper">
+        <div class="board-columns">
+          <div class="board-column" *ngFor="let column of columns"
+                                      #todoList="cdkDropList"
+                                      dkDropList
+                                      cdkDropList
+                                      [cdkDropListConnectedTo]="title" 
+                                      [cdkDropListData]="columnIds"
+                                      (cdkDropListDropped)="onDrop($event)">
+                                      
+            <div class="column-title" *ngIf="!column.isEditing" (dblclick)="enableEditing(column)">
+              {{ column.title }}
+            </div>
+            <input *ngIf="column.isEditing" type="text"
+                                            #columnTitleInput 
+                                            [value]="column.title"
+                                            (blur)="updateColumnTitle(column, columnTitleInput)"
+                                            (keyup.enter)="updateColumnTitle(column, columnTitleInput)">
+            
+            <div class="tasks-container">
+              <div class="task" *ngFor="let card of column.card" cdkDrag>{{ card.title }}</div>
+            </div>
+
+            <div *ngIf="column.showInput">
+              <input type="text"
+                     #cardTitleInput
+                     placeholder="Aperte Enter para adicionar"
+                     (keyup.enter)="addNewCardColumn(column.id, cardTitleInput)">
+            </div>
+          
+            
+            <div class="btn-container">
+              <button (click)="inputVisibility(column)" class="btn btn-primary" >
+                <span class="hidden-xs hidden-sm">Adicionar Cartão</span>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

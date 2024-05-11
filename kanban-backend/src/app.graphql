@@ -1,0 +1,34 @@
+// schemas.ts
+import { ObjectType, Field, ID } from '@nestjs/graphql';
+
+@ObjectType()
+export class Card {
+  @Field(type => ID)
+  id: string;
+
+  @Field()
+  title: string;
+}
+
+@ObjectType()
+export class Column {
+  @Field(type => ID)
+  id: string;
+
+  @Field()
+  title: string;
+
+  @Field(type => [Card])
+  cards: Card[];
+}
+
+type Query {
+  columns: [Column]!
+  cards: [Card]!
+}
+
+type Mutation {
+  createColumn(title: String!): Column!
+  createCard(columnTitle: String!, title: String!): Card!
+}
+

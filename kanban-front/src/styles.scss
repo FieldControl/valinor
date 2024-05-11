@@ -1,0 +1,143 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$kanban-project-primary: mat.define-palette(mat.$indigo-palette);
+$kanban-project-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$kanban-project-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$kanban-project-theme: mat.define-light-theme((
+  color: (
+    primary: $kanban-project-primary,
+    accent: $kanban-project-accent,
+    warn: $kanban-project-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($kanban-project-theme);
+
+@import 'main-styles.scss';
+@import '../node_modules/bulma/bulma.scss';
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@layer components {
+  .bg-cards-styles {
+    background-color: #ebecf0;
+  }
+  .example-fill-remaining-space {
+    flex: 1;
+  }
+  
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: 100vh;
+  background-image: url('./assets/triangles-bg.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.bg {
+  position: absolute;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  inset: 0;
+  
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: #6366f1;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 4px;
+
+}
+
+.btn-primary {
+  padding: 12px 20px;
+  font-size: 14px;
+  width: 100%;
+
+  &:hover {
+    background-color: #4338ca;
+
+  }
+}
+  input{
+  padding: 12px 20px;
+  font-size: 14px;
+  width: 100%;
+
+  &:hover {
+    background-color: #ffffff;
+
+  }
+}
+
+
+
+.btn-transparent {
+  background-color: transparent !important;
+  color: #6366f1;
+}
+
+input {
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  font-weight: 400;
+  transition: border-color 0.3s;
+  background-color: #334155;
+  color: #9ca3af;
+
+  ::placeholder {
+    color: #9ca3af;
+  }
+
+  input:focus {
+    outline: #6366f1;
+  }
+}
+
+
+
+.btn-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
+}
