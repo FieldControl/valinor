@@ -1,0 +1,65 @@
+<div class="root">
+    <div class="navbar">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <h1 class="navbar-name">kanban</h1>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="board">
+        <div class="board-bar">
+            <div class="board-name">
+            </div>
+        </div>
+
+        <div class="board-wrapper">
+            <div class="b-columns" cdkDropListGroup>
+               <div class = "b-column" *ngFor="let column of board.columns, let ind = index">
+                
+                    <div class="column-title">
+                        {{column.name}} 
+                    </div>
+                    <div class="container-columns">
+                    <div class="body-columns">
+                      <div class="tasks"
+                        cdkDropList
+                        [cdkDropListData]="column.task"
+                        (cdkDropListDropped) = "drop($event)"> 
+                        <div class="task" *ngFor="let item of column.task" cdkDrag>
+                            {{item}}
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="botoes">
+                        <input class="input_1" [(ngModel)]="AddAndRemove" placeholder="Digite para Add ou remover">
+                        <div class="botao">
+                            <button (click)="add(AddAndRemove,ind)" class="image-button" >
+                            <img src="assets/images/Adicionar.png" alt="Descrição da imagem">
+                            <span>Add</span>
+                          </button>
+                          <button (click)="TituloTab(AddAndRemove,ind)" class="image-button" >
+                            <img src="assets/images/Lapiz.png" alt="Descrição da imagem">
+                            <span>TituloTab</span>
+                          </button>
+                          <button (click)="remove(AddAndRemove,ind)"class="image-button">
+                            <img src="assets/images/negativo.png" alt="Descrição da imagem">
+                            <span>Remove</span>
+
+                          </button>
+                        </div>
+                        
+                    </div>
+                  </div>
+               </div>
+              
+            </div>
+        </div>
+       
+    </div>
+
+
+
+

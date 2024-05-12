@@ -1,0 +1,24 @@
+{
+  "name": "harmony-proxy",
+  "description": "Small shim providing `new Proxy(target, handler)`",
+  "version": "1.0.1",
+  "keywords": ["harmony", "proxy", "trap", "es6"],
+  "main": "./index",
+  "maintainers": [
+    "Arpad Borsos <arpad.borsos@googlemail.com> (http://swatinem.de)"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "istanbul": "*",
+    "mocha": "*",
+    "should": "*",
+    "coveralls": "*",
+    "jshint": "*"
+  },
+  "scripts": {
+    "test": "make test-coveralls"
+  },
+  "repository": "git://github.com/Swatinem/proxy.git",
+  "license": "LGPL-3.0"
+}

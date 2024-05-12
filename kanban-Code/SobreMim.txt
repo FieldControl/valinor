@@ -1,0 +1,10 @@
+Meu nome é Artur de Carvalho Rabello. Atualmente, estou no 4° ano da graduação em Ciência da Computação na UNIP - Universidade Paulista. Tenho grande interesse em estudar e pesquisar as mais diversas tecnologias. Meu objetivo é seguir carreira na área de desenvolvimento de software.”
+
+Durante o projeto, a ferramenta Angular (com TS/CSS/HTML) foi utilizada para a criação do front-end, e o Nest.js foi empregado para o desenvolvimento da API.
+
+Utilizei a programação orientada a objetos para a criação das tabelas. Além disso, apliquei os princípios fundamentais do Angular, que incluem a criação de componentes, a definição de models para os objetos e a implementação de services para os serviços.
+
+Para realizar a função de arrastar os objetos entre as tabelas, utilizei o Angular Material’s CDK (Component Development Kit), que é uma biblioteca para componentes de interface do usuário para Angular.
+Link:https://material.angular.io/cdk/drag-drop/overview
+
+No front-end, desenvolvi uma função que adiciona e remove cards, além de permitir a nomeação de cada uma das tabelas.
