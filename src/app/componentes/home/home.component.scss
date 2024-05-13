@@ -36,11 +36,19 @@ h2{
     background-color: rgba(255, 0, 0, 0.822);
 }
 
-button {
+.add {
     border-radius: 50px;
     width: 25px;
     height: 25px;
     margin-left: 70px;
+}
+.remove {
+    border-radius: 50px;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    color: white;
+    margin:-50px -50px -50px 50%;
 }
 
 .card{

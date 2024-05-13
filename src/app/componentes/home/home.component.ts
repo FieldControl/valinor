@@ -28,6 +28,9 @@ export class HomeComponent {
       this.cli.push(userInput.trim());
     }
   }
+  removeItem(index: number): void {
+    this.cli.splice(index, 1);
+  }
 
   drop(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {
