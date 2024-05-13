@@ -1,4 +1,6 @@
 Meu nome é Artur de Carvalho Rabello. Atualmente, estou no 4° ano da graduação em Ciência da Computação na UNIP - Universidade Paulista. Tenho grande interesse em estudar e pesquisar as mais diversas tecnologias. Meu objetivo é seguir carreira na área de desenvolvimento de software.”
+Email: artur.rabello1@gmail.com
+Numero: 018 997134747
 
 Durante o projeto, a ferramenta Angular (com TS/CSS/HTML) foi utilizada para a criação do front-end, e o Nest.js foi empregado para o desenvolvimento da API.
 
