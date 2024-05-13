@@ -43,3 +43,20 @@ button {
     margin-left: 70px;
 }
 
+.card{
+    border: solid;
+    background: rgba(0, 0, 0, 0.822);
+    color: #fff;
+    width: 100%;
+    align-items: center;
+    margin-top: 25px;
+    border-radius: 15px;
+}
+.card:hover {
+    box-shadow: 5px 5px 0px #686566;
+    top: -1px;
+    left: -1px;
+    border-radius: 15px;
+}
+
+

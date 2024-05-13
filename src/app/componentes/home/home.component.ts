@@ -1,50 +1,45 @@
 import { Component } from '@angular/core';
 import {
+  DragDropModule,
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
   CdkDrag,
   CdkDropList
 } from '@angular/cdk/drag-drop';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CdkDropList, CdkDrag],
+  imports: [CommonModule,CdkDropList, CdkDrag,DragDropModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  cli: string[] = [];
+  negociacao: string[] = [];
+  concluida: string[] = [];
+  cancelada: string[] = [];
 
   addCampo(): void {
     const userInput = prompt("Digite o nome da venda");
-    if (userInput !== null && userInput !== "") {
-      const novaVenda = document.createElement("h3");
-      novaVenda.classList.add("venda");
-      const texto = document.createTextNode(userInput);
-      novaVenda.appendChild(texto);
-      const card = document.getElementById("card");
-      card?.appendChild(novaVenda);
+    if (userInput !== null && userInput.trim() !== "") {
+      this.cli.push(userInput.trim());
     }
   }
 
-
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      console.log('Transferindo item...')
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex
+        event.currentIndex,
       );
     }
-  }
-
+  }  
 }

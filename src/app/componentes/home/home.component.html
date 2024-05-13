@@ -1,37 +1,62 @@
 <section class="menu">
+  <!-- criando as colunas -->
+  <div class="table"> 
 
+    <div class="column"cdkDropList
+    #cliList="cdkDropList"
+    [cdkDropListData]="cli"
+    [cdkDropListConnectedTo]="[negociacaoList,concluidaList,canceladaList]"
+      (cdkDropListDropped)="drop($event)" >
 
-          <!-- criando as colunas -->
-<div class="table">
-        <div class="column" >
-      
-          <!-- coluna contrato novo -->
-    <h2 class="cli">Contato C/ Cliente
+      <!-- coluna contrato novo -->
+      <h2 class="cli">Contato C/ Cliente
+        
+        <!-- botão para incluir novo card -->
+        <button (click)="addCampo()"> + </button>
+      </h2>
+          <!-- Criando Cards -->
+      <div class="card" *ngFor="let venda of cli" cdkDrag cdkDrop cdkDrag>
+        <h3>{{ venda }}</h3>
+      </div>
+    </div>
 
-          <!-- botão para incluir novo card -->
- <button (click)="addCampo()"> + </button></h2>
+    <!-- coluna em negociação -->
+    <div class="column"
+    cdkDropList
+    #negociacaoList="cdkDropList"
+    [cdkDropListData]="negociacao"
+    (cdkDropListDropped)="drop($event)"[cdkDropListConnectedTo]="[cliList,concluidaList,canceladaList]"> 
 
-        <div class="card" id="card"> </div>
+      <h2 class="neg">Em negociação</h2>
+      <div class="card" *ngFor="let venda of negociacao" cdkDrop cdkDrag>
+        <h3>{{ venda }}</h3>
+      </div>
+    </div>
+
+    <!-- coluna venda concluida -->
+    <div class="column"
+    cdkDropList
+    #concluidaList="cdkDropList"
+    [cdkDropListData]="concluida"
+    [cdkDropListConnectedTo]="[negociacaoList,cliList,canceladaList]"
+      (cdkDropListDropped)="drop($event)">
+      <h2 class="conc">Venda Concluida</h2>
+      <div class="card" *ngFor="let venda of concluida" cdkDrop cdkDrag>
+        <h3>{{ venda }}</h3>
+      </div>
+    </div>
+
+    <!-- coluna venda cancelada -->
+    <div class="column"
+    cdkDropList
+    #canceladaList="cdkDropList"
+    [cdkDropListData]="cancelada"
+    [cdkDropListConnectedTo]="[negociacaoList,concluidaList,cliList]"
+      (cdkDropListDropped)="drop($event)">
+      <h2 class="canc">Venda Cancelada</h2>
+      <div class="card" *ngFor="let venda of cancelada" cdkDrop cdkDrag>
+        <h3>{{ venda }}</h3>
+      </div>
+    </div>
   </div>
-
-  
-          <!-- coluna em negociação -->
-  <div class="column">
-    <h2 class="neg">Em negociação</h2>
-        <div class="vendaneg"> </div>
-  </div>
-
-          <!-- coluna venda concluida -->
-  <div class="column">
-    <h2 class="conc">Venda Concluida</h2>
-       <div class="vendaconc"> </div>
-  </div>
-
-          <!-- coluna venda cancelada -->
-  <div class="column">
-    <h2 class="canc">Venda Cancelada</h2>
-       <div class="vendacanc"> </div>
-  </div>
-  </div>
-
 </section>
