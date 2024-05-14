@@ -1,4 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-* {
-
+html {
+    background-color: rgba(255, 228, 196, 0.856);
 }

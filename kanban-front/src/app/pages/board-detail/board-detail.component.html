@@ -1,39 +1,48 @@
 <nav id="desktop-nav">
+
+    <a [routerLink]="['/boards']" class="back">Voltar</a>
+
     <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown button
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Selecionar quadro
         </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            @for (board of boards; track board) {
+                <a class="dropdown-item" [routerLink]="['/boards', board._id]">{{ board.name }}</a>
+            }
+        </div>
+    </div>
     
-        <div>
-            <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#experiencia">Experiência</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
+    <div>
+        <ul class="nav-links">
+                @if (user) {
+                    <li><div class="profile"> {{ user.username.charAt(0).toUpperCase() }} </div></li>
+
+                }
+                <li><a href="#" (click)="logout()">Sair</a></li>
             </ul>
         </div>
     </nav>
 <div class="column-box">
     @for (column of columns; track column) {
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ column.name }}</h5>
+            <div class="column">
+            <div class="column-body">
+                <h5 class="column-title">{{ column.name }}</h5>
                 @for (card of column.cards; track card) {
-                    <ul class="list">
-                    <li class="list-item">{{ card.name }}</li>
-                    <li class="list-item">{{ card.description }}</li>
-                    @for (responsible of card.responsibles; track responsible) {
-                        <li class="list-item">{{ responsible.name }}</li>
-                    }
-                </ul>
+                    <a href="">
+                        <div class="card-content">
+                            <div class="circle-box">
+                                    @for (responsible of card.responsibles; track responsible) {
+                                    <div class="circle">{{ responsible.name.charAt(0) }}</div>
+                                }
+                                </div>
+                            <div class="card-name">{{ card.name }}</div>
+                        </div>
+                    </a>
                 }
+                <a href="" class="add-card">Adicionar cartão</a>
             </div>
         </div>
     }
+    <a href="" class="add-column">Adicionar coluna</a>
 </div>

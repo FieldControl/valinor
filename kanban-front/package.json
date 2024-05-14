@@ -22,7 +22,9 @@
     "@angular/router": "^17.2.0",
     "@material/card": "^14.0.0",
     "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1",
     "jwt-decode": "^4.0.0",
+    "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

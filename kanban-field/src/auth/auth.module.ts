@@ -17,7 +17,7 @@ import { TokenModule } from 'src/token/token.module';
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '20000s' },
     }),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],

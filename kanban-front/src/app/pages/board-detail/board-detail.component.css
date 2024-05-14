@@ -3,44 +3,138 @@
     padding: 0;
 }
 
+.dropdown-toggle {
+    height: 10vh;
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    border: transparent;
+}
+
+.dropdown-toggle:hover {
+    transform: scale(1.05);
+}
+
+.dropdown-item {
+    margin: .5rem;
+}
+
+.dropdown-item:hover {
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    background: #000;
+}
+
 .column-box {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    background-color: rgba(255, 228, 196, 0.856);
 }
 
-.card {
+.column {
     margin: 10px;
-    width: 25vh;
-    height: 80vh;
-    background-color: rgba(255, 255, 255, 0.76);
+    width: 40vh;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.774);
+    border-radius: .5rem;
 }
 
-.card-body {
+.column-body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.card-title {
+.column-title {
     text-align: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin: 1rem;
 }
 
-.list {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 1rem;
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    margin: .2rem;
     padding-bottom: 1rem;
-    border: rgb(0, 0, 0) 0.1rem solid;
+    border-radius: .5rem;
+    width: 37vh;
+    height: 10vh;
+    background-color: rgba(136, 136, 136, 0.212);
+}
+
+.card-content:hover {
+    transform: scale(1.05)
+}
+
+.circle-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: .2rem;
+    font-size: 20px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    background: #000;
+}
+
+.card-name {
+    margin: .2rem;
+    overflow: hidden;
+}
+
+.add-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;
+    width: 30vh;
+    height: fit-content;
+}
+
+.add-card:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.034);
     border-radius: .5rem;
 }
 
-.list-item {
-    overflow-x: hidden;
+.add-column {
+    padding: 1rem;
+    margin: 10px;
+    width: 40vh;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.76);
+    border-radius: .5rem;
+}
+
+.add-column:hover {
+    transform: scale(1.05);
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-decoration-color: rgb(0, 0, 0);
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 nav, .nav-links {
@@ -59,21 +153,3 @@ nav {
     font-size: 1.3rem;
 }
 
-a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    text-decoration-color: rgb(0, 0, 0);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.dropdown {
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-}
-
-.dropdown:hover {
-    cursor: default;
-}

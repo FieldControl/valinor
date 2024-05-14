@@ -56,7 +56,7 @@ export class ColumnsService {
 
   async findByBoard(id: string, userId: string) {
     try {
-      const columns = await this.columnModel.find({ board: id, responsibles: { $in: [userId] } });
+      const columns = await this.columnModel.find({ board: id, responsibles: { $in: [userId] } }).populate('responsibles');
       
       const columnsWithCards = await Promise.all(columns.map(async (column) => {
         column.cards = await this.cardService.find({ column: column._id },userId);
@@ -72,7 +72,7 @@ export class ColumnsService {
 
   async find(conditions: any, userId: string) {
     try {
-      return this.columnModel.find({...conditions, responsibles: { $in: [userId] } });
+      return this.columnModel.find({...conditions, responsibles: { $in: [userId] } }).populate('responsibles');
     } catch (error) {
       throw new Error(`Falha ao encontrar a coluna: ${error.message}`);
     }

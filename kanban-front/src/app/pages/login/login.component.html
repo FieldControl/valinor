@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h1> Login de usuário </h1>
     <form   [formGroup]="loginForm"
             (ngSubmit)="login()">
@@ -31,4 +31,48 @@
         <pre></pre>
         <div class="register"><a [routerLink]="['/register']">Não tem uma conta? Crie uma!</a></div>
     </form>
+</div> -->
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+			<button>Sign Up</button>
+	</div>
+	<div class="form-container sign-in-container">
+		<form   [formGroup]="loginForm"
+                (ngSubmit)="login()">
+			<h1>Login</h1>
+			<div class="form-group">
+            <label for="email">E-mail</label><br>
+            <input  type="email" 
+                    formControlName="email" 
+                    class="form-control">
+
+            @if (loginForm.controls.email.hasError('email') && loginForm.controls.email.touched) {
+                <div class="invalid-feedback">Insira um email válido</div>
+            } @if (loginForm.controls.email.hasError('required') && loginForm.controls.email.touched) {
+                <div class="invalid-feedback">O email é obrigatório!</div>
+            }
+        </div>
+        <div class="form-group">
+            <label for="password">Senha</label><br>
+            <input  type="passwo" 
+                    formControlName="password" 
+                    class="form-control">
+
+            @if (loginForm.controls.email.hasError('required') && loginForm.controls.email.touched) {
+                <div class="invalid-feedback">Insira um email válido</div>
+            }
+        </div>
+			<button type="submit">Login</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
 </div>

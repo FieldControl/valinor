@@ -38,6 +38,5 @@ async refreshToken(oldToken: string){
     return new HttpException({ errorMessage: 'Token inválido' }, HttpStatus.UNAUTHORIZED)
   }
 }
-
   
 }

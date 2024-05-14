@@ -7,6 +7,7 @@ import { CardService } from '../../services/card.service';
 import { IColumn } from '../../models/column';
 import { IBoard } from '../../models/board';
 import { BoardService } from '../../services/board.service';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-board-detail',
@@ -18,16 +19,21 @@ import { BoardService } from '../../services/board.service';
 export class BoardDetailComponent {
   private columnService = inject(ColumnService)
   private boardService = inject(BoardService)
+  private tokenService = inject(TokenService)
   private router = inject(Router);
   private route = inject(ActivatedRoute)
   columns: IColumn[] = [];
   boards: IBoard[] = [];
+
+  user: any
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const boardId = params['id']
       this.getColumns(boardId)
       this.getBoards()
+      this.user = this.tokenService.decodeToken()
+      console.log('userrr',this.user)
     })
   }
 
@@ -54,5 +60,11 @@ export class BoardDetailComponent {
         console.log('Erro ao obter quadros: ',e)
       }
     })
+  }
+
+  logout() {
+    localStorage.removeItem('acess_token')
+
+    this.router.navigate(['/'])
   }
 }
