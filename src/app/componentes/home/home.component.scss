@@ -1,3 +1,7 @@
+.table{
+    margin-left: 150px;
+    margin-top: 50px;
+}
 .column{
     display: flex;
     flex-direction: column;
@@ -5,10 +9,11 @@
     padding: 25px;
     background-color: aliceblue;
     float: left;
-    margin: 50px;
+    margin: 5px;
     border-radius: 15px;
     min-height: 300px;
     align-items: center;
+    border: solid;
 }
 .menu{
     display:flex;
@@ -20,20 +25,24 @@ h2{
     box-shadow: 0px 8px 16px 0px rgb(75, 75, 75);
 }
 .cli{
-    background-color: yellow ;
-    border-radius: 15px;
+    background: rgb( #6e6c6c,0.8) ;
+    border-radius: 12px;
+    color: #fff;
 }
 .neg {
-    border-radius: 15px;
-    background-color: aqua ;
+    background: rgb( #6e6c6c,0.8) ;
+    border-radius: 12px;
+    color: #fff;
 }
 .conc {
-    border-radius: 15px;
-    background-color: green ;
+    background: rgb( #6e6c6c,0.8) ;
+    border-radius: 12px;
+    color: #fff;
 }
 .canc {
-    border-radius: 15px;
-    background-color: rgba(255, 0, 0, 0.822);
+    background: rgb( #6e6c6c,0.8) ;
+    border-radius: 12px;
+    color: #fff;
 }
 
 .add {
@@ -48,23 +57,33 @@ h2{
     height: 25px;
     background-color: red;
     color: white;
-    margin:-50px -50px -50px 50%;
+    font-weight: bolder;
+    align-items: center;
+    
 }
 
 .card{
-    border: solid;
-    background: rgba(0, 0, 0, 0.822);
-    color: #fff;
+     color: #111;
     width: 100%;
     align-items: center;
     margin-top: 25px;
     border-radius: 15px;
 }
-.card:hover {
-    box-shadow: 5px 5px 0px #686566;
-    top: -1px;
-    left: -1px;
-    border-radius: 15px;
+
+
+.cont {
+    background-color: paleturquoise;
+    border-radius: 10px;
 }
-
-
+.ped{
+    background-color:#96897f;
+    border-radius: 10px;
+}
+.con{
+    background-color:#96ceb4;
+    border-radius: 10px;
+}
+.ent{
+    background-color: #b8a9c9;
+    border-radius: 10px;
+}

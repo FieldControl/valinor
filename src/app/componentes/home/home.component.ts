@@ -8,11 +8,14 @@ import {
   CdkDropList
 } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,CdkDropList, CdkDrag,DragDropModule],
+  imports: [CommonModule,CdkDropList, CdkDrag,DragDropModule, MatButtonModule, MatIconModule, MatDividerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

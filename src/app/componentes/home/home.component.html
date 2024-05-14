@@ -9,7 +9,7 @@
       (cdkDropListDropped)="drop($event)" >
 
       <!-- coluna contrato novo -->
-      <h2 class="cli">Contato C/ Cliente
+      <h2 class="cli">Cliente Cadastrado
         
            <!-- botão para incluir novo card -->
         <button class="add" (click)="addCampo()"> + </button>
@@ -18,7 +18,7 @@
           <!-- Criando Cards -->
       <div class="card" *ngFor="let venda of cli,  let i = index" cdkDrag cdkDrop>
         
-        <h3>{{ venda }}<button class="remove" (click)="removeItem(i)"> - </button>  </h3> 
+        <h3 class="cont">{{ venda }} </h3> 
 
       </div>
     </div>
@@ -30,11 +30,11 @@
     [cdkDropListData]="negociacao"
     (cdkDropListDropped)="drop($event)"[cdkDropListConnectedTo]="[cliList,concluidaList,canceladaList]"> 
 
-      <h2 class="neg">Em negociação</h2>
+      <h2 class="neg">Pedido em Negociação</h2>
 
       <div class="card" *ngFor="let venda of negociacao" cdkDrop cdkDrag>
 
-        <h3>{{ venda }}</h3>
+        <h3 class="ped">{{ venda }}</h3>
 
       </div>
     </div>
@@ -47,11 +47,11 @@
     [cdkDropListConnectedTo]="[negociacaoList,cliList,canceladaList]"
       (cdkDropListDropped)="drop($event)">
 
-      <h2 class="conc">Venda Concluida</h2>
+      <h2 class="conc">Pedido Concluido</h2>
 
       <div class="card" *ngFor="let venda of concluida,  let i = index" cdkDrop cdkDrag>
 
-        <h3>{{ venda }}</h3> 
+        <h3 class="con">{{ venda }}</h3> 
 
       </div>
     </div>
@@ -64,11 +64,11 @@
     [cdkDropListConnectedTo]="[negociacaoList,concluidaList,cliList]"
       (cdkDropListDropped)="drop($event)">
 
-      <h2 class="canc">Venda Cancelada</h2>
+      <h2 class="canc">Em Entrega</h2>
 
       <div class="card" *ngFor="let venda of cancelada" cdkDrop cdkDrag>
 
-        <h3>{{ venda }}</h3>
+        <h3 class="ent">{{ venda }}</h3>
 
       </div>
     </div>
