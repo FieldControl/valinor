@@ -7,7 +7,7 @@ export interface ICard {
     description: string;
     createdAt: string;
     dueDate: string;
-    responsible: IUser;
+    responsibles: IUser[];
     column: IColumn;
     columnName: string
 }

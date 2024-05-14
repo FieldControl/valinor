@@ -26,7 +26,7 @@ export const routes: Routes = [
         import('./pages/user-list/user-list.component').then(
           (m) => m.UserListComponent
         ),
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
     {
       path: 'boards',
@@ -34,7 +34,7 @@ export const routes: Routes = [
         import('./pages/boards/boards.component').then(
           (m) => m.BoardsComponent
         ),
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
     {
       path: 'boards/:id',
@@ -42,7 +42,7 @@ export const routes: Routes = [
         import('./pages/board-detail/board-detail.component').then(
           (m) => m.BoardDetailComponent
         ),
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
 
 ];

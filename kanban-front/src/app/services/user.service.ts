@@ -4,13 +4,14 @@ import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable, of, retry, tap } from "rxjs";
 import { ILogin, IRegister, IUser } from "../models/user";
 import { Router } from "@angular/router";
+import { TokenService } from "./token.service";
 
 @Injectable({
     providedIn: 'root',
 })
 
 export class UserService extends DefaultService {
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient, private router: Router, private tokenService: TokenService) {
         super('users');
     }
 
@@ -44,8 +45,12 @@ export class UserService extends DefaultService {
         if (user.email !== '' && user.password !== '' ) {
             this.loggedIn.next(true);
             return this.http.post(`${this.url}/login`, user).pipe(
-              tap(() => this.router.navigate(['/boards']))
-            );
+              tap((response: any) => {
+                console.log(JSON.stringify(response))
+                localStorage.setItem('acess_token', response.acess_token)
+                console.log(localStorage.getItem('acess_token'))
+                this.router.navigate(['/boards'])})
+            )
           } else {
             return of(null);
           }

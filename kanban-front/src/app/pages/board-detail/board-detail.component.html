@@ -1,17 +1,38 @@
+<nav id="desktop-nav">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+    
+        <div>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
 <div class="column-box">
     @for (column of columns; track column) {
             <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ column.name }}</h5>
-                <ul class="list-group list-group-flush">
-                    @for (card of column.cards; track card) {
-                        <li class="list-group-item">{{ card.name }}</li>
-                        <li class="list-group-item">{{ card.createdAt }}</li>
-                        <li class="list-group-item">{{ card.description }}</li>
-                        <li class="list-group-item">{{ card.responsible.name }}</li>
-                        
+                @for (card of column.cards; track card) {
+                    <ul class="list">
+                    <li class="list-item">{{ card.name }}</li>
+                    <li class="list-item">{{ card.description }}</li>
+                    @for (responsible of card.responsibles; track responsible) {
+                        <li class="list-item">{{ responsible.name }}</li>
                     }
-                  </ul>
+                </ul>
+                }
             </div>
         </div>
     }
