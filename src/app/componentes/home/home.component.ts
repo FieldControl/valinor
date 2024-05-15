@@ -23,7 +23,7 @@ export class HomeComponent {
   cli: string[] = [];
   negociacao: string[] = [];
   concluida: string[] = [];
-  cancelada: string[] = [];
+  entrega: string[] = [];
 
   addCampo(): void {
     const userInput = prompt("Digite o nome da venda");
@@ -34,6 +34,29 @@ export class HomeComponent {
   removeItem(index: number): void {
     this.cli.splice(index, 1);
   }
+  salvarInformacoes(): void {
+    console.log('Salvando informações dos cards...');
+    console.log('Clientes Cadastrados:', this.cli);
+    console.log('Pedidos em Negociação:', this.negociacao);
+    console.log('Pedidos Concluídos:', this.concluida);
+    console.log('Pedidos em Entrega:', this.entrega);
+
+    localStorage.setItem('clientesCadastrados', JSON.stringify(this.cli));
+    localStorage.setItem('pedidosNegociacao', JSON.stringify(this.negociacao));
+    localStorage.setItem('pedidosConcluidos', JSON.stringify(this.concluida));
+    localStorage.setItem('pedidosEntrega', JSON.stringify(this.entrega));
+
+
+    alert('Informações salvas com sucesso!');
+
+  }
+  constructor() {
+    this.cli = JSON.parse(localStorage.getItem('clientesCadastrados') || '[]');
+    this.negociacao = JSON.parse(localStorage.getItem('pedidosNegociacao') || '[]');
+    this.concluida = JSON.parse(localStorage.getItem('pedidosConcluidos') || '[]');
+    this.entrega = JSON.parse(localStorage.getItem('pedidosEntrega') || '[]');
+  }
+
 
   drop(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {

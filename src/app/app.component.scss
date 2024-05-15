@@ -2,6 +2,8 @@ body{
     background: linear-gradient(90deg,  #a3bada,#80ced6);
     margin: 0;
     min-height: 100vh;
-
+    @media screen and (max-width: 768px) {
+        
+    }
 }
 
