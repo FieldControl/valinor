@@ -4,38 +4,35 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+Os frameworks propostos foram NestJs para o backend, achei bem interessante pois tem uma similaridade muito grande com a forma de estruturas e também annotations do Java,linguagem que venho estudando, o que me ajudou na hora de fazer o projeto.
+Para o frontend o framework escolhido foi o Angular(2+) que é totalmente diferente do AngularJs usado no passado. Infelizmente não consegui realizar toda a parte do frontend.
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
+Angular e NestJs foram escolhidos para o desenvolvimento do desafio, mas foi indicado o uso de GraphQL para API. Optei em usar a padrão REST pela familiaridade, deixando o código mais simples. Optei também pelo banco de dados MySQL por já ter conhecimento.
 
 **Princípios de software**
 
-Quais princípios da engenharia de software que você usou?
+Utilizei a programação orientada a objetos para a criação das entidades, mantendo cada classe com responsabilidades exclusivas, a fim de garantir uma manutenção de forma mais simples e também a qualidade do código.
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+Enfrentei alguns desafios como o conhecimento bastante iniciante da linguagem, de forma de tive que encontrar tutoriais, IA e documentação. No mais, infelizmente não consegui desenvolver o frontend de maneira completa, entretanto seguirei com o projeto como forma de aprendizado do framework Angular(2+).
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+As melhorias futuras incluem desenvolvimento frontend e melhorar as boas práticas do código. Além disso incluiria mais funcionalidades às tarefas, deixando o sistema com mais funcionalidades.
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
+Sou Cecília Perles, nascida no interior de São Paulo, tenho 28 anos. Minha primeira formação, fui advogada há 5 anos, quando iniciei minha transição de carreira para a tecnologia. Hoje, curso análise e desenvolvimento de sistemas, tenho feitos cursos com foco em Java e estou estagiando na Tereos, na área de Governança e Projetos, entretanto quero iniciar minha carreira em desenvolvimento. Além de um grande senso de responsabilidade com prazos e atividades, boa comunicação e trabalho em equipe, há muita vontade de aprender!
 
 **Outros detalhes**
 
-Se quiser enviar alguma informação adicional sobre o desafio..
-
+Foi uma oportunidade incrível de desenvolvimento como estudante o estudo para o desafio. Agradeço imensamente a oportunidade!
 
 ---
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
-
-
-
+Cecília Perles
+cecilia.perles@hotmail.com
+17 981083425
