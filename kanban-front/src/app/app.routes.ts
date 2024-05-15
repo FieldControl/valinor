@@ -31,7 +31,7 @@ export const routes: Routes = [
     {
       path: 'boards',
       loadComponent: () =>
-        import('./pages/boards/boards.component').then(
+        import('./pages/board-environment/boards/boards.component').then(
           (m) => m.BoardsComponent
         ),
         // canActivate: [AuthGuard]
@@ -39,7 +39,7 @@ export const routes: Routes = [
     {
       path: 'boards/:id',
       loadComponent: () =>
-        import('./pages/board-detail/board-detail.component').then(
+        import('./pages/board-environment/board-detail/board-detail.component').then(
           (m) => m.BoardDetailComponent
         ),
         // canActivate: [AuthGuard]

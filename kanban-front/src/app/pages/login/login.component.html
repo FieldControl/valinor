@@ -1,51 +1,13 @@
-<!-- <div class="container">
-    <h1> Login de usuário </h1>
-    <form   [formGroup]="loginForm"
-            (ngSubmit)="login()">
-
-        <div class="form-group">
-            <label for="email">E-mail</label><br>
-            <input  type="text" 
-                    formControlName="email" 
-                    class="form-control">
-
-            @if (loginForm.controls.email.hasError('email') && loginForm.controls.email.touched) {
-                <div class="invalid-feedback">Insira um email válido</div>
-            } @if (loginForm.controls.email.hasError('required') && loginForm.controls.email.touched) {
-                <div class="invalid-feedback">O email é obrigatório!</div>
-            }
-        </div>
-        <pre></pre>
-        <div class="form-group">
-            <label for="password">Senha</label><br>
-            <input  type="text" 
-                    formControlName="password" 
-                    class="form-control">
-
-            @if (loginForm.controls.email.hasError('required') && loginForm.controls.email.touched) {
-                <div class="invalid-feedback">Insira um email válido</div>
-            }
-        </div>
-        <pre></pre>
-        <button type="submit" class="btn btn-primary">Login</button>
-        <pre></pre>
-        <div class="register"><a [routerLink]="['/register']">Não tem uma conta? Crie uma!</a></div>
-    </form>
-</div> -->
-
 <div class="container" id="container">
-	<div class="form-container sign-up-container">
-			<button>Sign Up</button>
-	</div>
 	<div class="form-container sign-in-container">
 		<form   [formGroup]="loginForm"
                 (ngSubmit)="login()">
 			<h1>Login</h1>
 			<div class="form-group">
-            <label for="email">E-mail</label><br>
             <input  type="email" 
                     formControlName="email" 
-                    class="form-control">
+                    class="form-control" [ngClass]="{'is-invalid': loginForm.controls.email.invalid && loginForm.controls.email.touched}"
+                    placeholder="E-mail">
 
             @if (loginForm.controls.email.hasError('email') && loginForm.controls.email.touched) {
                 <div class="invalid-feedback">Insira um email válido</div>
@@ -54,24 +16,27 @@
             }
         </div>
         <div class="form-group">
-            <label for="password">Senha</label><br>
-            <input  type="passwo" 
+            <input  type="password" 
                     formControlName="password" 
-                    class="form-control">
+                    class="form-control" [ngClass]="{'is-invalid': loginForm.controls.password.invalid && loginForm.controls.password.touched}"
+                    placeholder="Senha">
 
-            @if (loginForm.controls.email.hasError('required') && loginForm.controls.email.touched) {
-                <div class="invalid-feedback">Insira um email válido</div>
+            @if (loginForm.controls.password.hasError('required') && loginForm.controls.password.touched) {
+                <div class="invalid-feedback">A senha é obrigatória</div>
             }
         </div>
 			<button type="submit">Login</button>
+            @if (loginFailed) {
+                <div class="login-error">Credenciais incorretas</div>
+            }
 		</form>
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<h1>Olá!</h1>
+				<p>Ainda não é cadastrado? Crie uma conta agora!</p>
+				<a [routerLink]="['/register']"><button class="ghost" id="signUp" >Criar conta</button></a>
 			</div>
 		</div>
 	</div>

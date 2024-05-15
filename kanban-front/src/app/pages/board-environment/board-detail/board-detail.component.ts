@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CdkDrag, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
-import { ColumnService } from '../../services/column.service';
-import { CardService } from '../../services/card.service';
-import { IColumn } from '../../models/column';
-import { IBoard } from '../../models/board';
-import { BoardService } from '../../services/board.service';
-import { TokenService } from '../../services/token.service';
+import { ColumnService } from '../../../services/column.service';
+import { CardService } from '../../../services/card.service';
+import { IColumn } from '../../../models/column';
+import { IBoard } from '../../../models/board';
+import { BoardService } from '../../../services/board.service';
+import { TokenService } from '../../../services/token.service';
 
 @Component({
   selector: 'app-board-detail',
@@ -19,21 +19,16 @@ import { TokenService } from '../../services/token.service';
 export class BoardDetailComponent {
   private columnService = inject(ColumnService)
   private boardService = inject(BoardService)
-  private tokenService = inject(TokenService)
   private router = inject(Router);
   private route = inject(ActivatedRoute)
   columns: IColumn[] = [];
   boards: IBoard[] = [];
-
-  user: any
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const boardId = params['id']
       this.getColumns(boardId)
       this.getBoards()
-      this.user = this.tokenService.decodeToken()
-      console.log('userrr',this.user)
     })
   }
 
@@ -60,11 +55,5 @@ export class BoardDetailComponent {
         console.log('Erro ao obter quadros: ',e)
       }
     })
-  }
-
-  logout() {
-    localStorage.removeItem('acess_token')
-
-    this.router.navigate(['/'])
   }
 }

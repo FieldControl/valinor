@@ -1,0 +1,53 @@
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-decoration-color: rgb(0, 0, 0);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+nav, .nav-links {
+    display: flex;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    background-color: rgb(243, 243, 243);
+}
+
+.nav-links {
+    gap: 2rem;
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.profile {
+    margin-left: 2rem;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    margin-left: 2rem;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logout {
+    margin-right: 2rem;
+    font-size: 20px;
+    font-weight: bold;
+}

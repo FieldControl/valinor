@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { IBoard } from "../models/board";
+import { IBoard, ICreateBoard } from "../models/board";
 
 @Injectable({
     providedIn: 'root',
@@ -21,12 +21,12 @@ export class BoardService extends DefaultService {
         return this.http.get<IBoard>(`${this.url}/${id}`)
     }
 
-    create(board: IBoard): Observable<IBoard> {
+    create(board: ICreateBoard): Observable<IBoard> {
         return this.http.post<IBoard>(this.url, board)
     }
 
-    edit(board: IBoard): Observable<IBoard> {
-        return this.http.put<IBoard>(`${this.url}/${board._id}`, board)
+    edit(boardId: string, board: ICreateBoard): Observable<IBoard> {
+        return this.http.put<IBoard>(`${this.url}/${boardId}`, board)
     }
 
     delete(id: String): Observable<IBoard> {

@@ -22,8 +22,11 @@ export class LoginComponent {
     password: this.formBuilder.control('', Validators.required)
   })
 
+  loginFailed = false
+
   login() {
     if (this.loginForm.invalid) {
+      this.loginFailed = true
       return
     }
 
@@ -35,7 +38,10 @@ export class LoginComponent {
       this.userService.login({email, password}).subscribe({next: (response) => {
         console.log('Sucesso', response)
         this.router.navigateByUrl('/boards')
-      }})
+      }, error: (err) => {
+        console.log('Erro', err);
+        this.loginFailed = true;
+    }})
     }
   }
 

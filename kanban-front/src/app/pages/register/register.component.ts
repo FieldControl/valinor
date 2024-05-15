@@ -23,8 +23,11 @@ export class RegisterComponent {
     password: this.formBuilder.control('', Validators.required)
   })
 
+  registerFailed = false
+
   register() {
     if (this.registerForm.invalid) {
+      this.registerFailed = true
       return
     }
 

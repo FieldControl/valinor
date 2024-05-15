@@ -1,7 +1,10 @@
-import { IColumn } from "./column";
+import { IUser } from "./user";
 
 export interface IBoard {
     _id: string;
     name: string;
-    columns: IColumn[];
+}
+
+export interface ICreateBoard {
+    name: string;
 }

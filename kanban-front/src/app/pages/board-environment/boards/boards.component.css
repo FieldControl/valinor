@@ -34,13 +34,9 @@ a:hover {
     transform: scale(1.05);
 }
 
-  
 .ag-courses_box {
     display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    -ms-flex-wrap: wrap;
+    align-items: center;
     flex-wrap: wrap;
     padding: 50px 0;
 }
@@ -54,7 +50,7 @@ a:hover {
 .ag-courses-item_link {
     display: block;
     padding: 30px 20px;
-    background-color: #ffffff;
+    background-color: rgb(243, 243, 243);
     overflow: hidden;
     position: relative;
     height: 25vh;
@@ -68,9 +64,7 @@ a:hover {
 }
 
 .ag-courses-item_link:hover .ag-courses-item_bg {
-    -webkit-transform: scale(10);
-    -ms-transform: scale(10);
-    transform: scale(10);
+    transform: scale(2.5);
 }
 
 .ag-courses-item_title {
@@ -86,7 +80,7 @@ a:hover {
 .ag-courses-item_bg {
     height: 128px;
     width: 128px;
-    background-color: #f9b234;
+    background-color: rgb(60, 91, 111);
     z-index: 1;
     position: absolute;
     top: -75px;
@@ -98,18 +92,20 @@ a:hover {
 }
 
 .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
-background-color: #3ecd5e;
+background-color: rgb(148, 137, 121)
 }
 .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
-background-color: #e44002;
+background-color: rgb(223, 208, 184)
 }
-.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
-background-color: #952aff;
-}
-.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
-background-color: #cd3e94;
-}
-.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
-background-color: #4c49ea;
+
+.plus {
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 50%;
+    margin: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    font-size: 24px;
 }
   

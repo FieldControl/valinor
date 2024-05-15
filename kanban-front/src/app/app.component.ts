@@ -1,17 +1,27 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,        
-    RouterModule
+    RouterModule,
+    HeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  private router = inject(Router);
   title = 'kanban-front';
+
+  showNavBar(): boolean {
+    let url = this.router.url
+
+    return url !== '/login' && url !== '/register'
+  }
+
 }

@@ -1,0 +1,20 @@
+<form   [formGroup]="addBoardForm"
+                (ngSubmit)="createOrEditBoard()">
+			<h1>{{ boardId ? "Editar" : "Adicionar" }} board</h1>
+			<div class="form-group">
+            <input  type="text" 
+                    formControlName="name" 
+                    class="form-control" [ngClass]="{'is-invalid': addBoardForm.controls.name.invalid && addBoardForm.controls.name.touched}"
+                    placeholder="E-mail">
+
+            @if (addBoardForm.controls.name.hasError('name') && addBoardForm.controls.name.touched) {
+                <div class="invalid-feedback">Insira um nome válido</div>
+            } @if (addBoardForm.controls.name.hasError('required') && addBoardForm.controls.name.touched) {
+                <div class="invalid-feedback">O nome é obrigatório!</div>
+            }
+        </div>
+			<button type="submit">Login</button>
+            @if (addBoardFailed) {
+                <div class="login-error">Credenciais incorretas</div>
+            }
+		</form>

@@ -1,28 +1,3 @@
-<nav id="desktop-nav">
-
-    <a [routerLink]="['/boards']" class="back">Voltar</a>
-
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Selecionar quadro
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            @for (board of boards; track board) {
-                <a class="dropdown-item" [routerLink]="['/boards', board._id]">{{ board.name }}</a>
-            }
-        </div>
-    </div>
-    
-    <div>
-        <ul class="nav-links">
-                @if (user) {
-                    <li><div class="profile"> {{ user.username.charAt(0).toUpperCase() }} </div></li>
-
-                }
-                <li><a href="#" (click)="logout()">Sair</a></li>
-            </ul>
-        </div>
-    </nav>
 <div class="column-box">
     @for (column of columns; track column) {
             <div class="column">
