@@ -86,3 +86,19 @@ h3{
     bottom: 20px;
     right: 20px;
 }
+@media screen and (max-width: 768px) {
+    .table {
+        margin-left: 0;
+        margin-top: 20px; 
+    }
+
+    .column {
+        float: none; 
+        width: 100%; 
+        margin: 0; 
+    }
+
+    h2 {
+        margin: 0;
+    }
+}

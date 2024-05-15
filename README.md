@@ -1,27 +1,47 @@
-# KanbanValinor
+## Envio de solução
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
-## Development server
+**Framework, linguagem e ferramentas**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Utilizado Angular 17, Figma, Typescript, HTML, CSS
 
-## Code scaffolding
+**Técnologias X e Y**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Utilizei Angular pois foi informado nas instruções do desafio para utilizar este framework, como não tinha experiência com outros frameworks, iniciei meus estudos sobre Angular para por em pratica neste desafio, infelizmente não consegui implantar o NestJS para o lado do servidor, pois como estava começando do zero em estudos do Angular acabei focando mais na parte do Front-end .
 
-## Build
+**Princípios de software**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Quais princípios da engenharia de software que você usou?
 
-## Running unit tests
+Think!
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Utilizei ele pois como não tinha experiência com o Angular, comecei a me planejar usando o Figma como ferramenta para isso, pensando nas funcionalidades que iria implementar e o modelo que iria utilizar, tendo isso pronto comecei a criar o meu projeto e a cada erro ou problemas encontrados comecei a estudar sobre e pensar em um jeito de corrigi-lo para passar para a próxima fase do desenvolvimento
 
-## Running end-to-end tests
+**Desafios e problemas**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Como foi minha primeira vez utilizando Angular acabei tendo bastante dificuldade no começo para criar os primeiros componentes e entender melhor como eles se conversavam, foi bem desafiador e empolgante ao mesmo tempo entender como utilizar o Drag and Drop, no começo não havia entendido a documentação dele e estava fazendo de um jeito diferente para criar os cards do kanban, assim que entendi como ele funcionava me senti muito feliz por ter conquistado esse desafio de implementar esta função, outro desafio foi escolher um design pro kanban mas no final acabei optando por cores mais minimalistas e mais básicas.
 
-## Further help
+**Melhorias e próximas implementações**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+As próximas melhorias que eu quero inserir neste desafio é começar a estudar o nestJS e começar a criar o server-side, outra função que gostaria de implementar seria um calendário onde ficaria salvo as informações do dia, estando conectado a um banco de dados para que as pessoas que utilizarem possam ter um histórico dos pedidos da semana.
+
+**Sobre você**
+
+Meu nome é Lucas, tenho 27 anos, moro na cidade de São José do Rio Preto, estou cursando o ultimo ano de Ciência da Computação na faculdade UNIP, atualmente estou trabalhando como estagiário de suporte na empresa Informa, no começo da faculdade como não tinha muito conhecimento e noção de qual área seguir comecei alguns cursos a parte sendo no youtube ou em outros sites para ver aonde mais me identificava, inicialmente gostei da área de cybersecurity, porém ainda não senti que era o que queria,  mas quando fiz a imersão da ALURA que ocorreu no começo deste ano onde criamos passo a passo um spotify clone foi onde que meu interesse pelo desenvolvimento Front começou.
+
+
+**Outros detalhes**
+
+Se quiser enviar alguma informação adicional sobre o desafio..
+
+Segue link da aplicação publicada na Vercel:
+https://kanbanvalinor-kuct-git-main-lucas-oliveiras-projects-92813114.vercel.app/
+
+---
+
+Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+
+E-Mail: lucasantonio97@live.com Telefone: (17) 99703-8253
+
+
