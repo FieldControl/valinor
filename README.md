@@ -36,8 +36,7 @@ Meu nome é Lucas, tenho 27 anos, moro na cidade de São José do Rio Preto, est
 Se quiser enviar alguma informação adicional sobre o desafio..
 
 Segue link da aplicação publicada na Vercel:
-https://kanbanvalinor-kuct-git-main-lucas-oliveiras-projects-92813114.vercel.app/
-
+https://valinorkanban.vercel.app/
 ---
 
 Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
