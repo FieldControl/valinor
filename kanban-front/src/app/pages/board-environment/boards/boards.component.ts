@@ -5,12 +5,14 @@ import { IBoard } from '../../../models/board';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AddBoardComponent } from '../add-board/add-board.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { Subject } from 'rxjs';
+import { Subject, filter, mergeMap } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { DeleteComponent } from '../../../delete/delete.component';
 
 @Component({
   selector: 'app-boards',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatDialogModule],
+  imports: [CommonModule, RouterModule, MatDialogModule, MatButtonModule],
   templateUrl: './boards.component.html',
   styleUrl: './boards.component.css',
 })
@@ -30,15 +32,35 @@ export class BoardsComponent {
     })
   }
 
-  openNewBoardFlow($event: Event, board?: IBoard) {
+  openBoardDialog($event: Event, board?: IBoard) {
     $event.stopImmediatePropagation();
     $event.preventDefault();
     this.dialog
       .open(AddBoardComponent, { width: '400px', data: { board } })
       .afterClosed()
       .subscribe((board: IBoard) => {
-        board && this.refetch$.next();
+        if (board) {
+          this.getBoards();
+        }
       });
+  }
+
+  deleteBoard($event: Event, board: IBoard) {
+    $event.stopImmediatePropagation();
+    $event.preventDefault();
+    this.dialog
+      .open(DeleteComponent, {
+        data: {
+          title: 'Deletar quadro',
+          message: 'Deseja mesmo deletar o quadro?'
+        }
+      })
+      .afterClosed()
+      .pipe(
+        filter((result) => result),
+        mergeMap(() => this.boardService.delete(board._id)),
+      )
+      .subscribe(() => this.getBoards());
   }
 
   getBoards() {

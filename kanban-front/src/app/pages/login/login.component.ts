@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { ILogin } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -26,23 +27,19 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.invalid) {
-      this.loginFailed = true
-      return
+      this.loginFailed = true;
+      return;
     }
-
-    const formData = this.loginForm.value
-    const email = formData.email || ''
-    const password = formData.password || ''
-
-    if (email && password){
-      this.userService.login({email, password}).subscribe({next: (response) => {
-        console.log('Sucesso', response)
-        this.router.navigateByUrl('/boards')
-      }, error: (err) => {
-        console.log('Erro', err);
-        this.loginFailed = true;
-    }})
-    }
+      this.userService.login(this.loginForm.value as ILogin).subscribe({
+        next: (response) => {
+          console.log('Sucesso', response);
+          this.router.navigateByUrl('/boards');
+        },
+        error: (err) => {
+          console.log('Erro', err);
+          this.loginFailed = true;
+        }
+      });
   }
 
 

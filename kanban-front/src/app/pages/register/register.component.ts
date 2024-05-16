@@ -27,22 +27,19 @@ export class RegisterComponent {
 
   register() {
     if (this.registerForm.invalid) {
-      this.registerFailed = true
-      return
+      this.registerFailed = true;
+      return;
     }
-
-    const formData = this.registerForm.value
-    if (formData.name && formData.email && formData.password){
-    const newUser: IRegister = {
-      name: formData.name,
-      email: formData.email,
-      password: formData.password
+  
+      this.userService.create(this.registerForm.value as IRegister).subscribe({
+        next: (response) => {
+          console.log('Sucesso', response);
+          this.router.navigateByUrl('/login');
+        },
+        error: (err) => {
+          console.log('Erro', err);
+          this.registerFailed = true;
+        }
+      });
     }
-
-    this.userService.create(newUser).subscribe({next: (response) => {
-      console.log('Sucesso', response)
-      this.router.navigateByUrl('/login')
-    }})
   }
-  }
-}

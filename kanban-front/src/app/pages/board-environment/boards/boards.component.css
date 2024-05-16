@@ -1,26 +1,13 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    text-align: center;
-}
-
-.card {
-    margin: 10px;
-    width: 10rem;
-    height: 10rem;
-}
-
-.card-body {
+.boards {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
-.card-title {
-    text-align: center;
+h1{
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    color: rgb(243, 243, 243);
 }
 
 a {
@@ -43,8 +30,8 @@ a:hover {
 
 .ag-courses_item {
     margin: 0 15px 30px;
-    overflow: hidden;
-    border-radius: 20px;
+
+    border-radius: 5px;
 }
 
 .ag-courses-item_link {
@@ -77,18 +64,48 @@ a:hover {
     position: relative;
 }
 
+h3 {
+    display: none;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
 .ag-courses-item_bg {
-    height: 128px;
-    width: 128px;
+    height: 25px;
+    width: 130px;
     background-color: rgb(60, 91, 111);
-    z-index: 1;
-    position: absolute;
-    top: -75px;
-    right: -75px;
-    border-radius: 50%;
-    -webkit-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
+    position: relative;
+    border-radius: 0px 15px 0px 0px;
+    justify-content: center;
+    display: flex;
+}
+
+.ag-courses-item_bg:hover
+.ag-courses-item_bg{
+    cursor: pointer;
+}
+
+.ag-courses-item_bg:hover
+h3 {
+    font-size: 20px;
+    cursor: pointer;
+    display: block;
+}
+
+.ag-courses-item_close {
+    background-color: red;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px 5px 0px 0px;
+    color: rgb(243, 243, 243);
+}
+
+.ag-courses-item_close:hover {
+    transform: scale(1.04);
+    cursor: pointer;
 }
 
 .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
@@ -96,6 +113,32 @@ background-color: rgb(148, 137, 121)
 }
 .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
 background-color: rgb(223, 208, 184)
+}
+
+button {
+    margin: 0 15px 30px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    background-color: transparent;
+	border-radius: 20px;
+	border: 1px solid rgb(60, 91, 111);
+	color: rgb(255, 255, 255);
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+button.ghost:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px black;
 }
 
 .plus {
@@ -108,4 +151,6 @@ background-color: rgb(223, 208, 184)
     color: white;
     font-size: 24px;
 }
+
+
   

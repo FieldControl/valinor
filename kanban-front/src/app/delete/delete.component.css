@@ -1,17 +1,6 @@
-form {
+.dialog {
     display: block;
     padding: 24px;
-}
-
-h1 {
-    margin-bottom: 1rem;
-}
-
-input {
-	background-color: rgba(60, 91, 111, 0.170);
-	border: none;
-	padding: 10px 15px;
-    margin-bottom: 1rem;
 }
 
 .buttons {
@@ -26,11 +15,13 @@ button {
 	color: rgb(255, 255, 255);
 	font-size: 12px;
 	font-weight: bold;
-	padding: 12px 45px;
+	padding: 12px 25px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 button:active {

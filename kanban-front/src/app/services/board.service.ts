@@ -26,7 +26,7 @@ export class BoardService extends DefaultService {
     }
 
     edit(boardId: string, board: ICreateBoard): Observable<IBoard> {
-        return this.http.put<IBoard>(`${this.url}/${boardId}`, board)
+        return this.http.patch<IBoard>(`${this.url}/${boardId}`, board)
     }
 
     delete(id: String): Observable<IBoard> {

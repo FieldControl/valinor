@@ -1,9 +1,14 @@
+<div class="boards">
 <h1>Meus quadros</h1>
     <div class="ag-courses_box">
         @for (board of boards; track board) {
         <div class="ag-courses_item">
+            <div class="options">
+                <a (click)="openBoardDialog($event, board)"><div class="ag-courses-item_bg"><h3>Editar?</h3></div></a>
+                <a (click)="deleteBoard($event, board)"><div class="ag-courses-item_close">X</div></a>
+
+            </div>
             <a [routerLink]="['/boards', board._id]" class="ag-courses-item_link">
-                <div class="ag-courses-item_bg"></div>
                 
                 <div class="ag-courses-item_title">
                     {{ board.name }}
@@ -11,5 +16,6 @@
         </a>
     </div>
         }
-        <button (click)="openNewBoardFlow($event, boardId)" ><div class="plus">+</div></button>
+        <button class="ghost" type="button" (click)="openBoardDialog($event)">Novo quadro</button>
+    </div>
        

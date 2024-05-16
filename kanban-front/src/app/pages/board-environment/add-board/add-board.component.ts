@@ -2,33 +2,30 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BoardService } from '../../../services/board.service';
 import { IBoard, ICreateBoard } from '../../../models/board';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-add-board',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatInputModule, MatButtonModule],
   templateUrl: './add-board.component.html',
   styleUrl: './add-board.component.css'
 })
 export class AddBoardComponent {
   private formBuilder = inject(FormBuilder)
   private boardService = inject(BoardService)
-  private router = inject(Router);
-  private route = inject(ActivatedRoute)
+  private dialogRef = inject(MatDialogRef);
   boardId : any
+  data = inject(MAT_DIALOG_DATA);
 
   addBoardFailed = false
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.boardId = params['id']
-    })
-  }
-
   addBoardForm = this.formBuilder.group({
-    name: this.formBuilder.control('', [Validators.required]),
+    name: this.formBuilder.control(this.data.board?.name, [Validators.required]),
   })
 
   createOrEditBoard() {
@@ -36,7 +33,7 @@ export class AddBoardComponent {
       return;
     }
 
-    if (this.boardId) {
+    if (this.data.board?._id) {
       this.updateBoard();
     } else {
       this.createBoard();
@@ -45,42 +42,31 @@ export class AddBoardComponent {
 
   private updateBoard() {
     if (this.addBoardForm.invalid) {
-        this.addBoardFailed = true;
-        return;
+      this.addBoardFailed = true;
+      return;
     }
-
-    const formData = this.addBoardForm.value;
-    if (formData.name) {
-      const updatedBoard: ICreateBoard = {
-          name: formData.name,
-      };
-      this.boardService.edit(this.boardId, updatedBoard).subscribe({next: (response) => {
-          console.log('Sucesso', response);
-          this.router.navigateByUrl('/boards');
-      }});
-    }
-
-}
-
+  
+    this.boardService.edit(this.data.board?._id, this.addBoardForm.value as ICreateBoard)
+    .subscribe((board: IBoard) => {
+        console.log('Sucesso');
+        this.dialogRef.close(board)
+      });
+  }
 
   private createBoard() {
     if (this.addBoardForm.invalid) {
-      this.addBoardFailed = true
-      return
+      this.addBoardFailed = true;
+      return;
     }
 
-    const formData = this.addBoardForm.value
-    if (formData.name){
-    const newBoard: ICreateBoard = {
-      name: formData.name,
-    }
-
-    this.boardService.create(newBoard).subscribe({next: (response) => {
-      console.log('Sucesso', response)
-      this.router.navigateByUrl('/boards')
-    }})
-  }
+    this.boardService.create(this.addBoardForm.value as ICreateBoard)
+    .subscribe((board: IBoard) => {
+        console.log('Sucesso');
+        this.dialogRef.close(board)
+      });
   }
 
-
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }

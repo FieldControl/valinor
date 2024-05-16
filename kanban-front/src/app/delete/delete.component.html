@@ -1,0 +1,9 @@
+<div class="dialog">
+    <h2> {{ data.title }}</h2>
+    <div class="content" [innerHTML]="data.message">
+    </div>
+    <div class="buttons">
+        <button (click)="confirm()">Confirmar</button>
+        <button (click)="closeDialog()" class="ghost">Fechar</button>
+    </div>
+</div>
