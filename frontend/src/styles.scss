@@ -1,0 +1,24 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    background-image: url('./assets/imagens/background-photo.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow-y: auto !important;
+    height: 100vh;
+    margin: 0;
+  }
+
+// Variable overrides first
+$primary: rgb(37, 35, 35);
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
+

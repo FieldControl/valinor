@@ -1,0 +1,10 @@
+<!--Pegando as informações do banco de dados relacionados aos cards-->
+<div>
+  @for (card of cards; track cards){
+    @if (cards.length) {
+      <div class="example-box" cdkDrag>
+        <p>{{ card.description }}</p>
+      </div>
+    }   
+  }
+</div> 

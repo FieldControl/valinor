@@ -1,0 +1,12 @@
+<!-- Pegando quantidades de colunas e titulos do banco de dados -->
+<div class="board-wrapper">
+  <div class="board-columns">
+    @for (coluna of colunas; track colunas){
+      <div class="board-column">
+        <div class="column-title">
+          <h3><b>{{ coluna.title }}</b></h3>
+        </div>
+      </div>
+    }
+  </div>
+</div>
