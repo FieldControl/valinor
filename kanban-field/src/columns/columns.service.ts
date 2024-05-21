@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -11,8 +11,9 @@ import { BoardsService } from 'src/boards/boards.service';
 export class ColumnsService {
 
   constructor(@InjectModel(Column.name) private columnModel: Model<ColumnDocument>,
-              private cardService: CardsService,
-              private boardService: BoardsService) {}
+              private boardService: BoardsService,
+              @Inject(forwardRef(() => CardsService))
+              private cardService: CardsService) {}
 
   async create(createColumnDto: CreateColumnDto, boardId: string, userId: string, ) {
     try {
@@ -69,6 +70,17 @@ export class ColumnsService {
     }
     
   }
+
+  async findColumn(id: string, userId: string) {
+    const column = await this.columnModel.findOne({ _id: id, responsibles: { $in: [userId] } });
+  
+    if (!column) {
+      throw new NotFoundException('Coluna não encontrada');
+    }
+  
+    return column;
+  }
+  
 
   async find(conditions: any, userId: string) {
     try {

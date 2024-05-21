@@ -4,15 +4,21 @@ import { UpdateCardDto } from './dto/update-card.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Card, CardDocument } from './entities/card.entity';
 import mongoose, { Model } from 'mongoose';
+import { ColumnsService } from 'src/columns/columns.service';
 
 @Injectable()
 export class CardsService {
 
-  constructor(@InjectModel(Card.name) private cardModel: Model<CardDocument>) {}
+  constructor(@InjectModel(Card.name) private cardModel: Model<CardDocument>,
+              private columnsService: ColumnsService) {}
 
-  async create(createCardDto: CreateCardDto, userId: string) {
+  async create(createCardDto: CreateCardDto, columnId: string, userId: string) {
     try {
-      const card = new this.cardModel({...createCardDto, responsibles: [userId] });
+      const column = await this.columnsService.findColumn(columnId, userId)
+
+      const userIds = column.responsibles
+
+      const card = new this.cardModel({...createCardDto, responsibles: userIds });
       return await card.save();
     } catch (error) {
       throw new Error(`Falha ao criar o cartão: ${error.message}`);

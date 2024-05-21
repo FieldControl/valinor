@@ -12,7 +12,7 @@ export class CardsController {
   @Post()
   async create(@Body() createCardDto: CreateCardDto, @Req() req) {
     try {
-      return await this.cardsService.create(createCardDto, req.user.userId);
+      return await this.cardsService.create(createCardDto, createCardDto.column, req.user.userId);
     } catch (error) {
       throw new HttpException(`Falha ao criar o cartão: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
     }

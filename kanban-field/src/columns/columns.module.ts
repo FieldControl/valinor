@@ -9,7 +9,7 @@ import { BoardsModule } from 'src/boards/boards.module';
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Column.name, schema: ColumnSchema }]),
-    CardsModule, forwardRef(() => BoardsModule)],
+    forwardRef(() => CardsModule), forwardRef(() => BoardsModule)],
   controllers: [ColumnsController],
   providers: [ColumnsService],
   exports: [ColumnsService]
