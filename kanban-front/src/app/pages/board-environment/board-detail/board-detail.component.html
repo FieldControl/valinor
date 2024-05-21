@@ -1,8 +1,20 @@
 <div class="column-box">
     @for (column of columns; track column) {
             <div class="column">
+                <div class="column-header">
+                    <h5 class="column-title">{{ column.name }}</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          . . .
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a (click)="openColumnDialog($event, column)" class="dropdown-item">Editar</a>
+                            <a class="dropdown-item" (click)="deleteColumn($event, column)">Deletar</a>
+                        </div>
+                    </div>
+                    
+                </div>
             <div class="column-body">
-                <h5 class="column-title">{{ column.name }}</h5>
                 @for (card of column.cards; track card) {
                     <a href="">
                         <div class="card-content">
@@ -15,9 +27,9 @@
                         </div>
                     </a>
                 }
-                <a href="" class="add-card">Adicionar cartão</a>
+                <a (click)="openCardDialog($event, column._id)" class="add-card">Adicionar cartão</a>
             </div>
         </div>
     }
-    <a href="" class="add-column">Adicionar coluna</a>
+    <a (click)="openColumnDialog($event)" class="add-column">Adicionar coluna</a>
 </div>

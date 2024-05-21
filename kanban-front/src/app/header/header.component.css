@@ -8,16 +8,17 @@ a:hover {
     text-decoration: none;
 }
 
-nav, .nav-links {
-    display: flex;
-}
-
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 10vh;
     background-color: rgb(243, 243, 243);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .nav-links {

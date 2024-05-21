@@ -1,0 +1,41 @@
+<form   [formGroup]="addCardForm"
+                (ngSubmit)="createOrEditCard()">
+			<h1>{{ data.column?._id ? "Editar" : "Adicionar" }} coluna</h1>
+			<div class="form-group">
+            <input  type="text" 
+                    formControlName="name" 
+                    class="form-control" [ngClass]="{'is-invalid': addCardForm.controls.name.invalid && addCardForm.controls.name.touched}"
+                    placeholder="Nome">
+
+            @if (addCardForm.controls.name.hasError('name') && addCardForm.controls.name.touched) {
+                <div class="invalid-feedback">Insira um nome válido</div>
+            } @if (addCardForm.controls.name.hasError('required') && addCardForm.controls.name.touched) {
+                <div class="invalid-feedback">O nome é obrigatório!</div>
+            }
+            </div>
+            <div class="form-group">
+                <input  type="text" 
+                        formControlName="description" 
+                        class="form-control" [ngClass]="{'is-invalid': addCardForm.controls.description.invalid && addCardForm.controls.description.touched}"
+                        placeholder="Descrição">
+    
+                @if (addCardForm.controls.description.hasError('description') && addCardForm.controls.description.touched) {
+                    <div class="invalid-feedback">Insira uma descrição válida</div>
+                } @if (addCardForm.controls.description.hasError('required') && addCardForm.controls.description.touched) {
+                    <div class="invalid-feedback">A descrição é obrigatória!</div>
+                }
+                </div>
+                <div class="form-group">
+                    <input  type="date" 
+                            formControlName="dueDate" 
+                            class="form-control"
+                            placeholder="Vencimento">
+                    </div>
+        <div class="buttons">
+			<button type="submit">Criar</button>
+            @if (addCardFailed) {
+                <div class="login-error">Nome inválido</div>
+            }
+            <button (click)="closeDialog()" class="ghost">Fechar</button>
+        </div>
+		</form>

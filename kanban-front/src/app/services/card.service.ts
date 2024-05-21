@@ -21,12 +21,12 @@ export class CardService extends DefaultService {
         return this.http.get<ICard>(`${this.url}/${id}`)
     }
 
-    create(card: ICard): Observable<ICard> {
+    create(card: Partial<ICard>): Observable<ICard> {
         return this.http.post<ICard>(this.url, card)
     }
 
-    edit(card: ICard): Observable<ICard> {
-        return this.http.put<ICard>(`${this.url}/${card._id}`, card)
+    edit(id: string, card: ICard): Observable<ICard> {
+        return this.http.patch<ICard>(`${this.url}/${id}`, card)
     }
 
     delete(id: String): Observable<ICard> {

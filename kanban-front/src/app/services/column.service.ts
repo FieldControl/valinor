@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { IColumn } from "../models/column";
+import { IColumn, ICreateColumn } from "../models/column";
 
 @Injectable({
     providedIn: 'root',
@@ -25,12 +25,12 @@ export class ColumnService extends DefaultService {
         return this.http.get<IColumn[]>(`${this.url}/boards/${boardId}`);
     }
 
-    create(column: IColumn): Observable<IColumn> {
+    create(column: ICreateColumn): Observable<IColumn> {
         return this.http.post<IColumn>(this.url, column)
     }
 
-    edit(column: IColumn): Observable<IColumn> {
-        return this.http.put<IColumn>(`${this.url}/${column._id}`, column)
+    edit(columnId: string, column: ICreateColumn): Observable<IColumn> {
+        return this.http.patch<IColumn>(`${this.url}/${columnId}`, column)
     }
 
     delete(id: String): Observable<IColumn> {

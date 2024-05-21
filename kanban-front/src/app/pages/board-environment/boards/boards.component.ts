@@ -17,9 +17,8 @@ import { DeleteComponent } from '../../../delete/delete.component';
   styleUrl: './boards.component.css',
 })
 export class BoardsComponent {
-  private readonly dialog = inject(MatDialog);
+  private dialog = inject(MatDialog);
   private boardService = inject(BoardService)
-  private router = inject(Router);
   boards: IBoard[] = [];
   refetch$ = new Subject<void>();
   boardId: any

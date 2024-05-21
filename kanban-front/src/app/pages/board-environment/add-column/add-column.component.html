@@ -1,21 +1,21 @@
-<form   [formGroup]="addBoardForm"
+<form   [formGroup]="addColumnForm"
                 (ngSubmit)="createOrEditBoard()">
-			<h1>{{ data.board?._id ? "Editar" : "Adicionar" }} quadro</h1>
+			<h1>{{ data.column?._id ? "Editar" : "Adicionar" }} coluna</h1>
 			<div class="form-group">
             <input  type="text" 
                     formControlName="name" 
-                    class="form-control" [ngClass]="{'is-invalid': addBoardForm.controls.name.invalid && addBoardForm.controls.name.touched}"
+                    class="form-control" [ngClass]="{'is-invalid': addColumnForm.controls.name.invalid && addColumnForm.controls.name.touched}"
                     placeholder="Nome">
 
-            @if (addBoardForm.controls.name.hasError('name') && addBoardForm.controls.name.touched) {
+            @if (addColumnForm.controls.name.hasError('name') && addColumnForm.controls.name.touched) {
                 <div class="invalid-feedback">Insira um nome válido</div>
-            } @if (addBoardForm.controls.name.hasError('required') && addBoardForm.controls.name.touched) {
+            } @if (addColumnForm.controls.name.hasError('required') && addColumnForm.controls.name.touched) {
                 <div class="invalid-feedback">O nome é obrigatório!</div>
             }
         </div>
         <div class="buttons">
 			<button type="submit">Criar</button>
-            @if (addBoardFailed) {
+            @if (addColumnFailed) {
                 <div class="login-error">Nome inválido</div>
             }
             <button (click)="closeDialog()" class="ghost">Fechar</button>
