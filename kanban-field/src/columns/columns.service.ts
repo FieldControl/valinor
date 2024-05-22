@@ -72,14 +72,14 @@ export class ColumnsService {
   }
 
   async findColumn(id: string, userId: string) {
-    const column = await this.columnModel.findOne({ _id: id, responsibles: { $in: [userId] } });
+    const column = await this.columnModel.findOne({ _id: id, responsibles: { $in: [userId] } }).populate('cards');
   
     if (!column) {
       throw new NotFoundException('Coluna não encontrada');
     }
   
     return column;
-  }
+}
   
 
   async find(conditions: any, userId: string) {

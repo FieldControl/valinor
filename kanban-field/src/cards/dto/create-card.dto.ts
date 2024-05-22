@@ -7,4 +7,5 @@ export class CreateCardDto {
     dueDate: Date
     responsibles: User[]
     column: string
+    position: number
 }

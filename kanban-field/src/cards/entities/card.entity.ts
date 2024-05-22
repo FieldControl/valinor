@@ -24,6 +24,9 @@ export class Card {
 
   @Prop({type: mongoose.Schema.Types.ObjectId, ref: "Column"}) // Referência à coluna
   column: string
+
+  @Prop()
+  position: number;
 }
 
 export const CardSchema = SchemaFactory.createForClass(Card);

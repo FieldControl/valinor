@@ -59,6 +59,21 @@ export class CardsController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Patch(':id/position')
+  async updatePosition(@Param('id') id: string, @Body('position') newPosition: number, @Req() req) {
+    try {
+      return await this.cardsService.updatePosition(id, newPosition, req.user.userId);
+    } catch (error) {
+      
+      if (error instanceof NotFoundException) {
+        throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+      }
+
+      throw new HttpException(`Falha ao atualizar o cartão: ${error.message}`, HttpStatus.NOT_FOUND)
+    }
+}
+
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string, @Req() req) {
     try {

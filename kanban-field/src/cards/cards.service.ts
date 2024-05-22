@@ -17,8 +17,12 @@ export class CardsService {
       const column = await this.columnsService.findColumn(columnId, userId)
 
       const userIds = column.responsibles
+      console.log(column.responsibles.length)
 
-      const card = new this.cardModel({...createCardDto, responsibles: userIds });
+      const position = await column.cards
+      console.log(column.cards.length)
+
+      const card = new this.cardModel({...createCardDto, responsibles: userIds, position: position });
       return await card.save();
     } catch (error) {
       throw new Error(`Falha ao criar o cartão: ${error.message}`);
@@ -62,6 +66,19 @@ export class CardsService {
     
     return card
   }
+
+  async updatePosition(id: string, newPosition: number, userId: string) {
+    const card = await this.cardModel.findByIdAndUpdate(
+      {_id: id, responsibles: { $in: [userId] } }, { position: newPosition }, { new: true }
+    )
+  
+    if (!card) {
+      throw new NotFoundException('Cartão não encontrado');
+    }
+  
+    return card
+  }
+
 
   async remove(id: string, userId: string) {
     const card = await this.cardModel.findByIdAndDelete({_id: id, responsibles: { $in: [userId] } });
