@@ -10,12 +10,13 @@
     border: transparent;
 }
 
-.dropdown-toggle:hover {
-    transform: scale(1.05);
-}
+.btn.dropdown-toggle::after {
+    display: none;
+  }
 
 .dropdown-menu {
     background-color: rgb(243, 243, 243);
+    z-index: 2;
 }
 
 .dropdown-item {
@@ -48,9 +49,11 @@
 .column {
     margin: 10px;
     height: fit-content;
+    width: fit-content;
     background-color: rgb(243, 243, 243);
     border-radius: .5rem;
     position: relative;
+    
 }
 
 .column-header {
@@ -64,6 +67,10 @@ button {
     cursor: pointer;
     position: absolute;
     right: 0;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
 
 .edit-column:hover {
@@ -81,21 +88,26 @@ button {
     margin: 1rem;
 }
 
+.dropdown {
+    margin: .3rem;
+    
+}
+
+.dropdown:hover {
+    background-color: rgba(136, 136, 136, 0.212);
+}
+
 .card-content {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
     align-items: flex-start;
-    margin: .2rem;
     padding-bottom: 1rem;
     border-radius: .5rem;
     width: 37vh;
     height: 10vh;
-    background-color: rgba(136, 136, 136, 0.212);
-}
-
-.card-content:hover {
-    transform: scale(1.05)
+    background-color: rgba(136, 136, 136, 0.212);   
+    cursor: pointer;
 }
 
 .circle-box {
@@ -125,14 +137,14 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: .5rem;
+    margin: .8rem;
     width: 30vh;
     height: fit-content;
+    cursor: pointer;
 }
 
 .add-card:hover {
-    transform: scale(1.1);
-    background-color: rgba(0, 0, 0, 0.034);
+    background-color: rgba(0, 0, 0, 0.080);
     border-radius: .5rem;
 }
 
@@ -144,10 +156,11 @@ button {
     height: fit-content;
     background-color: rgba(255, 255, 255, 0.76);
     border-radius: .5rem;
+    cursor: pointer;
 }
 
 .add-column:hover {
-    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.900);
 }
 
 a {

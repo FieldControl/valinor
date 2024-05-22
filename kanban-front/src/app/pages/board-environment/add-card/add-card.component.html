@@ -1,6 +1,6 @@
 <form   [formGroup]="addCardForm"
                 (ngSubmit)="createOrEditCard()">
-			<h1>{{ data.column?._id ? "Editar" : "Adicionar" }} coluna</h1>
+			<h1>{{ data.card?._id ? "Editar" : "Adicionar" }} cartão</h1>
 			<div class="form-group">
             <input  type="text" 
                     formControlName="name" 

@@ -1,6 +1,6 @@
-<div class="column-box">
+<div class="column-box" cdkDropListGroup>
     @for (column of columns; track column) {
-            <div class="column">
+            <div class="column" >
                 <div class="column-header">
                     <h5 class="column-title">{{ column.name }}</h5>
                     <div class="dropdown">
@@ -8,16 +8,21 @@
                           . . .
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a (click)="openColumnDialog($event, column)" class="dropdown-item">Editar</a>
-                            <a class="dropdown-item" (click)="deleteColumn($event, column)">Deletar</a>
+                            <a (click)="openColumnDialog($event, column)" class="dropdown-item">Editar coluna</a>
+                            <a class="dropdown-item" (click)="deleteColumn($event, column)">Deletar coluna</a>
                         </div>
                     </div>
                     
                 </div>
-            <div class="column-body">
+            <div class="column-body" cdkDropList [id]="column._id" [cdkDropListData]="column.cards"  (cdkDropListDropped)="drop($event)">
                 @for (card of column.cards; track card) {
-                    <a href="">
-                        <div class="card-content">
+                    <div class="dropdown show" cdkDrag [cdkDragData]="card"> 
+                    <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" (click)="openCardDialog($event, column._id, card)">Ver/Editar cartão</a>
+                            <a class="dropdown-item" (click)="deleteCard($event, card)">Deletar cartão</a>
+                          </div>
+                        <div class="card-content" >
                             <div class="circle-box">
                                     @for (responsible of card.responsibles; track responsible) {
                                     <div class="circle">{{ responsible.name.charAt(0) }}</div>
@@ -25,7 +30,9 @@
                                 </div>
                             <div class="card-name">{{ card.name }}</div>
                         </div>
+                        
                     </a>
+                </div>
                 }
                 <a (click)="openCardDialog($event, column._id)" class="add-card">Adicionar cartão</a>
             </div>

@@ -18,12 +18,6 @@ export class HeaderComponent {
     this.user = this.tokenService.decodeToken()
   }
 
-  showNavBar(): boolean {
-    let url = this.router.url
-
-    return url !== '/boards'
-  }
-
   logout() {
     localStorage.removeItem('acess_token')
 

@@ -13,6 +13,15 @@ export class CardService extends DefaultService {
         super('cards');
     }
 
+    move(id: string, columnId: string): Observable<ICard> {
+        return this.http.patch<ICard>(`${this.url}/${id}`, { column: columnId });
+    }    
+
+    updatePosition(id: string, newPosition: number): Observable<ICard> {
+        return this.http.patch<ICard>(`${this.url}/${id}/position`, { position: newPosition });
+    }
+  
+
     list(): Observable<ICard[]> {
         return this.http.get<ICard[]>(this.url)
     }
@@ -25,7 +34,7 @@ export class CardService extends DefaultService {
         return this.http.post<ICard>(this.url, card)
     }
 
-    edit(id: string, card: ICard): Observable<ICard> {
+    edit(id: string, card: Partial<ICard>): Observable<ICard> {
         return this.http.patch<ICard>(`${this.url}/${id}`, card)
     }
 

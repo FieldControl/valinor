@@ -8,6 +8,6 @@ export interface ICard {
     createdAt: string;
     dueDate: string;
     responsibles: IUser[];
-    column: IColumn;
+    column: string;
     columnName: string
 }

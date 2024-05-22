@@ -52,3 +52,7 @@ nav {
     font-size: 20px;
     font-weight: bold;
 }
+
+.logout:hover {
+    transform: scale(1.05);
+}

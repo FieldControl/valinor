@@ -1,17 +1,7 @@
 <nav id="desktop-nav">
-    @if (showNavBar()) {
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Selecionar quadro
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            </div>
-        </div>
-        
-    }
     <div class="options">
         @if (user) {
-            <div class="profile"> {{ user.username }} </div>
+            <div class="profile"> Bem vindo (a): {{ user.username }} </div>
 
         }
         <div class="logo"> kanban.io </div>

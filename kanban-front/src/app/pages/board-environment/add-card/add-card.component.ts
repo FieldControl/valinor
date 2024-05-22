@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CardService } from '../../../services/card.service';
 import { ICard } from '../../../models/card';
 import { CommonModule } from '@angular/common';
+import { DeleteComponent } from '../../../delete/delete.component';
+import { filter, mergeMap } from 'rxjs';
 
 @Component({
   selector: 'app-add-card',
@@ -17,6 +19,7 @@ export class AddCardComponent {
   data = inject(MAT_DIALOG_DATA);
   private cardService = inject(CardService)
   private dialogRef = inject(MatDialogRef);
+  private dialog = inject(MatDialog);
   private columnId = this.data.columnId;
 
   addCardFailed = false
