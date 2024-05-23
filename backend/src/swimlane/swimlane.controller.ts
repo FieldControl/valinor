@@ -5,21 +5,16 @@ import { UpdateSwimlaneDto } from './dto/update-swimlane.dto';
 
 @Controller('swimlane')
 export class SwimlaneController {
-  constructor(private readonly swimlaneService: SwimlaneService) {}
+  constructor(private readonly swimlaneService: SwimlaneService) { }
 
   @Post()
   create(@Body() createSwimlaneDto: CreateSwimlaneDto) {
     return this.swimlaneService.create(createSwimlaneDto);
   }
 
-  @Get()
-  findAll() {
-    return this.swimlaneService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.swimlaneService.findOne(+id);
+  @Get('/board/:boardId')
+  findAll(@Param('boardId') boardId: string) {
+    return this.swimlaneService.findAllByBoardId(Number(boardId));
   }
 
   @Patch(':id')
