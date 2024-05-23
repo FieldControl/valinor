@@ -14,7 +14,18 @@
             }
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" id="responsibles" formControlName="responsibles" placeholder="Responsavel">
+            <input  type="email" 
+                    class="form-control" 
+                    id="responsibles" 
+                    formControlName="responsibles" 
+                    placeholder="Responsavel(is)">
+
+            @if (addBoardForm.controls.responsibles.hasError('responsibles') && addBoardForm.controls.responsibles.touched) {
+                <div class="invalid-feedback">Insira um email válido</div>
+            } @if (addBoardForm.controls.responsibles.hasError('required') && addBoardForm.controls.responsibles.touched) {
+                <div class="invalid-feedback">O quadro precisa de ao menos um responsável!</div>
+            }
+
         </div>
         <div class="buttons">
 			<button type="submit">Criar</button>

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-add-board',
@@ -18,13 +19,23 @@ import { MatInputModule } from '@angular/material/input';
 export class AddBoardComponent {
   private formBuilder = inject(FormBuilder)
   private boardService = inject(BoardService)
+  private userService = inject(UserService)
   private dialogRef = inject(MatDialogRef);
   data = inject(MAT_DIALOG_DATA);
 
   addBoardFailed = false
 
+  ngOnInit() {
+    if (this.data.board?._id) {
+      this.userService.findEmailsByIds(this.data.board?.responsibles)
+        .subscribe(emails => {
+          this.addBoardForm.patchValue({ responsibles: emails.join(',') });
+        });
+    }
+  }
+  
   addBoardForm = this.formBuilder.group({
-    name: this.formBuilder.control(this.data.board?.name, [Validators.required]),
+    name: this.formBuilder.control(this.data.board?.name, Validators.required),
     responsibles: this.formBuilder.control(this.data.board?.responsibles),
   })
 
@@ -32,6 +43,13 @@ export class AddBoardComponent {
     if (this.addBoardForm.invalid) {
       return;
     }
+
+    let responsiblesArray = [];
+    if (this.addBoardForm.value.responsibles) {
+      responsiblesArray = this.addBoardForm.value.responsibles.split(',');
+    }
+
+    this.addBoardForm.patchValue({ responsibles: responsiblesArray });
 
     if (this.data.board?._id) {
       this.updateBoard();

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable, of, retry, tap } from "rxjs";
+import { BehaviorSubject, Observable, forkJoin, map, of, retry, tap } from "rxjs";
 import { ILogin, IRegister, IUser } from "../models/user";
 import { Router } from "@angular/router";
 import { TokenService } from "./token.service";
@@ -27,6 +27,10 @@ export class UserService extends DefaultService {
 
     findById(id: string): Observable<IUser> {
         return this.http.get<IUser>(`${this.url}/${id}`)
+    }
+
+    findEmailsByIds(ids: string[]): Observable<string[]> {
+        return forkJoin(ids.map(id => this.findById(id).pipe(map(user => user.email))));
     }
 
     create(user: IRegister): Observable<IUser> {
