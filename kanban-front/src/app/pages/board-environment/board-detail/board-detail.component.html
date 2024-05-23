@@ -15,7 +15,7 @@
                     
                 </div>
             <div class="column-body" cdkDropList [id]="column._id" [cdkDropListData]="column.cards"  (cdkDropListDropped)="drop($event)">
-                @for (card of column.cards; track card) {
+                @for (card of column.cards; track card; ) {
                     <div class="dropdown show" cdkDrag [cdkDragData]="card"> 
                     <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -29,6 +29,7 @@
                                 }
                                 </div>
                             <div class="card-name">{{ card.name }}</div>
+                            <div class="card-name">{{ card.position }}</div>
                         </div>
                         
                     </a>

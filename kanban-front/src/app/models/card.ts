@@ -10,4 +10,5 @@ export interface ICard {
     responsibles: IUser[];
     column: string;
     columnName: string
+    position: number;
 }

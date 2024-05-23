@@ -25,6 +25,7 @@ export class AddBoardComponent {
 
   addBoardForm = this.formBuilder.group({
     name: this.formBuilder.control(this.data.board?.name, [Validators.required]),
+    responsibles: this.formBuilder.control(this.data.board?.responsibles),
   })
 
   createOrEditBoard() {
@@ -45,7 +46,7 @@ export class AddBoardComponent {
       return;
     }
   
-    this.boardService.edit(this.data.board?._id, this.addBoardForm.value as ICreateBoard)
+    this.boardService.editByMail(this.data.board?._id, this.addBoardForm.value as ICreateBoard)
     .subscribe((board: IBoard) => {
         console.log('Sucesso');
         this.dialogRef.close(board)
@@ -58,7 +59,7 @@ export class AddBoardComponent {
       return;
     }
 
-    this.boardService.create(this.addBoardForm.value as ICreateBoard)
+    this.boardService.createByMail(this.addBoardForm.value as ICreateBoard)
     .subscribe((board: IBoard) => {
         console.log('Sucesso');
         this.dialogRef.close(board)

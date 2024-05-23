@@ -25,8 +25,16 @@ export class BoardService extends DefaultService {
         return this.http.post<IBoard>(this.url, board)
     }
 
+    createByMail(board: ICreateBoard): Observable<IBoard> {
+        return this.http.post<IBoard>(`${this.url}/create-by-email`, board)
+    }
+
     edit(boardId: string, board: ICreateBoard): Observable<IBoard> {
         return this.http.patch<IBoard>(`${this.url}/${boardId}`, board)
+    }
+
+    editByMail(boardId: string, board: ICreateBoard): Observable<IBoard> {
+        return this.http.patch<IBoard>(`${this.url}/${boardId}/update-by-email`, board)
     }
 
     delete(id: String): Observable<IBoard> {

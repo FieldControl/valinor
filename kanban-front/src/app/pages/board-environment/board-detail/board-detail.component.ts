@@ -10,7 +10,7 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
 import { AddColumnComponent } from '../add-column/add-column.component';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DeleteComponent } from '../../../delete/delete.component';
-import { filter, mergeMap } from 'rxjs';
+import { filter, firstValueFrom, mergeMap } from 'rxjs';
 import { ICard } from '../../../models/card';
 import { AddCardComponent } from '../add-card/add-card.component';
 import { CardService } from '../../../services/card.service';
@@ -30,7 +30,7 @@ export class BoardDetailComponent {
   private dialog = inject(MatDialog);
   private formBuilder = inject(FormBuilder)
   columns: IColumn[] = [];
-  boards: IBoard[] = [];
+  board: IBoard | undefined
   boardId = ''
   addColumnFailed = false
 
@@ -42,35 +42,51 @@ export class BoardDetailComponent {
     this.route.params.subscribe(params => {
       this.boardId = params['id']
       this.getColumns(this.boardId)
-      this.getBoards()
+      this.getBoard()
     })
   }
 
   async drop(event: CdkDragDrop<ICard[]>) {
-    if (event.previousContainer === event.container && event.container.data) {
-        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      if (event.previousContainer.data && event.container.data) {
-        transferArrayItem(event.previousContainer.data,
-                          event.container.data,
-                          event.previousIndex,
-                          event.currentIndex);
-    }
-        const card = event.item.data;
-        const columnId = event.container.id;
-        const newIndex = event.currentIndex;
-        console.log("id do card", card)
-        console.log("id da coluna", columnId)
-        console.log("toma tudo",event.container.data, event.previousIndex, event.currentIndex )
-        if (card && card._id) {
-          await this.cardService.move(card._id, columnId).toPromise();
-          await this.cardService.updatePosition(card._id, newIndex).toPromise();
-          this.getColumns(this.boardId);
-      }
-      
+    const card = event.item.data;
+    const newIndex = event.currentIndex;
+
+    if (card && card._id) {
+        if (event.previousContainer === event.container && event.container.data) {
+            await this.moveWithinColumn(event, card, newIndex);
+        } else if (event.previousContainer.data && event.container.data) {
+            const columnId = event.container.id;
+            await this.moveBetweenColumns(event, card, columnId, newIndex);
+        }
     }
 }
 
+async moveWithinColumn(event: CdkDragDrop<ICard[]>, card: ICard, newIndex: number) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
+    await firstValueFrom(this.cardService.updatePosition(card._id, newIndex));
+    await this.updateAllPositions(event.container.data);
+
+    this.getColumns(this.boardId);
+}
+
+async moveBetweenColumns(event: CdkDragDrop<ICard[]>, card: ICard, columnId: string, newIndex: number) {
+    transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+
+    await firstValueFrom(this.cardService.move(card._id, columnId));
+    await firstValueFrom(this.cardService.updatePosition(card._id, newIndex));
+    await this.updateAllPositions(event.container.data);
+    
+    this.getColumns(this.boardId);
+}
+
+async updateAllPositions(cards: ICard[]) {
+    for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        if (card._id) {
+            await firstValueFrom(this.cardService.updatePosition(card._id, i));
+        }
+    }
+}
 
   openColumnDialog($event: Event, column?: IColumn) {
     $event.stopImmediatePropagation();
@@ -110,11 +126,11 @@ export class BoardDetailComponent {
     })
   }
 
-  getBoards() {
-    this.boardService.list().subscribe({
+  getBoard() {
+    this.boardService.findById(this.boardId).subscribe({
       next: (data) => {
-        this.boards = data;
-        console.log('Quadros', this.boards)
+        this.board = data;
+        console.log('Quadro', this.board)
       },
       error: (e) => {
         console.log('Erro ao obter quadros: ',e)
