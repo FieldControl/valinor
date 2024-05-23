@@ -5,7 +5,7 @@ import { UpdateBoardDto } from './dto/update-board.dto';
 
 @Controller('board')
 export class BoardController {
-  constructor(private readonly boardService: BoardService) {}
+  constructor(private readonly boardService: BoardService) { }
 
   @Post()
   create(@Body() createBoardDto: CreateBoardDto) {
@@ -14,7 +14,9 @@ export class BoardController {
 
   @Get()
   findAll() {
-    return this.boardService.findAll();
+    // TODO: Fetch from JWT
+    const userId = 1;
+    return this.boardService.findAllByUserId(userId);
   }
 
   @Get(':id')
