@@ -1,5 +1,6 @@
+import { Swimlane } from "src/swimlane/entities/swimlane.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Board {
@@ -11,4 +12,7 @@ export class Board {
 
   @ManyToMany(() => User, (user) => user.boards)
   users: User[];
+
+  @OneToMany(() => Swimlane, (board) => board.board)
+  swimlanes: Swimlane[];
 }
