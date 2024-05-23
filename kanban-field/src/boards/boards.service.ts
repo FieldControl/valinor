@@ -26,8 +26,11 @@ async create(createBoardDto: CreateBoardDto, userId: string) {
 
 async createbyMail(createBoardDto: CreateBoardDto, userEmail: string) {
   try {
-    const responsibles = await Promise.all(createBoardDto.responsibles.map(email => this.userService.findByMail(email)));
-    const responsibleIds = responsibles.map(user => user._id.toString());
+    let responsibles = [];
+    if (createBoardDto.responsibles) {
+      responsibles = await Promise.all(createBoardDto.responsibles.map(email => this.userService.findByMail(email)));
+    }
+    const responsibleIds = [...new Set(responsibles.map(user => user._id.toString()))];
     const board = new this.boardModel({...createBoardDto, responsibles: [...responsibleIds, userEmail]});
     return await board.save();
   } catch (error) {
@@ -90,8 +93,13 @@ async update(id: string, updateBoardDto: UpdateBoardDto, userId: string) {
 
 async updateResponsiblesByEmail(id: string, updateBoardDto: CreateBoardDto, userEmail: string) {
   try {
+    if (!updateBoardDto.responsibles || updateBoardDto.responsibles.length === 0) {
+      throw new Error('Pelo menos um responsável deve ser fornecido');
+    }
+
     const responsibles = await Promise.all(updateBoardDto.responsibles.map(email => this.userService.findByMail(email)));
-    const responsibleIds = responsibles.map(user => user._id.toString());
+    const responsibleIds = [...new Set(responsibles.map(user => user._id.toString()))];
+    
     const board = await this.boardModel.findByIdAndUpdate(
       {_id: id, responsibles: { $in: [userEmail] } },
       {...updateBoardDto, responsibles: responsibleIds},
@@ -107,6 +115,7 @@ async updateResponsiblesByEmail(id: string, updateBoardDto: CreateBoardDto, user
     throw new Error(`Falha ao atualizar o quadro: ${error.message}`);
   }
 }
+
 
 async remove(id: string, userId: string) {
   const board = await this.boardModel.findByIdAndDelete({_id: id, responsibles: { $in: [userId] } });
