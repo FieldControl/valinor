@@ -5,16 +5,16 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
+  @Get('/board/:boardId')
+  findAll(@Param('boardId') boardId: number) {
+    return this.userService.findAllUsersByBoardId(boardId);
   }
 
   @Get(':id')
@@ -29,6 +29,7 @@ export class UserController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
+    // TODO: Fetch id from JWT
     return this.userService.remove(+id);
   }
 }
