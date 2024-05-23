@@ -10,6 +10,7 @@ import { Board } from './board/entities/board.entity';
 import { Card } from './card/entities/card.entity';
 import { Swimlane } from './swimlane/entities/swimlane.entity';
 import { User } from './user/entities/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { User } from './user/entities/user.entity';
       entities: [Board, Card, Swimlane, User],
       synchronize: process.env.ENV !== 'production',
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
