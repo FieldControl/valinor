@@ -1,6 +1,7 @@
-import { BeforeInsert, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import * as bcrypt from 'bcrypt';
 import { Board } from "src/board/entities/board.entity";
+import { Card } from "src/card/entities/card.entity";
 
 @Entity()
 export class User {
@@ -22,6 +23,9 @@ export class User {
   @ManyToMany(() => Board, (board) => board.users)
   @JoinTable()
   boards: Board[];
+
+  @OneToMany(() => Card, (user) => user.assigne)
+  cards: Card[];
 
   @BeforeInsert()
   async hashPassword() {
