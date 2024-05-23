@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus, NotFoundException, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus, NotFoundException, Req, UseGuards, UnauthorizedException } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
@@ -13,6 +13,16 @@ export class BoardsController {
   async create(@Body() createBoardDto: CreateBoardDto, @Req() req) {
     try {
       return await this.boardsService.create(createBoardDto, req.user.userId);
+    } catch (error) {
+      throw new HttpException(`Falha ao criar o quadro: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('/create-by-email')
+  async createByEmail(@Body() createBoardDto: CreateBoardDto, @Req() req) {
+    try {
+      return await this.boardsService.createbyMail(createBoardDto, req.user.userId);
     } catch (error) {
       throw new HttpException(`Falha ao criar o quadro: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
     }
@@ -39,6 +49,9 @@ export class BoardsController {
         throw new HttpException(error.message, HttpStatus.NOT_FOUND);
       }
 
+      else if (error instanceof UnauthorizedException) {
+        throw new HttpException('Você não tem permissão para ver o quadro', HttpStatus.NOT_FOUND);
+      }
       throw new HttpException('Falha ao consultar o quadro', HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
@@ -48,6 +61,21 @@ export class BoardsController {
   async update(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto, @Req() req) {
     try {
       return await this.boardsService.update(id, updateBoardDto, req.user.userId);
+    } catch (error) {
+
+      if (error instanceof NotFoundException) {
+        throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+      }
+
+      throw new HttpException(`Falha ao atualizar o quadro ${error.message}`, HttpStatus.NOT_FOUND)
+    }
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/update-by-email')
+  async updateByEmail(@Param('id') id: string, @Body() updateBoardDto: CreateBoardDto, @Req() req) {
+    try {
+      return await this.boardsService.updateResponsiblesByEmail(id, updateBoardDto, req.user.userId);
     } catch (error) {
 
       if (error instanceof NotFoundException) {

@@ -14,7 +14,7 @@ export class Board {
   columns: Column[]
 
   @Prop({type: mongoose.Schema.Types.Array, ref: "User"})
-  responsibles: User[]
+  responsibles: string[]
 }
 
 export const BoardSchema = SchemaFactory.createForClass(Board);

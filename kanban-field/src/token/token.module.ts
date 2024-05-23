@@ -9,7 +9,7 @@ import { UsersModule } from 'src/users/users.module';
 @Module({
   imports: [MongooseModule.forFeature([{ name: Token.name, schema: TokenSchema }]),
             forwardRef(() => AuthModule),
-            UsersModule],
+            forwardRef(() => UsersModule)],
   controllers: [TokenController],
   providers: [TokenService],
   exports: [TokenService]

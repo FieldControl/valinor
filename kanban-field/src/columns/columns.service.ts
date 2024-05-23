@@ -61,6 +61,9 @@ export class ColumnsService {
       
       const columnsWithCards = await Promise.all(columns.map(async (column) => {
         column.cards = await this.cardService.find({ column: column._id },userId);
+
+        column.cards.sort((a,b) => a.position - b.position)
+
         return column;
       }));
   
@@ -77,6 +80,8 @@ export class ColumnsService {
     if (!column) {
       throw new NotFoundException('Coluna não encontrada');
     }
+
+    column.cards = await this.cardService.find({ column: column._id }, userId);
   
     return column;
 }

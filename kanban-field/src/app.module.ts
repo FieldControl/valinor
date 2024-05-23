@@ -8,8 +8,11 @@ import { BoardsModule } from './boards/boards.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [CardsModule, ColumnsModule, 
-            MongooseModule.forRoot('mongodb+srv://jonathan:30082002@kabannestjs.hqq0piv.mongodb.net/'), BoardsModule, AuthModule],
+  imports: [CardsModule, 
+            ColumnsModule, 
+            MongooseModule.forRoot('mongodb+srv://jonathan:30082002@kabannestjs.hqq0piv.mongodb.net/'), 
+            BoardsModule, 
+            AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -4,5 +4,5 @@ import { User } from "src/users/entities/user.entity";
 export class CreateBoardDto {
     name: string
     columns: Column[]
-    responsibles: User[]
+    responsibles: string[]
 }

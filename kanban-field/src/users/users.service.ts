@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -10,6 +10,7 @@ import { CardsService } from 'src/cards/cards.service';
 export class UsersService {
 
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>,
+              @Inject(forwardRef(() => CardsService))
               private cardService: CardsService) {}
 
   async create(createUserDto: CreateUserDto) {
@@ -43,7 +44,7 @@ export class UsersService {
     return user
   }
 
-  async findByMail(email: string): Promise<User | undefined> {                 
+  async findByMail(email: any): Promise<User | undefined> {                 
     return this.userModel.findOne({ email: email }); // encontrar user cadastrado por email
   }
 

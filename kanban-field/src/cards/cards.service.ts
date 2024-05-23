@@ -16,10 +16,14 @@ export class CardsService {
     try {
       const column = await this.columnsService.findColumn(columnId, userId)
 
-      const userIds = column.responsibles
-      console.log(column.responsibles.length)
+      if (!column) {
+        throw new Error('Coluna não encontrada');
+    }
+      const cards = column.cards || [];
 
-      const position = await column.cards
+      const userIds = column.responsibles
+
+      const position = cards.length;
       console.log(column.cards.length)
 
       const card = new this.cardModel({...createCardDto, responsibles: userIds, position: position });
