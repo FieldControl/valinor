@@ -98,7 +98,7 @@ async updateResponsiblesByEmail(id: string, updateBoardDto: CreateBoardDto, user
     }
 
     const responsibles = await Promise.all(updateBoardDto.responsibles.map(email => this.userService.findByMail(email)));
-    const responsibleIds = [...new Set(responsibles.map(user => user._id.toString()))];
+    const responsibleIds = [...new Set(responsibles.map(user => user['_id'].toString()))];
     
     const board = await this.boardModel.findByIdAndUpdate(
       {_id: id, responsibles: { $in: [userEmail] } },

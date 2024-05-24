@@ -15,7 +15,14 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto) {
     try {
+      const existingUser = this.findByMail(createUserDto.email)
+
+      if (existingUser) {
+        throw new Error(`Já existe um usuário com este e-mail`);
+      }
+
       const user = new this.userModel(createUserDto);
+
       return await user.save();
     } catch (error) {
       throw new Error(`Falha ao criar o usuário: ${error.message}`);
