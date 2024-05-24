@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { ILogin } from '../../models/user';
+import { UserService } from '../../shared/services/user.service';
+import { ILogin } from '../../core/models/user';
 
 @Component({
   selector: 'app-login',

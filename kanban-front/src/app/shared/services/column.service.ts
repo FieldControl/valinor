@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { IColumn, ICreateColumn } from "../models/column";
+import { IColumn, ICreateColumn } from "../../core/models/column";
 
 @Injectable({
     providedIn: 'root',

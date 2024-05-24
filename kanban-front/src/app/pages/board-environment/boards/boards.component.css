@@ -1,6 +1,7 @@
 .boards {
     display: flex;
     flex-direction: column;
+    padding-top: 8vh;
 }
 
 h1{
@@ -25,12 +26,12 @@ a:hover {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    flex-direction: row;
     padding: 50px 0;
 }
 
 .ag-courses_item {
     margin: 0 15px 30px;
-
     border-radius: 5px;
 }
 
@@ -61,7 +62,6 @@ a:hover {
     font-weight: bold;
     font-size: 24px;
     color: #000000;
-    z-index: 2;
     position: relative;
 }
 
@@ -155,5 +155,20 @@ button.ghost:hover {
     font-size: 24px;
 }
 
+@media (max-width: 600px) {
+    .ag-courses-item_link  {
+        height: 20vh;
+        width: 35vh;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .ag-courses_box {
+        flex-direction: column;
+    }
+
+    .ag-courses-item_title {
+        font-size: 18px;
+    }
+}
 
   

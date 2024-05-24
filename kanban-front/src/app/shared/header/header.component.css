@@ -9,11 +9,14 @@ a:hover {
 }
 
 nav {
+    background: rgba( 243, 243, 243, 0.55 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 10vh;
-    background-color: rgb(243, 243, 243);
+    height: 8vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -39,14 +42,6 @@ nav {
     font-weight: bold;
 }
 
-.logo {
-    position: absolute;
-    left: 50%;
-    margin-left: 2rem;
-    font-size: 20px;
-    font-weight: bold;
-}
-
 .logout {
     margin-right: 2rem;
     font-size: 20px;
@@ -55,4 +50,17 @@ nav {
 
 .logout:hover {
     transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .profile {
+        font-size: 14px;
+        margin-left: 1rem;
+    }
+    
+    .logout {
+        font-size: 14px;
+        margin-right: 1rem;
+    }
+
 }

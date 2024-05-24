@@ -2,18 +2,18 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { ColumnService } from '../../../services/column.service';
-import { IColumn } from '../../../models/column';
-import { IBoard } from '../../../models/board';
-import { BoardService } from '../../../services/board.service';
+import { ColumnService } from '../../../shared/services/column.service';
+import { IColumn } from '../../../core/models/column';
+import { IBoard } from '../../../core/models/board';
+import { BoardService } from '../../../shared/services/board.service';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { AddColumnComponent } from '../add-column/add-column.component';
 import { FormBuilder, Validators } from '@angular/forms';
-import { DeleteComponent } from '../../../delete/delete.component';
+import { DeleteComponent } from '../../../shared/delete/delete.component';
 import { filter, firstValueFrom, mergeMap } from 'rxjs';
-import { ICard } from '../../../models/card';
+import { ICard } from '../../../core/models/card';
 import { AddCardComponent } from '../add-card/add-card.component';
-import { CardService } from '../../../services/card.service';
+import { CardService } from '../../../shared/services/card.service';
 
 @Component({
   selector: 'app-board-detail',

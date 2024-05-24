@@ -1,5 +1,4 @@
-<form   [formGroup]="addColumnForm"
-                (ngSubmit)="createOrEditBoard()">
+<form   [formGroup]="addColumnForm">
 			<h1>{{ data.column?._id ? "Editar" : "Adicionar" }} coluna</h1>
 			<div class="form-group">
             <input  type="text" 
@@ -14,7 +13,7 @@
             }
         </div>
         <div class="buttons">
-			<button type="submit">Criar</button>
+			<button type="button" (click)="createOrEditColumn()">Criar</button>
             @if (addColumnFailed) {
                 <div class="login-error">Nome inválido</div>
             }

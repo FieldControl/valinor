@@ -11,11 +11,11 @@ export class AuthGuard implements CanActivate {
     private router = inject(Router);
 
     canActivate(): boolean {
-    //   const token = localStorage.getItem('acess_token');
-    //   if (!token) {
-    //       this.router.navigate(['/login']);
-    //       return false;
-    //   }
+      const token = localStorage.getItem('acess_token');
+      if (!token) {
+          this.router.navigate(['/']);
+          return false;
+      }
       return true;
   }
 }

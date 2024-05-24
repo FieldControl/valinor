@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { CardService } from '../../../services/card.service';
-import { ICard } from '../../../models/card';
+import { CardService } from '../../../shared/services/card.service';
+import { ICard } from '../../../core/models/card';
 import { CommonModule } from '@angular/common';
-import { DeleteComponent } from '../../../delete/delete.component';
+import { DeleteComponent } from '../../../shared/delete/delete.component';
 import { filter, mergeMap } from 'rxjs';
 
 @Component({

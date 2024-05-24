@@ -29,21 +29,11 @@
     background-color: transparent;
 }
 
-.profile {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 20px;
-    color: #fff;
-    line-height: 30px;
-    text-align: center;
-    background: #000;
-}
 
 .column-box {
     display: flex;
     flex-direction: row;
-    padding-top: 10vh;
+    padding-top: 8vh;
 }
 
 .column {
@@ -187,5 +177,12 @@ nav {
     gap: 2rem;
     list-style: none;
     font-size: 1.3rem;
+}
+
+@media (max-width: 600px) {
+    .column-box {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 

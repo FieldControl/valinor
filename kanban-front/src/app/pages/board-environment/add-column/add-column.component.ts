@@ -3,8 +3,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { ColumnService } from '../../../services/column.service';
-import { IColumn, ICreateColumn } from '../../../models/column';
+import { ColumnService } from '../../../shared/services/column.service';
+import { IColumn, ICreateColumn } from '../../../core/models/column';
 
 @Component({
   selector: 'app-add-column',
@@ -27,7 +27,7 @@ export class AddColumnComponent {
     name: this.formBuilder.control(this.data.column?.name, [Validators.required]),
   })
 
-  createOrEditBoard() {
+  createOrEditColumn() {
     if (this.addColumnForm.invalid) {
       return;
     }

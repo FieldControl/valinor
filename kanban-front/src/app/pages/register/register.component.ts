@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { IRegister } from '../../models/user';
+import { UserService } from '../../shared/services/user.service';
+import { IRegister } from '../../core/models/user';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +24,7 @@ export class RegisterComponent {
   })
 
   registerFailed = false
+  existingUser = false
 
   register() {
     if (this.registerForm.invalid) {
@@ -39,6 +40,9 @@ export class RegisterComponent {
         error: (err) => {
           console.log('Erro', err);
           this.registerFailed = true;
+          if (err.error.message.includes('Já existe um usuário com este e-mail')) {
+            this.existingUser = true;
+          }
         }
       });
     }

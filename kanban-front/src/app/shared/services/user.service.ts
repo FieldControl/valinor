@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable, forkJoin, map, of, retry, tap } from "rxjs";
-import { ILogin, IRegister, IUser } from "../models/user";
+import { ILogin, IRegister, IUser } from "../../core/models/user";
 import { Router } from "@angular/router";
 import { TokenService } from "./token.service";
 

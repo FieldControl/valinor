@@ -41,6 +41,9 @@
             @if (registerFailed) {
                 <div class="register-error">Cheque suas credenciais</div>
             }
+            @if (existingUser) {
+                <div class="register-error">Este e-mail já está em uso</div>
+              }
         </form>
 	</div>
 	<div class="overlay-container">

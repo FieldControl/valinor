@@ -42,3 +42,9 @@ button.ghost:hover {
 button:hover {
 	transform: scale(1.1);
 }
+
+@media (max-width: 600px) {
+	button {
+		padding: 7px 20px;
+	}
+}

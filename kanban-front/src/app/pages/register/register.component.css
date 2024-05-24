@@ -99,8 +99,8 @@ input {
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	overflow: hidden;
-	width: 60%;
-	height: 70%;
+	width: 110vh;
+	height: 70vh;
 }
 
 .form-container {
@@ -146,4 +146,28 @@ input {
 
 .overlay-right {
 	right: 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+		width: 80%;
+		height: 50%;
+	}
+
+	input {
+		padding: 7px 10px;
+	}
+
+	button {
+		font-size: 12px;
+		padding: 7px 25px;
+	}
+
+	.overlay-panel p {
+		font-size: 12px;
+	}
+	
+	h1 {
+		font-size: 24px;
+	}
 }

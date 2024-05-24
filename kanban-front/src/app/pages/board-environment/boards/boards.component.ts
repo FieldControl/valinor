@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { BoardService } from '../../../services/board.service';
-import { IBoard } from '../../../models/board';
+import { BoardService } from '../../../shared/services/board.service';
+import { IBoard } from '../../../core/models/board';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AddBoardComponent } from '../add-board/add-board.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Subject, filter, mergeMap } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
-import { DeleteComponent } from '../../../delete/delete.component';
+import { DeleteComponent } from '../../../shared/delete/delete.component';
 
 @Component({
   selector: 'app-boards',

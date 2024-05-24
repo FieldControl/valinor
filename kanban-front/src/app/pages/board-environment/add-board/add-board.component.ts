@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BoardService } from '../../../services/board.service';
-import { IBoard, ICreateBoard } from '../../../models/board';
+import { BoardService } from '../../../shared/services/board.service';
+import { IBoard, ICreateBoard } from '../../../core/models/board';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-add-board',
@@ -24,6 +24,8 @@ export class AddBoardComponent {
   data = inject(MAT_DIALOG_DATA);
 
   addBoardFailed = false
+  noResponsibles = false
+  noExistingMail = false
 
   ngOnInit() {
     if (this.data.board?._id) {
@@ -63,11 +65,19 @@ export class AddBoardComponent {
       this.addBoardFailed = true;
       return;
     }
+
   
     this.boardService.editByMail(this.data.board?._id, this.addBoardForm.value as ICreateBoard)
     .subscribe((board: IBoard) => {
         console.log('Sucesso');
         this.dialogRef.close(board)
+      },(error) => {
+        if (error.error.message.includes('Pelo menos um responsável deve ser fornecido')) {
+          this.noResponsibles = true;
+        }
+        else if (error.error.message.includes('Cannot read properties of null')) {
+          this.noExistingMail = true
+        }
       });
   }
 
@@ -81,6 +91,10 @@ export class AddBoardComponent {
     .subscribe((board: IBoard) => {
         console.log('Sucesso');
         this.dialogRef.close(board)
+      }, (error) => {
+        if (error.error.message.includes('Cannot read properties of null')) {
+          this.noExistingMail = true
+        }
       });
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { IUser } from '../../models/user';
-import { UserService } from '../../services/user.service';
+import { IUser } from '../../core/models/user';
+import { UserService } from '../../shared/services/user.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { IBoard, ICreateBoard } from "../models/board";
+import { IBoard, ICreateBoard } from "../../core/models/board";
 
 @Injectable({
     providedIn: 'root',

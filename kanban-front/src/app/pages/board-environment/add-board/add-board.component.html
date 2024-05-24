@@ -1,5 +1,4 @@
-<form   [formGroup]="addBoardForm"
-                (ngSubmit)="createOrEditBoard()">
+<form   [formGroup]="addBoardForm">
 			<h1>{{ data.board?._id ? "Editar" : "Adicionar" }} quadro</h1>
 			<div class="form-group">
             <input  type="text" 
@@ -14,11 +13,12 @@
             }
         </div>
         <div class="form-group">
+            <label for="responsibles">{{ data.board?._id ? "Responsáveis pelo quadro:" : "Adicionar responsáveis ao quadro:" }}</label><br>
             <input  type="email" 
                     class="form-control" 
                     id="responsibles" 
                     formControlName="responsibles" 
-                    placeholder="Responsavel(is)">
+                    placeholder="ex: abc@gmail.com,def@gmail.com">
 
             @if (addBoardForm.controls.responsibles.hasError('responsibles') && addBoardForm.controls.responsibles.touched) {
                 <div class="invalid-feedback">Insira um email válido</div>
@@ -27,11 +27,17 @@
             }
 
         </div>
+        @if (addBoardFailed) {
+            <div class="error">Nome inválido</div>
+        }
+        @if (noResponsibles) {
+            <div class="error">O quadro precisa de ao menos um responsável</div>
+        }
+        @if (noExistingMail) {
+            <div class="error">Usuário não encontrado</div>
+        }
         <div class="buttons">
-			<button type="submit">Criar</button>
-            @if (addBoardFailed) {
-                <div class="login-error">Nome inválido</div>
-            }
+			<button type="button" (click)="createOrEditBoard()">Criar</button>
             <button (click)="closeDialog()" class="ghost">Fechar</button>
         </div>
 		</form>
