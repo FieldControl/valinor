@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import { RegisterDto } from 'src/auth/dto/register.dto';
 
 @Injectable()
 export class UserService {
@@ -12,7 +12,7 @@ export class UserService {
     private userRepository: Repository<User>,
   ) { }
 
-  create(createUserDto: CreateUserDto) {
+  create(createUserDto: RegisterDto) {
     const user = new User();
     user.email = createUserDto.email;
     user.firstName = createUserDto.firstName;
@@ -21,16 +21,17 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  findAllUsersByBoardId(boardId: number) {
-    return this.userRepository.find({
-      where: {
-        boards: { id: boardId },
-      }
-    });
-  }
-
   findOne(id: number) {
     return this.userRepository.findOneBy({ id });
+  }
+
+  isConnectedToBoard(boardId: number, id: number) {
+    return this.userRepository.findOneBy({
+      id,
+      boards: {
+        id: boardId,
+      }
+    });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {

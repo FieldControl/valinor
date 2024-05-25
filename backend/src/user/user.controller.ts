@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { AuthGuard, PayloadRequest } from 'src/auth/auth/auth.guard';
 
 @Controller('user')
 export class UserController {
@@ -12,24 +13,21 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
-  @Get('/board/:boardId')
-  findAll(@Param('boardId') boardId: number) {
-    return this.userService.findAllUsersByBoardId(boardId);
+  @Get()
+  @UseGuards(AuthGuard)
+  findOne(@Request() req: PayloadRequest) {
+    return this.userService.findOne(req.user.id);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
+  @Patch()
+  @UseGuards(AuthGuard)
+  update(@Param('id') id: string, @Request() req: PayloadRequest, @Body() updateUserDto: UpdateUserDto) {
+    return this.userService.update(req.user.id, updateUserDto);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    // TODO: Fetch id from JWT
-    return this.userService.remove(+id);
+  @Delete()
+  @UseGuards(AuthGuard)
+  remove(@Request() req: PayloadRequest) {
+    return this.userService.remove(req.user.id);
   }
 }
