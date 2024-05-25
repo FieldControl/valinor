@@ -11,6 +11,7 @@ import { Card } from './card/entities/card.entity';
 import { Swimlane } from './swimlane/entities/swimlane.entity';
 import { User } from './user/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/auth/auth.guard';
 
 @Module({
   imports: [
@@ -31,6 +32,6 @@ import { AuthModule } from './auth/auth.module';
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AuthGuard],
 })
 export class AppModule { }
