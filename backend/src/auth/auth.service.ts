@@ -1,8 +1,7 @@
-import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Auth } from './entities/auth.entity';
 import { Repository } from 'typeorm';
 import { User } from 'src/user/entities/user.entity';
 import * as bcrypt from 'bcrypt';
@@ -34,21 +33,5 @@ export class AuthService {
     return {
       accessToken: await this.jwtService.signAsync(payload),
     };
-  }
-
-  findAll() {
-    return `This action returns all auth`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
-
-  update(id: number, updateAuthDto: RegisterDto) {
-    return `This action updates a #${id} auth`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
   }
 }
