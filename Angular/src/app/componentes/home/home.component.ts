@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -19,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
+
 export class HomeComponent {
   cli: string[] = [];
   negociacao: string[] = [];
@@ -31,9 +33,36 @@ export class HomeComponent {
       this.cli.push(userInput.trim());
     }
   }
-  removeItem(index: number): void {
-    this.cli.splice(index, 1);
+  
+
+  removeItem(column: string, index: number): void {
+    if (column === 'cli') {
+      this.cli.splice(index, 1);
+    } else if (column === 'negociacao') {
+      this.negociacao.splice(index, 1);
+    } else if (column === 'concluida') {
+      this.concluida.splice(index, 1);
+    } else if (column === 'entrega') {
+      this.entrega.splice(index, 1);
+    }
   }
+
+  editItem(column: string, index: number): void {
+    const userInput = prompt("Digite o novo nome da venda");
+    if (userInput !== null && userInput.trim() !== "") {
+      if (column === 'cli') {
+        this.cli[index] = userInput.trim();
+      } else if (column === 'negociacao') {
+        this.negociacao[index] = userInput.trim();
+      } else if (column === 'concluida') {
+        this.concluida[index] = userInput.trim();
+      } else if (column === 'entrega') {
+        this.entrega[index] = userInput.trim();
+      }
+    }
+  }
+  
+
   salvarInformacoes(): void {
     console.log('Salvando informações dos cards...');
     console.log('Clientes Cadastrados:', this.cli);
@@ -41,20 +70,8 @@ export class HomeComponent {
     console.log('Pedidos Concluídos:', this.concluida);
     console.log('Pedidos em Entrega:', this.entrega);
 
-    localStorage.setItem('clientesCadastrados', JSON.stringify(this.cli));
-    localStorage.setItem('pedidosNegociacao', JSON.stringify(this.negociacao));
-    localStorage.setItem('pedidosConcluidos', JSON.stringify(this.concluida));
-    localStorage.setItem('pedidosEntrega', JSON.stringify(this.entrega));
-
-
+  
     alert('Informações salvas com sucesso!');
-
-  }
-  constructor() {
-    this.cli = JSON.parse(localStorage.getItem('clientesCadastrados') || '[]');
-    this.negociacao = JSON.parse(localStorage.getItem('pedidosNegociacao') || '[]');
-    this.concluida = JSON.parse(localStorage.getItem('pedidosConcluidos') || '[]');
-    this.entrega = JSON.parse(localStorage.getItem('pedidosEntrega') || '[]');
   }
 
 

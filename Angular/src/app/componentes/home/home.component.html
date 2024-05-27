@@ -23,10 +23,14 @@
       <div class="card" *ngFor="let venda of cli,  let i = index" cdkDrag cdkDrop>
         
         <h3 class="cont">
-          <button (click)="removeItem(i)">
+          <button (click)="removeItem('cli',i)">
             
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Bin--Streamline-Blocks---Free" height="16" width="16"><desc>Bin Streamline Icon: https://streamlinehq.com</desc><path fill="#f80e12" fill-rule="evenodd" d="M16 4v2h-2v10H2V6H0V4h4c0 -2.20914 1.79086 -4 4 -4 2.2091 0 4 1.79086 4 4l4 0ZM8.00005 2C9.10461 2 10 2.89544 10 4L6.00006 4c0 -1.10455 0.89543 -2 1.99999 -2Z" clip-rule="evenodd" stroke-width="1"></path></svg>
 
+          </button>
+          
+          <button (click)="editItem('cli', i)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Pencil--Streamline-Blocks---Free" height="16" width="16"><desc>Pencil Streamline Icon: https://streamlinehq.com</desc><path fill="#1e1e1e" fill-rule="evenodd" d="M12.5 6.9052l-3.4053 3.4053 1.1 1.1 3.4053 -3.4053 -1.1 -1.1Zm-9.5395 7.3252c-0.0631 0 -0.1231 -0.0221 -0.171 -0.0625l-3.758 -3.7578125c-0.0956 -0.0957 -0.0956 -0.25 0 -0.3457l7.5332 -7.5332c0.1895 -0.1895 0.4961 -0.1895 0.6856 0l3.7578 3.7578125c0.0957 0.0956 0.0957 0.25 0 0.3457l-7.5332 7.5332c-0.0479 0.0475 -0.108 0.0695 -0.168 0.0695ZM0.8696 13.1944l0.4957 -1.3587 0.8812 0.8808 -1.3568 0.4782ZM14.1008 4.0208l-0.552 -0.552c-0.1625 -0.1625 -0.4274 -0.1625 -0.59 0l-0.442 -0.442c-0.8055 -0.8055 -2.1123 -0.8055 -2.9178 0l-0.552 0.552 3.4138 3.4139 0.552 -0.552c0.1625 -0.1625 0.1625 -0.4274 0 -0.59Z" clip-rule="evenodd" stroke-width="1"></path></svg>
           </button>
           {{ venda }} </h3> 
 
