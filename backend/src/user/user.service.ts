@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
@@ -10,7 +10,7 @@ export class UserService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
-  ) { }
+  ) {}
 
   create(createUserDto: RegisterDto) {
     const user = new User();
@@ -25,13 +25,42 @@ export class UserService {
     return this.userRepository.findOneBy({ id });
   }
 
-  isConnectedToBoard(boardId: number, id: number) {
-    return this.userRepository.findOneBy({
-      id,
-      boards: {
-        id: boardId,
-      }
+  async isConnectedToBoard(id: number, boardId: number) {
+    const user = await this.userRepository.findOne({
+      where: {
+        id,
+        boards: {
+          id: boardId,
+        },
+      },
+      relations: ['boards'],
     });
+
+    if (!user) {
+      throw new UnauthorizedException('You are not a part of this board.');
+    }
+
+    return true;
+  }
+
+  async isConnectedToSwimlane(id: number, swimlaneId: number) {
+    const user = await this.userRepository.findOne({
+      where: {
+        id,
+        boards: {
+          swimlanes: {
+            id: swimlaneId,
+          },
+        },
+      },
+      relations: ['boards', 'boards.swimlanes'],
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('You are not a part of this board.');
+    }
+
+    return true;
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
