@@ -1,58 +1,39 @@
 import { Injectable } from '@nestjs/common';
+import { CreateCardDto } from './dto/create-card.dto';
+import { UpdateCardDto } from './dto/update-card.dto';
+import { Card } from './entities/card.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class CardsService {
-  private cli: string[] = [];
-  private negociacao: string[] = [];
-  private concluida: string[] = [];
-  private entrega: string[] = [];
+  constructor(
+    @InjectRepository(Card)
+    private readonly repository: Repository<Card>){}
+    
+    create(dto: CreateCardDto){
+      const Card = this.repository.create(dto);
+      return this.repository.save(Card);
+    }
 
-  getCli(): string[] {
-    return this.cli;
+  findAll() {
+    return this.repository.find();
   }
 
-  getNegociacao(): string[] {
-    return this.negociacao;
+  findOne(idCard: string) {
+    return this.repository.findOneBy({idCard});
   }
 
-  getConcluida(): string[] {
-    return this.concluida;
+ async update(idCard: string, dto: UpdateCardDto) {
+    const card = await this.repository.findOneBy({idCard});
+    if (!card) return null;
+    this.repository.merge(card, dto);
+    return this.repository.save(card);
   }
 
-  getEntrega(): string[] {
-    return this.entrega;
+  async remove(idCard: string) {
+    const card = await this.repository.findOneBy({idCard});
+    if (!card) return null;
+    return this.repository.remove(card);
   }
-
-  addCli(cliente: string): void {
-    this.cli.push(cliente);
-  }
-
-  removeCli(index: number): void {
-    this.cli.splice(index, 1);
-  }
-  addNegociacao(pedido: string): void {
-    this.negociacao.push(pedido);
-}
-
-removeNegociacao(index: number): void {
-    this.negociacao.splice(index, 1);
-}
-
-addConcluida(pedido: string): void {
-    this.concluida.push(pedido);
-}
-
-removeConcluida(index: number): void {
-    this.concluida.splice(index, 1);
-}
-
-addEntrega(pedido: string): void {
-    this.entrega.push(pedido);
-}
-
-removeEntrega(index: number): void {
-    this.entrega.splice(index, 1);
-}
-
-
 }

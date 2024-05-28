@@ -1,0 +1,20 @@
+
+GET http://localhost:3000/cards
+
+
+###
+POST http://localhost:3000/cards
+Content-Type: application/json
+
+{
+    "cli":"string",
+    "negociacao":"string",
+    "concluida":"string",
+    "entrega":"string",
+    "venda": "sasaas"
+       
+}
+###
+PATCH http://localhost:3000/cards
+###
+DELETE http://localhost:3000/cards
