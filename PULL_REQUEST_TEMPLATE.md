@@ -6,7 +6,7 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
-**Resposta:** *Utilizei Angular 17, NestJS, TypeORM, JWT e MySQL.*
+**Resposta:** *Utilizei Angular 17, NestJS, TypeORM, Bcrypt, JWT e MySQL.*
 
 **Tecnologias X e Y**
 
