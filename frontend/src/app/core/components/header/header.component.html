@@ -1,0 +1,13 @@
+<nav>
+  <ul>
+    <li><img src="../../../../assets/fc_logo.png"></li>
+    <li class="menu-items">
+      @if(isLoggedIn()){
+      <a [routerLinkActive]="'active'" routerLink="/boards">Boards</a>
+      <a (click)="signOut()">Sign out</a>
+      } @else {
+      <a [routerLinkActive]="'active'" routerLink="/login">Login/Register</a>
+      }
+    </li>
+  </ul>
+</nav>
