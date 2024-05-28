@@ -9,13 +9,14 @@ import { UserModule } from 'src/user/user.module';
 @Module({
   controllers: [AuthController],
   providers: [AuthService],
-  imports: [UserModule, TypeOrmModule.forFeature([User]),
+  imports: [
+    UserModule,
+    TypeOrmModule.forFeature([User]),
     JwtModule.register({
       global: true,
       secret: 'secretKey',
       signOptions: { expiresIn: '3h' },
     }),
   ],
-
 })
-export class AuthModule { }
+export class AuthModule {}

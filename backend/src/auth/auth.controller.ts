@@ -9,10 +9,10 @@ export class AuthController {
   constructor(
     private readonly authService: AuthService,
     private userService: UserService,
-  ) { }
+  ) {}
 
   @Post('register')
-  async create(registerDto: RegisterDto) {
+  async create(@Body() registerDto: RegisterDto) {
     registerDto.email = registerDto.email.toLowerCase();
     const user = await this.userService.create(registerDto);
     if (!user) {
