@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
 import { BoardService } from './board.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
@@ -6,7 +16,7 @@ import { AuthGuard, PayloadRequest } from 'src/auth/auth/auth.guard';
 
 @Controller('board')
 export class BoardController {
-  constructor(private readonly boardService: BoardService) { }
+  constructor(private readonly boardService: BoardService) {}
 
   @Post()
   @UseGuards(AuthGuard)
@@ -25,13 +35,22 @@ export class BoardController {
 
   @Get(':id')
   @UseGuards(AuthGuard)
-  findOne(@Param('id') id: string, @Request() req: PayloadRequest) {
-    return this.boardService.findOne(+id, req.user.id);
+  async findOne(@Param('id') id: string, @Request() req: PayloadRequest) {
+    const board = await this.boardService.findOne(+id, req.user.id);
+    board.swimlanes = board.swimlanes.sort((a, b) => a.order - b.order);
+    board.swimlanes.forEach((swimlane) => {
+      swimlane.cards = swimlane.cards.sort((a, b) => a.order - b.order);
+    });
+    return board;
   }
 
   @Patch(':id')
   @UseGuards(AuthGuard)
-  update(@Param('id') id: string, @Request() req: PayloadRequest, @Body() updateBoardDto: UpdateBoardDto) {
+  update(
+    @Param('id') id: string,
+    @Request() req: PayloadRequest,
+    @Body() updateBoardDto: UpdateBoardDto,
+  ) {
     return this.boardService.update(+id, req.user.id, updateBoardDto);
   }
 

@@ -10,4 +10,4 @@ import { UserModule } from 'src/user/user.module';
   providers: [BoardService],
   imports: [TypeOrmModule.forFeature([Board]), UserModule],
 })
-export class BoardModule { }
+export class BoardModule {}

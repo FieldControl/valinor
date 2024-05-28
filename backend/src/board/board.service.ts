@@ -1,10 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
-import { Board } from './entities/board.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from 'src/user/entities/user.entity';
+import { Board } from './entities/board.entity';
 import { UserService } from 'src/user/user.service';
 
 @Injectable()
@@ -13,7 +12,18 @@ export class BoardService {
     @InjectRepository(Board)
     private boardRepository: Repository<Board>,
     private userService: UserService,
-  ) { }
+  ) {}
+
+  async isUserAssociatedWithBoard(boardId: number, userId: number) {
+    const count = await this.boardRepository.count({
+      where: { id: boardId, users: { id: userId } },
+    });
+    if (count === 0) {
+      throw new UnauthorizedException('User is not associated with board');
+    }
+
+    return true;
+  }
 
   async create(createBoardDto: CreateBoardDto, userId: number) {
     const board = new Board();
@@ -25,9 +35,7 @@ export class BoardService {
 
   findAllByUserId(userId: number) {
     return this.boardRepository.find({
-      where: {
-        users: { id: userId },
-      },
+      where: { users: { id: userId } },
       relations: ['users'],
     });
   }
@@ -42,22 +50,15 @@ export class BoardService {
     });
   }
 
-  update(id: number, userId: number, updateBoardDto: UpdateBoardDto) {
-    return this.boardRepository.update(
-      {
-        id,
-        users: { id: userId },
-      },
-      {
-        name: updateBoardDto.name,
-      }
-    );
+  async update(id: number, userId: number, updateBoardDto: UpdateBoardDto) {
+    await this.isUserAssociatedWithBoard(id, userId);
+    return this.boardRepository.update(id, {
+      name: updateBoardDto.name,
+    });
   }
 
-  remove(id: number, userId: number) {
-    return this.boardRepository.delete({
-      id,
-      users: { id: userId },
-    });
+  async remove(id: number, userId: number) {
+    await this.isUserAssociatedWithBoard(id, userId);
+    return this.boardRepository.delete(id);
   }
 }
