@@ -1,6 +1,12 @@
-import { Swimlane } from "src/swimlane/entities/swimlane.entity";
-import { User } from "src/user/entities/user.entity";
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Swimlane } from 'src/swimlane/entities/swimlane.entity';
+import { User } from 'src/user/entities/user.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Card {
