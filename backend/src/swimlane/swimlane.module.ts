@@ -11,4 +11,4 @@ import { UserModule } from 'src/user/user.module';
   imports: [TypeOrmModule.forFeature([Swimlane]), UserModule],
   exports: [SwimlaneService],
 })
-export class SwimlaneModule { }
+export class SwimlaneModule {}

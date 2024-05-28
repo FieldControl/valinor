@@ -1,10 +1,11 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateSwimlaneDto } from './dto/create-swimlane.dto';
 import { UpdateSwimlaneDto } from './dto/update-swimlane.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Swimlane } from './entities/swimlane.entity';
 import { Repository } from 'typeorm';
 import { UserService } from 'src/user/user.service';
+import { ReordereSwimlaneDto } from './dto/reorder-swimlane.dto';
 
 @Injectable()
 export class SwimlaneService {
@@ -12,7 +13,7 @@ export class SwimlaneService {
     @InjectRepository(Swimlane)
     private swimlaneRepository: Repository<Swimlane>,
     private userService: UserService,
-  ) { }
+  ) {}
 
   async create(createSwimlaneDto: CreateSwimlaneDto, userId: number) {
     const swimlane = new Swimlane();
@@ -20,16 +21,20 @@ export class SwimlaneService {
     swimlane.order = createSwimlaneDto.order;
     swimlane.boardId = createSwimlaneDto.boardId;
 
-    const isConnected = await this.userService.isConnectedToBoard(
-      userId,
-      swimlane.boardId,
-    )
-
-    if (!isConnected) {
-      throw new UnauthorizedException('You are not a part of this board.');
-    }
-
+    await this.userService.isConnectedToBoard(userId, swimlane.boardId);
     return this.swimlaneRepository.save(swimlane);
+  }
+
+  async updateSwimlaneOrders(reorder: ReordereSwimlaneDto, userId: number) {
+    await this.userService.isConnectedToBoard(userId, reorder.boardId);
+
+    const promises = reorder.items.map((swimlane) =>
+      this.swimlaneRepository.update(swimlane.id, { order: swimlane.order }),
+    );
+
+    await Promise.all(promises);
+
+    return true;
   }
 
   async hasAccessToSwimlane(swimlaneId: number, userId: number) {
@@ -47,32 +52,27 @@ export class SwimlaneService {
     return this.swimlaneRepository.find({
       where: {
         boardId,
-        board: {
-          users: {
-            id: userId
-          }
-        },
+        board: { users: { id: userId } },
       },
     });
   }
 
-  update(id: number, userId: number, updateSwimlaneDto: UpdateSwimlaneDto) {
-    return this.swimlaneRepository.update({
-      id,
-      board: {
-        users: { id: userId },
-      },
-    },
-      {
-        name: updateSwimlaneDto.name,
-        order: updateSwimlaneDto.order,
-      });
+  async update(
+    id: number,
+    userId: number,
+    updateSwimlaneDto: UpdateSwimlaneDto,
+  ) {
+    await this.userService.isConnectedToBoard(
+      userId,
+      updateSwimlaneDto.boardId,
+    );
+    return this.swimlaneRepository.update(id, {
+      name: updateSwimlaneDto.name,
+    });
   }
 
-  remove(id: number, userId: number) {
-    return this.swimlaneRepository.delete({
-      id,
-      board: { users: { id: userId } },
-    });
+  async remove(id: number, userId: number) {
+    await this.userService.isConnectedToSwimlane(userId, id);
+    return this.swimlaneRepository.delete(id);
   }
 }

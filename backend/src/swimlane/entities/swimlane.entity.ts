@@ -1,6 +1,13 @@
-import { Board } from "src/board/entities/board.entity";
-import { Card } from "src/card/entities/card.entity";
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
+import { Board } from 'src/board/entities/board.entity';
+import { Card } from 'src/card/entities/card.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Swimlane {
