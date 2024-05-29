@@ -1,95 +1,88 @@
 <section class="menu">
-  <!-- criando as colunas -->
   <div class="table"> 
 
-    <div class="column"cdkDropList
-    #cliList="cdkDropList"
-    [cdkDropListData]="cli"
-    [cdkDropListConnectedTo]="[negociacaoList,concluidaList,entregaList]"
-      (cdkDropListDropped)="drop($event)" >
-
-      <!-- coluna contrato novo -->
+    <div class="column" cdkDropList #cliList="cdkDropList" [cdkDropListData]="cli" [cdkDropListConnectedTo]="[negociacaoList, concluidaList, entregaList]" (cdkDropListDropped)="drop($event)">
       <h2 class="cli">Cliente Cadastrado
-        
-           <!-- botão para incluir novo card -->
         <button class="add" (click)="addCampo()">
-
-           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Add--Streamline-Blocks---Free" height="16" width="16"><desc>Add Streamline Icon: https://streamlinehq.com</desc><path fill="#000000" d="M11 0H5v5L0 5v6h5v5h6v-5h5V5h-5V0Z" stroke-width="1"></path></svg>
-
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Add--Streamline-Blocks---Free" height="16" width="16">
+            <desc>Add Streamline Icon: https://streamlinehq.com</desc>
+            <path fill="#000000" d="M11 0H5v5L0 5v6h5v5h6v-5h5V5h-5V0Z" stroke-width="1"></path>
+          </svg>
         </button>
       </h2>
-
-          <!-- Criando Cards -->
-      <div class="card" *ngFor="let venda of cli,  let i = index" cdkDrag cdkDrop>
-        
+      <div class="card" *ngFor="let venda of cli; let i = index" cdkDrag>
         <h3 class="cont">
-          <button (click)="removeItem('cli',i)">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Bin--Streamline-Blocks---Free" height="16" width="16"><desc>Bin Streamline Icon: https://streamlinehq.com</desc><path fill="#f80e12" fill-rule="evenodd" d="M16 4v2h-2v10H2V6H0V4h4c0 -2.20914 1.79086 -4 4 -4 2.2091 0 4 1.79086 4 4l4 0ZM8.00005 2C9.10461 2 10 2.89544 10 4L6.00006 4c0 -1.10455 0.89543 -2 1.99999 -2Z" clip-rule="evenodd" stroke-width="1"></path></svg>
-
+          <button (click)="removeItem('cli', i)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Bin--Streamline-Blocks---Free" height="16" width="16">
+              <desc>Bin Streamline Icon: https://streamlinehq.com</desc>
+              <path fill="#f80e12" fill-rule="evenodd" d="M16 4v2h-2v10H2V6H0V4h4c0 -2.20914 1.79086 -4 4 -4 2.2091 0 4 1.79086 4 4l4 0ZM8.00005 2C9.10461 2 10 2.89544 10 4L6.00006 4c0 -1.10455 0.89543 -2 1.99999 -2Z" clip-rule="evenodd" stroke-width="1"></path>
+            </svg>
           </button>
-          
           <button (click)="editItem('cli', i)">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Pencil--Streamline-Blocks---Free" height="16" width="16"><desc>Pencil Streamline Icon: https://streamlinehq.com</desc><path fill="#1e1e1e" fill-rule="evenodd" d="M12.5 6.9052l-3.4053 3.4053 1.1 1.1 3.4053 -3.4053 -1.1 -1.1Zm-9.5395 7.3252c-0.0631 0 -0.1231 -0.0221 -0.171 -0.0625l-3.758 -3.7578125c-0.0956 -0.0957 -0.0956 -0.25 0 -0.3457l7.5332 -7.5332c0.1895 -0.1895 0.4961 -0.1895 0.6856 0l3.7578 3.7578125c0.0957 0.0956 0.0957 0.25 0 0.3457l-7.5332 7.5332c-0.0479 0.0475 -0.108 0.0695 -0.168 0.0695ZM0.8696 13.1944l0.4957 -1.3587 0.8812 0.8808 -1.3568 0.4782ZM14.1008 4.0208l-0.552 -0.552c-0.1625 -0.1625 -0.4274 -0.1625 -0.59 0l-0.442 -0.442c-0.8055 -0.8055 -2.1123 -0.8055 -2.9178 0l-0.552 0.552 3.4138 3.4139 0.552 -0.552c0.1625 -0.1625 0.1625 -0.4274 0 -0.59Z" clip-rule="evenodd" stroke-width="1"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" id="Pencil--Streamline-Blocks---Free" height="16" width="16">
+              <desc>Pencil Streamline Icon: https://streamlinehq.com</desc>
+              <path fill="#1e1e1e" fill-rule="evenodd" d="M12.5 6.9052l-3.4053 3.4053 1.1 1.1 3.4053 -3.4053 -1.1 -1.1Zm-9.5395 7.3252c-0.0631 0 -0.1231 -0.0221 -0.171 -0.0625l-3.758 -3.7578125c-0.0956 -0.0957 -0.0956 -0.25 0 -0.3457l7.5332 -7.5332c0.1895 -0.1895 0.4961 -0.1895 0.6856 0l3.7578 3.7578125c0.0957 0.0956 0.0957 0.25 0 0.3457l-7.5332 7.5332c-0.0479 0.0475 -0.108 0.0695 -0.168 0.0695ZM0.8696 13.1944l0.4957 -1.3587 0.8812 0.8808 -1.3568 0.4782ZM14.1008 4.0208l-0.552 -0.552c-0.1625 -0.1625 -0.4274 -0.1625 -0.59 0l-0.442 -0.442c-0.8055 -0.8055 -2.1123 -0.8055 -2.9178 0l-0.552 0.552 3.4138 3.4139 0.552 -0.552c0.1625 -0.1625 0.1625 -0.4274 0 -0.59Z" clip-rule="evenodd" stroke-width="1"></path>
+            </svg>
           </button>
-          {{ venda }} </h3> 
-
+          {{ venda }}
+          <button (click)="salvarInformacoes('cli', i)">
+            <svg class="salvar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 55 55" id="Confirm-Folder--Streamline-Blocks---Free" height="55" width="55">
+              <desc>Confirm Folder Streamline Icon: https://streamlinehq.com</desc>
+              <path fill="#d7b12d" d="M0 0h13.75l6.875 6.875h27.5v16.75760625C45.994093750000005 22.80045625 43.6755 22.34375 41.25 22.34375c-10.441646875 0 -18.90625 8.464603125 -18.90625 18.90625 0 1.1739062500000002 0.106975 2.32271875 0.31174687500000003 3.4375H0V0Z" stroke-width="1"></path>
+              <path fill="#d7b12d" fill-rule="evenodd" d="M45.2038125 28.07695c1.0298749999999999 0.30861875 2.0085312500000003 0.7346625 2.9211875 1.262559375 4.109875 2.37744375 6.875 6.820928125 6.875 11.910490625 0 7.593781249999999 -6.15621875 13.75 -13.75 13.75 -6.4068125 0 -11.79041875 -4.382124999999999 -13.316806249999999 -10.3125 -0.1139875 -0.44275 -0.20649062499999998 -0.8944375 -0.276271875 -1.35334375C27.553590625 42.6545625 27.5 41.958468749999994 27.5 41.25c0 -0.8844687499999999 0.08353125 -1.7496875 0.243134375 -2.58775C28.953753125 32.305384375 34.5406875 27.5 41.25 27.5c1.3743125 0 2.70153125 0.20164374999999998 3.9538124999999997 0.57695ZM39.739906250000004 48.125 49.84375 38.021156250000004 46.197593749999996 34.375l-6.45803125 6.4576875000000005 -3.4375 -3.4375 -3.64595 3.6461562499999998L39.739906250000004 48.125Z" clip-rule="evenodd" stroke-width="1"></path>
+            </svg>
+          </button>
+        </h3> 
       </div>
     </div>
 
-          <!-- coluna em negociação -->
-    <div class="column"
-    cdkDropList
-    #negociacaoList="cdkDropList"
-    [cdkDropListData]="negociacao"
-    (cdkDropListDropped)="drop($event)"[cdkDropListConnectedTo]="[cliList,concluidaList,entregaList]"> 
-
+    <div class="column" cdkDropList #negociacaoList="cdkDropList" [cdkDropListData]="negociacao" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="[cliList, concluidaList, entregaList]"> 
       <h2 class="neg">Pedido em Negociação</h2>
-
-      <div class="card" *ngFor="let venda of negociacao" cdkDrop cdkDrag>
-
-        <h3 class="ped">{{ venda }}</h3>
-
+      <div class="card" *ngFor="let venda of negociacao; let i = index" cdkDrag>
+        <h3 class="ped">
+          {{ venda }}
+          <button (click)="salvarInformacoes('negociacao', i)">
+            <svg class="salvar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 55 55" id="Confirm-Folder--Streamline-Blocks---Free" height="55" width="55">
+              <desc>Confirm Folder Streamline Icon: https://streamlinehq.com</desc>
+              <path fill="#d7b12d" d="M0 0h13.75l6.875 6.875h27.5v16.75760625C45.994093750000005 22.80045625 43.6755 22.34375 41.25 22.34375c-10.441646875 0 -18.90625 8.464603125 -18.90625 18.90625 0 1.1739062500000002 0.106975 2.32271875 0.31174687500000003 3.4375H0V0Z" stroke-width="1"></path>
+              <path fill="#d7b12d" fill-rule="evenodd" d="M45.2038125 28.07695c1.0298749999999999 0.30861875 2.0085312500000003 0.7346625 2.9211875 1.262559375 4.109875 2.37744375 6.875 6.820928125 6.875 11.910490625 0 7.593781249999999 -6.15621875 13.75 -13.75 13.75 -6.4068125 0 -11.79041875 -4.382124999999999 -13.316806249999999 -10.3125 -0.1139875 -0.44275 -0.20649062499999998 -0.8944375 -0.276271875 -1.35334375C27.553590625 42.6545625 27.5 41.958468749999994 27.5 41.25c0 -0.8844687499999999 0.08353125 -1.7496875 0.243134375 -2.58775C28.953753125 32.305384375 34.5406875 27.5 41.25 27.5c1.3743125 0 2.70153125 0.20164374999999998 3.9538124999999997 0.57695ZM39.739906250000004 48.125 49.84375 38.021156250000004 46.197593749999996 34.375l-6.45803125 6.4576875000000005 -3.4375 -3.4375 -3.64595 3.6461562499999998L39.739906250000004 48.125Z" clip-rule="evenodd" stroke-width="1"></path>
+            </svg>
+          </button>
+        </h3> 
       </div>
     </div>
 
-          <!-- coluna venda concluida -->
-    <div class="column"
-    cdkDropList
-    #concluidaList="cdkDropList"
-    [cdkDropListData]="concluida"
-    [cdkDropListConnectedTo]="[negociacaoList,cliList,entregaList]"
-      (cdkDropListDropped)="drop($event)">
-
+    <div class="column" cdkDropList #concluidaList="cdkDropList" [cdkDropListData]="concluida" [cdkDropListConnectedTo]="[negociacaoList, cliList, entregaList]" (cdkDropListDropped)="drop($event)">
       <h2 class="conc">Pedido Concluido</h2>
-
-      <div class="card" *ngFor="let venda of concluida,  let i = index" cdkDrop cdkDrag>
-
-        <h3 class="con">{{ venda }}</h3> 
-
+      <div class="card" *ngFor="let venda of concluida; let i = index" cdkDrag>
+        <h3 class="con">
+          {{ venda }}
+          <button (click)="salvarInformacoes('concluida', i)">
+            <svg class="salvar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 55 55" id="Confirm-Folder--Streamline-Blocks---Free" height="55" width="55">
+              <desc>Confirm Folder Streamline Icon: https://streamlinehq.com</desc>
+              <path fill="#d7b12d" d="M0 0h13.75l6.875 6.875h27.5v16.75760625C45.994093750000005 22.80045625 43.6755 22.34375 41.25 22.34375c-10.441646875 0 -18.90625 8.464603125 -18.90625 18.90625 0 1.1739062500000002 0.106975 2.32271875 0.31174687500000003 3.4375H0V0Z" stroke-width="1"></path>
+              <path fill="#d7b12d" fill-rule="evenodd" d="M45.2038125 28.07695c1.0298749999999999 0.30861875 2.0085312500000003 0.7346625 2.9211875 1.262559375 4.109875 2.37744375 6.875 6.820928125 6.875 11.910490625 0 7.593781249999999 -6.15621875 13.75 -13.75 13.75 -6.4068125 0 -11.79041875 -4.382124999999999 -13.316806249999999 -10.3125 -0.1139875 -0.44275 -0.20649062499999998 -0.8944375 -0.276271875 -1.35334375C27.553590625 42.6545625 27.5 41.958468749999994 27.5 41.25c0 -0.8844687499999999 0.08353125 -1.7496875 0.243134375 -2.58775C28.953753125 32.305384375 34.5406875 27.5 41.25 27.5c1.3743125 0 2.70153125 0.20164374999999998 3.9538124999999997 0.57695ZM39.739906250000004 48.125 49.84375 38.021156250000004 46.197593749999996 34.375l-6.45803125 6.4576875000000005 -3.4375 -3.4375 -3.64595 3.6461562499999998L39.739906250000004 48.125Z" clip-rule="evenodd" stroke-width="1"></path>
+            </svg>
+          </button>
+        </h3> 
       </div>
     </div>
 
-           <!-- coluna venda entregue -->
-    <div class="column"
-    cdkDropList
-    #entregaList="cdkDropList"
-    [cdkDropListData]="entrega"
-    [cdkDropListConnectedTo]="[negociacaoList,concluidaList,cliList]"
-      (cdkDropListDropped)="drop($event)">
-
+    <div class="column" cdkDropList #entregaList="cdkDropList" [cdkDropListData]="entrega" [cdkDropListConnectedTo]="[negociacaoList, concluidaList, cliList]" (cdkDropListDropped)="drop($event)">
       <h2 class="canc">Em Entrega</h2>
-
-      <div class="card" *ngFor="let venda of entrega" cdkDrop cdkDrag>
-
-        <h3 class="ent">{{ venda }}</h3>
-
+      <div class="card" *ngFor="let venda of entrega; let i = index" cdkDrag>
+        <h3 class="ent">
+          {{ venda }}
+          <button (click)="salvarInformacoes('entrega', i)">
+            <svg class="salvar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 55 55" id="Confirm-Folder--Streamline-Blocks---Free" height="55" width="55">
+              <desc>Confirm Folder Streamline Icon: https://streamlinehq.com</desc>
+              <path fill="#d7b12d" d="M0 0h13.75l6.875 6.875h27.5v16.75760625C45.994093750000005 22.80045625 43.6755 22.34375 41.25 22.34375c-10.441646875 0 -18.90625 8.464603125 -18.90625 18.90625 0 1.1739062500000002 0.106975 2.32271875 0.31174687500000003 3.4375H0V0Z" stroke-width="1"></path>
+              <path fill="#d7b12d" fill-rule="evenodd" d="M45.2038125 28.07695c1.0298749999999999 0.30861875 2.0085312500000003 0.7346625 2.9211875 1.262559375 4.109875 2.37744375 6.875 6.820928125 6.875 11.910490625 0 7.593781249999999 -6.15621875 13.75 -13.75 13.75 -6.4068125 0 -11.79041875 -4.382124999999999 -13.316806249999999 -10.3125 -0.1139875 -0.44275 -0.20649062499999998 -0.8944375 -0.276271875 -1.35334375C27.553590625 42.6545625 27.5 41.958468749999994 27.5 41.25c0 -0.8844687499999999 0.08353125 -1.7496875 0.243134375 -2.58775C28.953753125 32.305384375 34.5406875 27.5 41.25 27.5c1.3743125 0 2.70153125 0.20164374999999998 3.9538124999999997 0.57695ZM39.739906250000004 48.125 49.84375 38.021156250000004 46.197593749999996 34.375l-6.45803125 6.4576875000000005 -3.4375 -3.4375 -3.64595 3.6461562499999998L39.739906250000004 48.125Z" clip-rule="evenodd" stroke-width="1"></path>
+            </svg>
+          </button>
+        </h3> 
       </div>
     </div>
+
   </div>
 </section>
-<button (click)="salvarInformacoes()">
-
-  <svg class="salvar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 55 55" id="Confirm-Folder--Streamline-Blocks---Free" height="55" width="55"><desc>Confirm Folder Streamline Icon: https://streamlinehq.com</desc><path fill="#d7b12d" d="M0 0h13.75l6.875 6.875h27.5v16.75760625C45.994093750000005 22.80045625 43.6755 22.34375 41.25 22.34375c-10.441646875 0 -18.90625 8.464603125 -18.90625 18.90625 0 1.1739062500000002 0.106975 2.32271875 0.31174687500000003 3.4375H0V0Z" stroke-width="1"></path><path fill="#d7b12d" fill-rule="evenodd" d="M45.2038125 28.07695c1.0298749999999999 0.30861875 2.0085312500000003 0.7346625 2.9211875 1.262559375 4.109875 2.37744375 6.875 6.820928125 6.875 11.910490625 0 7.593781249999999 -6.15621875 13.75 -13.75 13.75 -6.4068125 0 -11.79041875 -4.382124999999999 -13.316806249999999 -10.3125 -0.1139875 -0.44275 -0.20649062499999998 -0.8944375 -0.276271875 -1.35334375C27.553590625 42.6545625 27.5 41.958468749999994 27.5 41.25c0 -0.8844687499999999 0.08353125 -1.7496875 0.243134375 -2.58775C28.953753125 32.305384375 34.5406875 27.5 41.25 27.5c1.3743125 0 2.70153125 0.20164374999999998 3.9538124999999997 0.57695ZM39.739906250000004 48.125 49.84375 38.021156250000004 46.197593749999996 34.375l-6.45803125 6.4576875000000005 -3.4375 -3.4375 -3.64595 3.6461562499999998L39.739906250000004 48.125Z" clip-rule="evenodd" stroke-width="1"></path></svg>
-
-</button>

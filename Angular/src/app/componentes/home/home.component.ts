@@ -17,9 +17,9 @@ import axios from 'axios';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,CdkDropList, CdkDrag,DragDropModule, MatButtonModule, MatIconModule, MatDividerModule],
+  imports: [CommonModule, CdkDropList, CdkDrag, DragDropModule, MatButtonModule, MatIconModule, MatDividerModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent {
@@ -35,7 +35,6 @@ export class HomeComponent {
     }
   }
   
-
   removeItem(column: string, index: number): void {
     if (column === 'cli') {
       this.cli.splice(index, 1);
@@ -63,15 +62,14 @@ export class HomeComponent {
     }
   }
   
-
-  salvarInformacoes(): void {
+  salvarInformacoes(column: string, index: number): void {
     const data = {
-      cli: this.cli,
+      cli: this.cli[index],
       negociacao: this.negociacao,
       concluida: this.concluida,
       entrega: this.entrega
     };
-  
+    
     axios.post('http://localhost:3000/cards', data)
       .then(response => {
         console.log(response);
@@ -82,12 +80,10 @@ export class HomeComponent {
       });
   }
 
-
   drop(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      console.log('Transferindo item...')
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
