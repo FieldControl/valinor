@@ -10,19 +10,7 @@ export class Card {
     idCard:string;
 
     @Column()
-    negociacao:string;
-
-    @Column()
-    concluida:string;
-
-    @Column()
-    entrega:string;
-
-    @Column()
     cli: string;
-
-    @Column()
-    venda: string;
 
     @BeforeInsert()
     generateId() {

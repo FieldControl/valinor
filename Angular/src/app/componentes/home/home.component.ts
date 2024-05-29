@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
+import axios from 'axios';
 
 
 @Component({
@@ -64,14 +65,21 @@ export class HomeComponent {
   
 
   salvarInformacoes(): void {
-    console.log('Salvando informações dos cards...');
-    console.log('Clientes Cadastrados:', this.cli);
-    console.log('Pedidos em Negociação:', this.negociacao);
-    console.log('Pedidos Concluídos:', this.concluida);
-    console.log('Pedidos em Entrega:', this.entrega);
-
+    const data = {
+      cli: this.cli,
+      negociacao: this.negociacao,
+      concluida: this.concluida,
+      entrega: this.entrega
+    };
   
-    alert('Informações salvas com sucesso!');
+    axios.post('http://localhost:3000/cards', data)
+      .then(response => {
+        console.log(response);
+        alert('Informações salvas com sucesso!');
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
 
