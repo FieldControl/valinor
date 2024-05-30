@@ -7,14 +7,15 @@ POST http://localhost:3000/cards
 Content-Type: application/json
 
 {
-    "cli":"string",
-    "negociacao":"string",
-    "concluida":"string",
-    "entrega":"string",
-    "venda": "sasaas"
-       
-}
+    "cli":"string"
+   }
 ###
-PATCH http://localhost:3000/cards
+PATCH http://localhost:3000/cards/
+Content-Type: application/json
+
+{
+   
+    "cli": "Lucas"
+}
 ###
 DELETE http://localhost:3000/cards

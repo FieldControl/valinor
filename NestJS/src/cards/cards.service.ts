@@ -11,7 +11,7 @@ export class CardsService {
     @InjectRepository(Card)
     private readonly repository: Repository<Card>){}
     
-    create(dto: CreateCardDto){
+   async create(dto: CreateCardDto){
       const Card = this.repository.create(dto);
       return this.repository.save(Card);
     }

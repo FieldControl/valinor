@@ -12,8 +12,7 @@ export class Card {
     @Column()
     cli: string;
 
- 
-
+    
     @BeforeInsert()
     generateId() {
         this.idCard = `id_${nanoid()}`

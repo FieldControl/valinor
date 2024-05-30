@@ -32,53 +32,55 @@ export class HomeComponent {
     const userInput = prompt("Digite o nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
       this.cli.push(userInput.trim());
+      
+      axios.post('http://localhost:3000/cards', { cli: userInput.trim() })
+        .then(response => {
+          console.log(response);
+          alert('Venda adicionada com sucesso!');
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
   
   removeItem(column: string, index: number): void {
+    let item = null;
     if (column === 'cli') {
-      this.cli.splice(index, 1);
+      item = this.cli.splice(index, 1)[0];
     } else if (column === 'negociacao') {
-      this.negociacao.splice(index, 1);
+      item = this.negociacao.splice(index, 1)[0];
     } else if (column === 'concluida') {
-      this.concluida.splice(index, 1);
+      item = this.concluida.splice(index, 1)[0];
     } else if (column === 'entrega') {
-      this.entrega.splice(index, 1);
+      item = this.entrega.splice(index, 1)[0];
     }
   }
 
   editItem(column: string, index: number): void {
     const userInput = prompt("Digite o novo nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
+      let item = null;
       if (column === 'cli') {
+        item = this.cli[index];
         this.cli[index] = userInput.trim();
       } else if (column === 'negociacao') {
+        item = this.negociacao[index];
         this.negociacao[index] = userInput.trim();
       } else if (column === 'concluida') {
+        item = this.concluida[index];
         this.concluida[index] = userInput.trim();
       } else if (column === 'entrega') {
+        item = this.entrega[index];
         this.entrega[index] = userInput.trim();
       }
+      
     }
   }
   
-  salvarInformacoes(column: string, index: number): void {
-    const data = {
-      cli: this.cli[index],
-      negociacao: this.negociacao,
-      concluida: this.concluida,
-      entrega: this.entrega
-    };
-    
-    axios.post('http://localhost:3000/cards', data)
-      .then(response => {
-        console.log(response);
-        alert('Informações salvas com sucesso!');
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  salvarInformacoes(): void {
   }
+  
 
   drop(event: CdkDragDrop<string[]>): void {
     if (event.previousContainer === event.container) {

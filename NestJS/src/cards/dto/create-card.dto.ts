@@ -1,7 +1,7 @@
-import { IsString } from "class-validator";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class CreateCardDto {
-    @IsString({message: 'Nome Invalido'})
+    @IsNotEmpty({message: 'Nome Invalido'})
     cli: string;
-    
+  
 }
