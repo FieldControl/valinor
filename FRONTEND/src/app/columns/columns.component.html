@@ -1,0 +1,11 @@
+<!-- columns.component.html -->
+<div class="border border-blue-300 rounded-lg shadow-md p-1">
+  <h3 class="text-xl font-semibold text-center border border-blue-300 rounded-lg w-80">{{ column.title }}</h3>
+  <div class="column grid grid-cols-2 gap-4 p-3 pl-6 max-h-screen overflow-y-scroll"> 
+    <ng-container *ngFor="let card of cards()">
+      <app-cards [card]="card" *ngIf="column.title === card.cardColumn"></app-cards>
+    </ng-container>
+    <app-create-card *ngIf="column.title === firstColumn"></app-create-card>
+  </div>
+</div>
+

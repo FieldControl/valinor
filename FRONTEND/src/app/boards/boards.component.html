@@ -1,0 +1,10 @@
+<!-- boards.component.html -->
+<div class=" w-full  p-4 border border-gray-300 rounded-lg shadow-lg  ">
+    <h2 class="text-2xl font-bold mb-4">Quadro kanban</h2>
+    <div class="grid grid-cols-3 gap-4 w-full" >    
+      <div *ngFor="let column of columns()">
+        <app-columns [column]="column"></app-columns>
+      </div>         
+    </div>
+  </div>
+  
