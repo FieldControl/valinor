@@ -4,7 +4,7 @@ import { UpdateCardDto } from './dto/update-card.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Card, CardDocument } from './entities/card.entity';
 import mongoose, { Model } from 'mongoose';
-import { ColumnsService } from 'src/columns/columns.service';
+import { ColumnsService } from '../columns/columns.service';
 
 @Injectable()
 export class CardsService {

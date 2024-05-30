@@ -15,6 +15,13 @@ export class Board {
 
   @Prop({type: mongoose.Schema.Types.Array, ref: "User"})
   responsibles: string[]
+
+  constructor(board?: Partial<Board>) {
+    this.name = board?.name
+    this.columns = board?.columns
+    this.responsibles = board?.responsibles
+  }
+
 }
 
 export const BoardSchema = SchemaFactory.createForClass(Board);

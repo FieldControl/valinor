@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpS
 import { ColumnsService } from './columns.service';
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('columns')
 export class ColumnsController {
@@ -49,7 +49,7 @@ export class ColumnsController {
     try {
       return this.columnsService.findByBoard(boardId, req.user.userId);
     } catch (error) {
-      throw new HttpException(`Falha ao encotrar as colunas: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
+      throw new HttpException(`Falha ao encontrar as colunas: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR)
     }
   }
 

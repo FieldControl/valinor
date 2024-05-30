@@ -21,6 +21,14 @@ export class User {
 
   @Prop( {default: Date.now} )
   creation: Date;
+
+  constructor(user?: Partial<User>) {
+    this.name = user?.name
+    this.email = user?.email
+    this.password = user?.password
+    this.cards = user?.cards
+    this.creation = user?.creation
+  }
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -4,7 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './entities/user.entity';
 import { Model } from 'mongoose';
-import { CardsService } from 'src/cards/cards.service';
+import { CardsService } from '../cards/cards.service';
 
 @Injectable()
 export class UsersService {
@@ -15,15 +15,13 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto) {
     try {
-      const existingUser = this.findByMail(createUserDto.email)
+      const existingUser = await this.findByMail(createUserDto.email)
 
       if (existingUser) {
         throw new Error(`Já existe um usuário com este e-mail`);
       }
 
-      const user = new this.userModel(createUserDto);
-
-      return await user.save();
+      return await this.userModel.create(createUserDto)
     } catch (error) {
       throw new Error(`Falha ao criar o usuário: ${error.message}`);
     }

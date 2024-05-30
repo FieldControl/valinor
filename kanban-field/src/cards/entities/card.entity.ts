@@ -27,6 +27,16 @@ export class Card {
 
   @Prop()
   position: number;
+
+  constructor(card?: Partial<Card>) {
+    this.name = card?.name
+    this.description = card?.description
+    this.createdAt = card?.createdAt
+    this.dueDate = card?.dueDate
+    this.responsibles = card?.responsibles
+    this.column = card?.column
+    this.position = card?.position
+  }
 }
 
 export const CardSchema = SchemaFactory.createForClass(Card);

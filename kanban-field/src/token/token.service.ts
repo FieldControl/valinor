@@ -2,8 +2,8 @@ import { HttpException, HttpStatus, Inject, Injectable, forwardRef } from '@nest
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Token, TokenDocument } from './token.entity';
-import { UsersService } from 'src/users/users.service';
-import { AuthService } from 'src/auth/auth.service';
+import { UsersService } from '../users/users.service';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class TokenService {

@@ -4,8 +4,8 @@ import { UpdateBoardDto } from './dto/update-board.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Board, BoardDocument } from './entities/board.entity';
 import { Model } from 'mongoose';
-import { ColumnsService } from 'src/columns/columns.service';
-import { UsersService } from 'src/users/users.service';
+import { ColumnsService } from '../columns/columns.service';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class BoardsService {
@@ -24,14 +24,19 @@ async create(createBoardDto: CreateBoardDto, userId: string) {
   }
 }
 
-async createbyMail(createBoardDto: CreateBoardDto, userEmail: string) {
+async createbyMail(createBoardDto: CreateBoardDto, userEmail: string) { // cria boards atribuindo os emails em responsibles
   try {
     let responsibles = [];
     if (createBoardDto.responsibles) {
       responsibles = await Promise.all(createBoardDto.responsibles.map(email => this.userService.findByMail(email)));
     }
     const responsibleIds = [...new Set(responsibles.map(user => user._id.toString()))];
-    const board = new this.boardModel({...createBoardDto, responsibles: [...responsibleIds, userEmail]});
+
+    if (!responsibleIds.includes(userEmail)) {
+      responsibleIds.push(userEmail);
+    }
+    
+    const board = new this.boardModel({...createBoardDto, responsibles: responsibleIds});
     return await board.save();
   } catch (error) {
     throw new Error(`Falha ao criar o quadro: ${error.message}`);
@@ -79,7 +84,7 @@ async findBoard(id: string, userId: string) {  //  usado so pra pegar o id no cr
   return board;
 }
 
-async update(id: string, updateBoardDto: UpdateBoardDto, userId: string) {
+async update(id: string, updateBoardDto: UpdateBoardDto, userId: string) {  
   const board = await this.boardModel.findByIdAndUpdate(
     {_id: id, responsibles: { $in: [userId] } }, updateBoardDto, { new: true }
   )
@@ -91,7 +96,7 @@ async update(id: string, updateBoardDto: UpdateBoardDto, userId: string) {
   return board
 }
 
-async updateResponsiblesByEmail(id: string, updateBoardDto: CreateBoardDto, userEmail: string) {
+async updateResponsiblesByEmail(id: string, updateBoardDto: UpdateBoardDto, userEmail: string) { // atualiza boards atribuindo os emails em responsibles
   try {
     if (!updateBoardDto.responsibles || updateBoardDto.responsibles.length === 0) {
       throw new Error('Pelo menos um responsável deve ser fornecido');

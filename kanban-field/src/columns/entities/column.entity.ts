@@ -19,6 +19,13 @@ export class Column {
 
   @Prop({type: mongoose.Schema.Types.Array, ref: "Card"})
   cards: Card[]
+
+  constructor(column?: Partial<Column>) {
+    this.name = column?.name
+    this.board = column?.board
+    this.responsibles = column?.responsibles
+    this.cards = column?.cards
+  }
 }
 
 export const ColumnSchema = SchemaFactory.createForClass(Column);

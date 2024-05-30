@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpS
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('boards')
 export class BoardsController {
@@ -73,7 +73,7 @@ export class BoardsController {
 
   @UseGuards(JwtAuthGuard)
   @Patch(':id/update-by-email')
-  async updateByEmail(@Param('id') id: string, @Body() updateBoardDto: CreateBoardDto, @Req() req) {
+  async updateByEmail(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto, @Req() req) {
     try {
       return await this.boardsService.updateResponsiblesByEmail(id, updateBoardDto, req.user.userId);
     } catch (error) {
