@@ -16,8 +16,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 💻 Pré-requisitos
 Antes de começar, verifique se instalou a versão mais recente do Node.js. Então, no terminal do diretório raiz, use o comando: npm install.
 
-☕ Usando <nome_do_projeto>
-Para usar <nome_do_projeto>, siga estas etapas:
+☕ Usando:
 
 Execute o comando .\start.bat e no navegador abra em http://localhost:4200/, e você já pode começar a usar o Kanban!
 
