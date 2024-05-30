@@ -1,0 +1,6 @@
+<!-- cards.component.html -->
+
+  <button (click)="openForm(card.id)" [ngClass]="'card   text-center w-32 h-32  '+ card.color">
+      <h4 class="text-xl font-bold text-wrap">{{card.title}}</h4>
+      <p class="text-wrap">{{card.description}}</p>
+</button>

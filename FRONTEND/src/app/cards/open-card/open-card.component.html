@@ -1,0 +1,43 @@
+<form (ngSubmit)="submit()">
+    
+    <!-- titulo -->
+    <mat-form-field appearance="fill">
+      <mat-label>Título</mat-label>
+      <input matInput placeholder="Título" [(ngModel)]="titulo" name="titulo" maxlength="20">
+    </mat-form-field>
+  
+    <!-- descricão -->
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput placeholder="Descrição" [(ngModel)]="descricao" name="descricao" maxlength="50"></textarea>
+    </mat-form-field>
+    
+    <!-- escolher prioridade -->
+    <mat-form-field appearance="fill">
+      <mat-label>Prioridade</mat-label>
+      <mat-select [(ngModel)]="cor" name="cor">
+        <mat-option value="bg-blue-200  border  border-blue-600 rounded-lg">Planejar</mat-option>
+        <mat-option value="bg-green-200  border  border-green-600 rounded-lg">Baixa</mat-option>
+        <mat-option value="bg-yellow-200  border  border-yellow-600 rounded-lg">Media</mat-option>
+        <mat-option value="bg-red-200  border  border-red-600 rounded-lg">Alta</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- escolher progresso --> 
+    <mat-form-field appearance="fill">
+        <mat-label>Progresso</mat-label>
+        <mat-select [(ngModel)]="coluna" name="coluna">
+          <mat-option value="Fazer">Fazer</mat-option>
+          <mat-option value="Fazendo">Fazendo</mat-option>
+          <mat-option value="Feito">Feito</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <!-- botões --> 
+    <div class="flex justify-between">
+      <button mat-raised-button color="" type="submit">Alterar</button>
+      <button mat-raised-button color="" type="button" (click)="delete()">Deletar</button>
+      <button mat-raised-button color="" type="button" (click)="cancel()">Cancelar</button>
+    </div>
+  </form>
+  

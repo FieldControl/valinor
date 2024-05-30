@@ -1,0 +1,10 @@
+/* Estiliza a barra de rolagem no Webkit (Chrome, Safari) */
+
+.column::-webkit-scrollbar {
+    width: 10px;
+  }
+
+.column{
+    min-height: 28.5rem;
+    max-height: 28.5rem;
+}    
