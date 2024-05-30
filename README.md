@@ -1,5 +1,4 @@
-Kanban
-Nome do projeto
+
 Projeto Kanban: um projeto Kanban feito usando Angular e NestJS com o propósito de aprendizado e para participar do desafio proposto pela Field Control. Por isso, também conta com um relatório completo do processo de desenvolvimento em PDF no diretório principal do arquivo.
 
 Ajustes e melhorias
