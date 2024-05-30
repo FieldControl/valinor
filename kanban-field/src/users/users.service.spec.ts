@@ -34,7 +34,6 @@ describe('UsersService', () => {
         {
           provide: getModelToken(User.name),
           useValue: {
-            findByMail: jest.fn(),
             create: jest.fn().mockResolvedValue(userEntityList[0]),
             find: jest.fn().mockResolvedValue(userEntityList),
             findById: jest.fn().mockResolvedValue(userEntityList[0]),
@@ -60,44 +59,6 @@ describe('UsersService', () => {
     expect(userService).toBeDefined();
     expect(userModel).toBeDefined();
   });
-
-  describe('findAll', () => {
-    it('should return a user list successfully', async () => {
-      // Act
-      const result = await userService.findAll()
-
-      // Assert
-      expect(result).toEqual(userEntityList)
-      expect(userModel.find).toHaveBeenCalledTimes(1)
-    })
-
-    it('should throw an exception', () => {
-      // Arrange
-      jest.spyOn(userModel, 'find').mockRejectedValueOnce(new Error())
-
-      // Assert
-      expect(userService.findAll()).rejects.toThrow(Error)
-    })
-  })
-  
-  describe('findOne', () => {
-    it('should return a user entity successfully', async () => {
-      // Act
-      const result = await userService.findOne('1')
-
-      // Assert
-      expect(result).toEqual(userEntityList[0])
-      expect(userModel.findById).toHaveBeenCalledTimes(1)
-    })
-
-    it('should throw a not found exception', () => {
-      // Arrange
-      jest.spyOn(userModel, 'findById').mockRejectedValueOnce(new NotFoundException)
-
-      // Assert
-      expect(userService.findOne('1')).rejects.toThrow(NotFoundException)
-    })
-  })
 
   describe('create', () => {
     it('should create an user item successfully', async () => {
@@ -150,6 +111,72 @@ describe('UsersService', () => {
     })
   })
 
+  describe('findAll', () => {
+    it('should return a user list successfully', async () => {
+      // Act
+      const result = await userService.findAll()
+
+      // Assert
+      expect(result).toEqual(userEntityList)
+      expect(userModel.find).toHaveBeenCalledTimes(1)
+    })
+
+    it('should throw an exception', () => {
+      // Arrange
+      jest.spyOn(userModel, 'find').mockRejectedValueOnce(new Error())
+
+      // Assert
+      expect(userService.findAll()).rejects.toThrow(Error)
+    })
+  })
+  
+  describe('findOne', () => {
+    it('should return a user entity successfully', async () => {
+      // Act
+      const result = await userService.findOne('1')
+
+      // Assert
+      expect(result).toEqual(userEntityList[0])
+      expect(userModel.findById).toHaveBeenCalledTimes(1)
+    })
+
+    it('should throw a not found exception', () => {
+      // Arrange
+      jest.spyOn(userModel, 'findById').mockRejectedValueOnce(new NotFoundException)
+
+      // Assert
+      expect(userService.findOne('1')).rejects.toThrow(NotFoundException)
+    })
+  })
+
+  describe('findByMail', () => {
+    it('should return a user successfully when a user with the given email exists', async () => {
+      // Arrange
+      const email = 'email@exemplo.com';
+      jest.spyOn(userModel, 'findOne').mockResolvedValueOnce(userEntityList[0]);
+  
+      // Act
+      const result = await userService.findByMail(email);
+  
+      // Assert
+      expect(result).toEqual(userEntityList[0]);
+      expect(userModel.findOne).toHaveBeenCalledWith({ email: email });
+    });
+  
+    it('should return undefined when no user with the given email exists', async () => {
+      // Arrange
+      const email = 'email@exemplo.com';
+      jest.spyOn(userModel, 'findOne').mockResolvedValueOnce(undefined);
+  
+      // Act
+      const result = await userService.findByMail(email);
+  
+      // Assert
+      expect(result).toBeUndefined();
+      expect(userModel.findOne).toHaveBeenCalledWith({ email: email });
+    });
+  });
+
   describe('update', () => {
     it('should update an user item successfully', async () => {
       // Arrange
@@ -182,7 +209,7 @@ describe('UsersService', () => {
     })
   })
   
-  describe('deleteById', () => {
+  describe('remove', () => {
     it('should delete an user item successfully', async () => {
       // Act
       const result = await userService.remove('1')
@@ -191,42 +218,13 @@ describe('UsersService', () => {
       expect(result).toEqual(userEntityList[0])
       expect(userModel.findByIdAndDelete).toHaveBeenCalledTimes(1)
     })
-  })
 
-  it('should throw a not found exception', () => {
-    // Arrange    
-    jest.spyOn(userModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException)
-
-    // Assert
-    expect(userService.remove('1')).rejects.toThrow(NotFoundException)
-  })
-
-  describe('findByMail', () => {
-    it('should return a user successfully when a user with the given email exists', async () => {
-      // Arrange
-      const email = 'email@exemplo.com';
-      jest.spyOn(userModel, 'findOne').mockResolvedValueOnce(userEntityList[0]);
-  
-      // Act
-      const result = await userService.findByMail(email);
+    it('should throw a not found exception', () => {
+      // Arrange    
+      jest.spyOn(userModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException)
   
       // Assert
-      expect(result).toEqual(userEntityList[0]);
-      expect(userModel.findOne).toHaveBeenCalledWith({ email: email });
-    });
-  
-    it('should return undefined when no user with the given email exists', async () => {
-      // Arrange
-      const email = 'email@exemplo.com';
-      jest.spyOn(userModel, 'findOne').mockResolvedValueOnce(undefined);
-  
-      // Act
-      const result = await userService.findByMail(email);
-  
-      // Assert
-      expect(result).toBeUndefined();
-      expect(userModel.findOne).toHaveBeenCalledWith({ email: email });
-    });
-  });
-  
+      expect(userService.remove('1')).rejects.toThrow(NotFoundException)
+    })  
+  })
 });

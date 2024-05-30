@@ -21,8 +21,7 @@ export class ColumnsService {
 
       const userIds = board.responsibles  //  users responsaveis pela board compartilhada
 
-      const column = new this.columnModel({...createColumnDto, responsibles: userIds});
-      return await column.save();
+      return await this.columnModel.create({...createColumnDto, responsibles: userIds});
     } catch (error) {
       throw new Error(`Falha ao criar a coluna: ${error.message}`);
     }
@@ -30,7 +29,7 @@ export class ColumnsService {
 
   async findAll(userId: string) {
     try {
-      const colums = await this.columnModel.find({ responsibles: { $in: [userId] } }).populate('cards');
+      const colums = await this.columnModel.find({ responsibles: { $in: [userId] } });
   
       const columnsWithCards = await Promise.all(colums.map(async (column) => {
         column.cards = await this.cardService.find({ column: column._id }, userId);
@@ -57,7 +56,7 @@ export class ColumnsService {
 
   async findByBoard(id: string, userId: string) {
     try {
-      const columns = await this.columnModel.find({ board: id, responsibles: { $in: [userId] } }).populate('responsibles');
+      const columns = await this.columnModel.find({ board: id, responsibles: { $in: [userId] } }).populate('responsibles').exec();
       
       const columnsWithCards = await Promise.all(columns.map(async (column) => {
         column.cards = await this.cardService.find({ column: column._id },userId);
@@ -75,7 +74,7 @@ export class ColumnsService {
   }
 
   async findColumn(id: string, userId: string) {
-    const column = await this.columnModel.findOne({ _id: id, responsibles: { $in: [userId] } }).populate('cards');
+    const column = await this.columnModel.findOne({ _id: id, responsibles: { $in: [userId] } }).populate('cards').exec();
   
     if (!column) {
       throw new NotFoundException('Coluna não encontrada');
@@ -89,7 +88,7 @@ export class ColumnsService {
 
   async find(conditions: any, userId: string) {
     try {
-      return this.columnModel.find({...conditions, responsibles: { $in: [userId] } }).populate('responsibles');
+      return this.columnModel.find({...conditions, responsibles: { $in: [userId] } }).populate('responsibles').exec();
     } catch (error) {
       throw new Error(`Falha ao encontrar a coluna: ${error.message}`);
     }

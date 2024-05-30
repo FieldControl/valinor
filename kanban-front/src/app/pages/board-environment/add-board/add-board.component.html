@@ -37,7 +37,7 @@
             <div class="error">Usuário não encontrado</div>
         }
         <div class="buttons">
-			<button type="button" (click)="createOrEditBoard()">Criar</button>
+			<button type="button" (click)="createOrEditBoard()">{{ data.board?._id ? "Editar" : "Criar" }}</button>
             <button (click)="closeDialog()" class="ghost">Fechar</button>
         </div>
 		</form>
