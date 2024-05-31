@@ -1,8 +1,10 @@
 .header{
-    background-color:#3385c9;
+    background-color:#213a57;
     height: 130px;
     border: 1px solid #1111;
-    box-shadow: 0px 8px 16px 0px rgb(75, 75, 75);
+    box-shadow: 0px 8px 16px 0px rgb(85, 85, 85);
+    border-radius: 10px;
+    border: solid;
     @media screen and (max-width: 768px) {
         height: auto;
         box-shadow: none;}
