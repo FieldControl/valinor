@@ -9,30 +9,31 @@ import { InjectRepository } from '@nestjs/typeorm';
 export class CardsService {
   constructor(
     @InjectRepository(Card)
-    private readonly repository: Repository<Card>){}
+    private readonly repository: Repository<Card>
+  ) {}
     
-   async create(dto: CreateCardDto){
-      const Card = this.repository.create(dto);
-      return this.repository.save(Card);
-    }
+  async create(dto: CreateCardDto) {
+    const card = this.repository.create(dto);
+    return this.repository.save(card);
+  }
 
-  findAll() {
+  async findAll() {
     return this.repository.find();
   }
 
-  findOne(idCard: string) {
-    return this.repository.findOneBy({idCard});
+  async findOne(idCard: string) {
+    return this.repository.findOne({ where: { idCard } });
   }
 
- async update(idCard: string, dto: UpdateCardDto) {
-    const card = await this.repository.findOneBy({idCard});
+  async update(idCard: string, dto: UpdateCardDto) {
+    const card = await this.repository.findOne({ where: { idCard } });
     if (!card) return null;
     this.repository.merge(card, dto);
     return this.repository.save(card);
   }
 
   async remove(idCard: string) {
-    const card = await this.repository.findOneBy({idCard});
+    const card = await this.repository.findOne({ where: { idCard } });
     if (!card) return null;
     return this.repository.remove(card);
   }

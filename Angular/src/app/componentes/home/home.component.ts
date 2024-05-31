@@ -23,10 +23,10 @@ import axios from 'axios';
 })
 
 export class HomeComponent {
-  cli: string[] = [];
-  negociacao: string[] = [];
-  concluida: string[] = [];
-  entrega: string[] = [];
+  cli: { nome: string, idCard: string }[] = [];
+  negociacao: { nome: string, idCard: string }[] = [];
+  concluida: { nome: string, idCard: string }[] = [];
+  entrega: { nome: string, idCard: string }[] = [];
 
   addCampo(): void {
     const userInput = prompt("Digite o nome da venda");
@@ -36,55 +36,73 @@ export class HomeComponent {
           const idCard = response.data.idCard; 
           console.log(response);
           alert(`Venda adicionada com sucesso! ID: ${idCard}`);
-          this.cli.push(userInput.trim());
+          this.cli.push({ nome: userInput.trim(), idCard: idCard });
         })
         .catch(error => {
           console.error(error);
         });
     }
-  
   }
+
 
   
   removeItem(column: string, index: number): void {
-    let item = null;
+    let item: { nome: string, idCard: string } | null = null;
     if (column === 'cli') {
-      item = this.cli.splice(index, 1)[0];
+      item = this.cli[index];
+      this.cli.splice(index, 1);
     } else if (column === 'negociacao') {
-      item = this.negociacao.splice(index, 1)[0];
+      item = this.negociacao[index];
+      this.negociacao.splice(index, 1);
     } else if (column === 'concluida') {
-      item = this.concluida.splice(index, 1)[0];
+      item = this.concluida[index];
+      this.concluida.splice(index, 1);
     } else if (column === 'entrega') {
-      item = this.entrega.splice(index, 1)[0];
+      item = this.entrega[index];
+      this.entrega.splice(index, 1);
+    }
+    if (item !== null) {
+      axios.delete(`http://localhost:3000/cards/${item.idCard}`)
+        .then(response => {
+          console.log(response.data);
+          alert(`Venda removida com sucesso!`);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
-
   editItem(column: string, index: number): void {
     const userInput = prompt("Digite o novo nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
       let item = null;
       if (column === 'cli') {
         item = this.cli[index];
-        this.cli[index] = userInput.trim();
+        this.cli[index] = { ...item, nome: userInput.trim() };
       } else if (column === 'negociacao') {
         item = this.negociacao[index];
-        this.negociacao[index] = userInput.trim();
+        this.negociacao[index] = { ...item, nome: userInput.trim() };
       } else if (column === 'concluida') {
         item = this.concluida[index];
-        this.concluida[index] = userInput.trim();
+        this.concluida[index] = { ...item, nome: userInput.trim() };
       } else if (column === 'entrega') {
         item = this.entrega[index];
-        this.entrega[index] = userInput.trim();
+        this.entrega[index] = { ...item, nome: userInput.trim() };
       }
-      
+      if (item !== null) {
+        axios.patch(`http://localhost:3000/cards/${item.idCard}`, { cli: userInput.trim() })
+          .then(response => {
+            console.log(response.data);
+            alert(`Nome da venda atualizado com sucesso!`);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
     }
   }
 
-  salvarInformacoes(): void {
-  }
-  
-
-  drop(event: CdkDragDrop<string[]>): void {
+  drop(event: CdkDragDrop<{ nome: string, idCard: string }[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -95,7 +113,7 @@ export class HomeComponent {
         event.currentIndex,
       );
     }
-  }  
+  }
 }
 
 
