@@ -31,18 +31,20 @@ export class HomeComponent {
   addCampo(): void {
     const userInput = prompt("Digite o nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
-      this.cli.push(userInput.trim());
-      
       axios.post('http://localhost:3000/cards', { cli: userInput.trim() })
         .then(response => {
+          const idCard = response.data.idCard; 
           console.log(response);
-          alert('Venda adicionada com sucesso!');
+          alert(`Venda adicionada com sucesso! ID: ${idCard}`);
+          this.cli.push(userInput.trim());
         })
         .catch(error => {
           console.error(error);
         });
     }
+  
   }
+
   
   removeItem(column: string, index: number): void {
     let item = null;
@@ -77,7 +79,7 @@ export class HomeComponent {
       
     }
   }
-  
+
   salvarInformacoes(): void {
   }
   
@@ -95,3 +97,5 @@ export class HomeComponent {
     }
   }  
 }
+
+
