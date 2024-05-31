@@ -31,7 +31,7 @@ export class HomeComponent {
   addCampo(): void {
     const userInput = prompt("Digite o nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
-      axios.post('http://localhost:3000/cards', { cli: userInput.trim() })
+      axios.post('https://lucascriado.com:9004/cards', { cli: userInput.trim() })
         .then(response => {
           const idCard = response.data.idCard; 
           console.log(response);
@@ -62,7 +62,7 @@ export class HomeComponent {
       this.entrega.splice(index, 1);
     }
     if (item !== null) {
-      axios.delete(`http://localhost:3000/cards/${item.idCard}`)
+      axios.delete(`https://lucascriado.com:9004/cards/${item.idCard}`)
         .then(response => {
           console.log(response.data);
           alert(`Venda removida com sucesso!`);
@@ -90,7 +90,7 @@ export class HomeComponent {
         this.entrega[index] = { ...item, nome: userInput.trim() };
       }
       if (item !== null) {
-        axios.patch(`http://localhost:3000/cards/${item.idCard}`, { cli: userInput.trim() })
+        axios.patch(`https://lucascriado.com:9004/cards${item.idCard}`, { cli: userInput.trim() })
           .then(response => {
             console.log(response.data);
             alert(`Nome da venda atualizado com sucesso!`);
