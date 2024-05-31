@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="kanban-board">
+        <div class="priority-dropdown">
+            <label for="priority-select">Prioridade:</label>
+            <select id="priority-select">
+                <option value="simple">Simples</option>
+                <option value="medium">Media</option>
+                <option value="high">alto</option>
+            </select>
+        </div>
+        <div class="kanban-column">
+            <h2>TO DO</h2>
+            <div class="task-list" id="todo">
+                <!-- Tasks will be added here -->
+            </div>
+            <button onclick="addTask('todo')">Add Task</button>
+        </div>
+        <div class="kanban-column">
+            <h2>DOING</h2>
+            <div class="task-list" id="doing">
+                <!-- Tasks will be added here -->
+            </div>
+            <button onclick="addTask('doing')">Add Task</button>
+        </div>
+        <div class="kanban-column">
+            <h2>DONE</h2>
+            <div class="task-list" id="done">
+                <!-- Tasks will be added here -->
+            </div>
+            <button onclick="addTask('done')">Add Task</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

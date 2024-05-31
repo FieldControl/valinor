@@ -1,0 +1,171 @@
+/* styles.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #5c8ac7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.kanban-board {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.kanban-column {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin: 0;
+    padding: 10px;
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}
+
+.task-list {
+    width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.task {
+    background-color: #ffeb3b;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: grab;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    color: #ff4d4d;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    display: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #ff4d4d;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.task:hover .delete-button {
+    display: block;
+}
+
+button {
+    background-color: #008199;
+    color: #fff;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #005f6b;
+}
+
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: #ccc;
+}
+
+/* Customiza a barra de rolagem */
+.task-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 4px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 4px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* Estilos para os níveis de prioridade */
+.task-priority-simple {
+    background-color: #fff;
+}
+
+.task-priority-medium {
+    background-color: #fdfd96;
+}
+
+.task-priority-high {
+    background-color: #ff756d;
+}
+
+.priority-dropdown {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Decreased margin */
+    padding: 5px; /* Decreased padding */
+    border-radius: 8px;
+    background-color: #f4f4f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+.priority-dropdown label {
+    margin-right: 0px; /* Decreased margin */
+    font-weight: bold;
+}
+
+.priority-dropdown select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
