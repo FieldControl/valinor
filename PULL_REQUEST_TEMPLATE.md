@@ -22,6 +22,11 @@ Conte um pouco sobre os desafios e problemas que você enfrentou e como você re
 
 O que você entende que pode ser melhorado e como isso pode ser feito?
 
+**Vídeo de apresentação**
+
+Grave um vídeo do seu projeto rodando e envie o link:
+<!-- Dica: você pode usar o https://jam.dev/ para facilitar sua gravação ;) -->
+
 **Sobre você**
 
 Queremos te conhecer um pouco melhor, conte um pouco sobre você.
