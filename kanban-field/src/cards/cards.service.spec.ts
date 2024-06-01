@@ -183,7 +183,7 @@ describe('CardsService', () => {
 
     it('should throw a not found exception', () => {
       // Arrange
-      jest.spyOn(cardModel, 'findById').mockRejectedValueOnce(new NotFoundException);
+      jest.spyOn(cardModel, 'findById').mockRejectedValueOnce(new NotFoundException());
   
       // Assert
       expect(cardService.findOne('1', userId)).rejects.toThrow(NotFoundException);
@@ -247,7 +247,7 @@ describe('CardsService', () => {
         position: 1 
       }
       
-      jest.spyOn(cardModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException)
+      jest.spyOn(cardModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException())
 
       // Assert
       expect(cardService.update('1', body, userId)).rejects.toThrow(NotFoundException)
@@ -275,7 +275,7 @@ describe('CardsService', () => {
     it('should throw a not found exception', () => {
       // Arrange
       const newPosition = 2;
-      jest.spyOn(cardModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException);
+      jest.spyOn(cardModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException());
   
       // Assert
       expect(cardService.updatePosition('1', newPosition, userId)).rejects.toThrow(NotFoundException);
@@ -295,7 +295,7 @@ describe('CardsService', () => {
 
     it('should throw a not found exception', () => {
       // Arrange    
-      jest.spyOn(cardModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException)
+      jest.spyOn(cardModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException())
   
       // Assert
       expect(cardService.remove('1', userId)).rejects.toThrow(NotFoundException)

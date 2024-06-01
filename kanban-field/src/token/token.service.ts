@@ -20,8 +20,7 @@ export class TokenService {
         await this.tokenModel.findByIdAndUpdate(objToken._id, { hash: hash }, { new: true })
       } else {
 
-        const token = new this.tokenModel({ hash: hash, responsible: responsible });
-        return await token.save();
+        return await this.tokenModel.create({hash: hash, responsible: responsible});
       }
     } catch (error) {
       throw new Error(`Falha ao salvar o token: ${error.message}`);
@@ -35,7 +34,7 @@ async refreshToken(oldToken: string){
 
     return this.authService.login(user)
   } else {  // requisição invalida, token não existe
-    return new HttpException({ errorMessage: 'Token inválido' }, HttpStatus.UNAUTHORIZED)
+    return new HttpException({ errorMessage: 'Token inválido' }, HttpStatus.UNAUTHORIZED) // nao consegui implementar no front, apesar de funcional
   }
 }
   

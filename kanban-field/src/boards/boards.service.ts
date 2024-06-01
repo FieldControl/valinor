@@ -44,6 +44,7 @@ async createbyMail(createBoardDto: CreateBoardDto, userEmail: string) { // cria 
 async findAll(userId: string) {
   try {
     const boards = await this.boardModel.find({ responsibles: { $in: [userId] } });
+    
     const boardsWithColumms = await Promise.all(boards.map(async (board) => {
       board.columns = await this.columnsService.find({ board: board._id }, userId);
       return board;
@@ -65,11 +66,7 @@ async findOne(id: string, userId: string) {
   
   board.columns = await this.columnsService.find({ board: id }, userId );
   
-  if (board.responsibles.includes(userId)) {
-    return board; // retorna o quadro e as colunas pertencentes a ele
-  }
-
-    throw new UnauthorizedException();
+  return board
 }
 
 async findBoard(id: string, userId: string) {  //  usado so pra pegar o id no createColumn

@@ -149,7 +149,7 @@ describe('UsersService', () => {
 
     it('should throw a not found exception', () => {
       // Arrange
-      jest.spyOn(userModel, 'findById').mockRejectedValueOnce(new NotFoundException)
+      jest.spyOn(userModel, 'findById').mockRejectedValueOnce(new NotFoundException())
 
       // Assert
       expect(userService.findOne('1')).rejects.toThrow(NotFoundException)
@@ -209,7 +209,7 @@ describe('UsersService', () => {
         password: 'senha'
       }
       
-      jest.spyOn(userModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException)
+      jest.spyOn(userModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException())
 
       // Assert
       expect(userService.update('1', body)).rejects.toThrow(NotFoundException)
@@ -228,7 +228,7 @@ describe('UsersService', () => {
 
     it('should throw a not found exception', () => {
       // Arrange    
-      jest.spyOn(userModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException)
+      jest.spyOn(userModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException())
   
       // Assert
       expect(userService.remove('1')).rejects.toThrow(NotFoundException)

@@ -201,7 +201,7 @@ describe('ColumnsService', () => {
 
     it('should throw a not found exception', () => {
       // Arrange
-      jest.spyOn(columnModel, 'findById').mockRejectedValueOnce(new NotFoundException);
+      jest.spyOn(columnModel, 'findById').mockRejectedValueOnce(new NotFoundException());
   
       // Assert
       expect(columnService.findOne('1', userId)).rejects.toThrow(NotFoundException);
@@ -286,11 +286,11 @@ describe('ColumnsService', () => {
   });
   
   describe('update', () => {
-    it('should update a column  item successfully', async () => {
+    it('should update a column item successfully', async () => {
       // Arrange
       const body: UpdateColumnDto = {
         name: 'updated column',
-        board: '664fa1f6d2e549d1d6b42ccc',
+        board: '664fa1f6d2e549d1d6b42ccd',
         responsibles: userEntityList,
         cards: cardEntityList
       }
@@ -312,7 +312,7 @@ describe('ColumnsService', () => {
         cards: cardEntityList
       }
       
-      jest.spyOn(columnModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException)
+      jest.spyOn(columnModel, 'findByIdAndUpdate').mockRejectedValueOnce(new NotFoundException())
 
       // Assert
       expect(columnService.update('1', body, userId)).rejects.toThrow(NotFoundException)
@@ -331,7 +331,7 @@ describe('ColumnsService', () => {
 
     it('should throw a not found exception', () => {
       // Arrange    
-      jest.spyOn(columnModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException)
+      jest.spyOn(columnModel, 'findByIdAndDelete').mockRejectedValueOnce(new NotFoundException())
   
       // Assert
       expect(columnService.remove('1', userId)).rejects.toThrow(NotFoundException)
