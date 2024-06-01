@@ -1,0 +1,21 @@
+
+GET http://localhost:3000/cards
+
+
+###
+POST http://localhost:3000/cards
+Content-Type: application/json
+
+{
+    "cli":"string"
+   }
+###
+PATCH http://localhost:3000/cards/
+Content-Type: application/json
+
+{
+   
+    "cli": "Lucas"
+}
+###
+DELETE http://localhost:3000/cards
