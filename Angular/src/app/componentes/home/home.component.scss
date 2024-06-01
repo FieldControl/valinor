@@ -19,34 +19,38 @@
     display:flex;
 }
 h2{
-    padding: 25px;
+   padding: 25px;
     width: 100%;
     margin: -25px;
     box-shadow: 0px 8px 16px 0px rgb(75, 75, 75);
 }
 .cli{
-    background: rgb( #6e6c6c,0.8) ;
+    background-color: #0055FF;
     border-radius: 12px;
     color: #fff;
     margin-bottom: 10px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 .neg {
-    background: rgb( #6e6c6c,0.8) ;
+    background-color: #0055FF;
     border-radius: 12px;
     color: #fff;
     margin-bottom: 10px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 .conc {
-    background: rgb( #6e6c6c,0.8) ;
+    background-color: #0055FF;
     border-radius: 12px;
     color: #fff;
     margin-bottom: 10px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 .canc {
-    background: rgb( #6e6c6c,0.8) ;
+    background-color: #0055FF;
     border-radius: 12px;
     color: #fff;
     margin-bottom: 10px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .card{
@@ -68,26 +72,22 @@ h3{
  
 }
 .cont {
-    background-color: paleturquoise;
+    background-color: #6da5c0;
     border-radius: 10px;
 }
 .ped{
-    background-color:#96897f;
+    background-color:#f1916d;
     border-radius: 10px;
 }
 .con{
-    background-color:#96ceb4;
+    background-color:#ae445a;
     border-radius: 10px;
 }
 .ent{
-    background-color: #b8a9c9;
+    background-color: #87986a;
     border-radius: 10px;
 }
-.salvar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
+
 @media screen and (max-width: 768px) {
     .table {
         margin-left: 0;

@@ -1,5 +1,7 @@
 .header{
-    background-color:#213a57;
+    display: flex;
+    align-items: center;
+    background-color:#253EB2;
     height: 130px;
     border: 1px solid #1111;
     box-shadow: 0px 8px 16px 0px rgb(85, 85, 85);
@@ -10,9 +12,13 @@
         box-shadow: none;}
 }
 .title{
-    display: flex;
-    padding-top: 25px;
-    margin: 0 auto;
+    margin-left: 25px;
+    margin-top: 50px;
     color: white;
     font-size: 70px;
+}
+
+.img {
+       top: -15px;
+       margin-right: 10px;
 }

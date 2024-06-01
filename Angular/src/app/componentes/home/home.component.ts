@@ -12,7 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import axios from 'axios';
-
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -22,16 +22,30 @@ import axios from 'axios';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   cli: { nome: string, idCard: string }[] = [];
   negociacao: { nome: string, idCard: string }[] = [];
   concluida: { nome: string, idCard: string }[] = [];
   entrega: { nome: string, idCard: string }[] = [];
 
+  ngOnInit(): void {
+    axios.get('http://localhost:3000/cards')
+      .then(response => {
+        // Mapear os dados para extrair apenas a propriedade 'cli'
+        const cliData = response.data.map((item: { cli: any; idCard: any; }) => ({ nome: item.cli, idCard: item.idCard }));
+        this.cli = cliData;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+  
+  
+
   addCampo(): void {
     const userInput = prompt("Digite o nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
-      axios.post('https://lucascriado.com:9004/cards', { cli: userInput.trim() })
+      axios.post('http://localhost:3000/cards', { cli: userInput.trim() })
         .then(response => {
           const idCard = response.data.idCard; 
           console.log(response);
@@ -45,7 +59,6 @@ export class HomeComponent {
   }
 
 
-  
   removeItem(column: string, index: number): void {
     let item: { nome: string, idCard: string } | null = null;
     if (column === 'cli') {
@@ -62,16 +75,18 @@ export class HomeComponent {
       this.entrega.splice(index, 1);
     }
     if (item !== null) {
-      axios.delete(`https://lucascriado.com:9004/cards/${item.idCard}`)
+      axios.delete(`http://localhost:3000/cards/${item.idCard}`)
         .then(response => {
           console.log(response.data);
           alert(`Venda removida com sucesso!`);
         })
         .catch(error => {
           console.error(error);
+          alert(`Houve um erro ao tentar remover a venda. Por favor, tente novamente.`);
         });
     }
   }
+  
   editItem(column: string, index: number): void {
     const userInput = prompt("Digite o novo nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
@@ -90,7 +105,7 @@ export class HomeComponent {
         this.entrega[index] = { ...item, nome: userInput.trim() };
       }
       if (item !== null) {
-        axios.patch(`https://lucascriado.com:9004/cards${item.idCard}`, { cli: userInput.trim() })
+        axios.patch(`http://localhost:3000/cards/${item.idCard}`, { cli: userInput.trim() })
           .then(response => {
             console.log(response.data);
             alert(`Nome da venda atualizado com sucesso!`);
@@ -101,6 +116,7 @@ export class HomeComponent {
       }
     }
   }
+  
 
   drop(event: CdkDragDrop<{ nome: string, idCard: string }[]>): void {
     if (event.previousContainer === event.container) {
