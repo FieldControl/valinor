@@ -26,8 +26,7 @@ export class CardsService {
       const position = cards.length;
       console.log(column.cards.length)
 
-      const card = new this.cardModel({...createCardDto, responsibles: userIds, position: position });
-      return await card.save();
+      return await this.cardModel.create({...createCardDto, responsibles: userIds, position: position});
     } catch (error) {
       throw new Error(`Falha ao criar o cartão: ${error.message}`);
     }
@@ -35,14 +34,14 @@ export class CardsService {
 
   async findAll(userId: string) {
     try {
-      return await this.cardModel.find({ responsibles: { $in: [userId] } }).populate('responsibles').populate('column');
+      return await this.cardModel.find({ responsibles: { $in: [userId] } });
     } catch (error) {
       throw new Error(`Falha ao consultar todos os cartões: ${error.message}`);
     }
   }
 
   async findOne(id: string, userId: string) {
-    const card = await this.cardModel.findById({_id: id, responsibles: { $in: [userId] } }).populate('responsibles').populate('column');
+    const card = await this.cardModel.findById({_id: id, responsibles: { $in: [userId] } });
     
     if (!card) {
       throw new NotFoundException('Cartão não encontrado');
@@ -53,7 +52,7 @@ export class CardsService {
 
   async find(conditions: any, userId: string) {
     try {
-      return this.cardModel.find({...conditions, responsibles: { $in: [userId] } }).populate('responsibles');  // responsavel por achar a coluna que pertence
+      return this.cardModel.find({...conditions, responsibles: { $in: [userId] } }).populate('responsibles').exec();  // responsavel por achar a coluna que pertence
     } catch (error) {
       throw new Error(`Falha ao encontrar o cartão: ${error.message}`);
     }

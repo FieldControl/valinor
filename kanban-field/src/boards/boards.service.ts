@@ -15,10 +15,9 @@ export class BoardsService {
               private columnsService: ColumnsService,
               private userService: UsersService) {}
 
-async create(createBoardDto: CreateBoardDto, userId: string) {
+async create(createBoardDto: CreateBoardDto, userId: string) {  // usado só pra testes no postman
   try {
-    const board = new this.boardModel({...createBoardDto, responsibles: [userId]});
-    return await board.save();
+    return await this.boardModel.create({...createBoardDto, responsibles: [userId]})
   } catch (error) {
     throw new Error(`Falha ao criar o quadro: ${error.message}`);
   }
@@ -30,14 +29,13 @@ async createbyMail(createBoardDto: CreateBoardDto, userEmail: string) { // cria 
     if (createBoardDto.responsibles) {
       responsibles = await Promise.all(createBoardDto.responsibles.map(email => this.userService.findByMail(email)));
     }
-    const responsibleIds = [...new Set(responsibles.map(user => user._id.toString()))];
+    const responsibleIds = [...new Set(responsibles.map(user => user['_id'].toString()))];
 
     if (!responsibleIds.includes(userEmail)) {
       responsibleIds.push(userEmail);
     }
     
-    const board = new this.boardModel({...createBoardDto, responsibles: responsibleIds});
-    return await board.save();
+    return await this.boardModel.create({...createBoardDto, responsibles: responsibleIds})
   } catch (error) {
     throw new Error(`Falha ao criar o quadro: ${error.message}`);
   }
@@ -84,7 +82,7 @@ async findBoard(id: string, userId: string) {  //  usado so pra pegar o id no cr
   return board;
 }
 
-async update(id: string, updateBoardDto: UpdateBoardDto, userId: string) {  
+async update(id: string, updateBoardDto: UpdateBoardDto, userId: string) {  // usado só pra testes no postman
   const board = await this.boardModel.findByIdAndUpdate(
     {_id: id, responsibles: { $in: [userId] } }, updateBoardDto, { new: true }
   )

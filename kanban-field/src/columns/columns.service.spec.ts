@@ -10,13 +10,36 @@ import { BoardsService } from '../boards/boards.service';
 import { CardsService } from '../cards/cards.service';
 import { NotFoundException } from '@nestjs/common';
 import { UpdateColumnDto } from './dto/update-column.dto';
+import { Board } from '../boards/entities/board.entity';
 
 const userEntityList: User[] = [
-  new User({ name: 'user 1', email: 'email@exemplo.com', password: 'senha' })
+  new User({ 
+    name: 'user 1', 
+    email: 'email@exemplo.com', 
+    password: 'senha' }),
+  new User({ 
+    name: 'user 2', 
+    email: 'email@exemplo.com', 
+    password: 'senha' })
 ];
 
 const cardEntityList: Card[] = [
-  new Card({ name: 'card 1', description: 'Descrição', createdAt: new Date(), dueDate: '2024-12-31', column: '664fa1f6d2e549d1d6b42bbb' })
+  new Card({ 
+    name: 'card 1', 
+    description: 'Descrição', 
+    createdAt: new Date(), 
+    dueDate: '2024-12-31', 
+    responsibles: userEntityList,
+    column: '664fa1f6d2e549d1d6b42bbb',
+    position: 0 }),
+  new Card({ 
+    name: 'card 2', 
+    description: 'Descrição', 
+    createdAt: new Date(), 
+    dueDate: '2024-12-31', 
+    responsibles: userEntityList,
+    column: '664fa1f6d2e549d1d6b42bbb',
+    position: 1 })
 ];
 
 const columnEntityList: Column[] = [
@@ -40,8 +63,21 @@ const updatedColumnEntity = new Column({
   responsibles: userEntityList,
   cards: cardEntityList})
 
-const boardId = '1'
-const userId = '1'  
+  const mockFindWithPopulateAndExec = (returnValue) => {
+    return jest.fn().mockImplementationOnce(() => ({
+      populate: jest.fn().mockReturnThis(),
+      exec: jest.fn().mockResolvedValueOnce(returnValue),
+    }));
+  };
+  
+  const mockFindAndThrowError = () => {
+    return jest.fn().mockImplementationOnce(() => {
+      throw new Error();
+    });
+  };
+
+const boardId = '664fa1f6d2e549d1d6bboard'
+const userId = '664fa1f6d2e549d1d6b4user'  
 
 describe('ColumnsService', () => {
   let columnService: ColumnsService;
@@ -57,7 +93,6 @@ describe('ColumnsService', () => {
           provide: getModelToken(Column.name),
           useValue: {
             create: jest.fn().mockResolvedValue(columnEntityList[0]),
-            findBoard: jest.fn(),
             find: jest.fn().mockResolvedValue(columnEntityList),
             findById: jest.fn().mockResolvedValue(columnEntityList[0]),
             findOne: jest.fn().mockResolvedValue(columnEntityList[0]),
@@ -66,12 +101,12 @@ describe('ColumnsService', () => {
           }
         },
         {
-          provide: BoardsService, // Adicione isto
+          provide: BoardsService,
           useValue: {
             findBoard: jest.fn().mockResolvedValue({
               name: 'board 1', 
               columns: columnEntityList,
-              responsibles: ['664fa1f6d2e549d1d6b42xxx', '664fa1f6d2e549d1d6b42xyz']
+              responsibles: userEntityList
             }),
           }
         },
@@ -106,11 +141,12 @@ describe('ColumnsService', () => {
 
       // Act
       const result = await columnService.create(body, boardId, userId);
+      // const responsiblesList = userEntityList.map(user => user['_id']); mongo cria automaticamente o id, não da pra testar assim
 
       // Assert
       expect(result).toEqual(columnEntityList[0]);
       expect(boardService.findBoard).toHaveBeenCalledWith(boardId, userId);
-      expect(columnModel.create).toHaveBeenCalledWith({...body, responsibles: ['664fa1f6d2e549d1d6b42xxx', '664fa1f6d2e549d1d6b42xyz']});
+      expect(columnModel.create).toHaveBeenCalledWith({...body, responsibles: userEntityList});
       expect(columnModel.create).toHaveBeenCalledTimes(1)
     })
 
@@ -153,7 +189,7 @@ describe('ColumnsService', () => {
   })
 
   describe('findOne', () => {
-    it('should return a user entity successfully', async () => {
+    it('should return a column entity successfully', async () => {
       // Act
       const result = await columnService.findOne('1', userId)
 
@@ -175,10 +211,7 @@ describe('ColumnsService', () => {
   describe('findByBoard', () => {
     it('should return a list of columns with their cards successfully', async () => {  
       // Arrange
-      jest.spyOn(columnModel, 'find').mockImplementationOnce(() => ({
-        populate: jest.fn().mockReturnThis(),
-        exec: jest.fn().mockResolvedValueOnce(columnEntityList),
-      } as any));
+      jest.spyOn(columnModel, 'find').mockImplementationOnce(mockFindWithPopulateAndExec(columnEntityList))
 
       // Act
       const result = await columnService.findByBoard(boardId, userId);
@@ -194,9 +227,7 @@ describe('ColumnsService', () => {
     it('should throw an exception', () => {
       // Arrange
       const findMock = jest.spyOn(columnModel, 'find');
-      findMock.mockImplementationOnce(() => {
-        throw new Error();
-      });
+      findMock.mockImplementationOnce(mockFindAndThrowError())
   
       // Assert
       expect(columnService.findByBoard(boardId, userId)).rejects.toThrow(Error);
@@ -205,43 +236,11 @@ describe('ColumnsService', () => {
     });
   });
 
-  describe('find', () => {
-    it('should return a list of columns when any condition is given successfully', async () => {
-      // Arrange
-      const conditions = { name: 'column 1' };
-      jest.spyOn(columnModel, 'find').mockImplementationOnce(() => ({
-        populate: jest.fn().mockReturnThis(),
-        exec: jest.fn().mockResolvedValueOnce(columnEntityList),
-      } as any));
-  
-      // Act
-      const result = await columnService.find(conditions, userId);
-  
-      // Assert
-      expect(result).toEqual(columnEntityList);
-      expect(columnModel.find).toHaveBeenCalledWith({ ...conditions, responsibles: { $in: [userId] } });
-    });
-  
-    it('should throw an error', async () => {
-      // Arrange
-      const conditions = { name: 'column 1' };
-      jest.spyOn(columnModel, 'find').mockImplementationOnce(() => {
-        throw new Error();
-      });
-  
-      // Assert
-      await expect(columnService.find(conditions, userId)).rejects.toThrow(Error);
-    });
-  });
-  
   describe('findColumn', () => {
     it('should return a column successfully', async () => {
       // Arrange
       const id = '1';
-      jest.spyOn(columnModel, 'findOne').mockImplementationOnce(() => ({
-        populate: jest.fn().mockReturnThis(),
-        exec: jest.fn().mockResolvedValueOnce(columnEntityList[0]),
-      } as any));
+      jest.spyOn(columnModel, 'findOne').mockImplementationOnce(mockFindWithPopulateAndExec(columnEntityList[0]))
   
       // Act
       const result = await columnService.findColumn(id, userId);
@@ -255,13 +254,34 @@ describe('ColumnsService', () => {
     it('should throw a NotFoundException', async () => {
       // Arrange
       const id = '1';
-      jest.spyOn(columnModel, 'findOne').mockImplementationOnce(() => ({
-        populate: jest.fn().mockReturnThis(),
-        exec: jest.fn().mockResolvedValueOnce(null), // Retorna null para simular uma coluna não encontrada
-      } as any));
+      jest.spyOn(columnModel, 'findOne').mockImplementationOnce(mockFindWithPopulateAndExec(null))
   
       // Assert
       await expect(columnService.findColumn(id, userId)).rejects.toThrow(NotFoundException);
+    });
+  });
+
+  describe('find', () => {
+    it('should return a list of columns when any condition is given successfully', async () => {
+      // Arrange
+      const conditions = { name: 'column 1' };
+      jest.spyOn(columnModel, 'find').mockImplementationOnce(mockFindWithPopulateAndExec(columnEntityList))
+  
+      // Act
+      const result = await columnService.find(conditions, userId);
+  
+      // Assert
+      expect(result).toEqual(columnEntityList);
+      expect(columnModel.find).toHaveBeenCalledWith({ ...conditions, responsibles: { $in: [userId] } });
+    });
+  
+    it('should throw an error', async () => {
+      // Arrange
+      const conditions = { name: 'column 1' };
+      jest.spyOn(columnModel, 'find').mockImplementationOnce(mockFindAndThrowError())
+  
+      // Assert
+      await expect(columnService.find(conditions, userId)).rejects.toThrow(Error);
     });
   });
   

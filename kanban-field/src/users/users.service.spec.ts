@@ -7,6 +7,7 @@ import { Model } from 'mongoose';
 import { NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Card } from '../cards/entities/card.entity';
 
 const userEntityList: User[] = [
   new User({ 
@@ -21,10 +22,15 @@ const userEntityList: User[] = [
 })
 ]
 
+const cardEntityList: Card[] = [
+  new Card({ name: 'card 1', description: 'Descrição', createdAt: new Date(), dueDate: '2024-12-31', column: '664fa1f6d2e549d1d6b42bbb' })
+];
+
 const updatedUserEntity = new User({name: 'updated user', email: 'email@exemplo.com', password: 'senha'})
 
 describe('UsersService', () => {
   let userService: UsersService;
+  let cardService: CardsService;
   let userModel: Model<UserDocument>;
 
   beforeEach(async () => {
@@ -45,13 +51,14 @@ describe('UsersService', () => {
         {
           provide: CardsService, // Forneça um mock para o CardsService
           useValue: {
-            find: jest.fn().mockResolvedValue([]),
+            find: jest.fn().mockResolvedValue(cardEntityList),
           }
         }
       ],
     }).compile();
 
     userService = module.get<UsersService>(UsersService);
+    cardService = module.get<CardsService>(CardsService);
     userModel = module.get<Model<UserDocument>>(getModelToken(User.name))
   });
 
@@ -89,7 +96,6 @@ describe('UsersService', () => {
         password: 'senha',
         creation: undefined
       };
-      jest.spyOn(userModel, 'findOne').mockResolvedValueOnce(userEntityList[0]);
   
       // Assert
       await expect(userService.create(body)).rejects.toThrow(`Já existe um usuário com este e-mail`);
@@ -112,7 +118,7 @@ describe('UsersService', () => {
   })
 
   describe('findAll', () => {
-    it('should return a user list successfully', async () => {
+    it('should return an user list successfully', async () => {
       // Act
       const result = await userService.findAll()
 
@@ -131,13 +137,14 @@ describe('UsersService', () => {
   })
   
   describe('findOne', () => {
-    it('should return a user entity successfully', async () => {
+    it('should return an user entity successfully', async () => {
       // Act
       const result = await userService.findOne('1')
 
       // Assert
-      expect(result).toEqual(userEntityList[0])
+      expect(result).toEqual({...userEntityList[0], cards: cardEntityList})
       expect(userModel.findById).toHaveBeenCalledTimes(1)
+      expect(cardService.find).toHaveBeenCalledWith({ responsible: '1' }, '1');
     })
 
     it('should throw a not found exception', () => {
@@ -150,7 +157,7 @@ describe('UsersService', () => {
   })
 
   describe('findByMail', () => {
-    it('should return a user successfully when a user with the given email exists', async () => {
+    it('should return an user successfully when a user with the given email exists', async () => {
       // Arrange
       const email = 'email@exemplo.com';
       jest.spyOn(userModel, 'findOne').mockResolvedValueOnce(userEntityList[0]);
