@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   DragDropModule,
   CdkDragDrop,
@@ -12,7 +12,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import axios from 'axios';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -28,19 +27,22 @@ export class HomeComponent implements OnInit{
   concluida: { nome: string, idCard: string }[] = [];
   entrega: { nome: string, idCard: string }[] = [];
 
+  cliCount: number = 0;
+  negociacaoCount: number = 0;
+  concluidaCount: number = 0;
+  entregaCount: number = 0;
+
   ngOnInit(): void {
     axios.get('http://localhost:3000/cards')
       .then(response => {
-        // Mapear os dados para extrair apenas a propriedade 'cli'
         const cliData = response.data.map((item: { cli: any; idCard: any; }) => ({ nome: item.cli, idCard: item.idCard }));
         this.cli = cliData;
+        this.cliCount = cliData.length; 
       })
       .catch(error => {
         console.error(error);
       });
   }
-  
-  
 
   addCampo(): void {
     const userInput = prompt("Digite o nome da venda");
@@ -51,6 +53,7 @@ export class HomeComponent implements OnInit{
           console.log(response);
           alert(`Venda adicionada com sucesso! ID: ${idCard}`);
           this.cli.push({ nome: userInput.trim(), idCard: idCard });
+          this.cliCount++; 
         })
         .catch(error => {
           console.error(error);
@@ -58,21 +61,24 @@ export class HomeComponent implements OnInit{
     }
   }
 
-
   removeItem(column: string, index: number): void {
     let item: { nome: string, idCard: string } | null = null;
     if (column === 'cli') {
       item = this.cli[index];
       this.cli.splice(index, 1);
+      this.cliCount--;
     } else if (column === 'negociacao') {
       item = this.negociacao[index];
       this.negociacao.splice(index, 1);
+      this.negociacaoCount--;
     } else if (column === 'concluida') {
       item = this.concluida[index];
       this.concluida.splice(index, 1);
+      this.concluidaCount--;
     } else if (column === 'entrega') {
       item = this.entrega[index];
       this.entrega.splice(index, 1);
+      this.entregaCount--;
     }
     if (item !== null) {
       axios.delete(`http://localhost:3000/cards/${item.idCard}`)
@@ -86,7 +92,7 @@ export class HomeComponent implements OnInit{
         });
     }
   }
-  
+
   editItem(column: string, index: number): void {
     const userInput = prompt("Digite o novo nome da venda");
     if (userInput !== null && userInput.trim() !== "") {
@@ -116,7 +122,6 @@ export class HomeComponent implements OnInit{
       }
     }
   }
-  
 
   drop(event: CdkDragDrop<{ nome: string, idCard: string }[]>): void {
     if (event.previousContainer === event.container) {
@@ -131,5 +136,3 @@ export class HomeComponent implements OnInit{
     }
   }
 }
-
-
