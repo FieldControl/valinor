@@ -1,0 +1,24 @@
+<div class="sideNav">
+    <nav>
+
+        <div class="user">
+            <img src="img/userImg.jpg" sizes="10rem" alt=""/>
+            <p >{{user?.firstName}}</p>
+            @if(isLoggedIn()){
+                <button (click)="signOut()">Sign out</button>
+                } @else {
+                <a [routerLinkActive]="'active'" routerLink="/login">Login/Register</a>
+                }
+        </div>
+        <ul>
+            <li>
+                <div class="menu">
+                    <a href="boards">
+                        <i class="fa-solid fa-grip"></i>
+                    </a>
+                    
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>

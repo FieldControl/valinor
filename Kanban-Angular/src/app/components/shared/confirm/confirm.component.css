@@ -1,0 +1,26 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.form h2{
+    color:red ;
+}
+
+.form button{
+    width: 5rem;
+    height: 2rem;
+    cursor: pointer;
+    border: none;
+    margin: 5px;
+    color: white;
+    border-radius: 10px;
+    background-color: var(--iconColor);
+}
+.form button:first-child{
+    background-color:rgb(192, 13, 13) ;
+}

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --primaryColor : rgb(24,32,60);
+    --segundaryColor : rgb(41,50,80);
+    --tertiaryColor: rgb(34,42,69);
+    --detailColor : rgb(111,121,133);
+    --iconColor : rgb(54,194,206);
+    --letterColor : rgb(220,220,220);
+}
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+
+body{
+    background-color: var(--segundaryColor);
+}
+

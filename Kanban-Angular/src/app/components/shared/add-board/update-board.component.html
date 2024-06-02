@@ -1,0 +1,22 @@
+<form [formGroup]="updateBoardForm" class="form">
+    <h1>Editar Quadro</h1>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Ex. Meu Quadro" />
+  
+      @if (!updateBoardForm.controls.name.hasError('required')) {
+      <mat-error>Please enter a valid name</mat-error>
+      }
+    </mat-form-field>
+  
+    <div class="button-group">
+      <button (click)="updateBoard()" mat-flat-button class="saveBtn">
+        Salvar
+      </button>
+      
+    </div>
+    <button (click)="closeDialog()" class="deleteBtn">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    </form>
+  

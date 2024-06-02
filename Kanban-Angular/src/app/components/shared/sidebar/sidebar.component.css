@@ -1,0 +1,71 @@
+/*Configurações da barra lateral*/
+.sideNav{
+    background-color:var(--tertiaryColor);
+    color: white;
+    min-height: 100%;
+    display: flex;
+    width: 5rem;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    transition: transform .4s ease;
+    border-right: 1px solid var(--detailColor);
+}
+.sideNav .items{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+.items .tagsItems h2{
+    margin: auto;
+}
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:4px;
+}
+.user img{
+    width: 2.7rem;
+    height: 2.7rem;
+    margin-top: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+.user p{
+    font-size: 9pt;
+    display: flex;
+    justify-content: center;
+}
+.user button{
+    font-size: 8pt;
+    background-color: red;
+    color:white ;
+    border-radius: 10px;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+}
+.user button:hover{
+    scale: 1.07;
+}
+ul{
+    margin-top:25px ;
+    display: flex;
+    justify-content: center;
+}
+.menu a{
+    color:white  ;
+    font-size: 25pt; 
+    transition:background-color .4s ease-in;
+}
+.menu:hover a{
+    scale: 1.1;
+    color: var(--iconColor);
+}
+
+
+

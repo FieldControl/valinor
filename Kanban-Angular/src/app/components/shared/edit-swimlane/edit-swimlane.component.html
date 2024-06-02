@@ -1,0 +1,25 @@
+<form [formGroup]="swimlaneForm" class="form">
+    <h2>Editar Coluna</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" placeholder="Ex. Minha coluna" />
+  
+      @if (!swimlaneForm.controls.name.hasError('required')) {
+      <mat-error>Porfavor insira um nome valido</mat-error>
+      }
+    </mat-form-field>
+  
+    <div class="button-group">
+      <button (click)="updateSwimlane()" mat-flat-button  [style.background-color] = "'var(--iconColor)'">
+        Salvar
+      </button>
+    </div>
+    
+    <button (click)="deleteSwimlane()" class="delete btn" >
+      <i class="fa-solid fa-trash-can"></i>
+    </button>
+    <button (click)="closeDialog()" class="close btn" color="secondary">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </form>
+  
