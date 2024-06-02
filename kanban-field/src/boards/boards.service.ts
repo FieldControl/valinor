@@ -13,6 +13,7 @@ export class BoardsService {
   constructor(@InjectModel(Board.name) private boardModel: Model<BoardDocument>,
               @Inject(forwardRef(() => ColumnsService))
               private columnsService: ColumnsService,
+              @Inject(forwardRef(() => UsersService))
               private userService: UsersService) {}
 
 async create(createBoardDto: CreateBoardDto, userId: string) {  // usado só pra testes no postman

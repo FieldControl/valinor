@@ -6,11 +6,14 @@ import { ColumnsModule } from './columns/columns.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BoardsModule } from './boards/boards.module';
 import { AuthModule } from './auth/auth.module';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Module({
   imports: [CardsModule, 
             ColumnsModule, 
-            MongooseModule.forRoot('mongodb+srv://jonathan:30082002@kabannestjs.hqq0piv.mongodb.net/'), 
+            MongooseModule.forRoot(process.env.DB_CONNECTION_STRING), 
             BoardsModule, 
             AuthModule],
   controllers: [AppController],

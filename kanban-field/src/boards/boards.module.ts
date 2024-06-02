@@ -3,14 +3,15 @@ import { BoardsService } from './boards.service';
 import { BoardsController } from './boards.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Board, BoardSchema } from './entities/board.entity';
-import { ColumnsModule } from 'src/columns/columns.module';
-import { UsersModule } from 'src/users/users.module';
+import { ColumnsModule } from '../columns/columns.module';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Board.name, schema: BoardSchema }]),
     forwardRef(() => ColumnsModule),
-    UsersModule],
+    MongooseModule.forFeature([{ name: Board.name, schema: BoardSchema }]),
+    forwardRef(() => UsersModule),
+    ],
   controllers: [BoardsController],
   providers: [BoardsService],
   exports: [BoardsService]

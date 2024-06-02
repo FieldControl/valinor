@@ -30,6 +30,7 @@
     "@types/passport-jwt": "^4.0.1",
     "@types/passport-local": "^1.0.38",
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
     "mongoose": "^8.3.2",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",

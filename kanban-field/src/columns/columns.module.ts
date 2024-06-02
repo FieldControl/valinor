@@ -3,8 +3,8 @@ import { ColumnsService } from './columns.service';
 import { ColumnsController } from './columns.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Column, ColumnSchema } from './entities/column.entity';
-import { CardsModule } from 'src/cards/cards.module';
-import { BoardsModule } from 'src/boards/boards.module';
+import { CardsModule } from '../cards/cards.module';
+import { BoardsModule } from '../boards/boards.module';
 
 @Module({
   imports: [

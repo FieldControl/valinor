@@ -3,7 +3,7 @@ import { CardsService } from './cards.service';
 import { CardsController } from './cards.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Card, CardSchema } from './entities/card.entity';
-import { ColumnsModule } from 'src/columns/columns.module';
+import { ColumnsModule } from '../columns/columns.module';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: Card.name, schema: CardSchema }]),
