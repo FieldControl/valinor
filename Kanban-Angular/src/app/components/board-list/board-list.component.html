@@ -1,0 +1,26 @@
+
+<app-header/>
+<app-sidebar/>
+<main>
+    <div class="boardsContainer">
+        @for (board of boards(); track board) {
+          <div class="board">
+            <a  [routerLink]="['/boards', board.id]">
+                <div class="headers">
+                    <h1>{{board.name}}</h1>
+                </div>
+                <div class="boardContent">
+                    <button (click)="updateBoard($event, board)" ><i class="fa-solid fa-gear"></i> </button>
+                    <button (click)="deleteBoard($event, board)"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                
+            
+            </a>
+          </div>
+        
+        }
+    </div>
+    <button class="add-btn" (click)=" createBoard()" >
+        Add Quadro
+      </button>
+</main>

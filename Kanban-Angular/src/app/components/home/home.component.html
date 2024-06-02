@@ -1,0 +1,102 @@
+
+<app-header/>
+<app-sidebar/>
+<main>
+
+    <div cdkDropListGroup
+    cdkDropList
+    
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="onSwimlaneChange($event)"
+    class="mainContent">
+        @for(swimlane of board()?.swimlanes; track swimlane) 
+        {
+            <div class="column" cdkDrag cdkDragLockAxis="x" cdkDragBoundary=".mainContent">
+                <div class="titleBar">
+                    <h3>{{swimlane.name}}</h3>
+                    <div>
+                        <button (click)="editSwimlane(swimlane)">
+                            <i class="fa-solid fa-gear"></i>
+                        </button>
+                        <button (click)="createCard(swimlane)">
+                                <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                </div>
+                <div 
+                cdkDropList
+                cdkDropListOrientation="vertical"
+                [cdkDropListData]="swimlane.cards"
+                (cdkDropListDropped)="onCardChange($event, swimlane)" 
+                class="content">
+                @for(card of swimlane.cards; track card) {
+                    
+                    <div class="tag" cdkDrag cdkDragBoundary=".mainContent" [style.background-color]="card.color">
+                        <div class="tagContent">
+                            <div class="infos">
+                                <div class="headers">
+                                    <div>
+                                        <h4>{{card.name}}</h4>
+                                        <p>Designado para {{card.userName}}</p>
+                                    </div>
+                                    <div>
+                                        <div class="circle" [style.background-color]="card.color+'44'">
+                                            <p>{{calculateDaysDifference(card.date)}}d</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="description">
+                                    <p>{{card.content}}</p>
+                                </div>
+                            </div>
+                            <div class="otherInfos">
+                                <ul>
+                                    <li>
+                                        <button (click)="deleteCard(card)">
+                                            <i class="fa-regular fa-circle-xmark"></i>
+                    
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button (click)="editCard(swimlane,card)">
+                                            <i class="fa-solid fa-bars"></i>
+                    
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <i class="fa-regular fa-user"></i>
+                                            {{card.quantUsers}}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            {{ card.date| date:'dd/MM'}}
+                    
+                                        </p>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                    
+                </div>
+                
+            </div>
+        }     
+    </div>
+        <div class="btn-addColumn">
+            <button (click)="addSwimlane()">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Coluna
+            </button>
+        </div>
+
+</main>

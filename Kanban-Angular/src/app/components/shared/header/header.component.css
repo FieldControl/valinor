@@ -1,0 +1,43 @@
+
+/*Configuração da NavBar*/
+header{
+    width: 100%;
+}
+nav{
+    color:white;
+    width: 100%;
+    height: 4rem;
+    background-color:var(--tertiaryColor);
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    align-items: center;
+    border-left: 1px solid var(--detailColor);
+    border-bottom: 1px solid var(--detailColor);
+
+}
+.searchBar{
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 2rem;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--detailColor);
+    padding: 7px;
+    border-radius: 10px;
+}
+    .searchBar input{
+        background-color: transparent;
+        border:none;
+        outline: none;
+        color: white;
+    }
+    .searchBar input::placeholder{
+        color:var(--detailColor);
+    }
+    .searchBar i{
+        color: var(--iconColor)
+    }

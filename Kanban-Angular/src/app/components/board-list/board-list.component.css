@@ -1,0 +1,97 @@
+main{
+    margin-left: 5rem;
+    margin-top: 4rem;
+}
+
+/*container dos card da tabela*/
+.boardsContainer{
+    margin-left: 5rem;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    gap:15px;
+    flex-wrap: wrap;
+}
+
+/*Design do card da  tabela do kanban*/
+.board{
+    width: 20rem;
+    height: 15rem;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    border: 3px solid var(--detailColor);
+    transition:scale .3s ease ;
+}
+.board:hover{
+    scale: 1.06;
+}
+.board:hover .board:not(:hover){
+    background-color: aqua;
+}
+    .board a{
+        display: flex;
+        text-decoration:none;
+        height: 100%;
+        color:var(--iconColor);
+        width: 100%;
+    }
+    .board .headers{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .board .boardContent{
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 10px;
+        display: flex;
+        gap:10px;
+        
+    }
+        .boardContent button{
+            border:1px solid white;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            cursor: pointer;
+            font-size: 12pt;
+            transition:scale .2s ease-out, border-color .1s ease-in-out ;
+        }
+        .boardContent button:hover{
+            scale: 1.1;
+            border-color: var(--iconColor);
+        }
+        .boardContent button:first-child{
+            color:var(--iconColor);
+        }
+        .boardContent button:last-child{
+            color:red;
+        }
+
+/*Botão de add-btn*/
+
+.add-btn{
+    position: fixed;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    right: 0;
+    width: 10rem;
+    height: 3.5rem;
+    font-size: 12pt;
+    color: white;
+    bottom: 0;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--iconColor);
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow .2s ease,scale .2s ease ;
+}
+.add-btn:active{
+    box-shadow:inset 2px 2px 15px rgb(8, 73, 116);
+    scale: 0.9;
+}

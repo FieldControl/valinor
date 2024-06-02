@@ -1,0 +1,45 @@
+
+> backend@0.0.1 start
+> nest start
+
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +157ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +119ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBoardModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSwimlaneModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCardModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +7ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBoardController {/board}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/board, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/board, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/board/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/board/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/board/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSwimlaneController {/swimlane}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/swimlane, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/swimlane/update-order, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/swimlane/board/:boardId, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/swimlane/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/swimlane/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCardController {/card}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/card, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/card/update-order, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/card/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/card/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15816  - [39m05/27/2024, 3:49:32 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +4ms[39m

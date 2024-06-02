@@ -1,0 +1,35 @@
+<div class="formContainer">
+<form class="form" [formGroup]="loginForm">
+    <h1>Login</h1>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com"/>
+  
+      @if (loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')) {
+        <mat-error>Porfavor Insira um Email valido</mat-error>
+      } @if (loginForm.controls.email.hasError('required')) {
+        <mat-error>Email é <strong>Obrigatório</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+      <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" [style.background-color] = "'transparent'">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      @if (!loginForm.controls.password.hasError('required')) {
+        <mat-error>Insira uma senha</mat-error>
+      } @if (!loginForm.controls.password.hasError('minlength')) {
+        <mat-error>tamanho minimo de 8</mat-error>
+      }
+    </mat-form-field>
+
+  
+  
+    <button (click)="login()"color="primary">Entrar</button>
+    <p>
+        Ainda não tem uma conta ? <a [routerLink]="['/register']">Registrar</a>
+    </p>
+  </form>
+  
+</div>

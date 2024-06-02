@@ -1,0 +1,41 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    color: black;
+    gap:10px;
+}
+input:placeholder{
+    color: rgb(180, 178, 178) 
+}
+button{
+    cursor: pointer;
+    transition:all .2s ease ;
+}
+mat-form-field{
+    width: 100%;
+}
+button:hover{
+    scale: 1.08;
+    border:1px solid white;
+}
+.btn{
+    position: absolute;
+    top: 0;
+    margin: 10px;
+    border-radius:50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: red;
+    border: 1px solid red;
+    background-color: transparent;
+}
+.close.btn{
+    right: 0;    
+}
+
+.delete.btn{
+    left: 0;
+}

@@ -1,0 +1,62 @@
+<form class="form" [formGroup]="updateCardForm">
+    <h1>Editar Tarefa</h1>
+    <mat-form-field appearance="outline" class="formField">
+      <mat-label >Nome</mat-label>
+      <input  matInput formControlName="name" placeholder="Ex. Criar Designs" />
+  
+      @if (!updateCardForm.controls.name.hasError('required')) {
+      <mat-error>Porfavor insira Um nome valido</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="formField">
+      <mat-label >Descrição</mat-label>
+      <input
+      
+        matInput
+        formControlName="content"
+        placeholder="Ex. Criar um design para ..."
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="formField">
+        <mat-label >Nome Responsável</mat-label>
+        <input  matInput formControlName="userName" placeholder="Ex. João" />
+    
+        @if (!updateCardForm.controls.name.hasError('required')) {
+        <mat-error>Porfavor insira um nome valido</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="formField">
+        <mat-label >Quantidade de pessoas no projeto</mat-label>
+        <input  type="number" matInput formControlName="quantUsers" placeholder="Ex. 2" />
+    
+        @if (!updateCardForm.controls.name.hasError('required')) {
+        <mat-error>Porfavor insira um numero</mat-error>
+        }
+      </mat-form-field>
+    <mat-form-field class="formField">
+        <mat-label>Escolha uma Data</mat-label>
+        <input [style.color] = "'black'" matInput  formControlName="date" [matDatepicker]="picker">
+        @if (!updateCardForm.controls.name.hasError('required')) {
+            <mat-error>Porfavor insira uma Data</mat-error>
+        }
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <label for="colorPicker">Escolha uma Cor</label>
+    <input [value]="color" id="colorPicker" class="colorPicker" [(colorPicker)]="color" [style.background]="color" [cpOutputFormat]="'hex'" [cpDialogDisplay]="'popup'"/>
+
+    
+   
+  
+    <div class="button-group">
+      <button (click)="updateCard()" mat-flat-button color="primary">
+         Atualizar Tarefa
+      </button>
+
+      <button (click)="closeDialog()" mat-flat-button color="secondary">
+        Fechar
+      </button>
+    </div>
+  </form>
+  
