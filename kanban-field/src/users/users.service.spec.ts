@@ -2,12 +2,13 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { getModelToken } from '@nestjs/mongoose';
 import { User, UserDocument } from './entities/user.entity';
-import { CardsService } from '../cards/cards.service';
 import { Model } from 'mongoose';
 import { NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { CardsService } from '../cards/cards.service';
 import { Card } from '../cards/entities/card.entity';
+
 
 const userEntityList: User[] = [
   new User({ 

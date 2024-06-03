@@ -1,12 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from '../users/users.service';
-import { JwtService } from '@nestjs/jwt';
-import { TokenService } from '../token/token.service';
+import { TokenService } from './token.service';
 import { AuthService } from '../auth/auth.service';
 import { Model } from 'mongoose';
 import { Token, TokenDocument } from './token.entity';
 import { getModelToken } from '@nestjs/mongoose';
-import { User } from '../users/entities/user.entity';
 
 const responsible = 'responsible';
 
@@ -73,11 +71,6 @@ describe('AuthService', () => {
     });
 
     it('should update a token successfully if it exists', async () => {
-      // Arrange
-      const hash = 'hash';
-      const responsible = 'responsible';
-      const existingToken = { _id: '1', hash: 'oldhash', responsible: responsible };
-
       jest.spyOn(tokenModel, 'findOne').mockResolvedValueOnce(existingToken)
 
       // Act

@@ -7,7 +7,7 @@ import { ColumnsModule } from '../columns/columns.module';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: Card.name, schema: CardSchema }]),
-  ColumnsModule],
+  forwardRef(() => ColumnsModule)],
   controllers: [CardsController],
   providers: [CardsService],
   exports: [CardsService],

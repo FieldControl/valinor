@@ -10,7 +10,6 @@ import { BoardsService } from '../boards/boards.service';
 import { CardsService } from '../cards/cards.service';
 import { NotFoundException } from '@nestjs/common';
 import { UpdateColumnDto } from './dto/update-column.dto';
-import { Board } from '../boards/entities/board.entity';
 
 const userEntityList: User[] = [
   new User({ 

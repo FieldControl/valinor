@@ -13,7 +13,7 @@ dotenv.config();
 @Module({
   imports: [CardsModule, 
             ColumnsModule, 
-            MongooseModule.forRoot(process.env.DB_CONNECTION_STRING), 
+            MongooseModule.forRoot(process.env.DB_CONNECTION_STRING_TEST), 
             BoardsModule, 
             AuthModule],
   controllers: [AppController],

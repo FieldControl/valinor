@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -10,6 +10,7 @@ import { ColumnsService } from '../columns/columns.service';
 export class CardsService {
 
   constructor(@InjectModel(Card.name) private cardModel: Model<CardDocument>,
+              @Inject(forwardRef(() => ColumnsService))
               private columnsService: ColumnsService) {}
 
   async create(createCardDto: CreateCardDto, columnId: string, userId: string) {

@@ -11,6 +11,7 @@ import { BoardsService } from '../boards/boards.service';
 export class ColumnsService {
 
   constructor(@InjectModel(Column.name) private columnModel: Model<ColumnDocument>,
+              @Inject(forwardRef(() => BoardsService))
               private boardService: BoardsService,
               @Inject(forwardRef(() => CardsService))
               private cardService: CardsService) {}
