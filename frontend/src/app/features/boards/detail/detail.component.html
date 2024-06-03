@@ -1,0 +1,78 @@
+<div class="kb-board-header">
+  <button
+    mat-mini-fab
+    [routerLink]="['/boards']"
+    color="secondary"
+    aria-label="Back to boards"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <h1 class="kb-board-title">{{ board()?.name }}</h1>
+</div>
+
+<!-- Lists should come from swimlanes for the board -->
+
+<div
+  cdkDropListGroup
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="onSwimlaneChange($event)"
+  class="swimlanes-wrapper"
+>
+  @for(swimlane of board()?.swimlanes; track swimlane) {
+  <div class="swimlane" cdkDrag>
+    <div class="swimlane-header" cdkDragHandle>
+      <h2>{{ swimlane.name }}</h2>
+      <div>
+        <button
+          color="secondary"
+          mat-stroked-button
+          (click)="editSwimlane(swimlane)"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+
+    <div class="swimlane-inner">
+      <div
+        class="swimlane-inner__dragzone"
+        cdkDropList
+        cdkDropListOrientation="vertical"
+        [cdkDropListData]="swimlane.cards"
+        (cdkDropListDropped)="onCardChange($event, swimlane)"
+      >
+        @for(card of swimlane.cards; track card) {
+        <button
+          class="swimlane__card"
+          (click)="addOrEditCard(swimlane, card)"
+          cdkDrag
+        >
+          {{ card.name }}
+        </button>
+        }
+      </div>
+    </div>
+    <button (click)="addOrEditCard(swimlane)" mat-button>Add card</button>
+  </div>
+  }
+  <div class="swimlane">
+    <h2>New swimlane</h2>
+    <div class="swimlane-inner">
+      <form [formGroup]="swimlaneForm">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Ex. Todo" />
+
+          @if (!swimlaneForm.controls.name.hasError('required')) {
+          <mat-error>Please enter a valid name</mat-error>
+          } </mat-form-field
+        ><br />
+        <button (click)="addSwimlane()" color="primary" mat-flat-button>
+          Add swimlane
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h1>My boards</h1>
+<!-- Boards -->
+<div class="board-wrapper">
+  @for (board of boards(); track board) {
+  <a class="board" [routerLink]="['/boards', board.id]">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ board.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <button (click)="openNewBoardFlow($event, board)" mat-button>
+          Edit
+        </button>
+        <button (click)="deleteBoard($event, board)" mat-button>Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </a>
+  }
+</div>
+
+<button (click)="openNewBoardFlow($event)" mat-flat-button color="primary">
+  Add a board
+</button>

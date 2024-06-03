@@ -1,0 +1,33 @@
+<form [formGroup]="addCardForm">
+  <h1>{{ data.card?.id ? "Edit" : "Add" }} card</h1>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Ex. My card" />
+
+    @if (!addCardForm.controls.name.hasError('required')) {
+    <mat-error>Please enter a valid name</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Content</mat-label>
+    <textarea
+      matInput
+      formControlName="content"
+      placeholder="Ex. My card"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="button-group">
+    <button (click)="createOrEditCard()" mat-flat-button color="primary">
+      {{ data.card?.id ? "Edit" : "Add" }} card
+    </button>
+    @if(data.card?.id){
+    <button (click)="deleteCard()" mat-flat-button color="warn">
+      Delete card
+    </button>
+    }
+    <button (click)="closeDialog()" mat-flat-button color="secondary">
+      Close dialog
+    </button>
+  </div>
+</form>

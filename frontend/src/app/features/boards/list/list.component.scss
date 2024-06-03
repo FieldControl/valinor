@@ -1,0 +1,36 @@
+:host {
+  .board-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+
+    .board {
+      all: unset;
+      box-sizing: border-box;
+      width: calc(25% - 20px);
+      padding: 10px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      height: 100%;
+      display: flex;
+      cursor: pointer;
+
+      mat-card {
+        padding: 8px 8px 24px;
+        width: 100%;
+      }
+
+      @media (max-width: 1280px) {
+        width: calc(25% - 20px);
+      }
+
+      @media (max-width: 768px) {
+        width: calc(100% - 20px);
+      }
+    }
+  }
+
+  button {
+    margin-top: 20px;
+  }
+}
