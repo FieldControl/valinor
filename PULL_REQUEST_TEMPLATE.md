@@ -32,6 +32,11 @@ O que você entende que pode ser melhorado e como isso pode ser feito?
 
 **Resposta:** *É possível melhorar várias coisas, como a organização dos arquivos para que não fiquem todos os modelos na raiz do back-end, ou atualizar os modelos para que usem o modelo cascata e seja possível deletar uma board sem ter que deletar tudo dentro dela. Também é uma ideia interessante adicionar a possibilidade de criar uma aba de links dentro do card, para que um card possa ser redirecionado para uma issue no GitHub.*
 
+**Vídeo de apresentação**
+
+Grave um vídeo do seu projeto rodando e envie o link:
+https://jam.dev/c/3e2d7013-e183-48c9-9d74-c490212f2f04
+
 **Sobre você**
 
 Queremos te conhecer um pouco melhor, conte um pouco sobre você.
