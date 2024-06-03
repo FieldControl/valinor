@@ -1,0 +1,8 @@
+.task-completed {
+    text-decoration: line-through;
+}
+
+.task-item-description {
+    flex-grow: 1;
+    white-space: pre-line;
+}

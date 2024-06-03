@@ -1,0 +1,20 @@
+# Este é um exemplo de configuração de compilação para JavaScript.
+# Verifique nossos guias em https://confluence.atlassian.com/x/14UWN para mais exemplos.
+# Use apenas espaços para recuar sua configuração .yml.
+#-----
+# Você pode especificar uma imagem docker personalizada do Docker Hub como seu ambiente de construção.
+image: node:10.15.3
+
+pipelines:
+  branches:
+    master:      
+      - step:
+          name: 'Build'
+          caches:
+            - node
+          script:
+            - echo "Start!"
+            - npm install
+            - npm run build
+            - echo "Finished!"
+
