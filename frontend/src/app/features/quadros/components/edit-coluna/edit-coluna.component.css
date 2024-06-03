@@ -1,0 +1,24 @@
+:host{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 24px 24px 32px;
+}
+
+button{
+    width: 100%;
+}
+
+mat-form-field{
+    width: 100%;
+}
