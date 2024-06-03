@@ -1,13 +1,10 @@
-# App
+# ToDoApp
 
-Esse projeto foi criado com [Angular CLI](https://github.com/angular/angular-cli) versão 8.3.18 e [NestJs](https://github.com/nestjs/docs.nestjs.com)  versão 10.3.2 .
+Esse projeto foi criado com [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
 
 ## Servidor de Desenvolvimento
-Angular:
-Execute o comando `ng serve` pelo terminal. Navegue para o link `http://localhost:4200/`.
 
-Nest.js
-Execute o comando 'npm run start:dev' pelo terminal. Navegue para o link 'http://localhost:3000/' .
+Execute o comando `ng serve` pelo terminal. Navegue para o link `http://localhost:4200/`.
 
 ## Andaime de código
 
@@ -17,11 +14,7 @@ Execute o comando `ng generate component component-name` para gerar um novo comp
 
 Execute `ng build` para construir o projeto. Os artefatos dec construção serão armazenados em `dist/` no diretório. Utilize `--prod` para construção de bandeira de produção.
 
-## Como Usar
-
-A aplicação web consiste em uma página de tarefas. Sendo possível criar uma nova tarefa no botão na parte superior "Nova Tarefa", feito isso, poderá marcar como concluida pelo checkbox. Na parte direita, temos dois botões para alterar e excluir a tarefa..
-
-## Rodando Testes Unitários
+## Rodando testes unitários
 
 Execute o comando no terminal `ng test` para rodar os testes unitários pelo [Karma](https://karma-runner.github.io).
 
