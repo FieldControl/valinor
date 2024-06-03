@@ -219,7 +219,7 @@ Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais p
 A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a aplicação de tecnologias modernas e práticas de desenvolvimento de software, elevando a qualidade e a experiência do usuário final.
 
 
-Dúvidas?
+Dúvidas? 
 ----------
 Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
 
