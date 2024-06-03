@@ -1,0 +1,47 @@
+<div class="kb-board-header">
+    <button
+      mat-mini-fab
+      [routerLink]="['/quadros']"
+      color="secondary"
+      aria-label="Back to boards"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  
+    <h1 class="kb-board-title">{{ quadro()?.nome }}</h1>
+  </div>
+
+
+  <div class="colunas-wrapper">
+    
+      @for(coluna of quadro()?.colunas; track coluna ){
+      <div class="coluna">
+        <div cdkDropList>
+          <button mat-button (click)="deleteColuna(coluna)">Delete</button>
+            <h2>{{coluna.nome}}</h2>
+            <div cdkDropList>
+                @for(card of coluna.cards; track card){
+                   <div cdkDrag>{{card.nome}}</div> 
+                }
+                <button mat-button>Adicionar Card</button>
+            </div>       
+        </div>    
+      </div>
+    }
+    
+      <div>
+        <form [formGroup]="colunaForm">
+          <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" placeholder="Ex. My board" />
+        
+            @if (!colunaForm.controls.nome.hasError('required')) {
+            <mat-error>Please enter a valid name</mat-error>
+            }
+          </mat-form-field>       
+        <button mat-flat-button color="primary" (click)="addColuna()">Adicionar Coluna</button>
+      </form>
+      </div>
+  </div>
+
+
