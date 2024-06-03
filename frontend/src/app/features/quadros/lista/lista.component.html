@@ -1,8 +1,10 @@
-<h1>Meus Quadros</h1>
+<div class="quadro-wrapper">
 
-<button (click)="openNovoQuadroFlow($event)" mat-flat-button color="primary">
-  Adicionar um Quadro
- </button>
+
+  <h1>Meus Quadros</h1>
+  <button (click)="openNovoQuadroFlow($event)" mat-flat-button color="primary">
+    Adicionar um Quadro </button>
+</div>
 
 <div class="quadro-wrapper">
 @for(quadro of quadros(); track quadro){

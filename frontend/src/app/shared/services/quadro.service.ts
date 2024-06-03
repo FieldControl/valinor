@@ -4,6 +4,15 @@ import { Observable } from 'rxjs';
 import { ILogin, ILoginReponse, IRegister } from './models/user.model';
 import { ICreateQuadro, IQuadro } from './models/quadro.model';
 
+
+export interface ReordereColunaDto {
+  quadroId: number;
+  items: ReordereColunaItemDto[];
+}
+export interface ReordereColunaItemDto {
+  id: number;
+  ordem: number;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -31,5 +40,8 @@ export class QuadroService {
 
   getQuadroById(id: number): Observable<IQuadro> {
     return this.http.get<IQuadro>(`/api/quadro/${id}`);
+  }
+  updateOrdemColuna(reorder: ReordereColunaDto): Observable<void> {
+    return this.http.put<void>('/api/colunas/update-order', reorder);
   }
 }

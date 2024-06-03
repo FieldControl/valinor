@@ -8,6 +8,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { IQuadro } from '../../../shared/services/models/quadro.model';
 import { AddQuadroComponent } from '../components/add-quadro/add-quadro.component';
 import { Subject, filter, mergeMap, switchMap } from 'rxjs';
+import { ConfirmComponent } from '../../../shared/ui/confirm/confirm.component';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class ListaComponent implements OnInit{
     $event.stopImmediatePropagation();
     $event.preventDefault();
     this.dialog
-      .open(AddQuadroComponent, { width: '450px', data: { quadro } })
+      .open(AddQuadroComponent, { width: '500px', data: { quadro } })
       .afterClosed()
       .subscribe((quadro: IQuadro) => {
         quadro && this.refetch$.next();
@@ -44,21 +45,21 @@ export class ListaComponent implements OnInit{
 
   deleteQuadro($event: Event, quadro: IQuadro) {
     console.log("entrou")
-    // $event.stopImmediatePropagation();
-    // $event.preventDefault();
-    // this.dialog
-    //   .open(ConfirmComponent, {
-    //     data: {
-    //       title: 'Delete Board',
-    //       message: 'Are you sure you want to delete this board?',
-    //     },
-    //   })
-    //   .afterClosed()
-    //   .pipe(
-    //     filter((result) => result),
-    //     mergeMap(() => this.quadroService.deleteQuadro(quadro.id))
-    //   )
-    //   .subscribe(() => this.refetch$.next());
+    $event.stopImmediatePropagation();
+    $event.preventDefault();
+    this.dialog
+      .open(ConfirmComponent, {
+        data: {
+          title: 'Deletar Quadro',
+          message: 'Tem certeza que deseja deletar o Quadro?',
+        },
+      })
+      .afterClosed()
+      .pipe(
+        filter((result) => result),
+        mergeMap(() => this.quadroService.deleteQuadro(quadro.id))
+      )
+      .subscribe(() => this.refetch$.next());
   }
 
 

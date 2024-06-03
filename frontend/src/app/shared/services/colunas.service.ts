@@ -13,12 +13,15 @@ export class ColunasService {
   createColuna(createColuna: ICreateColuna): Observable<IColuna> {
     return this.http.post<IColuna>('/api/colunas', createColuna);
   }
-  // updateSwimlane(updateColuna: IUpdateSColuna): Observable<IColuna> {
-  //   return this.http.patch<IUpdateSColuna>(
-  //     `/api/swimlane/${updateColuna.id}`,
-  //     updateColuna
-  //   );
-  // }
+
+  updateColuna(updateColuna: IUpdateSColuna): Observable<IColuna> {
+    return this.http.patch<IColuna>(
+      `/api/colunas/${updateColuna.id}`,
+      updateColuna
+    );
+  }
+
+  
   deleteColuna(colunaId: number): Observable<void> {
     return this.http.delete<void>(`/api/colunas/${colunaId}`);
   }

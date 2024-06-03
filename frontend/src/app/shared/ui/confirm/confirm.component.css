@@ -1,0 +1,21 @@
+.kb-dialog {
+    width: 340px;
+    padding: 16px;
+}
+
+.kb-dialog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
+
+.kb-dialog__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.kb-dialog__content {
+    padding: 16px 0 24px;
+  }

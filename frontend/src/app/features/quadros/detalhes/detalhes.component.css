@@ -1,10 +1,6 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+
   
-  :host .kb-board-header {
+.board-header {
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -14,12 +10,12 @@
     gap: 24px;
   }
   
-  :host .kb-board-header .kb-board-title {
+  .board-title {
     margin: 0;
     color: gray;
   }
   
-  :host .colunas-wrapper {
+.colunas-wrapper {
     overflow: auto;
     flex-grow: 1;
     padding: 0 16px 20px;
@@ -28,9 +24,11 @@
     flex-wrap: nowrap;
     gap: 24px;
     height: 100%;
+    align-items: center;
+    justify-content: center;
   }
   
-  :host .colunas-wrapper .coluna {
+.coluna {
     width: 240px;
     flex-shrink: 0;
     flex-grow: 0;
@@ -41,7 +39,7 @@
     padding: 24px 24px 32px;
   }
   
-  :host .colunas-wrapper .coluna .coluna-header {
+.coluna-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,11 +51,12 @@
     z-index: 3;
   }
   
-  :host .colunas-wrapper .coluna .coluna-header h2 {
-    margin: 0;
+.coluna-header h2 {
+    margin: 10px;
   }
-  
-  :host .colunas-wrapper .coluna .coluna-header button {
+
+
+.colunas-wrapper .coluna .coluna-header button {
     width: 40px;
     padding: 4px;
     border-radius: 4px;
@@ -66,7 +65,7 @@
     cursor: pointer;
   }
   
-  :host .colunas-wrapper .coluna .coluna__card {
+  .colunas-wrapper .coluna .coluna-card {
     margin-bottom: 16px;
     border: 2px solid #eee;
     padding: 16px;
@@ -80,15 +79,18 @@
     width: 100%;
   }
   
-  :host .colunas-wrapper .coluna .coluna-inner {
+  .colunas-wrapper .coluna .coluna-inner {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px 16px 24px;
     border-radius: 4px;
   }
   
-  :host .colunas-wrapper .coluna .coluna-inner .coluna-inner__dragzone {
+  .colunas-wrapper .coluna .coluna-inner .coluna-inner__dragzone {
     min-height: 50px;
   }
 
 
+.btn-back{
+  margin: 0px 0px 0px 20px;
+}
