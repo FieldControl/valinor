@@ -13,7 +13,7 @@ const userEntity: User[] = [
 ];
 
 const cardEntity: Card[] = [
-  new Card({ name: 'card 1', description: 'Descrição', createdAt: new Date(), dueDate: '2024-12-31', column: '664fa1f6d2e549d1d6b42bbb' })
+  new Card({ name: 'card 1', description: 'Descrição', createdAt: new Date(), dueDate: new Date(), column: '664fa1f6d2e549d1d6b42bbb' })
 ];
 
 const columnEntity: Column[] = [

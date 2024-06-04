@@ -24,7 +24,7 @@ const userEntityList: User[] = [
 ]
 
 const cardEntityList: Card[] = [
-  new Card({ name: 'card 1', description: 'Descrição', createdAt: new Date(), dueDate: '2024-12-31', column: '664fa1f6d2e549d1d6b42bbb' })
+  new Card({ name: 'card 1', description: 'Descrição', createdAt: new Date(), dueDate: new Date(), column: '664fa1f6d2e549d1d6b42bbb' })
 ];
 
 const updatedUserEntity = new User({name: 'updated user', email: 'email@exemplo.com', password: 'senha'})

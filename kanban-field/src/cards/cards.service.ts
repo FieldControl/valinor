@@ -1,9 +1,9 @@
-import { BadRequestException, Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Card, CardDocument } from './entities/card.entity';
-import mongoose, { Model } from 'mongoose';
+import { Model } from 'mongoose';
 import { ColumnsService } from '../columns/columns.service';
 
 @Injectable()

@@ -26,7 +26,7 @@ const cardEntityList: Card[] = [
     name: 'card 1', 
     description: 'Descrição', 
     createdAt: new Date(), 
-    dueDate: '2024-12-31', 
+    dueDate: new Date(), 
     responsibles: userEntityList,
     column: '664fa1f6d2e549d1d6b42bbb',
     position: 0 }),
@@ -34,7 +34,7 @@ const cardEntityList: Card[] = [
     name: 'card 2', 
     description: 'Descrição', 
     createdAt: new Date(), 
-    dueDate: '2024-12-31', 
+    dueDate: new Date(), 
     responsibles: userEntityList,
     column: '664fa1f6d2e549d1d6b42bbb',
     position: 1 })
@@ -44,7 +44,7 @@ const updatedCardEntity = new Card({
   name: 'updated card', 
   description: 'Descrição', 
   createdAt: new Date(), 
-  dueDate: '2024-12-31', 
+  dueDate: new Date(), 
   responsibles: userEntityList,
   column: '664fa1f6d2e549d1d6b42bbb',
   position: 1 

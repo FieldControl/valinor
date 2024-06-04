@@ -20,7 +20,6 @@ describe('AuthService', () => {
   let tokenService: TokenService;
   let tokenModel: Model<TokenDocument>
   let authService: AuthService;
-  let userService: UsersService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -52,7 +51,6 @@ describe('AuthService', () => {
     tokenService = module.get<TokenService>(TokenService);
     tokenModel = module.get<Model<TokenDocument>>(getModelToken(Token.name))
     authService = module.get<AuthService>(AuthService);
-    userService = module.get<UsersService>(UsersService);
   });
 
   it('should be defined', () => {

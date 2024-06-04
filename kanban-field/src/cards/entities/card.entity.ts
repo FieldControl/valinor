@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
-import { Column } from 'src/columns/entities/column.entity';
 import { User } from 'src/users/entities/user.entity';
 
 export type CardDocument = HydratedDocument<Card>;
@@ -17,7 +16,7 @@ export class Card {
   createdAt: Date
 
   @Prop()
-  dueDate: string
+  dueDate: Date
 
   @Prop({type: mongoose.Schema.Types.Array, ref: "User"})
   responsibles: User[]

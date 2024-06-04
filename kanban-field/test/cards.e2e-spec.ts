@@ -112,7 +112,7 @@ describe('CardsController (e2e)', () => {
         const card = {
           name: `Test Card ${Date.now()}`,
           description: 'Test description',
-          dueDate: '12/12/2024',
+          dueDate: new Date(),
           column: columnId,
         };
       
@@ -127,7 +127,7 @@ describe('CardsController (e2e)', () => {
 
           expect(response.body.name).toBe(card.name);
           expect(response.body.description).toBe(card.description);
-          expect(response.body.dueDate).toBe(card.dueDate);
+          expect(new Date(response.body.dueDate)).toEqual(card.dueDate);
           expect(response.body.column).toBe(columnId);
     
           return response;

@@ -8,7 +8,6 @@ import { User, UserDocument } from '../users/entities/user.entity';
 import { UsersService } from '../users/users.service';
 import { getModelToken } from '@nestjs/mongoose';
 import { Card } from '../cards/entities/card.entity';
-import { CreateUserDto } from '../users/dto/create-user.dto';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { NotFoundException } from '@nestjs/common';
 import { UpdateBoardDto } from './dto/update-board.dto';
@@ -48,7 +47,7 @@ const cardEntityList: Card[] = [
     name: 'card 1', 
     description: 'Descrição', 
     createdAt: new Date(), 
-    dueDate: '2024-12-31', 
+    dueDate: new Date(), 
     responsibles: userEntityList,
     column: '664fa1f6d2e549d1d6b42bbb',
     position: 0 }),
@@ -56,7 +55,7 @@ const cardEntityList: Card[] = [
     name: 'card 2', 
     description: 'Descrição', 
     createdAt: new Date(), 
-    dueDate: '2024-12-31', 
+    dueDate: new Date(), 
     responsibles: userEntityList,
     column: '664fa1f6d2e549d1d6b42bbb',
     position: 1 })
