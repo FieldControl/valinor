@@ -65,7 +65,7 @@ describe('RegisterComponent', () => {
   it('should set registerFailed to true on register error', () => {
     const registerCredentials = { name: "Test User", email: 'email@exemplo.com', password: 'password' };
     registerComponent.registerForm.setValue(registerCredentials);
-    userServiceMock.create.and.returnValue(throwError('error'));
+    userServiceMock.create.and.returnValue(throwError(() => ({error: { message: 'error' }})));
 
     registerComponent.register();
 

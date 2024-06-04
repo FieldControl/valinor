@@ -13,7 +13,7 @@ export class TokenService extends DefaultService {
         super('token');
     }
 
-    private refreshTokenInterval: any;
+    // private refreshTokenInterval: any;
 
     decodeToken(): any {
         const token = localStorage.getItem('acess_token')
@@ -26,18 +26,18 @@ export class TokenService extends DefaultService {
         return this.http.put(`${this.url}/refresh`, { oldToken });
       }
     
-    startRefreshTokenTimer() {
-    // tempo de expiração do token
-    const expiresIn = 10 * 1000;
+    // startRefreshTokenTimer() {   Não continuei com a implementação
+    // // tempo de expiração do token
+    // const expiresIn = 10 * 1000;
     
-    // atualiza o token antes de expirar
-    this.refreshTokenInterval = setInterval(() => {
-        const token = localStorage.getItem('acess_token');
-        if (token) {
-            this.refreshToken(token).subscribe();
-            console.log('refrescadoooooo',token)
-        }
-    }, expiresIn);
-    }
+    // // atualiza o token antes de expirar
+    // this.refreshTokenInterval = setInterval(() => {
+    //     const token = localStorage.getItem('acess_token');
+    //     if (token) {
+    //         this.refreshToken(token).subscribe();
+    //         console.log(token)
+    //     }
+    // }, expiresIn);
+    // }
       
 }

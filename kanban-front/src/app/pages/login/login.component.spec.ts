@@ -60,7 +60,7 @@ describe('LoginComponent', () => {
   it('should set loginFailed to true on login error', () => {
     const loginCredentials = { email: 'email@exemplo.com', password: 'password' };
     loginComponent.loginForm.setValue(loginCredentials);
-    userServiceMock.login.and.returnValue(throwError('error'));
+    userServiceMock.login.and.returnValue(throwError(() => ({error: { message: 'error' }})));
 
     loginComponent.login();
 

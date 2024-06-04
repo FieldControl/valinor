@@ -1,8 +1,5 @@
 import { Routes } from '@angular/router';
-import { UserListComponent } from './pages/user-list/user-list.component';
 import { AuthGuard } from './shared/services/auth.guard';
-
-
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,14 +18,6 @@ export const routes: Routes = [
         ),
     },
     {
-      path: 'users',
-      loadComponent: () =>
-        import('./pages/user-list/user-list.component').then(
-          (m) => m.UserListComponent
-        ),
-        canActivate: [AuthGuard]
-    },
-    {
       path: 'boards',
       loadComponent: () =>
         import('./pages/board-environment/boards/boards.component').then(
@@ -44,5 +33,5 @@ export const routes: Routes = [
         ),
         canActivate: [AuthGuard]
     },
-
+    { path: '**', redirectTo: '/boards' },
 ];

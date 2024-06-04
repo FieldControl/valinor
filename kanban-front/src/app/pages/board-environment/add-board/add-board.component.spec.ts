@@ -6,7 +6,7 @@ import { BoardService } from '../../../shared/services/board.service';
 import { UserService } from '../../../shared/services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { IBoard, ICreateBoard } from '../../../core/models/board';
+import { IBoard } from '../../../core/models/board';
 import { of, throwError } from 'rxjs';
 
 describe('AddBoardComponent - Create', () => {
@@ -59,16 +59,16 @@ describe('AddBoardComponent - Create', () => {
   });
 
   it('should display error message if form is invalid on create', () => {
-    const boardData: ICreateBoard = { name: '', responsibles: [] };
-    addBoardComponent.addBoardForm.setValue(boardData);
+    const boardData: Partial<IBoard> = { name: '', responsibles: [] };
+    addBoardComponent.addBoardForm.patchValue(boardData);
     addBoardComponent.createOrEditBoard();
     expect(addBoardComponent.addBoardFailed).toBeTrue();
   });
 
   it('should call BoardService.createByMail when form is valid on create', () => {
-    const boardData: ICreateBoard = { name: 'New Board', responsibles: ['new@exemplo.com'] };
+    const boardData: Partial<IBoard> = { name: 'New Board', responsibles: ['new@exemplo.com'] };
 
-    addBoardComponent.addBoardForm.setValue(boardData);
+    addBoardComponent.addBoardForm.patchValue(boardData);
     boardServiceMock.createByMail.and.returnValue(of({ ...boardData, _id: '1234' } as IBoard));
 
     addBoardComponent.createOrEditBoard();
@@ -78,9 +78,10 @@ describe('AddBoardComponent - Create', () => {
   });
 
   it('should handle error on create - no existing user', () => {
-    const boardData: ICreateBoard = { name: 'New Board', responsibles: ['new@example.com'] };
-    addBoardComponent.addBoardForm.setValue(boardData);
-    boardServiceMock.createByMail.and.returnValue(throwError({ error: { message: 'Cannot read properties of null' } }));
+    const boardData: Partial<IBoard> = { name: 'New Board', responsibles: ['new@example.com'] };
+    addBoardComponent.addBoardForm.patchValue(boardData);
+    boardServiceMock.createByMail.and.returnValue(throwError(() => ({error: { message: 'Cannot read properties of null' }})));
+    
 
     addBoardComponent.createOrEditBoard();
 
@@ -152,16 +153,16 @@ describe('AddBoardComponent - Update', () => {
   });
 
   it('should display error message if form is invalid on update', () => {
-    const boardData: ICreateBoard = { name: '', responsibles: [] };
-    addBoardComponent.addBoardForm.setValue(boardData);
+    const boardData: Partial<IBoard> = { name: '', responsibles: [] };
+    addBoardComponent.addBoardForm.patchValue(boardData);
     addBoardComponent.createOrEditBoard();
     expect(addBoardComponent.addBoardFailed).toBeTrue();
   });
 
   it('should call BoardService.updateByMail when form is valid on update', () => {
-    const boardData: ICreateBoard = { name: 'updated Board', responsibles: ['updated@exemplo.com'] };
+    const boardData: Partial<IBoard> = { name: 'updated Board', responsibles: ['updated@exemplo.com'] };
 
-    addBoardComponent.addBoardForm.setValue(boardData);
+    addBoardComponent.addBoardForm.patchValue(boardData);
     boardServiceMock.editByMail.and.returnValue(of({ ...boardData, _id: '123' } as IBoard));
 
     addBoardComponent.createOrEditBoard();
@@ -171,9 +172,9 @@ describe('AddBoardComponent - Update', () => {
   });
 
   it('should handle error on update - no existing user', () => {
-    const boardData: ICreateBoard = { name: 'Updated Board', responsibles: ['updated@example.com'] };
-    addBoardComponent.addBoardForm.setValue(boardData);
-    boardServiceMock.editByMail.and.returnValue(throwError({ error: { message: 'Cannot read properties of null' } }));
+    const boardData: Partial<IBoard> = { name: 'Updated Board', responsibles: ['updated@example.com'] };
+    addBoardComponent.addBoardForm.patchValue(boardData);
+    boardServiceMock.editByMail.and.returnValue(throwError(() => ({error: { message: 'Cannot read properties of null' }})));
 
     addBoardComponent.createOrEditBoard();
 

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BoardService } from '../../../shared/services/board.service';
-import { IBoard, ICreateBoard } from '../../../core/models/board';
+import { IBoard } from '../../../core/models/board';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -66,7 +66,7 @@ export class AddBoardComponent {
   }
 
   private updateBoard() {  
-    this.boardService.editByMail(this.data.board?._id, this.addBoardForm.value as ICreateBoard)
+    this.boardService.editByMail(this.data.board?._id, this.addBoardForm.value as IBoard)
     .subscribe({
       next: (board: IBoard) => {
         console.log('Sucesso', board);
@@ -84,7 +84,7 @@ export class AddBoardComponent {
   }
 
   private createBoard() {
-    this.boardService.createByMail(this.addBoardForm.value as ICreateBoard)
+    this.boardService.createByMail(this.addBoardForm.value as IBoard)
     .subscribe({
       next: (board: IBoard) => {
         console.log('Sucesso', board);

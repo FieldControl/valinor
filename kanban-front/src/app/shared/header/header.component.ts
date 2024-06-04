@@ -21,6 +21,6 @@ export class HeaderComponent {
   logout() {
     localStorage.removeItem('acess_token')
 
-    this.router.navigate(['/'])
+    this.router.navigateByUrl('/')
   }
 }

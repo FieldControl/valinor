@@ -19,8 +19,7 @@ export class AddCardComponent {
   data = inject(MAT_DIALOG_DATA);
   private cardService = inject(CardService)
   private dialogRef = inject(MatDialogRef);
-  private dialog = inject(MatDialog);
-  private columnId = this.data.columnId;
+  columnId = this.data.columnId;
 
   addCardFailed = false
 
@@ -32,6 +31,7 @@ export class AddCardComponent {
 
   createOrEditCard() {
     if (this.addCardForm.invalid) {
+      this.addCardFailed = true;
       return;
     }
 
@@ -42,12 +42,7 @@ export class AddCardComponent {
     }
   }
 
-  private updateCard() {
-    if (this.addCardForm.invalid) {
-      this.addCardFailed = true;
-      return;
-    }
-  
+  private updateCard() {  
     this.cardService.edit(this.data.card?._id, this.addCardForm.value as ICard)
     .subscribe((card: ICard) => {
         console.log('Sucesso');
@@ -56,11 +51,6 @@ export class AddCardComponent {
   }
 
   private createCard() {
-    if (this.addCardForm.invalid) {
-      this.addCardFailed = true;
-      return;
-    }
-
     this.cardService.create({
       ...this.addCardForm.value,
       column: this.columnId})

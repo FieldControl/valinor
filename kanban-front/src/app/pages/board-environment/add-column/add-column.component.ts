@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { ColumnService } from '../../../shared/services/column.service';
-import { IColumn, ICreateColumn } from '../../../core/models/column';
+import { IColumn } from '../../../core/models/column';
 
 @Component({
   selector: 'app-add-column',
@@ -19,7 +19,7 @@ export class AddColumnComponent {
   private columnService = inject(ColumnService)
   private dialogRef = inject(MatDialogRef);
   data = inject(MAT_DIALOG_DATA);
-  private boardId = this.data.boardId;
+  boardId = this.data.boardId;
 
   addColumnFailed = false
 
@@ -29,6 +29,7 @@ export class AddColumnComponent {
 
   createOrEditColumn() {
     if (this.addColumnForm.invalid) {
+      this.addColumnFailed = true;
       return;
     }
 
@@ -40,11 +41,6 @@ export class AddColumnComponent {
   }
 
   private createColumn() {
-  if (this.addColumnForm.invalid) {
-    this.addColumnFailed = true;
-    return;
-  }
-
   this.columnService.create({
     name: this.addColumnForm.value.name as string,
     board: this.boardId
@@ -57,13 +53,8 @@ export class AddColumnComponent {
   });
 }
 
-  private updateColumn() {
-    if (this.addColumnForm.invalid) {
-      this.addColumnFailed = true;
-      return;
-    }
-  
-    this.columnService.edit(this.data.column?._id, this.addColumnForm.value as ICreateColumn)
+  private updateColumn() {  
+    this.columnService.edit(this.data.column?._id, this.addColumnForm.value as IColumn)
     .subscribe((column: IColumn) => {
         console.log('Sucesso');
         this.dialogRef.close(column)

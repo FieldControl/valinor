@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { IBoard, ICreateBoard } from "../../core/models/board";
+import { IBoard } from "../../core/models/board";
 
 @Injectable({
     providedIn: 'root',
@@ -21,19 +21,19 @@ export class BoardService extends DefaultService {
         return this.http.get<IBoard>(`${this.url}/${id}`)
     }
 
-    create(board: ICreateBoard): Observable<IBoard> {
+    create(board: Partial<IBoard>): Observable<IBoard> {
         return this.http.post<IBoard>(this.url, board)
     }
 
-    createByMail(board: ICreateBoard): Observable<IBoard> {
+    createByMail(board: Partial<IBoard>): Observable<IBoard> {
         return this.http.post<IBoard>(`${this.url}/create-by-email`, board)
     }
 
-    edit(boardId: string, board: ICreateBoard): Observable<IBoard> {
+    edit(boardId: string, board: Partial<IBoard>): Observable<IBoard> {
         return this.http.patch<IBoard>(`${this.url}/${boardId}`, board)
     }
 
-    editByMail(boardId: string, board: ICreateBoard): Observable<IBoard> {
+    editByMail(boardId: string, board: Partial<IBoard>): Observable<IBoard> {
         return this.http.patch<IBoard>(`${this.url}/${boardId}/update-by-email`, board)
     }
 

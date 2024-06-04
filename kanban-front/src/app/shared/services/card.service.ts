@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { DefaultService } from "./default.service";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { ICard } from "../../core/models/card";
 import { Observable } from "rxjs";
 

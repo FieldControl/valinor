@@ -6,8 +6,3 @@ export interface IColumn {
     cards: ICard[];
     board: string;
 }
-
-export interface ICreateColumn {
-    name: string;
-    board: string;
-}
