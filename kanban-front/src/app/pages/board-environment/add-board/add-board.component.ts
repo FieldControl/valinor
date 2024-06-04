@@ -28,7 +28,7 @@ export class AddBoardComponent {
   noExistingMail = false
 
   ngOnInit() {
-    if (this.data.board?._id) {
+    if (this.data.board?._id) {  
       this.userService.findEmailsByIds(this.data.board?.responsibles)
         .subscribe(emails => {
           this.addBoardForm.patchValue({ responsibles: emails.join(',') });
@@ -43,12 +43,17 @@ export class AddBoardComponent {
 
   createOrEditBoard() {
     if (this.addBoardForm.invalid) {
+      this.addBoardFailed = true;
       return;
     }
 
     let responsiblesArray = [];
     if (this.addBoardForm.value.responsibles) {
-      responsiblesArray = this.addBoardForm.value.responsibles.split(',');
+      if (typeof this.addBoardForm.value.responsibles === 'string') {
+        responsiblesArray = this.addBoardForm.value.responsibles.split(',');
+      } else {
+        responsiblesArray = this.addBoardForm.value.responsibles;
+      }
     }
 
     this.addBoardForm.patchValue({ responsibles: responsiblesArray });
@@ -60,41 +65,36 @@ export class AddBoardComponent {
     }
   }
 
-  private updateBoard() {
-    if (this.addBoardForm.invalid) {
-      this.addBoardFailed = true;
-      return;
-    }
-
-  
+  private updateBoard() {  
     this.boardService.editByMail(this.data.board?._id, this.addBoardForm.value as ICreateBoard)
-    .subscribe((board: IBoard) => {
-        console.log('Sucesso');
+    .subscribe({
+      next: (board: IBoard) => {
+        console.log('Sucesso', board);
         this.dialogRef.close(board)
-      },(error) => {
+      },
+      error: (error) => {
         if (error.error.message.includes('Pelo menos um responsável deve ser fornecido')) {
           this.noResponsibles = true;
         }
         else if (error.error.message.includes('Cannot read properties of null')) {
           this.noExistingMail = true
         }
+      }
       });
   }
 
   private createBoard() {
-    if (this.addBoardForm.invalid) {
-      this.addBoardFailed = true;
-      return;
-    }
-
     this.boardService.createByMail(this.addBoardForm.value as ICreateBoard)
-    .subscribe((board: IBoard) => {
-        console.log('Sucesso');
+    .subscribe({
+      next: (board: IBoard) => {
+        console.log('Sucesso', board);
         this.dialogRef.close(board)
-      }, (error) => {
+      }, 
+      error: (error) => {
         if (error.error.message.includes('Cannot read properties of null')) {
           this.noExistingMail = true
         }
+      }
       });
   }
 

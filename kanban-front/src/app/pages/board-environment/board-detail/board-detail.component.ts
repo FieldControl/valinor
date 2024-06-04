@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ColumnService } from '../../../shared/services/column.service';
 import { IColumn } from '../../../core/models/column';
@@ -14,6 +14,7 @@ import { filter, firstValueFrom, mergeMap } from 'rxjs';
 import { ICard } from '../../../core/models/card';
 import { AddCardComponent } from '../add-card/add-card.component';
 import { CardService } from '../../../shared/services/card.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-board-detail',
@@ -29,6 +30,7 @@ export class BoardDetailComponent {
   private route = inject(ActivatedRoute)
   private dialog = inject(MatDialog);
   private formBuilder = inject(FormBuilder)
+  private router = inject(Router);
   columns: IColumn[] = [];
   board: IBoard | undefined
   boardId = ''
@@ -132,8 +134,11 @@ async updateAllPositions(cards: ICard[]) {
         this.board = data;
         console.log('Quadro', this.board)
       },
-      error: (e) => {
+      error: (e: HttpErrorResponse) => {
         console.log('Erro ao obter quadros: ',e)
+        if (e.status === 404 || e.status === 403 || e.status === 500) {
+          this.router.navigate(['/boards']);
+        }
       }
     })
   }

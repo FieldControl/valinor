@@ -12,7 +12,7 @@ import { DeleteComponent } from '../../../shared/delete/delete.component';
 @Component({
   selector: 'app-boards',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatDialogModule, MatButtonModule],
+  imports: [CommonModule, RouterModule, MatDialogModule],
   templateUrl: './boards.component.html',
   styleUrl: './boards.component.css',
 })

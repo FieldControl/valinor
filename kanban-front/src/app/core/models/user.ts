@@ -6,7 +6,7 @@ export interface IUser {
     email: string;
     password: string;
     cards: ICard[];
-    creation: string;
+    creation: Date;
 }
 
 export interface IRegister {
