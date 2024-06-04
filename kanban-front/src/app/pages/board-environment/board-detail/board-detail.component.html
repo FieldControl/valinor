@@ -1,3 +1,4 @@
+<h1>{{ board?.name }}</h1>
 <div class="column-box" cdkDropListGroup>
     @for (column of columns; track column) {
             <div class="column" >
@@ -5,7 +6,7 @@
                     <h5 class="column-title">{{ column.name }}</h5>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          . . .
+                        . . .
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a (click)="openColumnDialog($event, column)" class="dropdown-item">Editar coluna</a>
@@ -21,7 +22,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" (click)="openCardDialog($event, column._id, card)">Ver/Editar cartão</a>
                             <a class="dropdown-item" (click)="deleteCard($event, card)">Deletar cartão</a>
-                          </div>
+                        </div>
                         <div class="card-content" >
                             <div class="circle-box">
                                     @for (responsible of card.responsibles; track responsible) {

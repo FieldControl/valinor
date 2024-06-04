@@ -12,11 +12,11 @@
                 <div class="invalid-feedback">O nome é obrigatório!</div>
             }
         </div>
+        @if (addColumnFailed) {
+            <div class="error">Nome inválido</div>
+        }
         <div class="buttons">
 			<button type="button" (click)="createOrEditColumn()">Criar</button>
-            @if (addColumnFailed) {
-                <div class="login-error">Nome inválido</div>
-            }
             <button (click)="closeDialog()" class="ghost">Fechar</button>
         </div>
 		</form>

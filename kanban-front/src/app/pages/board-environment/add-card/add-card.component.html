@@ -30,11 +30,11 @@
                             class="form-control"
                             placeholder="Vencimento">
                     </div>
+                    @if (addCardFailed) {
+                        <div class="error">Preencha as credenciais corretamente</div>
+                    }
         <div class="buttons">
 			<button type="button" (click)="createOrEditCard()">Criar</button>
-            @if (addCardFailed) {
-                <div class="login-error">Nome inválido</div>
-            }
             <button (click)="closeDialog()" class="ghost">Fechar</button>
         </div>
 		</form>

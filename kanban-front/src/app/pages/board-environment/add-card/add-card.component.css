@@ -52,6 +52,11 @@ button:hover {
 	transform: scale(1.1);
 }
 
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
 @media (max-width: 600px) {
 	button {
 		padding: 7px 30px;

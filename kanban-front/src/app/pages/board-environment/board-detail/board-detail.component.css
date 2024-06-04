@@ -29,11 +29,16 @@
     background-color: transparent;
 }
 
+h1{
+    padding-top: 8vh;
+    color: rgb(243, 243, 243);
+    text-align: center;
+}
 
 .column-box {
     display: flex;
     flex-direction: row;
-    padding-top: 8vh;
+    padding-top: 2vh;
 }
 
 .column {
