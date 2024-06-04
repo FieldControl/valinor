@@ -1,5 +1,5 @@
-import { Card } from 'src/card/entities/card.entity';
-import { Quadro } from 'src/quadro/entities/quadro.entity';
+import { Card } from '../../card/entities/card.entity';
+import { Quadro } from '../../quadro/entities/quadro.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity()

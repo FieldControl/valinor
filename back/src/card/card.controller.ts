@@ -2,7 +2,7 @@ import { Controller, Request, Get, Post, Body, Patch, Param, Delete, UseGuards, 
 import { CardService } from './card.service';
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
-import { AuthGuard, PayloadRequest } from 'src/auth/auth/auth.guard';
+import { AuthGuard, PayloadRequest } from '../auth/auth/auth.guard';
 import { ReorderedCardDto } from './dto/reorder-cards.dto';
 
 @Controller('card')

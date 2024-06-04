@@ -2,7 +2,7 @@ import { Controller, Get, Request, Post, Body, Patch, Param, Delete, UseGuards, 
 import { ColunasService } from './colunas.service';
 import { CreateColunaDto } from './dto/create-coluna.dto';
 import { UpdateColunaDto } from './dto/update-coluna.dto';
-import { AuthGuard, PayloadRequest } from 'src/auth/auth/auth.guard';
+import { AuthGuard, PayloadRequest } from '../auth/auth/auth.guard';
 import { ReordereColunaDto } from './dto/reorder-coluna.dto';
 
 @Controller('colunas')

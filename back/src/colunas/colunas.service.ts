@@ -4,7 +4,7 @@ import { UpdateColunaDto } from './dto/update-coluna.dto';
 import { Coluna } from './entities/coluna.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UsuarioService } from 'src/usuario/usuario.service';
+import { UsuarioService } from '../usuario/usuario.service';
 import { ReordereColunaDto } from './dto/reorder-coluna.dto';
 
 @Injectable()

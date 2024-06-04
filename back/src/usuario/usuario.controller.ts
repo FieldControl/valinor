@@ -2,7 +2,7 @@ import { Controller,Request, Get, Post, Body, Patch, Param, Delete, UseGuards } 
 import { UsuarioService } from './usuario.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
-import { AuthGuard, PayloadRequest } from 'src/auth/auth/auth.guard';
+import { AuthGuard, PayloadRequest } from '../auth/auth/auth.guard';
 
 @Controller('usuario')
 export class UsuarioController {
