@@ -95,6 +95,13 @@ describe('BoardsController (e2e)', () => {
         .expect(200)
     });
 
+    it('/boards/:id (GET)', () => {
+      return request(app.getHttpServer())
+        .get(`/boards/${boardInfo[0]}`)
+        .set('Authorization', `Bearer ${token}`)
+        .expect(200);
+    });
+
     it('/boards/:id/update-by-email (PATCH)', () => {
     const updatedBoard = {
         name: "Updated board",

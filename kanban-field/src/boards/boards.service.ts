@@ -1,4 +1,4 @@
-import { Inject, Injectable, NotFoundException, UnauthorizedException, forwardRef } from '@nestjs/common';
+import { ForbiddenException, Inject, Injectable, NotFoundException, UnauthorizedException, forwardRef } from '@nestjs/common';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -65,6 +65,10 @@ async findOne(id: string, userId: string) {
     throw new NotFoundException('Quadro não encontrado');
   }
   
+  if (!board.responsibles.includes(userId)) {
+    throw new ForbiddenException('Sem permissão');
+  }
+
   board.columns = await this.columnsService.find({ board: id }, userId );
   
   return board
