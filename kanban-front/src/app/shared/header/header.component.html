@@ -1,0 +1,10 @@
+<nav id="desktop-nav">
+    <div class="options">
+        @if (user) {
+            <div class="profile"> Bem vindo (a): {{ user.username }} </div>
+
+        }
+
+        <a href="#" class="logout" (click)="logout()">Sair</a>
+    </div>
+</nav>

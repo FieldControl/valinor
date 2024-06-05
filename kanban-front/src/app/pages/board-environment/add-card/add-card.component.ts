@@ -1,0 +1,67 @@
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CardService } from '../../../shared/services/card.service';
+import { ICard } from '../../../core/models/card';
+import { CommonModule } from '@angular/common';
+import { DeleteComponent } from '../../../shared/delete/delete.component';
+import { filter, mergeMap } from 'rxjs';
+
+@Component({
+  selector: 'app-add-card',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule,],
+  templateUrl: './add-card.component.html',
+  styleUrl: './add-card.component.css'
+})
+export class AddCardComponent {
+  private formBuilder = inject(FormBuilder)
+  data = inject(MAT_DIALOG_DATA);
+  private cardService = inject(CardService)
+  private dialogRef = inject(MatDialogRef);
+  columnId = this.data.columnId;
+
+  addCardFailed = false
+
+  addCardForm = this.formBuilder.group({
+    name: this.formBuilder.control(this.data.card?.name, [Validators.required]),
+    description: this.formBuilder.control(this.data.card?.description, [Validators.required]),
+    dueDate: this.formBuilder.control(this.data.card?.dueDate),
+  })
+
+  createOrEditCard() {
+    if (this.addCardForm.invalid) {
+      this.addCardFailed = true;
+      return;
+    }
+
+    if (this.data.card?._id) {
+      this.updateCard();
+    } else {
+      this.createCard();
+    }
+  }
+
+  private updateCard() {  
+    this.cardService.edit(this.data.card?._id, this.addCardForm.value as ICard)
+    .subscribe((card: ICard) => {
+        console.log('Sucesso');
+        this.dialogRef.close(card)
+      });
+  }
+
+  private createCard() {
+    this.cardService.create({
+      ...this.addCardForm.value,
+      column: this.columnId})
+    .subscribe((card: ICard) => {
+        console.log('Sucesso');
+        this.dialogRef.close(card)
+      });
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+}

@@ -1,0 +1,22 @@
+<form   [formGroup]="addColumnForm">
+			<h1>{{ data.column?._id ? "Editar" : "Adicionar" }} coluna</h1>
+			<div class="form-group">
+            <input  type="text" 
+                    formControlName="name" 
+                    class="form-control" [ngClass]="{'is-invalid': addColumnForm.controls.name.invalid && addColumnForm.controls.name.touched}"
+                    placeholder="Nome">
+
+            @if (addColumnForm.controls.name.hasError('name') && addColumnForm.controls.name.touched) {
+                <div class="invalid-feedback">Insira um nome válido</div>
+            } @if (addColumnForm.controls.name.hasError('required') && addColumnForm.controls.name.touched) {
+                <div class="invalid-feedback">O nome é obrigatório!</div>
+            }
+        </div>
+        @if (addColumnFailed) {
+            <div class="error">Nome inválido</div>
+        }
+        <div class="buttons">
+			<button type="button" (click)="createOrEditColumn()">Criar</button>
+            <button (click)="closeDialog()" class="ghost">Fechar</button>
+        </div>
+		</form>
