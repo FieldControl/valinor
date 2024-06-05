@@ -39,63 +39,47 @@ Se tratando de testes, fiz uso do Jasmine (framework que permite a criação de 
 
 **Técnologias X e Y**
 
-NestJs
-A escolha pelo NestJs (v10) foi baseada principalmente nas exigências desse desafio. Pessoalmente, posso dizer que adquiri um conhecimento enorme em um framework que pouco havia ouvido falar. Me ofereceu diversas ferramentas no desenvolvimento e possui uma documentação e materiais na internet extremamente ricos.
+NestJs: A escolha pelo NestJs (v10) foi baseada principalmente nas exigências desse desafio. Pessoalmente, posso dizer que adquiri um conhecimento enorme em um framework que pouco havia ouvido falar. Me ofereceu diversas ferramentas no desenvolvimento e possui uma documentação e materiais na internet extremamente ricos.
 
-MongoDB e mongoose
-Sobre as escolha so banco, optei por MongoDB por questões de aprendizado. Antes de entrar nesse desafio, havia começado a conhecer o BD mais a fundo, e para melhorar ainda mais esse conhecimento, preferi usar o banco NoSQL para o desenvolvimento desse projeot, que por sua vez atendeu muito bem minhas necessidades.
+MongoDB e mongoose: Sobre as escolha so banco, optei por MongoDB por questões de aprendizado. Antes de entrar nesse desafio, havia começado a conhecer o BD mais a fundo, e para melhorar ainda mais esse conhecimento, preferi usar o banco NoSQL para o desenvolvimento desse projeot, que por sua vez atendeu muito bem minhas necessidades.
 Em relação ao Mongoose, por se tratar da biblioteca de modelação de dados do MongoDB, fiz uso dela durante o decorrer desse projeto.
 
-Sistema de login: JWT-strategy e local-strategy
-Como havia mencionado, o sistema de login foi bem trabalhado nesse desafio graças a combinação de possibilidades e documentação do framework NestJS. As estratégias local e JWT, ambas extensões da PassportStrategy, foram utilizadas para tornar todo esse processo mais seguro e bem estruturado, onde a local-strategy é responsável por autenticar o usuário com base em suas credenciais, e a JWT-strategy é responsável por autenticar as solicitações feitas pelos usuários.
+Sistema de login: JWT-strategy e local-strategy: Como havia mencionado, o sistema de login foi bem trabalhado nesse desafio graças a combinação de possibilidades e documentação do framework NestJS. As estratégias local e JWT, ambas extensões da PassportStrategy, foram utilizadas para tornar todo esse processo mais seguro e bem estruturado, onde a local-strategy é responsável por autenticar o usuário com base em suas credenciais, e a JWT-strategy é responsável por autenticar as solicitações feitas pelos usuários.
 
-Jest
-Para os testes integrados e e2e, fiz a utilização do Jest, framework de testes padrão do NestJS. Previamente, nunca havia desenvolvido testes utilizando Jest, então todo o caminho trilhado no desenvolvimento de testess desse projeto foi extremamente enriquecedor, onde adquiri não somente o conhecimento para desenvolver os testes, mas também a importância de ver seus funcionamentos na prática.
+Jest: Para os testes integrados e e2e, fiz a utilização do Jest, framework de testes padrão do NestJS. Previamente, nunca havia desenvolvido testes utilizando Jest, então todo o caminho trilhado no desenvolvimento de testess desse projeto foi extremamente enriquecedor, onde adquiri não somente o conhecimento para desenvolver os testes, mas também a importância de ver seus funcionamentos na prática.
 
 Front-End
 
-Angular
-A escolha do framework Angular(v17) foi dada também pela exigência na descrição do desafio. Apesar de já possuir um leve conhecimento prévio, o desafio com certeza levou a outros patamares. É um framework muito poderoso, e para esse desafio específico, supriu todas as necessidades e forneceu tudo que procurei.
+Angular: A escolha do framework Angular(v17) foi dada também pela exigência na descrição do desafio. Apesar de já possuir um leve conhecimento prévio, o desafio com certeza levou a outros patamares. É um framework muito poderoso, e para esse desafio específico, supriu todas as necessidades e forneceu tudo que procurei.
 
-Interface e Responsividade
-Para o a interface, fiz o uso do Bootstrap, que já fornece uma gama de componentes que pude usar e reutilizar em meu código.
+Interface e Responsividade: Para o a interface, fiz o uso do Bootstrap, que já fornece uma gama de componentes que pude usar e reutilizar em meu código.
 Em termos de responsividade, fiz o uso de media queries, tentando simular alguns diferentes cenários de visualização. Tentei adaptar a interface da melhor forma possível, para que fique acessível e agradável independente do tamanho da tela.  
 
-CdkDragDrop
-Por fazer parte de uma das funcionalidades mais chamativas da aplicação, menciono o uso da biblioteca CdkDragDrop, que foi crucial para o desenvolvimento do sistema de clicar e arrastar cartões, permitindo a mudança de cartões entre colunas diferentes ou uma mesma coluna.
+CdkDragDrop: Por fazer parte de uma das funcionalidades mais chamativas da aplicação, menciono o uso da biblioteca CdkDragDrop, que foi crucial para o desenvolvimento do sistema de clicar e arrastar cartões, permitindo a mudança de cartões entre colunas diferentes ou uma mesma coluna.
 
-Lazy Loading
-Fiz a utilização de lazy loading dos componentes, onde o carregamento dos recursos é feito conforme necessário, e não feito de uma vez só, o que poderia acarretar em um aumento do tempo de carregamento inicial.
+Lazy Loading: Fiz a utilização de lazy loading dos componentes, onde o carregamento dos recursos é feito conforme necessário, e não feito de uma vez só, o que poderia acarretar em um aumento do tempo de carregamento inicial.
 
 **Princípios de software**
 
-Abstração
-No projeto, é possível observar a utilização desse tópico nos usos dos DTOs e Documents.
+Abstração: No projeto, é possível observar a utilização desse tópico nos usos dos DTOs e Documents.
 
-Modularidade
-Ao desenvolver o projeto através da criação de diversos módulos menores como cards, users, columns, etc, fiz uso do princípio de modularidade. A utilização desse princípio facilita a manutenção e promove a reutilização, além de ser mais fácil de compreender e corrigir, de forma geral.
+Modularidade: Ao desenvolver o projeto através da criação de diversos módulos menores como cards, users, columns, etc, fiz uso do princípio de modularidade. A utilização desse princípio facilita a manutenção e promove a reutilização, além de ser mais fácil de compreender e corrigir, de forma geral.
 
-Manutenibilidade
-O uso de abstrações (como já mencionado) e injeções de dependência durante o decorrer da aplicação exemplificam o uso desse princípio. Alguns dos princípio do SOLID também mostrarão isso, mais abaixo.
+Manutenibilidade: O uso de abstrações (como já mencionado) e injeções de dependência durante o decorrer da aplicação exemplificam o uso desse princípio. Alguns dos princípio do SOLID também mostrarão isso, mais abaixo.
 
-Reusabilidade
-Esse princípio é promovido através da definição dos diversos services existentes no projeto.
+Reusabilidade: Esse princípio é promovido através da definição dos diversos services existentes no projeto.
 
-Testabilidade
-Nesse projeto, tentei fazer com que os testes cobrissem a maior parte dos cenários possíveis, desde testes integrados até os e2e. Neles, foram feitos usos de mocks para simular cenários, a estrutura foi organizada através dos "describes" e "it", bem como as configurações em "before"s e "after"s
+Testabilidade: Nesse projeto, tentei fazer com que os testes cobrissem a maior parte dos cenários possíveis, desde testes integrados até os e2e. Neles, foram feitos usos de mocks para simular cenários, a estrutura foi organizada através dos "describes" e "it", bem como as configurações em "before"s e "after"s
 
-Escalabilidade
-O design modular dos services e a separação de responsabilidades entre eles realçam a presença desse princípio.
+Escalabilidade: O design modular dos services e a separação de responsabilidades entre eles realçam a presença desse princípio.
 
-S.O.L.I.D
-Durante o decorrer do projeto, é possível perceber a utilização dos princípios SOLID. 
+S.O.L.I.D: Durante o decorrer do projeto, é possível perceber a utilização dos princípios SOLID. 
 Os métodos nos services, por exemplo, exemplificam o princípio de Responsabilidade Única (Single Responsiblity Principle), onde cada um cuida de sua função.
 Já o Open/Closed Principle pode ser observado em algumas das funções de find, por exemplo, onde elas podem ser estendidas para incluir novas funcionalidades (novas formas de filtragem, por exemplo).
 No Interface Segregation Principle, é possível ver que na aplicação, as classes não são obrigadas a implementar métodos que não usam.
 É possível também mencionar a Dependency Inversion Principle, onde as classes dependem de abstrações (no caso, seria interessante mencionar os Documents).
 
-Segurança
-Ao usar do sistema de login por tokenização, e proteger as endpoints com o JwtAuthGuard exemplifica bem a utilização desse tópico no projeto.
+Segurança: Ao usar do sistema de login por tokenização, e proteger as endpoints com o JwtAuthGuard exemplifica bem a utilização desse tópico no projeto.
 
 **Desafios e problemas**
 
