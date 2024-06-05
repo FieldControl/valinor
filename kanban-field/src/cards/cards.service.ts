@@ -25,7 +25,6 @@ export class CardsService {
       const userIds = column.responsibles
 
       const position = cards.length;
-      console.log(column.cards.length)
 
       return await this.cardModel.create({...createCardDto, responsibles: userIds, position: position});
     } catch (error) {
