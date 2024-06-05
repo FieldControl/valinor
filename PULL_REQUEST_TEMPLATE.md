@@ -8,7 +8,7 @@
 `ng serve`
 
 ## Para rodar os testes no back-end, abra a pasta kanban-field e execute os comandos:
-`yarn test` para rodar os testes integrados de serevices e controllers
+`yarn test` para rodar os testes integrados de services e controllers
 `yarn test:e2e` para rodar os testes end-to-end
 
 ## Para rodar os testes no front-end, abra a pasta kanban-front e execute os comandos:
