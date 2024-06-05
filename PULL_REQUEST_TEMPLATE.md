@@ -1,5 +1,4 @@
 ## Para instalar as depencências:
-
 `yarn install`
 
 ## Para rodar o aplicativo no back-end:
@@ -115,6 +114,10 @@ Apesar de ter iniciado a implementação de algo que buscaria fazer esse refresh
 Fora isso, creio que tudo pode ser melhorado com o devido tempo e atenção. Gostaria de ter dado uma atenção maior ao design das telas também, apesar de estar feliz com o resultado atingido.
 
 Diversos métodos nos serviços podem ser refatorados para uma melhor versão, e creio que tratativas de erros também poderiam ser refinadas, tanto nos serviços quanto no controllers. Apesar de tudo, estou contente com o resultado final.
+
+**Vídeo de apresentação do projeto**
+
+https://drive.google.com/file/d/165bGgnxDaSRvvzsG6sGv8XW0o0-kHQAZ/view?usp=sharing
 
 **Sobre você**
 
