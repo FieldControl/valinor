@@ -1,0 +1,95 @@
+
+  
+.board-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    gap: 24px;
+  }
+  
+  .board-title {
+    margin: 0;
+    color: gray;
+  }
+  
+.colunas-wrapper {
+    overflow: auto;
+    flex-grow: 1;
+    padding: 0 16px 20px;
+    display: flex;
+    margin: 0 -16px;
+    flex-wrap: nowrap;
+    gap: 24px;
+    height: 100%;
+    justify-content: center;
+  }
+  
+.coluna {
+    width: 240px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 24px 24px 32px;
+  }
+  
+.coluna-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    margin: 0 -2px 16px;
+    padding: 0 2px;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+  
+.coluna-header h2 {
+    margin: 10px;
+  }
+
+
+.colunas-wrapper .coluna .coluna-header button {
+    width: 40px;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .colunas-wrapper .coluna .coluna-card {
+    margin-bottom: 16px;
+    border: 2px solid #eee;
+    padding: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  :host .colunas-wrapper .coluna mat-form-field,
+  :host .colunas-wrapper .coluna input,
+  :host .colunas-wrapper .coluna button {
+    width: 100%;
+  }
+  
+  .colunas-wrapper .coluna .coluna-inner {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px 16px 24px;
+    border-radius: 4px;
+  }
+  
+  .colunas-wrapper .coluna .coluna-inner .coluna-inner__dragzone {
+    min-height: 50px;
+  }
+
+
+.btn-back{
+  margin: 0px 0px 0px 20px;
+}

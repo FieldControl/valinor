@@ -1,0 +1,41 @@
+
+    
+.quadro-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin:40px;
+}
+h1{
+  margin: 20px;
+}
+  
+
+.quadro {
+  all: unset;
+  box-sizing: border-box;
+  width: calc(25% - 20px);
+  padding: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 100%;
+}
+    
+
+.mat-card {
+  padding: 8px 8px 24px;
+  width: 100%;
+}
+
+button {
+  margin: 20px;
+  margin-top: 20px;
+  width: 15%;
+}
+.mat-mdc-card-header{
+  cursor: pointer;
+  justify-content: center;
+}
+
+.mdc-card__actions{
+  justify-content: center;
+}

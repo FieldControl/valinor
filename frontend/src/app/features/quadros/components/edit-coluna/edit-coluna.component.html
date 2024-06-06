@@ -1,0 +1,21 @@
+<form [formGroup]="colunaForm">
+    <h1>Edit Coluna</h1>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" placeholder="Ex. Minha Coluna" />
+  
+    </mat-form-field>
+  
+    <div class="button-group">
+      <button (click)="updateColuna()" mat-flat-button color="primary">
+        Editar
+      </button>
+      <button (click)="deleteColuna()" mat-flat-button color="warn">
+        Deletar
+      </button>
+      <button (click)="closeDialog()" mat-flat-button color="secondary">
+        Fechar
+      </button>
+    </div>
+  </form>
+  

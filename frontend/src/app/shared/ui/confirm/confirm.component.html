@@ -1,0 +1,16 @@
+<div class="kb-dialog">
+    <div class="kb-dialog__header">
+      <h2 class="kb-dialog__title">
+        {{ data.title }}
+      </h2>
+      
+    </div>
+  
+    <div class="kb-dialog__content">
+      <div [innerHTML]="data.message"></div>
+    </div>
+    <div class="button-group">
+      <button (click)="confirm()" mat-flat-button color="warn">Deletar</button>
+      <button (click)="close()" mat-flat-button>Cancelar</button>
+    </div>
+  </div>

@@ -1,0 +1,68 @@
+<div class="board-header">
+    <button class="btn-back"
+      mat-mini-fab
+      [routerLink]="['/quadros']"
+      color="secondary"
+      aria-label="Back to boards"
+    ><mat-icon>chevron_left</mat-icon>
+    </button>
+  
+    <h1 class="board-title">{{ quadro()?.nome }}</h1>
+  </div>
+
+
+  <div
+  cdkDropListGroup
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="onColunaChange($event)" 
+  class="colunas-wrapper">    
+      @for(coluna of quadro()?.colunas; track coluna ){
+        <div class="coluna" cdkDrag>  
+          <div class="coluna-header" cdkDragHandle>
+            <h2>{{coluna.nome}}</h2>
+            <button
+            color="secondary"
+            mat-stroked-button
+            (click)="editColuna(coluna)"
+          >
+            Edit
+          </button>
+
+          </div>        
+          <div class="coluna-inner">
+            <div>
+              <div
+              class="coluna-inner__dragzone"
+              cdkDropList
+              cdkDropListOrientation="vertical"
+              [cdkDropListData]="coluna.cards"
+              (cdkDropListDropped)="onCardChange($event, coluna)"
+            >
+                @for(card of coluna.cards; track card){
+                  <button cdkDrag class="coluna-card" (click)="addOrEditCard(coluna,card)">{{card.nome}}</button> 
+                }
+              </div>
+            </div>       
+          </div>    
+          <br>
+          <button (click)="addOrEditCard(coluna)" mat-button>Adicionar Card</button>
+      </div>
+    }
+    
+      <div class="coluna">
+        <form [formGroup]="colunaForm">
+          <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" placeholder="Ex. My board" />
+        
+            @if (colunaForm.controls.nome.hasError('required')) {
+            <mat-error>Por favor insira um Nome</mat-error>
+            }
+          </mat-form-field>       
+        <button mat-flat-button color="primary" (click)="addColuna()">Adicionar Coluna</button>
+      </form>
+      </div>
+  </div>
+
+
