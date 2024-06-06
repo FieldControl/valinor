@@ -71,7 +71,6 @@ A aplicação estará disponível em `http://localhost:3000`.
 A estrutura básica do projeto é a seguinte:
 
 ```
-```
 └── 📁src
     └── 📁app
         └── app.component.css
@@ -161,7 +160,7 @@ A estrutura básica do projeto é a seguinte:
     └── main.ts
     └── styles.css
 ```
-```
+
 
 ##  7. Tecnologias Utilizadas
 
