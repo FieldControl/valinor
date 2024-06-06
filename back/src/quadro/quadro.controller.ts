@@ -2,7 +2,7 @@ import { Controller, Request, Get, Post, Body, Patch, Param, Delete, UseGuards }
 import { QuadroService } from './quadro.service';
 import { CreateQuadroDto } from './dto/create-quadro.dto';
 import { UpdateQuadroDto } from './dto/update-quadro.dto';
-import { AuthGuard, PayloadRequest } from 'src/auth/auth/auth.guard';
+import { AuthGuard, PayloadRequest } from '../auth/auth/auth.guard';
 
 @Controller('quadro')
 export class QuadroController {

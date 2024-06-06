@@ -4,8 +4,8 @@ import { UpdateCardDto } from './dto/update-card.dto';
 import { Card } from './entities/card.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ColunasService } from 'src/colunas/colunas.service';
-import { UsuarioService } from 'src/usuario/usuario.service';
+import { ColunasService } from '../colunas/colunas.service';
+import { UsuarioService } from '../usuario/usuario.service';
 import { ReorderedCardDto } from './dto/reorder-cards.dto';
 
 @Injectable()

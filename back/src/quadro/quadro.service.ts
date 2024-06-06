@@ -1,10 +1,10 @@
-import { Quadro } from 'src/quadro/entities/quadro.entity';
+import { Quadro } from '../quadro/entities/quadro.entity';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateQuadroDto } from './dto/create-quadro.dto';
 import { UpdateQuadroDto } from './dto/update-quadro.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UsuarioService } from 'src/usuario/usuario.service';
+import { UsuarioService } from '../usuario/usuario.service';
 
 @Injectable()
 export class QuadroService {

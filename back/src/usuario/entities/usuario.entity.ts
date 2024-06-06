@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn,OneToMany, Column, BeforeInsert, ManyToMany, JoinTable } from 'typeorm';
 import * as bycript from 'bcrypt'
-import { Quadro } from 'src/quadro/entities/quadro.entity';
-import { Card } from 'src/card/entities/card.entity';
+import { Quadro } from '../../quadro/entities/quadro.entity';
+import { Card } from '../../card/entities/card.entity';
 
 @Entity()
 export class Usuario {
