@@ -1,0 +1,146 @@
+<!-- Olá amigo, tudo bem? espero que sim, sou o Guilherme de Grandi e fiz esse código para voce corrigir
+Vim aqui nesse comentário apenas descrever como foi tudo isso para mim. Eu estudava somente back-end, 
+especificamente c# com sqlServer, nunca tive contato com front end, apenas vi javascript mas somente a sintaxe
+nunca me aprofundei muito, porém me surgiu essa oportunidade da field e como desenvolvedor front-end,
+inicialmente pensei em desistir, pois quando vi pensei que era um grande bixo de 7 cabeças e eu nunca conseguiria
+porem como eu tinha 6 dias, eu tinha 6 dias para tentar e n queria jogar fora eles, então comecei a aprender do zero
+HTML, CSS e vi como aplicava o javascript nisso, que eu ja tinha uma certa noção
+Economizei um pouco no design pois estava aprendendo e fazendo, vi como fazia para importar icones imagens e etc, mas
+achei que não seria relevante na sua correção e me economizaria tempo para avançar mais nos meus estudos.
+Acredito ter ido relativamente bem para quem fez do ZERO a isso em 5 dias, mesmo tendo pouco tempo por conta do trabalho
+e coisas do tipo, porem minhas madrugadas foram INSANAS pois comecei a gostar muito do que estava fazendo
+Vou aproveitar e pedir desculpas pois não consegui fazer o desafio, peguei tudo do zero e não consegui chegar na 
+parte de angular e nestjs, por mais que eu queira implementar, e vou
+Mesmo que não me aceitem para o estágio de vocês, o que quero muito pois me identifiquei com a area e empresa, vou
+terminar de implementar esse programa por conta propria para aprendizado, caso tenham interesse em ver, ou me dar mais
+algum tempo, acho que não vou decepcionar, mas por mais que não consiga a tao sonhada vaga de estágio vou seguir meu 
+rume de estudos para essa area a qual gostei demais
+caso tenha dicas para avanços e melhoras ficaria muito grato, meu caminho o qual planejei vai ser me aprofundar em html
+css e JS e depois ir para react/angular e ir evoluindo
+Peço desculpas pelo enorme texto e espero realmente que leia, Agradeço a sua atenção, bom trabalho e espero conhece-lo
+presencialmente caso eu consiga essa vaga, tenha um bom dia!!!
+-->
+
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;
+0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./style.css">
+
+
+</head>
+<body>
+    <!--  //isso era um cabeçario o qual fiz inicialmente
+                                                                            para ir quebrando um galho
+        <div class="header">
+        <h1>KanBan Board</h1>
+        <button class="primary" onclick="abrirModelo()">Nova tarefa</button>
+                                                                           
+    </div>
+    --> 
+    <div class="container">
+
+        <div class="column" data-column="1" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"><!---->
+            <div class="head">
+                <span>A Fazer</span>    
+            </div>
+            <div class="body">
+            <div class="cards_list"></div>
+            <button class="add_btn" onclick="abrirModelo(1)">adicionar item</button>
+            </div>
+        </div>
+        <div class="column" data-column="2" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="head">
+                <span>Em Progresso</span>
+            </div>
+            <div class="body">
+                <div class="cards_list"></div >
+<button class="add_btn" onclick="abrirModelo(2)">adicionar item</button>
+                
+            </div>
+        </div>
+        <div class="column" data-column="3" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="head">
+                <span>Finalizado</span>
+            </div>
+            <div class="body">
+                <div class="cards_list"></div >
+<button class="add_btn" onclick="abrirModelo(3)">adicionar item</button>
+                
+            </div>
+        </div>
+        <div class="column" data-column="4" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="head">
+                <span>Arquivado</span>
+            </div>
+            <div class="body">
+                <div class="cards_list"></div>
+<button class="add_btn" onclick="abrirModelo(4)">adicionar item</button>
+                
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="modelo">
+        <div class="box">
+            <div class="head">
+                <span id="creationModeTittle">Nova tarefa</span>
+                <span id="editionModeTittle">Editar tarefa</span>
+                <button onclick="fecharModelo()">X</button>
+            </div>
+
+                <div class="form">
+                    <input type="hidden" id="idInput">
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea id="description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Prioridade</label>
+                        <select id="priority">
+                            <option>Baixa</option>
+                            <option>Média</option>
+                            <option>Alta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="column">Coluna</label>
+                        <select id="column">
+                            <option value="1">A Fazer</option>
+                            <option value="2">Em progresso</option>
+                            <option value="3">Finalizado</option>
+                            <option value="4">Arquivado</option>
+
+                        </select>
+                    </div>
+
+
+                        <div class="form-group">
+                            <label for="">Prazo</label>
+                            <input type="Date" id="deadline">
+                        </div>
+
+                        <button class="primary" onclick="createTask()" id="creationModeBtn">Cadastrar</button>
+                        <button class="primary" onclick="updateTask()"id="editionModeBtn">Salvar Alterações</button>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+
+<script src="./scripts.js" ></script>
+</body>
+</html>
