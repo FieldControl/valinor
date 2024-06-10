@@ -1,0 +1,186 @@
+:root {
+    --primary-color: aqua;
+      
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    outline: none;
+    box-sizing: border-box;
+
+}
+
+body{
+    background-color: #DDD;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF;
+    padding: 30px;
+}
+
+button.primary{
+    padding: 9px 22px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--primary-color);
+    color: black;
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+}
+    .container .column{
+        width: 250px;
+        height: 700px;
+        background-color: #FFF;
+        overflow: hidden;
+        border-radius: 15px; 
+        display: flex;
+        flex-direction: column;
+    }
+    .container .column .head{
+        background-color: var(--primary-color);
+        color: black;    
+        padding: 15px;
+        text-align: center;
+    }
+    .container .column .body{
+        
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+        .container .column .body .cards_list{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container .column .body .add_btn{
+            background: none;
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+            color: #444;
+        }
+    
+        .container .column .body .card{
+            background-color: #EEE;
+            border-radius: 7px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+            .container .column .body .card .info{
+                font-size: 14px;
+                color: #333;
+                display: flex;
+                flex-direction: column;                
+            }
+
+
+#modelo{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#modelo .box{
+    background-color: #fff;
+    width: 400px;
+    border-radius: 7px;
+    overflow: hidden;
+
+}
+
+#modelo .box .form .form-group{
+    margin-bottom: 15px;
+}
+
+    #modelo .box .head{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+        border-bottom: 10px solid #DDD;
+
+    }
+
+        #modelo .box .head span{
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+
+        }
+
+        #modelo .box .head button{
+            border: none;
+            background: none;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            color: #333;    
+
+        }
+
+    #modelo .box .form{
+        padding: 20px;
+
+    }
+
+        #modelo .box .form label{
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 3px;
+        }
+        #modelo .box .form textarea, #modelo .box .form select, #modelo .box .form input{
+            width: 100%;
+            font-size: 14px;
+            color: #333;            
+            border-radius: 7px;
+            border: 1px solid #999;
+        }
+        #modelo .box .form textarea{            
+            padding: 10px 15px;   
+        }
+
+        #modelo .box .form select{            
+            padding: 10px;
+        }
+        #modelo .box .form input{            
+            padding: 10px;
+        }
+        #modelo .box .form button{
+            display: block;
+            margin-left: auto;
+        }
+
+        
+
+
+
+
+
