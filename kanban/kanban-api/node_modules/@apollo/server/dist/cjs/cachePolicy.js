@@ -1,0 +1,34 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.newCachePolicy = void 0;
+function newCachePolicy() {
+    return {
+        maxAge: undefined,
+        scope: undefined,
+        restrict(hint) {
+            if (hint.maxAge !== undefined &&
+                (this.maxAge === undefined || hint.maxAge < this.maxAge)) {
+                this.maxAge = hint.maxAge;
+            }
+            if (hint.scope !== undefined && this.scope !== 'PRIVATE') {
+                this.scope = hint.scope;
+            }
+        },
+        replace(hint) {
+            if (hint.maxAge !== undefined) {
+                this.maxAge = hint.maxAge;
+            }
+            if (hint.scope !== undefined) {
+                this.scope = hint.scope;
+            }
+        },
+        policyIfCacheable() {
+            if (this.maxAge === undefined || this.maxAge === 0) {
+                return null;
+            }
+            return { maxAge: this.maxAge, scope: this.scope ?? 'PUBLIC' };
+        },
+    };
+}
+exports.newCachePolicy = newCachePolicy;
+//# sourceMappingURL=cachePolicy.js.map

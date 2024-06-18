@@ -1,0 +1,45 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ngrx-store-migration-01": {
+      "description": "The road to v6",
+      "version": "5.2",
+      "factory": "./6_0_0/index"
+    },
+    "ngrx-store-migration-02": {
+      "description": "The road to v8 beta",
+      "version": "8-beta",
+      "factory": "./8_0_0-beta/index"
+    },
+    "ngrx-store-migration-03": {
+      "description": "The road to v8 RC",
+      "version": "8-rc.1",
+      "factory": "./8_0_0-rc/index"
+    },
+    "ngrx-store-migration-13-beta": {
+      "description": "The road to v13 beta",
+      "version": "13-beta",
+      "factory": "./13_0_0-beta/index"
+    },
+    "ngrx-store-migration-13-rc": {
+      "description": "The road to v13 RC",
+      "version": "13-rc.1",
+      "factory": "./13_0_0-rc/index"
+    },
+    "ngrx-store-migration-15-2-0": {
+      "description": "The road to v15.2",
+      "version": "15.2.0",
+      "factory": "./15_2_0/index"
+    },
+    "ngrx-store-migration-16-0-0-beta": {
+      "description": "The road to v16.0-beta",
+      "version": "16.0.0-beta",
+      "factory": "./16_0_0-beta/index"
+    },
+    "ngrx-store-migration-18-beta": {
+      "description": "As of NgRx v18, the `TypedAction` has been removed in favor of `Action`.",
+      "version": "18-beta",
+      "factory": "./18_0_0-beta/index"
+    }
+  }
+}

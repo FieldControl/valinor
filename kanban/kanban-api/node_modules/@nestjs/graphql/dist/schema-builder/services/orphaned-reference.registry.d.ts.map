@@ -1,0 +1,1 @@
+{"version":3,"file":"orphaned-reference.registry.d.ts","sourceRoot":"","sources":["../../../lib/schema-builder/services/orphaned-reference.registry.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,gBAAgB,EAAE,MAAM,kBAAkB,CAAC;AAIpD,qBACa,yBAAyB;IACpC,OAAO,CAAC,QAAQ,CAAC,QAAQ,CAAuB;IAEhD,uBAAuB,CAAC,OAAO,EAAE,gBAAgB;IAUjD,MAAM,IAAI,QAAQ,EAAE;CAGrB"}

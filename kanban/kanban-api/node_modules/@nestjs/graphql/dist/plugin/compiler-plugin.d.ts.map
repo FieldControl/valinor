@@ -1,0 +1,1 @@
+{"version":3,"file":"compiler-plugin.d.ts","sourceRoot":"","sources":["../../lib/plugin/compiler-plugin.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,MAAM,YAAY,CAAC;AAOjC,eAAO,MAAM,MAAM,aAAc,OAAO,MAAM,EAAE,GAAG,CAAC,YAAY,GAAG,OAAO,WAG3D,GAAG,qBAAqB,KAAG,cAAc,CAAC,GAAG,CAQ3D,CAAC"}

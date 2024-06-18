@@ -1,0 +1,26 @@
+<main>
+  <div class="container">
+    <div class="header">
+      <h2 class="title">Projects.</h2>
+      <button class="add-project-button" type="button" (click)="toggleModal()">
+        + ADD Project
+      </button>
+    </div>
+    <div class="projects-list-container">
+      <div class="projects-list">
+        <app-project-list></app-project-list>
+      </div>
+    </div>
+    <div *ngIf="showModal" role="dialog">
+      <app-insert-modal-project
+        [showModal]="showModal"
+        (toggle)="toggleModal()"
+      >
+        <app-register-project-form
+          [showModal]="showModal"
+          (toggle)="toggleModal()"
+        ></app-register-project-form>
+      </app-insert-modal-project>
+    </div>
+  </div>
+</main>

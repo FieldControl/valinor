@@ -1,0 +1,36 @@
+<li class="card-container">
+  <div class="header-card">
+    <div class="top-card">
+      <span class="format-date">{{ formatDate(project.updatedAt) }}</span>
+      <div class="icon-container">
+        <button (click)="toggleModal()">
+          <i class="fas fa-edit icon"></i>
+        </button>
+        <button (click)="onDelete()">
+          <i class="fas fa-trash icon"></i>
+        </button>
+      </div>
+    </div>
+    <div class="first-title">
+      <h3>{{ getFirstLetter() }}</h3>
+    </div>
+  </div>
+  <div class="middle-card">
+    <h3 class="small-title">{{ project.title }}</h3>
+    <p class="small-paragraph">{{ project.description }}</p>
+    <button (click)="viewProject()">View</button>
+  </div>
+</li>
+<div *ngIf="showModal" role="dialog">
+  <app-update-modal-project
+    [showModal]="showModal"
+    [project]="project"
+    (toggle)="toggleModal()"
+  >
+    <app-update-project-form
+      [showModal]="showModal"
+      [project]="project"
+      (toggle)="toggleModal()"
+    ></app-update-project-form>
+  </app-update-modal-project>
+</div>

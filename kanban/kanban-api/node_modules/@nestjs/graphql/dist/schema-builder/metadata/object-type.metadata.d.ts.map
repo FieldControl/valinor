@@ -1,0 +1,1 @@
+{"version":3,"file":"object-type.metadata.d.ts","sourceRoot":"","sources":["../../../lib/schema-builder/metadata/object-type.metadata.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,kBAAkB,CAAC;AAEjD,MAAM,WAAW,kBAAmB,SAAQ,aAAa;IACvD,UAAU,CAAC,EAAE,QAAQ,GAAG,QAAQ,EAAE,GAAG,CAAC,MAAM,QAAQ,GAAG,QAAQ,EAAE,CAAC,CAAC;CACpE"}

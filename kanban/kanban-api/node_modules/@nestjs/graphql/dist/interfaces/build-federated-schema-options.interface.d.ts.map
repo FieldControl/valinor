@@ -1,0 +1,1 @@
+{"version":3,"file":"build-federated-schema-options.interface.d.ts","sourceRoot":"","sources":["../../lib/interfaces/build-federated-schema-options.interface.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,SAAS,CAAC;AAEvC,MAAM,WAAW,2BAA2B;IAC1C,QAAQ,EAAE,YAAY,CAAC;IACvB,SAAS,EAAE,GAAG,CAAC;CAChB"}

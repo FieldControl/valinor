@@ -1,0 +1,27 @@
+{
+  "name": "@apollo/utils.createhash",
+  "version": "2.0.1",
+  "description": "Node-agnostic hashing utility",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apollographql/apollo-utils.git",
+    "directory": "packages/createHash/"
+  },
+  "keywords": [
+    "apollo",
+    "graphql",
+    "typescript",
+    "node"
+  ],
+  "author": "Apollo <packages@apollographql.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@apollo/utils.isnodelike": "^2.0.1",
+    "sha.js": "^2.4.11"
+  }
+}

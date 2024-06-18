@@ -1,0 +1,1 @@
+{"version":3,"file":"invalid-nullable-option.error.d.ts","sourceRoot":"","sources":["../../../lib/schema-builder/errors/invalid-nullable-option.error.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,kBAAkB,CAAC;AAEhD,qBAAa,0BAA2B,SAAQ,KAAK;gBACvC,IAAI,EAAE,MAAM,EAAE,QAAQ,CAAC,EAAE,OAAO,GAAG,YAAY;CAK5D"}

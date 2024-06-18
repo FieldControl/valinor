@@ -1,0 +1,82 @@
+:root {
+  --purple-color: #5570c6;
+  --purple-dark: #4a5c91;
+  --white-color: #f0f0f0;
+  --error-color: #9e1b32;
+
+  --gray-dark-color: #5a5a5a;
+  --gray-light-color: #b6b6b6;
+
+  --font-size-base: 1rem;
+  --font-family-base: "Roboto", sans-serif;
+}
+
+.button-default {
+  font-family: var(--font-family-base);
+  font-size: 1.875rem;
+  font-weight: 400;
+  color: var(--gray-light-color);
+
+  width: 14.375rem;
+  height: 3.75rem;
+
+  border: 1px solid var(--gray-light-color);
+
+  border-radius: 0.3125rem;
+}
+
+button.button-default {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.button-default:hover {
+  border-color: var(--purple-color);
+  color: var(--purple-color);
+}
+
+.bnt-secondary {
+  font-family: var(--font-family-base);
+  font-size: 1.25rem;
+  color: var(--gray-light-color);
+
+  margin: 3.125rem;
+}
+
+.bnt-secondary:hover {
+  color: var(--purple-color);
+  text-decoration: underline;
+}
+
+:host ::ng-deep {
+  .toast-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px; // Ajuste conforme necessário
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 999999; // Certifique-se de que o toast fique no topo
+  }
+
+  .toast-container .ngx-toastr {
+    margin: 0 auto;
+    text-align: center;
+    width: auto;
+    font-family: var(--font-family-base);
+    font-size: 22px;
+    color: var(--purple-color);
+  }
+
+  .toast-success,
+  .toast-error {
+    font-family: var(--font-family-base);
+    font-size: 22px;
+    color: var(--purple-color);
+  }
+}

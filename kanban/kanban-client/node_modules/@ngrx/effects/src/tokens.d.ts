@@ -1,0 +1,10 @@
+import { InjectionToken, Type } from '@angular/core';
+import { EffectsErrorHandler } from './effects_error_handler';
+import { FunctionalEffect } from './models';
+export declare const _ROOT_EFFECTS_GUARD: InjectionToken<void>;
+export declare const USER_PROVIDED_EFFECTS: InjectionToken<(Type<unknown> | InjectionToken<unknown>)[][]>;
+export declare const _ROOT_EFFECTS: InjectionToken<[(Type<unknown> | Record<string, FunctionalEffect>)[]]>;
+export declare const _ROOT_EFFECTS_INSTANCES: InjectionToken<unknown[]>;
+export declare const _FEATURE_EFFECTS: InjectionToken<(Type<unknown> | Record<string, FunctionalEffect>)[][]>;
+export declare const _FEATURE_EFFECTS_INSTANCE_GROUPS: InjectionToken<unknown[][]>;
+export declare const EFFECTS_ERROR_HANDLER: InjectionToken<EffectsErrorHandler>;

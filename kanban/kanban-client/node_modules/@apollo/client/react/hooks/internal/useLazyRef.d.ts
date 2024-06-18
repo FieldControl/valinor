@@ -1,0 +1,4 @@
+/// <reference types="react" />
+import * as React from "rehackt";
+export declare function useLazyRef<T>(getInitialValue: () => T): React.MutableRefObject<T>;
+//# sourceMappingURL=useLazyRef.d.ts.map

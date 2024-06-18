@@ -1,0 +1,1 @@
+{"version":3,"file":"schema-generation.error.d.ts","sourceRoot":"","sources":["../../../lib/schema-builder/errors/schema-generation.error.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,SAAS,CAAC;AAEvC,qBAAa,qBAAsB,SAAQ,KAAK;aAClB,OAAO,EAAE,aAAa,CAAC,YAAY,CAAC;gBAApC,OAAO,EAAE,aAAa,CAAC,YAAY,CAAC;CAGjE"}

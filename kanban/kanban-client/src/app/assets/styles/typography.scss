@@ -1,0 +1,33 @@
+.title {
+  font-family: var(--font-family-base);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gray-dark-color);
+}
+
+.medium-title {
+  font-family: var(--font-family-base);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.small-title {
+  font-family: var(--font-family-base);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--gray-light-color);
+}
+
+.paragraph {
+  font-family: var(--font-family-base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-light-color);
+}
+
+.small-paragraph {
+  font-family: var(--font-family-base);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--gray-light-color);
+}

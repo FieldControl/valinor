@@ -1,0 +1,1 @@
+{"version":3,"file":"determineApolloConfig.d.ts","sourceRoot":"","sources":["../../src/determineApolloConfig.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,YAAY,EAAE,iBAAiB,EAAE,MAAM,0BAA0B,CAAC;AAChF,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,sBAAsB,CAAC;AAInD,wBAAgB,qBAAqB,CACnC,KAAK,EAAE,iBAAiB,GAAG,SAAS,EACpC,MAAM,EAAE,MAAM,GACb,YAAY,CAuEd"}

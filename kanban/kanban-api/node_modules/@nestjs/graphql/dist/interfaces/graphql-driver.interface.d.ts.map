@@ -1,0 +1,1 @@
+{"version":3,"file":"graphql-driver.interface.d.ts","sourceRoot":"","sources":["../../lib/interfaces/graphql-driver.interface.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,aAAa,CAAC,QAAQ,GAAG,GAAG;IAC3C,KAAK,CAAC,OAAO,EAAE,QAAQ,GAAG,OAAO,CAAC,OAAO,CAAC,CAAC;IAC3C,IAAI,IAAI,OAAO,CAAC,IAAI,CAAC,CAAC;CACvB"}
