@@ -1,5 +1,13 @@
 # Kanban Online para Gerenciamento de Projetos
 
+## Vercel:
+
+https://kanban-client-delta.vercel.app/
+
+## Link API
+
+https://kanban-api-fnpa.onrender.com/
+
 ## Visão Geral do Projeto
 
 O Kanban Online é uma aplicação criada para facilitar o gerenciamento de tarefas e projetos. Ele permite a criação de projetos, onde cada projeto pode ser dividido em colunas que representam diferentes etapas do processo. Dentro de cada coluna, é possível criar tarefas (tasks) e mover essas tarefas entre as colunas conforme o projeto evolui. Este projeto foi desenvolvido para ajudar equipes a organizar e visualizar o progresso de seus trabalhos de maneira eficiente e intuitiva.
