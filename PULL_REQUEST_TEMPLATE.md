@@ -175,6 +175,10 @@ Se quiser enviar alguma informação adicional sobre o desafio..
 
 ---
 
-Contato:
+Contato.
 Email: souza.jonas.a@gmail.com.
 Cel-watts: (17) 98148-6859
+
+Social.
+Linkdin:https://www.linkedin.com/in/jonas-alves-de-souza-61540b114/
+GitHub:https://github.com/Jonasalvesdesouza
