@@ -34,7 +34,7 @@ Descrição: Autentica um usuário e retorna um token de acesso e os dados do us
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   loginUser(loginUserInput: { email: "usuario@example.com", password: "senha123" }) {
     access_token
@@ -62,7 +62,7 @@ Descrição: Cria um novo usuário.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   createUser(createUserInput: { email: "novo@usuario.com", password: "senha123", name: "Novo Usuário" }) {
     id
@@ -82,7 +82,7 @@ Descrição: Retorna todos os usuários.
 
 Exemplo de Uso:
 
-```json
+```typescript
 query {
   users {
     id
@@ -102,7 +102,7 @@ Descrição: Atualiza um usuário existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   updateUser(updateUserInput: { id: "usuarioId", email: "atualizado@usuario.com", name: "Usuário Atualizado" }) {
     id
@@ -122,7 +122,7 @@ Descrição: Remove um usuário existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   removeUser(id: "usuarioId") {
     id
@@ -143,7 +143,7 @@ Descrição: Cria um novo projeto. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   createProject(createProjectInput: { name: "Novo Projeto" }) {
     id
@@ -162,7 +162,7 @@ Descrição: Retorna todos os projetos.
 
 Exemplo de Uso:
 
-```json
+```typescript
 query {
   projects {
     id
@@ -181,7 +181,7 @@ Descrição: Atualiza um projeto existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   updateProject(updateProjectInput: { id: "projetoId", name: "Projeto Atualizado" }) {
     id
@@ -200,7 +200,7 @@ Descrição: Remove um projeto existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 
 mutation {
   removeProject(id: "projetoId") {
@@ -222,7 +222,7 @@ Descrição: Cria uma nova coluna no projeto. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   createColumn(createColumnInput: { name: "Nova Coluna", projectId: "projetoId" }) {
     id
@@ -242,7 +242,7 @@ Descrição: Retorna todas as colunas.
 
 Exemplo de Uso:
 
-```json
+```typescript
 query {
   columns {
     id
@@ -262,7 +262,7 @@ Descrição: Atualiza uma coluna existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   updateColumn(updateColumnInput: { id: "colunaId", name: "Coluna Atualizada" }) {
     id
@@ -281,7 +281,7 @@ Descrição: Remove uma coluna existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   removeColumn(id: "colunaId") {
     id
@@ -302,7 +302,7 @@ Descrição: Cria uma nova tarefa. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   createTask(createTaskInput: { title: "Nova Tarefa", columnId: "colunaId" }) {
     id
@@ -322,7 +322,7 @@ Descrição: Retorna todas as tarefas.
 
 Exemplo de Uso:
 
-```json
+```typescript
 query {
   tasks {
     id
@@ -342,7 +342,7 @@ Descrição: Atualiza uma tarefa existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   updateTask(updateTaskInput: { id: "tarefaId", title: "Tarefa Atualizada" }) {
     id
@@ -362,7 +362,7 @@ Descrição: Remove uma tarefa existente. Requer autenticação.
 
 Exemplo de Uso:
 
-```json
+```typescript
 mutation {
   removeTask(id: "tarefaId") {
     id
@@ -372,7 +372,7 @@ mutation {
 
 ```
 
-## 7- Tratamento de Erros
+## Tratamento de Erros
 
 A API está equipada para lidar com vários erros, como autenticação e autorização, erros de validação e erros gerais do servidor.
 
