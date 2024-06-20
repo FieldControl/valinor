@@ -87,6 +87,3 @@ Se você deseja contribuir com o projeto, siga estas diretrizes:
 
 Para reportar problemas ou bugs, por favor, abra uma "Issue" no repositório do GitHub.
 
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE). Isso significa que você pode usar, copiar, modificar e distribuir o software conforme os termos da licença.
