@@ -6,16 +6,11 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 ### API
 
-- **Framework:** NestJS
-  - Um framework de Node.js para construção de aplicações escaláveis e eficientes no lado do servidor.
-- **Linguagem:** TypeScript
-  - Usada para garantir tipagem estática e melhorar a qualidade do código.
-- **Ferramenta de Banco de Dados:** Prisma
-  - ORM (Object-Relational Mapping) para interação eficiente e segura com o banco de dados.
-- **Banco de Dados:** PostgreSQL
-  - Sistema de gerenciamento de banco de dados relacional, conhecido por sua robustez e desempenho.
-- **Interface de Comunicação:** GraphQL
-  - Usada para realizar consultas e mutações de dados de forma eficiente, proporcionando uma API mais flexível e intuitiva.
+## 🚀 Tecnologias que uso
+- **Linguagens:** ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
+- **Frameworks:** ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white) ![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white) ![NestJs](https://img.shields.io/badge/NestJs-E0234E?style=flat-square&logo=nestjs&logoColor=white)
+- **Ferramentas:** ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node-dot-js&logoColor=white) ![VsCode](https://img.shields.io/badge/Visual%20Studio%20Code-0078d4?style=flat-square&logo=visual-studio-code&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black) ![Arch Linux](https://img.shields.io/badge/Arch%20Linux-1793D1?style=flat-square&logo=arch-linux&logoColor=white)
+- **Outros:** ![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white) ![REST APIs](https://img.shields.io/badge/REST%20APIs-4c9c89?style=flat-square&logo=restful&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
 
 ### Cliente
 
