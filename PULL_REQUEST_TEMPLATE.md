@@ -1,7 +1,3 @@
-## Envio de solução
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
-
 **Framework, linguagem e ferramentas**
 
 ### API
