@@ -1,0 +1,67 @@
+<nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+  <div
+    class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
+    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img
+        src="https://avatars.githubusercontent.com/u/17989287?s=280&v=4"
+        class="h-8 rounded-full"
+        alt="FieldControl Logo"
+      />
+      <span
+        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+        >Field Control</span
+      >
+    </a>
+  </div>
+</nav>
+
+<div class="home p-4 bg-slate-300 h-dvh overflow-x-auto">
+  <div class="flex flex-row gap-4 p-4" cdkDropListGroup>
+    <div *ngFor="let column of columns">
+      <div class="flex justify-between p-4">
+        <h3 class="text-xl font-bold">{{ column.title }}</h3>
+        <button
+          (click)="deleteColumn(column.id)"
+          class="text-red-500 hover:text-red-700"
+        >
+          <fa-icon [icon]="faTrash" class="text-black"></fa-icon>
+        </button>
+      </div>
+      <app-column
+        cdkDropList
+        [cdkDropListData]="getTasksForColumn(column.id)"
+        (cdkDropListDropped)="dropTask($event, column.id)"
+        [column]="column"
+        [tasks]="getTasksForColumn(column.id)"
+        (taskCreated)="loadTasks()"
+        (columnDeleted)="deleteColumn($event)"
+        (taskDeleted)="loadTasks()"
+      ></app-column>
+    </div>
+    <div class="mb-4 p-4">
+      <button
+        (click)="openModal()"
+        class="bg-gray-100 text-black font-bold p-2 rounded-lg my-10 px-28 py-16"
+      >
+        + Add Column
+      </button>
+    </div>
+  </div>
+
+  <app-modal
+    [show]="showModal"
+    [modalTitle]="'Add Column'"
+    (closeModal)="closeModal()"
+    (confirmAction)="createColumn()"
+  >
+    <div class="mt-3">
+      <input
+        type="text"
+        [(ngModel)]="newColumnTitle"
+        placeholder="Column Name"
+        class="p-2 border rounded w-full"
+      />
+    </div>
+  </app-modal>
+</div>

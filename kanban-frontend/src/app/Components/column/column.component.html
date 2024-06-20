@@ -1,0 +1,41 @@
+<div class="column bg-gray-200 p-4 rounded-lg shadow-md min-w-80">
+  <div *ngFor="let task of tasks">
+    <app-task [task]="task" (taskDeleted)="deleteTask($event)"></app-task>
+  </div>
+  <div *ngIf="showTaskForm" class="mb-4 flex flex-col gap-2">
+    <input
+      type="text"
+      [(ngModel)]="newTaskTitle"
+      placeholder="Título da Tarefa"
+      class="p-2 border rounded"
+    />
+    <input
+      type="text"
+      [(ngModel)]="newTaskDescription"
+      placeholder="Descrição da Tarefa"
+      class="p-2 border rounded"
+    />
+    <div class="flex gap-2 w-full">
+      <button
+        (click)="toggleTaskForm()"
+        class="bg-red-500 text-white p-2 rounded w-full"
+      >
+        Cancel
+      </button>
+      <button
+        (click)="createTask()"
+        class="bg-green-500 text-white p-2 rounded w-full"
+      >
+        Create Task
+      </button>
+    </div>
+  </div>
+  <div class="mb-2">
+    <button
+      (click)="toggleTaskForm()"
+      class="bg-blue-500 text-white p-2 rounded w-full"
+    >
+      Add Task
+    </button>
+  </div>
+</div>

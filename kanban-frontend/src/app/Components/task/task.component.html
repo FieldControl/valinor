@@ -1,0 +1,51 @@
+<div class="task bg-white p-3 rounded-md shadow-sm mb-2 relative" cdkDrag>
+  <div class="flex justify-between">
+    <div>
+      <h3 class="text-lg font-semibold max-w-64 break-all">{{ task.title }}</h3>
+      <p class="text-wrap max-w-64 break-all">{{ task.description }}</p>
+    </div>
+    <button (click)="toggleMenu()" class="text-gray-500">&#x22EE;</button>
+  </div>
+  <div
+    *ngIf="showMenu"
+    class="absolute right-0 z-10 bg-white border rounded shadow-lg mt-2"
+  >
+    <button
+      (click)="startEdit()"
+      class="block w-full text-left px-4 py-2 hover:bg-gray-200"
+    >
+      Edit
+    </button>
+    <button
+      (click)="deleteTask()"
+      class="block w-full text-left px-4 py-2 hover:bg-gray-200"
+    >
+      Delete
+    </button>
+  </div>
+  <div *ngIf="isEditing" class="max-w-64">
+    <input
+      type="text"
+      [(ngModel)]="editTitle"
+      placeholder="Task Title"
+      class="p-2 border rounded mb-2 w-full"
+    />
+    <input
+      type="text"
+      [(ngModel)]="editDescription"
+      placeholder="Task Description"
+      class="p-2 border rounded mb-2 w-full"
+    />
+    <div class="flex flex-row gap-2">
+      <button (click)="cancelEdit()" class="bg-red-500 text-white p-2 rounded w-full">
+        Cancel
+      </button>
+      <button
+        (click)="saveEdit()"
+        class="bg-green-500 text-white p-2 rounded w-full"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>
