@@ -1,0 +1,26 @@
+<header>
+  <div class="container">
+    <div>
+      <h1 class="logo">Kanban online</h1>
+    </div>
+    <div class="user-management" *ngIf="isDashboardPage()">
+      <div>
+        <span class="hello-user">
+          Hello!
+          <span *ngIf="user$ | async as user; else noUser">
+            {{ user?.name }}
+          </span>
+        </span>
+      </div>
+      <div>
+        <nav>
+          <button (click)="onLogout()">Logout</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<ng-template #noUser>
+  <p>No Name.</p>
+</ng-template>

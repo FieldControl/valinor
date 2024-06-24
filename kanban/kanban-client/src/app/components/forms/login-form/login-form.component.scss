@@ -1,0 +1,72 @@
+form {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-default {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 28.125rem;
+  margin-bottom: 1.5625rem;
+
+  border: 1px solid var(--gray-light-color);
+  padding: 10px;
+  border-radius: 0.3125rem;
+}
+
+.icon {
+  margin-right: 0.625rem;
+  color: var(--gray-light-color);
+  font-size: 1.5em;
+}
+
+.input-default:focus-within {
+  border-color: var(--purple-color);
+}
+
+.input-default:focus-within .icon {
+  color: var(--purple-color);
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0.3125rem;
+  font-family: var(--font-family-base);
+  font-size: 22px;
+  color: var(--gray-light-color);
+}
+
+input::placeholder {
+  color: var(--gray-light-color);
+}
+
+.input-default:focus-within {
+  border-color: var(--purple-color);
+}
+
+.input-default p {
+  color: var(--error-color);
+  margin: 5px 0 0 0;
+  width: 100%;
+
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  color: var(--error-color);
+}
+
+.error-login {
+  margin-bottom: 20px;
+
+  font-family: var(--font-family-base);
+  font-size: 1.375rem;
+  color: var(--error-color);
+}

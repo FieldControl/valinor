@@ -1,0 +1,14 @@
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(273px, 1fr));
+  gap: 2.8125rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+app-project-card {
+  display: block;
+  width: auto;
+  margin: 0 auto;
+}

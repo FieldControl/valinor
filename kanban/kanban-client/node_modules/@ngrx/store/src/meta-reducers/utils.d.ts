@@ -1,0 +1,13 @@
+export declare const RUNTIME_CHECK_URL = "https://ngrx.io/guide/store/configuration/runtime-checks";
+export declare function isUndefined(target: any): target is undefined;
+export declare function isNull(target: any): target is null;
+export declare function isArray(target: any): target is Array<any>;
+export declare function isString(target: any): target is string;
+export declare function isBoolean(target: any): target is boolean;
+export declare function isNumber(target: any): target is number;
+export declare function isObjectLike(target: any): target is object;
+export declare function isObject(target: any): target is object;
+export declare function isPlainObject(target: any): target is object;
+export declare function isFunction(target: any): target is () => void;
+export declare function isComponent(target: any): boolean;
+export declare function hasOwnProperty(target: object, propertyName: string): boolean;

@@ -1,0 +1,32 @@
+{
+    "name": "@types/lodash.merge",
+    "version": "4.6.9",
+    "description": "TypeScript definitions for lodash.merge",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash.merge",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Brian Zengel",
+            "githubUsername": "bczengel",
+            "url": "https://github.com/bczengel"
+        },
+        {
+            "name": "Ilya Mochalov",
+            "githubUsername": "chrootsu",
+            "url": "https://github.com/chrootsu"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/lodash.merge"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/lodash": "*"
+    },
+    "typesPublisherContentHash": "2859c65f6149e4e8bf0e4cd9b3102889b48ffe1d87bfaf7e02790d9c01dbf59c",
+    "typeScriptVersion": "4.5"
+}

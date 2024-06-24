@@ -1,0 +1,1 @@
+{"version":3,"file":"metadata-loader.d.ts","sourceRoot":"","sources":["../../lib/plugin/metadata-loader.ts"],"names":[],"mappings":"AAEA,qBAAa,cAAc;IACzB,OAAO,CAAC,MAAM,CAAC,QAAQ,CAAC,YAAY,CAA2B;IAE/D,MAAM,CAAC,cAAc,CAAC,IAAI,EAAE,MAAM,IAAI;IAIhC,IAAI,CAAC,QAAQ,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAYxC,OAAO,CAAC,QAAQ;YAIF,aAAa;CAY5B"}

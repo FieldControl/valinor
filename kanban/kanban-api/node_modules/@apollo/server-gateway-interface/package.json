@@ -1,0 +1,40 @@
+{
+  "name": "@apollo/server-gateway-interface",
+  "version": "1.1.1",
+  "description": "Interface used to connect Apollo Gateway to Apollo Server",
+  "type": "module",
+  "main": "",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "require": "./dist/cjs/index.d.ts",
+        "default": "./dist/esm/index.d.ts"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apollographql/apollo-server",
+    "directory": "packages/gateway-interface"
+  },
+  "keywords": [],
+  "author": "Apollo <packages@apollographql.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apollographql/apollo-server/issues"
+  },
+  "homepage": "https://github.com/apollographql/apollo-server#readme",
+  "dependencies": {
+    "@apollo/utils.fetcher": "^2.0.0",
+    "@apollo/utils.logger": "^2.0.0",
+    "@apollo/utils.keyvaluecache": "^2.1.0",
+    "@apollo/usage-reporting-protobuf": "^4.1.1"
+  },
+  "peerDependencies": {
+    "graphql": "14.x || 15.x || 16.x"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

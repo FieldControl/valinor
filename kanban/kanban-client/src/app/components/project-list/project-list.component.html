@@ -1,0 +1,13 @@
+<div *ngIf="projects$ | async as projects; else noProjects">
+  <div class="projects-list">
+    <div *ngFor="let project of projects">
+      <app-project-card
+        [project]="project"
+        (delete)="onDeleteProject($event)"
+      ></app-project-card>
+    </div>
+  </div>
+</div>
+<ng-template #noProjects>
+  <p>No projects available.</p>
+</ng-template>

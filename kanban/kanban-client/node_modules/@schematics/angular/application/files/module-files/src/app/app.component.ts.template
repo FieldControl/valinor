@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: '<%= selector %>',<% if(inlineTemplate) { %>
+  template: `
+    <h1>Welcome to {{title}}!</h1>
+
+    <% if (routing) {
+     %><router-outlet /><%
+    } %>
+  `,<% } else { %>
+  templateUrl: './app.component.html',<% } if(inlineStyle) { %>
+  styles: []<% } else { %>
+  styleUrl: './app.component.<%= style %>'<% } %>
+})
+export class AppComponent {
+  title = '<%= name %>';
+}

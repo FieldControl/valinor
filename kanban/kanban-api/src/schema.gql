@@ -1,0 +1,259 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Task {
+  id: String!
+
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+  column: Column
+
+  """Creation date of the project"""
+  createdAt: DateTime!
+
+  """Last update date of the project"""
+  updatedAt: DateTime!
+
+  """Order of the column"""
+  order: Int!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Column {
+  id: String!
+
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+  project: Project
+  tasks: [Task]
+
+  """Creation date of the project"""
+  createdAt: DateTime!
+
+  """Last update date of the project"""
+  updatedAt: DateTime!
+
+  """Order of the column"""
+  order: Int!
+}
+
+type Project {
+  id: String!
+
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+  columns: [Column]
+  users: [User]
+
+  """Creation date of the project"""
+  createdAt: DateTime!
+
+  """Last update date of the project"""
+  updatedAt: DateTime!
+}
+
+type User {
+  id: String!
+
+  """Example field (placeholder)"""
+  name: String!
+
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  password: String!
+  projects: [Project]
+
+  """Creation date of the project"""
+  createdAt: DateTime!
+
+  """Last update date of the project"""
+  updatedAt: DateTime!
+}
+
+type AuthResponse {
+  access_token: String!
+  user: User!
+}
+
+type Query {
+  users: [User!]!
+  user(id: String!): User!
+  projects: [Project!]!
+  project(id: String!): Project!
+  columns: [Column!]!
+  column(id: String!): Column!
+  tasks: [Task!]!
+  task(id: String!): Task!
+}
+
+type Mutation {
+  loginUser(loginUserInput: LoginUserInput!): AuthResponse!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  createProject(createProjectInput: CreateProjectInput!): Project!
+  updateProject(updateProjectInput: UpdateProjectInput!): Project!
+  removeProject(id: String!): Project!
+  createColumn(createColumnInput: CreateColumnInput!): Column!
+  updateColumn(updateColumnInput: UpdateColumnInput!): Column!
+  updateColumns(updateColumnsInput: UpdateColumnsInput!): [Column!]!
+  removeColumn(id: String!): Column!
+  createTask(createTaskInput: CreateTaskInput!): Task!
+  updateTask(updateTaskInput: UpdateTaskInput!): Task!
+  updateTasks(updateTasksInput: UpdateTasksInput!): [Task!]!
+  removeTask(id: String!): Task!
+}
+
+input LoginUserInput {
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  password: String!
+}
+
+input CreateUserInput {
+  """Example field (placeholder)"""
+  name: String!
+
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  password: String!
+
+  """User associated with the projects"""
+  projectIds: [String!]
+}
+
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  name: String
+
+  """Example field (placeholder)"""
+  email: String
+
+  """Example field (placeholder)"""
+  password: String
+
+  """User associated with the projects"""
+  projectIds: [String!]
+  id: String!
+}
+
+input CreateProjectInput {
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+
+  """Projects associated with the column"""
+  columnIds: [String!]
+
+  """Projects associated with the user"""
+  userIds: [String!]
+}
+
+input UpdateProjectInput {
+  """Example field (placeholder)"""
+  title: String
+
+  """Example field (placeholder)"""
+  description: String
+
+  """Projects associated with the column"""
+  columnIds: [String!]
+
+  """Projects associated with the user"""
+  userIds: [String!]
+  id: String!
+}
+
+input CreateColumnInput {
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+
+  """User associated with the projects"""
+  projectId: String
+
+  """User associated with the projects"""
+  taskIds: [String!]
+
+  """Order of the column"""
+  order: Int
+}
+
+input UpdateColumnInput {
+  """Example field (placeholder)"""
+  title: String
+
+  """Example field (placeholder)"""
+  description: String
+
+  """User associated with the projects"""
+  projectId: String
+
+  """User associated with the projects"""
+  taskIds: [String!]
+
+  """Order of the column"""
+  order: Int
+  id: String!
+}
+
+input UpdateColumnsInput {
+  columns: [UpdateColumnInput!]!
+}
+
+input CreateTaskInput {
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+
+  """User associated with the projects"""
+  columnId: String!
+
+  """Order of the column"""
+  order: Int
+}
+
+input UpdateTaskInput {
+  """Example field (placeholder)"""
+  title: String
+
+  """Example field (placeholder)"""
+  description: String
+
+  """User associated with the projects"""
+  columnId: String
+
+  """Order of the column"""
+  order: Int
+  id: String!
+}
+
+input UpdateTasksInput {
+  tasks: [UpdateTaskInput!]!
+}

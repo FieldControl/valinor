@@ -1,0 +1,12 @@
+import type { Comparator, HeadlessNode, ITreeNode } from './types';
+export declare const first: <N extends HeadlessNode>(root: N | undefined) => N | undefined;
+export declare const last: <N extends HeadlessNode>(root: N | undefined) => N | undefined;
+export declare const next: <N extends HeadlessNode>(curr: N) => N | undefined;
+export declare const prev: <N extends HeadlessNode>(curr: N) => N | undefined;
+export declare const size: <N extends HeadlessNode>(root: N | undefined) => number;
+export declare const find: <K = unknown, V = unknown>(root: ITreeNode<K, V> | undefined, key: K, comparator: Comparator<K>) => ITreeNode<K, V> | undefined;
+export declare const findOrNextLower: <K = unknown, V = unknown>(root: ITreeNode<K, V> | undefined, key: K, comparator: Comparator<K>) => ITreeNode<K, V> | undefined;
+export declare const insertRight: <K = unknown, V = unknown>(node: HeadlessNode, p: HeadlessNode) => void;
+export declare const insertLeft: <K = unknown, V = unknown>(node: HeadlessNode, p: HeadlessNode) => void;
+export declare const insert: <K = unknown, V = unknown>(root: ITreeNode<K, V> | undefined, node: ITreeNode<K, V>, comparator: Comparator<K>) => ITreeNode<K, V>;
+export declare const remove: <N extends HeadlessNode>(root: N | undefined, node: N) => N | undefined;

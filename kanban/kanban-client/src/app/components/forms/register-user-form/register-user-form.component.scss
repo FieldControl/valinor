@@ -1,0 +1,104 @@
+$form-width: 100%;
+$form-height: 100%;
+$input-width: 28.125rem;
+$input-margin-bottom: 1.5625rem;
+$border-radius: 0.3125rem;
+$padding: 10px;
+$icon-margin-right: 0.625rem;
+$icon-font-size: 1.5em;
+$error-font-size: 14px;
+$error-margin-top: 5px;
+$button-padding: 0.625rem 1.25rem;
+$transition-duration: 0.3s;
+
+form {
+  width: $form-width;
+  height: $form-height;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .input-default {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: $input-width;
+    margin-bottom: $input-margin-bottom;
+
+    border: 1px solid var(--gray-light-color);
+    padding: $padding;
+    border-radius: $border-radius;
+
+    .icon {
+      margin-right: $icon-margin-right;
+      color: var(--gray-light-color);
+      font-size: $icon-font-size;
+    }
+
+    &:focus-within {
+      border-color: var(--purple-color);
+
+      .icon {
+        color: var(--purple-color);
+      }
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 1em;
+      padding: 0.3125rem;
+      font-family: var(--font-family-base);
+      font-size: 22px;
+      color: var(--gray-light-color);
+
+      &::placeholder {
+        color: var(--gray-light-color);
+      }
+    }
+
+    p {
+      color: var(--error-color);
+      margin: $error-margin-top 0 0 0;
+      width: 100%;
+
+      font-family: var(--font-family-base);
+      font-size: $error-font-size;
+      color: var(--error-color);
+    }
+  }
+
+  .error-login {
+    margin-bottom: 20px;
+
+    font-family: var(--font-family-base);
+    font-size: 1.375rem;
+    color: var(--error-color);
+  }
+
+  .button-default {
+    padding: $button-padding;
+    border-radius: $border-radius;
+    background: none;
+    cursor: pointer;
+    transition: background-color $transition-duration;
+
+    &:hover {
+      border-color: var(--purple-color);
+      color: var(--purple-color);
+    }
+  }
+
+  .password-message {
+    color: var(--error-color);
+    margin: -$input-margin-bottom 0 $input-margin-bottom 0;
+    width: $input-width;
+
+    font-family: var(--font-family-base);
+    font-size: $error-font-size;
+    color: var(--error-color);
+  }
+}

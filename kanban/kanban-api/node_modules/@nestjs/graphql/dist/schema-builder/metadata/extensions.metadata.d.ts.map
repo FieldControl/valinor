@@ -1,0 +1,1 @@
+{"version":3,"file":"extensions.metadata.d.ts","sourceRoot":"","sources":["../../../lib/schema-builder/metadata/extensions.metadata.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,kBAAkB;IACjC,MAAM,EAAE,QAAQ,CAAC;IACjB,KAAK,EAAE,MAAM,CAAC,MAAM,EAAE,OAAO,CAAC,CAAC;CAChC;AAED,MAAM,MAAM,uBAAuB,GAAG,kBAAkB,CAAC;AAEzD,MAAM,WAAW,0BAA2B,SAAQ,kBAAkB;IACpE,SAAS,EAAE,MAAM,CAAC;CACnB"}

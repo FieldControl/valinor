@@ -1,0 +1,31 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+const UNUSABLE_INTERPOLATION_REGEXPS = [
+    /@/, // control flow reserved symbol
+    /^\s*$/, // empty
+    /[<>]/, // html tag
+    /^[{}]$/, // i18n expansion
+    /&(#|[a-z])/i, // character reference,
+    /^\/\//, // comment
+];
+export function assertInterpolationSymbols(identifier, value) {
+    if (value != null && !(Array.isArray(value) && value.length == 2)) {
+        throw new Error(`Expected '${identifier}' to be an array, [start, end].`);
+    }
+    else if (value != null) {
+        const start = value[0];
+        const end = value[1];
+        // Check for unusable interpolation symbols
+        UNUSABLE_INTERPOLATION_REGEXPS.forEach((regexp) => {
+            if (regexp.test(start) || regexp.test(end)) {
+                throw new Error(`['${start}', '${end}'] contains unusable interpolation symbol.`);
+            }
+        });
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXNzZXJ0aW9ucy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvbXBpbGVyL3NyYy9hc3NlcnRpb25zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVILE1BQU0sOEJBQThCLEdBQUc7SUFDckMsR0FBRyxFQUFFLCtCQUErQjtJQUNwQyxPQUFPLEVBQUUsUUFBUTtJQUNqQixNQUFNLEVBQUUsV0FBVztJQUNuQixRQUFRLEVBQUUsaUJBQWlCO0lBQzNCLGFBQWEsRUFBRSx1QkFBdUI7SUFDdEMsT0FBTyxFQUFFLFVBQVU7Q0FDcEIsQ0FBQztBQUVGLE1BQU0sVUFBVSwwQkFBMEIsQ0FBQyxVQUFrQixFQUFFLEtBQVU7SUFDdkUsSUFBSSxLQUFLLElBQUksSUFBSSxJQUFJLENBQUMsQ0FBQyxLQUFLLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxJQUFJLEtBQUssQ0FBQyxNQUFNLElBQUksQ0FBQyxDQUFDLEVBQUUsQ0FBQztRQUNsRSxNQUFNLElBQUksS0FBSyxDQUFDLGFBQWEsVUFBVSxpQ0FBaUMsQ0FBQyxDQUFDO0lBQzVFLENBQUM7U0FBTSxJQUFJLEtBQUssSUFBSSxJQUFJLEVBQUUsQ0FBQztRQUN6QixNQUFNLEtBQUssR0FBRyxLQUFLLENBQUMsQ0FBQyxDQUFXLENBQUM7UUFDakMsTUFBTSxHQUFHLEdBQUcsS0FBSyxDQUFDLENBQUMsQ0FBVyxDQUFDO1FBQy9CLDJDQUEyQztRQUMzQyw4QkFBOEIsQ0FBQyxPQUFPLENBQUMsQ0FBQyxNQUFNLEVBQUUsRUFBRTtZQUNoRCxJQUFJLE1BQU0sQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksTUFBTSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDO2dCQUMzQyxNQUFNLElBQUksS0FBSyxDQUFDLEtBQUssS0FBSyxPQUFPLEdBQUcsNENBQTRDLENBQUMsQ0FBQztZQUNwRixDQUFDO1FBQ0gsQ0FBQyxDQUFDLENBQUM7SUFDTCxDQUFDO0FBQ0gsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5jb25zdCBVTlVTQUJMRV9JTlRFUlBPTEFUSU9OX1JFR0VYUFMgPSBbXG4gIC9ALywgLy8gY29udHJvbCBmbG93IHJlc2VydmVkIHN5bWJvbFxuICAvXlxccyokLywgLy8gZW1wdHlcbiAgL1s8Pl0vLCAvLyBodG1sIHRhZ1xuICAvXlt7fV0kLywgLy8gaTE4biBleHBhbnNpb25cbiAgLyYoI3xbYS16XSkvaSwgLy8gY2hhcmFjdGVyIHJlZmVyZW5jZSxcbiAgL15cXC9cXC8vLCAvLyBjb21tZW50XG5dO1xuXG5leHBvcnQgZnVuY3Rpb24gYXNzZXJ0SW50ZXJwb2xhdGlvblN5bWJvbHMoaWRlbnRpZmllcjogc3RyaW5nLCB2YWx1ZTogYW55KTogdm9pZCB7XG4gIGlmICh2YWx1ZSAhPSBudWxsICYmICEoQXJyYXkuaXNBcnJheSh2YWx1ZSkgJiYgdmFsdWUubGVuZ3RoID09IDIpKSB7XG4gICAgdGhyb3cgbmV3IEVycm9yKGBFeHBlY3RlZCAnJHtpZGVudGlmaWVyfScgdG8gYmUgYW4gYXJyYXksIFtzdGFydCwgZW5kXS5gKTtcbiAgfSBlbHNlIGlmICh2YWx1ZSAhPSBudWxsKSB7XG4gICAgY29uc3Qgc3RhcnQgPSB2YWx1ZVswXSBhcyBzdHJpbmc7XG4gICAgY29uc3QgZW5kID0gdmFsdWVbMV0gYXMgc3RyaW5nO1xuICAgIC8vIENoZWNrIGZvciB1bnVzYWJsZSBpbnRlcnBvbGF0aW9uIHN5bWJvbHNcbiAgICBVTlVTQUJMRV9JTlRFUlBPTEFUSU9OX1JFR0VYUFMuZm9yRWFjaCgocmVnZXhwKSA9PiB7XG4gICAgICBpZiAocmVnZXhwLnRlc3Qoc3RhcnQpIHx8IHJlZ2V4cC50ZXN0KGVuZCkpIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBbJyR7c3RhcnR9JywgJyR7ZW5kfSddIGNvbnRhaW5zIHVudXNhYmxlIGludGVycG9sYXRpb24gc3ltYm9sLmApO1xuICAgICAgfVxuICAgIH0pO1xuICB9XG59XG4iXX0=

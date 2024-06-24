@@ -1,0 +1,1 @@
+{"version":3,"file":"resolver-metadata.interface.d.ts","sourceRoot":"","sources":["../../lib/interfaces/resolver-metadata.interface.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,gBAAgB;IAC/B,IAAI,EAAE,MAAM,CAAC;IACb,IAAI,EAAE,MAAM,CAAC;IACb,UAAU,EAAE,MAAM,CAAC;IACnB,QAAQ,CAAC,EAAE,QAAQ,GAAG,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,CAAC;CAC3C"}

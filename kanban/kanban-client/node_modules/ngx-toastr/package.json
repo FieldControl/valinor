@@ -1,0 +1,66 @@
+{
+  "name": "ngx-toastr",
+  "version": "19.0.0",
+  "peerDependencies": {
+    "@angular/core": ">=16.0.0-0",
+    "@angular/common": ">=16.0.0-0",
+    "@angular/platform-browser": ">=16.0.0-0"
+  },
+  "exports": {
+    "./toastr": {
+      "default": "./toastr.css"
+    },
+    "./toastr-old": {
+      "default": "./toastr-old.css"
+    },
+    "./toastr-bs4-alert": {
+      "default": "./toastr-bs4-alert.scss"
+    },
+    "./toastr-bs5-alert": {
+      "default": "./toastr-bs5-alert.scss"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2022": "./esm2022/ngx-toastr.mjs",
+      "esm": "./esm2022/ngx-toastr.mjs",
+      "default": "./fesm2022/ngx-toastr.mjs"
+    }
+  },
+  "repository": "scttcper/ngx-toastr",
+  "homepage": "https://ngx-toastr.vercel.app",
+  "license": "MIT",
+  "description": "Toastr for Angular",
+  "keywords": [
+    "ng2",
+    "ngx",
+    "ngx-toastr",
+    "toastr-ng2",
+    "angular",
+    "angular2",
+    "typescript",
+    "alert",
+    "toast",
+    "toastr",
+    "angular toastr",
+    "notifications"
+  ],
+  "ng-update": {},
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "release": {
+    "branches": [
+      "master"
+    ]
+  },
+  "module": "fesm2022/ngx-toastr.mjs",
+  "typings": "index.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

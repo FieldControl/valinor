@@ -1,0 +1,55 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { DOCUMENT } from '@angular/common';
+import { ANIMATION_MODULE_TYPE, makeEnvironmentProviders, NgZone, RendererFactory2, ɵperformanceMarkFeature as performanceMarkFeature, } from '@angular/core';
+import { ɵDomRendererFactory2 as DomRendererFactory2 } from '@angular/platform-browser';
+import { AsyncAnimationRendererFactory } from './async_animation_renderer';
+/**
+ * Returns the set of dependency-injection providers
+ * to enable animations in an application. See [animations guide](guide/animations)
+ * to learn more about animations in Angular.
+ *
+ * When you use this function instead of the eager `provideAnimations()`, animations won't be
+ * rendered until the renderer is loaded.
+ *
+ * @usageNotes
+ *
+ * The function is useful when you want to enable animations in an application
+ * bootstrapped using the `bootstrapApplication` function. In this scenario there
+ * is no need to import the `BrowserAnimationsModule` NgModule at all, just add
+ * providers returned by this function to the `providers` list as show below.
+ *
+ * ```typescript
+ * bootstrapApplication(RootComponent, {
+ *   providers: [
+ *     provideAnimationsAsync()
+ *   ]
+ * });
+ * ```
+ *
+ * @param type pass `'noop'` as argument to disable animations.
+ *
+ * @publicApi
+ */
+export function provideAnimationsAsync(type = 'animations') {
+    performanceMarkFeature('NgAsyncAnimations');
+    return makeEnvironmentProviders([
+        {
+            provide: RendererFactory2,
+            useFactory: (doc, renderer, zone) => {
+                return new AsyncAnimationRendererFactory(doc, renderer, zone, type);
+            },
+            deps: [DOCUMENT, DomRendererFactory2, NgZone],
+        },
+        {
+            provide: ANIMATION_MODULE_TYPE,
+            useValue: type === 'noop' ? 'NoopAnimations' : 'BrowserAnimations',
+        },
+    ]);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvdmlkZXJzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvcGxhdGZvcm0tYnJvd3Nlci9hbmltYXRpb25zL2FzeW5jL3NyYy9wcm92aWRlcnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFDLFFBQVEsRUFBQyxNQUFNLGlCQUFpQixDQUFDO0FBQ3pDLE9BQU8sRUFDTCxxQkFBcUIsRUFFckIsd0JBQXdCLEVBQ3hCLE1BQU0sRUFDTixnQkFBZ0IsRUFDaEIsdUJBQXVCLElBQUksc0JBQXNCLEdBQ2xELE1BQU0sZUFBZSxDQUFDO0FBQ3ZCLE9BQU8sRUFBQyxvQkFBb0IsSUFBSSxtQkFBbUIsRUFBQyxNQUFNLDJCQUEyQixDQUFDO0FBRXRGLE9BQU8sRUFBQyw2QkFBNkIsRUFBQyxNQUFNLDRCQUE0QixDQUFDO0FBRXpFOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQTBCRztBQUNILE1BQU0sVUFBVSxzQkFBc0IsQ0FDcEMsT0FBOEIsWUFBWTtJQUUxQyxzQkFBc0IsQ0FBQyxtQkFBbUIsQ0FBQyxDQUFDO0lBQzVDLE9BQU8sd0JBQXdCLENBQUM7UUFDOUI7WUFDRSxPQUFPLEVBQUUsZ0JBQWdCO1lBQ3pCLFVBQVUsRUFBRSxDQUFDLEdBQWEsRUFBRSxRQUE2QixFQUFFLElBQVksRUFBRSxFQUFFO2dCQUN6RSxPQUFPLElBQUksNkJBQTZCLENBQUMsR0FBRyxFQUFFLFFBQVEsRUFBRSxJQUFJLEVBQUUsSUFBSSxDQUFDLENBQUM7WUFDdEUsQ0FBQztZQUNELElBQUksRUFBRSxDQUFDLFFBQVEsRUFBRSxtQkFBbUIsRUFBRSxNQUFNLENBQUM7U0FDOUM7UUFDRDtZQUNFLE9BQU8sRUFBRSxxQkFBcUI7WUFDOUIsUUFBUSxFQUFFLElBQUksS0FBSyxNQUFNLENBQUMsQ0FBQyxDQUFDLGdCQUFnQixDQUFDLENBQUMsQ0FBQyxtQkFBbUI7U0FDbkU7S0FDRixDQUFDLENBQUM7QUFDTCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCB7RE9DVU1FTlR9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5pbXBvcnQge1xuICBBTklNQVRJT05fTU9EVUxFX1RZUEUsXG4gIEVudmlyb25tZW50UHJvdmlkZXJzLFxuICBtYWtlRW52aXJvbm1lbnRQcm92aWRlcnMsXG4gIE5nWm9uZSxcbiAgUmVuZGVyZXJGYWN0b3J5MixcbiAgybVwZXJmb3JtYW5jZU1hcmtGZWF0dXJlIGFzIHBlcmZvcm1hbmNlTWFya0ZlYXR1cmUsXG59IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHvJtURvbVJlbmRlcmVyRmFjdG9yeTIgYXMgRG9tUmVuZGVyZXJGYWN0b3J5Mn0gZnJvbSAnQGFuZ3VsYXIvcGxhdGZvcm0tYnJvd3Nlcic7XG5cbmltcG9ydCB7QXN5bmNBbmltYXRpb25SZW5kZXJlckZhY3Rvcnl9IGZyb20gJy4vYXN5bmNfYW5pbWF0aW9uX3JlbmRlcmVyJztcblxuLyoqXG4gKiBSZXR1cm5zIHRoZSBzZXQgb2YgZGVwZW5kZW5jeS1pbmplY3Rpb24gcHJvdmlkZXJzXG4gKiB0byBlbmFibGUgYW5pbWF0aW9ucyBpbiBhbiBhcHBsaWNhdGlvbi4gU2VlIFthbmltYXRpb25zIGd1aWRlXShndWlkZS9hbmltYXRpb25zKVxuICogdG8gbGVhcm4gbW9yZSBhYm91dCBhbmltYXRpb25zIGluIEFuZ3VsYXIuXG4gKlxuICogV2hlbiB5b3UgdXNlIHRoaXMgZnVuY3Rpb24gaW5zdGVhZCBvZiB0aGUgZWFnZXIgYHByb3ZpZGVBbmltYXRpb25zKClgLCBhbmltYXRpb25zIHdvbid0IGJlXG4gKiByZW5kZXJlZCB1bnRpbCB0aGUgcmVuZGVyZXIgaXMgbG9hZGVkLlxuICpcbiAqIEB1c2FnZU5vdGVzXG4gKlxuICogVGhlIGZ1bmN0aW9uIGlzIHVzZWZ1bCB3aGVuIHlvdSB3YW50IHRvIGVuYWJsZSBhbmltYXRpb25zIGluIGFuIGFwcGxpY2F0aW9uXG4gKiBib290c3RyYXBwZWQgdXNpbmcgdGhlIGBib290c3RyYXBBcHBsaWNhdGlvbmAgZnVuY3Rpb24uIEluIHRoaXMgc2NlbmFyaW8gdGhlcmVcbiAqIGlzIG5vIG5lZWQgdG8gaW1wb3J0IHRoZSBgQnJvd3NlckFuaW1hdGlvbnNNb2R1bGVgIE5nTW9kdWxlIGF0IGFsbCwganVzdCBhZGRcbiAqIHByb3ZpZGVycyByZXR1cm5lZCBieSB0aGlzIGZ1bmN0aW9uIHRvIHRoZSBgcHJvdmlkZXJzYCBsaXN0IGFzIHNob3cgYmVsb3cuXG4gKlxuICogYGBgdHlwZXNjcmlwdFxuICogYm9vdHN0cmFwQXBwbGljYXRpb24oUm9vdENvbXBvbmVudCwge1xuICogICBwcm92aWRlcnM6IFtcbiAqICAgICBwcm92aWRlQW5pbWF0aW9uc0FzeW5jKClcbiAqICAgXVxuICogfSk7XG4gKiBgYGBcbiAqXG4gKiBAcGFyYW0gdHlwZSBwYXNzIGAnbm9vcCdgIGFzIGFyZ3VtZW50IHRvIGRpc2FibGUgYW5pbWF0aW9ucy5cbiAqXG4gKiBAcHVibGljQXBpXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBwcm92aWRlQW5pbWF0aW9uc0FzeW5jKFxuICB0eXBlOiAnYW5pbWF0aW9ucycgfCAnbm9vcCcgPSAnYW5pbWF0aW9ucycsXG4pOiBFbnZpcm9ubWVudFByb3ZpZGVycyB7XG4gIHBlcmZvcm1hbmNlTWFya0ZlYXR1cmUoJ05nQXN5bmNBbmltYXRpb25zJyk7XG4gIHJldHVybiBtYWtlRW52aXJvbm1lbnRQcm92aWRlcnMoW1xuICAgIHtcbiAgICAgIHByb3ZpZGU6IFJlbmRlcmVyRmFjdG9yeTIsXG4gICAgICB1c2VGYWN0b3J5OiAoZG9jOiBEb2N1bWVudCwgcmVuZGVyZXI6IERvbVJlbmRlcmVyRmFjdG9yeTIsIHpvbmU6IE5nWm9uZSkgPT4ge1xuICAgICAgICByZXR1cm4gbmV3IEFzeW5jQW5pbWF0aW9uUmVuZGVyZXJGYWN0b3J5KGRvYywgcmVuZGVyZXIsIHpvbmUsIHR5cGUpO1xuICAgICAgfSxcbiAgICAgIGRlcHM6IFtET0NVTUVOVCwgRG9tUmVuZGVyZXJGYWN0b3J5MiwgTmdab25lXSxcbiAgICB9LFxuICAgIHtcbiAgICAgIHByb3ZpZGU6IEFOSU1BVElPTl9NT0RVTEVfVFlQRSxcbiAgICAgIHVzZVZhbHVlOiB0eXBlID09PSAnbm9vcCcgPyAnTm9vcEFuaW1hdGlvbnMnIDogJ0Jyb3dzZXJBbmltYXRpb25zJyxcbiAgICB9LFxuICBdKTtcbn1cbiJdfQ==

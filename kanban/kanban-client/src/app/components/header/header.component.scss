@@ -1,0 +1,52 @@
+header {
+  background: var(--purple-color);
+  height: 5.625rem;
+  width: 100%;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--font-family-base);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white-color);
+  }
+
+  .user-management {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .hello-user {
+      font-family: var(--font-family-base);
+      font-size: 18px;
+      color: var(--white-color);
+      margin-right: 1rem;
+    }
+
+    nav {
+      button {
+        font-family: var(--font-family-base);
+        font-size: 16px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        color: var(--white-color);
+        border: 1px solid var(--white-color);
+        border-radius: 0.3125rem;
+
+        &:hover {
+          background-color: var(--white-color);
+          color: var(--purple-color);
+          border: 1px solid var(--white-color);
+          border-radius: 0.3125rem;
+        }
+      }
+    }
+  }
+}

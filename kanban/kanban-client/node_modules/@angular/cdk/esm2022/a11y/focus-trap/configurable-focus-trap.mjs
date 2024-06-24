@@ -1,0 +1,51 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { FocusTrap } from './focus-trap';
+/**
+ * Class that allows for trapping focus within a DOM element.
+ *
+ * This class uses a strategy pattern that determines how it traps focus.
+ * See FocusTrapInertStrategy.
+ */
+export class ConfigurableFocusTrap extends FocusTrap {
+    /** Whether the FocusTrap is enabled. */
+    get enabled() {
+        return this._enabled;
+    }
+    set enabled(value) {
+        this._enabled = value;
+        if (this._enabled) {
+            this._focusTrapManager.register(this);
+        }
+        else {
+            this._focusTrapManager.deregister(this);
+        }
+    }
+    constructor(_element, _checker, _ngZone, _document, _focusTrapManager, _inertStrategy, config) {
+        super(_element, _checker, _ngZone, _document, config.defer);
+        this._focusTrapManager = _focusTrapManager;
+        this._inertStrategy = _inertStrategy;
+        this._focusTrapManager.register(this);
+    }
+    /** Notifies the FocusTrapManager that this FocusTrap will be destroyed. */
+    destroy() {
+        this._focusTrapManager.deregister(this);
+        super.destroy();
+    }
+    /** @docs-private Implemented as part of ManagedFocusTrap. */
+    _enable() {
+        this._inertStrategy.preventFocus(this);
+        this.toggleAnchors(true);
+    }
+    /** @docs-private Implemented as part of ManagedFocusTrap. */
+    _disable() {
+        this._inertStrategy.allowFocus(this);
+        this.toggleAnchors(false);
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29uZmlndXJhYmxlLWZvY3VzLXRyYXAuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvY2RrL2ExMXkvZm9jdXMtdHJhcC9jb25maWd1cmFibGUtZm9jdXMtdHJhcC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFJSCxPQUFPLEVBQUMsU0FBUyxFQUFDLE1BQU0sY0FBYyxDQUFDO0FBS3ZDOzs7OztHQUtHO0FBQ0gsTUFBTSxPQUFPLHFCQUFzQixTQUFRLFNBQVM7SUFDbEQsd0NBQXdDO0lBQ3hDLElBQWEsT0FBTztRQUNsQixPQUFPLElBQUksQ0FBQyxRQUFRLENBQUM7SUFDdkIsQ0FBQztJQUNELElBQWEsT0FBTyxDQUFDLEtBQWM7UUFDakMsSUFBSSxDQUFDLFFBQVEsR0FBRyxLQUFLLENBQUM7UUFDdEIsSUFBSSxJQUFJLENBQUMsUUFBUSxFQUFFLENBQUM7WUFDbEIsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUN4QyxDQUFDO2FBQU0sQ0FBQztZQUNOLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDMUMsQ0FBQztJQUNILENBQUM7SUFFRCxZQUNFLFFBQXFCLEVBQ3JCLFFBQThCLEVBQzlCLE9BQWUsRUFDZixTQUFtQixFQUNYLGlCQUFtQyxFQUNuQyxjQUFzQyxFQUM5QyxNQUFtQztRQUVuQyxLQUFLLENBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUpwRCxzQkFBaUIsR0FBakIsaUJBQWlCLENBQWtCO1FBQ25DLG1CQUFjLEdBQWQsY0FBYyxDQUF3QjtRQUk5QyxJQUFJLENBQUMsaUJBQWlCLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ3hDLENBQUM7SUFFRCwyRUFBMkU7SUFDbEUsT0FBTztRQUNkLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDeEMsS0FBSyxDQUFDLE9BQU8sRUFBRSxDQUFDO0lBQ2xCLENBQUM7SUFFRCw2REFBNkQ7SUFDN0QsT0FBTztRQUNMLElBQUksQ0FBQyxjQUFjLENBQUMsWUFBWSxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ3ZDLElBQUksQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDM0IsQ0FBQztJQUVELDZEQUE2RDtJQUM3RCxRQUFRO1FBQ04sSUFBSSxDQUFDLGNBQWMsQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDckMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUM1QixDQUFDO0NBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtOZ1pvbmV9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtJbnRlcmFjdGl2aXR5Q2hlY2tlcn0gZnJvbSAnLi4vaW50ZXJhY3Rpdml0eS1jaGVja2VyL2ludGVyYWN0aXZpdHktY2hlY2tlcic7XG5pbXBvcnQge0ZvY3VzVHJhcH0gZnJvbSAnLi9mb2N1cy10cmFwJztcbmltcG9ydCB7Rm9jdXNUcmFwTWFuYWdlciwgTWFuYWdlZEZvY3VzVHJhcH0gZnJvbSAnLi9mb2N1cy10cmFwLW1hbmFnZXInO1xuaW1wb3J0IHtGb2N1c1RyYXBJbmVydFN0cmF0ZWd5fSBmcm9tICcuL2ZvY3VzLXRyYXAtaW5lcnQtc3RyYXRlZ3knO1xuaW1wb3J0IHtDb25maWd1cmFibGVGb2N1c1RyYXBDb25maWd9IGZyb20gJy4vY29uZmlndXJhYmxlLWZvY3VzLXRyYXAtY29uZmlnJztcblxuLyoqXG4gKiBDbGFzcyB0aGF0IGFsbG93cyBmb3IgdHJhcHBpbmcgZm9jdXMgd2l0aGluIGEgRE9NIGVsZW1lbnQuXG4gKlxuICogVGhpcyBjbGFzcyB1c2VzIGEgc3RyYXRlZ3kgcGF0dGVybiB0aGF0IGRldGVybWluZXMgaG93IGl0IHRyYXBzIGZvY3VzLlxuICogU2VlIEZvY3VzVHJhcEluZXJ0U3RyYXRlZ3kuXG4gKi9cbmV4cG9ydCBjbGFzcyBDb25maWd1cmFibGVGb2N1c1RyYXAgZXh0ZW5kcyBGb2N1c1RyYXAgaW1wbGVtZW50cyBNYW5hZ2VkRm9jdXNUcmFwIHtcbiAgLyoqIFdoZXRoZXIgdGhlIEZvY3VzVHJhcCBpcyBlbmFibGVkLiAqL1xuICBvdmVycmlkZSBnZXQgZW5hYmxlZCgpOiBib29sZWFuIHtcbiAgICByZXR1cm4gdGhpcy5fZW5hYmxlZDtcbiAgfVxuICBvdmVycmlkZSBzZXQgZW5hYmxlZCh2YWx1ZTogYm9vbGVhbikge1xuICAgIHRoaXMuX2VuYWJsZWQgPSB2YWx1ZTtcbiAgICBpZiAodGhpcy5fZW5hYmxlZCkge1xuICAgICAgdGhpcy5fZm9jdXNUcmFwTWFuYWdlci5yZWdpc3Rlcih0aGlzKTtcbiAgICB9IGVsc2Uge1xuICAgICAgdGhpcy5fZm9jdXNUcmFwTWFuYWdlci5kZXJlZ2lzdGVyKHRoaXMpO1xuICAgIH1cbiAgfVxuXG4gIGNvbnN0cnVjdG9yKFxuICAgIF9lbGVtZW50OiBIVE1MRWxlbWVudCxcbiAgICBfY2hlY2tlcjogSW50ZXJhY3Rpdml0eUNoZWNrZXIsXG4gICAgX25nWm9uZTogTmdab25lLFxuICAgIF9kb2N1bWVudDogRG9jdW1lbnQsXG4gICAgcHJpdmF0ZSBfZm9jdXNUcmFwTWFuYWdlcjogRm9jdXNUcmFwTWFuYWdlcixcbiAgICBwcml2YXRlIF9pbmVydFN0cmF0ZWd5OiBGb2N1c1RyYXBJbmVydFN0cmF0ZWd5LFxuICAgIGNvbmZpZzogQ29uZmlndXJhYmxlRm9jdXNUcmFwQ29uZmlnLFxuICApIHtcbiAgICBzdXBlcihfZWxlbWVudCwgX2NoZWNrZXIsIF9uZ1pvbmUsIF9kb2N1bWVudCwgY29uZmlnLmRlZmVyKTtcbiAgICB0aGlzLl9mb2N1c1RyYXBNYW5hZ2VyLnJlZ2lzdGVyKHRoaXMpO1xuICB9XG5cbiAgLyoqIE5vdGlmaWVzIHRoZSBGb2N1c1RyYXBNYW5hZ2VyIHRoYXQgdGhpcyBGb2N1c1RyYXAgd2lsbCBiZSBkZXN0cm95ZWQuICovXG4gIG92ZXJyaWRlIGRlc3Ryb3koKSB7XG4gICAgdGhpcy5fZm9jdXNUcmFwTWFuYWdlci5kZXJlZ2lzdGVyKHRoaXMpO1xuICAgIHN1cGVyLmRlc3Ryb3koKTtcbiAgfVxuXG4gIC8qKiBAZG9jcy1wcml2YXRlIEltcGxlbWVudGVkIGFzIHBhcnQgb2YgTWFuYWdlZEZvY3VzVHJhcC4gKi9cbiAgX2VuYWJsZSgpIHtcbiAgICB0aGlzLl9pbmVydFN0cmF0ZWd5LnByZXZlbnRGb2N1cyh0aGlzKTtcbiAgICB0aGlzLnRvZ2dsZUFuY2hvcnModHJ1ZSk7XG4gIH1cblxuICAvKiogQGRvY3MtcHJpdmF0ZSBJbXBsZW1lbnRlZCBhcyBwYXJ0IG9mIE1hbmFnZWRGb2N1c1RyYXAuICovXG4gIF9kaXNhYmxlKCkge1xuICAgIHRoaXMuX2luZXJ0U3RyYXRlZ3kuYWxsb3dGb2N1cyh0aGlzKTtcbiAgICB0aGlzLnRvZ2dsZUFuY2hvcnMoZmFsc2UpO1xuICB9XG59XG4iXX0=

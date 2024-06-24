@@ -1,0 +1,17 @@
+<div class="modal-overlay" role="dialog">
+  <div class="modal-content" role="document">
+    <div class="modal-header">
+      <h5>Update Project</h5>
+      <button class="close-button" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-update-project-form
+        [showModal]="showModal"
+        [project]="project"
+        (toggle)="close()"
+      ></app-update-project-form>
+    </div>
+  </div>
+</div>

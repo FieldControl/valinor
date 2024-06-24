@@ -1,0 +1,1 @@
+{"version":3,"file":"libs-version.js","sourceRoot":"","sources":["../../../../../modules/operators/schematics-core/utility/libs-version.ts"],"names":[],"mappings":";;;AAAa,QAAA,eAAe,GAAG,gBAAgB,CAAC","sourcesContent":["export const platformVersion = '^17.0.0-beta.0';\n"]}

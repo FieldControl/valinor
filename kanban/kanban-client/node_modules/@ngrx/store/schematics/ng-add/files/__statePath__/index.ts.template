@@ -1,0 +1,19 @@
+import { isDevMode } from '@angular/core';
+import {
+  ActionReducer,
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector,
+  MetaReducer
+} from '@ngrx/store';
+
+export interface <%= classify(stateInterface) %> {
+
+}
+
+export const reducers: ActionReducerMap<<%= classify(stateInterface) %>> = {
+
+};
+
+
+export const metaReducers: MetaReducer<<%= classify(stateInterface) %>>[] = isDevMode() ? [] : [];

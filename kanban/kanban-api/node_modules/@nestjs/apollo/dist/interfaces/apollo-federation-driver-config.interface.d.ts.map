@@ -1,0 +1,1 @@
+{"version":3,"file":"apollo-federation-driver-config.interface.d.ts","sourceRoot":"","sources":["../../lib/interfaces/apollo-federation-driver-config.interface.ts"],"names":[],"mappings":"AAAA,OAAO,EACL,uBAAuB,EACvB,kBAAkB,EAClB,yBAAyB,EAC1B,MAAM,kCAAkC,CAAC;AAE1C,MAAM,MAAM,4BAA4B,GAAG,kBAAkB,CAAC;AAC9D,MAAM,MAAM,mCAAmC,GAAG,yBAAyB,CAAC;AAC5E,MAAM,MAAM,iCAAiC,GAAG,uBAAuB,CAAC"}

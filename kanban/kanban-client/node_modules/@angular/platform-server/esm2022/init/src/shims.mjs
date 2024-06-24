@@ -1,0 +1,19 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import domino from './bundled-domino';
+/**
+ * Apply the necessary shims to make DOM globals (such as `Element`, `HTMLElement`, etc.) available
+ * on the environment.
+ */
+export function applyShims() {
+    // Make all Domino types available in the global env.
+    // NB: Any changes here should also be done in `packages/platform-server/src/domino_adapter.ts`.
+    Object.assign(globalThis, domino.impl);
+    globalThis['KeyboardEvent'] = domino.impl.Event;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2hpbXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9wbGF0Zm9ybS1zZXJ2ZXIvaW5pdC9zcmMvc2hpbXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxNQUFNLE1BQU0sa0JBQWtCLENBQUM7QUFFdEM7OztHQUdHO0FBQ0gsTUFBTSxVQUFVLFVBQVU7SUFDeEIscURBQXFEO0lBQ3JELGdHQUFnRztJQUNoRyxNQUFNLENBQUMsTUFBTSxDQUFDLFVBQVUsRUFBRSxNQUFNLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDdEMsVUFBa0IsQ0FBQyxlQUFlLENBQUMsR0FBRyxNQUFNLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQztBQUMzRCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCBkb21pbm8gZnJvbSAnLi9idW5kbGVkLWRvbWlubyc7XG5cbi8qKlxuICogQXBwbHkgdGhlIG5lY2Vzc2FyeSBzaGltcyB0byBtYWtlIERPTSBnbG9iYWxzIChzdWNoIGFzIGBFbGVtZW50YCwgYEhUTUxFbGVtZW50YCwgZXRjLikgYXZhaWxhYmxlXG4gKiBvbiB0aGUgZW52aXJvbm1lbnQuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBhcHBseVNoaW1zKCk6IHZvaWQge1xuICAvLyBNYWtlIGFsbCBEb21pbm8gdHlwZXMgYXZhaWxhYmxlIGluIHRoZSBnbG9iYWwgZW52LlxuICAvLyBOQjogQW55IGNoYW5nZXMgaGVyZSBzaG91bGQgYWxzbyBiZSBkb25lIGluIGBwYWNrYWdlcy9wbGF0Zm9ybS1zZXJ2ZXIvc3JjL2RvbWlub19hZGFwdGVyLnRzYC5cbiAgT2JqZWN0LmFzc2lnbihnbG9iYWxUaGlzLCBkb21pbm8uaW1wbCk7XG4gIChnbG9iYWxUaGlzIGFzIGFueSlbJ0tleWJvYXJkRXZlbnQnXSA9IGRvbWluby5pbXBsLkV2ZW50O1xufVxuIl19

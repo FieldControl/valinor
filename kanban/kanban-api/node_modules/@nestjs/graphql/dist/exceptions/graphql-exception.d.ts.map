@@ -1,0 +1,1 @@
+{"version":3,"file":"graphql-exception.d.ts","sourceRoot":"","sources":["../../lib/exceptions/graphql-exception.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,SAAS,CAAC;AAEvC,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,2CAA2C,CAAC;AAElF,qBAAa,gBAAiB,SAAQ,YAAY;gBACpC,OAAO,EAAE,MAAM,EAAE,OAAO,EAAE,gBAAgB;CAGvD"}

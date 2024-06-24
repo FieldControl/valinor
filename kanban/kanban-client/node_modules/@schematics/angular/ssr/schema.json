@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "SchematicsAngularSSR",
+  "title": "Angular SSR Options Schema",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "skipInstall": {
+      "description": "Skip installing dependency packages.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": ["project"],
+  "additionalProperties": false
+}

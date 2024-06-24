@@ -1,0 +1,1 @@
+{"version":3,"file":"throttler.exception.js","sourceRoot":"","sources":["../src/throttler.exception.ts"],"names":[],"mappings":";;;AAAA,2CAA2D;AAE9C,QAAA,gBAAgB,GAAG,uCAAuC,CAAC;AAOxE,MAAa,kBAAmB,SAAQ,sBAAa;IACnD,YAAY,OAAgB;QAC1B,KAAK,CAAC,GAAG,OAAO,IAAI,wBAAgB,EAAE,EAAE,mBAAU,CAAC,iBAAiB,CAAC,CAAC;IACxE,CAAC;CACF;AAJD,gDAIC"}

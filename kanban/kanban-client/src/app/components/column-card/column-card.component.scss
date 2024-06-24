@@ -1,0 +1,112 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 570px;
+  padding: 1.25rem;
+  border: 1px solid var(--gray-light-color);
+  border-radius: 2.5rem;
+
+  .header-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem;
+    border-bottom: 1px solid var(--gray-light-color);
+    margin-bottom: 1.25rem;
+
+    .column-manager {
+      display: flex;
+      flex-direction: row;
+      gap: 0.625rem;
+
+      .icon {
+        font-size: 1.375rem;
+        transition: 0.3s;
+        color: var(--gray-light-color);
+      }
+
+      .icon:hover {
+        color: var(--purple-color);
+      }
+    }
+
+    .title-container {
+      position: relative;
+      width: 50%;
+
+      h3 {
+        font-family: var(--font-family-base);
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: var(--gray-light-color);
+      }
+      .edit-modal {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        width: 100%;
+        border-radius: 8px;
+
+        .edit-input {
+          font-family: var(--font-family-base);
+          font-size: 1.375rem;
+          font-weight: 700;
+          color: var(--gray-light-color);
+          border: 1px solid var(--purple-color);
+          width: 100%;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .edit-input:focus {
+          border-color: var(--purple-color);
+        }
+
+        button {
+          font-family: var(--font-family-base);
+          font-size: 14px;
+          color: var(--white-color);
+          background: var(--purple-color);
+          padding: 10px;
+
+          margin: 10px 0 0 10px;
+          border-radius: 10px;
+
+          transition: 0.3s;
+        }
+
+        button:hover {
+          background: var(--purple-dark);
+        }
+      }
+    }
+  }
+
+  .bnt-task {
+    width: 75px;
+    height: 34px;
+    border: 1px solid var(--gray-light-color);
+    border-radius: 0.625rem;
+    font-family: var(--font-family-base);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-light-color);
+    transition: 0.3s;
+
+    span {
+      margin-left: 0.3125rem;
+    }
+  }
+
+  .bnt-task:hover {
+    border: 1px solid var(--purple-color);
+    color: var(--purple-color);
+  }
+}

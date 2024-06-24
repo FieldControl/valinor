@@ -1,0 +1,42 @@
+<div class="card-container">
+  <div class="header-card">
+    <div class="column-manager">
+      <button (click)="startEditing()">
+        <i class="fas fa-edit icon"></i>
+      </button>
+      <button (click)="onDelete()">
+        <i class="fas fa-trash icon"></i>
+      </button>
+    </div>
+    <div class="title-container">
+      <div *ngIf="!isEditing" (click)="startEditing()">
+        <h3>{{ column.title }}</h3>
+      </div>
+      <div *ngIf="isEditing" class="edit-modal">
+        <input
+          type="text"
+          [(ngModel)]="editedTitle"
+          (mousedown)="disableDrag($event)"
+          (touchstart)="disableDrag($event)"
+          class="edit-input"
+        />
+        <div>
+          <button (click)="saveTitle()">Salvar</button>
+          <button (click)="cancelEditing()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button class="bnt-task" (click)="createTask()">
+        <span>+</span><span>Task</span>
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <app-task-list
+      [column]="column"
+      [connectedDropLists]="connectedDropLists"
+    ></app-task-list>
+  </div>
+</div>

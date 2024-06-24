@@ -1,0 +1,25 @@
+<div class="task-container" [ngClass]="{ 'is-editing': isEditing }">
+  <div *ngIf="!isEditing" (click)="startEditing()">
+    <h3>{{ task.title }}</h3>
+  </div>
+  <div class="task-manager" [ngClass]="{ 'is-hidden': isEditing }">
+    <button (click)="startEditing()">
+      <i class="fas fa-edit icon"></i>
+    </button>
+    <button (click)="onDelete()">
+      <i class="fas fa-trash icon"></i>
+    </button>
+  </div>
+  <div *ngIf="isEditing" class="edit-modal">
+    <input
+      type="text"
+      [(ngModel)]="editedTitle"
+      (mousedown)="disableDrag($event)"
+      (touchstart)="disableDrag($event)"
+    />
+    <div>
+      <button (click)="saveTitle()">Salvar</button>
+      <button (click)="cancelEditing()">Cancel</button>
+    </div>
+  </div>
+</div>

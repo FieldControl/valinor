@@ -1,0 +1,94 @@
+export class SchemaManager {
+    constructor(options) {
+        this.onSchemaLoadOrUpdateListeners = new Set();
+        this.isStopped = false;
+        this.logger = options.logger;
+        this.schemaDerivedDataProvider = options.schemaDerivedDataProvider;
+        if ('gateway' in options) {
+            this.modeSpecificState = {
+                mode: 'gateway',
+                gateway: options.gateway,
+                apolloConfig: options.apolloConfig,
+            };
+        }
+        else {
+            this.modeSpecificState = {
+                mode: 'schema',
+                apiSchema: options.apiSchema,
+                schemaDerivedData: options.schemaDerivedDataProvider(options.apiSchema),
+            };
+        }
+    }
+    async start() {
+        if (this.modeSpecificState.mode === 'gateway') {
+            const gateway = this.modeSpecificState.gateway;
+            if (gateway.onSchemaLoadOrUpdate) {
+                this.modeSpecificState.unsubscribeFromGateway =
+                    gateway.onSchemaLoadOrUpdate((schemaContext) => {
+                        this.processSchemaLoadOrUpdateEvent(schemaContext);
+                    });
+            }
+            else {
+                throw new Error("Unexpectedly couldn't find onSchemaLoadOrUpdate on gateway");
+            }
+            const config = await this.modeSpecificState.gateway.load({
+                apollo: this.modeSpecificState.apolloConfig,
+            });
+            return config.executor;
+        }
+        else {
+            this.processSchemaLoadOrUpdateEvent({
+                apiSchema: this.modeSpecificState.apiSchema,
+            }, this.modeSpecificState.schemaDerivedData);
+            return null;
+        }
+    }
+    onSchemaLoadOrUpdate(callback) {
+        if (!this.schemaContext) {
+            throw new Error('You must call start() before onSchemaLoadOrUpdate()');
+        }
+        if (!this.isStopped) {
+            try {
+                callback(this.schemaContext);
+            }
+            catch (e) {
+                throw new Error(`An error was thrown from an 'onSchemaLoadOrUpdate' listener: ${e.message}`);
+            }
+        }
+        this.onSchemaLoadOrUpdateListeners.add(callback);
+        return () => {
+            this.onSchemaLoadOrUpdateListeners.delete(callback);
+        };
+    }
+    getSchemaDerivedData() {
+        if (!this.schemaDerivedData) {
+            throw new Error('You must call start() before getSchemaDerivedData()');
+        }
+        return this.schemaDerivedData;
+    }
+    async stop() {
+        this.isStopped = true;
+        if (this.modeSpecificState.mode === 'gateway') {
+            this.modeSpecificState.unsubscribeFromGateway?.();
+            await this.modeSpecificState.gateway.stop?.();
+        }
+    }
+    processSchemaLoadOrUpdateEvent(schemaContext, schemaDerivedData) {
+        if (!this.isStopped) {
+            this.schemaDerivedData =
+                schemaDerivedData ??
+                    this.schemaDerivedDataProvider(schemaContext.apiSchema);
+            this.schemaContext = schemaContext;
+            this.onSchemaLoadOrUpdateListeners.forEach((listener) => {
+                try {
+                    listener(schemaContext);
+                }
+                catch (e) {
+                    this.logger.error("An error was thrown from an 'onSchemaLoadOrUpdate' listener");
+                    this.logger.error(e);
+                }
+            });
+        }
+    }
+}
+//# sourceMappingURL=schemaManager.js.map

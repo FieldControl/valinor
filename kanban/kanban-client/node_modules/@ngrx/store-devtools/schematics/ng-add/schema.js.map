@@ -1,0 +1,1 @@
+{"version":3,"file":"schema.js","sourceRoot":"","sources":["../../../../../modules/store-devtools/schematics/ng-add/schema.ts"],"names":[],"mappings":"","sourcesContent":["export interface Schema {\n  skipPackageJson?: boolean;\n  path?: string;\n  project?: string;\n  module?: string;\n  maxAge?: number;\n  autoPause?: boolean;\n}\n"]}

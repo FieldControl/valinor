@@ -1,0 +1,23 @@
+{
+  "name": "@apollo/utils.withrequired",
+  "version": "2.0.1",
+  "description": "TypeScript utility type WithRequired",
+  "main": "",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apollographql/apollo-utils.git",
+    "directory": "packages/withRequired/"
+  },
+  "keywords": [
+    "apollo",
+    "graphql",
+    "typescript",
+    "node"
+  ],
+  "author": "Apollo <packages@apollographql.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  }
+}

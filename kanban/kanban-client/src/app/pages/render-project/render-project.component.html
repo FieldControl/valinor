@@ -1,0 +1,22 @@
+<main>
+  <div class="container">
+    <div class="header-project" *ngIf="project">
+      <div>
+        <h2 class="title">{{ project.title }}</h2>
+        <p class="paragraph">{{ project.description }}</p>
+      </div>
+      <div>
+        <button class="exit-button" (click)="exitProject()">Exit</button>
+      </div>
+    </div>
+    <div *ngIf="!project">
+      <button class="exit-button" (click)="exitProject()">Exit</button>
+    </div>
+    <div class="column-list-container">
+      <div class="column-list">
+        <app-column-list [project]="project"></app-column-list>
+        <button class="add-column-button" (click)="createColumn()">+</button>
+      </div>
+    </div>
+  </div>
+</main>

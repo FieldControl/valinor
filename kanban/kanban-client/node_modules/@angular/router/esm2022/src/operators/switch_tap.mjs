@@ -1,0 +1,25 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { from, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+/**
+ * Perform a side effect through a switchMap for every emission on the source Observable,
+ * but return an Observable that is identical to the source. It's essentially the same as
+ * the `tap` operator, but if the side effectful `next` function returns an ObservableInput,
+ * it will wait before continuing with the original value.
+ */
+export function switchTap(next) {
+    return switchMap((v) => {
+        const nextResult = next(v);
+        if (nextResult) {
+            return from(nextResult).pipe(map(() => v));
+        }
+        return of(v);
+    });
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3dpdGNoX3RhcC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL3JvdXRlci9zcmMvb3BlcmF0b3JzL3N3aXRjaF90YXAudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFDLElBQUksRUFBNkMsRUFBRSxFQUFDLE1BQU0sTUFBTSxDQUFDO0FBQ3pFLE9BQU8sRUFBQyxHQUFHLEVBQUUsU0FBUyxFQUFDLE1BQU0sZ0JBQWdCLENBQUM7QUFFOUM7Ozs7O0dBS0c7QUFDSCxNQUFNLFVBQVUsU0FBUyxDQUN2QixJQUEyQztJQUUzQyxPQUFPLFNBQVMsQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFO1FBQ3JCLE1BQU0sVUFBVSxHQUFHLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQztRQUMzQixJQUFJLFVBQVUsRUFBRSxDQUFDO1lBQ2YsT0FBTyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBQzdDLENBQUM7UUFDRCxPQUFPLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUNmLENBQUMsQ0FBQyxDQUFDO0FBQ0wsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge2Zyb20sIE1vbm9UeXBlT3BlcmF0b3JGdW5jdGlvbiwgT2JzZXJ2YWJsZUlucHV0LCBvZn0gZnJvbSAncnhqcyc7XG5pbXBvcnQge21hcCwgc3dpdGNoTWFwfSBmcm9tICdyeGpzL29wZXJhdG9ycyc7XG5cbi8qKlxuICogUGVyZm9ybSBhIHNpZGUgZWZmZWN0IHRocm91Z2ggYSBzd2l0Y2hNYXAgZm9yIGV2ZXJ5IGVtaXNzaW9uIG9uIHRoZSBzb3VyY2UgT2JzZXJ2YWJsZSxcbiAqIGJ1dCByZXR1cm4gYW4gT2JzZXJ2YWJsZSB0aGF0IGlzIGlkZW50aWNhbCB0byB0aGUgc291cmNlLiBJdCdzIGVzc2VudGlhbGx5IHRoZSBzYW1lIGFzXG4gKiB0aGUgYHRhcGAgb3BlcmF0b3IsIGJ1dCBpZiB0aGUgc2lkZSBlZmZlY3RmdWwgYG5leHRgIGZ1bmN0aW9uIHJldHVybnMgYW4gT2JzZXJ2YWJsZUlucHV0LFxuICogaXQgd2lsbCB3YWl0IGJlZm9yZSBjb250aW51aW5nIHdpdGggdGhlIG9yaWdpbmFsIHZhbHVlLlxuICovXG5leHBvcnQgZnVuY3Rpb24gc3dpdGNoVGFwPFQ+KFxuICBuZXh0OiAoeDogVCkgPT4gdm9pZCB8IE9ic2VydmFibGVJbnB1dDxhbnk+LFxuKTogTW9ub1R5cGVPcGVyYXRvckZ1bmN0aW9uPFQ+IHtcbiAgcmV0dXJuIHN3aXRjaE1hcCgodikgPT4ge1xuICAgIGNvbnN0IG5leHRSZXN1bHQgPSBuZXh0KHYpO1xuICAgIGlmIChuZXh0UmVzdWx0KSB7XG4gICAgICByZXR1cm4gZnJvbShuZXh0UmVzdWx0KS5waXBlKG1hcCgoKSA9PiB2KSk7XG4gICAgfVxuICAgIHJldHVybiBvZih2KTtcbiAgfSk7XG59XG4iXX0=
