@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playwrite+MX:wght@100..400&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+
+
+.column {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  width: 380px;
+  box-sizing: border-box;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container-name {
+  width: 280px;
+  background-color: rgb(41, 152, 255);
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  font-family: "Roboto Slab", serif;
+  font-size: 13px;
+  margin: 0 auto;
+  font-optical-sizing: auto;
+  font-weight: normal;
+}
+
+.card-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Playwrite NG Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight:bold;
+  font-style: normal;
+}
+
+.adicionar-botao {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.adicionar-botao:hover {
+  background-color: #0056b3;
+}
+
+.excluir-botao{
+  border-radius: 5px;
+  height: 30px;
+  font-size: 15px;
+  font-family:Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.excluir-botao:hover{
+  background-color: red;
+  border: 3px solid red;
+}

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@100..400&display=swap');
+
+header{
+  background-color: black;
+  width: 200px;
+  height: 50px;
+  border: 3px double white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+}
+
+#title{
+  color: white;
+  text-align: center;
+  padding: auto;
+  height: 30px;
+  width: 150px;
+  margin: auto;
+  font-family: "Playwrite AU VIC", cursive;
+  font-optical-sizing: auto;
+  font-weight: 10px;
+  font-style: normal;
+  font-size: 30px;
+}

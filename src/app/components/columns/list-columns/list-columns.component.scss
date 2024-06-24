@@ -1,0 +1,34 @@
+
+
+#board {
+  background-color: #333;
+  width: 96%;
+  height: 650px;
+  margin: auto;
+  margin-top: 20px;
+  border: 3px double white;
+  border-radius: 10px;
+  position: relative;
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
+#board button {
+  position: fixed;
+  top: 70px;
+  right: 60px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#board button:hover {
+  background-color: #0056b3;
+}
+

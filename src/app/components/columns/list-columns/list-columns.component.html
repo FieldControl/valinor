@@ -1,0 +1,6 @@
+<div id="board">
+  <div *ngFor="let column of listColumns">
+    <app-column [column]="column"></app-column>
+  </div>
+  <button routerLink="/createColumns">Adicionar Coluna</button>
+</div>

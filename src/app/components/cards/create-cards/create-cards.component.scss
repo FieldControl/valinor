@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+
+#container{
+  background-color: #333;
+  border: double 3px white;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+form{
+
+  padding-top: 70px;
+  text-align: center;
+}
+#acoes{
+  justify-content: space-between;
+  width: 150px;
+  margin: auto;
+  display: flex;
+}
+
+#nameTask{
+  width: 300px;
+  height: 30px;
+  border: 3px solid #800080;
+  border-radius: 10px;
+  background-color: #e2e2e2;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+#task-container{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #e2e2e2;
+  text-align: center;
+  font-family: "Playwrite NG Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight:bold;
+  font-style: normal;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.botao{
+  border-radius: 5px;
+  height: 30px;
+  font-size: 15px;
+  font-family:Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.botao:hover{
+  color: white;
+}
+
+#botaoSalvar:hover{
+  background-color: #800080;
+  cursor: pointer;
+  border: 3px solid #800080;
+
+}
+
+#botaoCancelar:hover{
+  background-color: red;
+  border: 3px solid red;
+}
