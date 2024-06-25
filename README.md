@@ -1,4 +1,4 @@
-# Esta Pasta contém dois projetos, um Angular (fieldproject) e um Nest.js (projectfield).
+# Este projeto Angular contém dentro um projeto Nest.js (ver a pasta projectfield). Mas será explicada a situação dos dois projetos.
 
 
 
