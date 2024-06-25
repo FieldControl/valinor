@@ -12,6 +12,7 @@
 
 ### 2- Abrir um segundo terminal e entrar na pasta de backend com "cd backend" no segundo terminal aberto. Em seguida, digite no mesmo terminal o comando "npm start". Isso irá rodar o backend da aplicação.
 
+
 ![alt text](/images/4885AE20-C250-466F-AD80-B550FDD8DF3D_4_5005_c.jpeg)
 
 
