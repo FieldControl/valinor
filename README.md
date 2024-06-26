@@ -1,4 +1,4 @@
-# Este projeto Angular contém dentro um projeto Nest.js (ver a pasta projectfield). Mas será explicada a situação dos dois projetos.
+# Esta Pasta contém dois projetos, um Angular (fieldproject) e um Nest.js (projectfield).
 
 
 
@@ -12,13 +12,12 @@
 
 ### 2- Abrir um segundo terminal e entrar na pasta de backend com "cd backend" no segundo terminal aberto. Em seguida, digite no mesmo terminal o comando "npm start". Isso irá rodar o backend da aplicação.
 
-
 ![alt text](/images/4885AE20-C250-466F-AD80-B550FDD8DF3D_4_5005_c.jpeg)
 
 
 ## Projeto Nest.js
 
-### Infelizmente, não pude dominar o framework Nest.js a tempo para conseguir aplicar no projeto Angular. Então decidi fazer o trabalho como pude saber e fazer. Tentei começar criando os resources tanto para as colunas quanto para os cards, mas faltou uma certa lógica para conseguir implementar no projeto Angular. E não consegui adicionar o projeto Nest completo no Github. 
+### Infelizmente, não pude dominar o framework Nest.js a tempo para conseguir aplicar no projeto Angular. Então decidi fazer o trabalho como pude saber e fazer. Mas deixei o projeto Nest.js que comecei neste trabalho para que mostre que eu realmente me interessei em tentar algo novo e desafiador no projeto. 
 
 # Em resumo, tanto a parte back-end como front-end serão parte do projeto Angular. Pelo fato do tempo curto para aprender um framework novo, não consegui ter o domínio ideal para aplicar no projeto Angular.
 
