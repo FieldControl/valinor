@@ -1,0 +1,19 @@
+<section id="container">
+  <form>
+    <input
+      type="textarea"
+      class="input"
+      id="nameColumn"
+      placeholder="Digite o nome da coluna"
+      [(ngModel)]="column.name"
+      name="name"
+      >
+    <div id="title-container">
+      {{ column.name }}
+    </div>
+    <div id="acoes">
+      <button (click)="createColumn()" class="botao" id="botaoSalvar">Salvar</button>
+      <button (click)="cancelar()" routerLink="/listColumns" class="botao" id="botaoCancelar">Cancelar</button>
+    </div>
+  </form>
+</section>

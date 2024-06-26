@@ -1,0 +1,19 @@
+<section id="container">
+  <form (ngSubmit)="createCard()">
+    <input
+      type="textarea"
+      class="input"
+      id="nameTask"
+      placeholder="Digite alguma tarefa"
+      [(ngModel)]="card.task"
+      name="name"
+    >
+    <div id="task-container">
+      {{ card.task }}
+    </div>
+    <div id="acoes">
+      <button type="submit" class="botao" id="botaoSalvar">Salvar</button>
+      <button routerLink="/listColumns" class="botao" id="botaoCancelar">Cancelar</button>
+    </div>
+  </form>
+</section>

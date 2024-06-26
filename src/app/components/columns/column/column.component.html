@@ -1,0 +1,14 @@
+<div class="column">
+  <div class="container-name">
+    <h2>{{ column.name }}</h2>
+  </div>
+  <div class="container-cards">
+    <div class="card" *ngFor="let card of column.cards">
+      <h3> {{card.task}} </h3>
+    </div>
+  </div>
+  <div>
+    <button (click)="addCard(column.id)" class="adicionar-botao">+</button>
+  <button (click)="excluirColumn()" class="excluir-botao">Excluir coluna</button>
+  </div>
+</div>
