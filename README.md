@@ -13,7 +13,7 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 **Angular** (versão 15 ou superior)
 **Node.js** (versão 14 ou superior)
 **npm** (versão 6 ou superior)
-**PostgreSQL**
+**MySQL** (qualquer versão)
 
 ```
 npm install -g @angular/cli
@@ -106,7 +106,7 @@ ng test
 
 **NestJS** 10.3.2
 **Angular** 18.0.6
-**PostgreSQL** 16.3. 
+**MySQL** mais recente 
 
 ## ✒️ Autores
 
