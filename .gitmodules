@@ -1,0 +1,6 @@
+[submodule "valinor"]
+	path = valinor
+	url = https://github.com/Miguel01Santos/valinor.git
+[submodule "backend-kanban-organizador"]
+	path = backend-kanban-organizador
+	url = C:/Users/123mi/Desktop/kanban-fieldcontrol/valinor
