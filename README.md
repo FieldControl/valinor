@@ -1,96 +1,6 @@
 👨‍💻 Vaga para apaixonados por criação de software
 ===========================================
 
-A empresa
-----------
-
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
-
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
-
-Nossa missão é melhorar a prestação de serviços no Brasil.
-
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
-
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
-
-Origem
-----------
-
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
-
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
-
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
-
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
-
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
-
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
-
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
-
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
-
-Oportunidade
-----------
-
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
-
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack tecnológica é predominantemente JavaScript, abrangendo Node.js, Single Page Applications (SPA) e Hybrid Mobile Apps.
-
-Acreditamos firmemente que excelentes desenvolvedores são capazes de selecionar a ferramenta mais adequada para cada desafio. Por essa razão, para resolver problemas específicos, recorremos às melhores alternativas disponíveis, o que nos leva a incluir uma pitada de C#, Java e PHP em nossas soluções.
-
-Nossos servidores residem na AWS, onde utilizamos a nuvem como nossa plataforma principal. Temos aplicativos funcionando com Elastic BeanStalk, armazenamento em S3 e arquiteturas serverless com AWS Lambda.
-
-Antes mesmo de avaliar o conhecimento técnico, valorizamos o perfil pessoal dos candidatos. Para nós, a determinação, o interesse e a curiosidade são qualidades essenciais. Se você é alguém proativo, interessado e que busca constantemente aprender, é isso que realmente importa para nós! 😊
-
-Aqui está a seção com emojis adicionados:
-
----
-
 ## Requisitos Principais
 
 🌟 **Sem Ego**: Acreditamos que ninguém é melhor que ninguém e que todos podem aprender uns com os outros. Promovemos um ambiente onde a humildade, o respeito e a abertura para aprender e ensinar são valorizados.
@@ -178,23 +88,6 @@ A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJ
 
 Estes recursos fornecem uma base sólida para aprender e se aprofundar nos frameworks Angular e NestJs.
 
-## Para Iniciantes
-
-Se você é um iniciante nesta jornada de desenvolvimento, queremos encorajá-lo a participar deste teste e fazer o seu melhor. Na Field, valorizamos a força de vontade, a iniciativa e o desejo de aprender.
-
-Não se preocupe se você não conseguir entregar um projeto perfeito ou completo. O objetivo é que você ganhe experiência, aprenda com o processo e se desafie a ir além do que já conhece.
-
-Aqui estão algumas dicas para ajudá-lo durante o teste:
-
-1. **Comece com o Básico**: Concentre-se em entender os conceitos fundamentais do Angular e do NestJs. Explore tutoriais, documentações e exemplos de código para se familiarizar com as tecnologias.
-
-2. **Divida o Projeto em Etapas**: Em vez de tentar implementar tudo de uma vez, divida o projeto em etapas menores e gerenciáveis. Concentre-se em uma funcionalidade de cada vez e avance gradualmente.
-
-3. **Não Tenha Medo de Errar**: O processo de aprendizado envolve tentativa e erro. Não se preocupe com os erros ou obstáculos que encontrar ao longo do caminho. Eles fazem parte do processo e são oportunidades de aprendizado.
-
-4. **Celebre suas Conquistas**: Cada pequeno progresso é uma conquista. Celebre suas realizações, por menores que sejam, e reconheça o esforço e a dedicação que você está dedicando ao projeto.
-
-Lembre-se, o importante é tentar e aprender durante o processo. Valorizamos sua iniciativa e estamos aqui para apoiá-lo em sua jornada de desenvolvimento. Boa sorte e divirta-se codificando! 🌟
 
 ## Diferenciais
 
