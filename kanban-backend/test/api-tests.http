@@ -1,0 +1,54 @@
+
+POST http://localhost:3000/swimlanes
+Content-Type: application/json
+
+{
+  "name": "Sistema ok",
+  "order": 0,
+  "boardId": 1
+}
+
+
+# Criação de uma Swimlane de Teste
+POST http://localhost:3000/board
+Content-Type: application/json
+{
+  "name": "Novo Teste",
+}
+
+
+DELETE http://localhost:3000/swimlanes/1
+
+
+
+
+
+GET http://localhost:3000/swimlanes/1
+
+POST http://localhost:3000/swimlanes
+Content-Type: application/json
+
+{
+  "name": "Sistema 4",
+  "order": 1,
+  "boardId": 1
+}
+
+# PUT /swimlanes/
+PUT http://localhost:3000/swimlanes/1
+Content-Type: application/json
+
+{
+  "name": "Sistema atualizado",
+  "order": 0,
+  "boardId": 1
+}
+
+# GET /swimlanes/
+GET http://localhost:3000/swimlanes/1
+
+
+
+
+
+
