@@ -8,13 +8,13 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+  Register(@Body() createUserDto: CreateUserDto) {
+    return this.userService.RegisterNewUser(createUserDto);
   }
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
+  @Get('/board/:boardId')
+  findAll(@Param('boardId') boardId: number) {
+    return this.userService.findAllUsersByBoardId(boardId);
   }
 
   @Get(':id')
