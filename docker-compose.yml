@@ -1,6 +1,16 @@
 services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: kanbandb
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - 5432:5432
   server:
     build: server/
+    depends_on:
+      - db
     ports:
       - 3000:3000
     volumes:
