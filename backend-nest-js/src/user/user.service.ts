@@ -1,7 +1,7 @@
 //confiiguração padrão, service injetavel
 import { Injectable } from '@nestjs/common';
 
-//arquivos DTO dos usuarios e Entidade do usuario
+//arquivos DTO dos usuarios
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
@@ -9,7 +9,6 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-
 
 
 @Injectable()
@@ -50,8 +49,8 @@ export class UserService {
     });
   }
 
-  //preciso implementar a lógica para remover usuários
+
   remove(id: number) {
-    return `This action removes a #${id} user`;
+    return this.userRepository.delete(id);
   }
 }

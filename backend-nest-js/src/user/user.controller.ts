@@ -29,6 +29,7 @@ export class UserController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
+    //Implementar Fetch id JWT token
     return this.userService.remove(+id);
   }
 }

@@ -9,12 +9,14 @@ export class BoardController {
 
   @Post()
   create(@Body() createBoardDto: CreateBoardDto) {
-    return this.boardService.create(createBoardDto);
+    return this.boardService.createNewBoard(createBoardDto);
   }
 
   @Get()
   findAll() {
-    return this.boardService.findAll();
+    //Implementar Fetch JWT Token
+    const userId = 1;
+    return this.boardService.findAllBoardByUserId(userId);
   }
 
   @Get(':id')
