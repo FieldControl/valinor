@@ -25,7 +25,7 @@ import { User } from './user/entities/user.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '',
+      password: '252525',
       database: 'trello',
       entities: [Board,Column,Card,User],
       synchronize: process.env.ENV !== 'production',

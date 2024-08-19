@@ -1,15 +1,22 @@
+//confiiguração padrão, service injetavel
 import { Injectable } from '@nestjs/common';
+
+//arquivos DTO dos usuarios e Entidade do usuario
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { InjectRepository } from '@nestjs/typeorm';
+
+//Database
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+
+
 
 @Injectable()
 export class UserService {
 
   //importando o Repositorio contendo a coluna User do DataBase SQL.
-  constructor(@InjectRepository(User)private userRepository: Repository<User>,){}
+  constructor(@InjectRepository(User)private userRepository: Repository<User>,) {  }
 
   //registrando novo usuario no banco de dados.
   RegisterNewUser(createUserDto: CreateUserDto) {
@@ -30,14 +37,20 @@ export class UserService {
     });
   }
 
+  //buscando usuario unico
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.userRepository.findOneBy({ id });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  //atualizando primeiro nome e sobre nome do usuário
+  UpdateUserInformation(id: number, updateUserDto: UpdateUserDto) {
+    return this.userRepository.update(id, {
+      firstname: updateUserDto.firstname,
+      lastname: updateUserDto.lastname,
+    });
   }
 
+  //preciso implementar a lógica para remover usuários
   remove(id: number) {
     return `This action removes a #${id} user`;
   }
