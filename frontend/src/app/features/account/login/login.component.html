@@ -1,0 +1,44 @@
+<form class="small-centered-form" [formGroup]="loginForm">
+  <h1 class="login-title">Login</h1>
+  
+  <!-- Email -->
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Ex: email@email.com"
+      class="email"
+    />
+
+    <!-- Email validation -->
+    @if (loginForm.controls.email.hasError('email') &&
+    !loginForm.controls.email.hasError('required')) {
+    <mat-error>Por favor, insira um endereço de e-mail válido</mat-error>
+    } @if (loginForm.controls.email.hasError('required')) {
+    <mat-error>Email é <strong>necessário</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Password -->
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput formControlName="password" />
+
+    <!-- Password validation -->
+    @if (!loginForm.controls.password.hasError('required')) {
+    <mat-error>Por favor, insira uma senha válida</mat-error>
+    } @if (!loginForm.controls.password.hasError('minlength')) {
+    <mat-error>Tamanho mínimo da senha é de 8 caracteres</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Buttons -->
+  <button (click)="login()" mat-flat-button color="primary" class="login-button">Log in</button>
+  <a [routerLink]="['/register']">
+    <button tabindex="-1" mat-flat-button class="register-button">
+      Não é cadastrado? Registre-se agora.
+    </button>
+  </a>
+</form>
