@@ -8,6 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import {
+  ApiBadRequestResponse,
   ApiCreatedResponse,
   ApiNoContentResponse,
   ApiNotFoundResponse,
@@ -27,6 +28,7 @@ export class ColumnsController {
 
   @Post()
   @ApiCreatedResponse({ type: ColumnEntity })
+  @ApiBadRequestResponse()
   create(@Body() createColumnDto: CreateColumnDto) {
     return this.columnsService.create(createColumnDto);
   }
@@ -46,12 +48,15 @@ export class ColumnsController {
 
   @Patch(':id')
   @ApiOkResponse({ type: ColumnEntity })
+  @ApiNotFoundResponse()
+  @ApiBadRequestResponse()
   update(@Param('id') id: string, @Body() updateColumnDto: UpdateColumnDto) {
     return this.columnsService.update(id, updateColumnDto);
   }
 
   @Delete(':id')
   @ApiNoContentResponse()
+  @ApiNotFoundResponse()
   remove(@Param('id') id: string) {
     return this.columnsService.remove(id);
   }
