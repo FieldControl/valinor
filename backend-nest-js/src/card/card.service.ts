@@ -1,11 +1,29 @@
+//confiiguração padrão, service injetavel
 import { Injectable } from '@nestjs/common';
+
+//arquivos DTO das Colunas
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
 
+//Database
+import { InjectRepository } from '@nestjs/typeorm';
+import { Card } from './entities/card.entity';
+import { Repository } from 'typeorm';
+
 @Injectable()
 export class CardService {
+
+  //importando o Repositorio contendo a coluna User do DataBase SQL.
+  constructor(@InjectRepository(Card) private cardRepository : Repository<Card>) {}
+  
+
   create(createCardDto: CreateCardDto) {
-    return 'This action adds a new card';
+    const card = new Card();
+    card.name = createCardDto.name;
+    card.content = createCardDto.content;
+    card.order = createCardDto.order;
+    card.columnId = createCardDto.columnId;
+    return this.cardRepository.save(card);
   }
 
   findAll() {

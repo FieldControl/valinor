@@ -1,6 +1,7 @@
 //Criando uma coluna SQL para anmazenas dados do usuario
 import { Board } from "src/board/entities/board.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Card } from "src/card/entities/card.entity";
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity()
@@ -20,4 +21,7 @@ export class Columns {
     @ManyToOne(() => Board, (board) =>board.Columnss)
     @JoinColumn()
     boards: Board;
+
+    @OneToMany(() => Card, (card) =>card.columns)
+    cards: Card[];
 }

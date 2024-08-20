@@ -1,6 +1,7 @@
 //Criando uma coluna SQL para anmazenas dados do usuario
+import { Columns } from "src/column/entities/column.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Card {
@@ -13,10 +14,18 @@ export class Card {
     @Column()
     content: string;
 
+
     @Column()
-    DelegateId : number;
+    order : number;
+
+    @Column()
+    columnId : number;
 
     @ManyToOne(() => User, (user) => user.card)
     @JoinColumn()
     delegate: string;
+
+    @OneToMany(() => Columns, (columns) => columns.cards)
+    @JoinColumn()
+    columns : Columns
 }

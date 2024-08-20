@@ -9,17 +9,12 @@ export class ColumnController {
 
   @Post()
   create(@Body() createColumnDto: CreateColumnDto) {
-    return this.columnService.create(createColumnDto);
+    return this.columnService.createNewColumn(createColumnDto);
   }
 
-  @Get()
-  findAll() {
-    return this.columnService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.columnService.findOne(+id);
+  @Get('board/:boardId')
+  findAll(@Param('boardId') boardId: string) {
+    return this.columnService.findAllByBoardId(Number(boardId));
   }
 
   @Patch(':id')
