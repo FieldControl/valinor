@@ -11,6 +11,8 @@ services:
     build: server/
     depends_on:
       - db
+    environment:
+      DATABASE_URL: postgresql://root:root@db:5432/kanbandb?schema=public
     ports:
       - 3000:3000
     volumes:
