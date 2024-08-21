@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { NotFoundError } from 'rxjs';
+
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { NotFoundError } from 'rxjs';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class ColumnsService {
@@ -23,13 +24,13 @@ export class ColumnsService {
   }
 
   async findOne(columnId: string) {
-    const column = await this.prismaService.column.findMany({
+    const column = await this.prismaService.column.findUnique({
       where: {
         id: columnId,
       },
     });
 
-    if (!column) throw new NotFoundError('column not found');
+    if (!column) throw new NotFoundException('column not found');
 
     return column;
   }
@@ -47,7 +48,19 @@ export class ColumnsService {
     return updatedColumn;
   }
 
-  async remove(id: string) {
-    return `This action removes a #${id} column`;
+  async remove(columnId: string) {
+    const column = await this.prismaService.column.findUnique({
+      where: {
+        id: columnId,
+      },
+    });
+
+    if (!column) throw new NotFoundException('column not found');
+
+    await this.prismaService.column.delete({
+      where: {
+        id: columnId,
+      },
+    });
   }
 }
