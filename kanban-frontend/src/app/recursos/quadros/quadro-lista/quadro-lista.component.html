@@ -1,0 +1,23 @@
+<h1>Meus Quadros</h1>
+<!-- Quadros -->
+<div class="quadros-wrapper">
+  @for (quadro of quadros(); track quadro) {
+  <a class="quadro" [routerLink]="['/quadros', quadro.id]">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="quadro-nome">{{ quadro.nome }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <button (click)="openNovoFluxoQuadro($event, quadro)" mat-button>
+          Editar
+        </button>
+        <button (click)="deleteQuadro($event, quadro)" mat-button>Excluir</button>
+      </mat-card-actions>
+    </mat-card>
+  </a>
+  }
+</div>
+
+<button (click)="openNovoFluxoQuadro($event)" mat-flat-button color="primary">
+  Adicionar Quadro
+</button>

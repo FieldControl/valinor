@@ -1,0 +1,13 @@
+<nav>
+  <ul>
+    <li>Logotipo</li>
+    <li class="menu-items">
+      @if(logado()){
+      <a [routerLinkActive]="'active'" routerLink="/quadros">Quadro</a>
+      <a (click)="sair()">Sair</a>
+      } @else {
+      <a [routerLinkActive]="'active'" routerLink="/login">Login/Registro</a>
+      }
+    </li>
+  </ul>
+</nav>

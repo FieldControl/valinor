@@ -1,0 +1,79 @@
+<div class="kb-quadro-cabecalho">
+  <button
+    mat-mini-fab
+    [routerLink]="['/quadros']"
+    color="secondary"
+    aria-label="Voltar aos quadros"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <h1 class="kb-quadro-titulo">{{ quadro()?.nome }}</h1>
+  
+</div>
+
+<!--  As listas devem vir das colunas para o quadro  -->
+
+<div
+  cdkDropListGroup
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="onColunaChange($event)"
+  class="colunas-wrapper"
+>
+  @for(coluna of quadro()?.colunas; track coluna.id) {
+  <div class="coluna" cdkDrag>
+    <div class="coluna-cabecalho" cdkDragHandle>
+      <h2>{{ coluna.nome }}</h2>
+      <div>
+        <button
+          color="secondary"
+          mat-stroked-button
+          (click)="editColuna(coluna)"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+
+    <div class="coluna-interna">
+      <div
+        class="coluna-interior__arrastar"
+        cdkDropList
+        cdkDropListOrientation="vertical"
+        [cdkDropListData]="coluna.cartoes"
+        (cdkDropListDropped)="onCardChange($event, coluna)"
+      >
+        @for(cartao of coluna.cartoes; track cartao.id) {
+        <button
+          class="coluna__cartao"
+          (click)="addOrEditCartao(coluna, cartao)"
+          cdkDrag
+        >
+          {{ cartao.nome }}
+        </button>
+        }
+      </div>
+    </div>
+    <button (click)="addOrEditCartao(coluna)" mat-button>Adicionar Cartao</button>
+  </div>
+  }
+  <div class="coluna">
+    <h2>Nova Coluna</h2>
+    <div class="coluna-interna">
+      <form [formGroup]="colunaForm">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" placeholder="Ex. Todo" />
+
+          @if (!colunaForm.controls.nome.hasError('required')) {
+          <mat-error>Por favor insira um nome válido</mat-error>
+          } </mat-form-field
+        ><br />
+        <button (click)="addColuna()" color="primary" mat-flat-button>
+          Adicionar Coluna
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

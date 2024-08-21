@@ -1,0 +1,18 @@
+<div class="kb-dialogo">
+  <div class="kb-dialogo__cabecalho">
+    <h2 class="kb-dialogo__titulo">
+      {{ data.titulo }}
+    </h2>
+    <button mat-icon-button aria-label="Fechar Dialogo">
+      <mat-icon>fechar</mat-icon>
+    </button>
+  </div>
+
+  <div class="kb-dialogo__conteudo">
+    <div [innerHTML]="data.mensagem"></div>
+  </div>
+  <div class="button-group">
+    <button (click)="confirmar()" mat-flat-button color="warn">Deletar</button>
+    <button (click)="fechar()" mat-flat-button>Cancelar</button>
+  </div>
+</div>

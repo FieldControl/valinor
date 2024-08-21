@@ -1,0 +1,21 @@
+@use "../../../../styles/variaveis.scss" as v;
+.kb-dialogo {
+  width: 340px;
+  padding: 16px;
+
+  .kb-dialogo__cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid v.$border-color;
+
+    .kb-dialogo__titulo {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+  .kb-dialogo__conteudo {
+    padding: 16px 0 24px;
+  }
+}
