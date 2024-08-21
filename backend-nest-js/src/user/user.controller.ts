@@ -1,35 +1,31 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Delete, UseGuards, Request } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { AuthGuard, payloudRequest } from 'src/authenticate/auth/auth.guard';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  Register(@Body() createUserDto: CreateUserDto) {
-    return this.userService.RegisterNewUser(createUserDto);
+  @Get()
+  @UseGuards(AuthGuard)
+  findOne(
+    @Request() req: payloudRequest) {
+    return this.userService.findOne(req.user.id);
   }
 
-  @Get('/board/:boardId')
-  findAll(@Param('boardId') boardId: number) {
-    return this.userService.findAllUsersByBoardId(boardId);
+  @Patch()
+  @UseGuards(AuthGuard)
+  update(
+    @Request() req: payloudRequest, 
+    @Body() updateUserDto: UpdateUserDto) {
+    return this.userService.UpdateUserInformation( req.user.id, updateUserDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.UpdateUserInformation(+id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    //Implementar Fetch id JWT token
-    return this.userService.remove(+id);
+  @Delete()
+  @UseGuards(AuthGuard)
+  remove(
+    @Request() req: payloudRequest) {
+    return this.userService.remove(req.user.id);
   }
 }

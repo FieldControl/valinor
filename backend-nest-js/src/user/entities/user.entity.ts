@@ -1,5 +1,5 @@
 //Criando uma coluna SQL para anmazenas dados do usuario
-import { BeforeInsert, Column, Entity, JoinColumn, JoinTable, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, JoinTable, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import * as bcrypt from 'bcrypt';
 import { ManyToMany } from "typeorm";
 import { Board } from "src/board/entities/board.entity";

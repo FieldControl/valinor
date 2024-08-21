@@ -1,7 +1,7 @@
 //Criando uma coluna SQL para anmazenas dados do usuario
 import { Board } from "src/board/entities/board.entity";
 import { Card } from "src/card/entities/card.entity";
-import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity()

@@ -2,13 +2,13 @@
 import { Injectable } from '@nestjs/common';
 
 //arquivos DTO dos usuarios
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 //Database
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { registerDto } from 'src/authenticate/dto/register.dto';
 
 
 @Injectable()
@@ -18,7 +18,7 @@ export class UserService {
   constructor(@InjectRepository(User)private userRepository: Repository<User>,) {  }
 
   //registrando novo usuario no banco de dados.
-  RegisterNewUser(createUserDto: CreateUserDto) {
+  RegisterNewUser(createUserDto: registerDto) {
     const user = new User();
     user.email = createUserDto.email;
     user.firstname = createUserDto.firstname;
@@ -27,18 +27,15 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  //correlação dos quadros com o usuario.
-  findAllUsersByBoardId(boardId: number) {
-    return this.userRepository.find({
-      where: {
-        boards: {id : boardId},
-      }
-    });
-  }
-
   //buscando usuario unico
   findOne(id: number) {
     return this.userRepository.findOneBy({ id });
+  }
+
+  isConnectedToBoard(boardId: number, id: number) {
+    return this.userRepository.findOneBy({ id, boards: {
+      id: boardId,
+    } });
   }
 
   //atualizando primeiro nome e sobre nome do usuário

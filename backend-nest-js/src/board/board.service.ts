@@ -43,7 +43,7 @@ export class BoardService {
       where: {
         users: {id : userId}, id,
       },
-      relations: ['users'],
+      relations: ['users','columns', 'colums.cards'],
     });
   }
 
