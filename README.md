@@ -67,3 +67,6 @@ npm run start:dev
 
 ### Inicie o servidor frontend
 npm ng serve ou npm run start
+
+### Video mostrando como usar no assets
+video-como-usar-site.mp4
