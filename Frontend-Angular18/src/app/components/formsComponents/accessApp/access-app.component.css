@@ -1,0 +1,54 @@
+.root{
+    height: 100vh;
+    width: 100%;
+    background-color: blue;
+}
+.container{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+.mensenger{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    color: rgb(199, 198, 198);
+    justify-content: center;
+}
+.msgregister:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.formLogin{
+    height: 90vh;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .title{
+        color: white;
+        height: 20vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+}
+
+.formRegister{
+        color: white;
+        height: 20vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+}
