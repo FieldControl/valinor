@@ -1,0 +1,11 @@
+<form action="">
+    <div class="inputs">
+        <label for="">Email</label>
+        <input type="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userLogin.email">
+    </div>
+    <div class="inputs">
+        <label for="">Password</label>
+        <input type="password" placeholder="8 character password" name="password" [(ngModel)]="userLogin.password">
+    </div>
+    <button (click)="enter()">Enter</button><br>
+</form>
