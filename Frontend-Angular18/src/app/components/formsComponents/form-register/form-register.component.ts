@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-form-register',
@@ -6,10 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './form-register.component.css'
 })
 export class FormRegisterComponent {
+  constructor(private userService : UserService){}
 
 
-  registerNewUser(){
-    alert('Seu usuario foi cadastrado')
-  }
 
 }

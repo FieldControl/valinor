@@ -1,5 +1,7 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { AccessAppComponent } from './components/formsComponents/accessApp/access-app.component';
 import { FormLoginComponent } from './components/formsComponents/form-login/form-login.component';
 import { FormRegisterComponent } from './components/formsComponents/form-register/form-register.component';
+
 
 
 
