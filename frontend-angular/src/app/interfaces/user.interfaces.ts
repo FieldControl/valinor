@@ -3,7 +3,7 @@ export interface isLongin{
     password: string;
 }
 
-export interface isRegister{
+export interface isRegister extends isLongin{
     firstname: string;
     lastname: string;
     email:string;
@@ -11,5 +11,5 @@ export interface isRegister{
 }
 
 export interface isLonginAuth {
-    authtoken: string | undefined;
+    accessToken: string | undefined;
 }

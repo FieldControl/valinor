@@ -1,20 +1,28 @@
-<form action="">
+<form #registerForm="ngForm" (ngSubmit)="register()">
     <div class="inputs">
-        <label for="">Your First Name</label>
-        <input type="text" placeholder="joao" name="firstname" [(ngModel)]="userRegister.firstname">
+        <label for="firstname">Your First Name</label>
+        <input type="text" id="firstname" placeholder="joao" name="firstname" [(ngModel)]="userRegister.firstname" #firstname="ngModel" required>
+        <small *ngIf="firstname.invalid && firstname.touched">campo obrigatório</small>
     </div>
+
     <div class="inputs">
-        <label for="">Your Last Name</label>
-        <input type="text" placeholder="silva" name="lastname" [(ngModel)]="userRegister.lastname">
+        <label for="lastname">Your Last Name</label>
+        <input type="text" id="lastname" placeholder="silva" name="lastname" [(ngModel)]="userRegister.lastname" #lastname="ngModel" required>
+        <small *ngIf="lastname.invalid && lastname.touched">campo obrigatório</small>
     </div>
+
     <div class="inputs">
-        <label for="">Email</label>
-        <input type="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userRegister.email">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userRegister.email" #email="ngModel" required email>
+        <small *ngIf="email.invalid && email.touched">email invalido</small>
     </div>
+
     <div class="inputs">
-        <label for="">Password</label>
-        <input type="password" placeholder="maximum 8 character password" name="password" [(ngModel)]="userRegister.password">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="maximum 8 character password" name="password" [(ngModel)]="userRegister.password" #password="ngModel" required minlength="8" maxlength="8">
+        <small *ngIf="password.invalid && password.touched">senha de 8 digitos</small>
     </div>
-    <button (click)="register()">Sign up</button><br>
+
+    <button type="submit" [disabled]="registerForm.invalid">Sign up</button><br>
 </form>
 

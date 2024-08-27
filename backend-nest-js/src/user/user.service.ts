@@ -20,9 +20,9 @@ export class UserService {
   //registrando novo usuario no banco de dados.
   RegisterNewUser(createUserDto: registerDto) {
     const user = new User();
-    user.email = createUserDto.email;
     user.firstname = createUserDto.firstname;
     user.lastname = createUserDto.lastname;
+    user.email = createUserDto.email;
     user.password = createUserDto.password;
     return this.userRepository.save(user);
   }

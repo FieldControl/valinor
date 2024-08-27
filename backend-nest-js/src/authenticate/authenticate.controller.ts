@@ -6,17 +6,18 @@ import { UserService } from 'src/user/user.service';
 
 @Controller('authenticate')
 export class AuthenticateController {
-  constructor(private readonly authenticateService: AuthenticateService,
+  constructor(
+    private readonly authenticateService: AuthenticateService,
     private userService : UserService,
   ) {}
 
   //registrando novo usuario no banco de dados.
   @Post('register')
-  async RegisterNewUser(RegisterDto: registerDto) {
-    RegisterDto.email = RegisterDto.email.toLocaleLowerCase()
-    const user = await this.userService.RegisterNewUser(RegisterDto)
+  async RegisterNewUser(@Body() RegisterDto: registerDto) {
+    console.log(RegisterDto)
+    const user = await this.userService.RegisterNewUser(RegisterDto);
     if(!user){
-      throw new BadRequestException('Usuario não encontrado');
+      throw new BadRequestException('Usuario não registrado');
     }
     return this.authenticateService.login({
       email: user.email,

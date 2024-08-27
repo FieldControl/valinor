@@ -1,11 +1,13 @@
-<form action="">
+<form #loginForm="ngForm" (ngSubmit)="login()">
     <div class="inputs">
         <label for="">Email</label>
-        <input type="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userLogin.email">
+        <input type="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userLogin.email" #email="ngModel" required email>
+        <small *ngIf="email.invalid && email.touched">email invalido</small>
     </div>
     <div class="inputs">
         <label for="">Password</label>
-        <input type="password" placeholder="8 character password" name="password" [(ngModel)]="userLogin.password">
+        <input type="password" placeholder="8 character password" name="password" [(ngModel)]="userLogin.password" #password="ngModel" required minlength="8" maxlength="8">
+        <small *ngIf="password.invalid && password.touched">senha de 8 digitos</small>
     </div>
-    <button (click)="enter()">Enter</button><br>
+    <button type="submit" [disabled]="loginForm.invalid">Enter</button><br>
 </form>
