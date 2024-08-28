@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  HttpCode,
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
@@ -55,6 +56,7 @@ export class ColumnsController {
   }
 
   @Delete(':id')
+  @HttpCode(204)
   @ApiNoContentResponse()
   @ApiNotFoundResponse()
   remove(@Param('id') id: string) {
