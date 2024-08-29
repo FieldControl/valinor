@@ -13,3 +13,12 @@ export interface isRegister extends isLongin{
 export interface isLonginAuth {
     accessToken: string | undefined;
 }
+
+export interface IUser{
+    id: number;
+    email:string;
+    firstname: string;
+    lastname: string;
+    creatdAt: Date;
+    updateAt: Date;
+}

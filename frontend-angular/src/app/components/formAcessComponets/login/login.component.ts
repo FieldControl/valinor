@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../../services/users.service';
+
 import { isLongin, isLonginAuth } from '../../../interfaces/user.interfaces';
 import { Router } from '@angular/router';
-import { AuthenticateService } from '../../../services/authenticate.service';
+import { AuthenticateService } from '../../../services/user/authenticate.service';
+import { AppComponent } from '../../../app.component';
+import { UserService } from '../../../services/user/users.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +17,7 @@ export class LoginComponent {
     private userService : UserService,
     private authService : AuthenticateService,
     private router : Router,
+    private appComponent : AppComponent,
   ){}
 
   userLogin: isLongin = {
@@ -29,14 +32,14 @@ export class LoginComponent {
     if(!this.userLogin){
       return console.log('usuario invalido');
     }
-
+    
     this.userService.login(this.userLogin)
     .subscribe({
       next: (token: isLonginAuth) => {
         this.authService.token = token.accessToken;
         console.log('User Registred')
         this.router.navigate(['home'])
-        console.log('não trocou a pagina')
+        this.appComponent.authenticate = !this.appComponent.authenticate;
       },
       error: (err) => {
         console.error(err);
@@ -48,3 +51,7 @@ export class LoginComponent {
     
   }
 }
+function entrar() {
+  throw new Error('Function not implemented.');
+}
+

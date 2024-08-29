@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend-angular';
+
+  authenticate : boolean = false
+
+  showHome(){
+    if(this.authenticate === false){
+      this.authenticate = true;
+    }else{
+      this.authenticate = false
+    };
+  }  
 }

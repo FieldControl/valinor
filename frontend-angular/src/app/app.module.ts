@@ -4,20 +4,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 //importe para utilização dos protocolos http
-import { provideHttpClient, withFetch } from '@angular/common/http';
-
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
-
-
 import { AppRoutingModule } from './app-routing.module';
+
+
 import { AppComponent } from './app.component';
 import { AccessComponent } from './components/formAcessComponets/access/access.component';
 import { LoginComponent } from './components/formAcessComponets/login/login.component';
 import { RegisterComponent } from './components/formAcessComponets/register/register.component';
 import { HomeComponent } from './components/homeCompenents/home/home.component';
-import { HeaderComponent } from './components/homeCompenents/header/header.component';
 import { NavbarComponent } from './components/homeCompenents/navbar/navbar.component';
+import { ListComponent } from './components/boardsComponents/list/list.component';
+import { DetailsComponent } from './components/boardsComponents/details/details.component';
+import { HelpComponent } from './components/informationComponents/help/help.component';
+import { DeveloperComponent } from './components/informationComponents/developer/developer.component';
+import { jwtInterceptor } from './core/interceptor/jwt.interceptor';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -26,8 +32,11 @@ import { NavbarComponent } from './components/homeCompenents/navbar/navbar.compo
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListComponent,
+    DetailsComponent,
+    DeveloperComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +45,8 @@ import { NavbarComponent } from './components/homeCompenents/navbar/navbar.compo
     ReactiveFormsModule,
   ],
   providers: [provideAnimationsAsync(),
-    provideHttpClient(withFetch())],//importando modulo, protocolo http.],
+    provideHttpClient(withFetch(), withInterceptors([jwtInterceptor]))],//importando modulo, protocolo http.],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

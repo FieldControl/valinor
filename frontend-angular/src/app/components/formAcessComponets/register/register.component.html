@@ -1,28 +1,40 @@
+
+<!-- Form for registering new users, linked to the "ngSubmit" submission event that calls the "register" function -->
+ <!-- All user requirements for the form are being enforced by the HTML itself; there is no restriction manipulation by the component.ts -->
 <form #registerForm="ngForm" (ngSubmit)="register()">
+
+    <!-- Firstname: requires the user to fill in this field, Store the value in the "firstname" variable through ngModel -->
     <div class="inputs">
         <label for="firstname">Your First Name</label>
         <input type="text" id="firstname" placeholder="joao" name="firstname" [(ngModel)]="userRegister.firstname" #firstname="ngModel" required>
-        <small *ngIf="firstname.invalid && firstname.touched">campo obrigatório</small>
+        <small *ngIf="firstname.invalid && firstname.touched">Required field</small>
     </div>
 
+    <!-- Lastname: requires the user to fill in this field, Store the value in the "lastname" variable through ngModel -->
     <div class="inputs">
         <label for="lastname">Your Last Name</label>
         <input type="text" id="lastname" placeholder="silva" name="lastname" [(ngModel)]="userRegister.lastname" #lastname="ngModel" required>
-        <small *ngIf="lastname.invalid && lastname.touched">campo obrigatório</small>
+        <small *ngIf="lastname.invalid && lastname.touched">Required field</small>
     </div>
 
+    <!-- Email: requires the user to fill in this field with icon @ , Store the value in the "email variable through ngModel -->
     <div class="inputs">
         <label for="email">Email</label>
         <input type="email" id="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userRegister.email" #email="ngModel" required email>
-        <small *ngIf="email.invalid && email.touched">email invalido</small>
+        <small *ngIf="email.invalid && email.touched">Invalid email</small>
     </div>
 
+    <!-- Password: requires the user to fill in this field with min and max 8 caracters, Store the value in the "password" variable through ngModel -->
     <div class="inputs">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="maximum 8 character password" name="password" [(ngModel)]="userRegister.password" #password="ngModel" required minlength="8" maxlength="8">
-        <small *ngIf="password.invalid && password.touched">senha de 8 digitos</small>
+        <small *ngIf="password.invalid && password.touched">8-digit password</small>
     </div>
 
-    <button type="submit" [disabled]="registerForm.invalid">Sign up</button><br>
+
+    <!-- Button with type submit -->
+    <button type="submit" [disabled]="registerForm.invalid" >Sign up</button><br>
+
+
 </form>
 

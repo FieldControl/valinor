@@ -1,47 +1,72 @@
-form{
+/* Estilização do formulário */
+form {
+    /* Alinha os itens no centro do contêiner do formulário */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Direção dos itens no eixo principal é coluna */
     flex-direction: column;
+    /* Espaçamento entre os itens do formulário */
     gap: 10px;
 
-    .inputs{
+    /* Estilização dos contêineres de entrada */
+    .inputs {
+        /* Alinha os itens no centro do contêiner de entradas */
         display: flex;
         justify-content: center;
+        /* Direção dos itens no eixo principal é coluna */
         flex-direction: column;
+        /* Largura do contêiner de entradas é 150% da largura do contêiner pai */
         width: 150%;
 
-        label{
+        /* Estilização dos rótulos dentro do contêiner de entradas */
+        label {
+            /* Cor do texto do rótulo */
             color: white;
         }
 
-        input{
+        /* Estilização dos campos de entrada dentro do contêiner de entradas */
+        input {
+            /* Altura do campo de entrada */
             height: 4vh;
+            /* Largura do campo de entrada é 100% da largura do contêiner pai */
             width: 100%;
+            /* Espaçamento interno à esquerda do campo de entrada */
             padding-left: 15px;
+            /* Remove a borda padrão do campo de entrada */
             border: none;
+            /* Arredonda os cantos do campo de entrada */
             border-radius: 5px;
+            /* Adiciona uma sombra ao redor do campo de entrada */
             box-shadow: 0px 0px 40px black;
         }
     }
 
-    button{
+    /* Estilização do botão dentro do formulário */
+    button {
+        /* Cor do texto do botão */
         color: white;
+        /* Cor de fundo do botão */
         background-color: rgb(21, 129, 230);
+        /* Altura do botão */
         height: 6vh;
+        /* Largura do botão é 150% da largura do contêiner pai */
         width: 150%;
+        /* Remove a borda padrão do botão */
         border: none;
+        /* Arredonda os cantos do botão */
         border-radius: 8px;
+        /* Espaçamento acima do botão */
         margin-top: 50px;
+        /* Adiciona uma sombra ao redor do botão */
         box-shadow: 0px 0px 40px black;
+        /* Define o cursor como ponteiro ao passar o mouse sobre o botão */
         cursor: pointer;
     }
-    
-    button:hover{
-        border: solid white 2px;
-        
-    }
-    
 
-    
+    /* Estilização do botão ao passar o mouse sobre ele */
+    button:hover {
+        /* Adiciona uma borda branca sólida de 2px ao passar o mouse sobre o botão */
+        border: solid white 2px;
+    }
 }

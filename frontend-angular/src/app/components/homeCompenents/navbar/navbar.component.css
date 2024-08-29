@@ -1,0 +1,37 @@
+nav{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: white;
+}
+
+.icons{
+    height: 18vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.icon{
+    font-size: 30px;
+    cursor: pointer;
+    color: blue;
+    
+}
+
+
+.icons:hover{
+    background-color: blue;
+    color: white;
+
+    .icon{
+        color: white;
+    }
+}

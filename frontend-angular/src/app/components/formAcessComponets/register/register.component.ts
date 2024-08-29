@@ -1,10 +1,10 @@
 import { Component} from '@angular/core';
-import { UserService } from '../../../services/users.service';
 import { isLonginAuth, isRegister } from '../../../interfaces/user.interfaces';
-import { AuthenticateService } from '../../../services/authenticate.service';
+import { AuthenticateService } from '../../../services/user/authenticate.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccessComponent } from '../access/access.component';
+import { UserService } from '../../../services/user/users.service';
 
 
 @Component({
@@ -20,6 +20,7 @@ export class RegisterComponent {
     private userService : UserService,
     private authService : AuthenticateService,
     private router : Router,
+    private readonly accessComponent:AccessComponent,
   ){}
 
   userRegister: isRegister = {
@@ -29,13 +30,17 @@ export class RegisterComponent {
     password: '',
   }
 
+
+
   register(){
     console.log(this.userRegister)
+    this.router.navigate(['**'])
 
     if(!this.userRegister){
       return console.log('usuario invalido');
     }
 
+    
     this.userService.register(this.userRegister)
     .subscribe({
       next: (token: isLonginAuth) => {

@@ -1,13 +1,24 @@
+
+<!-- Form for logging in, linked to the "ngSubmit" submission event that calls the "login" function -->
+<!-- All user requirements for the form are being enforced by the HTML itself; there is no restriction manipulation by the component.ts -->
 <form #loginForm="ngForm" (ngSubmit)="login()">
+
     <div class="inputs">
+
+         <!-- Email: requires the user to fill in this field with a valid email format. Stores the value in the "email" variable through ngModel -->
         <label for="">Email</label>
         <input type="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userLogin.email" #email="ngModel" required email>
         <small *ngIf="email.invalid && email.touched">email invalido</small>
     </div>
+
     <div class="inputs">
+
+         <!-- Password: requires the user to fill in this field with exactly 8 characters. Stores the value in the "password" variable through ngModel -->
         <label for="">Password</label>
         <input type="password" placeholder="8 character password" name="password" [(ngModel)]="userLogin.password" #password="ngModel" required minlength="8" maxlength="8">
         <small *ngIf="password.invalid && password.touched">senha de 8 digitos</small>
     </div>
+    
+     <!-- Button with type submit -->
     <button type="submit" [disabled]="loginForm.invalid">Enter</button><br>
 </form>

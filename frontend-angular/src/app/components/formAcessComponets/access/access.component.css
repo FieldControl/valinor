@@ -1,54 +1,91 @@
-.root{
+/* Estilização da raiz do documento */
+.root {
+    /* Altura total da janela de visualização */
     height: 100vh;
+    /* Largura total do contêiner pai */
     width: 100%;
+    /* Cor de fundo azul para o contêiner */
     background-color: blue;
 }
-.container{
+
+/* Estilização do contêiner central principal */
+.container {
+    /* Altura ajustada para 90% da altura da janela de visualização */
     height: 90vh;
+    /* Largura total do contêiner pai */
     width: 100%;
+    /* Alinhamento dos itens filhos no centro do contêiner */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Espaçamento entre os itens filhos do contêiner */
     gap: 60px;
 }
-.mensenger{
+
+/* Estilização da seção de mensagens */
+.mensenger {
+    /* Altura ajustada para 10% da altura da janela de visualização */
     height: 10vh;
+    /* Largura total do contêiner pai */
     width: 100%;
+    /* Alinhamento dos itens filhos no centro do contêiner */
     display: flex;
+    /* Cor do texto dos itens de mensagem */
     color: rgb(199, 198, 198);
+    /* Alinhamento dos itens filhos no centro do contêiner */
     justify-content: center;
 }
-.msgregister:hover{
+
+/* Estilização do item de mensagem no estado hover */
+.msgregister:hover {
+    /* Cor do texto alterada para branco ao passar o mouse */
     color: white;
+    /* Muda o cursor para indicar que o item é clicável */
     cursor: pointer;
 }
 
-.formLogin{
+/* Estilização do formulário de login */
+.formLogin {
+    /* Altura ajustada para 90% da altura da janela de visualização */
     height: 90vh;
+    /* Largura ajustada para 20% da largura do contêiner pai */
     width: 20%;
+    /* Alinhamento dos itens filhos no centro do contêiner */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Direção dos itens no eixo principal é coluna */
     flex-direction: column;
 
-    .title{
+    /* Estilização do título dentro do formulário de login */
+    .title {
+        /* Cor do texto do título */
         color: white;
+        /* Altura ajustada para 20% da altura da janela de visualização */
         height: 20vh;
+        /* Largura total do contêiner pai */
         width: 100%;
+        /* Alinhamento dos itens filhos no centro do contêiner */
         display: flex;
         align-items: center;
         justify-content: center;
+        /* Direção dos itens no eixo principal é coluna */
         flex-direction: column;
-
     }
 }
 
-.formRegister{
-        color: white;
-        height: 20vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+/* Estilização do formulário de registro */
+.formRegister {
+    /* Cor do texto do formulário de registro */
+    color: white;
+    /* Altura ajustada para 20% da altura da janela de visualização */
+    height: 20vh;
+    /* Largura total do contêiner pai */
+    width: 100%;
+    /* Alinhamento dos itens filhos no centro do contêiner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Direção dos itens no eixo principal é coluna */
+    flex-direction: column;
 }
