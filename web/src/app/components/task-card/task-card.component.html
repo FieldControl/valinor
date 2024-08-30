@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card__title">
+    <h3>Card title</h3>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>mode_edit</mat-icon>
+        <span>Edit task</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Remove task</span>
+      </button>
+    </mat-menu>
+  </div>
+  <p class="card__description">Card description</p>
+  <p class="card__date">
+    <mat-icon>create</mat-icon>
+    Created x ago
+  </p>
+  <p class="card__date">
+    <mat-icon>update</mat-icon>
+    Updated y ago
+  </p>
+</div>

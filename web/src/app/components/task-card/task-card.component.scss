@@ -1,0 +1,28 @@
+.card {
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 16px;
+  width: inherit;
+
+  .card__title {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+
+  .card__description {
+    font-size: 14px;
+  }
+
+  .card__date {
+    align-items: center;
+    color: gray;
+    display: flex;
+    font-size: 14px;
+    gap: 5px;
+  }
+}

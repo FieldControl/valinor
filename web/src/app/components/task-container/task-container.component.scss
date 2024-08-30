@@ -1,0 +1,38 @@
+section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  padding-inline: 24px;
+  padding-bottom: 52px;
+  width: 100%;
+
+  .column__title {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    h2 {
+      font-size: 24px;
+      padding: 12px 8px;
+    }
+
+    span {
+      text-align: right;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: inherit;
+
+    li {
+      list-style-type: none;
+      width: inherit;
+    }
+  }
+}

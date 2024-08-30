@@ -1,0 +1,52 @@
+<section>
+  <div class="column__title">
+    <h2>Column title</h2>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>add</mat-icon>
+        <span>New task</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Remove column</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <ul>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+    <li>
+      <app-task-card />
+    </li>
+  </ul>
+</section>
