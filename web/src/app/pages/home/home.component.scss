@@ -1,0 +1,9 @@
+main {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 64px;
+  min-height: calc(100vh - 64px);
+  width: 100%;
+}
