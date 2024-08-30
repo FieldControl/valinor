@@ -1,0 +1,15 @@
+header {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  div {
+    display: flex;
+    gap: 24px;
+  }
+}
