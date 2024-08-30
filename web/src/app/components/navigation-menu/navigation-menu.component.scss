@@ -1,0 +1,19 @@
+nav {
+  align-items: center;
+  background-color: white;
+  border: 0.5px solid lightgray;
+  border-radius: 16px;
+  bottom: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  left: 0;
+  margin-inline: auto;
+  right: 0;
+  padding: 8px;
+  position: fixed;
+  width: 18rem;
+
+  .icon {
+    height: 32px;
+  }
+}
