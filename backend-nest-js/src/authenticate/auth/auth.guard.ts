@@ -8,9 +8,7 @@ export interface payloudRequest extends Request{
 
 @Injectable()
 export class  AuthGuard implements CanActivate {
-  constructor(
-    private jwtService : JwtService
-  ){}
+  constructor( private jwtService : JwtService ) { }
 
   async canActivate( context: ExecutionContext, ): Promise<boolean>  {
 
@@ -18,7 +16,8 @@ export class  AuthGuard implements CanActivate {
     const token = this._extractTokenFromHeader(request);
 
     if(!token){
-      throw new UnauthorizedException('acesso não autorizado')
+      //throw new UnauthorizedException('acesso não autorizado')
+      console.log('acesso não autorizado por falta do token')
     }
 
     try {
@@ -34,10 +33,12 @@ export class  AuthGuard implements CanActivate {
 }
 
   private _extractTokenFromHeader(request: Request): string | undefined{
-    const authHeader = request.headers.get('Authorization');
-    
+    const authHeader = request.headers['authorization'];
+    console.log(authHeader)
     if (!authHeader){
+      console.log('token indefinido')
       return undefined
+      
     }
     return authHeader.split(' ')[1];
   }

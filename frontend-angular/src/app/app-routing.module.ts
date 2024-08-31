@@ -11,11 +11,11 @@ import { DeveloperComponent } from './components/informationComponents/developer
 const routes: Routes = [
   { path: 'acesso', component: AccessComponent },
   { path: 'home', component: HomeComponent, canActivate: [authGuard]},
-  { path: '**', redirectTo: 'acesso'},
-  { path: 'boardsDetails', component: DetailsComponent },
+  { path: 'boardsDetails', component: DetailsComponent, canActivate: [authGuard] },
   { path: 'boardsList', component: ListComponent},
   { path: 'help', component: HelpComponent},
-  { path: 'developer', component: DeveloperComponent}
+  { path: 'developer', component: DeveloperComponent},
+  { path: '**', redirectTo: 'acesso'},
 ];
 
 @NgModule({

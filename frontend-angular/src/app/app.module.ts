@@ -25,6 +25,7 @@ import { jwtInterceptor } from './core/interceptor/jwt.interceptor';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,6 @@ import { jwtInterceptor } from './core/interceptor/jwt.interceptor';
     RegisterComponent,
     HomeComponent,
     NavbarComponent,
-    ListComponent,
     DetailsComponent,
     DeveloperComponent,
     HelpComponent,
@@ -43,9 +43,10 @@ import { jwtInterceptor } from './core/interceptor/jwt.interceptor';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ListComponent
   ],
   providers: [provideAnimationsAsync(),
-    provideHttpClient(withFetch(), withInterceptors([jwtInterceptor]))],//importando modulo, protocolo http.],
+    provideHttpClient(withFetch(), withInterceptors([jwtInterceptor])),],
   bootstrap: [AppComponent]
 })
 

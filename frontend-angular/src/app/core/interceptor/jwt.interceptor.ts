@@ -1,18 +1,22 @@
 import { HttpInterceptorFn } from '@angular/common/http';
-import { Injector } from '@angular/core';
 import { AuthenticateService } from '../../services/user/authenticate.service';
+import { inject } from '@angular/core';
 
 
 export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
-   // Usando o Injector para obter a instância do AuthenticateService
-   const injector = Injector.create({
-    providers: [{ provide: AuthenticateService, useClass: AuthenticateService }]
-  });
-  const authService = injector.get(AuthenticateService);
+  const authenticateService = inject(AuthenticateService);
+  
+   if (authenticateService.token) {
+    
+    const clonedRequest = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${authenticateService.token}`
+       }
+    });
 
-  if(authService.token){
-    req.headers.set('Authorization', `Bearer ${authService.token}` );
-  }
-
+    return next(clonedRequest);
+     
+   }
+   
   return next(req);
 };

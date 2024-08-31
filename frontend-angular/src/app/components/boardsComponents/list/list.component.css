@@ -1,0 +1,86 @@
+.header{
+    height: 10vh;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .title{
+        height: 10vh;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn{
+        height: 10vh;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .create{
+        height: 7vh;
+        width: 40%;
+        background-color: blue;
+        border: none;
+        
+        color: white;
+        transition: .1s;
+        cursor: pointer;
+    }
+
+    .create:hover{
+        background-color: rgb(2, 2, 208);
+        box-shadow: 0px 0px 5px black;     
+    }
+}
+
+.contentBoards{
+    height: 25vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.board{
+    color: black;
+    font-size: 30px;
+    background-color: white;
+    height: 20vh;
+    width: 25%;
+    box-shadow: 0px 0px 10px black;
+    transition: .1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.board:hover{
+    height: 21vh;
+    width: 26%;
+    box-shadow: 0px 0px 20px black;
+}
+
+.footer{
+    margin-top: 30px;
+    background-color: blue;
+    height: 1vh;
+    width: 100%;
+}
+
+i{
+    margin-top: 10px;
+}
+

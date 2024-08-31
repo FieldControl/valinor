@@ -18,8 +18,10 @@ export class BoardService {
   //   return this.httpClient.post<isLonginAuth>( 'http://localhost:3000/authenticate/login' , login)
   // }
 
-  //API para registrar novo usuario, com valor isRegister, retornando um observable.
-  getBoard() : Observable <Iboard[]>{
+   // Método para obter todos os boards, retornando um Observable de um array de Iboard
+  getBoards(): Observable<Iboard[]>{
+    console.log('minha API está sendo enviada')
+    console.log(Headers)
     return this.httpClient.get<Iboard[]>('http://localhost:3000/board');
   }
 }

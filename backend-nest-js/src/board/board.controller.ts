@@ -17,6 +17,7 @@ export class BoardController {
   @Get()
   @UseGuards(AuthGuard)
   findAll(@Request() req: payloudRequest) {
+    
     return this.boardService.findAllBoardByUserId(req.user.id);
   }
 

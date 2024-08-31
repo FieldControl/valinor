@@ -17,10 +17,13 @@ export class AuthenticateService {
   set token(_token: string | undefined){
     this._token.set(_token);
     localStorage.setItem('token', _token || '' );
+    
   }
 
-  get token(): WritableSignal<string | undefined>{
-    return this._token;
+  get token(): string | undefined{
+    const tokenValue = this._token();
+    console.log(tokenValue)
+    return tokenValue;
   }
 
   hasvalidTokten(): boolean {
