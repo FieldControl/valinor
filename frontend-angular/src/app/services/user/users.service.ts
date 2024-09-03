@@ -25,14 +25,13 @@ export class UserService {
 
   //API para fazer login do usuario, com valor isLogin, retornando um observable.
   login(login : isLongin): Observable <isLonginAuth> {
+    
     return this.httpClient.post<isLonginAuth>( 'http://localhost:3000/authenticate/login' , login)
   }
 
   //API para registrar novo usuario, com valor isRegister, retornando um observable.
   register(register: isRegister):Observable <isLonginAuth>{
-    const headers = new HttpHeaders({
-      'content-type': 'application/json',
-    })
-    return this.httpClient.post<isLonginAuth>('http://localhost:3000/authenticate/register', register, { headers });
+    
+    return this.httpClient.post<isLonginAuth>('http://localhost:3000/authenticate/register', register);
   }
 }

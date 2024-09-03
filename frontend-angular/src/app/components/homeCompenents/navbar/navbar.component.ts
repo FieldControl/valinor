@@ -5,28 +5,29 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
+  standalone: true,
 })
 export class NavbarComponent {
   constructor(private router : Router){}
 
   home(){
-    this.router.navigate(['home'])
+    this.router.navigate(['home']);
   }
 
   boards(){
-    this.router.navigate(['boardsList'])
+    this.router.navigate(['boardsList']);
   }
 
   developer(){
-    this.router.navigate(['developer'])
+    this.router.navigate(['developer']);
   }
 
   help(){
-    this.router.navigate(['help'])
+    this.router.navigate(['help']);
   }
   
   logout(){
-    this.router.navigate(['accesso'])
+    this.router.navigate(['accesso']);
   }
 }

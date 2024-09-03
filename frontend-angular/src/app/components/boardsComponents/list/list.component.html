@@ -1,38 +1,33 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<app-header></app-header>
+<section>
+  <nav class="navbar">
+    <app-navbar ></app-navbar>
+  </nav>
+  <main class="content">
+    <!--Boads-->
+    <div class="header">
+      <div class="title">
+        <h1>My Boards</h1>
+      </div>
+      <div class="btn">
+        <button class="create" (click)="openCreateNewBoard()">New Board <i class="bi bi-plus"></i></button>
+      </div>
+    </div>
+    
+    
+    <div *ngFor="let board of boards(); trackBy: boards">
+      <div class="contentBoards">
+        <a [routerLink]="['/boards', board.id]" class="board">
+          <h3>{{ board.name }}</h3>
+          <i class="bi bi-kanban"></i>
+          <div class="footer"></div>
+        </a>
+      </div>
+    </div>  
+    
+    
+  </main>
+</section>
 
-<!--Boads-->
-<div class="header">
-  <div class="title">
-    <h1>My Boards</h1>
-  </div>
-  <div class="btn">
-    <button class="create">Create new board <i class="bi bi-plus" (click)="creatNewBoard()"></i></button>
-  </div>
-   
-</div>
 
-
-<div *ngFor="let board of boards; track: boards">
-  <div class="contentBoards">
-    <a [routerLink]="['/boards', board.id]" class="board">
-      <h3>{{ board.name }}</h3>
-      <i class="bi bi-kanban"></i>
-      <div class="footer"></div>
-    </a>
-  </div>
-</div>  
-
-
-
-<!--
-<h1>My Boards</h1>
-
-<div *ngFor="let board of boards(); trackBy: boards">
-  <div class="contentBoards">
-    <a [routerLink]="['/boards', board.id]"  class="board">
-      <h3>{{ board.name }}</h3>
-      <div class="footer"></div>
-    </a>
-  </div>
-</div>
--->

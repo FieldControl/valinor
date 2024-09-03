@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'acesso', component: AccessComponent },
   { path: 'home', component: HomeComponent, canActivate: [authGuard]},
   { path: 'boardsDetails', component: DetailsComponent, canActivate: [authGuard] },
-  { path: 'boardsList', component: ListComponent},
+  { path: 'boardsList', component: ListComponent, canActivate: [authGuard] },
   { path: 'help', component: HelpComponent},
   { path: 'developer', component: DeveloperComponent},
   { path: '**', redirectTo: 'acesso'},

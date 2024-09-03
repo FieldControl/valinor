@@ -34,7 +34,6 @@ export class  AuthGuard implements CanActivate {
 
   private _extractTokenFromHeader(request: Request): string | undefined{
     const authHeader = request.headers['authorization'];
-    console.log(authHeader)
     if (!authHeader){
       console.log('token indefinido')
       return undefined

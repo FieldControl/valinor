@@ -35,3 +35,13 @@ nav{
         color: white;
     }
 }
+
+.iconClick{
+    background-color: blue;
+    color: white;
+
+    .icon{
+        color: white;
+    }
+
+}

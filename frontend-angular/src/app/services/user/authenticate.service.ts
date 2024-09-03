@@ -1,4 +1,4 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import {jwtDecode} from 'jwt-decode';
 
 @Injectable({
@@ -22,7 +22,6 @@ export class AuthenticateService {
 
   get token(): string | undefined{
     const tokenValue = this._token();
-    console.log(tokenValue)
     return tokenValue;
   }
 

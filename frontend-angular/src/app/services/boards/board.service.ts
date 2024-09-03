@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Iboard } from '../../interfaces/board.interface';
 import { Observable } from 'rxjs';
+import { UserService } from '../user/users.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,6 @@ export class BoardService {
 
    // Método para obter todos os boards, retornando um Observable de um array de Iboard
   getBoards(): Observable<Iboard[]>{
-    console.log('minha API está sendo enviada')
-    console.log(Headers)
     return this.httpClient.get<Iboard[]>('http://localhost:3000/board');
   }
 }

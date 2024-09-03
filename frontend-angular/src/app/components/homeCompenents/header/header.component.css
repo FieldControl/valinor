@@ -1,0 +1,70 @@
+header {
+    /* Define a altura do cabeçalho como 9% da altura da viewport (vh) e ocupa 100% da largura da tela */
+    height: 9vh;
+    width: 100%;
+    color: white; /* Define a cor do texto como branco */
+
+    .header {
+        /* Define a cor de fundo do cabeçalho interno como azul */
+        background-color: blue;
+        height: 9vh; /* Mesma altura do cabeçalho externo */
+        width: 100%; /* Ocupa toda a largura disponível */
+        display: flex; /* Utiliza flexbox para organizar os elementos filhos */
+        align-items: center; /* Alinha os itens filhos verticalmente ao centro */
+        justify-content: space-between; /* Distribui espaço uniformemente entre os itens filhos */
+
+        .picture {
+            /* Define a área para a imagem do cabeçalho */
+            height: 9vh; /* Mesma altura do cabeçalho */
+            width: 5%; /* Ocupa 5% da largura disponível */
+            display: flex; /* Utiliza flexbox para centralizar a imagem */
+            align-items: center; /* Alinha verticalmente ao centro */
+            justify-content: center; /* Alinha horizontalmente ao centro */
+            background-color: white; /* Define a cor de fundo como branco */
+        }
+
+        .middleHeader {
+            /* Define a área principal do cabeçalho */
+            height: 9vh; /* Mesma altura do cabeçalho */
+            width: 95%; /* Ocupa 95% da largura disponível */
+            padding-left: 1%; /* Adiciona padding à esquerda */
+            display: flex; /* Utiliza flexbox para organizar os elementos filhos */
+            align-items: center; /* Alinha os itens filhos verticalmente ao centro */
+            justify-content: center; /* Alinha os itens filhos horizontalmente ao centro */
+            border-bottom: solid 4px blue; /* Adiciona uma borda inferior azul */
+            box-shadow: -15px 32px 20px -27px black;
+
+            .userConect {
+                /* Define a área de conexão do usuário */
+                height: 9vh; /* Mesma altura do cabeçalho */
+                width: 15%; /* Ocupa 15% da largura disponível */
+                display: flex; /* Utiliza flexbox para centralizar o conteúdo */
+                align-items: center; /* Alinha verticalmente ao centro */
+            }
+
+            .page {
+                /* Define a área para o título da página */
+                height: 9vh; /* Mesma altura do cabeçalho */
+                width: 70%; /* Ocupa 70% da largura disponível */
+                display: flex; /* Utiliza flexbox para centralizar o conteúdo */
+                align-items: center; /* Alinha verticalmente ao centro */
+                justify-content: center; /* Alinha horizontalmente ao centro */
+                font-size: 50px; /* Define o tamanho da fonte */
+                font-family: arial; /* Define a fonte como Arial */
+            }
+
+            .user {
+                /* Define a área de informações do usuário */
+                height: 9vh; /* Mesma altura do cabeçalho */
+                width: 18%; /* Ocupa 18% da largura disponível */
+                padding-right: 2%; /* Adiciona padding à direita */
+                display: flex; /* Utiliza flexbox para organizar os itens filhos */
+                align-items: end; /* Alinha os itens filhos verticalmente ao final */
+                justify-content: center; /* Alinha os itens filhos horizontalmente ao centro */
+                flex-direction: column; /* Organiza os itens filhos em coluna */
+                color: white; /* Define a cor do texto como branco */
+                border-bottom: solid 4px blue; /* Adiciona uma borda inferior azul */
+            }
+        }
+    }
+}

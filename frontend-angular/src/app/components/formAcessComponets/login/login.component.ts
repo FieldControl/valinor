@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { isLongin, isLonginAuth } from '../../../interfaces/user.interfaces';
 import { Router } from '@angular/router';
@@ -27,7 +27,6 @@ export class LoginComponent {
 
 
   login(){
-    console.log(this.userLogin)
 
     if(!this.userLogin){
       return console.log('usuario invalido');
@@ -37,9 +36,7 @@ export class LoginComponent {
     .subscribe({
       next: (token: isLonginAuth) => {
         this.authService.token = token.accessToken;
-        console.log('User Registred')
         this.router.navigate(['home'])
-        this.appComponent.authenticate = !this.appComponent.authenticate;
       },
       error: (err) => {
         console.error(err);
@@ -47,7 +44,6 @@ export class LoginComponent {
       complete: () => {
       },
     })
-
     
   }
 }
