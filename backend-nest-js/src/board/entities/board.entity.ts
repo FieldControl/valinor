@@ -12,7 +12,9 @@ export class Board {
     @Column()
     name: string;
 
-    @ManyToMany(() => User, (user) =>user.boards)
+    @ManyToMany(() => User, (user) =>user.boards, {
+        onDelete: 'CASCADE',
+    })
     users: User[];
 
     @OneToMany(() => Columns, (columns) =>columns.boards)

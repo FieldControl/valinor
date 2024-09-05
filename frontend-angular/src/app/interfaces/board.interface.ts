@@ -7,3 +7,7 @@ export interface Iboard{
     user?: IUser[];
     colunm?: Icolumn;
 }
+
+export interface IcreateBoard{
+    name: string;
+}

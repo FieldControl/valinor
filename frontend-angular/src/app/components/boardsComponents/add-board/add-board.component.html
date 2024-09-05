@@ -1,3 +1,19 @@
-<div>
-    <h1>Meu dialog funciona</h1>
-</div>
+<header><i class="bi bi-x-lg" (click)="closeDialog()"></i></header>
+<form #boardForm="ngForm" (ngSubmit)="createOrEditBoard()">  
+    <div class="title">
+        <h3 style="font-family: 100px;">{{data.board?.id ? 'Edit' : 'Add New'}} Board</h3>
+    </div>
+    <div class="inputs">
+        <label for="boardName">name of your board
+        </label>
+        <input class="input" type="text" id="boardName" placeholder="Ex. My Board" name="boardName" [(ngModel)]="addBoard" #boardNameInput="ngModel" required>
+        <small *ngIf="boardNameInput.invalid && boardNameInput.touched">Required field</small>
+    </div>
+    <div class="btns">
+        <!-- Button with type submit -->
+        <button type="submit" [disabled]="boardForm.invalid">{{data.board?.id ? 'Edit' : 'Add New'}} Board</button><br>
+        <p (click)="closeDialog()" style="color: red; cursor: pointer;" >Close Dialog</p>
+    </div>
+    
+</form>
+<footer></footer>

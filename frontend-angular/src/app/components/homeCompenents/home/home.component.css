@@ -6,6 +6,7 @@ section {
     display: flex; /* Utiliza flexbox para organizar os itens filhos em linha */
     flex-direction: row; /* Organiza os itens filhos em linha */
     color: white; /* Define a cor do texto como branco */
+    background-color: rgb(7, 44, 116);
 
     .navbar {
         /* Define a área da barra de navegação */

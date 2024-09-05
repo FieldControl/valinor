@@ -20,7 +20,7 @@ header {
             display: flex; /* Utiliza flexbox para centralizar a imagem */
             align-items: center; /* Alinha verticalmente ao centro */
             justify-content: center; /* Alinha horizontalmente ao centro */
-            background-color: white; /* Define a cor de fundo como branco */
+            background-color: blue; /* Define a cor de fundo como branco */
         }
 
         .middleHeader {

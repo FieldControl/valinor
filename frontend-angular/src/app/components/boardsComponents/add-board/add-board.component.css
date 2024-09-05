@@ -1,0 +1,73 @@
+form{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    .inputs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+
+        .input{
+            height: 5vh;
+            width: 150%;
+        }
+    }
+
+    .btns{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        
+
+        button{
+            height: 5vh;
+            width: 100%;
+            cursor: pointer;
+            border: blue solid 1px;
+            background-color: white;
+            color: blue;
+            transition: .2s;
+        }
+
+        button:hover{
+            border: white solid 1px;
+            background-color: rgb(148, 197, 230);
+            color: blue;
+            box-shadow: 0px 0px 5px black;
+        }
+    }
+}
+
+header{
+    height: 5vh;
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    i{
+        font-size: 28px;
+        cursor: pointer;
+        margin-right: 3%;
+        transition: .2s;
+    }
+
+    i:hover{
+        font-size: 30px;
+        cursor: pointer;
+        color: red;
+    }
+}
+
+footer{
+    height: 2vh;
+    background-color: blue;
+}

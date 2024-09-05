@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<app-header></app-header>
+<app-header [title]="title" class="header"></app-header>
 <section>
   <nav class="navbar">
     <app-navbar ></app-navbar>
   </nav>
   <main class="content">
     <!--Boads-->
-    <div class="header">
+    <div class="headerBoard">
       <div class="title">
         <h1>My Boards</h1>
       </div>
@@ -14,20 +14,26 @@
         <button class="create" (click)="openCreateNewBoard()">New Board <i class="bi bi-plus"></i></button>
       </div>
     </div>
-    
-    
-    <div *ngFor="let board of boards(); trackBy: boards">
-      <div class="contentBoards">
-        <a [routerLink]="['/boards', board.id]" class="board">
-          <h3>{{ board.name }}</h3>
-          <i class="bi bi-kanban"></i>
-          <div class="footer"></div>
-        </a>
+    <div class="boards">
+      <div *ngFor="let board of boards(); trackBy: boards" class="board"  >
+          <a [routerLink]="['/boards', board.id]"  >
+            <div class="titleboard">
+              <h3 style="color: black;">{{ board.name }}</h3>
+            </div>
+            <div class="middleboard">
+              <i class="bi bi-kanban" style="color: black;"></i>
+              <div class="footer"></div>
+            </div></a>
+          <div class="options">
+            <button class="edit" (click)="openCreateNewBoard(board)">Edit</button>
+            <button class="delete" (click)="deleteBoard(board.id)">Delete</button>
+          </div>
       </div>
-    </div>  
-    
-    
+    </div>
   </main>
 </section>
+<footer>
+  <div class="footer"></div>
+</footer>
 
 

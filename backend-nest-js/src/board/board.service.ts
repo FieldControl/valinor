@@ -1,5 +1,5 @@
 //confiiguração padrão, service injetavel
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 
 //arquivos DTO dos Quadros
 import { CreateBoardDto } from './dto/create-board.dto';
@@ -10,6 +10,7 @@ import { Board } from './entities/board.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserService } from 'src/user/user.service';
+import { abort } from 'process';
 
 
 @Injectable()
@@ -19,13 +20,23 @@ export class BoardService {
   constructor(@InjectRepository(Board)private boardRepository: Repository<Board>,
   private userService : UserService) { }
 
+  async isUserAssociatedWithBoard(boardId: number, userId: number){
+    const count = await this.boardRepository.count({
+      where: {id: boardId,users:{id: userId}}
+    })
+    if(count === 0){
+      throw new UnauthorizedException('User not authorized')
+    }
+    return true
+  }
+
   //Criando um novo quadro kanban
   async createNewBoard(createBoardDto: CreateBoardDto, userId: number) {
     const board = new Board();
     board.name = createBoardDto.name;
     const user = await this.userService.findOne(userId);
     board.users = [user];
-    return this.boardRepository.save(createBoardDto);
+    return this.boardRepository.save(board);
   }
 
   //correlação dos quadros com o usuario.
@@ -48,21 +59,17 @@ export class BoardService {
   }
 
   //atualização no nome do Board Kanban
-  update(id: number,userId : number ,updateBoardDto: UpdateBoardDto) {
-    return this.boardRepository.update(
-      {
-        id,
-         users:{id: userId,}}, 
-      {
-        name : updateBoardDto.name,
-      }
+  async update(id: number,userId : number ,updateBoardDto: UpdateBoardDto) {
+    await this.isUserAssociatedWithBoard(id, userId);
+    return this.boardRepository.update(id, {
+      name: updateBoardDto.name,
+    }
     );
   }
 
   //Excluindo o Board
-  remove(id: number, userId: number) {
-    return this.boardRepository.delete({
-      users: {id : userId}, id,
-    });
+  async remove(id: number, userId: number) {
+    await this.isUserAssociatedWithBoard(id, userId);
+    return this.boardRepository.delete(id);
   }
 }

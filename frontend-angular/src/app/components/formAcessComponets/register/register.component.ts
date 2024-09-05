@@ -2,7 +2,6 @@ import { Component} from '@angular/core';
 import { isLonginAuth, isRegister } from '../../../interfaces/user.interfaces';
 import { AuthenticateService } from '../../../services/user/authenticate.service';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccessComponent } from '../access/access.component';
 import { UserService } from '../../../services/user/users.service';
 

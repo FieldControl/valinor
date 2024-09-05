@@ -15,10 +15,8 @@ import { LoginComponent } from './components/formAcessComponets/login/login.comp
 import { RegisterComponent } from './components/formAcessComponets/register/register.component';
 import { ListComponent } from './components/boardsComponents/list/list.component';
 import { DetailsComponent } from './components/boardsComponents/details/details.component';
-import { HelpComponent } from './components/informationComponents/help/help.component';
 import { DeveloperComponent } from './components/informationComponents/developer/developer.component';
 import { jwtInterceptor } from './core/interceptor/jwt.interceptor';
-import { AddBoardComponent } from './components/boardsComponents/add-board/add-board.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
@@ -34,8 +32,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     RegisterComponent,
     DetailsComponent,
     DeveloperComponent,
-    HelpComponent,
-    AddBoardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Iboard } from '../../interfaces/board.interface';
+import { Iboard, IcreateBoard } from '../../interfaces/board.interface';
 import { Observable } from 'rxjs';
 import { UserService } from '../user/users.service';
 
@@ -15,12 +15,21 @@ export class BoardService {
   
 
   //API para fazer login do usuario, com valor isLogin, retornando um observable.
-  // creatBoard(newBoard : Iboard): Observable <isLonginAuth> {
-  //   return this.httpClient.post<isLonginAuth>( 'http://localhost:3000/authenticate/login' , login)
-  // }
+  creatBoard(newBoard : IcreateBoard): Observable <Iboard> {
+    return this.httpClient.post<Iboard>( 'http://localhost:3000/board', newBoard)
+  }
 
    // Método para obter todos os boards, retornando um Observable de um array de Iboard
   getBoards(): Observable<Iboard[]>{
     return this.httpClient.get<Iboard[]>('http://localhost:3000/board');
   }
+
+  updateBoard(id: number, newBoard : IcreateBoard): Observable <void> {
+    return this.httpClient.patch<void>( `http://localhost:3000/board/${id}`, newBoard)
+  }
+
+  deleteBoarde(boardId : number):Observable <Iboard>{
+    return this.httpClient.delete<Iboard>( `http://localhost:3000/board/${boardId}`)
+  }
+  
 }

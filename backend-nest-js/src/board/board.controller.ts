@@ -8,6 +8,8 @@ import { AuthGuard, payloudRequest } from 'src/authenticate/auth/auth.guard';
 export class BoardController {
   constructor(private readonly boardService: BoardService) {}
 
+  
+
   @Post()
   @UseGuards(AuthGuard)
   create(@Body() createBoardDto: CreateBoardDto,@Request() req: payloudRequest) {

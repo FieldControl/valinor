@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { BoardService } from '../../../services/boards/board.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router, RouterModule } from '@angular/router';
@@ -7,6 +7,9 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddBoardComponent } from '../add-board/add-board.component';
 import { HeaderComponent } from '../../homeCompenents/header/header.component';
 import { NavbarComponent } from '../../homeCompenents/navbar/navbar.component';
+import { Iboard } from '../../../interfaces/board.interface';
+import { Subject, switchMap } from 'rxjs';
+
 
 
 @Component({
@@ -18,23 +21,35 @@ import { NavbarComponent } from '../../homeCompenents/navbar/navbar.component';
 
 })
 export class ListComponent {
-  private readonly dialog = inject(MatDialog)
+  // private readonly dialog = inject(MatDialog)
+  constructor(public dialog: MatDialog){}
   private readonly boardService = inject(BoardService);
   private readonly router = inject(Router)
 
- // Converte o observable retornado pelo serviço em um signal
- boards = toSignal(this.boardService.getBoards().pipe());
-  
+  title = 'Boards'
 
-  openCreateNewBoard(){
+ boards = toSignal(this.boardService.getBoards());
+
+
+  openCreateNewBoard(board? : Iboard){
     this.dialog.open(AddBoardComponent, {
       width: '400px',
-    });
+      position: {
+        top: '-40%',
+        left: '40%',
+      },
+      data: {
+        board,
+      }
+    }).afterClosed()
   }
 
-  
+  deleteBoard(boardId: number){
+    this.boardService.deleteBoarde(boardId).subscribe({
+      complete: () => {
+        window.location.reload();
+      },
+    })
+  }
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
 }
