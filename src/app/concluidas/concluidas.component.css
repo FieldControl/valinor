@@ -1,0 +1,11 @@
+li{
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(135, 245, 135);
+
+}
+ul{
+    list-style: disc;
+}

@@ -1,0 +1,15 @@
+.nav-bar{
+    background-color: rgb(17, 88, 134);
+    width: 100%;
+    top: 0;   
+}
+a{
+    color:white;
+    font-size: 50px;
+}
+.colunas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+

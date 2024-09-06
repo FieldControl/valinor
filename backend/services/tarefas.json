@@ -1,0 +1,49 @@
+{
+    "tarefas": [
+        {
+            "nome": "Pendurar a roupa",
+            "status": "concluida"
+        },
+        {
+            "nome": "Passear os cachorros",
+            "status": "concluida"
+        },
+        {
+            "nome": "Lavar a louça",
+            "status": "concluida"
+        },
+        {
+            "nome": "Lavar os tênis",
+            "status": "concluida"
+        },
+        {
+            "nome": "Arrumar o quarto",
+            "status": "concluida"
+        },
+        {
+            "nome": "Instalar a torneira da cozinha",
+            "status": "concluida"
+        },
+        {
+            "nome": "Tirar o lixo",
+            "status": "concluida"
+        },
+        {
+            "nome": "Lavar o banheiro",
+            "status": "concluida"
+        },
+        {
+            "nome": "Encher as garrafas de água",
+            "status": "concluida"
+        },
+        {
+            "nome": "Encher o filtro",
+            "status": "em-aberto"
+        },
+        {
+            "nome": "Passar a roupa",
+            "status": "em-aberto"
+        }
+    ]
+
+}
