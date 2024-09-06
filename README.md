@@ -9,7 +9,7 @@ Kanban utilizando Angular e NestJS
 - abra no navegador
   
 *Não se esqueça de escolher um servidor para rodar localmente, como o XAMPP, por exemplo.
-**Será necessário mudar o caminho para o arquivo json, conforme o caminho que estiver no seu computador, no arquivo tarefas.service.ts localizado em src/
+**Abra localhost/<caminho para o projeto no seu computador>/backend/services/tarefas.json no navegador e copie a url. Cole essa url na apiUrl, localizada em ./src/tarefas.service.ts 
 
 **Sobre o Software:**
 Simples quadro Kanban, desenvolvido em Angular e NestJS. 
