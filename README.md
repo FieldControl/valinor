@@ -1,4 +1,4 @@
-Kanban utilizando Angular a NestJS
+Kanban utilizando Angular e NestJS
 ===========================================
 **Para executar:**
 - copie o repositório para a sua máquina
@@ -14,4 +14,4 @@ Esse sistema utiliza um JSON para armazenar os dados que são lidos e mostrados 
 Para alterar as tarefas e o status delas, assim como adicionar mais, edite o arquivo tarefas.json, localizado em backend/services/tarefas.json no diretório do projeto.
   
 **Vídeo do Projeto:**
-
+https://youtu.be/LKczHr20Rxk
