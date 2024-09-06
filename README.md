@@ -4,7 +4,8 @@ Kanban utilizando Angular e NestJS
 **Para executar:**
 - copie o repositório para a sua máquina
 - com o repositório aberto na sua IDE preferida, rode npm install no terminal, para baixar as dependências
-- execute npm run start para iniciar o backend, e npm start para o front
+- para iniciar o backend, navegue até a pasta /backend, e execute npm run start
+- para iniciar o frontend, volte até o diretório principal e execute npm start
 - abra no navegador
   
 *Não se esqueça de escolher um servidor para rodar localmente, como o XAMPP, por exemplo.
