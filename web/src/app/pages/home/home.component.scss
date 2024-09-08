@@ -1,9 +1,8 @@
 main {
-  background-color: lightgray;
+  background-color: rgb(239, 237, 240);
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 64px;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh);
   width: 100%;
 }

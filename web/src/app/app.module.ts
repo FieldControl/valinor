@@ -15,6 +15,7 @@ import { TaskContainerComponent } from './components/task-container/task-contain
 import { TaskCardComponent } from './components/task-card/task-card.component';
 // pages
 import { HomeComponent } from './pages/home/home.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomeComponent } from './pages/home/home.component';
     TaskCardComponent,
     // pages
     HomeComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
