@@ -1,0 +1,41 @@
+.kanban-card {
+  margin-bottom: 8px;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: move;
+  transition: box-shadow 0.3s ease;
+  overflow-wrap: anywhere;
+}
+.kanban-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.kanban-card mat-card-content {
+  font-size: 14px;
+  color: #333;
+}
+
+.kanban-card>button{
+  position:sticky;
+  right: 10px;
+  bottom: 10px;
+  color: #39393d;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.card-header>button{
+  background-color:red;
+  position: sticky;
+  right:10px;
+}
+
+.card-header>button>mat-icon{
+  margin: 0px;
+}

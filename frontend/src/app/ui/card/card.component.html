@@ -1,0 +1,9 @@
+<mat-card class="kanban-card">
+  <div class="card-header">
+    <h5>{{card.title}}</h5>
+    <button mat-flat-button (click)="removeCard(card)">
+      <mat-icon fontIcon="close"></mat-icon>
+    </button>
+  </div>
+  <mat-card-content>{{card.description}}</mat-card-content>
+</mat-card>

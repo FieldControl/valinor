@@ -1,0 +1,18 @@
+.kanban-board {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 0 auto;
+  height: calc(100vh - 40px);
+  justify-content: start;  /* Subtraindo o padding do host */
+}
+
+.new-column{
+  position: absolute;
+  right:3%;
+  bottom: 5%;
+}
+
+.new-column>button>mat-icon{
+  margin: 0px;
+}

@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="formColumn">
+        <div class="form-column-body">
+        <mat-form-field>
+          <input matInput placeholder="Title" formControlName="title" name="columnTitle" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="handleAddColumn()">Create Column</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

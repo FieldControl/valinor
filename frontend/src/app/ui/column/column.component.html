@@ -1,0 +1,18 @@
+<div class="kanban-list">
+  <div class="kanban-header">
+    <h2>{{column.title}}</h2>
+    <button mat-flat-button (click)="removeColumn(column)">
+      <mat-icon fontIcon="close"></mat-icon>
+    </button>
+  </div>
+  <div class="kanban-cards">
+    @for (card of columnCards; track card){
+      <card cdkDrag [card]="card" (remove)="removeCard($event)"/>
+    }
+  </div>
+  <div class="new-card">
+    <button mat-flat-button (click)="openDialog()">
+      <mat-icon fontIcon="add-circle"></mat-icon>
+    </button>
+  </div>
+</div>

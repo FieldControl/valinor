@@ -1,0 +1,12 @@
+<div cdkDropListGroup>
+  <div class="kanban-board">
+    @for(column of columnList; track column){
+      <column [column]="column" (remove)="removeColumn($event)"/>
+    }
+    <div class="new-column">
+      <button mat-flat-button (click)="openDialog()">
+        <mat-icon fontIcon="add-circle"></mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
