@@ -31,13 +31,10 @@ Sou daqui de São José do Rio Preto, sou técnico em informática pela ETEC e a
 
 **Outros detalhes**
 
-Foi um desafio por conta do tempo e novos frameworks ( também por um pouco de "inpaciencia" para algumas implementações :P ), mas sei os principais pontos onde melhorar e adicionar funcionalidades para um Kanban mais completo e efetivamente utilizável.
+Foi um desafio por conta do tempo e novos frameworks ( também por um pouco de "impaciência" para algumas implementações :P ), mas sei os principais pontos onde melhorar e adicionar funcionalidades para um Kanban mais completo e efetivamente utilizável.
 
 Espero que gostem da pequena demonstração do projeto, aguardo o contato :D
 
-João Pedro T. Morais
-contatojptm@gmail.com.br
+João Pedro T. Morais  
+contatojptm@gmail.com.br  
 (17)99647-6637
-
-
-
