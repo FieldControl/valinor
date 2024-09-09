@@ -4,10 +4,16 @@ header {
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
-  padding: 10px 16px;
+  padding-inline: 12px;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 50;
+
+  h1 {
+    font-size: 32px;
+    margin: 0;
+  }
 
   div {
     display: flex;
