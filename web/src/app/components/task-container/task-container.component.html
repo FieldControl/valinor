@@ -6,11 +6,15 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>add</mat-icon>
-          <span>New task</span>
+        <button mat-menu-item (click)="editcolumnmodal.toggle()">
+          <mat-icon>mode_edit</mat-icon>
+          <span>Edit column</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="createnewtaskmodal.toggle()">
+          <mat-icon>add</mat-icon>
+          <span>Create task</span>
+        </button>
+        <button mat-menu-item (click)="removecolumnmodall.toggle()">
           <mat-icon>delete</mat-icon>
           <span>Remove column</span>
         </button>
@@ -28,23 +32,56 @@
     <li>
       <app-task-card />
     </li>
-    <li>
-      <app-task-card />
-    </li>
-    <li>
-      <app-task-card />
-    </li>
-    <li>
-      <app-task-card />
-    </li>
-    <li>
-      <app-task-card />
-    </li>
-    <li>
-      <app-task-card />
-    </li>
-    <li>
-      <app-task-card />
-    </li>
   </ul>
 </section>
+
+<app-modal #createnewtaskmodal>
+  <div class="modal__container">
+    <div class="title__container">Create task</div>
+    <form>
+      <div class="form__group">
+        <label>Title</label>
+        <input type="text" name="" id="" />
+      </div>
+      <div class="form__group">
+        <label>Description</label>
+        <input type="text" name="" id="" />
+      </div>
+      <div class="button__container">
+        <button type="submit">Save</button>
+        <button (click)="createnewtaskmodal.toggle()" type="button">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</app-modal>
+
+<app-modal #editcolumnmodal>
+  <div class="modal__container">
+    <div class="title__container">Edit column</div>
+    <form>
+      <div class="form__group">
+        <label>Title</label>
+        <input type="text" name="" id="" />
+      </div>
+      <div class="button__container">
+        <button type="submit">Save</button>
+        <button (click)="editcolumnmodal.toggle()" type="button">Cancel</button>
+      </div>
+    </form>
+  </div>
+</app-modal>
+
+<app-modal #removecolumnmodall>
+  <div class="modal__container">
+    <div class="title__container">Delete column</div>
+    <div class="text__container">Are you sure?</div>
+    <div class="button__container">
+      <button type="submit">Save</button>
+      <button (click)="removecolumnmodall.toggle()" type="button">
+        Cancel
+      </button>
+    </div>
+  </div>
+</app-modal>

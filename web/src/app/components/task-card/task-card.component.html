@@ -9,11 +9,11 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="edittaskmodal.toggle()">
         <mat-icon>mode_edit</mat-icon>
         <span>Edit task</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="removetaskmodal.toggle()">
         <mat-icon>delete</mat-icon>
         <span>Remove task</span>
       </button>
@@ -31,3 +31,34 @@
     </p>
   </div>
 </div>
+
+<app-modal #edittaskmodal>
+  <div class="modal__container">
+    <div class="title__container">Edit task</div>
+    <form>
+      <div class="form__group">
+        <label>Title</label>
+        <input type="text" name="" id="" />
+      </div>
+      <div class="form__group">
+        <label>Description</label>
+        <input type="text" name="" id="" />
+      </div>
+      <div class="button__container">
+        <button type="submit">Save</button>
+        <button (click)="edittaskmodal.toggle()" type="button">Cancel</button>
+      </div>
+    </form>
+  </div>
+</app-modal>
+
+<app-modal #removetaskmodal>
+  <div class="modal__container">
+    <div class="title__container">Delete task</div>
+    <div class="text__container">Are you sure?</div>
+    <div class="button__container">
+      <button type="submit">Save</button>
+      <button (click)="removetaskmodal.toggle()" type="button">Cancel</button>
+    </div>
+  </div>
+</app-modal>

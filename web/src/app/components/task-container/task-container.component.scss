@@ -37,3 +37,48 @@ section {
     }
   }
 }
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  width: 100%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .title__container {
+    font-size: 18px;
+  }
+
+  .form__group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 12px;
+    }
+
+    input {
+      font-size: 18px;
+      height: 32px;
+      padding: 8px 12px;
+    }
+  }
+
+  .button__container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    button {
+      border: none;
+      font-weight: 600;
+      padding: 8px 12px;
+    }
+  }
+}
