@@ -24,5 +24,7 @@ export class HeaderComponent {
     this.columnsService.createColumn({
       title: this.formGroup.value.title,
     });
+
+    this.formGroup.setValue({ title: '' });
   }
 }
