@@ -23,11 +23,11 @@
   <div class="date__container">
     <p class="card__date">
       <mat-icon>create</mat-icon>
-      created {{ task.createdAt }}
+      created {{ formatDate(task.createdAt) }}
     </p>
     <p class="card__date">
       <mat-icon>update</mat-icon>
-      updated {{ task.updatedAt }}
+      updated {{ formatDate(task.updatedAt) }}
     </p>
   </div>
 </div>

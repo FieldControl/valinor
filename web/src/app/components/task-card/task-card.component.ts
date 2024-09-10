@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import moment from 'moment';
+
 import { Task } from '../../types/task.interface';
 import { TasksService } from '../../services/tasks.service';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-task-card',
@@ -22,6 +25,10 @@ export class TaskCardComponent implements OnInit {
       title: this.task.title,
       description: this.task.description,
     });
+  }
+
+  formatDate(date: string): string {
+    return moment(date).format('d/MM/YY h:mm:ss a');
   }
 
   updateTask(): void {
