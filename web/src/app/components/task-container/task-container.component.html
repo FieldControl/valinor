@@ -23,7 +23,7 @@
   </div>
 
   <ul>
-    <li *ngFor="let task of tasks">
+    <li *ngFor="let task of column.tasks">
       <app-task-card [task]="task" />
     </li>
   </ul>
@@ -32,7 +32,10 @@
 <app-modal #createnewtaskmodal>
   <div class="modal__container">
     <div class="title__container">Create task</div>
-    <form [formGroup]="taskFormGroup">
+    <form
+      [formGroup]="taskFormGroup"
+      (submit)="createTask(); createnewtaskmodal.toggle()"
+    >
       <div class="form__group">
         <label>Title</label>
         <input

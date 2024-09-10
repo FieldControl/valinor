@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Task } from '../../types/task.interface';
 import { Column } from '../../types/column.interface';
 import { ColumnsService } from '../../services/columns.service';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   selector: 'app-task-container',
@@ -13,24 +14,13 @@ import { ColumnsService } from '../../services/columns.service';
 export class TaskContainerComponent {
   @Input() column!: Column;
 
-  tasks: Task[] = [
-    {
-      id: '1',
-      title: 'First task',
-      description: 'First task description',
-      position: 1,
-      columnId: '1',
-      createdAt: '07/09/2024 08h51m24s',
-      updatedAt: '08/09/2024 10h32m44s',
-    },
-  ];
-
   taskFormGroup!: FormGroup;
   columnFormGroup!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private columnsService: ColumnsService
+    private columnsService: ColumnsService,
+    private tasksService: TasksService
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +31,14 @@ export class TaskContainerComponent {
 
     this.columnFormGroup = this.formBuilder.group({
       title: this.column.title,
+    });
+  }
+
+  createTask(): void {
+    this.tasksService.createTask({
+      title: this.taskFormGroup.value.title,
+      description: this.taskFormGroup.value.description,
+      columnId: this.column.id,
     });
   }
 

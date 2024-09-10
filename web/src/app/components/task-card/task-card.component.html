@@ -35,7 +35,10 @@
 <app-modal #edittaskmodal>
   <div class="modal__container">
     <div class="title__container">Edit task</div>
-    <form [formGroup]="formGroup">
+    <form
+      [formGroup]="formGroup"
+      (submit)="updateTask(); edittaskmodal.toggle()"
+    >
       <div class="form__group">
         <label>Title</label>
         <input
@@ -67,7 +70,9 @@
     <div class="title__container">Delete task</div>
     <div class="text__container">Are you sure?</div>
     <div class="button__container">
-      <button type="submit">Save</button>
+      <button (click)="deleteTask(); removetaskmodal.toggle()" type="button">
+        Save
+      </button>
       <button (click)="removetaskmodal.toggle()" type="button">Cancel</button>
     </div>
   </div>
