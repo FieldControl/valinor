@@ -23,6 +23,9 @@ export class ColumnsService {
       include: {
         tasks: true,
       },
+      orderBy: {
+        createdAt: 'asc',
+      },
     });
   }
 
