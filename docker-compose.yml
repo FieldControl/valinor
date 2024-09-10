@@ -17,3 +17,11 @@ services:
       - 3000:3000
     volumes:
       - ./server:/app
+  web:
+    build: web/
+    depends_on:
+      - server
+    ports:
+      - 4200:4200
+    volumes:
+      - ./web:/web
