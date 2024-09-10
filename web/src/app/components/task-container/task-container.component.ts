@@ -1,8 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+import { Task } from '../../types/task.interface';
+import { Column } from '../../types/column.interface';
 
 @Component({
   selector: 'app-task-container',
   templateUrl: './task-container.component.html',
   styleUrl: './task-container.component.scss',
 })
-export class TaskContainerComponent {}
+export class TaskContainerComponent {
+  @Input() column!: Column;
+
+  tasks: Task[] = [
+    {
+      id: '1',
+      title: 'First task',
+      description: 'First task description',
+      position: 1,
+      columnId: '1',
+      createdAt: '07/09/2024 08h51m24s',
+      updatedAt: '08/09/2024 10h32m44s',
+    },
+  ];
+
+  taskFormGroup!: FormGroup;
+  columnFormGroup!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.taskFormGroup = this.formBuilder.group({
+      title: '',
+      description: '',
+    });
+
+    this.columnFormGroup = this.formBuilder.group({
+      title: this.column.title,
+    });
+  }
+}

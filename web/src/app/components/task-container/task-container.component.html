@@ -1,6 +1,6 @@
 <section>
   <div class="column__title">
-    <h2>Column title</h2>
+    <h2>{{ column.title }}</h2>
     <div>
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
@@ -23,14 +23,8 @@
   </div>
 
   <ul>
-    <li>
-      <app-task-card />
-    </li>
-    <li>
-      <app-task-card />
-    </li>
-    <li>
-      <app-task-card />
+    <li *ngFor="let task of tasks">
+      <app-task-card [task]="task" />
     </li>
   </ul>
 </section>
@@ -38,14 +32,24 @@
 <app-modal #createnewtaskmodal>
   <div class="modal__container">
     <div class="title__container">Create task</div>
-    <form>
+    <form [formGroup]="taskFormGroup">
       <div class="form__group">
         <label>Title</label>
-        <input type="text" name="" id="" />
+        <input
+          formControlName="title"
+          id="titleInput"
+          name="titleInput"
+          type="text"
+        />
       </div>
       <div class="form__group">
         <label>Description</label>
-        <input type="text" name="" id="" />
+        <input
+          formControlName="description"
+          id="descriptionInput"
+          name="descriptionInput"
+          type="text"
+        />
       </div>
       <div class="button__container">
         <button type="submit">Save</button>
@@ -60,10 +64,15 @@
 <app-modal #editcolumnmodal>
   <div class="modal__container">
     <div class="title__container">Edit column</div>
-    <form>
+    <form [formGroup]="columnFormGroup">
       <div class="form__group">
         <label>Title</label>
-        <input type="text" name="" id="" />
+        <input
+          formControlName="title"
+          id="columnTitleInput"
+          name="columnTitleInput"
+          type="text"
+        />
       </div>
       <div class="button__container">
         <button type="submit">Save</button>

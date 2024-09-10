@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card__title">
-    <h3>Card title</h3>
+    <h3>{{ task.title }}</h3>
     <button
       mat-icon-button
       [matMenuTriggerFor]="menu"
@@ -19,15 +19,15 @@
       </button>
     </mat-menu>
   </div>
-  <p class="card__description">Card description</p>
+  <p class="card__description">{{ task.description }}</p>
   <div class="date__container">
     <p class="card__date">
       <mat-icon>create</mat-icon>
-      Created x ago
+      created {{ task.createdAt }}
     </p>
     <p class="card__date">
       <mat-icon>update</mat-icon>
-      Updated y ago
+      updated {{ task.updatedAt }}
     </p>
   </div>
 </div>
@@ -35,14 +35,24 @@
 <app-modal #edittaskmodal>
   <div class="modal__container">
     <div class="title__container">Edit task</div>
-    <form>
+    <form [formGroup]="formGroup">
       <div class="form__group">
         <label>Title</label>
-        <input type="text" name="" id="" />
+        <input
+          formControlName="title"
+          id="titleInput"
+          name="titleInput"
+          type="text"
+        />
       </div>
       <div class="form__group">
         <label>Description</label>
-        <input type="text" name="" id="" />
+        <input
+          formControlName="description"
+          id="descriptionInput"
+          name="descriptionInput"
+          type="text"
+        />
       </div>
       <div class="button__container">
         <button type="submit">Save</button>
