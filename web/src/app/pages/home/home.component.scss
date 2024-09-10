@@ -6,4 +6,10 @@ main {
   min-height: calc(100vh);
   padding-top: 128px;
   width: 100%;
+  overflow-y: scroll;
+
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+    padding-left: 86px;
+  }
 }

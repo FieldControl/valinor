@@ -8,6 +8,10 @@ section {
   padding-bottom: 52px;
   width: 100%;
 
+  @media screen and (min-width: 800px) {
+    width: 320px;
+  }
+
   .column__title {
     align-items: center;
     display: flex;

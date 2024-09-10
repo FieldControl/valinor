@@ -3,19 +3,32 @@ nav {
   background-color: rgb(239, 237, 240);
   border: 0.5px solid lightgray;
   bottom: 0px;
-  box-shadow: 0 0 0 0.6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 0.4px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-evenly;
   padding: 8px;
   position: fixed;
   width: 100%;
-  z-index: 51;
+  z-index: 49;
+
+  @media screen and (min-width: 800px) {
+    border-radius: 8px;
+    bottom: 50%;
+    flex-direction: column;
+    left: 6px;
+    width: 62px;
+    height: 320px;
+  }
 
   .icon {
     align-items: center;
     display: flex;
     justify-content: center;
     height: 36px;
+
+    :hover {
+      transform: scale(1.2);
+    }
 
     mat-icon {
       color: black;
