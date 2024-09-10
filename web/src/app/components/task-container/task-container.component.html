@@ -14,7 +14,7 @@
           <mat-icon>add</mat-icon>
           <span>Create task</span>
         </button>
-        <button mat-menu-item (click)="removecolumnmodall.toggle()">
+        <button mat-menu-item (click)="removecolumnmodal.toggle()">
           <mat-icon>delete</mat-icon>
           <span>Remove column</span>
         </button>
@@ -52,7 +52,7 @@
         />
       </div>
       <div class="button__container">
-        <button type="submit">Save</button>
+        <button type="submit">Create</button>
         <button (click)="createnewtaskmodal.toggle()" type="button">
           Cancel
         </button>
@@ -64,7 +64,10 @@
 <app-modal #editcolumnmodal>
   <div class="modal__container">
     <div class="title__container">Edit column</div>
-    <form [formGroup]="columnFormGroup">
+    <form
+      [formGroup]="columnFormGroup"
+      (submit)="updateColumn(); editcolumnmodal.toggle()"
+    >
       <div class="form__group">
         <label>Title</label>
         <input
@@ -82,15 +85,18 @@
   </div>
 </app-modal>
 
-<app-modal #removecolumnmodall>
+<app-modal #removecolumnmodal>
   <div class="modal__container">
     <div class="title__container">Delete column</div>
     <div class="text__container">Are you sure?</div>
     <div class="button__container">
-      <button type="submit">Save</button>
-      <button (click)="removecolumnmodall.toggle()" type="button">
-        Cancel
+      <button
+        (click)="deleteColumn(); removecolumnmodal.toggle()"
+        type="button"
+      >
+        Yes
       </button>
+      <button (click)="removecolumnmodal.toggle()" type="button">Cancel</button>
     </div>
   </div>
 </app-modal>

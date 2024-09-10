@@ -1,7 +1,36 @@
 <header>
-  <h1>Board 01</h1>
+  <h1>Board</h1>
   <div>
+    <button (click)="createcolumnmodal.toggle()">
+      <mat-icon>add</mat-icon>
+    </button>
     <mat-icon>search</mat-icon>
     <mat-icon>settings</mat-icon>
   </div>
 </header>
+
+<app-modal #createcolumnmodal>
+  <div class="modal__container">
+    <div class="title__container">Edit column</div>
+    <form
+      [formGroup]="formGroup"
+      (submit)="createColumn(); createcolumnmodal.toggle()"
+    >
+      <div class="form__group">
+        <label>Title</label>
+        <input
+          formControlName="title"
+          id="columnTitleInput"
+          name="columnTitleInput"
+          type="text"
+        />
+      </div>
+      <div class="button__container">
+        <button type="submit">Create</button>
+        <button (click)="createcolumnmodal.toggle()" type="button">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</app-modal>

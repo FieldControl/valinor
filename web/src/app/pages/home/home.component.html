@@ -1,5 +1,5 @@
 <app-header />
 <app-navigation-menu />
 <main>
-  <app-task-container [column]="column" />
+  <app-task-container *ngFor="let column of columns" [column]="column" />
 </main>
