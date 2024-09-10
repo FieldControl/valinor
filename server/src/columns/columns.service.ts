@@ -19,7 +19,11 @@ export class ColumnsService {
   }
 
   async findAll() {
-    return this.prismaService.column.findMany();
+    return this.prismaService.column.findMany({
+      include: {
+        tasks: true,
+      },
+    });
   }
 
   async findOne(columnId: string) {
