@@ -9,7 +9,7 @@ export class Board {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ length: 100 })
     name: string;
 
     @ManyToMany(() => User, (user) =>user.boards, {
@@ -17,7 +17,7 @@ export class Board {
     })
     users: User[];
 
-    @OneToMany(() => Columns, (columns) =>columns.boards)
-    Columnss: Columns[]
+    @OneToMany(() => Columns, (columns) => columns.board)
+    columns: Columns[];
 
 }

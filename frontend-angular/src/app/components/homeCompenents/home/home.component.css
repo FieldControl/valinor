@@ -6,7 +6,7 @@ section {
     display: flex; /* Utiliza flexbox para organizar os itens filhos em linha */
     flex-direction: row; /* Organiza os itens filhos em linha */
     color: white; /* Define a cor do texto como branco */
-    background-color: rgb(7, 44, 116);
+    background-color: rgb(5, 5, 173);
 
     .navbar {
         /* Define a área da barra de navegação */
@@ -33,7 +33,7 @@ footer {
 
     .footer {
         /* Define a cor de fundo do rodapé */
-        background-color: blue; /* Define a cor de fundo como azul */
+        background-color:rgb(1, 5, 23); /* Define a cor de fundo como azul */
         height: 1vh; /* Mesma altura do rodapé */
         width: 100%; /* Ocupa toda a largura disponível */
     }

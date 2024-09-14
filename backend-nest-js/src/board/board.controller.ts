@@ -3,6 +3,7 @@ import { BoardService } from './board.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
 import { AuthGuard, payloudRequest } from 'src/authenticate/auth/auth.guard';
+import { Console } from 'console';
 
 @Controller('board')
 export class BoardController {
@@ -25,7 +26,7 @@ export class BoardController {
 
   @Get(':id')
   @UseGuards(AuthGuard)
-  findOne(@Param('id') id: string, @Request() req: payloudRequest) {
+  findOne(@Param('id') id: number, @Request() req: payloudRequest) {
     return this.boardService.findOne(+id, req.user.id);
   }
 

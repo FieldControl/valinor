@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend-angular';
+  title = 'Kanban Chalenge';
 
   authenticate : boolean = false
 

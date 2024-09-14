@@ -35,7 +35,7 @@ private userService : UserService){}
     const hasAccess = await this.columnRepository.count({
       where: {
         id: columnId,
-        boards: {users:{id: userId}}
+        board: {users:{id: userId}}
       }
     })
 
@@ -48,7 +48,7 @@ private userService : UserService){}
   findAllByBoardId(boardId : number, userId: number) {
     return this.columnRepository.find({
       where: {
-        boardId, boards:{
+        boardId, board:{
           users: {id: userId}
         }
       }
@@ -58,7 +58,7 @@ private userService : UserService){}
   update(id: number, updateColumnDto: UpdateColumnDto, userId: number) {
     return this.columnRepository.update({
       id, 
-        boards: {
+        board: {
           users: {id: userId}}},
           {
       name: updateColumnDto.name,
@@ -68,7 +68,7 @@ private userService : UserService){}
 
   //JWT boqueará esse serviço caso usuário que solicita-lo não for criador do quadro.
   remove(id: number, userId: number) {
-    return this.columnRepository.delete({id, boards:{
+    return this.columnRepository.delete({id, board:{
       users: {id: userId}
     }});
   }

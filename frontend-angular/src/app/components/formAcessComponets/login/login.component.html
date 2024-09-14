@@ -9,7 +9,7 @@
          <!-- Email: requires the user to fill in this field with a valid email format. Stores the value in the "email" variable through ngModel -->
         <label for="">Email</label>
         <input type="email" placeholder="joao.silva@exemplo.com" name="email" [(ngModel)]="userLogin.email" #email="ngModel" required email>
-        <small *ngIf="email.invalid && email.touched">email invalido</small>
+        <small *ngIf="email.invalid && email.touched" >email invalido</small>
     </div>
 
     <div class="inputs">
@@ -21,5 +21,5 @@
     </div>
     
      <!-- Button with type submit -->
-    <button type="submit" [disabled]="loginForm.invalid">Enter</button><br>
+    <button type="submit" [disabled]="loginForm.invalid" (reset)="loginForm">Enter</button><br>
 </form>

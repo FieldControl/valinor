@@ -38,7 +38,7 @@ private columnService : ColumnService) {}
     return this.cardRepository.update({
       id,
       columns: {
-        boards: {
+        board: {
           users: {id: userId},
         }
       }
@@ -53,7 +53,7 @@ private columnService : ColumnService) {}
     return this.cardRepository.delete({
       id,
       columns: {
-        boards: {
+        board: {
           users: {
             id: userId
           }

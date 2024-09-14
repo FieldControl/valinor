@@ -8,3 +8,14 @@ export interface Icolumn{
     board: Iboard;
     cards?: Icard[];
 }
+
+export interface ICreateColumn{
+    name: string;
+    order: number;
+    boardId: number;
+  }
+
+  export interface IUpdateColumn {
+    id: number;
+    name: string;
+  }

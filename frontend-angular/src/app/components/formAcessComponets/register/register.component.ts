@@ -1,9 +1,10 @@
 import { Component} from '@angular/core';
-import { isLonginAuth, isRegister } from '../../../interfaces/user.interfaces';
-import { AuthenticateService } from '../../../services/user/authenticate.service';
+
+import { AuthenticateService } from '../../../shared/services/users/authenticate.service';
 import { Router } from '@angular/router';
 import { AccessComponent } from '../access/access.component';
-import { UserService } from '../../../services/user/users.service';
+import { UserService } from '../../../shared/services/users/users.service';
+import { isLonginAuth, isRegister } from '../../../shared/interfaces/user.interfaces';
 
 
 @Component({

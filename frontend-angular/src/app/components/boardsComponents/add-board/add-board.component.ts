@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BoardService } from '../../../services/boards/board.service';
+import { BoardService } from '../../../shared/services/boards/board.service';
 import { CommonModule, NgIf } from '@angular/common';
-import { Iboard, IcreateBoard } from '../../../interfaces/board.interface';
+import { IcreateBoard } from '../../../shared/interfaces/board.interface';
 
 
 

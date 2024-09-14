@@ -5,7 +5,8 @@ nav{
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    background-color: blue;
+    background-color:rgb(1, 5, 23);
+    color: rgb(5, 5, 173);
 }
 
 .icons{
@@ -15,33 +16,33 @@ nav{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: .3s;
+    transition: .4s;
     cursor: pointer;
 }
 
 .icon{
     font-size: 30px;
     cursor: pointer;
-    color: white;
+    color: rgb(5, 5, 173);
     
 }
 
 
 .icons:hover{
-    background-color: white;
-    color: blue;
-
-    .icon{
-        color: blue;
-    }
-}
-
-.iconClick{
     background-color: blue;
     color: white;
 
     .icon{
         color: white;
+    }
+}
+
+.iconClick{
+    background-color: white;
+    color: blue;
+
+    .icon{
+        color: blue;
     }
 
 }

@@ -18,10 +18,10 @@ export class Columns {
     @Column()
     boardId: number;
 
-    @ManyToOne(() => Board, (board) =>board.Columnss)
+    @ManyToOne(() => Board, (board) => board.columns)
     @JoinColumn()
-    boards: Board;
+    board: Board;
 
-    @OneToMany(() => Card, (card) =>card.columns)
+    @OneToMany(() => Card, (card) => card.columns)
     cards: Card[];
 }

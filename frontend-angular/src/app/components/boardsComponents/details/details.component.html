@@ -1,1 +1,31 @@
-<p>details works!</p>
+<app-header [title]="title"></app-header>
+
+
+<main class="main">
+    <h1>{{boards()?.name}}</h1>
+    <div>
+        <button (click)="navgateBoard()">Voltar Para os Boards</button>
+        
+    </div>
+    <form #columnForm="ngForm" (submit)="addColumn()">
+        <div class="container">
+            <h1>Criar Coluna</h1>
+            <input type="ex. My Column" name="nameColumn" [(ngModel)]="nameColumn" required>  
+            <button type="submit" [disabled]="columnForm.invalid">click-me</button>
+        </div>
+    </form>
+    <div class="board">
+        <div *ngFor="let colum of columns()">
+            <div class="colum">
+                <div class="headerColumn">
+                    <h1>{{colum.name}}</h1>
+                </div>
+                <div class="bodyColumn"></div>
+            </div>
+            
+        </div>
+    </div>
+</main>
+<footer class="footer"></footer>
+
+<!-- <div *ngFor="let column of board()?.column; track: column"></div> -->

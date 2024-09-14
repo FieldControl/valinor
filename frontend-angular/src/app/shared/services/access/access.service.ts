@@ -2,11 +2,11 @@
 import { Injectable } from '@angular/core';
 
 //Interfaces
-import { isLongin, isRegister, isLonginAuth } from '../../interfaces/user.interfaces';
+import { isLongin, isRegister, isLonginAuth  } from '../../interfaces/user.interfaces';
 //Importes para consumo das APIs, protocolo httpClient com os metodos http, e Observable como valor de retorno.
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AccessComponent } from '../../components/formAcessComponets/access/access.component';
+import { AccessComponent } from '../../../components/formAcessComponets/access/access.component';
 
 
 //class injetavel em toda a raiz do projeto.

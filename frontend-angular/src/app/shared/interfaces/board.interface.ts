@@ -5,7 +5,7 @@ export interface Iboard{
     id: number;
     name: string;
     user?: IUser[];
-    colunm?: Icolumn;
+    column?: Icolumn[];
 }
 
 export interface IcreateBoard{

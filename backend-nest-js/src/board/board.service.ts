@@ -50,11 +50,12 @@ export class BoardService {
 
   
   findOne(id: number, userId: number) {
+    console.log(`boardId ${id} e user ${userId} chegou no serviço do backend`)
     return this.boardRepository.findOne({
       where: {
         users: {id : userId}, id,
       },
-      relations: ['users','columns', 'colums.cards'],
+      relations: ['users','columns', 'columns.cards'],
     });
   }
 

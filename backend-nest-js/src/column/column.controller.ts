@@ -17,11 +17,9 @@ export class ColumnController {
     return this.columnService.createNewColumn(createColumnDto, req.user.id);
   }
 
-  @Get('board/:boardId')
+  @Get(':boardId')
   @UseGuards(AuthGuard)
-  findAll(
-    @Request() req: payloudRequest,
-    @Param('boardId') boardId: string) {
+  findAll( @Request() req: payloudRequest, @Param('boardId') boardId: string) {
     return this.columnService.findAllByBoardId(Number(boardId), req.user.id);
   }
 

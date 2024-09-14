@@ -16,7 +16,7 @@
     </div>
     <div class="boards">
       <div *ngFor="let board of boards(); trackBy: boards" class="board"  >
-          <a [routerLink]="['/boards', board.id]"  >
+          <a (click)="navgateBoard(board.id)">
             <div class="titleboard">
               <h3 style="color: black;">{{ board.name }}</h3>
             </div>
@@ -35,5 +35,7 @@
 <footer>
   <div class="footer"></div>
 </footer>
+
+<!--[routerLink]="['boards', board.id]"-->
 
 

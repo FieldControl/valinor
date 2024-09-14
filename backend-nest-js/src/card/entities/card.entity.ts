@@ -25,7 +25,6 @@ export class Card {
     @JoinColumn()
     delegate: string;
 
-    @OneToMany(() => Columns, (columns) => columns.cards)
-    @JoinColumn()
-    columns : Columns
+    @ManyToOne(() => Columns, (columns) => columns.cards, { onDelete: 'CASCADE' })
+    columns: Columns;
 }

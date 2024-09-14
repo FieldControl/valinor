@@ -1,5 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { BoardService } from '../../../services/boards/board.service';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { BoardService } from '../../../shared/services/boards/board.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -7,13 +7,14 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddBoardComponent } from '../add-board/add-board.component';
 import { HeaderComponent } from '../../homeCompenents/header/header.component';
 import { NavbarComponent } from '../../homeCompenents/navbar/navbar.component';
-import { Iboard } from '../../../interfaces/board.interface';
-import { Subject, switchMap } from 'rxjs';
+import { Iboard } from '../../../shared/interfaces/board.interface';
+
+
 
 
 
 @Component({
-  imports: [RouterModule, CommonModule,MatDialogModule,HeaderComponent, NavbarComponent],  
+  imports: [RouterModule, CommonModule, MatDialogModule, HeaderComponent, NavbarComponent],  
   standalone: true,
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -26,7 +27,7 @@ export class ListComponent {
   private readonly boardService = inject(BoardService);
   private readonly router = inject(Router)
 
-  title = 'Boards'
+ title = 'Boards'
 
  boards = toSignal(this.boardService.getBoards());
 
@@ -50,6 +51,12 @@ export class ListComponent {
         window.location.reload();
       },
     })
+  }
+
+
+  navgateBoard( id: number){
+    this.router.navigate(['boards', id]);
+    console.log(id);
   }
 
 }

@@ -14,10 +14,10 @@ import { AccessComponent } from './components/formAcessComponets/access/access.c
 import { LoginComponent } from './components/formAcessComponets/login/login.component';
 import { RegisterComponent } from './components/formAcessComponets/register/register.component';
 import { ListComponent } from './components/boardsComponents/list/list.component';
-import { DetailsComponent } from './components/boardsComponents/details/details.component';
-import { DeveloperComponent } from './components/informationComponents/developer/developer.component';
-import { jwtInterceptor } from './core/interceptor/jwt.interceptor';
+
 import { MatDialogModule } from '@angular/material/dialog';
+import { HeaderComponent } from "./components/homeCompenents/header/header.component";
+import { jwtInterceptor } from './shared/security/core/jwt.interceptor';
 
 
 
@@ -30,8 +30,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     AccessComponent,
     LoginComponent,
     RegisterComponent,
-    DetailsComponent,
-    DeveloperComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +37,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     ListComponent,
-    MatDialogModule
-  ],
+    MatDialogModule,
+    HeaderComponent
+],
   providers: [provideAnimationsAsync(),
     provideHttpClient(withFetch(), withInterceptors([jwtInterceptor])),],
   bootstrap: [AppComponent]

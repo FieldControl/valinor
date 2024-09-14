@@ -11,7 +11,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
   standalone: true
 })
 export class HomeComponent {
-  constructor(private appComponent : AppComponent){}
+  constructor(){}
 
   title = 'Home';
 }

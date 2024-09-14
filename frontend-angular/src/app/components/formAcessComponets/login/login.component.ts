@@ -1,10 +1,9 @@
 import { Component, input } from '@angular/core';
-
-import { isLongin, isLonginAuth } from '../../../interfaces/user.interfaces';
 import { Router } from '@angular/router';
-import { AuthenticateService } from '../../../services/user/authenticate.service';
+import { AuthenticateService } from '../../../shared/services/users/authenticate.service';
 import { AppComponent } from '../../../app.component';
-import { UserService } from '../../../services/user/users.service';
+import { UserService } from '../../../shared/services/users/users.service';
+import { isLongin, isLonginAuth } from '../../../shared/interfaces/user.interfaces';
 
 @Component({
   selector: 'app-login',

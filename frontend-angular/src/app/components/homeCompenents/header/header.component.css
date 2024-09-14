@@ -6,7 +6,7 @@ header {
 
     .header {
         /* Define a cor de fundo do cabeçalho interno como azul */
-        background-color: blue;
+        background-color:rgb(1, 5, 23);
         height: 9vh; /* Mesma altura do cabeçalho externo */
         width: 100%; /* Ocupa toda a largura disponível */
         display: flex; /* Utiliza flexbox para organizar os elementos filhos */
@@ -20,7 +20,7 @@ header {
             display: flex; /* Utiliza flexbox para centralizar a imagem */
             align-items: center; /* Alinha verticalmente ao centro */
             justify-content: center; /* Alinha horizontalmente ao centro */
-            background-color: blue; /* Define a cor de fundo como branco */
+            background-color:rgb(1, 5, 23); /* Define a cor de fundo como branco */
         }
 
         .middleHeader {
@@ -31,8 +31,9 @@ header {
             display: flex; /* Utiliza flexbox para organizar os elementos filhos */
             align-items: center; /* Alinha os itens filhos verticalmente ao centro */
             justify-content: center; /* Alinha os itens filhos horizontalmente ao centro */
-            border-bottom: solid 4px blue; /* Adiciona uma borda inferior azul */
+            border-bottom: solid 4px rgb(1, 5, 23); /* Adiciona uma borda inferior azul */
             box-shadow: -15px 32px 20px -27px black;
+            
 
             .userConect {
                 /* Define a área de conexão do usuário */
@@ -40,6 +41,7 @@ header {
                 width: 15%; /* Ocupa 15% da largura disponível */
                 display: flex; /* Utiliza flexbox para centralizar o conteúdo */
                 align-items: center; /* Alinha verticalmente ao centro */
+                color: rgb(5, 5, 173);
             }
 
             .page {
@@ -62,8 +64,12 @@ header {
                 align-items: end; /* Alinha os itens filhos verticalmente ao final */
                 justify-content: center; /* Alinha os itens filhos horizontalmente ao centro */
                 flex-direction: column; /* Organiza os itens filhos em coluna */
-                color: white; /* Define a cor do texto como branco */
-                border-bottom: solid 4px blue; /* Adiciona uma borda inferior azul */
+                color: rgb(5, 5, 173); /* Define a cor do texto como branco */
+                border-bottom: solid 4px blue(1, 5, 23); /* Adiciona uma borda inferior azul */
+
+                i{
+                    color: rgb(5, 5, 173);
+                }
             }
         }
     }

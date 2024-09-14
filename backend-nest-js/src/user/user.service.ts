@@ -32,12 +32,18 @@ export class UserService {
     return this.userRepository.findOneBy({ id });
   }
 
-  isConnectedToBoard(boardId: number, id: number) {
-    return this.userRepository.findOneBy({ id, boards: {
-      id: boardId,
-    } });
+  isConnectedToBoard(boardId: number, userId: number) {
+    return this.userRepository.findOne({
+      where: {
+        id: boardId,
+        boards: {
+          id: userId,
+        },
+      },
+      relations: ['boards'], 
+    });
   }
-
+  
   //atualizando primeiro nome e sobre nome do usuário
   UpdateUserInformation(id: number, updateUserDto: UpdateUserDto) {
     return this.userRepository.update(id, {

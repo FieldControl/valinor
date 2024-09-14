@@ -1,0 +1,66 @@
+main{
+    height: 90vh; /* Ocupa 90% da altura da viewport */
+    width: 100%; /* Ocupa toda a largura disponível */
+    display: flex; /* Utiliza flexbox para organizar os itens filhos em linha */
+    flex-direction: column; /* Organiza os itens filhos em linha */
+    color: white; /* Define a cor do texto como branco */
+    background-color: rgb(5, 5, 173);
+    padding-left: 1%;
+    gap: 10px;
+    
+}
+.board{
+    background-color: aqua;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    
+
+}
+footer {
+    /* Define a altura do rodapé */
+    height: 1vh; /* Ocupa 1% da altura da viewport */
+    width: 100%; /* Ocupa toda a largura disponível */
+
+    .footer {
+        /* Define a cor de fundo do rodapé */
+        background-color:rgb(1, 5, 23); /* Define a cor de fundo como azul */
+        height: 1vh; /* Mesma altura do rodapé */
+        width: 100%; /* Ocupa toda a largura disponível */
+    }
+}
+
+.colum{
+    background-color: antiquewhite;
+    max-width: 100%;
+    height: 70vh;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.headerColumn{
+    background-color: rgb(42, 49, 49);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.bodyColumn{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(53, 65, 65);
+}
