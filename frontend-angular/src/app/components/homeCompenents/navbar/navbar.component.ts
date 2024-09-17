@@ -20,15 +20,4 @@ export class NavbarComponent {
     this.router.navigate(['boardsList']);
   }
 
-  developer(){
-    this.router.navigate(['developer']);
-  }
-
-  help(){
-    this.router.navigate(['help']);
-  }
-  
-  logout(){
-    this.router.navigate(['accesso']);
-  }
 }

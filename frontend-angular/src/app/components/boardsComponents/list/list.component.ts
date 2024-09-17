@@ -27,7 +27,7 @@ export class ListComponent {
   private readonly boardService = inject(BoardService);
   private readonly router = inject(Router)
 
- title = 'Boards'
+ title = 'Kanban Boards'
 
  boards = toSignal(this.boardService.getBoards());
 
@@ -57,6 +57,10 @@ export class ListComponent {
   navgateBoard( id: number){
     this.router.navigate(['boards', id]);
     console.log(id);
+  }
+
+  navegateHome(){
+    this.router.navigate(['home']);
   }
 
 }

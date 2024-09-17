@@ -1,31 +1,71 @@
+<!--Access link to Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<!--Access link to google Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+<!--header components-->
 <app-header [title]="title"></app-header>
 
-
-<main class="main">
-    <h1>{{boards()?.name}}</h1>
-    <div>
-        <button (click)="navgateBoard()">Voltar Para os Boards</button>
-        
+<!-- board header, containing title and button to return to boards -->
+<header>
+    <div class="btnBack">
+        <i class="bi bi-arrow-left-circle-fill" style="font-size: 30px;" (click)="navgateBoard()" ></i>
     </div>
-    <form #columnForm="ngForm" (submit)="addColumn()">
+    <div class="title">
+        <h1>{{boards()?.name}}</h1>
+    </div>
+</header>
+
+
+<!-- main content of the page -->
+<main class="main">
+
+
+    <!-- field to include column name and create new column -->
+    <form #columnForm="ngForm" (submit)="addColumn()" class="columnForm">
         <div class="container">
-            <h1>Criar Coluna</h1>
-            <input type="ex. My Column" name="nameColumn" [(ngModel)]="nameColumn" required>  
-            <button type="submit" [disabled]="columnForm.invalid">click-me</button>
+            <input type="ex. My Column" name="nameColumn" [(ngModel)]="nameColumn" placeholder="Create New Column" required>  
+            <button type="submit" [disabled]="columnForm.invalid" class="addColumn">New Column</button>
         </div>
     </form>
+
+
+    <!-- creating column, using ngFor directive to iterate over the elements in the columns() list and render the content inside the div -->
     <div class="board">
-        <div *ngFor="let colum of columns()">
-            <div class="colum">
-                <div class="headerColumn">
+
+
+        <div *ngFor="let colum of columns()" class="colum">
+            <div class="headerColumn">
+                <div class="titleColumn">
                     <h1>{{colum.name}}</h1>
                 </div>
-                <div class="bodyColumn"></div>
+                <div class="editColumn">
+                    <i class="bi bi-pencil-square"></i>
+                </div>
             </div>
-            
+            <div class="bodyColumn">
+
+            </div>
+            <div class="footerColumn">
+                <div class="deleteColumn">
+                    <i class="bi bi-trash"></i>
+                </div>
+            </div>
         </div>
+
+
     </div>
+
+
 </main>
-<footer class="footer"></footer>
+
+
+<!-- footer of the page -->
+<footer class="footer">
+    <div class="footer"></div>
+</footer>
 
 <!-- <div *ngFor="let column of board()?.column; track: column"></div> -->

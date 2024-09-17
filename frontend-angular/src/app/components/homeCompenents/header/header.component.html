@@ -1,18 +1,30 @@
 <!--Access link to Bootstrap icons-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-<header>
-    <div class="header">
-        <!--nos ultimos instantes optei por retirar o logo que preenchia o lado esquerdo superior do header-->
+
+<!--Access link to google Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+<header class="header">
+    <div class="titleHeader">
         <div class="picture">
-            <img src="https://avatars.githubusercontent.com/u/17989287?s=280&v=4" alt="Logo field control" style="height: 8vh; border-radius: 50%;">
+            <!-- current Field control icon, GitHub profile, the option for a link instead of an image was to always keep it as the current logo -->
+            <img src="https://avatars.githubusercontent.com/u/17989287?s=280&v=" alt="picture Field Control" class="logoFieldControl">
         </div>
-        <div class="middleHeader">
-            <div class="userConect"><h4>KANBAN FIELD CONTROL</h4></div>
-            <div class="page">{{title}}</div>
-            <div class="user">
-                <i class="bi bi-person-circle" style=" font-size: 35px;"></i>
-                <small>miguel</small>
-            </div>
+        <div class="tile">
+            <!-- the header title will be rendered according to the value of the parent page -->
+            <h1>{{title}}</h1>
+        </div>
+    </div>
+    <div class="bodyHeader">
+        <div class="icon">
+            <i class="bi bi-box-arrow-left"></i>
+        </div>
+        <div class="Logout">
+            <!-- h1 text with a click event that will return the user to the login screen -->
+            <h1 (click)="logout()">Logout</h1>
         </div>
     </div>
 </header>
+<div class="footer"></div>

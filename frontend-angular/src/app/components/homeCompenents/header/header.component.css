@@ -1,76 +1,81 @@
-header {
-    /* Define a altura do cabeçalho como 9% da altura da viewport (vh) e ocupa 100% da largura da tela */
-    height: 9vh;
+/* Font configuration imported from Google Fonts */
+.title{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* Main container, holding header elements */
+.header{
+    height: 10vh;
     width: 100%;
-    color: white; /* Define a cor do texto como branco */
+    display: flex;
+    flex-direction: row;
+    color: #A8A7AD;
+    background-color: rgb(32, 31, 38);
+    font-family: inter;
+    font-size: 12px;
+    box-shadow: 0 4px 8px black;/* shadow on the bottom of the header, not working. Go back and adjust on the review day */
+}
 
-    .header {
-        /* Define a cor de fundo do cabeçalho interno como azul */
-        background-color:rgb(1, 5, 23);
-        height: 9vh; /* Mesma altura do cabeçalho externo */
-        width: 100%; /* Ocupa toda a largura disponível */
-        display: flex; /* Utiliza flexbox para organizar os elementos filhos */
-        align-items: center; /* Alinha os itens filhos verticalmente ao centro */
-        justify-content: space-between; /* Distribui espaço uniformemente entre os itens filhos */
+/* `titleHeader`: container holding the logo and header title, title re-rendered depending on the current page */
+.titleHeader{
+    height: 10vh;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-        .picture {
-            /* Define a área para a imagem do cabeçalho */
-            height: 9vh; /* Mesma altura do cabeçalho */
-            width: 5%; /* Ocupa 5% da largura disponível */
-            display: flex; /* Utiliza flexbox para centralizar a imagem */
-            align-items: center; /* Alinha verticalmente ao centro */
-            justify-content: center; /* Alinha horizontalmente ao centro */
-            background-color:rgb(1, 5, 23); /* Define a cor de fundo como branco */
-        }
-
-        .middleHeader {
-            /* Define a área principal do cabeçalho */
-            height: 9vh; /* Mesma altura do cabeçalho */
-            width: 95%; /* Ocupa 95% da largura disponível */
-            padding-left: 1%; /* Adiciona padding à esquerda */
-            display: flex; /* Utiliza flexbox para organizar os elementos filhos */
-            align-items: center; /* Alinha os itens filhos verticalmente ao centro */
-            justify-content: center; /* Alinha os itens filhos horizontalmente ao centro */
-            border-bottom: solid 4px rgb(1, 5, 23); /* Adiciona uma borda inferior azul */
-            box-shadow: -15px 32px 20px -27px black;
-            
-
-            .userConect {
-                /* Define a área de conexão do usuário */
-                height: 9vh; /* Mesma altura do cabeçalho */
-                width: 15%; /* Ocupa 15% da largura disponível */
-                display: flex; /* Utiliza flexbox para centralizar o conteúdo */
-                align-items: center; /* Alinha verticalmente ao centro */
-                color: rgb(5, 5, 173);
-            }
-
-            .page {
-                /* Define a área para o título da página */
-                height: 9vh; /* Mesma altura do cabeçalho */
-                width: 70%; /* Ocupa 70% da largura disponível */
-                display: flex; /* Utiliza flexbox para centralizar o conteúdo */
-                align-items: center; /* Alinha verticalmente ao centro */
-                justify-content: center; /* Alinha horizontalmente ao centro */
-                font-size: 50px; /* Define o tamanho da fonte */
-                font-family: arial; /* Define a fonte como Arial */
-            }
-
-            .user {
-                /* Define a área de informações do usuário */
-                height: 9vh; /* Mesma altura do cabeçalho */
-                width: 18%; /* Ocupa 18% da largura disponível */
-                padding-right: 2%; /* Adiciona padding à direita */
-                display: flex; /* Utiliza flexbox para organizar os itens filhos */
-                align-items: end; /* Alinha os itens filhos verticalmente ao final */
-                justify-content: center; /* Alinha os itens filhos horizontalmente ao centro */
-                flex-direction: column; /* Organiza os itens filhos em coluna */
-                color: rgb(5, 5, 173); /* Define a cor do texto como branco */
-                border-bottom: solid 4px blue(1, 5, 23); /* Adiciona uma borda inferior azul */
-
-                i{
-                    color: rgb(5, 5, 173);
-                }
-            }
-        }
+/* div that encapsulates the Field logo image */
+.picture{
+    height: 10vh;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    /* Field logo */
+    .logoFieldControl{
+        height: 8vh;
+        border-radius: 50%;
     }
+}
+
+/* div that encapsulates the title of the current component */
+.title{
+    height: 10vh;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* `bodyHeader`: container storing Logout button */
+.bodyHeader{
+    height: 10vh;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    padding-right: 25px;
+
+    .Logout{
+        cursor: pointer;
+    }
+}
+
+/* Bootstrap logout icon */
+.icon{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
 }

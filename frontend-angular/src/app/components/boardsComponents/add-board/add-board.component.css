@@ -1,10 +1,21 @@
+/* Font configuration imported from Google Fonts */
+.Inter{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* main form for creating the board */
 form{
     height: 50vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    background-color: rgb(5, 5, 173);
+    background-color: rgb(32,31,38);
+    color: #A8A7AD;
+    font-family: inter;
     
 
     .inputs{
@@ -37,7 +48,6 @@ form{
             color: blue;
             transition: .2s;
         }
-
         button:hover{
             border: white solid 1px;
             background-color: rgb(148, 197, 230);
@@ -47,6 +57,7 @@ form{
     }
 }
 
+/* dialog header with close icon */
 header{
     height: 5vh;
     background-color:rgb(1, 5, 23);
@@ -69,7 +80,8 @@ header{
     }
 }
 
+/* dialog footer */
 footer{
-    height: 2vh;
+    height: 5vh;
     background-color:rgb(1, 5, 23);
 }

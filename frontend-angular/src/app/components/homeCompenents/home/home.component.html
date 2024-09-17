@@ -1,17 +1,75 @@
+<!--Access link to Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<!--Access link to google Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
 <!--header components-->
 <app-header [title]="title"></app-header>
 
 <section>
-    <!-- Nav Component -->
-    <app-navbar class="navbar"></app-navbar>
-
-    <div class="content">
-        <div class="picture">
-            <img src="https://play-lh.googleusercontent.com/7sH1qKJkGg60fV_x3DhowQ9sxBfJS7PafvkU4OMnemOZszvwBr-nj9MuCkemxXvA6vtb" alt="Logo field control" style="height: 50vh; border-radius: 50%; box-shadow: 0px 0px 50px black;">
+    <section class="section">
+        <div class="dataUser">
+            <h1>meu user</h1>
         </div>
-    </div>
- 
+        <div class="logout" (click)="switchAccount()">
+            <i class="bi bi-person-gear" style="font-size: 40px;"></i>
+            <h1 >Change Account</h1>
+        </div>
+    </section>
+    <nav>
+        <div class="navbar">
+            <div class="kanban" (click)="navigateBoards()">
+                <div class="titleKanban">
+                    <h1>My Kanban Boards</h1>
+                </div>
+                <div class="contentKanban">
+                    <div class="descriptionKanban">
+                        <p>Create and Customize your own Kanban</p>
+                        <p>Better organize your projects or teams</p>
+                        <p>Add and Manage Tasks, to achieve your goals</p>
+                    </div>
+                    <div class="iconKanban">
+                        <i class="bi bi-kanban"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <div class="aboutDeveloper" (click)="navigateDeveloper()">
+                    <div class="titleKanban">
+                        <h1>About the Developer</h1>
+                    </div>
+                    <div class="content">
+                        <div class="icons">
+                            <i class="bi bi-code-slash" style="font-size: 130px;"></i>
+                        </div>
+                        <div class="descriptionKanban">
+                            <p>Explore our tools</p>
+                            <p>And all of our products</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="helpMe" (click)="navigateHelp()">
+                    <div class="titleKanban">
+                        <h1>Learn more</h1>
+                    </div>
+                    <div class="content">
+                        <div class="icons">
+                            <i class="bi bi-question-lg" style="font-size: 130px;"></i>
+                        </div>
+                        <div class="descriptionKanban">
+                            <p>Issues with the App?</p>
+                            <p>Find answers in our Help Center</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 </section>
 <footer>
-    <div class="footer"></div>
+    <div class="footer"></div>  
 </footer>

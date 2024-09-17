@@ -1,101 +1,100 @@
-section{
-    /* Define a área principal do conteúdo */
-    height: 90vh; /* Ocupa 90% da altura da viewport */
-    width: 100%; /* Ocupa toda a largura disponível */
-    display: flex; /* Utiliza flexbox para organizar os itens filhos em linha */
-    flex-direction: row; /* Organiza os itens filhos em linha */
-    color: white; /* Define a cor do texto como branco */
-    background-color: rgb(5, 5, 173);
+/* Font configuration imported from Google Fonts */
+.Inter{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
-.footer {
-    /* Define a cor de fundo do rodapé */
-    background-color:rgb(1, 5, 23); /* Define a cor de fundo como azul */
-    height: 1vh; /* Mesma altura do rodapé */
-    width: 100%; /* Ocupa toda a largura disponível */
-}
-
-.headerBoard{
-    height: 10vh;
-    width: 50%;
+/* main container of the application */
+.sectionContainer{
+    height: 86.5vh; 
+    width: 100%;
+    background-color: rgb(57,60,69);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 50px;
+    flex-direction: column;
+    font-family: inter;
+    font-size: 15px;
 
+}
+
+/* top section containing back button, page title, and button to create new boards */
+.firstSection{
+    height: 15%; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: rgb(32,31,38)    ;
+
+    /* button to go back to the home */
+    .btnBack{
+        height: 90%;
+        width: 8%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #A8A7AD;
+        cursor: pointer;
+        transition: .2s;
+    }
+    .bi-arrow-left-circle-fill:hover{
+        color: #d3d2d7;
+    }
+
+    /* page title */
     .title{
-        height: 10vh;
-        width: 30%;
+        height: 100%;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    /* div containing button to create new boards */
+    .btnCreateNewBoard{
+        height: 100%;
+        width: 10%;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
-    .btn{
-        height: 10vh;
-        width: 70%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
+    /* button to create new boards */
     .create{
         height: 7vh;
-        width: 30%;
+        width: 100%;
         background-color: blue;
-        border: none;
+        border: solid 1px rgb(41, 40, 49);
+        box-shadow: 0px 0px 10px rgb(41, 40, 49);
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 3px;
         color: white;
-        transition: .1s;
+        transition: .2s;
         cursor: pointer;
     }
-
     .create:hover{
         background-color: rgb(2, 2, 208);
         box-shadow: 0px 0px 10px black;     
     }
 }
 
-
-i{
-    margin-top: 10px;
-    font-size: 30px;
-}
-
-
-section {
-    
-
-    .navbar {
-        /* Define a área da barra de navegação */
-        height: 86vh; /* Mesma altura da seção */
-        width: 5%; /* Ocupa 5% da largura disponível */
-        box-shadow: 15px 0px 40px -27px black;
-    }
-
-    .content {
-        /* Define a área do conteúdo principal */
-        height: 85.5vh; /* Mesma altura da seção */
-        width: 95%; /* Ocupa 95% da largura disponível */
-        color: black;
-        padding-top: 2%;
-    }
-}
-
-.boards{
-    height: 55vh;
+/* dimensions of the main part of the page, second section */
+.content{
+    height: 85%;
     width: 100%;
-    padding-left: 15px;
+}
+
+/* placeholder for the boards */
+.boards{
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
     display: flex;
-    align-items: center;
     justify-content: left;
     flex-direction: row;
+    color: #A8A7AD;
 }
-
-
 a{
     text-decoration: none;
     width: 100%;
@@ -106,26 +105,28 @@ a{
 }
 
 
+/* kanban board */
 .board{
-    margin-left: 3%;
-    height: 40vh;
+    height: 80%;
     width: 20%;
+    margin-left: 3%;
+    background-color: rgb(32,31,38);
+    border: solid 1px rgb(41, 40, 49);
+    box-shadow: 0px 0px 10px rgb(41, 40, 49);
+    border-top: solid 5px rgb(23, 23, 23);
     font-size: 20px;
-    box-shadow: 0px 0px 5px black;
     transition: .1s;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     padding: 15px;
-    background-color: rgb(75, 104, 247);
-    border-radius: 15px;
+    border-radius: 8px;
+    color: #A8A7AD;
 }
-
 .board:hover{
     box-shadow: 0px 0px 15px black;
 }
-
 .titleboard{
     height: 5vh;
     display: flex;
@@ -134,7 +135,6 @@ a{
     justify-content: center;
     
 }
-
 .middleboard{
     height: 13vh;
     display: flex;
@@ -143,7 +143,6 @@ a{
     justify-content: center;
     flex-direction: column;
 }
-
 .options{
     width: 100%;
     display: flex;
@@ -152,7 +151,7 @@ a{
     
 }
 
-
+/* delete boards button */
 .delete{
     border: red solid 1px;
     color: red;
@@ -161,13 +160,13 @@ a{
     width: 40%;
     cursor: pointer;
 }
-
 .delete:hover{
     border: red solid 1px;
     color: white;
     background-color: red;
 }
 
+/* edit boards button */
 .edit{
     border: blue solid 1px;
     color: blue;
@@ -176,11 +175,29 @@ a{
     width: 40%;
     cursor: pointer;
 }
-
 .edit:hover{
     border: blue solid 1px;
     color: white;
     background-color: blue;
 }
+i{
+    margin-top: 10px;
+    font-size: 40px;
+}
+
+
+/* footer of the page */
+footer {
+    height: 3.5vh; 
+    width: 100%; 
+
+    .footer {
+        background-color:rgb(32,31,38); 
+        height: 3.5vh; 
+        width: 100%; 
+    }
+}
+
+
 
 
