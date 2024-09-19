@@ -34,23 +34,24 @@
 
 
     <!-- creating column, using ngFor directive to iterate over the elements in the columns() list and render the content inside the div -->
-    <div class="board">
+    <div class="board" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="dropColumn($event)">
 
-
-        <div *ngFor="let colum of columns()" class="colum">
+        <div *ngFor="let colum of columns()" class="colum" >
             <div class="headerColumn">
                 <div class="titleColumn">
                     <h1>{{colum.name}}</h1>
                 </div>
-                <div class="editColumn">
-                    <i class="bi bi-pencil-square"></i>
+                <div class="addCard">
+                    <i class="bi bi-file-plus" (click)="addCard()"></i>
                 </div>
             </div>
-            <div class="bodyColumn">
-
+            <div class="bodyColumn" >
+                <div cdkDrag>
+                    <h1>Hello World</h1>
+                </div>
             </div>
             <div class="footerColumn">
-                <div class="deleteColumn">
+                <div class="deleteColumn" (click)="deleteColumn(colum)">
                     <i class="bi bi-trash"></i>
                 </div>
             </div>

@@ -5,8 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddBoardComponent } from '../add-board/add-board.component';
-import { HeaderComponent } from '../../homeCompenents/header/header.component';
-import { NavbarComponent } from '../../homeCompenents/navbar/navbar.component';
+import { HeaderComponent } from '../header/header.component';
 import { Iboard } from '../../../shared/interfaces/board.interface';
 
 
@@ -14,7 +13,7 @@ import { Iboard } from '../../../shared/interfaces/board.interface';
 
 
 @Component({
-  imports: [RouterModule, CommonModule, MatDialogModule, HeaderComponent, NavbarComponent],  
+  imports: [RouterModule, CommonModule, MatDialogModule, HeaderComponent],  
   standalone: true,
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -27,7 +26,7 @@ export class ListComponent {
   private readonly boardService = inject(BoardService);
   private readonly router = inject(Router)
 
- title = 'Kanban Boards'
+ title = 'Kanban Challenge'
 
  boards = toSignal(this.boardService.getBoards());
 

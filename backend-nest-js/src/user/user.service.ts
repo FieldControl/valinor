@@ -1,5 +1,5 @@
 //confiiguração padrão, service injetavel
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 
 //arquivos DTO dos usuarios
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -32,16 +32,42 @@ export class UserService {
     return this.userRepository.findOneBy({ id });
   }
 
-  isConnectedToBoard(boardId: number, userId: number) {
-    return this.userRepository.findOne({
+  async isConnectedToBoard(boardId: number, id: number) {
+    const user = await this.userRepository.findOne({
       where: {
-        id: boardId,
+        id,
         boards: {
-          id: userId,
+          id: boardId,
         },
       },
       relations: ['boards'], 
     });
+
+    if(user){
+      throw new UnauthorizedException('você não tem acesso à este quadro')
+    }
+
+    return true;
+  }
+
+  async isConnectedToColumn(columnId: number, id: number) {
+    const user = await this.userRepository.findOne({
+      where: {
+        id,
+        boards: {
+          columns: {
+            id: columnId
+          }
+        },
+      },
+      relations: ['boards','boards.columns'], 
+    });
+
+    if(user){
+      throw new UnauthorizedException('você não tem acesso à este quadro')
+    }
+
+    return true;
   }
   
   //atualizando primeiro nome e sobre nome do usuário

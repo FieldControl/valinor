@@ -14,7 +14,7 @@ export class ColumnService {
   createColumn(createColumn: ICreateColumn): Observable<Icolumn> {
     return this.http.post<Icolumn>('http://localhost:3000/column', createColumn);
   }
-  updateSwimlane(updateColumn: IUpdateColumn): Observable<Icolumn> {
+  updateColumn(updateColumn: IUpdateColumn): Observable<Icolumn> {
     return this.http.patch<Icolumn>(`http://localhost:3000/column/${updateColumn.id}`, updateColumn);}
   deleteColumn(columnId: number): Observable<void> {
     return this.http.delete<void>(`http://localhost:3000/column/${columnId}`);

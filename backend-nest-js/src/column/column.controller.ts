@@ -28,14 +28,13 @@ export class ColumnController {
   update(
     @Request() req: payloudRequest,
     @Param('id') id: string, @Body() updateColumnDto: UpdateColumnDto) {
-    return this.columnService.update(+id, updateColumnDto, req.user.id);
+    return this.columnService.updateColumn(+id, updateColumnDto, req.user.id);
   }
 
   @Delete(':id')
   @UseGuards(AuthGuard)
-  remove(
-    @Request() req: payloudRequest,
-    @Param('id') id: string) {
+  remove( @Request() req: payloudRequest, @Param('id') id: string) {
+    console.log(id)
     return this.columnService.remove(+id, req.user.id);
   }
 }

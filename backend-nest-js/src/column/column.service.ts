@@ -8,7 +8,7 @@ import { UpdateColumnDto } from './dto/update-column.dto';
 //Database
 import { InjectRepository } from '@nestjs/typeorm';
 import { Columns } from './entities/column.entity';
-import { Repository } from 'typeorm';
+import { Repository, UpdateDateColumn } from 'typeorm';
 import { UserService } from 'src/user/user.service';
 
 @Injectable()
@@ -24,10 +24,7 @@ private userService : UserService){}
     column.name = createColumnDto.name;
     column.order = createColumnDto.order;
     column.boardId = createColumnDto.boardId;
-    const isConnected = await this.userService.isConnectedToBoard(userId, column.boardId,);
-    if(!isConnected){
-      throw new UnauthorizedException('você não tem acesso à este quadro')
-    }
+    await this.userService.isConnectedToBoard(userId, column.boardId,);
     return this.columnRepository.save(column);
   }
 
@@ -55,21 +52,19 @@ private userService : UserService){}
     });
   }
 
-  update(id: number, updateColumnDto: UpdateColumnDto, userId: number) {
-    return this.columnRepository.update({
-      id, 
-        board: {
-          users: {id: userId}}},
-          {
+  async updateColumn(id: number, updateColumnDto: UpdateColumnDto, userId: number) {
+    await this.userService.isConnectedToBoard(userId, updateColumnDto.boardId,);
+    return this.columnRepository.update(id, {
       name: updateColumnDto.name,
       order: updateColumnDto.order
     });
   }
 
   //JWT boqueará esse serviço caso usuário que solicita-lo não for criador do quadro.
-  remove(id: number, userId: number) {
-    return this.columnRepository.delete({id, board:{
-      users: {id: userId}
-    }});
+  async remove(id: number, userId: number) {
+    await this.userService.isConnectedToColumn(userId, id);
+    return this.columnRepository.delete( id );
   }
+
+  
 }

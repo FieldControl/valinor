@@ -95,6 +95,8 @@ main{
     }
 }
 
+
+
 .bodyColumn{
     height: 83%;
     display: flex;
@@ -122,7 +124,7 @@ main{
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     cursor: pointer;
-    transition: 1s;
+    transition: 0.8s;
 }
 .deleteColumn:hover{
     height: 100%;

@@ -40,7 +40,7 @@ export class LoginComponent {
     .subscribe({
       next: (token: isLonginAuth) => {
         this.authService.token = token.accessToken;
-        this.router.navigate(['home'])
+        this.router.navigate(['boardsList'])
       },
       error: (err) => {
         console.error(err);

@@ -1,3 +1,4 @@
+
 <!--Access link to google Fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -8,7 +9,7 @@
 
 
 <!-- form to create or edit the kanban board -->
-<form #boardForm="ngForm" (ngSubmit)="createOrEditBoard()"> 
+<form #boardForm="ngForm" (ngSubmit)="createOrEditBoard()" > 
 
 
     <!-- conditional title: if board id value is found, display `Edit Board`; if id not found, display `Add New Board` -->
@@ -30,7 +31,7 @@
     <div class="btns">
         <!-- Button with type submit -->
         <button type="submit" [disabled]="boardForm.invalid">{{data.board?.id ? 'Edit' : 'Add New'}} Board</button><br>
-        <!-- paragraph to close dialog without saving changes -->
+        <!-- paragraph to close dialog without saving changes --> 
         <p (click)="closeDialog()" style="color: red; cursor: pointer;" >Close Dialog</p>
     </div>
     

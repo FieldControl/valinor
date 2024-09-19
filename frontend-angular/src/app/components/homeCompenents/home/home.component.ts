@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { HeaderComponent } from '../../boardsComponents/header/header.component';
 import { Router,RouterModule } from '@angular/router';
 
 @Component({
-  imports: [HeaderComponent, NavbarComponent, RouterModule],
+  imports: [HeaderComponent, RouterModule],
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -24,12 +23,5 @@ export class HomeComponent {
     this.router.navigate(['boardsList']); 
   }
 
-  navigateDeveloper(){
-    this.router.navigate(['developer']);
-  }
-
-  navigateHelp(){
-    this.router.navigate(['help']);
-  }
   
 }

@@ -45,8 +45,7 @@ export class RegisterComponent {
     .subscribe({
       next: (token: isLonginAuth) => {
         this.authService.token = token.accessToken;
-        console.log('User Registred')
-        this.router.navigate(['home'])
+        this.router.navigate(['boardsList'])
       },
       error: (err) => {
         console.error(err);

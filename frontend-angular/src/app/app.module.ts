@@ -16,7 +16,7 @@ import { RegisterComponent } from './components/formAcessComponets/register/regi
 import { ListComponent } from './components/boardsComponents/list/list.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
-import { HeaderComponent } from "./components/homeCompenents/header/header.component";
+import { HeaderComponent } from "./components/boardsComponents/header/header.component";
 import { jwtInterceptor } from './shared/security/core/jwt.interceptor';
 
 

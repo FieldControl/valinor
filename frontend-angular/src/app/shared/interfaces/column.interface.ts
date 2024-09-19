@@ -2,6 +2,7 @@ import { Iboard } from "./board.interface";
 import { Icard } from "./card.interface";
 
 export interface Icolumn{
+    id: number;
     name: string;
     order: number;
     boardId: number;

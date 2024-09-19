@@ -5,16 +5,11 @@ import { HomeComponent } from './components/homeCompenents/home/home.component';
 import { authGuard } from './shared/security/guards/auth.guard';
 import { DetailsComponent } from './components/boardsComponents/details/details.component';
 import { ListComponent } from './components/boardsComponents/list/list.component';
-import { HelpComponent } from './components/informationComponents/help/help.component';
-import { DeveloperComponent } from './components/informationComponents/developer/developer.component';
 
 const routes: Routes = [
   { path: 'acesso', component: AccessComponent},
-  { path: 'home', component: HomeComponent, canActivate: [authGuard]},
   { path: 'boardsList', component: ListComponent, canActivate: [authGuard]},
   { path: 'boards/:id', component: DetailsComponent , canActivate: [authGuard]},
-  { path: 'developer', component: DeveloperComponent, canActivate: [authGuard]},
-  { path: 'help', component: HelpComponent, canActivate: [authGuard]},
   { path: '**', redirectTo: 'acesso'},
 ];
 
