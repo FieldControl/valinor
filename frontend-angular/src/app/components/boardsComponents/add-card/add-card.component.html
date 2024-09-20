@@ -1,0 +1,83 @@
+
+<!--Access link to google Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+<!-- dialog header with close button -->
+<header><i class="bi bi-x-lg" (click)="closeDialog()"></i></header>
+
+
+<!-- form to create or edit the kanban board -->
+<form #cardForm="ngForm" (ngSubmit)="createOrEditCard()" > 
+
+
+    <!-- conditional title: if board id value is found, display `Edit Board`; if id not found, display `Add New Board` -->
+    <div class="title">
+        <h3 style="font-family: 100px;">{{data.card?.id ? 'Edit' : 'Add New'}} Card</h3>
+    </div>
+
+
+    <!-- field to receive the name of the board to be created or the new name that will update the old name -->
+    <div class="inputs">
+        <label for="cardName">title of your task
+        </label>
+        <input class="input" type="text" id="cardName" placeholder="Ex. My Card One" name="cardName" [(ngModel)]="nameCard" #cardNameInput="ngModel" required>
+        <small *ngIf="cardNameInput.invalid && cardNameInput.touched" style="color: red;">*Required field</small>
+        <label for="cardName">content of your task
+        </label>
+        <input class="input" type="text" id="cardName" placeholder="Ex. this is My One Card" name="boardName" [(ngModel)]="contentCard" #contentNameInput="ngModel" required>
+        <small *ngIf="contentNameInput.invalid && contentNameInput.touched" style="color: red;">*Required field</small>
+    </div>
+
+
+    <!-- conditional button: if board id value is found, display `Edit Board`; if id not found, display `Add New Board` -->
+    <div class="btns">
+        <!-- Button with type submit -->
+        <button type="submit" [disabled]="cardForm.invalid">{{data.card?.id ? 'Edit' : 'Add New'}} Card</button><br>
+        <!-- paragraph to close dialog without saving changes --> 
+        <p (click)="closeDialog()" style="color: red; cursor: pointer;" >Close Dialog</p>
+    </div>
+    
+</form>
+<footer></footer>
+
+<!-- <form [formGroup]="addCardForm">
+
+    <h1>{{ data.card?.id ? "Edit" : "Add" }} card</h1>
+    <form>
+      <label>Name</label>
+      <input matInput formControlName="name" placeholder="Ex. My card" />
+  
+      @if (!addCardForm.controls.name.hasError('required')) {
+      <small>Please enter a valid name</small>
+      }
+    </form>
+
+
+    <form>
+      <label>Content</label>
+      <textarea
+        matInput
+        formControlName="content"
+        placeholder="Ex. My card"
+      ></textarea>
+    </form>
+
+  
+    <div class="button-group">
+      <button (click)="createOrEditCard()" mat-flat-button color="primary">
+        {{ data.card?.id ? "Edit" : "Add" }} card
+      </button>
+      @if(data.card?.id){
+      <button (click)="deleteCard()" mat-flat-button color="warn">
+        Delete card
+      </button>
+      }
+      <button (click)="closeDialog()" mat-flat-button color="secondary">
+        Close dialog
+      </button>
+    </div>
+
+
+  </form> -->

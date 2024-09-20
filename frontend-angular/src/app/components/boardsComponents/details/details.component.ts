@@ -11,6 +11,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { identity, Observable, Subject, switchMap } from 'rxjs';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Icolumn } from '../../../shared/interfaces/column.interface';
+import { AddCardComponent } from '../add-card/add-card.component';
+import { Icard } from '../../../shared/interfaces/card.interface';
 
 
 
@@ -21,16 +23,15 @@ import { Icolumn } from '../../../shared/interfaces/column.interface';
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
-  
 })
 export class DetailsComponent implements OnInit {
 
   private readonly router = inject(Router);
+  private readonly matDialog = inject(MatDialog);
   private readonly boardService = inject(BoardService);
   private readonly activatedRouter = inject(ActivatedRoute);
   private readonly columnService = inject(ColumnService);
   private readonly cardService = inject(CardService);
-  private readonly matDialog = inject(MatDialog);
 
   title = 'Kanban Challenge';
   nameColumn: string = '';
@@ -67,8 +68,26 @@ export class DetailsComponent implements OnInit {
   }
 
 
-  addCard(){
-    console.log('this is my cardd')
+  addOrEditCard(column: Icolumn ,card? : Icard){
+    this.matDialog
+      .open(AddCardComponent, {
+        width: '400px',
+        position: {
+          top: '-40%',
+          left: '40%',
+        },
+        data: {
+          // column: this.boards()?.column,
+          column: column,
+          boardId: column.boardId,
+          card,
+        }
+      })
+      .afterClosed()
+      .subscribe((card?: Icard) => {
+        card && this.refetch$.next();
+      });
+    
   }
 
 
@@ -81,8 +100,15 @@ export class DetailsComponent implements OnInit {
     )
   }
 
+  dropCard(){
+
+  }
 
 
+
+  editColumn(){
+
+  }
 
   navgateBoard(){
     this.router.navigate(['boardsList']);

@@ -17,6 +17,7 @@ export class CardService {
     });
   }
   createCard(createCard: Partial<Icard>): Observable<Icard> {
+    console.log(createCard)
     return this.http.post<Icard>('http://localhost:3000/card', createCard);
   }
   updateCard(id: number, createCard: Partial<Icard>): Observable<Icard> {

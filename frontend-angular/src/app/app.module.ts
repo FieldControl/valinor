@@ -18,6 +18,7 @@ import { ListComponent } from './components/boardsComponents/list/list.component
 import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderComponent } from "./components/boardsComponents/header/header.component";
 import { jwtInterceptor } from './shared/security/core/jwt.interceptor';
+import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 
 
@@ -30,6 +31,7 @@ import { jwtInterceptor } from './shared/security/core/jwt.interceptor';
     AccessComponent,
     LoginComponent,
     RegisterComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,

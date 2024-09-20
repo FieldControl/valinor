@@ -23,7 +23,6 @@ private columnService : ColumnService) {}
     const card = new Card();
     card.name = createCardDto.name;
     card.content = createCardDto.content;
-    card.order = createCardDto.order;
     card.columnId = createCardDto.columnId;
     const hasAccessToColumn = await this.columnService.hasAccessToColumn(createCardDto.columnId, userId);
     return this.cardRepository.save(card);

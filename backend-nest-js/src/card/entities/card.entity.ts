@@ -14,9 +14,11 @@ export class Card {
     @Column()
     content: string;
 
+    // @Column()
+    // order : number;
 
-    @Column()
-    order : number;
+    @Column({nullable: true})
+    assigneId: number;
 
     @Column()
     columnId : number;
