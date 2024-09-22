@@ -42,6 +42,8 @@ export class ColumnsService {
   }
 
   async update(columnId: string, updateColumnDto: UpdateColumnDto) {
+    await this.findOne(columnId);
+
     const updatedColumn = await this.prismaService.column.update({
       where: {
         id: columnId,
@@ -55,13 +57,7 @@ export class ColumnsService {
   }
 
   async remove(columnId: string) {
-    const column = await this.prismaService.column.findUnique({
-      where: {
-        id: columnId,
-      },
-    });
-
-    if (!column) throw new NotFoundException('column not found');
+    await this.findOne(columnId);
 
     await this.prismaService.column.delete({
       where: {

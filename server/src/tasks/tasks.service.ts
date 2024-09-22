@@ -37,6 +37,8 @@ export class TasksService {
   }
 
   async update(taskId: string, updateTaskDto: UpdateTaskDto) {
+    await this.findOne(taskId);
+
     const updatedTask = await this.prismaService.task.update({
       where: {
         id: taskId,
@@ -50,13 +52,7 @@ export class TasksService {
   }
 
   async remove(taskId: string) {
-    const task = await this.prismaService.task.findUnique({
-      where: {
-        id: taskId,
-      },
-    });
-
-    if (!task) throw new NotFoundException('task not found');
+    await this.findOne(taskId);
 
     await this.prismaService.task.delete({
       where: {
