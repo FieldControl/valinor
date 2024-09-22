@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { NotFoundException } from '@nestjs/common';
 
 import { ColumnsService } from '../../../columns/columns.service';
 import { PrismaService } from '../../../prisma/prisma.service';
@@ -10,7 +11,6 @@ import {
   createColumnDto,
   updateColumnDto,
 } from '../../mocks/columns.mocks';
-import { NotFoundException } from '@nestjs/common';
 
 describe('ColumnsService tests', () => {
   let columnsService: ColumnsService;
