@@ -1,0 +1,14 @@
+<p
+  class="task__description"
+  contenteditable
+  role="textbox"
+  (mousedown)="$event.stopPropagation()"
+  (keydown.enter)="self.blur()"
+  (blur)="descriptionUpdated(self.innerText ?? '')"
+  #self
+>
+  {{ task.description }}
+</p>
+<button type="button" class="task__delete" (click)="remove.emit()">
+  <img src="assets/icons/close_rounded.svg" alt="delete" />
+</button>

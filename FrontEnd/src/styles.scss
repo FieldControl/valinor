@@ -1,0 +1,23 @@
+:root {
+  --default-font-family: "Poppins", sans-serif;
+  --body-bg-color: #f5f5f5;
+  --default-text-color: #333;
+  --base-separation: 1rem;
+  --half-separation: calc(var(--base-separation) / 2);
+}
+
+* {
+  font-family: var(--default-font-family);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  font-size: 1rem;
+  color: var(--default-text-color);
+  display: grid;
+  grid-template: 1fr / 1fr;
+  width: 100vw;
+}

@@ -1,0 +1,55 @@
+:host {
+  --kanban-list-separator-color: #e0e0e0;
+  --kanban-list-add-text-color: #606060;
+
+  --kanban-task-bg-color: #fff;
+  --kanban-task-text-color: #333;
+
+  --kanban-preview-bg-color: #80f5ce;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.board__lists {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  overflow-x: auto;
+  padding: var(--half-separation) 0;
+}
+
+.cdk-drag-preview {
+  background-color: var(--kanban-preview-bg-color);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+}
+
+// .cdk-drop-list-dragging {
+//   outline: 2px solid #80b7f5;
+//   outline-offset: 2px;
+//   border-radius: 10px;
+// }
+
+// .cdk-drop-list-receiving {
+//   outline: 2px solid #53b16f;
+//   outline-offset: 2px;
+//   border-radius: 10px;
+// }
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media only screen and (max-width: 1050px) {
+  .board__lists {
+    justify-content: flex-start;
+  }
+}

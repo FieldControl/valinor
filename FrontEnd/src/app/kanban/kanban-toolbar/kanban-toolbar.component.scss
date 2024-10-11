@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding: var(--base-separation);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--half-separation);
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}

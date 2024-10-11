@@ -1,0 +1,36 @@
+:host {
+  background-color: var(--kanban-task-bg-color);
+  color: var(--kanban-task-text-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--base-separation);
+  border-radius: 8px;
+  margin-bottom: var(--base-separation);
+}
+
+.task__description {
+  outline: none;
+  word-break: break-word;
+}
+
+.task__delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 1;
+  margin-left: var(--half-separation);
+
+  img {
+    position: relative;
+    top: 2px;
+    filter: saturate(0) brightness(1.5);
+    transition: filter 300ms ease-in-out;
+  }
+
+  &:hover img,
+  &:focus img {
+    filter: none;
+  }
+}

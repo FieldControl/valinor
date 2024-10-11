@@ -1,0 +1,6 @@
+<button [disabled]="canUndo === false" (click)="undo()">
+  <img src="assets/icons/undo_rounded.svg" alt="Deshacer" />
+</button>
+<button [disabled]="canRedo === false" (click)="redo()">
+  <img src="assets/icons/redo_rounded.svg" alt="Repetir" />
+</button>

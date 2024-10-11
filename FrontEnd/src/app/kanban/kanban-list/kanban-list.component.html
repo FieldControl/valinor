@@ -1,0 +1,17 @@
+<p class="list__title">
+  <ng-content select="[slot='dragHandle']"></ng-content>
+  <input
+    type="text"
+    [ngModel]="list.title"
+    (ngModelChange)="titleUpdate($event)"
+    [ngModelOptions]="{ updateOn: 'blur' }"
+    (keydown.enter)="self.blur()"
+    maxlength="15"
+    #self
+  />
+  <span>{{ list.tasks.length }}</span>
+</p>
+<ng-content></ng-content>
+<button class="list__add-task" (click)="addTask.emit()">
+  <img src="assets/icons/add_rounded.svg" alt="" /> Adicionar tarefa
+</button>

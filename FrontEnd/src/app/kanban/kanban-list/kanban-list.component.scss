@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: flex-start;
+  padding: calc(var(--base-separation) * 3);
+  width: 350px;
+  flex-shrink: 0;
+
+  &:not(:nth-last-child(1)) {
+    border-right: 1px solid var(--kanban-list-separator-color);
+  }
+}
+
+.list__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--base-separation);
+
+  input {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.list__add-task {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background: none;
+  color: var(--kanban-list-add-text-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
