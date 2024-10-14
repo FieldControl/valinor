@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 import { KanbanService } from './kanban.service';
+import { CreateKanbanDto } from 'src/DTO/create-kanban-dto';
 
 @Controller('kanban')
 export class KanbanController {
@@ -9,5 +10,11 @@ export class KanbanController {
   @Get()
   getAllKanbans() {
     return this.kanbanService.getAllKanbans();
+  }
+
+  @Post()
+  createNewKanban(@Body(ValidationPipe) data: CreateKanbanDto) { 
+
+    return this.kanbanService.createKanban(data);
   }
 }
