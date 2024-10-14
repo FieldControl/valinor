@@ -25,4 +25,24 @@ export class KanbanService {
             throw new InternalServerErrorException("Ocorreu um erro ao criar o kanban");
         }
       }
+
+      async update(id: number, status: KanbanStatus) {
+        try {
+          await this.repo.update({id}, {status});
+          return this.repo.findOneBy({id});
+        } catch (err) {
+          throw new InternalServerErrorException('Ocorreu um erro ao alterar o status');
+        }
+    
+      }
+    
+      async delete(id: number) {
+        try {
+          return await this.repo.delete({id});
+        } catch (err) {
+          throw new InternalServerErrorException('Ocorreu um erro ao deletar o kanban');
+        }
+    
+    
+      }
 }
