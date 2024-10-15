@@ -1,1 +1,64 @@
-<p>login works!</p>
+<div class="text-center">
+    <div class="login-form">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header" style="font-size: 2rem; font-family: Calibri, sans-serif;">Login</div>
+              <div class="card-body">
+                <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                  <div class="form-group row">
+                    <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
+                    <div class="col-md-6">
+                      <input type="text"
+                             id="username"
+                             class="form-control"
+                             ngModel
+                             placeholder="Enter Username"
+                             name="username" required>
+                    </div>
+                  </div>
+                  <div class="mt-2"></div>  
+                  <div class="form-group row">
+                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                    <div class="col-md-6">
+                      <input type="password"
+                             id="password"
+                             placeholder="Enter Password"
+                             class="form-control"
+                             name="password" required ngModel>
+                    </div>
+                  </div>
+
+                  <div class="mt-2"></div>
+  
+                  <div class="form-group row">
+                    <div class="col-md-6 offset-md-4">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="remember"> Remember Me
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-2"></div>
+  
+                  <div class="col-md-6 offset-md-4 d-flex flex-column">
+                    <button type="submit"
+                            [disabled]="loginForm.invalid"
+                            class="btn btn-primary d-block flex-grow-1 mb-3">
+                      Login
+                    </button>
+                    <a href="#" class="btn btn-link d-block">
+                      Forgot Your Password?
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

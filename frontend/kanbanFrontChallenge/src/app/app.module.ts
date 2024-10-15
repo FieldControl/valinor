@@ -40,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    FormsModule,
+    FormsModule,   
     ToastrModule.forRoot({
       closeButton: true,
       progressBar: true,

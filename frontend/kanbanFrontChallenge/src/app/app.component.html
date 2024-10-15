@@ -4,23 +4,26 @@
     <span class="spacer"></span>
     <div class="d-flex justify-content-around icons" style="width: 100px;" *ngIf="showMenu">
       <div class="d-flex align-items-center mr-2 px-2">
-        <span routerLink="/login">Entrar</span>
+        <span routerLink="/login">Login</span>
         <mat-icon routerLink="/login">login</mat-icon>
       </div>
          |
       <div class="d-flex align-items-center ml-2 px-2">
-        <span routerLink="/register">Registre-se</span>
+        <span routerLink="/register">Register</span>
         <mat-icon routerLink="/register">how_to_reg</mat-icon>
       </div>
     </div>
 
-    <div class="d-flex justify-content-around icons align-items-center" style="width: 100px;" *ngIf="!showMenu">
-      <div class="px-2">
-        <h3>Bem vindo, Vitu</h3>
+    <div class="d-flex justify-content-between align-items-center" *ngIf="!showMenu">
+      <div class="d-flex align-items-center">
+        <h3 class="mb-0 ">Bem vindo, {{username | titlecase}}</h3>
+        <div style="width: 10px;"></div>
+        <mat-icon  (click)="logout()" style="cursor: pointer;">logout</mat-icon>
       </div>
-      <mat-icon>Sair</mat-icon>
-    </div>
+    </div>   
+    
   </div>
+ 
 </mat-toolbar>
 <div class="container py-3">
   <router-outlet></router-outlet>

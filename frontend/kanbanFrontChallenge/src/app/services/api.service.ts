@@ -1,8 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class ApiService {
         this.token = res.token;
 
         if (this.token) {
-          this.toast.success('Login successful, redirecting now...', '', {
+          this.toast.success('Sucesso, direcionando para pagina...', '', {
             timeOut: 700,
             positionClass: 'toast-top-center'
           }).onHidden.toPromise().then(() => {
@@ -53,17 +54,38 @@ export class ApiService {
           });
         }
       }, (err: HttpErrorResponse) => {
-        this.toast.error('Authentication failed, try again', '', {
+        this.toast.error('Login ou senha errado', '', {
           timeOut: 1000
         });
       });
   }
+ 
+
+  register(username: string, password: string) {
+    return this.http.post(`${this.API_URL}/auth/register`, { username, password }).pipe(
+      tap(() => {
+        this.toast.success('Conta criada com sucesso!', '', {
+          timeOut: 1000,
+          positionClass: 'toast-top-center'
+        });
+        this.router.navigateByUrl('/login').then();
+      }),
+      catchError((err: HttpErrorResponse) => {
+        this.toast.error(err.error.message, '', {
+          timeOut: 1000
+        });
+      
+        return throwError(err); 
+      })
+    );
+  }
+
 
 
   logout() {
     this.token = '';
     this.jwtToken$.next(this.token);
-    this.toast.success('Logged out succesfully', '', {
+    this.toast.success('Saindo...', '', {
       timeOut: 500
     }).onHidden.subscribe(() => {
       localStorage.removeItem('act');
@@ -90,7 +112,7 @@ export class ApiService {
     }).pipe(
       tap(res => {
         if (res) {
-          this.toast.success('Status updated successfully', '', {
+          this.toast.success('Status atualizado com sucesso', '', {
             timeOut: 1000
           });
         }
@@ -107,10 +129,11 @@ export class ApiService {
       tap(res => {
         // @ts-ignore
         if (res.success) {
-          this.toast.success('Kanban deleted successfully');
+          this.toast.success('Kanban deletado com sucesso');
         }
       })
     );
   }
 
 }
+
