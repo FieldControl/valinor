@@ -1,1 +1,27 @@
-<app-home></app-home>
+<mat-toolbar color="primary">
+  <div class="container d-flex ">
+    <span routerLink="/" style="cursor:pointer;">Kanban</span>
+    <span class="spacer"></span>
+    <div class="d-flex justify-content-around icons" style="width: 100px;" *ngIf="showMenu">
+      <div class="d-flex align-items-center mr-2 px-2">
+        <span routerLink="/login">Entrar</span>
+        <mat-icon routerLink="/login">login</mat-icon>
+      </div>
+         |
+      <div class="d-flex align-items-center ml-2 px-2">
+        <span routerLink="/register">Registre-se</span>
+        <mat-icon routerLink="/register">how_to_reg</mat-icon>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-around icons align-items-center" style="width: 100px;" *ngIf="!showMenu">
+      <div class="px-2">
+        <h3>Bem vindo, Vitu</h3>
+      </div>
+      <mat-icon>Sair</mat-icon>
+    </div>
+  </div>
+</mat-toolbar>
+<div class="container py-3">
+  <router-outlet></router-outlet>
+</div>
