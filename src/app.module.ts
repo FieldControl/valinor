@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppDataSource } from 'data-source';
 import { KanbanModule } from './kanban/kanban.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { KanbanModule } from './kanban/kanban.module';
       }),
     }),
     KanbanModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
