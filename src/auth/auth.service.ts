@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RegisterUserDto } from 'src/DTO/register-user-dto';
 import { UserEntity } from 'src/Entity/user.entity';
@@ -14,20 +14,26 @@ export class AuthService {
     }
 
     async registerUser(registerDTO: RegisterUserDto) {
-        const hashed = await bcrypt.hash(registerDTO.password, 12);
+        const { username, password } = registerDTO;
+        const hashed = await bcrypt.hash(password, 12);
         const salt = await bcrypt.getSalt(hashed);
 
-        const user = new UserEntity();
-        user.username = registerDTO.username;
-        user.password = hashed;
-        user.salt = salt;
+        const foundUser = await this.repo.findOneBy({ username });
+        if (foundUser) {
+            throw new BadRequestException("O nome de usuario ja existe")
+        } else {
+            const user = new UserEntity();
+            user.username = username;
+            user.password = hashed;
+            user.salt = salt;
 
-        this.repo.create(user);
+            this.repo.create(user);
 
-        try {
-            return await this.repo.save(user);
-        } catch (err) {
-            throw new InternalServerErrorException('Ocorreu um erro ao criar o usuario.');
+            try {
+                return await this.repo.save(user);
+            } catch (err) {
+                throw new InternalServerErrorException('Ocorreu um erro ao criar o usuario.');
+            }
         }
     }
 
