@@ -10,3 +10,31 @@
   .status-text {
     font-size: .8rem;
   }
+
+  .position-relative {
+    position: relative; 
+  }
+  
+  .position-icon {  
+    position: absolute; 
+    top: 10px; 
+    right: 10px;
+    cursor: pointer; 
+  }
+
+  .mat-card-title {
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+  }
+  
+  .lead {
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+  }
+  
+  .description-container {
+    background-color: white; /* Cor de fundo branca */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas, se desejado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional para dar profundidade */
+  }

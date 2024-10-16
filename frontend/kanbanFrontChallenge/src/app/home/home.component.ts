@@ -21,8 +21,9 @@ export class HomeComponent implements OnInit {
     this.apiService.getAllKanbans().subscribe((kanbans) => {
       this.kanban = kanbans;
       this.filteredKanban = this.kanban;
+      console.log('Kanbans:', kanbans);
     });
-  }
+     }
 
   filterChanged(ev: MatSelectChange) {
     const value = ev.value;
@@ -63,7 +64,7 @@ export class HomeComponent implements OnInit {
 
  
   delete(id: number) {
-    if (confirm('Do you want to remove the kanban?')) {
+    if (confirm('Voce realmente quer remover o kanban?')) {
       this.apiService.deleteKanban(id).subscribe(res => {
         // @ts-ignore
         if (res.success) {

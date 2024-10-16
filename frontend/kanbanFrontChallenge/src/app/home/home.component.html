@@ -1,49 +1,146 @@
 <div class="container py-4">
-    <div class="row text-center">
-      <div class="col-6">
-        <button mat-raised-button color="accent" (click)="openDialog()">CREATE NEW KANBAN</button>
-      </div>
-      <div class="col-6">
-        <mat-form-field>
-          <mat-label>Select a status</mat-label>
-          <mat-select (selectionChange)="filterChanged($event)">
-            <mat-option>All</mat-option>
-            <mat-option value="DONE">Completed</mat-option>
-            <mat-option value="IN_PROGRESS">In Progress</mat-option>
-            <mat-option value="OPEN">Open</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+  <div class="row text-center">
+    <div class="col-6 mx-auto">
+      <button mat-raised-button color="accent" (click)="openDialog()">Criar novo Kanban</button>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col-6 offset-3">
-        <ng-container *ngFor="let t of filteredKanban; let i=index">
-          <mat-card class="my-3">
-            <mat-card-title class="p-2 text-dark">{{t.title}}</mat-card-title>
-            <mat-card-content class="p-2 text-primary d-flex flex-column">
-              <div>
-                <p class="lead">{{t.description}}</p>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <div>
-                  <mat-form-field>
-                    <mat-label>Select a status</mat-label>
-                    <mat-select [(value)]="t.status" (selectionChange)="statusChanged($event, t.id, i)">
-                      <mat-option value="DONE">Completed</mat-option>
-                      <mat-option value="IN_PROGRESS">In Progress</mat-option>
-                      <mat-option value="OPEN">Open</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-                <span class="spacer"></span>
-                <mat-icon color="warn" style="cursor:pointer;" (click)="delete(t.id)">delete</mat-icon>
-              </div>
-  
-            </mat-card-content>
-          </mat-card>
-        </ng-container>
-  
+  </div>
+  <hr>
+  <div class="container py-4">
+    <div class="row justify-content-center">
+
+      <!-- Card Open -->
+      <div class="col-md-3">
+        <div class="card text-center" style="background-color: rgb(159, 196, 252);">
+          <div class="card-body">
+            <h2 class="card-title">Aberto</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ng-container *ngFor="let t of filteredKanban">
+              <ng-container *ngIf="t.status === 'OPEN'">
+                <mat-card class="my-3 position-relative" style="width: 100%; background-color: rgb(203, 223, 252);">
+                  <mat-icon class="position-icon" color="warn" style="cursor:pointer;"
+                    (click)="delete(t.id)">delete</mat-icon>
+                  <mat-card-title class="p-2 text-dark">{{t.title}}</mat-card-title>
+                  <hr>
+                  <mat-card-content class="p-2 text-primary d-flex flex-column">
+                    <div>
+                      <div class="description-container">
+                        <p class="lead">{{t.description}}</p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex align-items-center my-3">
+
+                      <div>
+                        <mat-form-field>
+                          <mat-label>Selecione o status</mat-label>
+                          <mat-select [(value)]="t.status" (selectionChange)="statusChanged($event, t.id, t)">
+                            <mat-option value="COMPLETED">Completo</mat-option>
+                            <mat-option value="INPROGRESS">Em progresso</mat-option>
+                            <mat-option value="OPEN">Aberto</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <span class="spacer"></span>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Card In Progress -->
+      <div class="col-md-3 mx-3">
+        <div class="card text-center" style="background-color: rgb(252, 188, 159);">
+          <div class="card-body">
+            <h2 class="card-title">Em progresso</h2>
+          </div>
+        </div>
+
+        <!-- Row for Kanban Items -->
+        <div class="row">
+          <div class="col-12">
+            <ng-container *ngFor="let t of filteredKanban">
+              <ng-container *ngIf="t.status === 'INPROGRESS'">
+                <mat-card class="my-3 position-relative" style="width: 100%; background-color: rgb(255, 221, 206);">
+                  <mat-icon class="position-icon" color="warn" style="cursor:pointer;"
+                    (click)="delete(t.id)">delete</mat-icon>
+                  <mat-card-title class="p-2 text-dark">{{t.title}}</mat-card-title>
+                  <hr>
+                  <mat-card-content class="p-2 text-primary d-flex flex-column">
+                    <div class="description-container">
+                      <p class="lead">{{t.description}}</p>
+                    </div>
+                    <div class="d-flex align-items-center my-3">
+                      <div>
+                        <mat-form-field>
+                          <mat-label>Selecione o status</mat-label>
+                          <mat-select [(value)]="t.status" (selectionChange)="statusChanged($event, t.id, t)">
+                            <mat-option value="COMPLETED">Completo</mat-option>
+                            <mat-option value="INPROGRESS">Em progresso</mat-option>
+                            <mat-option value="OPEN">Aberto</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <span class="spacer"></span>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Card Completed -->
+      <div class="col-md-3">
+        <div class="card text-center" style="background-color: rgb(159, 252, 190);">
+          <div class="card-body">
+            <h2 class="card-title">Completo</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ng-container *ngFor="let t of filteredKanban">
+              <ng-container *ngIf="t.status === 'COMPLETED'">
+                <mat-card class="my-3 position-relative" style="width: 100%; background-color: rgb(221, 250, 231);">
+                  <mat-icon class="position-icon" color="warn" style="cursor:pointer;"
+                    (click)="delete(t.id)">delete</mat-icon>
+                  <mat-card-title class="p-2 text-dark ">{{t.title}}</mat-card-title>
+                  <hr>
+                  <mat-card-content class="p-2 text-primary d-flex flex-column">
+                    <div class="description-container">
+                      <p class="lead">{{t.description}}</p>
+                    </div>
+
+                    <div class="d-flex align-items-center my-3">
+                      <div>
+                        <mat-form-field>
+                          <mat-label>Selecione o status</mat-label>
+                          <mat-select [(value)]="t.status" (selectionChange)="statusChanged($event, t.id, t)">
+                            <mat-option value="COMPLETED">Completo</mat-option>
+                            <mat-option value="INPROGRESS">Em progresso</mat-option>
+                            <mat-option value="OPEN">Aberto</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <span class="spacer"></span>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+</div>

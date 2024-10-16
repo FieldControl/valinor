@@ -1,1 +1,24 @@
-<p>kanban works!</p>
+<div class="container" style="max-width: 300px; margin: auto; padding: 20px;">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="modal-header" style="margin: 0;">Criar novo Kanban</h3>
+    </div>
+    <div class="col-12">
+      <div class="d-flex flex-column py-4">
+        <mat-form-field class="w-100">
+          <mat-label>Título</mat-label>
+          <input matInput name="title" [(ngModel)]="title" [value]="title">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="w-100">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput name="description" [(ngModel)]="description" [value]="description"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-end">
+      <button mat-flat-button (click)="onCancel()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="create()">Criar</button>
+    </div>
+  </div>
+</div>

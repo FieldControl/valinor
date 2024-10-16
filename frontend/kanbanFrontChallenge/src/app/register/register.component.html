@@ -4,28 +4,28 @@
         <div class="row justify-content-center">
           <div class="col-md-8">
             <div class="card">
-              <div class="card-header" style="font-size: 2rem; font-family: Calibri, sans-serif;">Register</div>
+              <div class="card-header" style="font-size: 2rem; font-family: Calibri, sans-serif;">Registrar</div>
               <div class="card-body">
                 <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
                   <div class="form-group row">
-                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Username</label>
+                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Usuario</label>
                     <div class="col-md-6">
-                      <input type="text" id="email_address" class="form-control" name="username" required autofocus ngModel>
+                      <input type="text" id="email_address" class="form-control" name="username" required autofocus ngModel placeholder="Insira seu usuario">
                     </div>
                   </div>
-  
+                  <div class="mt-2"></div>
                   <div class="form-group row">
-                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                    <label for="password" class="col-md-4 col-form-label text-md-right">Senha</label>
                     <div class="col-md-6">
-                      <input type="password" id="password" class="form-control" name="password" required ngModel>
+                      <input type="password" id="password" class="form-control" name="password" required ngModel placeholder="Insira a senha">
                     </div>
                   </div>
-  
+                  <div class="mt-4"></div>
                   <div class="col-md-6 offset-md-4 d-flex flex-column">
                     <button type="submit"
                             [disabled]="registerForm.invalid"
                             class="btn btn-primary d-block flex-grow-1 mb-3">
-                      Sign Up
+                     Registrar
                     </button>
                   </div>
                 </form>
