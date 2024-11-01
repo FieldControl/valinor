@@ -1,0 +1,44 @@
+<form class="small-centered-form" [formGroup]="registerForm">
+    <h1>Registrar</h1>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" />
+        @if (registerForm.controls.email.hasError('email') &&
+        !registerForm.controls.email.hasError('required')) {
+        <mat-error>Email não é válido</mat-error>
+        } @if (registerForm.controls.email.hasError('required')) {
+        <mat-error>Email é <strong> obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Digite seu nome" />
+        @if (!registerForm.controls.nome.hasError('required')) {
+        <mat-error>Digite um nome válido</mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput formControlName="sobrenome" placeholder="Digite seu sobrenome" />
+        @if (!registerForm.controls.sobrenome.hasError('required')) {
+        <mat-error>Digite um sobrenome válido</mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput formControlName="senha" placeholder="Digite sua senha" />
+        @if (!registerForm.controls.senha.hasError('required')) {
+        <mat-error>Digite uma senha válida</mat-error>
+        }
+        @if (!registerForm.controls.senha.hasError('minlength')) {
+        <mat-error>Tamanho mínimo é 8 caracteres</mat-error>
+        }
+    </mat-form-field>
+
+    <button (click)="register()" type="button" mat-flat-button color="primary">Registrar</button>
+    <a [routerLink]="['/login']">
+        <button type="button" tabindex="-1" mat-flat-button color="secondary">Já tem uma conta? Entre aqui.</button>
+
+    </a>
+
+</form>

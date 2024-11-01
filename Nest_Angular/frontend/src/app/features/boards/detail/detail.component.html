@@ -1,0 +1,76 @@
+<div class="kb-board-header">
+    <button
+      mat-fab
+      [routerLink]="['/boards']"
+      color="primary"
+      aria-label="Back to boards"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  
+    <h1 class="kb-board-title">{{ board()?.nome }}</h1>
+  </div>
+  
+  <div
+    cdkDropListGroup
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="aoMudarSwimlane($event)"
+    class="swimlanes-wrapper"
+  >
+    @for(swimlane of board()?.swimlanes; track swimlane) {
+    <div class="swimlane" cdkDrag>
+      <div class="swimlane-header" cdkDragHandle>
+        <h2>{{ swimlane.nome }}</h2>
+        <div>
+          <button
+            color="secondary"
+            mat-stroked-button
+            (click)="editarSwimlane(swimlane)"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+  
+      <div class="swimlane-inner">
+        <div
+          class="swimlane-inner__dragzone"
+          cdkDropList
+          cdkDropListOrientation="vertical"
+          [cdkDropListData]="swimlane.cards"
+          (cdkDropListDropped)="aoMudarCard($event, swimlane)"
+        >
+          @for(card of swimlane.cards; track card) {
+          <button
+            class="swimlane__card"
+            (click)="adicionarOuEditarCard(swimlane, card)"
+            cdkDrag
+          >
+            {{ card.nome }}
+          </button>
+          }
+        </div>
+      </div>
+      <button (click)="adicionarOuEditarCard(swimlane)" mat-button>Adicionar Card</button>
+    </div>
+    }
+    <div class="swimlane">
+      <h2>Nova Seção</h2>
+      <div class="swimlane-inner">
+        <form [formGroup]="swimlaneForm">
+          <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" placeholder="Ex. Todo" />
+  
+            @if (!swimlaneForm.controls.nome.hasError('required')) {
+            <mat-error>Porfavor coloque um nome válido</mat-error>
+            } </mat-form-field
+          ><br />
+          <button type="button" (click)="adicionarSwimlane()" color="primary" mat-flat-button>
+            Adicionar Seção
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>

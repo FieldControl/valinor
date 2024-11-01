@@ -1,0 +1,20 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * Base URL for the error details page.
+ *
+ * Keep this constant in sync across:
+ *  - packages/compiler-cli/src/ngtsc/diagnostics/src/error_details_base_url.ts
+ *  - packages/core/src/error_details_base_url.ts
+ */
+export const ERROR_DETAILS_PAGE_BASE_URL = 'https://angular.dev/errors';
+/**
+ * URL for the XSS security documentation.
+ */
+export const XSS_SECURITY_URL = 'https://g.co/ng/security#xss';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXJyb3JfZGV0YWlsc19iYXNlX3VybC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL2Vycm9yX2RldGFpbHNfYmFzZV91cmwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUg7Ozs7OztHQU1HO0FBQ0gsTUFBTSxDQUFDLE1BQU0sMkJBQTJCLEdBQUcsNEJBQTRCLENBQUM7QUFFeEU7O0dBRUc7QUFDSCxNQUFNLENBQUMsTUFBTSxnQkFBZ0IsR0FBRyw4QkFBOEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuLyoqXG4gKiBCYXNlIFVSTCBmb3IgdGhlIGVycm9yIGRldGFpbHMgcGFnZS5cbiAqXG4gKiBLZWVwIHRoaXMgY29uc3RhbnQgaW4gc3luYyBhY3Jvc3M6XG4gKiAgLSBwYWNrYWdlcy9jb21waWxlci1jbGkvc3JjL25ndHNjL2RpYWdub3N0aWNzL3NyYy9lcnJvcl9kZXRhaWxzX2Jhc2VfdXJsLnRzXG4gKiAgLSBwYWNrYWdlcy9jb3JlL3NyYy9lcnJvcl9kZXRhaWxzX2Jhc2VfdXJsLnRzXG4gKi9cbmV4cG9ydCBjb25zdCBFUlJPUl9ERVRBSUxTX1BBR0VfQkFTRV9VUkwgPSAnaHR0cHM6Ly9hbmd1bGFyLmRldi9lcnJvcnMnO1xuXG4vKipcbiAqIFVSTCBmb3IgdGhlIFhTUyBzZWN1cml0eSBkb2N1bWVudGF0aW9uLlxuICovXG5leHBvcnQgY29uc3QgWFNTX1NFQ1VSSVRZX1VSTCA9ICdodHRwczovL2cuY28vbmcvc2VjdXJpdHkjeHNzJztcbiJdfQ==

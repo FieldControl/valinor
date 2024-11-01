@@ -1,0 +1,29 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import { ɵgetOutputDestroyRef } from '@angular/core';
+import { Observable } from 'rxjs';
+/**
+ * Converts an Angular output declared via `output()` or `outputFromObservable()`
+ * to an observable.
+ *
+ * You can subscribe to the output via `Observable.subscribe` then.
+ *
+ * @developerPreview
+ */
+export function outputToObservable(ref) {
+    const destroyRef = ɵgetOutputDestroyRef(ref);
+    return new Observable((observer) => {
+        // Complete the observable upon directive/component destroy.
+        // Note: May be `undefined` if an `EventEmitter` is declared outside
+        // of an injection context.
+        destroyRef?.onDestroy(() => observer.complete());
+        const subscription = ref.subscribe((v) => observer.next(v));
+        return () => subscription.unsubscribe();
+    });
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoib3V0cHV0X3RvX29ic2VydmFibGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9jb3JlL3J4anMtaW50ZXJvcC9zcmMvb3V0cHV0X3RvX29ic2VydmFibGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFZLG9CQUFvQixFQUFDLE1BQU0sZUFBZSxDQUFDO0FBQzlELE9BQU8sRUFBQyxVQUFVLEVBQUMsTUFBTSxNQUFNLENBQUM7QUFFaEM7Ozs7Ozs7R0FPRztBQUNILE1BQU0sVUFBVSxrQkFBa0IsQ0FBSSxHQUFpQjtJQUNyRCxNQUFNLFVBQVUsR0FBRyxvQkFBb0IsQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUU3QyxPQUFPLElBQUksVUFBVSxDQUFJLENBQUMsUUFBUSxFQUFFLEVBQUU7UUFDcEMsNERBQTREO1FBQzVELG9FQUFvRTtRQUNwRSwyQkFBMkI7UUFDM0IsVUFBVSxFQUFFLFNBQVMsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxRQUFRLENBQUMsUUFBUSxFQUFFLENBQUMsQ0FBQztRQUVqRCxNQUFNLFlBQVksR0FBRyxHQUFHLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFDNUQsT0FBTyxHQUFHLEVBQUUsQ0FBQyxZQUFZLENBQUMsV0FBVyxFQUFFLENBQUM7SUFDMUMsQ0FBQyxDQUFDLENBQUM7QUFDTCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuZGV2L2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge091dHB1dFJlZiwgybVnZXRPdXRwdXREZXN0cm95UmVmfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7T2JzZXJ2YWJsZX0gZnJvbSAncnhqcyc7XG5cbi8qKlxuICogQ29udmVydHMgYW4gQW5ndWxhciBvdXRwdXQgZGVjbGFyZWQgdmlhIGBvdXRwdXQoKWAgb3IgYG91dHB1dEZyb21PYnNlcnZhYmxlKClgXG4gKiB0byBhbiBvYnNlcnZhYmxlLlxuICpcbiAqIFlvdSBjYW4gc3Vic2NyaWJlIHRvIHRoZSBvdXRwdXQgdmlhIGBPYnNlcnZhYmxlLnN1YnNjcmliZWAgdGhlbi5cbiAqXG4gKiBAZGV2ZWxvcGVyUHJldmlld1xuICovXG5leHBvcnQgZnVuY3Rpb24gb3V0cHV0VG9PYnNlcnZhYmxlPFQ+KHJlZjogT3V0cHV0UmVmPFQ+KTogT2JzZXJ2YWJsZTxUPiB7XG4gIGNvbnN0IGRlc3Ryb3lSZWYgPSDJtWdldE91dHB1dERlc3Ryb3lSZWYocmVmKTtcblxuICByZXR1cm4gbmV3IE9ic2VydmFibGU8VD4oKG9ic2VydmVyKSA9PiB7XG4gICAgLy8gQ29tcGxldGUgdGhlIG9ic2VydmFibGUgdXBvbiBkaXJlY3RpdmUvY29tcG9uZW50IGRlc3Ryb3kuXG4gICAgLy8gTm90ZTogTWF5IGJlIGB1bmRlZmluZWRgIGlmIGFuIGBFdmVudEVtaXR0ZXJgIGlzIGRlY2xhcmVkIG91dHNpZGVcbiAgICAvLyBvZiBhbiBpbmplY3Rpb24gY29udGV4dC5cbiAgICBkZXN0cm95UmVmPy5vbkRlc3Ryb3koKCkgPT4gb2JzZXJ2ZXIuY29tcGxldGUoKSk7XG5cbiAgICBjb25zdCBzdWJzY3JpcHRpb24gPSByZWYuc3Vic2NyaWJlKCh2KSA9PiBvYnNlcnZlci5uZXh0KHYpKTtcbiAgICByZXR1cm4gKCkgPT4gc3Vic2NyaXB0aW9uLnVuc3Vic2NyaWJlKCk7XG4gIH0pO1xufVxuIl19

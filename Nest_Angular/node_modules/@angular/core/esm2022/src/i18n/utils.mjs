@@ -1,0 +1,16 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * Checks whether a TNode is considered detached, i.e. not present in the
+ * translated i18n template. We should not attempt hydration for such nodes
+ * and instead, use a regular "creation mode".
+ */
+export function isDetachedByI18n(tNode) {
+    return (tNode.flags & 32 /* TNodeFlags.isDetached */) === 32 /* TNodeFlags.isDetached */;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbHMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9jb3JlL3NyYy9pMThuL3V0aWxzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUlIOzs7O0dBSUc7QUFDSCxNQUFNLFVBQVUsZ0JBQWdCLENBQUMsS0FBWTtJQUMzQyxPQUFPLENBQUMsS0FBSyxDQUFDLEtBQUssaUNBQXdCLENBQUMsbUNBQTBCLENBQUM7QUFDekUsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtUTm9kZSwgVE5vZGVGbGFnc30gZnJvbSAnLi4vcmVuZGVyMy9pbnRlcmZhY2VzL25vZGUnO1xuXG4vKipcbiAqIENoZWNrcyB3aGV0aGVyIGEgVE5vZGUgaXMgY29uc2lkZXJlZCBkZXRhY2hlZCwgaS5lLiBub3QgcHJlc2VudCBpbiB0aGVcbiAqIHRyYW5zbGF0ZWQgaTE4biB0ZW1wbGF0ZS4gV2Ugc2hvdWxkIG5vdCBhdHRlbXB0IGh5ZHJhdGlvbiBmb3Igc3VjaCBub2Rlc1xuICogYW5kIGluc3RlYWQsIHVzZSBhIHJlZ3VsYXIgXCJjcmVhdGlvbiBtb2RlXCIuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBpc0RldGFjaGVkQnlJMThuKHROb2RlOiBUTm9kZSkge1xuICByZXR1cm4gKHROb2RlLmZsYWdzICYgVE5vZGVGbGFncy5pc0RldGFjaGVkKSA9PT0gVE5vZGVGbGFncy5pc0RldGFjaGVkO1xufVxuIl19

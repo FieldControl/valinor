@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@use "variables.scss" as v;
+@use "typography.scss" as t;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: v.$background-color;
+}
+
+.small-centered-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto auto;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 24px 24px 32px;
+}
+
+form {
+  mat-form-field {
+    width: 100%;
+  }
+
+  input,
+  button {
+    width: 100%;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 16px;
+}
+
+.cdk-drag-preview {
+  padding: 24px 24px 32px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.kb-link {
+  @include t.kb-link;
+}

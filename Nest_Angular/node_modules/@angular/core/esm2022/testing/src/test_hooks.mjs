@@ -1,0 +1,44 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * Public Test Library for unit testing Angular applications. Assumes that you are running
+ * with Jasmine, Mocha, or a similar framework which exports a beforeEach function and
+ * allows tests to be asynchronous by either returning a promise or using a 'done' parameter.
+ */
+import { resetFakeAsyncZoneIfExists } from './fake_async';
+import { TestBedImpl } from './test_bed';
+// Reset the test providers and the fake async zone before each test.
+// We keep a guard because somehow this file can make it into a bundle and be executed
+// beforeEach is only defined when executing the tests
+globalThis.beforeEach?.(getCleanupHook(false));
+// We provide both a `beforeEach` and `afterEach`, because the updated behavior for
+// tearing down the module is supposed to run after the test so that we can associate
+// teardown errors with the correct test.
+// We keep a guard because somehow this file can make it into a bundle and be executed
+// afterEach is only defined when executing the tests
+globalThis.afterEach?.(getCleanupHook(true));
+function getCleanupHook(expectedTeardownValue) {
+    return () => {
+        const testBed = TestBedImpl.INSTANCE;
+        if (testBed.shouldTearDownTestingModule() === expectedTeardownValue) {
+            testBed.resetTestingModule();
+            resetFakeAsyncZoneIfExists();
+        }
+    };
+}
+/**
+ * This API should be removed. But doing so seems to break `google3` and so it requires a bit of
+ * investigation.
+ *
+ * A work around is to mark it as `@codeGenApi` for now and investigate later.
+ *
+ * @codeGenApi
+ */
+// TODO(iminar): Remove this code in a safe way.
+export const __core_private_testing_placeholder__ = '';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGVzdF9ob29rcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvdGVzdGluZy9zcmMvdGVzdF9ob29rcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSDs7OztHQUlHO0FBRUgsT0FBTyxFQUFDLDBCQUEwQixFQUFDLE1BQU0sY0FBYyxDQUFDO0FBQ3hELE9BQU8sRUFBQyxXQUFXLEVBQUMsTUFBTSxZQUFZLENBQUM7QUFFdkMscUVBQXFFO0FBQ3JFLHNGQUFzRjtBQUN0RixzREFBc0Q7QUFDdEQsVUFBVSxDQUFDLFVBQVUsRUFBRSxDQUFDLGNBQWMsQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDO0FBRS9DLG1GQUFtRjtBQUNuRixxRkFBcUY7QUFDckYseUNBQXlDO0FBQ3pDLHNGQUFzRjtBQUN0RixxREFBcUQ7QUFDckQsVUFBVSxDQUFDLFNBQVMsRUFBRSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDO0FBRTdDLFNBQVMsY0FBYyxDQUFDLHFCQUE4QjtJQUNwRCxPQUFPLEdBQUcsRUFBRTtRQUNWLE1BQU0sT0FBTyxHQUFHLFdBQVcsQ0FBQyxRQUFRLENBQUM7UUFDckMsSUFBSSxPQUFPLENBQUMsMkJBQTJCLEVBQUUsS0FBSyxxQkFBcUIsRUFBRSxDQUFDO1lBQ3BFLE9BQU8sQ0FBQyxrQkFBa0IsRUFBRSxDQUFDO1lBQzdCLDBCQUEwQixFQUFFLENBQUM7UUFDL0IsQ0FBQztJQUNILENBQUMsQ0FBQztBQUNKLENBQUM7QUFFRDs7Ozs7OztHQU9HO0FBQ0gsZ0RBQWdEO0FBQ2hELE1BQU0sQ0FBQyxNQUFNLG9DQUFvQyxHQUFHLEVBQUUsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuLyoqXG4gKiBQdWJsaWMgVGVzdCBMaWJyYXJ5IGZvciB1bml0IHRlc3RpbmcgQW5ndWxhciBhcHBsaWNhdGlvbnMuIEFzc3VtZXMgdGhhdCB5b3UgYXJlIHJ1bm5pbmdcbiAqIHdpdGggSmFzbWluZSwgTW9jaGEsIG9yIGEgc2ltaWxhciBmcmFtZXdvcmsgd2hpY2ggZXhwb3J0cyBhIGJlZm9yZUVhY2ggZnVuY3Rpb24gYW5kXG4gKiBhbGxvd3MgdGVzdHMgdG8gYmUgYXN5bmNocm9ub3VzIGJ5IGVpdGhlciByZXR1cm5pbmcgYSBwcm9taXNlIG9yIHVzaW5nIGEgJ2RvbmUnIHBhcmFtZXRlci5cbiAqL1xuXG5pbXBvcnQge3Jlc2V0RmFrZUFzeW5jWm9uZUlmRXhpc3RzfSBmcm9tICcuL2Zha2VfYXN5bmMnO1xuaW1wb3J0IHtUZXN0QmVkSW1wbH0gZnJvbSAnLi90ZXN0X2JlZCc7XG5cbi8vIFJlc2V0IHRoZSB0ZXN0IHByb3ZpZGVycyBhbmQgdGhlIGZha2UgYXN5bmMgem9uZSBiZWZvcmUgZWFjaCB0ZXN0LlxuLy8gV2Uga2VlcCBhIGd1YXJkIGJlY2F1c2Ugc29tZWhvdyB0aGlzIGZpbGUgY2FuIG1ha2UgaXQgaW50byBhIGJ1bmRsZSBhbmQgYmUgZXhlY3V0ZWRcbi8vIGJlZm9yZUVhY2ggaXMgb25seSBkZWZpbmVkIHdoZW4gZXhlY3V0aW5nIHRoZSB0ZXN0c1xuZ2xvYmFsVGhpcy5iZWZvcmVFYWNoPy4oZ2V0Q2xlYW51cEhvb2soZmFsc2UpKTtcblxuLy8gV2UgcHJvdmlkZSBib3RoIGEgYGJlZm9yZUVhY2hgIGFuZCBgYWZ0ZXJFYWNoYCwgYmVjYXVzZSB0aGUgdXBkYXRlZCBiZWhhdmlvciBmb3Jcbi8vIHRlYXJpbmcgZG93biB0aGUgbW9kdWxlIGlzIHN1cHBvc2VkIHRvIHJ1biBhZnRlciB0aGUgdGVzdCBzbyB0aGF0IHdlIGNhbiBhc3NvY2lhdGVcbi8vIHRlYXJkb3duIGVycm9ycyB3aXRoIHRoZSBjb3JyZWN0IHRlc3QuXG4vLyBXZSBrZWVwIGEgZ3VhcmQgYmVjYXVzZSBzb21laG93IHRoaXMgZmlsZSBjYW4gbWFrZSBpdCBpbnRvIGEgYnVuZGxlIGFuZCBiZSBleGVjdXRlZFxuLy8gYWZ0ZXJFYWNoIGlzIG9ubHkgZGVmaW5lZCB3aGVuIGV4ZWN1dGluZyB0aGUgdGVzdHNcbmdsb2JhbFRoaXMuYWZ0ZXJFYWNoPy4oZ2V0Q2xlYW51cEhvb2sodHJ1ZSkpO1xuXG5mdW5jdGlvbiBnZXRDbGVhbnVwSG9vayhleHBlY3RlZFRlYXJkb3duVmFsdWU6IGJvb2xlYW4pIHtcbiAgcmV0dXJuICgpID0+IHtcbiAgICBjb25zdCB0ZXN0QmVkID0gVGVzdEJlZEltcGwuSU5TVEFOQ0U7XG4gICAgaWYgKHRlc3RCZWQuc2hvdWxkVGVhckRvd25UZXN0aW5nTW9kdWxlKCkgPT09IGV4cGVjdGVkVGVhcmRvd25WYWx1ZSkge1xuICAgICAgdGVzdEJlZC5yZXNldFRlc3RpbmdNb2R1bGUoKTtcbiAgICAgIHJlc2V0RmFrZUFzeW5jWm9uZUlmRXhpc3RzKCk7XG4gICAgfVxuICB9O1xufVxuXG4vKipcbiAqIFRoaXMgQVBJIHNob3VsZCBiZSByZW1vdmVkLiBCdXQgZG9pbmcgc28gc2VlbXMgdG8gYnJlYWsgYGdvb2dsZTNgIGFuZCBzbyBpdCByZXF1aXJlcyBhIGJpdCBvZlxuICogaW52ZXN0aWdhdGlvbi5cbiAqXG4gKiBBIHdvcmsgYXJvdW5kIGlzIHRvIG1hcmsgaXQgYXMgYEBjb2RlR2VuQXBpYCBmb3Igbm93IGFuZCBpbnZlc3RpZ2F0ZSBsYXRlci5cbiAqXG4gKiBAY29kZUdlbkFwaVxuICovXG4vLyBUT0RPKGltaW5hcik6IFJlbW92ZSB0aGlzIGNvZGUgaW4gYSBzYWZlIHdheS5cbmV4cG9ydCBjb25zdCBfX2NvcmVfcHJpdmF0ZV90ZXN0aW5nX3BsYWNlaG9sZGVyX18gPSAnJztcbiJdfQ==

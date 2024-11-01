@@ -1,0 +1,40 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import { assertInInjectionContext, DestroyRef, effect, inject, Injector, untracked, } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
+/**
+ * Exposes the value of an Angular `Signal` as an RxJS `Observable`.
+ *
+ * The signal's value will be propagated into the `Observable`'s subscribers using an `effect`.
+ *
+ * `toObservable` must be called in an injection context unless an injector is provided via options.
+ *
+ * @developerPreview
+ */
+export function toObservable(source, options) {
+    !options?.injector && assertInInjectionContext(toObservable);
+    const injector = options?.injector ?? inject(Injector);
+    const subject = new ReplaySubject(1);
+    const watcher = effect(() => {
+        let value;
+        try {
+            value = source();
+        }
+        catch (err) {
+            untracked(() => subject.error(err));
+            return;
+        }
+        untracked(() => subject.next(value));
+    }, { injector, manualCleanup: true });
+    injector.get(DestroyRef).onDestroy(() => {
+        watcher.destroy();
+        subject.complete();
+    });
+    return subject.asObservable();
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9fb2JzZXJ2YWJsZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvcnhqcy1pbnRlcm9wL3NyYy90b19vYnNlcnZhYmxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVILE9BQU8sRUFDTCx3QkFBd0IsRUFDeEIsVUFBVSxFQUNWLE1BQU0sRUFDTixNQUFNLEVBQ04sUUFBUSxFQUVSLFNBQVMsR0FDVixNQUFNLGVBQWUsQ0FBQztBQUN2QixPQUFPLEVBQWEsYUFBYSxFQUFDLE1BQU0sTUFBTSxDQUFDO0FBaUIvQzs7Ozs7Ozs7R0FRRztBQUNILE1BQU0sVUFBVSxZQUFZLENBQUksTUFBaUIsRUFBRSxPQUE2QjtJQUM5RSxDQUFDLE9BQU8sRUFBRSxRQUFRLElBQUksd0JBQXdCLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDN0QsTUFBTSxRQUFRLEdBQUcsT0FBTyxFQUFFLFFBQVEsSUFBSSxNQUFNLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDdkQsTUFBTSxPQUFPLEdBQUcsSUFBSSxhQUFhLENBQUksQ0FBQyxDQUFDLENBQUM7SUFFeEMsTUFBTSxPQUFPLEdBQUcsTUFBTSxDQUNwQixHQUFHLEVBQUU7UUFDSCxJQUFJLEtBQVEsQ0FBQztRQUNiLElBQUksQ0FBQztZQUNILEtBQUssR0FBRyxNQUFNLEVBQUUsQ0FBQztRQUNuQixDQUFDO1FBQUMsT0FBTyxHQUFHLEVBQUUsQ0FBQztZQUNiLFNBQVMsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7WUFDcEMsT0FBTztRQUNULENBQUM7UUFDRCxTQUFTLENBQUMsR0FBRyxFQUFFLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDO0lBQ3ZDLENBQUMsRUFDRCxFQUFDLFFBQVEsRUFBRSxhQUFhLEVBQUUsSUFBSSxFQUFDLENBQ2hDLENBQUM7SUFFRixRQUFRLENBQUMsR0FBRyxDQUFDLFVBQVUsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxHQUFHLEVBQUU7UUFDdEMsT0FBTyxDQUFDLE9BQU8sRUFBRSxDQUFDO1FBQ2xCLE9BQU8sQ0FBQyxRQUFRLEVBQUUsQ0FBQztJQUNyQixDQUFDLENBQUMsQ0FBQztJQUVILE9BQU8sT0FBTyxDQUFDLFlBQVksRUFBRSxDQUFDO0FBQ2hDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbmltcG9ydCB7XG4gIGFzc2VydEluSW5qZWN0aW9uQ29udGV4dCxcbiAgRGVzdHJveVJlZixcbiAgZWZmZWN0LFxuICBpbmplY3QsXG4gIEluamVjdG9yLFxuICBTaWduYWwsXG4gIHVudHJhY2tlZCxcbn0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge09ic2VydmFibGUsIFJlcGxheVN1YmplY3R9IGZyb20gJ3J4anMnO1xuXG4vKipcbiAqIE9wdGlvbnMgZm9yIGB0b09ic2VydmFibGVgLlxuICpcbiAqIEBkZXZlbG9wZXJQcmV2aWV3XG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgVG9PYnNlcnZhYmxlT3B0aW9ucyB7XG4gIC8qKlxuICAgKiBUaGUgYEluamVjdG9yYCB0byB1c2Ugd2hlbiBjcmVhdGluZyB0aGUgdW5kZXJseWluZyBgZWZmZWN0YCB3aGljaCB3YXRjaGVzIHRoZSBzaWduYWwuXG4gICAqXG4gICAqIElmIHRoaXMgaXNuJ3Qgc3BlY2lmaWVkLCB0aGUgY3VycmVudCBbaW5qZWN0aW9uIGNvbnRleHRdKGd1aWRlL2RpL2RlcGVuZGVuY3ktaW5qZWN0aW9uLWNvbnRleHQpXG4gICAqIHdpbGwgYmUgdXNlZC5cbiAgICovXG4gIGluamVjdG9yPzogSW5qZWN0b3I7XG59XG5cbi8qKlxuICogRXhwb3NlcyB0aGUgdmFsdWUgb2YgYW4gQW5ndWxhciBgU2lnbmFsYCBhcyBhbiBSeEpTIGBPYnNlcnZhYmxlYC5cbiAqXG4gKiBUaGUgc2lnbmFsJ3MgdmFsdWUgd2lsbCBiZSBwcm9wYWdhdGVkIGludG8gdGhlIGBPYnNlcnZhYmxlYCdzIHN1YnNjcmliZXJzIHVzaW5nIGFuIGBlZmZlY3RgLlxuICpcbiAqIGB0b09ic2VydmFibGVgIG11c3QgYmUgY2FsbGVkIGluIGFuIGluamVjdGlvbiBjb250ZXh0IHVubGVzcyBhbiBpbmplY3RvciBpcyBwcm92aWRlZCB2aWEgb3B0aW9ucy5cbiAqXG4gKiBAZGV2ZWxvcGVyUHJldmlld1xuICovXG5leHBvcnQgZnVuY3Rpb24gdG9PYnNlcnZhYmxlPFQ+KHNvdXJjZTogU2lnbmFsPFQ+LCBvcHRpb25zPzogVG9PYnNlcnZhYmxlT3B0aW9ucyk6IE9ic2VydmFibGU8VD4ge1xuICAhb3B0aW9ucz8uaW5qZWN0b3IgJiYgYXNzZXJ0SW5JbmplY3Rpb25Db250ZXh0KHRvT2JzZXJ2YWJsZSk7XG4gIGNvbnN0IGluamVjdG9yID0gb3B0aW9ucz8uaW5qZWN0b3IgPz8gaW5qZWN0KEluamVjdG9yKTtcbiAgY29uc3Qgc3ViamVjdCA9IG5ldyBSZXBsYXlTdWJqZWN0PFQ+KDEpO1xuXG4gIGNvbnN0IHdhdGNoZXIgPSBlZmZlY3QoXG4gICAgKCkgPT4ge1xuICAgICAgbGV0IHZhbHVlOiBUO1xuICAgICAgdHJ5IHtcbiAgICAgICAgdmFsdWUgPSBzb3VyY2UoKTtcbiAgICAgIH0gY2F0Y2ggKGVycikge1xuICAgICAgICB1bnRyYWNrZWQoKCkgPT4gc3ViamVjdC5lcnJvcihlcnIpKTtcbiAgICAgICAgcmV0dXJuO1xuICAgICAgfVxuICAgICAgdW50cmFja2VkKCgpID0+IHN1YmplY3QubmV4dCh2YWx1ZSkpO1xuICAgIH0sXG4gICAge2luamVjdG9yLCBtYW51YWxDbGVhbnVwOiB0cnVlfSxcbiAgKTtcblxuICBpbmplY3Rvci5nZXQoRGVzdHJveVJlZikub25EZXN0cm95KCgpID0+IHtcbiAgICB3YXRjaGVyLmRlc3Ryb3koKTtcbiAgICBzdWJqZWN0LmNvbXBsZXRlKCk7XG4gIH0pO1xuXG4gIHJldHVybiBzdWJqZWN0LmFzT2JzZXJ2YWJsZSgpO1xufVxuIl19

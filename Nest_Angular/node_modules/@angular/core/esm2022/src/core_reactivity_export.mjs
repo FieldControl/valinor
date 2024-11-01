@@ -1,0 +1,11 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+// This file exists to allow the set of reactivity exports to be modified in g3, as these APIs are
+// only "beta" for the time being.
+export * from './core_reactivity_export_internal';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29yZV9yZWFjdGl2aXR5X2V4cG9ydC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL2NvcmVfcmVhY3Rpdml0eV9leHBvcnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsa0dBQWtHO0FBQ2xHLGtDQUFrQztBQUVsQyxjQUFjLG1DQUFtQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuZGV2L2xpY2Vuc2VcbiAqL1xuXG4vLyBUaGlzIGZpbGUgZXhpc3RzIHRvIGFsbG93IHRoZSBzZXQgb2YgcmVhY3Rpdml0eSBleHBvcnRzIHRvIGJlIG1vZGlmaWVkIGluIGczLCBhcyB0aGVzZSBBUElzIGFyZVxuLy8gb25seSBcImJldGFcIiBmb3IgdGhlIHRpbWUgYmVpbmcuXG5cbmV4cG9ydCAqIGZyb20gJy4vY29yZV9yZWFjdGl2aXR5X2V4cG9ydF9pbnRlcm5hbCc7XG4iXX0=

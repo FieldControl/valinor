@@ -1,0 +1,16 @@
+@use "variables" as v;
+
+@mixin kb-link {
+  color: v.$primary;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 300;
+
+  &.active {
+    font-weight: 700;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

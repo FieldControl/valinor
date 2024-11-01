@@ -1,0 +1,15 @@
+<form [formGroup]="addBoardForm">
+    <h1>{{ data.board?.id ? "Editar": "Adicionar"}} board</h1>
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Ex. Meu quadro" />
+        @if (addBoardForm.controls.nome.hasError('required')) {
+        <mat-error>Nome não é válido</mat-error>
+        }
+    </mat-form-field>
+    <div class="button-group">
+        <button (click)="criarOuEditarBoard()" type="button" mat-flat-button color="primary">{{ data.board?.id ? "Editar":
+            "Adicionar"}} board</button>
+        <button (click)="closeDialog()" type="button" mat-flat-button color="secondary">Fechar </button>
+    </div>
+</form>

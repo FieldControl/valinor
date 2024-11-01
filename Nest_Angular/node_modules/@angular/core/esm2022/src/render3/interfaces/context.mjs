@@ -1,0 +1,42 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import { getLViewById } from './lview_tracking';
+/**
+ * The internal view context which is specific to a given DOM element, directive or
+ * component instance. Each value in here (besides the LView and element node details)
+ * can be present, null or undefined. If undefined then it implies the value has not been
+ * looked up yet, otherwise, if null, then a lookup was executed and nothing was found.
+ *
+ * Each value will get filled when the respective value is examined within the getContext
+ * function. The component, element and each directive instance will share the same instance
+ * of the context.
+ */
+export class LContext {
+    /** Component's parent view data. */
+    get lView() {
+        return getLViewById(this.lViewId);
+    }
+    constructor(
+    /**
+     * ID of the component's parent view data.
+     */
+    lViewId, 
+    /**
+     * The index instance of the node.
+     */
+    nodeIndex, 
+    /**
+     * The instance of the DOM node that is attached to the lNode.
+     */
+    native) {
+        this.lViewId = lViewId;
+        this.nodeIndex = nodeIndex;
+        this.native = native;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udGV4dC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL3JlbmRlcjMvaW50ZXJmYWNlcy9jb250ZXh0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVILE9BQU8sRUFBQyxZQUFZLEVBQUMsTUFBTSxrQkFBa0IsQ0FBQztBQUk5Qzs7Ozs7Ozs7O0dBU0c7QUFDSCxNQUFNLE9BQU8sUUFBUTtJQWlCbkIsb0NBQW9DO0lBQ3BDLElBQUksS0FBSztRQUNQLE9BQU8sWUFBWSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUNwQyxDQUFDO0lBRUQ7SUFDRTs7T0FFRztJQUNLLE9BQWU7SUFFdkI7O09BRUc7SUFDSSxTQUFpQjtJQUV4Qjs7T0FFRztJQUNJLE1BQWE7UUFWWixZQUFPLEdBQVAsT0FBTyxDQUFRO1FBS2hCLGNBQVMsR0FBVCxTQUFTLENBQVE7UUFLakIsV0FBTSxHQUFOLE1BQU0sQ0FBTztJQUNuQixDQUFDO0NBQ0wiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbmltcG9ydCB7Z2V0TFZpZXdCeUlkfSBmcm9tICcuL2x2aWV3X3RyYWNraW5nJztcbmltcG9ydCB7Uk5vZGV9IGZyb20gJy4vcmVuZGVyZXJfZG9tJztcbmltcG9ydCB7TFZpZXd9IGZyb20gJy4vdmlldyc7XG5cbi8qKlxuICogVGhlIGludGVybmFsIHZpZXcgY29udGV4dCB3aGljaCBpcyBzcGVjaWZpYyB0byBhIGdpdmVuIERPTSBlbGVtZW50LCBkaXJlY3RpdmUgb3JcbiAqIGNvbXBvbmVudCBpbnN0YW5jZS4gRWFjaCB2YWx1ZSBpbiBoZXJlIChiZXNpZGVzIHRoZSBMVmlldyBhbmQgZWxlbWVudCBub2RlIGRldGFpbHMpXG4gKiBjYW4gYmUgcHJlc2VudCwgbnVsbCBvciB1bmRlZmluZWQuIElmIHVuZGVmaW5lZCB0aGVuIGl0IGltcGxpZXMgdGhlIHZhbHVlIGhhcyBub3QgYmVlblxuICogbG9va2VkIHVwIHlldCwgb3RoZXJ3aXNlLCBpZiBudWxsLCB0aGVuIGEgbG9va3VwIHdhcyBleGVjdXRlZCBhbmQgbm90aGluZyB3YXMgZm91bmQuXG4gKlxuICogRWFjaCB2YWx1ZSB3aWxsIGdldCBmaWxsZWQgd2hlbiB0aGUgcmVzcGVjdGl2ZSB2YWx1ZSBpcyBleGFtaW5lZCB3aXRoaW4gdGhlIGdldENvbnRleHRcbiAqIGZ1bmN0aW9uLiBUaGUgY29tcG9uZW50LCBlbGVtZW50IGFuZCBlYWNoIGRpcmVjdGl2ZSBpbnN0YW5jZSB3aWxsIHNoYXJlIHRoZSBzYW1lIGluc3RhbmNlXG4gKiBvZiB0aGUgY29udGV4dC5cbiAqL1xuZXhwb3J0IGNsYXNzIExDb250ZXh0IHtcbiAgLyoqXG4gICAqIFRoZSBpbnN0YW5jZSBvZiB0aGUgQ29tcG9uZW50IG5vZGUuXG4gICAqL1xuICBwdWJsaWMgY29tcG9uZW50OiB7fSB8IG51bGwgfCB1bmRlZmluZWQ7XG5cbiAgLyoqXG4gICAqIFRoZSBsaXN0IG9mIGFjdGl2ZSBkaXJlY3RpdmVzIHRoYXQgZXhpc3Qgb24gdGhpcyBlbGVtZW50LlxuICAgKi9cbiAgcHVibGljIGRpcmVjdGl2ZXM6IGFueVtdIHwgbnVsbCB8IHVuZGVmaW5lZDtcblxuICAvKipcbiAgICogVGhlIG1hcCBvZiBsb2NhbCByZWZlcmVuY2VzIChsb2NhbCByZWZlcmVuY2UgbmFtZSA9PiBlbGVtZW50IG9yIGRpcmVjdGl2ZSBpbnN0YW5jZSkgdGhhdFxuICAgKiBleGlzdCBvbiB0aGlzIGVsZW1lbnQuXG4gICAqL1xuICBwdWJsaWMgbG9jYWxSZWZzOiB7W2tleTogc3RyaW5nXTogYW55fSB8IG51bGwgfCB1bmRlZmluZWQ7XG5cbiAgLyoqIENvbXBvbmVudCdzIHBhcmVudCB2aWV3IGRhdGEuICovXG4gIGdldCBsVmlldygpOiBMVmlldyB8IG51bGwge1xuICAgIHJldHVybiBnZXRMVmlld0J5SWQodGhpcy5sVmlld0lkKTtcbiAgfVxuXG4gIGNvbnN0cnVjdG9yKFxuICAgIC8qKlxuICAgICAqIElEIG9mIHRoZSBjb21wb25lbnQncyBwYXJlbnQgdmlldyBkYXRhLlxuICAgICAqL1xuICAgIHByaXZhdGUgbFZpZXdJZDogbnVtYmVyLFxuXG4gICAgLyoqXG4gICAgICogVGhlIGluZGV4IGluc3RhbmNlIG9mIHRoZSBub2RlLlxuICAgICAqL1xuICAgIHB1YmxpYyBub2RlSW5kZXg6IG51bWJlcixcblxuICAgIC8qKlxuICAgICAqIFRoZSBpbnN0YW5jZSBvZiB0aGUgRE9NIG5vZGUgdGhhdCBpcyBhdHRhY2hlZCB0byB0aGUgbE5vZGUuXG4gICAgICovXG4gICAgcHVibGljIG5hdGl2ZTogUk5vZGUsXG4gICkge31cbn1cbiJdfQ==

@@ -1,0 +1,56 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import { createImageLoader } from './image_loader';
+/**
+ * Name and URL tester for Cloudinary.
+ */
+export const cloudinaryLoaderInfo = {
+    name: 'Cloudinary',
+    testUrl: isCloudinaryUrl,
+};
+const CLOUDINARY_LOADER_REGEX = /https?\:\/\/[^\/]+\.cloudinary\.com\/.+/;
+/**
+ * Tests whether a URL is from Cloudinary CDN.
+ */
+function isCloudinaryUrl(url) {
+    return CLOUDINARY_LOADER_REGEX.test(url);
+}
+/**
+ * Function that generates an ImageLoader for Cloudinary and turns it into an Angular provider.
+ *
+ * @param path Base URL of your Cloudinary images
+ * This URL should match one of the following formats:
+ * https://res.cloudinary.com/mysite
+ * https://mysite.cloudinary.com
+ * https://subdomain.mysite.com
+ * @returns Set of providers to configure the Cloudinary loader.
+ *
+ * @publicApi
+ */
+export const provideCloudinaryLoader = createImageLoader(createCloudinaryUrl, ngDevMode
+    ? [
+        'https://res.cloudinary.com/mysite',
+        'https://mysite.cloudinary.com',
+        'https://subdomain.mysite.com',
+    ]
+    : undefined);
+function createCloudinaryUrl(path, config) {
+    // Cloudinary image URLformat:
+    // https://cloudinary.com/documentation/image_transformations#transformation_url_structure
+    // Example of a Cloudinary image URL:
+    // https://res.cloudinary.com/mysite/image/upload/c_scale,f_auto,q_auto,w_600/marketing/tile-topics-m.png
+    // For a placeholder image, we use the lowest image setting available to reduce the load time
+    // else we use the auto size
+    const quality = config.isPlaceholder ? 'q_auto:low' : 'q_auto';
+    let params = `f_auto,${quality}`;
+    if (config.width) {
+        params += `,w_${config.width}`;
+    }
+    return `${path}/image/upload/${params}/${config.src}`;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2xvdWRpbmFyeV9sb2FkZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9jb21tb24vc3JjL2RpcmVjdGl2ZXMvbmdfb3B0aW1pemVkX2ltYWdlL2ltYWdlX2xvYWRlcnMvY2xvdWRpbmFyeV9sb2FkZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFDLGlCQUFpQixFQUFxQyxNQUFNLGdCQUFnQixDQUFDO0FBRXJGOztHQUVHO0FBQ0gsTUFBTSxDQUFDLE1BQU0sb0JBQW9CLEdBQW9CO0lBQ25ELElBQUksRUFBRSxZQUFZO0lBQ2xCLE9BQU8sRUFBRSxlQUFlO0NBQ3pCLENBQUM7QUFFRixNQUFNLHVCQUF1QixHQUFHLHlDQUF5QyxDQUFDO0FBQzFFOztHQUVHO0FBQ0gsU0FBUyxlQUFlLENBQUMsR0FBVztJQUNsQyxPQUFPLHVCQUF1QixDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztBQUMzQyxDQUFDO0FBRUQ7Ozs7Ozs7Ozs7O0dBV0c7QUFDSCxNQUFNLENBQUMsTUFBTSx1QkFBdUIsR0FBRyxpQkFBaUIsQ0FDdEQsbUJBQW1CLEVBQ25CLFNBQVM7SUFDUCxDQUFDLENBQUM7UUFDRSxtQ0FBbUM7UUFDbkMsK0JBQStCO1FBQy9CLDhCQUE4QjtLQUMvQjtJQUNILENBQUMsQ0FBQyxTQUFTLENBQ2QsQ0FBQztBQUVGLFNBQVMsbUJBQW1CLENBQUMsSUFBWSxFQUFFLE1BQXlCO0lBQ2xFLDhCQUE4QjtJQUM5QiwwRkFBMEY7SUFDMUYscUNBQXFDO0lBQ3JDLHlHQUF5RztJQUV6Ryw2RkFBNkY7SUFDN0YsNEJBQTRCO0lBQzVCLE1BQU0sT0FBTyxHQUFHLE1BQU0sQ0FBQyxhQUFhLENBQUMsQ0FBQyxDQUFDLFlBQVksQ0FBQyxDQUFDLENBQUMsUUFBUSxDQUFDO0lBRS9ELElBQUksTUFBTSxHQUFHLFVBQVUsT0FBTyxFQUFFLENBQUM7SUFDakMsSUFBSSxNQUFNLENBQUMsS0FBSyxFQUFFLENBQUM7UUFDakIsTUFBTSxJQUFJLE1BQU0sTUFBTSxDQUFDLEtBQUssRUFBRSxDQUFDO0lBQ2pDLENBQUM7SUFFRCxPQUFPLEdBQUcsSUFBSSxpQkFBaUIsTUFBTSxJQUFJLE1BQU0sQ0FBQyxHQUFHLEVBQUUsQ0FBQztBQUN4RCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuZGV2L2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge2NyZWF0ZUltYWdlTG9hZGVyLCBJbWFnZUxvYWRlckNvbmZpZywgSW1hZ2VMb2FkZXJJbmZvfSBmcm9tICcuL2ltYWdlX2xvYWRlcic7XG5cbi8qKlxuICogTmFtZSBhbmQgVVJMIHRlc3RlciBmb3IgQ2xvdWRpbmFyeS5cbiAqL1xuZXhwb3J0IGNvbnN0IGNsb3VkaW5hcnlMb2FkZXJJbmZvOiBJbWFnZUxvYWRlckluZm8gPSB7XG4gIG5hbWU6ICdDbG91ZGluYXJ5JyxcbiAgdGVzdFVybDogaXNDbG91ZGluYXJ5VXJsLFxufTtcblxuY29uc3QgQ0xPVURJTkFSWV9MT0FERVJfUkVHRVggPSAvaHR0cHM/XFw6XFwvXFwvW15cXC9dK1xcLmNsb3VkaW5hcnlcXC5jb21cXC8uKy87XG4vKipcbiAqIFRlc3RzIHdoZXRoZXIgYSBVUkwgaXMgZnJvbSBDbG91ZGluYXJ5IENETi5cbiAqL1xuZnVuY3Rpb24gaXNDbG91ZGluYXJ5VXJsKHVybDogc3RyaW5nKTogYm9vbGVhbiB7XG4gIHJldHVybiBDTE9VRElOQVJZX0xPQURFUl9SRUdFWC50ZXN0KHVybCk7XG59XG5cbi8qKlxuICogRnVuY3Rpb24gdGhhdCBnZW5lcmF0ZXMgYW4gSW1hZ2VMb2FkZXIgZm9yIENsb3VkaW5hcnkgYW5kIHR1cm5zIGl0IGludG8gYW4gQW5ndWxhciBwcm92aWRlci5cbiAqXG4gKiBAcGFyYW0gcGF0aCBCYXNlIFVSTCBvZiB5b3VyIENsb3VkaW5hcnkgaW1hZ2VzXG4gKiBUaGlzIFVSTCBzaG91bGQgbWF0Y2ggb25lIG9mIHRoZSBmb2xsb3dpbmcgZm9ybWF0czpcbiAqIGh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL215c2l0ZVxuICogaHR0cHM6Ly9teXNpdGUuY2xvdWRpbmFyeS5jb21cbiAqIGh0dHBzOi8vc3ViZG9tYWluLm15c2l0ZS5jb21cbiAqIEByZXR1cm5zIFNldCBvZiBwcm92aWRlcnMgdG8gY29uZmlndXJlIHRoZSBDbG91ZGluYXJ5IGxvYWRlci5cbiAqXG4gKiBAcHVibGljQXBpXG4gKi9cbmV4cG9ydCBjb25zdCBwcm92aWRlQ2xvdWRpbmFyeUxvYWRlciA9IGNyZWF0ZUltYWdlTG9hZGVyKFxuICBjcmVhdGVDbG91ZGluYXJ5VXJsLFxuICBuZ0Rldk1vZGVcbiAgICA/IFtcbiAgICAgICAgJ2h0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL215c2l0ZScsXG4gICAgICAgICdodHRwczovL215c2l0ZS5jbG91ZGluYXJ5LmNvbScsXG4gICAgICAgICdodHRwczovL3N1YmRvbWFpbi5teXNpdGUuY29tJyxcbiAgICAgIF1cbiAgICA6IHVuZGVmaW5lZCxcbik7XG5cbmZ1bmN0aW9uIGNyZWF0ZUNsb3VkaW5hcnlVcmwocGF0aDogc3RyaW5nLCBjb25maWc6IEltYWdlTG9hZGVyQ29uZmlnKSB7XG4gIC8vIENsb3VkaW5hcnkgaW1hZ2UgVVJMZm9ybWF0OlxuICAvLyBodHRwczovL2Nsb3VkaW5hcnkuY29tL2RvY3VtZW50YXRpb24vaW1hZ2VfdHJhbnNmb3JtYXRpb25zI3RyYW5zZm9ybWF0aW9uX3VybF9zdHJ1Y3R1cmVcbiAgLy8gRXhhbXBsZSBvZiBhIENsb3VkaW5hcnkgaW1hZ2UgVVJMOlxuICAvLyBodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9teXNpdGUvaW1hZ2UvdXBsb2FkL2Nfc2NhbGUsZl9hdXRvLHFfYXV0byx3XzYwMC9tYXJrZXRpbmcvdGlsZS10b3BpY3MtbS5wbmdcblxuICAvLyBGb3IgYSBwbGFjZWhvbGRlciBpbWFnZSwgd2UgdXNlIHRoZSBsb3dlc3QgaW1hZ2Ugc2V0dGluZyBhdmFpbGFibGUgdG8gcmVkdWNlIHRoZSBsb2FkIHRpbWVcbiAgLy8gZWxzZSB3ZSB1c2UgdGhlIGF1dG8gc2l6ZVxuICBjb25zdCBxdWFsaXR5ID0gY29uZmlnLmlzUGxhY2Vob2xkZXIgPyAncV9hdXRvOmxvdycgOiAncV9hdXRvJztcblxuICBsZXQgcGFyYW1zID0gYGZfYXV0bywke3F1YWxpdHl9YDtcbiAgaWYgKGNvbmZpZy53aWR0aCkge1xuICAgIHBhcmFtcyArPSBgLHdfJHtjb25maWcud2lkdGh9YDtcbiAgfVxuXG4gIHJldHVybiBgJHtwYXRofS9pbWFnZS91cGxvYWQvJHtwYXJhbXN9LyR7Y29uZmlnLnNyY31gO1xufVxuIl19

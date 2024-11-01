@@ -1,0 +1,30 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * Represents a basic change from a previous to a new value for a single
+ * property on a directive instance. Passed as a value in a
+ * {@link SimpleChanges} object to the `ngOnChanges` hook.
+ *
+ * @see {@link OnChanges}
+ *
+ * @publicApi
+ */
+export class SimpleChange {
+    constructor(previousValue, currentValue, firstChange) {
+        this.previousValue = previousValue;
+        this.currentValue = currentValue;
+        this.firstChange = firstChange;
+    }
+    /**
+     * Check whether the new value is the first value assigned.
+     */
+    isFirstChange() {
+        return this.firstChange;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2ltcGxlX2NoYW5nZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL2ludGVyZmFjZS9zaW1wbGVfY2hhbmdlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVIOzs7Ozs7OztHQVFHO0FBQ0gsTUFBTSxPQUFPLFlBQVk7SUFDdkIsWUFDUyxhQUFrQixFQUNsQixZQUFpQixFQUNqQixXQUFvQjtRQUZwQixrQkFBYSxHQUFiLGFBQWEsQ0FBSztRQUNsQixpQkFBWSxHQUFaLFlBQVksQ0FBSztRQUNqQixnQkFBVyxHQUFYLFdBQVcsQ0FBUztJQUMxQixDQUFDO0lBQ0o7O09BRUc7SUFDSCxhQUFhO1FBQ1gsT0FBTyxJQUFJLENBQUMsV0FBVyxDQUFDO0lBQzFCLENBQUM7Q0FDRiIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuLyoqXG4gKiBSZXByZXNlbnRzIGEgYmFzaWMgY2hhbmdlIGZyb20gYSBwcmV2aW91cyB0byBhIG5ldyB2YWx1ZSBmb3IgYSBzaW5nbGVcbiAqIHByb3BlcnR5IG9uIGEgZGlyZWN0aXZlIGluc3RhbmNlLiBQYXNzZWQgYXMgYSB2YWx1ZSBpbiBhXG4gKiB7QGxpbmsgU2ltcGxlQ2hhbmdlc30gb2JqZWN0IHRvIHRoZSBgbmdPbkNoYW5nZXNgIGhvb2suXG4gKlxuICogQHNlZSB7QGxpbmsgT25DaGFuZ2VzfVxuICpcbiAqIEBwdWJsaWNBcGlcbiAqL1xuZXhwb3J0IGNsYXNzIFNpbXBsZUNoYW5nZSB7XG4gIGNvbnN0cnVjdG9yKFxuICAgIHB1YmxpYyBwcmV2aW91c1ZhbHVlOiBhbnksXG4gICAgcHVibGljIGN1cnJlbnRWYWx1ZTogYW55LFxuICAgIHB1YmxpYyBmaXJzdENoYW5nZTogYm9vbGVhbixcbiAgKSB7fVxuICAvKipcbiAgICogQ2hlY2sgd2hldGhlciB0aGUgbmV3IHZhbHVlIGlzIHRoZSBmaXJzdCB2YWx1ZSBhc3NpZ25lZC5cbiAgICovXG4gIGlzRmlyc3RDaGFuZ2UoKTogYm9vbGVhbiB7XG4gICAgcmV0dXJuIHRoaXMuZmlyc3RDaGFuZ2U7XG4gIH1cbn1cblxuLyoqXG4gKiBBIGhhc2h0YWJsZSBvZiBjaGFuZ2VzIHJlcHJlc2VudGVkIGJ5IHtAbGluayBTaW1wbGVDaGFuZ2V9IG9iamVjdHMgc3RvcmVkXG4gKiBhdCB0aGUgZGVjbGFyZWQgcHJvcGVydHkgbmFtZSB0aGV5IGJlbG9uZyB0byBvbiBhIERpcmVjdGl2ZSBvciBDb21wb25lbnQuIFRoaXMgaXNcbiAqIHRoZSB0eXBlIHBhc3NlZCB0byB0aGUgYG5nT25DaGFuZ2VzYCBob29rLlxuICpcbiAqIEBzZWUge0BsaW5rIE9uQ2hhbmdlc31cbiAqXG4gKiBAcHVibGljQXBpXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgU2ltcGxlQ2hhbmdlcyB7XG4gIFtwcm9wTmFtZTogc3RyaW5nXTogU2ltcGxlQ2hhbmdlO1xufVxuIl19
