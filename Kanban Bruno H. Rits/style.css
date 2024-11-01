@@ -1,0 +1,171 @@
+:root { 
+    --primary-color: dodgerblue 
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    outline: none; 
+    box-sizing: border-box;
+}
+
+body {
+  background-color: darkgrey;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF;
+    padding: 30px;
+
+}
+button.primary {
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    font-size: 18px;
+    padding: 8px 8px;
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+    
+
+}
+
+    .container .column {
+        width: 250px;
+        height: 600px;
+        background-color: #FFF;
+        border-radius: 19px;
+        overflow: hidden;
+    }
+
+        .container .column .head {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            
+        }
+
+        .container .column .body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+
+        }
+
+            .container .column .body .card {
+                background-color: rgba(12, 141, 163, 0.966);
+                border-radius: 7px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+            }
+
+                .container .column .body .card .info {
+                    font-size: 14px;
+                    color: #333;
+                    display: flex;
+                    flex-direction: column;
+
+
+                }
+
+#modal { 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center; 
+}
+
+#modal .box {
+    background-color: #FFF;
+    width: 400px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+#modal .box .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-bottom: 1px solid #DDD;
+}
+
+#modal .box .head span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+}
+
+#modal .box .head button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #333;
+}
+
+#modal .box .form {
+    padding: 20px;
+
+}
+
+#modal .box .form .form-group {
+    margin-bottom: 18px;
+}
+
+#modal .box .form label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#modal .box .form textarea,
+#modal .box .form select,
+#modal .box .form input {
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+    border-radius: 7px;
+    border: 1px solid #999;
+}
+
+#modal .box .form textarea {
+    padding: 10px 10px;
+}    
+
+#modal .box .form select {
+    padding: 5px;    
+}
+#modal .box .form input {
+    padding: 5px;
+}
+#modal .box .form button {
+    display: block;
+    margin-left: auto;
+}
+

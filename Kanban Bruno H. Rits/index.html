@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban para Field Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>kanban board</h1>
+        <button class="primary" onclick="openModal()" >Nova Tarefa </button>
+
+    </div>
+
+    <div class="container">
+        <div class="column" id="todoColumn">
+            <div class="head">
+                <span>A Fazer: </span>
+            </div>
+            <div class="body">
+
+            </div>        
+        </div>
+        <div class="column">
+            <div class="head">
+                <span>Em progresso: </span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+        <div class="column">
+            <div class="head">
+                <span>Finalizado:</span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+        <div class="column">
+            <div class="head">
+                <span>Arquivado: </span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div class="box">
+            <div class="head">
+                <span id="creationModeTitle">Nova Tarefa</span>
+                <span id="editingModeTitle">Editar Tarefa</span>
+                <button onclick="closeModal()">x</button>
+            </div>
+
+            <div class="form">
+                <input type="hidden" id="idInput">
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="priority">Prioridade</label>
+                    <select id="priority">
+                        <option>Baixa</option>
+                        <option>Média</option>
+                        <option>Alta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deadline">Prazo</label>
+                    <input type="date"  id="deadline">
+                </div>
+
+                <button class="primary" onclick="createTask()" id="creationModeBtn">Cadastrar</button> 
+                <button class="primary" onclick="updatetask()" id="editingModeBtn">Salvar Alterações </button>              
+                
+            </div>
+                
+        </div>
+    </div>
+
+    <script src="Lib/Moment/moment.mim.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
