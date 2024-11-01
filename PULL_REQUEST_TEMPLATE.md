@@ -4,43 +4,52 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 
 **Framework, linguagem e ferramentas**
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+Utilizei as seguintes ferramentas e bibliotecas no desenvolvimento do projeto:
+
+- Linguagem: TypeScript
+- Frameworks: Angular e NestJS
+- Banco de Dados: PostgreSQL
+- Comunicação e Modelagem: GraphQL com Prisma
+- Estilos: Sass
 
 **Técnologias X e Y**
 
-Justifique porque você optou pela tecnologia X e não a Y?
+Optei por Angular devido às suas vantagens em relação ao React e Flutter, como a estruturação do projeto através de módulos e uma abordagem mais robusta para desenvolvimento em larga escala. Além disso, o NestJS foi escolhido pela sua facilidade de uso em aplicações de backend e pela sua compatibilidade com o TypeScript, em comparação com outros frameworks.
 
 **Princípios de software**
 
-Quais princípios da engenharia de software que você usou?
+- Componentização: Para promover a reutilização de código e facilitar a manutenção.
+- Código Limpo: Para garantir que o código fosse legível e fácil de entender.
 
 **Desafios e problemas**
 
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
+Enfrentei desafios no gerenciamento de estados, principalmente por ter mais proficiência em React do que em Angular. Isso me levou a confundir o gerenciamento de estado entre as duas plataformas. No React, é comum utilizar várias fontes de verdade, enquanto no Angular o gerenciamento é mais centralizado. Para resolver isso, estudei as melhores práticas de gerenciamento de estado em Angular, o que me ajudou a adaptar minha abordagem.
 
 **Melhorias e próximas implementações**
 
-O que você entende que pode ser melhorado e como isso pode ser feito?
+- Responsividade: Melhorar a interface para se adaptar a diferentes tamanhos de tela.
+- Refatoração de Código: Tornar o código mais limpo e organizado.
+- Testes Unitários: Implementar testes para garantir a funcionalidade do código.
+- Compartilhamento de Projetos: Inserir a capacidade de compartilhar projetos entre usuários.
 
 **Vídeo de apresentação**
 
 Grave um vídeo do seu projeto rodando e envie o link:
-<!-- Dica: você pode usar o https://jam.dev/ para facilitar sua gravação ;) -->
+
+https://jam.dev/c/ca60adce-abbf-4299-8a2d-49ba14da495a
 
 **Sobre você**
 
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
+Meu nome é Jonas, tenho 30 anos e moro em São José do Rio Preto. Durante minha trajetória, percebi minha aptidão para programação. Meu primeiro contato com programação foi na ICEC, onde participei da criação de uma aplicação em Java para o frontend e usamos SQL Server para o backend, além de VBA no Excel para criar dashboards de análise de dados. Na Refrigeracao Aracatuba, criei dashboards para indicadores financeiros e um sistema integrado com o Excel para o controle de expedição. Já na Compre Fácil, automatizei movimentos repetitivos usando VBA no Excel. Por sempre receber elogios pelo meu trabalho, decidi realizar a transição de carreira para a área de desenvolvimento de software.
 
 **Outros detalhes**
 
 Se quiser enviar alguma informação adicional sobre o desafio..
 
-
 ---
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :)
 
-
-
+Contato:
+E-mail: souza.jonas.a@gmail.com
+Celular: (17) 98148-6889
