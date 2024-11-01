@@ -1,0 +1,52 @@
+<form class="small-centered-form" [formGroup]="registerForm">
+  <h1>Register</h1>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Ex. pat@example.com"
+    />
+    <mat-error *ngIf="registerForm.controls.email.hasError('email') && !registerForm.controls.email.hasError('required')">
+      Por favor, insira um email válido
+    </mat-error>
+    <mat-error *ngIf="registerForm.controls.email.hasError('required')">
+      Insira <strong>um email</strong>
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="firstName" />
+    <mat-error *ngIf="registerForm.controls.firstName.hasError('required')">
+      Por favor, insira seu nome
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sobrenome</mat-label>
+    <input matInput formControlName="lastName" />
+    <mat-error *ngIf="registerForm.controls.lastName.hasError('required')">
+      Por favor, insira um sobrenome
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput formControlName="password" />
+    <mat-error *ngIf="registerForm.controls.password.hasError('required')">
+      Por favor, insira uma senha válida
+    </mat-error>
+    <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">
+      Mínimo de 8 caracteres
+    </mat-error>
+  </mat-form-field>
+
+  <button (click)="register()" mat-flat-button color="primary">Register</button>
+  <a [routerLink]="['/login']">
+    <button tabindex="-1" mat-flat-button color="secondary">
+      Já tem uma conta? Faça login.
+    </button>
+  </a>
+</form>

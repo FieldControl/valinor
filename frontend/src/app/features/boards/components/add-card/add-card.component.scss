@@ -1,0 +1,68 @@
+// Container principal do card
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgb(255, 255, 255);
+  background-color: transparent;
+}
+
+// Título
+h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+// Campo de entrada de texto e texto de área
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  input, textarea {
+    border-radius: 5px;
+    padding: 0.5rem;
+    transition: box-shadow 0.2s ease-in-out;
+
+    
+  }
+}
+
+// Mensagem de erro
+mat-error {
+  color: #e57373;
+  font-size: 0.875rem;
+}
+
+// Botões
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &.mat-primary {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    &.mat-warn {
+      background-color: #e57373;
+      color: #fff;
+    }
+
+  }
+}
+
+    

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 👨‍💻 Vaga para apaixonados por criação de software
 ===========================================
 
@@ -230,3 +231,54 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 - Quais princípios da engenharia de software que você usou?
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
+=======
+# Descrição do Projeto
+
+## Framework, Linguagem e Ferramentas
+Para este projeto de Kanban, utilizei uma stack moderna e escalável com as seguintes tecnologias:
+
+- **Backend**: Desenvolvido com **NestJS** (Node.js), escolhido pela arquitetura modular e pelo suporte nativo a TypeScript, o que facilita a manutenção e a escalabilidade do código. Utilizei **Jest** para testes unitários em todos os módulos, garantindo que cada função e endpoint estejam sólidos e testados.
+- **Frontend**: A interface do usuário foi construída com **Angular**, que oferece uma estrutura de componentes bem organizada e ideal para o desenvolvimento de SPA (Single Page Application) com navegação fluida e interações dinâmicas.
+- **Banco de Dados**: **MySQL** foi usado para o armazenamento de dados, oferecendo segurança e uma estrutura eficiente para o sistema Kanban.
+- **Ferramentas de Suporte**: Configurei o ambiente com Docker para facilitar a execução em diferentes máquinas e utilizei CI/CD para automação de testes e deploy contínuo.
+
+## Tecnologias X e Y
+Optei por **NestJS** no backend pela sua modularidade e suporte a injeção de dependência, o que facilita a escalabilidade do projeto em comparação com Express, que não ofereceria a mesma robustez para modularização. Para o frontend, escolhi **Angular** ao invés de React, pois o Angular oferece um sistema completo e padronizado, ideal para aplicações complexas como esta.
+
+## Princípios de Software
+Segui os seguintes princípios de engenharia de software:
+
+- **Single Responsibility Principle (SRP)**: Cada módulo foi projetado para ter uma responsabilidade única, facilitando a manutenção.
+- **DRY (Don't Repeat Yourself)**: Estruturei o código para evitar redundâncias, criando serviços reutilizáveis no Angular e módulos independentes no NestJS.
+- **Modularidade e Escalabilidade**: A modularidade permite adicionar novas funcionalidades sem afetar outras partes do sistema.
+- **Automação de Testes**: A aplicação inclui testes unitários e de integração e também testes End-to-End (E2E) para assegurar a estabilidade em cenários reais.
+
+## Desafios e Problemas
+Enfrentei alguns desafios:
+
+- **Integração da API**: A estruturação de endpoints foi complexa, especialmente na autenticação e autorização. Resolvi com um serviço centralizado de autenticação.
+- **Sincronização de Dados em Tempo Real**: Para o Kanban, a atualização em tempo real era essencial, então implementei WebSockets para manter o frontend sincronizado com o backend.
+- **Gerenciamento de Ambientes**: Configurar ambientes específicos foi um desafio, mas o Docker facilitou essa configuração ao isolar cada ambiente.
+
+## Melhorias e Próximas Implementações
+Para o futuro, pretendo:
+
+- **Hospedagem Serverless**: Migrar para uma arquitetura serverless, como AWS Lambda, para reduzir custos e aumentar a escalabilidade.
+- **Aprimoramento da Interface**: Planejo melhorias na usabilidade e acessibilidade.
+
+## Vídeo de Apresentação
+Gravei um vídeo mostrando o sistema em funcionamento e suas principais funcionalidades: https://www.youtube.com/watch?v=mKpLhhlzMhs&ab_channel=RonaldoChiavegatti
+
+## Sobre Você
+Sou Ronaldo, nascido em São José do Rio Preto, e trabalho com desenvolvimento de software e marketing digital. Fundador de uma agência de marketing digital, onde atendo clientes oferecendo serviços como e-commerce, landing pages e automações. Comecei no desenvolvimento com o interesse de oferecer soluções completags e escaláveis aos clientes, e vejo o desenvolvimento como uma forma de transformar negócios.
+
+## Outros Detalhes
+Estou disponível para discussões e melhorias.
+
+**Contato**: 
+- **E-mail**: rochiaveg@gmail.com
+- **Telefone**: (17) 99677-4840
+
+
+[def]: https://www.youtube.com/watch?v=mKpLhhlzMhs&ab_channel=RonaldoChiavegatti
+>>>>>>> b3dab1a (Código kanban: Ronaldo Chiavegatti)

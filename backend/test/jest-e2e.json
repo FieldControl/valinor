@@ -1,0 +1,18 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/../src/$1",
+    "^@src/(.*)$": "<rootDir>/../src/$1",
+    "^@auth/(.*)$": "<rootDir>/../src/auth/$1",
+    "^@board/(.*)$": "<rootDir>/../src/board/$1",
+    "^@card/(.*)$": "<rootDir>/../src/card/$1",
+    "^@swimlane/(.*)$": "<rootDir>/../src/swimlane/$1",
+    "^@user/(.*)$": "<rootDir>/../src/user/$1"
+  },
+  "testEnvironment": "node"
+}

@@ -1,0 +1,93 @@
+.board-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribui os cards uniformemente */
+  margin: 20px; /* Espaçamento externo */
+}
+
+.board {
+  text-decoration: none; /* Remove sublinhado dos links */
+  width: calc(33.33% - 20px); /* Três cards por linha, com espaço */
+  margin-bottom: 20px; /* Espaço entre linhas */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s, box-shadow 0.3s; /* Animação suave na transformação */
+
+  &:hover {
+    transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Aumenta a sombra ao passar o mouse */
+  }
+}
+
+mat-card {
+  background-color: #ffffff; /* Cor de fundo do card */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno do card */
+  transition: background-color 0.3s; /* Animação suave na cor de fundo */
+
+  &:hover {
+    background-color: #f0f0f0; /* Cor ao passar o mouse */
+  }
+}
+
+mat-card-title {
+  font-size: 1.5rem; /* Tamanho da fonte do título */
+  font-weight: bold; /* Negrito */
+  color: #333; /* Cor do texto */
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between; /* Distribui os botões */
+}
+
+button {
+  background-color: #fdfdfd; /* Cor do botão */
+  color: #333; /* Cor do texto do botão */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 10px 15px; /* Espaçamento interno do botão */
+  border: none; /* Remove borda padrão */
+  transition: background-color 0.3s; /* Animação suave na cor de fundo do botão */
+
+  &:hover {
+    background-color: #03dac6; /* Cor ao passar o mouse */
+  }
+}
+
+.mat-flat-button {
+  &:hover {
+    background-color: #03dac6; /* Cor ao passar o mouse para o botão flat */
+  }
+}
+
+/* Media query para responsividade */
+@media (max-width: 1200px) {
+  .board {
+    width: calc(50% - 20px); /* Dois cards por linha em telas médias */
+  }
+}
+
+@media (max-width: 768px) {
+  .board {
+    width: calc(100% - 20px); /* Um card por linha em telas pequenas */
+  }
+  button[mat-flat-button] {
+    display: block;
+    margin: 20px auto; /* Centraliza horizontalmente */
+  }
+}
+
+@media (max-width: 480px) {
+  .board {
+    margin: 10px 0; /* Menor margem em telas muito pequenas */
+  }
+
+  mat-card-title {
+    font-size: 1.2rem; /* Tamanho da fonte do título em telas muito pequenas */
+  }
+
+  button {
+    padding: 8px 10px; /* Menor padding para botões em telas muito pequenas */
+  }
+}
+

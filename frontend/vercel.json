@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "dist/seu-app/**",
+        "use": "@vercel/static"
+      }
+    ]
+  }
+  

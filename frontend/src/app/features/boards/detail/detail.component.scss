@@ -1,0 +1,156 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  // Variáveis definidas diretamente aqui
+  $border-color: #ddd; // Cor da borda
+  $gray: #666; // Cor do texto cinza
+  $light-background: #f7f7f7; // Cor de fundo clara
+  $background-color: #ffffff; // Cor de fundo padrão
+  $hover-background-color: #e0e0e0; // Cor de fundo no hover
+  $hover-button-background: #d0d0d0; // Cor do botão no hover
+
+  .kb-board-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border-color; // Usando variável para cor
+    gap: 24px;
+
+    .kb-board-title {
+      margin: 0;
+      color: $gray; // Usando variável para cor
+    }
+  }
+
+  .swimlanes-wrapper {
+    flex-grow: 1;
+    overflow: auto;
+    padding: 0 16px 20px;
+    display: flex;
+    margin: 0 -16px;
+    flex-wrap: nowrap; // Mantém o layout horizontal por padrão
+    gap: 24px;
+    height: 100%;
+
+    .swimlane {
+      width: 240px; // Largura fixa para desktop
+      flex-shrink: 0;
+      height: 100%;
+
+      .swimlane-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 -2px 16px;
+        padding: 0 2px;
+        position: sticky;
+        top: 0;
+        z-index: 3;
+
+        h2 {
+          margin: 0;
+        }
+
+        button {
+          width: 40px;
+          padding: 4px;
+          border-radius: 4px;
+          background-color: rgb(149, 243, 235); // Usando variável para cor
+          border: none;
+          cursor: pointer;
+          transition: $background-color 0.3s; // Transição para hover
+
+          &:hover {
+            background-color: $hover-button-background; // Definindo cor de hover
+          }
+        }
+      }
+
+      .swimlane__card {
+        margin-bottom: 16px;
+        border: 2px solid $border-color; // Usando variável para borda
+        padding: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease; // Transição de hover
+
+        &:hover {
+          background-color: $hover-background-color; // Definindo cor de hover
+          transform: scale(1.02); // Escalonamento suave no hover
+        }
+      }
+
+      mat-form-field,
+      input,
+      button {
+        width: 100%;
+        margin: 8px 0; // Adicionando margem para espaçamento
+      }
+
+      .swimlane-inner {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 16px 16px 24px;
+        border-radius: 4px;
+
+        .swimlane-inner__dragzone {
+          min-height: 50px;
+        }
+      }
+    }
+  }
+
+  // Media Queries para Responsividade
+  @media (max-width: 1024px) {
+    .swimlanes-wrapper {
+      padding: 0 8px; // Reduzir o padding lateral em telas menores
+      margin: 0 -8px; // Ajusta a margem para não ter overflow
+    }
+
+    .swimlane {
+      width: 200px; // Reduz a largura das swimlanes para telas médias
+    }
+  }
+
+  @media (max-width: 768px) {
+    .swimlanes-wrapper {
+      flex-wrap: wrap; // Permite que as swimlanes quebrem linha
+      justify-content: center; // Centraliza as swimlanes no meio
+      gap: 16; // Remove o espaço entre as swimlanes
+    }
+  
+    .swimlane {
+      width: 50%; // Cada swimlane ocupa 50% da largura
+      margin: 0; // Remove qualquer margem adicional
+    }
+  }
+
+  @media (max-width: 480px) {
+    .kb-board-header {
+      flex-direction: column; // Muda para coluna em telas muito pequenas
+      align-items: flex-start; // Alinha os itens à esquerda
+    }
+
+    .kb-board-title {
+      font-size: 1.5em; // Ajusta o tamanho da fonte para telas pequenas
+    }
+
+    .swimlane-header {
+      flex-direction: column; // Muda a direção para coluna
+      align-items: flex-start; // Alinha os itens à esquerda
+    }
+
+    .swimlane-header button {
+      width: 100%; // Botão ocupa toda a largura disponível
+      margin-top: 8px; // Adiciona espaçamento acima do botão
+    }
+
+    .swimlane__card {
+      font-size: 0.9em; // Ajusta o tamanho da fonte nos cartões
+    }
+  }
+}

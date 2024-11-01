@@ -1,0 +1,56 @@
+   :host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    overflow: hidden;
+  }
+  
+  // Estilo para o formulário
+  .small-centered-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff; // Fundo branco para o formulário
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Adiciona uma sombra sutil
+    border-radius: 8px;
+  
+    h1 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    button[mat-flat-button] {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-top: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #6e8efb, #5d7ae6);
+        
+        &:hover {
+          background: linear-gradient(135deg, #5d7ae6, #4a63d9);
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+          transform: translateY(-2px);
+        }
+  
+    button {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+}

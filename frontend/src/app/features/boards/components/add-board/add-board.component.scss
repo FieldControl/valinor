@@ -1,0 +1,73 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px;
+  background-color: rgba(255, 255, 255, 0.9); // Fundo semi-transparente para suavidade
+  border-radius: 16px;
+  box-shadow: transparent;
+  max-width: 420px;
+  margin: 20px auto;
+  backdrop-filter: blur(10px); // Suaviza a aparência
+
+  h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+
+    mat-label {
+      color: #607d8b;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    input[matInput] {
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+    }
+
+    mat-error {
+      font-size: 0.85rem;
+      color: #e74c3c;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+
+    button[mat-flat-button] {
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 0px;
+      padding: 14px 18px;
+
+      &.mat-primary {
+        background-color: #3498db;
+        color: #fff;
+
+        &:hover {
+          background-color: #2980b9;
+        }
+      }
+
+      &.mat-accent {
+        background-color: #bdc3c7;
+        color: #2c3e50;
+
+        &:hover {
+          background-color: #95a5a6;
+        }
+      }
+    }
+  }
+}

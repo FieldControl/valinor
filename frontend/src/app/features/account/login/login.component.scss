@@ -1,0 +1,91 @@
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    overflow: hidden;
+  }
+  
+  .small-centered-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  
+    .mat-form-field-wrapper {
+      border-radius: 5px;
+      background: #f5f5f5;
+    }
+  
+    mat-label {
+      color: #666;
+      font-weight: 500;
+    }
+  
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+  
+    mat-error {
+      font-size: 0.9rem;
+      color: #e53935;
+    }
+  }
+  
+  /* Estilos para botões com gradiente e efeito hover */
+  button[mat-flat-button] {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #6e8efb, #5d7ae6);
+    
+    &:hover {
+      background: linear-gradient(135deg, #5d7ae6, #4a63d9);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+  
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  /* Botão de registro com estilo diferente */
+  button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  
+  a {
+    text-decoration: none;
+    display: block;
+  }
+  

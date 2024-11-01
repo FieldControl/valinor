@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li class="logo">Kanban-Project</li>
+    <li class="menu-items">
+      <ng-container *ngIf="isLoggedIn(); else guestLinks">
+        <a [routerLink]="'/boards'" routerLinkActive="active">Boards</a>
+        <a (click)="signOut()">Sign out</a>
+      </ng-container>
+      <ng-template #guestLinks>
+        <a [routerLink]="'/login'" routerLinkActive="active">Login/Register</a>
+      </ng-template>
+    </li>
+  </ul>
+</nav>
