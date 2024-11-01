@@ -1,0 +1,28 @@
+<div *ngIf="columns$ | async as columns; else loading">
+  <div
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    [cdkDropListData]="columns"
+    [cdkDropListConnectedTo]="connectedDropLists"
+    (cdkDropListDropped)="dropColumn($event)"
+    class="columns-wrapper"
+  >
+    <div
+      *ngFor="let column of columns; let i = index"
+      class="column-container"
+      cdkDrag
+      [cdkDragData]="column"
+      [id]="column.id"
+    >
+      <app-column-card
+        [project]="project"
+        [column]="column"
+        [connectedDropLists]="connectedDropLists"
+        (delete)="onDeleteColumn($event)"
+      ></app-column-card>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

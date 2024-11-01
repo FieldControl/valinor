@@ -1,0 +1,23 @@
+<div
+  cdkDropList
+  [cdkDropListData]="tasks$ | async"
+  [cdkDropListConnectedTo]="connectedDropLists"
+  [id]="column.id"
+  (cdkDropListDropped)="dropTask($event)"
+  class="task-list"
+>
+  <div *ngIf="(tasks$ | async)?.length === 0" class="empty-placeholder">
+    Drop tasks here
+  </div>
+  <div
+    *ngFor="let task of tasks$ | async"
+    cdkDrag
+    [cdkDragData]="task"
+    class="task-container"
+  >
+    <app-task-card
+      [task]="task"
+      (delete)="onDeleteTask($event)"
+    ></app-task-card>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="input-default">
+    <i class="fas fa-envelope icon"></i>
+    <input type="email" placeholder="Email.." formControlName="email" />
+    <p *ngIf="errors.email?.['required'] && registerForm.get('email')?.touched">
+      Email required.
+    </p>
+    <p *ngIf="errors.email?.['email'] && registerForm.get('email')?.touched">
+      Valid Email required.
+    </p>
+  </div>
+
+  <div class="input-default">
+    <i class="fas fa-lock icon"></i>
+    <input
+      type="password"
+      placeholder="Password.."
+      formControlName="password"
+    />
+    <p
+      *ngIf="errors.password?.['required'] && registerForm.get('password')?.touched"
+    >
+      Password required.
+    </p>
+    <p *ngIf="errors.password?.['minlength']">Min 8 characters.</p>
+  </div>
+  <div class="error-login">
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+  <div>
+    <button type="submit" class="button-default">Login</button>
+  </div>
+</form>

@@ -1,0 +1,24 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="input-default">
+    <input type="text" placeholder="Title.." formControlName="title" />
+    <p *ngIf="errors.title?.['required'] && registerForm.get('title')?.touched">
+      Title required.
+    </p>
+  </div>
+  <div class="input-default">
+    <textarea
+      placeholder="Description.."
+      formControlName="description"
+    ></textarea>
+    <div>
+      <p
+        *ngIf="errors.description?.['required'] && registerForm.get('description')?.touched"
+      >
+        Description required.
+      </p>
+    </div>
+  </div>
+
+  <button type="submit" class="button-default">Register</button>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+</form>

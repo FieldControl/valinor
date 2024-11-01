@@ -1,0 +1,99 @@
+.task-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 88%;
+  background: var(--purple-dark);
+  border-radius: 20px;
+  margin-bottom: 0.625rem;
+  transition: all 0.3s ease;
+
+  h3 {
+    font-family: var(--font-family-base);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white-color);
+    transition: opacity 0.3s ease;
+  }
+
+  &.is-editing {
+    h3 {
+      opacity: 0;
+    }
+
+    .edit-modal {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .task-manager {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  .task-manager {
+    display: flex;
+    gap: 10px;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+
+    button {
+      color: var(--white-color);
+      transition: 0.3s;
+
+      &:hover {
+        color: var(--gray-light-color);
+      }
+    }
+  }
+
+  .edit-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    input {
+      font-family: var(--font-family-base);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white-color);
+      border: 1px solid var(--purple-color);
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 15px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+
+      &:focus {
+        border-color: var(--purple-color);
+      }
+    }
+
+    button {
+      font-family: var(--font-family-base);
+      font-size: 14px;
+      color: var(--white-color);
+      background: var(--purple-color);
+      padding: 10px;
+      margin: 10px 0 0 10px;
+      border-radius: 10px;
+      transition: 0.3s;
+
+      &:hover {
+        background: var(--purple-dark);
+      }
+    }
+  }
+}

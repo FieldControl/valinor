@@ -1,0 +1,49 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="input-default">
+    <i class="fas fa-user icon"></i>
+    <input type="text" placeholder="Name.." formControlName="name" />
+    <p *ngIf="errors.name?.['required'] && registerForm.get('name')?.touched">
+      Name required.
+    </p>
+  </div>
+
+  <div class="input-default">
+    <i class="fas fa-envelope icon"></i>
+    <input type="email" placeholder="Email.." formControlName="email" />
+    <p *ngIf="errors.email?.['required'] && registerForm.get('email')?.touched">
+      Email required.
+    </p>
+    <p *ngIf="errors.email?.['email'] && registerForm.get('email')?.touched">
+      Valid Email required.
+    </p>
+  </div>
+
+  <div class="input-default">
+    <i class="fas fa-lock icon"></i>
+    <input
+      type="password"
+      placeholder="Password.."
+      formControlName="password"
+    />
+    <p
+      *ngIf="errors.password?.['required'] && registerForm.get('password')?.touched"
+    >
+      Password required.
+    </p>
+    <p
+      *ngIf="errors.password?.['minlength'] && registerForm.get('password')?.touched"
+    >
+      Min 8 characters.
+    </p>
+  </div>
+  <p
+    *ngIf="errors.password?.['pattern'] && registerForm.get('password')?.touched"
+    class="password-message"
+  >
+    The password must contain at least one uppercase letter, one lowercase
+    letter, and a special character.
+  </p>
+  <div>
+    <button type="submit" class="button-default">Register</button>
+  </div>
+</form>

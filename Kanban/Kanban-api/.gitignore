@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+out-tsc/
+
+# Compiled output
+*.js
+*.js.map
+*.d.ts
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# NPM cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# NestJS specific
+/.nestjs/
+
+# Coverage reports
+coverage/
