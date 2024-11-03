@@ -1,0 +1,14 @@
+<div class="board-list">
+  <h2>Boards</h2>
+  <button id="create-board" mat-button (click)="this.createBoard()">Create Board</button>
+  <ul>
+    @for(board of this.myBoards;track board.id){
+    <div class="board-item">
+      <h3>{{ board.name }}</h3>
+      <button class="open-board" mat-button (click)="openModal(board)">Open</button>
+      <button class="delete-board" mat-button (click)="delete(board)">Delete</button>
+    </div>
+    }
+
+  </ul>
+</div>

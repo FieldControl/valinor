@@ -1,0 +1,12 @@
+.login-card {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+.login-actions {
+  margin-top: 1rem;
+  text-align: center;
+}
+.full-width{
+  width:100% !important;
+}

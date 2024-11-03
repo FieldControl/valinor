@@ -1,0 +1,32 @@
+<div>
+  <h5 mat-dialog-title>Add Task</h5>
+  <mat-dialog-content>
+
+    <mat-dialog-content>
+      <form [formGroup]="this.form">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" type="text" maxlength="50" required>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" type="text" maxlength="500" required>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill">
+          <mat-label>Target Date</mat-label>
+          <input matInput formControlName="targetDate" type="date" required>
+        </mat-form-field>
+        <br />
+      </form>
+      <mat-dialog-actions>
+        <button id="modal-create-task" mat-button mat-raised-button color="primary" (click)="submit()">Create</button>
+
+        <button type="button" mat-button (click)="closeModal()">Close</button>
+
+      </mat-dialog-actions>
+    </mat-dialog-content>
+
+  </mat-dialog-content>
+</div>

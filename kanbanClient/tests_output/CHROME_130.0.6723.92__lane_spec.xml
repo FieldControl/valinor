@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="lane_spec"
+    errors="0" failures="0" hostname="" id="" package="lane_spec" skipped="0"
+    tests="1" time="25.83" timestamp="">
+  
+    <testcase name="Test Add Lane" classname="lane_spec" time="5.339" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

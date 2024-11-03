@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/nightwatch",
+    "module": "ES2022",
+    "target": "ES2022",
+    "types": [
+      "node",
+      "nightwatch"
+    ]
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "ES2022",
+      "moduleResolution": "Node",
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "kanban-client",
+  "version": "0.0.0",
+  "scripts": {
+    "e2e": "set TS_NODE_CACHE=false && ng e2e",
+    "e2e:test": "set TS_NODE_CACHE=false && node ./node_modules/.bin/nightwatch --env 'chrome' --config './nightwatch.conf.js'",
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/cdk": "^18.2.11",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/material": "^18.2.11",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "jwt-decode": "^4.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.4",
+    "@angular/cli": "^18.2.4",
+    "@angular/compiler-cli": "^18.2.0",
+    "@nightwatch/schematics": "^1.2.1",
+    "@types/jasmine": "~5.1.0",
+    "@types/nightwatch": "2.3.32",
+    "@types/node": "22.8.6",
+    "chromedriver": "^130.0.2",
+    "html-dnd": "^1.2.1",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "nightwatch": "3.8.1",
+    "ts-node": "10.9.2",
+    "typescript": "~5.5.2"
+  }
+}

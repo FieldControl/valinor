@@ -1,0 +1,24 @@
+<div>
+  <mat-card  appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{task.title}}</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+       ID: {{task.id}}
+      </p>
+      <p>
+       Description: {{task.description.substring(0,20) + '...'}}
+      </p>
+      <p>
+       Status:  {{convertToDescription(task.taskStatus)}}
+      </p>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="delete-task" mat-button (click)="delete(task)">Delete</button>
+      <button class="edit-task" mat-button (click)="edit(task)">Edit</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>

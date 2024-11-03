@@ -1,0 +1,19 @@
+
+<h5 mat-dialog-title>Add Board</h5>
+<mat-dialog-content>
+  <form [formGroup]="this.form">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" type="text" required>
+    </mat-form-field>
+    <br />
+    <div class="login-actions">
+      <button id="modal-create-board" mat-button mat-raised-button color="primary" (click)="submit()">Create</button>
+    </div>
+  </form>
+  <mat-dialog-actions>
+    <div class="modal-footer">
+      <button type="button" mat-button (click)="closeModal()">Close</button>
+    </div>
+  </mat-dialog-actions>
+</mat-dialog-content>

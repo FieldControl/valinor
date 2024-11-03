@@ -1,0 +1,24 @@
+<h5 mat-dialog-title>View Board</h5>
+<mat-dialog-content>
+  <button id="open-modal-lane" mat-button (click)="openModalLane()">Add lanes</button>
+  <div class="lanes-container" cdkDropListGroup >
+    @for(lane of lanes.sort(); track lane.id ){
+    <div class="lane" [id]="'lane'+lane.id" cdkDropList [cdkDropListData]="lane.tasks" (cdkDropListDropped)="drop($event)">
+      <div>
+        <button mat-button (click)="deleteLane(lane)">Delete lane</button>
+        <h3>{{ lane.name }}</h3>
+        <button class="open-modal-task" mat-button (click)="addTask(lane)">Add task</button>
+        <div >
+          @for(item of lane.tasks; track item){
+          <div cdkDrag [cdkDragData]="item">
+            <app-task [task]="item" (deleteTask)="this.ngOnInit()" (editTask)="this.ngOnInit()"></app-task>
+          </div>
+          }
+        </div>
+
+      </div>
+    </div>
+
+    }
+  </div>
+</mat-dialog-content>

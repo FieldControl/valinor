@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="3">
+
+  <testsuite name="tasks_spec"
+    errors="0" failures="0" hostname="" id="" package="tasks_spec" skipped="0"
+    tests="3" time="64.82" timestamp="">
+  
+    <testcase name="Test Add Task" classname="tasks_spec" time="17.51" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Test edit Task" classname="tasks_spec" time="1.712" assertions="0">
+    </testcase>
+  
+    <testcase name="Test Delete Task" classname="tasks_spec" time="6.171" assertions="1">
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
