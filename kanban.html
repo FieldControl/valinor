@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações de codificação e viewport para a página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban</title>
+    <!-- Carrega o arquivo JavaScript principal -->
+    <script type="module" src="script.js"></script>
+    <!-- Carrega o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Pré-carrega fontes para otimizar desempenho -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho com logo e título -->
+    <header class="cabecalho">
+        <img src="field.jpg" width="50" height="50" alt="https://fieldcontrol.com.br/">
+        <h3 id="ajuste">Kanban - Challenge</h3>
+    </header>
+
+    <!-- Estrutura do Kanban com títulos para cada coluna -->
+    <main>
+        <h1 class="ToDo">Para ser feito</h1>
+        <h1 class="Doing">Fazendo</h1>
+        <h1 class="Done">Feito</h1>
+    </main>
+    
+    <main>
+        <!-- Primeira coluna do Kanban com botão de adicionar tarefa -->
+        <section class="primeira">
+            <button id="adicionar1" onclick="inserir(this.id)">Add</button>
+            <div class="caixa1"></div>
+        </section>
+        
+        <!-- Segunda coluna do Kanban com botão de adicionar tarefa -->
+        <section class="segunda">
+            <button id="adicionar2" onclick="inserir(this.id)">Add</button> 
+            <div class="caixa2"></div>
+        </section>
+        
+        <!-- Terceira coluna do Kanban com botão de adicionar tarefa -->
+        <section class="terceira">
+            <button id="adicionar3" onclick="inserir(this.id)">Add</button>
+            <div class="caixa3"></div>
+        </section>
+    </main>
+</body>
+</html>
