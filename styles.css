@@ -1,0 +1,112 @@
+
+.cabecalho{
+    background-color: darkblue;
+    min-height: 1000;
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    padding-top: 4px;
+    padding-bottom: 0px;
+}
+#ajuste{
+    margin-top: 10px;
+}
+body{
+    background-color: rgb(212, 211, 211);
+    padding: 0%;
+    border: 0%;
+    margin: 0%;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: 10px;
+    font-weight: weight;
+    font-style: normal;
+}
+main{
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+section {
+    padding: 20px;
+    padding-bottom: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    flex: 1; /* Faz com que cada seção ocupe o mesmo espaço */
+}
+.caixa {
+    width: 300px; /* Largura do contêiner */
+    height: 200px; /* Altura do contêiner */
+    overflow: auto; /* Adiciona barra de rolagem se necessário */
+    padding: 10px; /* Espaçamento interno */
+}
+.primeira {
+    background-color: rgb(194, 191, 191);
+}
+.segunda {
+    background-color: rgb(194, 191, 191);
+}
+.terceira {
+    background-color: rgb(194, 191, 191);
+}
+/* Titulos de orientação */
+.ToDo{
+    padding: 5px;
+    margin-right: 215px;
+    border: 5px inset rgb(118, 118, 118);
+    border-radius: 100px;
+    border-width: 5px;
+}   
+.Doing{
+    padding: 5px;
+    margin-right: 280px;
+    border: 5px inset rgb(118, 118, 118);
+    border-radius: 100px;
+    border-width: 5px;
+}
+.Done{
+    padding: 5px;
+    border: 5px inset rgb(118, 118, 118);
+    border-radius: 100px;
+    border-width: 5px;
+}
+/* Botões de adicionar*/
+#adicionar1{
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background-color: rgb(4, 45, 249);
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+#adicionar2{
+    padding: 10px;
+    border: solid 1px var(--primary-color);
+    background-color: rgb(4, 45, 249);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+#adicionar3{
+    
+    padding: 10px;
+    border: solid 1px var(--primary-color);
+    background-color: rgb(4, 45, 249);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+#seletor{
+    background-color: red;
+    border-radius: 20px;
+    height: 25px;
+    width: 25px;
+}
+#anotacoes{
+    border-radius: 10px;
+    width: 280px;
+    height: 30px;
+}
+#done{
+    background-color: rgb(16, 213, 16);
+    border-radius: 20px;
+    height: 30px;
+}
