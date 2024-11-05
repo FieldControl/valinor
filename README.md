@@ -25,6 +25,27 @@ Tecnologias Utilizadas
 •	Swagger: Documentação interativa da API.
 •	Class-validator: Utilizado para validação de dados de entrada.
 
+Optei por utilizar o NestJS em vez de frameworks como Express ou Koa, pois NestJS oferece uma estrutura baseada em módulos e uma arquitetura inspirada no Angular, que facilita a organização do código e o desenvolvimento de projetos escaláveis. NestJS também suporta TypeScript de forma nativa, permitindo uma maior segurança no desenvolvimento.
+
+O Prisma foi escolhido como ORM em vez do TypeORM devido à sua abordagem baseada em esquemas, que facilita a manutenção e integração de novos recursos no banco de dados, além de ser altamente performático e bem integrado com TypeScript.
+
+Princípios de Software
+
+Para o desenvolvimento deste projeto, apliquei os seguintes princípios de engenharia de software:
+
+SOLID: Os princípios SOLID foram aplicados para garantir que cada classe e serviço tivessem uma responsabilidade bem definida. O uso de módulos e injeção de dependência no NestJS ajuda a manter um código desacoplado e modular.
+DRY (Don't Repeat Yourself): Reutilizamos a lógica de validação e persistência para evitar redundâncias, concentrando as funcionalidades principais dentro de serviços que podem ser chamados pelos controladores.
+
+Melhorias e Próximas Implementações
+
+Paginação e Filtros nos Endpoints: Adicionar suporte para paginação e filtros nos endpoints de listagem de colunas e cards para permitir uma busca mais otimizada, especialmente em situações de grandes volumes de dados.
+
+Autenticação e Autorização: A implementação de um sistema de autenticação, como JWT, e permissões de usuário para que diferentes usuários possam interagir com o sistema com níveis de acesso distintos.
+
+Logs e Monitoramento: Incluir logs detalhados para rastrear erros e um sistema de monitoramento (como o Prometheus ou Grafana) para observar o desempenho da aplicação em produção.
+
+Implementação de Websockets: Uma futura implementação de Websockets permitiria a atualização em tempo real dos cards e colunas, oferecendo uma experiência mais dinâmica para os usuários.
+
 Pré-requisitos
 
 •	Node.js (versão 14 ou superior)
@@ -103,6 +124,29 @@ Tecnologias utilizadas
 •	SQLite - Banco de dados local.
 •	HttpClientModule - Para integração e comunicação com a API.
 
+Angular vs React: Optamos pelo Angular devido à sua arquitetura mais estruturada, que inclui padrões de diretivas e serviços para facilitar a divisão de responsabilidades. O Angular também já inclui o CLI e ferramentas robustas para criar e testar a aplicação, enquanto o React geralmente requer a adição de outras bibliotecas para obter funcionalidades similares.
+
+Princípios de Software
+
+DRY (Don't Repeat Yourself): Em várias partes do código, como nos componentes de Board, Column e Card, apliquei o princípio DRY, para evitar duplicação de lógica. Componentes foram criados para serem reutilizáveis e centralizaram a lógica de manipulação de tarefas e colunas.
+
+Componentização e Separação de Responsabilidades: Dividi a aplicação em componentes específicos (Board, Column, Card), cada um com sua responsabilidade, facilitando a escalabilidade e a manutenção do código.
+
+SOLID: Os princípios SOLID foram aplicados sempre que possível, principalmente o princípio de responsabilidade única (SRP) para garantir que cada componente e serviço tivesse uma única responsabilidade e pudesse ser modificado ou substituído sem afetar outros.
+
+desafios e problemas
+
+Durante o desenvolvimento do front end da aplicação Kanban, um dos principais desafios foi o uso do Angular. Como era minha primeira experiência com o framework, enfrentei dificuldades em compreender a estrutura dos módulos, a configuração de componentes e o uso correto de diretivas e serviços. Muitas vezes, o surgimento de bugs inesperados aumentou a complexidade do projeto, exigindo pesquisas e testes frequentes para identificar e corrigir os problemas.
+
+Alguns erros específicos, como aqueles relacionados à importação de componentes e à comunicação entre módulos. Apesar de várias tentativas, alguns bugs persistiram e ficaram sem solução, o que ressalta a importância de aprimorar meus conhecimentos em Angular para futuros projetos.
+
+Melhorias e Próximas Implementações
+
+Autenticação e Autorização: Implementar um sistema de login para que cada usuário tenha seu próprio board e permissões específicas, adicionando segurança e personalização à aplicação.
+
+Sistema de Notificações: Adicionar notificações para alertar o usuário sobre mudanças, como uma tarefa sendo movida ou excluída, melhorando a experiência de uso.
+
+
 Pré-requisitos
 
 Antes de iniciar, certifique-se de ter o seguinte instalado em seu ambiente de desenvolvimento:
@@ -146,6 +190,17 @@ src/
 │   └── app.module.ts     
 └── 
 
+link do video
+
+https://youtu.be/iWYnCOZQzvA
+
+Sobre você
+
+Me chamo Gabriel de Souza Naves, sou natural de São José do Rio Preto, tenho 24 anos e estou atualmente no 4º período de Análise e Desenvolvimento de Sistemas (ADS) na Unilago, em São José do Rio Preto. Trabalho como desenvolvedor de software full-stack júnior há 8 meses, e nesse tempo tenho aprendido bastante no dia a dia, aprimorando minhas habilidades e me desenvolvendo cada vez mais na área.
+
+Um dos motivos que me levaram a entrar na área de tecnologia foi a minha familiaridade com computadores desde criança. Sempre fui atraído por jogos eletrônicos e tudo que envolvia tecnologia, o que aumentava meu interesse a cada dia. Além disso, meu irmão também escolheu cursar ADS e, ao me contar sobre a faculdade, despertou ainda mais meu interesse, influenciado também por filmes e séries sobre hackers e tecnologia.
+
+Tenho alguns hobbies, como ir à academia, jogar futebol e praticar atividades ao ar livre. Acredito que todos devemos praticar exercícios para melhorar nosso foco no dia a dia, especialmente em áreas que exigem muito do pensamento e da resolução de problemas, onde sabemos como pode ser frustrante não resolver desafios no tempo desejado.
 
 email: gabrielnaves60@gmail.com
 telefone: (17)99761-9950
