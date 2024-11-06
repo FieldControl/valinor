@@ -1,0 +1,23 @@
+version: "3.5"
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: valinor-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: valinor
+
+  db-test:
+    image: postgres
+    restart: always
+    container_name: tests-prisma
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: tests
