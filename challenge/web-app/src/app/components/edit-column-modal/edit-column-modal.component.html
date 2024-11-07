@@ -1,0 +1,11 @@
+<h1 mat-dialog-title class="mat-dialog-title">Edit Column</h1>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Column Name</mat-label>
+    <input matInput [(ngModel)]="columnName" />
+  </mat-form-field>
+</mat-dialog-content>
+<div mat-dialog-actions class="actionButtons">
+  <button mat-button (click)="onCancel()" >Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</div>

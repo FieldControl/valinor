@@ -1,0 +1,23 @@
+<div class="kanban-container">
+  <div class="columns">
+    @if (columns().length <= 0) {
+      <span>No columns have been created yet</span>
+    } @else {
+      <div *ngFor="let column of columns()" class="column">
+        <div class="column-header">
+          <h3>{{ column.name }}</h3>
+          <button mat-icon-button (click)="editColumn(column)">edit</button>
+          <button mat-icon-button (click)="deleteColumn(column)">delete</button>
+          <button mat-raised-button (click)="addCard(column)">Add New Card</button>
+        </div>
+        <div *ngFor="let card of column.Cards" class="card">
+          <h4>{{ card.title }}</h4>
+          <p>{{ card.description }}</p>
+          <button mat-icon-button (click)="editCard(card)">edit</button>
+          <button mat-icon-button (click)="deleteCard(card)">delete</button>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

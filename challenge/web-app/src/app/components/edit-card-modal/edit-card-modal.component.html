@@ -1,0 +1,15 @@
+<h1 mat-dialog-title class="mat-dialog-title">Edit Card</h1>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="title" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="description" />
+  </mat-form-field>
+</mat-dialog-content>
+<div mat-dialog-actions class="actionButtons">
+  <button mat-button (click)="onCancel()" >Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</div>

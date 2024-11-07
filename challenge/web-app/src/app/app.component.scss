@@ -1,3 +1,13 @@
-.teste {
-  color: blue;
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+button {
+  margin-bottom: 30px;
+  font-size: 16px;
+  padding: 12px 20px;
 }
