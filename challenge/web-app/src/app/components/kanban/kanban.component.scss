@@ -2,48 +2,12 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
-}
 
-button {
-  font-size: 14px;
-  padding: 10px 15px;
+  max-width: 1250px;
 }
 
 .columns {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-}
-
-.column {
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  padding: 10px;
-  width: 300px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.column h3 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.column .card {
-  background-color: #fff;
-  padding: 15px;
-  margin: 5px 0;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.column .card h4 {
-  font-size: 16px;
-  color: #444;
-}
-
-.column .card p {
-  font-size: 14px;
-  color: #777;
+  flex-wrap: wrap;
 }

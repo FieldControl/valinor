@@ -25,6 +25,6 @@ model Card {
   title       String
   description String
 
-  column   Column @relation(fields: [columnId], references: [id])
+  column   Column @relation(fields: [columnId], references: [id], onDelete: Cascade)
   columnId Int
 }

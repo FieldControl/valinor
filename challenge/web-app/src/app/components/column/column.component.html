@@ -1,0 +1,13 @@
+<div class="column">
+  <div class="column-header">
+    <h3>{{ column.name }}</h3>
+    <div class="column-header-actions">
+      <button mat-icon-button (click)="editColumn(column)"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button (click)="deleteColumn(column)"><mat-icon>delete</mat-icon></button>
+      <button mat-icon-button (click)="addCard(column)"><mat-icon>add</mat-icon></button>
+    </div>
+  </div>
+  <div *ngFor="let card of column.Cards">
+    <app-card [card]="card"></app-card>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.column {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.column-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 1rem;
+
+  border-bottom: #444 1px solid;
+}
+
+.column-header-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
