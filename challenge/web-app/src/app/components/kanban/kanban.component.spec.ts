@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KanbanComponent } from './kanban.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('KanbanComponent', () => {
   let component: KanbanComponent;
@@ -8,10 +9,11 @@ describe('KanbanComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [KanbanComponent]
+      imports: [KanbanComponent],
+      providers: [provideHttpClient()]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(KanbanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
