@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+      <li>Logo</li>
+      <li class="menu-items">
+        @if(isLoggedIn()){
+        <a [routerLinkActive]="'active'" routerLink="/boards">Quadros</a>
+        <a (click)="signOut()">Sair</a>
+        } @else {
+        <a [routerLinkActive]="'active'" routerLink="/login">Login/Cadastro</a>
+        }
+      </li>
+    </ul>
+  </nav>
