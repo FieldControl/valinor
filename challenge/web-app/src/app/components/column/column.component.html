@@ -2,9 +2,9 @@
   <div class="column-header">
     <h3>{{ column.name }}</h3>
     <div class="column-header-actions">
-      <button mat-icon-button (click)="editColumn(column)"><mat-icon>edit</mat-icon></button>
-      <button mat-icon-button (click)="deleteColumn(column)"><mat-icon>delete</mat-icon></button>
-      <button mat-icon-button (click)="addCard(column)"><mat-icon>add</mat-icon></button>
+      <button [attr.data-testid]="'edit-column-' + column.id" mat-icon-button (click)="editColumn(column)"><mat-icon>edit</mat-icon></button>
+      <button [attr.data-testid]="'delete-column-' + column.id" mat-icon-button (click)="deleteColumn(column)"><mat-icon>delete</mat-icon></button>
+      <button [attr.data-testid]="'add-card-at-column-' + column.id" mat-icon-button (click)="addCard(column)"><mat-icon>add</mat-icon></button>
     </div>
   </div>
   <div *ngFor="let card of column.Cards">

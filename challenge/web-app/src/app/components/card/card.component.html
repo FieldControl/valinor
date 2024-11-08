@@ -1,10 +1,18 @@
 <div class="card">
   <h4>{{ card.title }}</h4>
   <p>{{ card.description }}</p>
-  <button mat-icon-button (click)="editCard(card)">
+  <button
+    [attr.data-testid]="'edit-card-' + card.id + '-at-column-' + card.columnId"
+    mat-icon-button
+    (click)="editCard(card)"
+  >
     <mat-icon>edit</mat-icon>
   </button>
-  <button mat-icon-button (click)="deleteCard(card)">
+  <button
+    [attr.data-testid]="'delete-card-' + card.id + '-at-column-' + card.columnId"
+    mat-icon-button
+    (click)="deleteCard(card)"
+  >
     <mat-icon>delete</mat-icon>
   </button>
 </div>
