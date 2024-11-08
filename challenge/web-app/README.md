@@ -1,27 +1,46 @@
-# WebApp
+# Kanban Web Application - Valinor Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+This is the frontend for a Kanban application built with Angular. The application allows users to create and manage Kanban columns and cards, where each column can have multiple cards.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Prerequisites
 
-## Code scaffolding
+Before running the app, ensure that you have the [backend server](https://github.com/NaathanFerreira/valinor-challenge/tree/master/challenge/server) running. Instructions for setting up and running the server are provided in the server folder's README file in the same repository.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation
 
-## Build
+1. **Clone the repository:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```git clone https://github.com/NaathanFerreira/valinor-challenge```
 
-## Running unit tests
+2. **Navigate to the web app directory and install dependencies:**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```bash
+   cd ./challenge/web-app
+   npm install
+   ```
 
-## Running end-to-end tests
+3. **Run the Angular development server:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   npm run start
+   ```
 
-## Further help
+  The app will be available at http://localhost:4200. Ensure that the backend server is running to connect with the Kanban API.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Running Unit Tests
+
+To execute the unit tests, run:
+
+```bash
+npm run test
+```
+
+### Running End-to-End Tests
+
+To execute the end-to-end tests, run:
+
+```bash
+npm run test:e2e:ui
+```

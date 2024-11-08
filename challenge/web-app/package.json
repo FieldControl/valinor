@@ -9,7 +9,7 @@
     "test": "ng test",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-     "backend": "cd .. && cd server && npm run start:dev"
+    "backend": "cd .. && cd server && npm run start:dev"
   },
   "private": true,
   "dependencies": {
