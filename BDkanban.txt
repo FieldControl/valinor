@@ -1,0 +1,46 @@
+CREATE DATABASE BDkanban;
+
+USE BDkanban;
+
+CREATE TABLE board(
+idBoard int not null primary key auto_increment,
+nameBoard varchar(100)
+);
+
+CREATE TABLE card (
+    idCard int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nameCard varchar(100),
+    content varchar(255),
+    userCod int,
+    swimlaneCod int,
+    `order` int,
+    FOREIGN KEY (userCod) REFERENCES user(idUser),
+    FOREIGN KEY (swimlaneCod) REFERENCES swimlane(idSwimlane)
+);
+
+CREATE TABLE swimlane (
+    idSwimlane int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nameSwimlane varchar(100),  
+    `order` int,
+    boardCod int,
+    FOREIGN KEY (boardCod) REFERENCES board(idBoard)
+);
+
+CREATE TABLE `user` (
+    idUser int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    fistName varchar(100),
+    lastName varchar(100),
+    emailUser varchar(100),
+    passwordUser varchar(200),
+    emailVerified boolean,
+    cardCod int,
+    FOREIGN KEY (cardCod) REFERENCES card(idCard)
+);
+
+CREATE TABLE userBoards (
+    userCod int,
+    boardCod int,
+    FOREIGN KEY (userCod) REFERENCES `user`(idUser),
+    FOREIGN KEY (boardCod) REFERENCES board(idBoard)
+);
+
