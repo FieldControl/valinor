@@ -1,0 +1,16 @@
+<h1>To-do</h1>
+<div class="card" *ngFor="let card of cards">
+  <div class="card">
+    <h3>{{ card.title }}</h3>
+    <p>{{ card.desc }}</p>
+
+    <!-- Dropdown para selecionar o status com ngModel -->
+    <select [(ngModel)]="card.status" class="button" (ngModelChange)="mudarStatus(card)">
+      <option value="to-do">To-Do</option>
+      <option value="doing">Doing</option>
+      <option value="complete">Complete</option>
+    </select>
+
+    <button *ngIf="card._id" class="button" (click)="remover(card._id)">Excluir</button>
+  </div>
+</div>

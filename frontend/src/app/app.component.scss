@@ -1,0 +1,41 @@
+/* app.component.scss */
+main {
+  display: grid; /* Usando Grid Layout */
+  grid-template-columns: repeat(3, 32%); /* 3 colunas com 31% de largura cada */
+  gap: 2%; /* Espaçamento entre as colunas */
+  justify-items: center; /* Alinha os componentes no centro das colunas */
+  padding: 20px; /* Espaçamento ao redor de toda a grid */
+}
+
+.card-form-container{
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  justify-content: center;
+
+}
+
+app-todo,
+app-doing,
+app-done {
+  width: 100%; /* Cada componente ocupa 100% da largura da célula da grid */
+  background-color: #ffffff; /* Cor de fundo */
+  padding: 10px; /* Adiciona um espaçamento interno maior */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: repeat(2, 48%); /* 2 colunas em telas médias */
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+  }
+
+
+}

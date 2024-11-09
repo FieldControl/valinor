@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+
+<main>
+
+  <app-todo></app-todo>
+  <app-doing></app-doing>
+  <app-done></app-done>
+  <div class="card-form-container">
+    <button (click)="showCardForm = !showCardForm">Adicionar Card</button>
+    <app-card-form *ngIf="showCardForm"></app-card-form>
+  </div>
+</main>

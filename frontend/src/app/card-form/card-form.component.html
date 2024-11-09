@@ -1,0 +1,17 @@
+<form [formGroup]="cardForm" class="form" (ngSubmit)="onSubmit()">
+  <label for="title">Título:</label>
+  <input id="title" formControlName="title" type="text" />
+
+  <label for="desc">Descrição:</label>
+  <textarea id="desc" formControlName="desc"></textarea>
+
+
+  <label for="status">Status:</label>
+  <select id="status" formControlName="status">
+    <option value="to-do">To-do</option>
+    <option value="doing">Doing</option>
+    <option value="complete">Complete</option>
+  </select>
+
+  <button type="submit" [disabled]="cardForm.invalid">Criar Card</button>
+</form>

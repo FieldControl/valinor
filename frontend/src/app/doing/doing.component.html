@@ -1,0 +1,18 @@
+<h1>Doing</h1>
+<div class="collum">
+  <div *ngFor="let card of cards">
+    <div class="card">
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.desc }}</p>
+
+      <!-- Dropdown para selecionar e atualizar o status -->
+      <select class="button"card.status (ngModelChange)="mudarStatus(card)">
+        <option value="to-do">To-Do</option>
+        <option value="doing">Doing</option>
+        <option value="complete">Complete</option>
+      </select>
+
+      <button class="button" *ngIf="card._id" (click)="remover(card._id)">Excluir</button>
+    </div>
+  </div>
+</div>
