@@ -1,0 +1,34 @@
+.card {
+  background-color: #e2e0e0; /* Cor de fundo azul-claro */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+  margin-bottom: 15px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.edit-icon:hover {
+  color: #0056b3; /* Cor para o lápis ao passar o mouse */
+}
+
+.delete-icon:hover {
+  color: #dc3545; /* Cor para a lixeira ao passar o mouse */
+}
+
+input, textarea {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}

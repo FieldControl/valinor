@@ -1,0 +1,11 @@
+<div class="kanban-board">
+  <div class="kanban-column" *ngFor="let column of columns">
+    <app-column [column]="column"></app-column>
+  </div>
+
+  <!-- Botão para adicionar uma nova coluna -->
+  <div class="kanban-add-column">
+    <input [(ngModel)]="newColumnTitle" placeholder="Nova coluna" />
+    <button (click)="addColumn()">Adicionar Coluna</button>
+  </div>
+</div>

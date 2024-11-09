@@ -1,0 +1,24 @@
+<div class="column">
+  <div class="column-header">
+    <h3>
+      <span *ngIf="!isEditingTitle">{{ column.title }}</span>
+      <input *ngIf="isEditingTitle" [(ngModel)]="editableTitle" />
+    </h3>
+    
+    <!-- Ícone de edição (lápis) -->
+    <span (click)="toggleEditTitle()" class="icon edit-icon">✏️</span>
+
+    <!-- Ícone de exclusão (lixeira) -->
+    <span (click)="deleteColumn()" class="icon delete-icon">🗑️</span>
+  </div>
+  
+  <!-- Exibir Cards -->
+  <div class="card" *ngFor="let card of column.cards">
+    <app-card [card]="card"></app-card>
+  </div>
+  
+  <!-- Formulário para Adicionar um Novo Card -->
+  <input [(ngModel)]="newCardTitle" placeholder="Título do Card" />
+  <input [(ngModel)]="newCardDescription" placeholder="Descrição do Card" />
+  <button (click)="addCard()">Adicionar Card</button>
+</div>

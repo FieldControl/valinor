@@ -1,0 +1,19 @@
+.kanban-board {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .kanban-column {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .kanban-add-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  

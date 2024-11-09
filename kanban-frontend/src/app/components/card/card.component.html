@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header">
+    <h4 *ngIf="!isEditing">
+      {{ card.title }}
+    </h4>
+    <input *ngIf="isEditing" [(ngModel)]="editableTitle" placeholder="Editar título" />
+
+    <!-- Ícones de Edição e Exclusão -->
+    <span (click)="toggleEdit()" class="icon edit-icon">✏️</span>
+    <span (click)="deleteCard()" class="icon delete-icon">🗑️</span>
+  </div>
+
+  <p *ngIf="!isEditing">{{ card.description }}</p>
+  <textarea *ngIf="isEditing" [(ngModel)]="editableDescription" placeholder="Editar descrição"></textarea>
+</div>
