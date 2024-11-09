@@ -7,9 +7,13 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
 Angular: Framework para criar a aplicação web dinâmica e gerenciar o front-end.
+
 TypeScript: Linguagem usada para escrever o código de forma tipada e mais segura.
+
 RxJS: Biblioteca para trabalhar com operações assíncronas, como as requisições HTTP.
+
 HttpClient: Usado para fazer requisições HTTP ao backend (API).
+
 CSS: Para estilizar a interface da aplicação.
 
 **Técnologias X e Y**
@@ -60,5 +64,6 @@ Entendo que durante o desafio poderão surgir ajustes e refinamentos, como é na
 Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
 
 ganzellalorenzo@gmail.com
+
 (17) 997019889
 
