@@ -1,0 +1,10 @@
+<div class="card-container">
+  <input type="text" [(ngModel)]="cardTitle" placeholder="Título do card" />
+  <textarea [(ngModel)]="cardDescription" placeholder="Descrição do card"></textarea>
+  <button (click)="createCard()">Criar Card</button>
+
+  <div *ngFor="let card of cards" class="card">
+    <h4>{{ card.title }}</h4>
+    <p>{{ card.description }}</p>
+  </div>
+</div>

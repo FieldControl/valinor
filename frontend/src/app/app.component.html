@@ -1,0 +1,27 @@
+<div class="kanban-board">
+  <div *ngFor="let column of columns" class="kanban-column">
+    <div class="column-header">
+      <h3>{{ column.title }}</h3>
+    </div>
+
+    <div class="card-list">
+      <div *ngFor="let card of column.cards" class="kanban-card">
+        <div class="card-header">
+          <h4>{{ card.title }}</h4>
+        </div>
+        <p class="card-description">{{ card.description }}</p>
+      </div>
+    </div>
+
+    <div class="add-card-form">
+      <input [(ngModel)]="column.newCardTitle" class="input-field" placeholder="Título do card" />
+      <textarea [(ngModel)]="column.newCardDescription" class="input-field" placeholder="Descrição do card"></textarea>
+      <button (click)="addCard(column.id)" class="btn-add-card">Adicionar Card</button>
+    </div>
+  </div>
+
+  <div class="add-column-form">
+    <input [(ngModel)]="newColumnTitle" class="input-field" placeholder="Título da nova coluna" />
+    <button (click)="addColumn()" class="btn-add-column">Adicionar Coluna</button>
+  </div>
+</div>

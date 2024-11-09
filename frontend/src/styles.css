@@ -1,0 +1,110 @@
+.kanban-board {
+  display: flex;
+  gap: 16px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.kanban-column {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  width: 300px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.column-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.kanban-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header h4 {
+  margin: 0;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #555;
+}
+
+.add-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn-add-card {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-add-card:hover {
+  background-color: #45a049;
+}
+
+.add-column-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.input-field-column {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 250px;
+  text-align: center;
+}
+
+.btn-add-column {
+  padding: 12px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 250px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-column:hover {
+  background-color: #1976d2;
+}
+
+.add-column-form input {
+  text-align: center;
+}
+
+.add-column-form .input-field-column::placeholder {
+  text-align: center;
+}

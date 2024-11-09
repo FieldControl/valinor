@@ -1,0 +1,12 @@
+<div class="column-container">
+  <h3>{{ column.title }}</h3>
+
+  <div *ngFor="let card of column.cards" class="card">
+    <h4>{{ card.title }}</h4>
+    <p>{{ card.description }}</p>
+  </div>
+
+  <input [(ngModel)]="newCardTitle" placeholder="Título do card" />
+  <input [(ngModel)]="newCardDescription" placeholder="Descrição do card" />
+  <button (click)="addCard()">Criar Card</button>
+</div>
