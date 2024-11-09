@@ -54,10 +54,11 @@ Me chamo Lorenzo Ganzella, sou de São José do Rio Preto, tenho 19 anos. Meu in
 
 Se quiser enviar alguma informação adicional sobre o desafio..
 
-
+Entendo que durante o desafio poderão surgir ajustes e refinamentos, como é natural em qualquer projeto em evolução. Estou disposto a aprender constantemente e vejo essa experiência como uma excelente oportunidade de crescer profissionalmente. Estou entusiasmado com a chance de colaborar com a equipe para superar obstáculos e aprimorar minhas habilidades na área.
 ---
 
 Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+
 ganzellalorenzo@gmail.com
 (17) 997019889
 
