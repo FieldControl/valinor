@@ -1,0 +1,40 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+/// @deprecated Import `_text-field.scss` instead.
+@forward './text-field' show core-styles, without-ripple, ripple, density,
+  outlined-density, outlined-with-leading-icon-density, filled-textarea-density,
+  outlined-textarea-density, textarea-min-rows, height, outlined-height,
+  outlined-with-leading-icon-height, shape-radius, textarea-shape-radius,
+  ink-color, disabled-ink-color, placeholder-color, disabled-placeholder-color,
+  fill-color, disabled-fill-color, bottom-line-color, disabled-bottom-line-color,
+  hover-bottom-line-color, line-ripple-color, label-color, disabled-label-color,
+  outline-color, hover-outline-color, focused-outline-color,
+  disabled-outline-color, caret-color, prefix-color, disabled-prefix-color,
+  suffix-color, disabled-suffix-color, outline-shape-radius,
+  floating-label-float-transition, input-font-size, input-font-family,
+  floating-label_, filled-no-label, outlined_, disabled_, invalid_, focused_,
+  with-leading-icon_, outlined-with-leading-icon_, textarea_, end-aligned_,
+  ink-color_, placeholder-color_, fill-color_, bottom-line-color_,
+  hover-bottom-line-color_, line-ripple-color_, hover-outline-color_,
+  focused-outline-color_, label-ink-color_, placeholder-selector_, if-enabled_,
+  if-disabled_;

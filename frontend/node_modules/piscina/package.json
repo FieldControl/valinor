@@ -1,0 +1,86 @@
+{
+  "name": "piscina",
+  "version": "4.4.0",
+  "description": "A fast, efficient Node.js Worker Thread Pool implementation",
+  "main": "./dist/src/main.js",
+  "exports": {
+    "types": "./dist/src/index.d.ts",
+    "import": "./dist/esm-wrapper.mjs",
+    "require": "./dist/src/main.js"
+  },
+  "types": "./dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc && gen-esm-wrapper . dist/esm-wrapper.mjs",
+    "lint": "standardx \"**/*.{ts,mjs,js,cjs}\" | snazzy",
+    "test": "tap --ts",
+    "test:ci": "npm run lint && npm run build && npm run test:coverage",
+    "test:coverage": "tap --ts --cov --coverage-report=html --no-browser --no-check-coverage",
+    "prepack": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piscinajs/piscina.git"
+  },
+  "keywords": [
+    "fast",
+    "worker threads",
+    "thread pool",
+    "wade wilson"
+  ],
+  "author": "James M Snell <jasnell@gmail.com>",
+  "contributors": [
+    "Anna Henningsen <anna@addaleax.net>",
+    "Matteo Collina <matteo.collina@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "abort-controller": "^3.0.0",
+    "concat-stream": "^2.0.0",
+    "gen-esm-wrapper": "^1.1.1",
+    "snazzy": "^9.0.0",
+    "standardx": "^7.0.0",
+    "tap": "^16.3.7",
+    "ts-node": "^10.9.2",
+    "typescript": "5.3.3"
+  },
+  "dependencies": {},
+  "optionalDependencies": {
+    "nice-napi": "^1.0.2"
+  },
+  "eslintConfig": {
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-unused-vars": "off",
+      "no-use-before-define": "off",
+      "no-unreachable-loop": "off",
+      "no-dupe-class-members": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    },
+    "globals": {
+      "SharedArrayBuffer": true,
+      "Atomics": true,
+      "AbortController": true,
+      "MessageChannel": true
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/piscinajs/piscina/issues"
+  },
+  "homepage": "https://github.com/piscinajs/piscina#readme",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  }
+}

@@ -1,0 +1,29 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Implementation of `CompileReflector` which resolves references to @angular/core
+ * symbols at runtime, according to a consumer-provided mapping.
+ *
+ * Only supports `resolveExternalReference`, all other methods throw.
+ */
+export class R3JitReflector {
+    constructor(context) {
+        this.context = context;
+    }
+    resolveExternalReference(ref) {
+        // This reflector only handles @angular/core imports.
+        if (ref.moduleName !== '@angular/core') {
+            throw new Error(`Cannot resolve external reference to ${ref.moduleName}, only references to @angular/core are supported.`);
+        }
+        if (!this.context.hasOwnProperty(ref.name)) {
+            throw new Error(`No value provided for @angular/core symbol '${ref.name}'.`);
+        }
+        return this.context[ref.name];
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicjNfaml0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvY29tcGlsZXIvc3JjL3JlbmRlcjMvcjNfaml0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUtIOzs7OztHQUtHO0FBQ0gsTUFBTSxPQUFPLGNBQWM7SUFDekIsWUFBb0IsT0FBaUM7UUFBakMsWUFBTyxHQUFQLE9BQU8sQ0FBMEI7SUFBRyxDQUFDO0lBRXpELHdCQUF3QixDQUFDLEdBQXdCO1FBQy9DLHFEQUFxRDtRQUNyRCxJQUFJLEdBQUcsQ0FBQyxVQUFVLEtBQUssZUFBZSxFQUFFLENBQUM7WUFDdkMsTUFBTSxJQUFJLEtBQUssQ0FBQyx3Q0FDWixHQUFHLENBQUMsVUFBVSxtREFBbUQsQ0FBQyxDQUFDO1FBQ3pFLENBQUM7UUFDRCxJQUFJLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxjQUFjLENBQUMsR0FBRyxDQUFDLElBQUssQ0FBQyxFQUFFLENBQUM7WUFDNUMsTUFBTSxJQUFJLEtBQUssQ0FBQywrQ0FBK0MsR0FBRyxDQUFDLElBQUssSUFBSSxDQUFDLENBQUM7UUFDaEYsQ0FBQztRQUNELE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxHQUFHLENBQUMsSUFBSyxDQUFDLENBQUM7SUFDakMsQ0FBQztDQUNGIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCAqIGFzIG8gZnJvbSAnLi4vb3V0cHV0L291dHB1dF9hc3QnO1xuaW1wb3J0IHtFeHRlcm5hbFJlZmVyZW5jZVJlc29sdmVyfSBmcm9tICcuLi9vdXRwdXQvb3V0cHV0X2ppdCc7XG5cbi8qKlxuICogSW1wbGVtZW50YXRpb24gb2YgYENvbXBpbGVSZWZsZWN0b3JgIHdoaWNoIHJlc29sdmVzIHJlZmVyZW5jZXMgdG8gQGFuZ3VsYXIvY29yZVxuICogc3ltYm9scyBhdCBydW50aW1lLCBhY2NvcmRpbmcgdG8gYSBjb25zdW1lci1wcm92aWRlZCBtYXBwaW5nLlxuICpcbiAqIE9ubHkgc3VwcG9ydHMgYHJlc29sdmVFeHRlcm5hbFJlZmVyZW5jZWAsIGFsbCBvdGhlciBtZXRob2RzIHRocm93LlxuICovXG5leHBvcnQgY2xhc3MgUjNKaXRSZWZsZWN0b3IgaW1wbGVtZW50cyBFeHRlcm5hbFJlZmVyZW5jZVJlc29sdmVyIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSBjb250ZXh0OiB7W2tleTogc3RyaW5nXTogdW5rbm93bn0pIHt9XG5cbiAgcmVzb2x2ZUV4dGVybmFsUmVmZXJlbmNlKHJlZjogby5FeHRlcm5hbFJlZmVyZW5jZSk6IHVua25vd24ge1xuICAgIC8vIFRoaXMgcmVmbGVjdG9yIG9ubHkgaGFuZGxlcyBAYW5ndWxhci9jb3JlIGltcG9ydHMuXG4gICAgaWYgKHJlZi5tb2R1bGVOYW1lICE9PSAnQGFuZ3VsYXIvY29yZScpIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcihgQ2Fubm90IHJlc29sdmUgZXh0ZXJuYWwgcmVmZXJlbmNlIHRvICR7XG4gICAgICAgICAgcmVmLm1vZHVsZU5hbWV9LCBvbmx5IHJlZmVyZW5jZXMgdG8gQGFuZ3VsYXIvY29yZSBhcmUgc3VwcG9ydGVkLmApO1xuICAgIH1cbiAgICBpZiAoIXRoaXMuY29udGV4dC5oYXNPd25Qcm9wZXJ0eShyZWYubmFtZSEpKSB7XG4gICAgICB0aHJvdyBuZXcgRXJyb3IoYE5vIHZhbHVlIHByb3ZpZGVkIGZvciBAYW5ndWxhci9jb3JlIHN5bWJvbCAnJHtyZWYubmFtZSF9Jy5gKTtcbiAgICB9XG4gICAgcmV0dXJuIHRoaXMuY29udGV4dFtyZWYubmFtZSFdO1xuICB9XG59XG4iXX0=

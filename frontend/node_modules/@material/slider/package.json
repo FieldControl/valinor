@@ -1,0 +1,36 @@
+{
+  "name": "@material/slider",
+  "version": "15.0.0-canary.7f224ddd4.0",
+  "description": "The Material Components for the web slider component",
+  "main": "dist/mdc.slider.js",
+  "module": "index.js",
+  "sideEffects": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-slider"
+  },
+  "keywords": [
+    "material components",
+    "material design",
+    "slider"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@material/animation": "15.0.0-canary.7f224ddd4.0",
+    "@material/base": "15.0.0-canary.7f224ddd4.0",
+    "@material/dom": "15.0.0-canary.7f224ddd4.0",
+    "@material/elevation": "15.0.0-canary.7f224ddd4.0",
+    "@material/feature-targeting": "15.0.0-canary.7f224ddd4.0",
+    "@material/ripple": "15.0.0-canary.7f224ddd4.0",
+    "@material/rtl": "15.0.0-canary.7f224ddd4.0",
+    "@material/theme": "15.0.0-canary.7f224ddd4.0",
+    "@material/tokens": "15.0.0-canary.7f224ddd4.0",
+    "@material/typography": "15.0.0-canary.7f224ddd4.0",
+    "tslib": "^2.1.0"
+  },
+  "gitHead": "ff8ff3ce455054f1532d1ae0983f40634a524886"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@material/select",
+  "description": "The Material Components web select (text field drop-down) component",
+  "version": "15.0.0-canary.7f224ddd4.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "select",
+    "multi select"
+  ],
+  "main": "dist/mdc.select.js",
+  "module": "index.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-select"
+  },
+  "dependencies": {
+    "@material/animation": "15.0.0-canary.7f224ddd4.0",
+    "@material/base": "15.0.0-canary.7f224ddd4.0",
+    "@material/density": "15.0.0-canary.7f224ddd4.0",
+    "@material/dom": "15.0.0-canary.7f224ddd4.0",
+    "@material/elevation": "15.0.0-canary.7f224ddd4.0",
+    "@material/feature-targeting": "15.0.0-canary.7f224ddd4.0",
+    "@material/floating-label": "15.0.0-canary.7f224ddd4.0",
+    "@material/line-ripple": "15.0.0-canary.7f224ddd4.0",
+    "@material/list": "15.0.0-canary.7f224ddd4.0",
+    "@material/menu": "15.0.0-canary.7f224ddd4.0",
+    "@material/menu-surface": "15.0.0-canary.7f224ddd4.0",
+    "@material/notched-outline": "15.0.0-canary.7f224ddd4.0",
+    "@material/ripple": "15.0.0-canary.7f224ddd4.0",
+    "@material/rtl": "15.0.0-canary.7f224ddd4.0",
+    "@material/shape": "15.0.0-canary.7f224ddd4.0",
+    "@material/theme": "15.0.0-canary.7f224ddd4.0",
+    "@material/tokens": "15.0.0-canary.7f224ddd4.0",
+    "@material/typography": "15.0.0-canary.7f224ddd4.0",
+    "tslib": "^2.1.0"
+  },
+  "gitHead": "ff8ff3ce455054f1532d1ae0983f40634a524886"
+}

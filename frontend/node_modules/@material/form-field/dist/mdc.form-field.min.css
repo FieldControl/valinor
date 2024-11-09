@@ -1,0 +1,10 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://github.com/material-components/material-components-web/blob/master/LICENSE
+ */
+.mdc-form-field{display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field[hidden]{display:none}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}.mdc-form-field{font-family:Roboto, sans-serif;font-family:var(--mdc-form-field-label-text-font, Roboto, sans-serif);line-height:1.25rem;line-height:var(--mdc-form-field-label-text-line-height, 1.25rem);font-size:0.875rem;font-size:var(--mdc-form-field-label-text-size, 0.875rem);font-weight:400;font-weight:var(--mdc-form-field-label-text-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-form-field-label-text-tracking, 0.0178571429em);color:rgba(0, 0, 0, 0.87);color:var(--mdc-form-field-label-text-color, var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87)))}
+
+/*# sourceMappingURL=mdc.form-field.min.css.map*/

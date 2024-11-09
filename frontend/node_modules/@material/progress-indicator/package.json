@@ -1,0 +1,19 @@
+{
+  "name": "@material/progress-indicator",
+  "description": "The Material Components for the web interface for Progress Indicators",
+  "version": "15.0.0-canary.7f224ddd4.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-progress-indicator"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "ff8ff3ce455054f1532d1ae0983f40634a524886"
+}

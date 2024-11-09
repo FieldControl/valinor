@@ -1,0 +1,33 @@
+{
+  "name": "@material/button",
+  "description": "The Material Components for the web button component",
+  "version": "15.0.0-canary.7f224ddd4.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "button"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-button"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@material/density": "15.0.0-canary.7f224ddd4.0",
+    "@material/dom": "15.0.0-canary.7f224ddd4.0",
+    "@material/elevation": "15.0.0-canary.7f224ddd4.0",
+    "@material/feature-targeting": "15.0.0-canary.7f224ddd4.0",
+    "@material/focus-ring": "15.0.0-canary.7f224ddd4.0",
+    "@material/ripple": "15.0.0-canary.7f224ddd4.0",
+    "@material/rtl": "15.0.0-canary.7f224ddd4.0",
+    "@material/shape": "15.0.0-canary.7f224ddd4.0",
+    "@material/theme": "15.0.0-canary.7f224ddd4.0",
+    "@material/tokens": "15.0.0-canary.7f224ddd4.0",
+    "@material/touch-target": "15.0.0-canary.7f224ddd4.0",
+    "@material/typography": "15.0.0-canary.7f224ddd4.0",
+    "tslib": "^2.1.0"
+  },
+  "gitHead": "ff8ff3ce455054f1532d1ae0983f40634a524886"
+}

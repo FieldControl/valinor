@@ -1,0 +1,26 @@
+{
+  "name": "@material/elevation",
+  "description": "Material Components for the web mixins + CSS Classes for Material Design elevation",
+  "version": "15.0.0-canary.7f224ddd4.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "elevation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-elevation"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@material/animation": "15.0.0-canary.7f224ddd4.0",
+    "@material/base": "15.0.0-canary.7f224ddd4.0",
+    "@material/feature-targeting": "15.0.0-canary.7f224ddd4.0",
+    "@material/rtl": "15.0.0-canary.7f224ddd4.0",
+    "@material/theme": "15.0.0-canary.7f224ddd4.0",
+    "tslib": "^2.1.0"
+  },
+  "gitHead": "ff8ff3ce455054f1532d1ae0983f40634a524886"
+}

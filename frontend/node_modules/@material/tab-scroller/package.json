@@ -1,0 +1,32 @@
+{
+  "name": "@material/tab-scroller",
+  "description": "The Material Components for the web tab scroller component",
+  "version": "15.0.0-canary.7f224ddd4.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "tab",
+    "scroller"
+  ],
+  "main": "dist/mdc.tabScroller.js",
+  "module": "index.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-tab-scroller"
+  },
+  "dependencies": {
+    "@material/animation": "15.0.0-canary.7f224ddd4.0",
+    "@material/base": "15.0.0-canary.7f224ddd4.0",
+    "@material/dom": "15.0.0-canary.7f224ddd4.0",
+    "@material/feature-targeting": "15.0.0-canary.7f224ddd4.0",
+    "@material/tab": "15.0.0-canary.7f224ddd4.0",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "ff8ff3ce455054f1532d1ae0983f40634a524886"
+}

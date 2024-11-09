@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "SchematicsAngularAppShell",
+  "title": "Angular AppShell Options Schema",
+  "type": "object",
+  "description": "Generates an application shell for running a server-side version of an app.",
+  "additionalProperties": false,
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the related client app.",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+  },
+  "required": ["project"]
+}
