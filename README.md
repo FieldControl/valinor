@@ -1,69 +1,71 @@
-## Envio de solução
+# Kanban Project
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
+Este é um projeto de **Kanban Board** desenvolvido com o objetivo de ajudar na organização e gerenciamento de tarefas de forma simples e eficiente. O projeto é dividido em duas partes principais:
 
-**Framework, linguagem e ferramentas**
+1. **Frontend**: Desenvolvido com **Angular**, onde o usuário pode interagir com as colunas e cards.
+2. **Backend**: Desenvolvido com **NestJS** e utiliza **SQLite** como banco de dados para armazenar as informações das colunas e cards.
 
-Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
+## Funcionalidades
 
-Angular: Framework para criar a aplicação web dinâmica e gerenciar o front-end.
+- **Adicionar Colunas**: O usuário pode criar novas colunas para organizar os cards.
+- **Adicionar Cards**: Dentro de cada coluna, é possível adicionar novos cards, cada um com título e descrição.
+- **Exibição de Colunas e Cards**: As colunas e seus respectivos cards são exibidos na interface.
 
-TypeScript: Linguagem usada para escrever o código de forma tipada e mais segura.
+## Tecnologias Utilizadas
 
-RxJS: Biblioteca para trabalhar com operações assíncronas, como as requisições HTTP.
+### Backend:
+- **NestJS**: Framework para a criação de APIs RESTful.
+- **SQLite**: Banco de dados leve e fácil de manusear para armazenar dados das colunas e cards.
+  
+### Frontend:
+- **Angular**: Framework para a criação de SPAs (Single Page Applications), utilizado para construir a interface de usuário.
+- **ngModel**: Para a vinculação de dados nos formulários.
 
-HttpClient: Usado para fazer requisições HTTP ao backend (API).
+## Como Rodar o Projeto
 
-CSS: Para estilizar a interface da aplicação.
+1. Backend
+Navegue até o diretório do backend:
+bash
+cd backend
+Instale as dependências:
+bash
+npm install
+Rode o servidor do backend:
+bash
+npm run start
+O servidor backend estará rodando em http://localhost:3000.
 
-**Técnologias X e Y**
+2. Frontend
+Navegue até o diretório do frontend:
+bash
+cd frontend
+Instale as dependências:
+bash
+npm install
+Rode o servidor do frontend:
+bash
+npm run start
+A aplicação frontend estará rodando em http://localhost:4200.
 
-Justifique porque você optou pela tecnologia X e não a Y?
+Estrutura do Projeto
+Backend (NestJS)
+src/app.controller.ts: Controlador principal da API.
+src/app.service.ts: Serviço responsável pela lógica de negócio.
+src/cards/cards.controller.ts: Controlador responsável pelas operações de cards.
+src/cards/cards.service.ts: Serviço responsável pela manipulação dos cards.
+src/columns/columns.controller.ts: Controlador responsável pelas operações de colunas.
+src/columns/columns.service.ts: Serviço responsável pela manipulação das colunas.
+Frontend (Angular)
+src/app/app.component.ts: Componente principal do frontend.
+src/app/app.component.html: HTML com a estrutura das colunas e cards.
+src/app/app.component.css: Estilo básico para a aplicação.
 
-SQLite foi escolhido pelo seu banco de dados leve e fácil de configurar. Como o projeto não exige um banco de dados altamente escalável, SQLite atende bem com sua simplicidade, portabilidade e compatibilidade.
-O NestJS foi escolhido devido à sua estrutura modular, que facilita a organização e o desenvolvimento de aplicações escaláveis. Ele também é ideal para a criação de APIs RESTful
 
-**Princípios de software**
+Melhorias Futuras
+Autenticação: Implementar uma tela de login com autenticação.
+Responsividade: Tornar a interface mais responsiva para dispositivos móveis.
+Edição de Cards/Colunas: Permitir a edição de cards e colunas já criados.
+Exclusão de Cards/Colunas: Adicionar funcionalidade para excluir cards e colunas diretamente.
+Contribuindo
 
-Quais princípios da engenharia de software que você usou?
-
-No projeto, adotei os princípios de Separação de Responsabilidades (SRP) e Modularidade para garantir organização e facilidade de manutenção. Cada componente foi projetado para ter uma única responsabilidade, facilitando alterações futuras. 
-
-**Desafios e problemas**
-
-Conte um pouco sobre os desafios e problemas que você enfrentou e como você resolveu.
-
-Durante o desenvolvimento do app, tive problemas com o uso do banco de dados, onde estava utilizando o Firebase, que é um banco que já utilizei várias vezes. Porém, pela falta de tempo, migrei para o SQLite, que é um banco mais simples e de fácil uso. No entanto, o maior desafio para mim foi lidar com o tempo para concluir o projeto, já que estava fazendo um estágio e conciliando com uma semana de provas
-
-**Melhorias e próximas implementações**
-
-O que você entende que pode ser melhorado e como isso pode ser feito?
-
-Acredito que no meu projeto, faltou uma maior integração com a gestão do banco de dados, como a funcionalidade de excluir ou editar cards e colunas. Também poderia ter investido mais na responsividade da aplicação para melhorar a experiência do usuário em diferentes dispositivos. Além disso, uma tela de login com autenticação seria uma boa adição para garantir mais segurança e controle no acesso à aplicação.
-
-**Vídeo de apresentação**
-
-Grave um vídeo do seu projeto rodando e envie o link:
-https://www.youtube.com/watch?v=qKiaMcunGWI
-
-**Sobre você**
-
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
-
-Me chamo Lorenzo Ganzella, sou de São José do Rio Preto, tenho 19 anos. Meu interesse na área de desenvolvimento começou aos 16 anos, quando, mexendo no YouTube, comecei a ver vídeos relacionados à programação, e foi assim que decidi participar de um curso de iniciação na programação. Depois disso, nunca mais parei. Atualmente, estudo na Fatec Rio Preto e faço  estágio prestando suporte a banco de dados SQL e coleta de logs, análises para envio aos desenvolvedores. Porém, tenho interesse nas áreas de QA e desenvolvimento. Por esse motivo, me interessei pela vaga oferecida pela Field.
-
-**Outros detalhes**
-
-Se quiser enviar alguma informação adicional sobre o desafio..
-
-Entendo que durante o desafio poderão surgir ajustes e refinamentos, como é natural em qualquer projeto em evolução. Estou disposto a aprender constantemente e vejo essa experiência como uma excelente oportunidade de crescer profissionalmente. Estou entusiasmado com a chance de colaborar com a equipe para superar obstáculos e aprimorar minhas habilidades na área.
----
-
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
-
-ganzellalorenzo@gmail.com
-
-(17) 997019889
-
+Este projeto está licenciado sob a MIT License.
