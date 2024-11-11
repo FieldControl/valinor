@@ -1,0 +1,123 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.kanban-container {
+  padding: 20px;
+  min-height: calc(100vh - 64px);
+}
+
+.board {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  min-height: calc(100vh - 180px);
+}
+
+@media (max-width: 768px) {
+  .board {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .column {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  .kanban-container {
+    padding: 10px;
+  }
+}
+
+.column {
+  background: #ebecf0;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 12px;
+  height: fit-content;
+}
+
+.column-header {
+  margin-bottom: 12px;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.task-list {
+  min-height: 100px;
+}
+
+.task-card {
+  background: white;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  word-break: break-word;
+}
+
+.task-card:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.task-list.cdk-drop-list-dragging .task-card:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Responsive styles for login/register */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    margin: 10px;
+  }
+  
+  .mat-toolbar {
+    padding: 0 10px;
+  }
+  
+  .mat-toolbar span {
+    font-size: 16px;
+  }
+}
