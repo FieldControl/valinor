@@ -1,0 +1,41 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * Set of tagName|propertyName corresponding to Trusted Types sinks. Properties applying to all
+ * tags use '*'.
+ *
+ * Extracted from, and should be kept in sync with
+ * https://w3c.github.io/webappsec-trusted-types/dist/spec/#integrations
+ */
+const TRUSTED_TYPES_SINKS = new Set([
+    // NOTE: All strings in this set *must* be lowercase!
+    // TrustedHTML
+    'iframe|srcdoc',
+    '*|innerhtml',
+    '*|outerhtml',
+    // NB: no TrustedScript here, as the corresponding tags are stripped by the compiler.
+    // TrustedScriptURL
+    'embed|src',
+    'object|codebase',
+    'object|data',
+]);
+/**
+ * isTrustedTypesSink returns true if the given property on the given DOM tag is a Trusted Types
+ * sink. In that case, use `ElementSchemaRegistry.securityContext` to determine which particular
+ * Trusted Type is required for values passed to the sink:
+ * - SecurityContext.HTML corresponds to TrustedHTML
+ * - SecurityContext.RESOURCE_URL corresponds to TrustedScriptURL
+ */
+export function isTrustedTypesSink(tagName, propName) {
+    // Make sure comparisons are case insensitive, so that case differences between attribute and
+    // property names do not have a security impact.
+    tagName = tagName.toLowerCase();
+    propName = propName.toLowerCase();
+    return (TRUSTED_TYPES_SINKS.has(tagName + '|' + propName) || TRUSTED_TYPES_SINKS.has('*|' + propName));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHJ1c3RlZF90eXBlc19zaW5rcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvbXBpbGVyL3NyYy9zY2hlbWEvdHJ1c3RlZF90eXBlc19zaW5rcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSDs7Ozs7O0dBTUc7QUFDSCxNQUFNLG1CQUFtQixHQUFHLElBQUksR0FBRyxDQUFTO0lBQzFDLHFEQUFxRDtJQUVyRCxjQUFjO0lBQ2QsZUFBZTtJQUNmLGFBQWE7SUFDYixhQUFhO0lBRWIscUZBQXFGO0lBRXJGLG1CQUFtQjtJQUNuQixXQUFXO0lBQ1gsaUJBQWlCO0lBQ2pCLGFBQWE7Q0FDZCxDQUFDLENBQUM7QUFFSDs7Ozs7O0dBTUc7QUFDSCxNQUFNLFVBQVUsa0JBQWtCLENBQUMsT0FBZSxFQUFFLFFBQWdCO0lBQ2xFLDZGQUE2RjtJQUM3RixnREFBZ0Q7SUFDaEQsT0FBTyxHQUFHLE9BQU8sQ0FBQyxXQUFXLEVBQUUsQ0FBQztJQUNoQyxRQUFRLEdBQUcsUUFBUSxDQUFDLFdBQVcsRUFBRSxDQUFDO0lBRWxDLE9BQU8sQ0FDTCxtQkFBbUIsQ0FBQyxHQUFHLENBQUMsT0FBTyxHQUFHLEdBQUcsR0FBRyxRQUFRLENBQUMsSUFBSSxtQkFBbUIsQ0FBQyxHQUFHLENBQUMsSUFBSSxHQUFHLFFBQVEsQ0FBQyxDQUM5RixDQUFDO0FBQ0osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuLyoqXG4gKiBTZXQgb2YgdGFnTmFtZXxwcm9wZXJ0eU5hbWUgY29ycmVzcG9uZGluZyB0byBUcnVzdGVkIFR5cGVzIHNpbmtzLiBQcm9wZXJ0aWVzIGFwcGx5aW5nIHRvIGFsbFxuICogdGFncyB1c2UgJyonLlxuICpcbiAqIEV4dHJhY3RlZCBmcm9tLCBhbmQgc2hvdWxkIGJlIGtlcHQgaW4gc3luYyB3aXRoXG4gKiBodHRwczovL3czYy5naXRodWIuaW8vd2ViYXBwc2VjLXRydXN0ZWQtdHlwZXMvZGlzdC9zcGVjLyNpbnRlZ3JhdGlvbnNcbiAqL1xuY29uc3QgVFJVU1RFRF9UWVBFU19TSU5LUyA9IG5ldyBTZXQ8c3RyaW5nPihbXG4gIC8vIE5PVEU6IEFsbCBzdHJpbmdzIGluIHRoaXMgc2V0ICptdXN0KiBiZSBsb3dlcmNhc2UhXG5cbiAgLy8gVHJ1c3RlZEhUTUxcbiAgJ2lmcmFtZXxzcmNkb2MnLFxuICAnKnxpbm5lcmh0bWwnLFxuICAnKnxvdXRlcmh0bWwnLFxuXG4gIC8vIE5COiBubyBUcnVzdGVkU2NyaXB0IGhlcmUsIGFzIHRoZSBjb3JyZXNwb25kaW5nIHRhZ3MgYXJlIHN0cmlwcGVkIGJ5IHRoZSBjb21waWxlci5cblxuICAvLyBUcnVzdGVkU2NyaXB0VVJMXG4gICdlbWJlZHxzcmMnLFxuICAnb2JqZWN0fGNvZGViYXNlJyxcbiAgJ29iamVjdHxkYXRhJyxcbl0pO1xuXG4vKipcbiAqIGlzVHJ1c3RlZFR5cGVzU2luayByZXR1cm5zIHRydWUgaWYgdGhlIGdpdmVuIHByb3BlcnR5IG9uIHRoZSBnaXZlbiBET00gdGFnIGlzIGEgVHJ1c3RlZCBUeXBlc1xuICogc2luay4gSW4gdGhhdCBjYXNlLCB1c2UgYEVsZW1lbnRTY2hlbWFSZWdpc3RyeS5zZWN1cml0eUNvbnRleHRgIHRvIGRldGVybWluZSB3aGljaCBwYXJ0aWN1bGFyXG4gKiBUcnVzdGVkIFR5cGUgaXMgcmVxdWlyZWQgZm9yIHZhbHVlcyBwYXNzZWQgdG8gdGhlIHNpbms6XG4gKiAtIFNlY3VyaXR5Q29udGV4dC5IVE1MIGNvcnJlc3BvbmRzIHRvIFRydXN0ZWRIVE1MXG4gKiAtIFNlY3VyaXR5Q29udGV4dC5SRVNPVVJDRV9VUkwgY29ycmVzcG9uZHMgdG8gVHJ1c3RlZFNjcmlwdFVSTFxuICovXG5leHBvcnQgZnVuY3Rpb24gaXNUcnVzdGVkVHlwZXNTaW5rKHRhZ05hbWU6IHN0cmluZywgcHJvcE5hbWU6IHN0cmluZyk6IGJvb2xlYW4ge1xuICAvLyBNYWtlIHN1cmUgY29tcGFyaXNvbnMgYXJlIGNhc2UgaW5zZW5zaXRpdmUsIHNvIHRoYXQgY2FzZSBkaWZmZXJlbmNlcyBiZXR3ZWVuIGF0dHJpYnV0ZSBhbmRcbiAgLy8gcHJvcGVydHkgbmFtZXMgZG8gbm90IGhhdmUgYSBzZWN1cml0eSBpbXBhY3QuXG4gIHRhZ05hbWUgPSB0YWdOYW1lLnRvTG93ZXJDYXNlKCk7XG4gIHByb3BOYW1lID0gcHJvcE5hbWUudG9Mb3dlckNhc2UoKTtcblxuICByZXR1cm4gKFxuICAgIFRSVVNURURfVFlQRVNfU0lOS1MuaGFzKHRhZ05hbWUgKyAnfCcgKyBwcm9wTmFtZSkgfHwgVFJVU1RFRF9UWVBFU19TSU5LUy5oYXMoJyp8JyArIHByb3BOYW1lKVxuICApO1xufVxuIl19

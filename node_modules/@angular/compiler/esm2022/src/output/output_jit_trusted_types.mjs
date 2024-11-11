@@ -1,0 +1,100 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * @fileoverview
+ * A module to facilitate use of a Trusted Types policy within the JIT
+ * compiler. It lazily constructs the Trusted Types policy, providing helper
+ * utilities for promoting strings to Trusted Types. When Trusted Types are not
+ * available, strings are used as a fallback.
+ * @security All use of this module is security-sensitive and should go through
+ * security review.
+ */
+import { global } from '../util';
+/**
+ * The Trusted Types policy, or null if Trusted Types are not
+ * enabled/supported, or undefined if the policy has not been created yet.
+ */
+let policy;
+/**
+ * Returns the Trusted Types policy, or null if Trusted Types are not
+ * enabled/supported. The first call to this function will create the policy.
+ */
+function getPolicy() {
+    if (policy === undefined) {
+        const trustedTypes = global['trustedTypes'];
+        policy = null;
+        if (trustedTypes) {
+            try {
+                policy = trustedTypes.createPolicy('angular#unsafe-jit', {
+                    createScript: (s) => s,
+                });
+            }
+            catch {
+                // trustedTypes.createPolicy throws if called with a name that is
+                // already registered, even in report-only mode. Until the API changes,
+                // catch the error not to break the applications functionally. In such
+                // cases, the code will fall back to using strings.
+            }
+        }
+    }
+    return policy;
+}
+/**
+ * Unsafely promote a string to a TrustedScript, falling back to strings when
+ * Trusted Types are not available.
+ * @security In particular, it must be assured that the provided string will
+ * never cause an XSS vulnerability if used in a context that will be
+ * interpreted and executed as a script by a browser, e.g. when calling eval.
+ */
+function trustedScriptFromString(script) {
+    return getPolicy()?.createScript(script) || script;
+}
+/**
+ * Unsafely call the Function constructor with the given string arguments.
+ * @security This is a security-sensitive function; any use of this function
+ * must go through security review. In particular, it must be assured that it
+ * is only called from the JIT compiler, as use in other code can lead to XSS
+ * vulnerabilities.
+ */
+export function newTrustedFunctionForJIT(...args) {
+    if (!global['trustedTypes']) {
+        // In environments that don't support Trusted Types, fall back to the most
+        // straightforward implementation:
+        return new Function(...args);
+    }
+    // Chrome currently does not support passing TrustedScript to the Function
+    // constructor. The following implements the workaround proposed on the page
+    // below, where the Chromium bug is also referenced:
+    // https://github.com/w3c/webappsec-trusted-types/wiki/Trusted-Types-for-function-constructor
+    const fnArgs = args.slice(0, -1).join(',');
+    const fnBody = args[args.length - 1];
+    const body = `(function anonymous(${fnArgs}
+) { ${fnBody}
+})`;
+    // Using eval directly confuses the compiler and prevents this module from
+    // being stripped out of JS binaries even if not used. The global['eval']
+    // indirection fixes that.
+    const fn = global['eval'](trustedScriptFromString(body));
+    if (fn.bind === undefined) {
+        // Workaround for a browser bug that only exists in Chrome 83, where passing
+        // a TrustedScript to eval just returns the TrustedScript back without
+        // evaluating it. In that case, fall back to the most straightforward
+        // implementation:
+        return new Function(...args);
+    }
+    // To completely mimic the behavior of calling "new Function", two more
+    // things need to happen:
+    // 1. Stringifying the resulting function should return its source code
+    fn.toString = () => body;
+    // 2. When calling the resulting function, `this` should refer to `global`
+    return fn.bind(global);
+    // When Trusted Types support in Function constructors is widely available,
+    // the implementation of this function can be simplified to:
+    // return new Function(...args.map(a => trustedScriptFromString(a)));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoib3V0cHV0X2ppdF90cnVzdGVkX3R5cGVzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvY29tcGlsZXIvc3JjL291dHB1dC9vdXRwdXRfaml0X3RydXN0ZWRfdHlwZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUg7Ozs7Ozs7O0dBUUc7QUFFSCxPQUFPLEVBQUMsTUFBTSxFQUFDLE1BQU0sU0FBUyxDQUFDO0FBcUMvQjs7O0dBR0c7QUFDSCxJQUFJLE1BQTRDLENBQUM7QUFFakQ7OztHQUdHO0FBQ0gsU0FBUyxTQUFTO0lBQ2hCLElBQUksTUFBTSxLQUFLLFNBQVMsRUFBRSxDQUFDO1FBQ3pCLE1BQU0sWUFBWSxHQUFHLE1BQU0sQ0FBQyxjQUFjLENBQXlDLENBQUM7UUFDcEYsTUFBTSxHQUFHLElBQUksQ0FBQztRQUVkLElBQUksWUFBWSxFQUFFLENBQUM7WUFDakIsSUFBSSxDQUFDO2dCQUNILE1BQU0sR0FBRyxZQUFZLENBQUMsWUFBWSxDQUFDLG9CQUFvQixFQUFFO29CQUN2RCxZQUFZLEVBQUUsQ0FBQyxDQUFTLEVBQUUsRUFBRSxDQUFDLENBQUM7aUJBQy9CLENBQUMsQ0FBQztZQUNMLENBQUM7WUFBQyxNQUFNLENBQUM7Z0JBQ1AsaUVBQWlFO2dCQUNqRSx1RUFBdUU7Z0JBQ3ZFLHNFQUFzRTtnQkFDdEUsbURBQW1EO1lBQ3JELENBQUM7UUFDSCxDQUFDO0lBQ0gsQ0FBQztJQUNELE9BQU8sTUFBTSxDQUFDO0FBQ2hCLENBQUM7QUFFRDs7Ozs7O0dBTUc7QUFDSCxTQUFTLHVCQUF1QixDQUFDLE1BQWM7SUFDN0MsT0FBTyxTQUFTLEVBQUUsRUFBRSxZQUFZLENBQUMsTUFBTSxDQUFDLElBQUksTUFBTSxDQUFDO0FBQ3JELENBQUM7QUFFRDs7Ozs7O0dBTUc7QUFDSCxNQUFNLFVBQVUsd0JBQXdCLENBQUMsR0FBRyxJQUFjO0lBQ3hELElBQUksQ0FBQyxNQUFNLENBQUMsY0FBYyxDQUFDLEVBQUUsQ0FBQztRQUM1QiwwRUFBMEU7UUFDMUUsa0NBQWtDO1FBQ2xDLE9BQU8sSUFBSSxRQUFRLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQztJQUMvQixDQUFDO0lBRUQsMEVBQTBFO0lBQzFFLDRFQUE0RTtJQUM1RSxvREFBb0Q7SUFDcEQsNkZBQTZGO0lBQzdGLE1BQU0sTUFBTSxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBQzNDLE1BQU0sTUFBTSxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsTUFBTSxHQUFHLENBQUMsQ0FBQyxDQUFDO0lBQ3JDLE1BQU0sSUFBSSxHQUFHLHVCQUF1QixNQUFNO01BQ3RDLE1BQU07R0FDVCxDQUFDO0lBRUYsMEVBQTBFO0lBQzFFLHlFQUF5RTtJQUN6RSwwQkFBMEI7SUFDMUIsTUFBTSxFQUFFLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFDLHVCQUF1QixDQUFDLElBQUksQ0FBVyxDQUFhLENBQUM7SUFDL0UsSUFBSSxFQUFFLENBQUMsSUFBSSxLQUFLLFNBQVMsRUFBRSxDQUFDO1FBQzFCLDRFQUE0RTtRQUM1RSxzRUFBc0U7UUFDdEUscUVBQXFFO1FBQ3JFLGtCQUFrQjtRQUNsQixPQUFPLElBQUksUUFBUSxDQUFDLEdBQUcsSUFBSSxDQUFDLENBQUM7SUFDL0IsQ0FBQztJQUVELHVFQUF1RTtJQUN2RSx5QkFBeUI7SUFDekIsdUVBQXVFO0lBQ3ZFLEVBQUUsQ0FBQyxRQUFRLEdBQUcsR0FBRyxFQUFFLENBQUMsSUFBSSxDQUFDO0lBQ3pCLDBFQUEwRTtJQUMxRSxPQUFPLEVBQUUsQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLENBQUM7SUFFdkIsMkVBQTJFO0lBQzNFLDREQUE0RDtJQUM1RCxxRUFBcUU7QUFDdkUsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuLyoqXG4gKiBAZmlsZW92ZXJ2aWV3XG4gKiBBIG1vZHVsZSB0byBmYWNpbGl0YXRlIHVzZSBvZiBhIFRydXN0ZWQgVHlwZXMgcG9saWN5IHdpdGhpbiB0aGUgSklUXG4gKiBjb21waWxlci4gSXQgbGF6aWx5IGNvbnN0cnVjdHMgdGhlIFRydXN0ZWQgVHlwZXMgcG9saWN5LCBwcm92aWRpbmcgaGVscGVyXG4gKiB1dGlsaXRpZXMgZm9yIHByb21vdGluZyBzdHJpbmdzIHRvIFRydXN0ZWQgVHlwZXMuIFdoZW4gVHJ1c3RlZCBUeXBlcyBhcmUgbm90XG4gKiBhdmFpbGFibGUsIHN0cmluZ3MgYXJlIHVzZWQgYXMgYSBmYWxsYmFjay5cbiAqIEBzZWN1cml0eSBBbGwgdXNlIG9mIHRoaXMgbW9kdWxlIGlzIHNlY3VyaXR5LXNlbnNpdGl2ZSBhbmQgc2hvdWxkIGdvIHRocm91Z2hcbiAqIHNlY3VyaXR5IHJldmlldy5cbiAqL1xuXG5pbXBvcnQge2dsb2JhbH0gZnJvbSAnLi4vdXRpbCc7XG5cbi8qKlxuICogV2hpbGUgQW5ndWxhciBvbmx5IHVzZXMgVHJ1c3RlZCBUeXBlcyBpbnRlcm5hbGx5IGZvciB0aGUgdGltZSBiZWluZyxcbiAqIHJlZmVyZW5jZXMgdG8gVHJ1c3RlZCBUeXBlcyBjb3VsZCBsZWFrIGludG8gb3VyIGNvcmUuZC50cywgd2hpY2ggd291bGQgZm9yY2VcbiAqIGFueW9uZSBjb21waWxpbmcgYWdhaW5zdCBAYW5ndWxhci9jb3JlIHRvIHByb3ZpZGUgdGhlIEB0eXBlcy90cnVzdGVkLXR5cGVzXG4gKiBwYWNrYWdlIGluIHRoZWlyIGNvbXBpbGF0aW9uIHVuaXQuXG4gKlxuICogVW50aWwgaHR0cHM6Ly9naXRodWIuY29tL21pY3Jvc29mdC9UeXBlU2NyaXB0L2lzc3Vlcy8zMDAyNCBpcyByZXNvbHZlZCwgd2VcbiAqIHdpbGwga2VlcCBBbmd1bGFyJ3MgcHVibGljIEFQSSBzdXJmYWNlIGZyZWUgb2YgcmVmZXJlbmNlcyB0byBUcnVzdGVkIFR5cGVzLlxuICogRm9yIGludGVybmFsIGFuZCBzZW1pLXByaXZhdGUgQVBJcyB0aGF0IG5lZWQgdG8gcmVmZXJlbmNlIFRydXN0ZWQgVHlwZXMsIHRoZVxuICogbWluaW1hbCB0eXBlIGRlZmluaXRpb25zIGZvciB0aGUgVHJ1c3RlZCBUeXBlcyBBUEkgcHJvdmlkZWQgYnkgdGhpcyBtb2R1bGVcbiAqIHNob3VsZCBiZSB1c2VkIGluc3RlYWQuIFRoZXkgYXJlIG1hcmtlZCBhcyBcImRlY2xhcmVcIiB0byBwcmV2ZW50IHRoZW0gZnJvbVxuICogYmVpbmcgcmVuYW1lZCBieSBjb21waWxlciBvcHRpbWl6YXRpb24uXG4gKlxuICogQWRhcHRlZCBmcm9tXG4gKiBodHRwczovL2dpdGh1Yi5jb20vRGVmaW5pdGVseVR5cGVkL0RlZmluaXRlbHlUeXBlZC9ibG9iL21hc3Rlci90eXBlcy90cnVzdGVkLXR5cGVzL2luZGV4LmQudHNcbiAqIGJ1dCByZXN0cmljdGVkIHRvIHRoZSBBUEkgc3VyZmFjZSB1c2VkIHdpdGhpbiBBbmd1bGFyLlxuICovXG5cbmV4cG9ydCBkZWNsYXJlIGludGVyZmFjZSBUcnVzdGVkU2NyaXB0IHtcbiAgX19icmFuZF9fOiAnVHJ1c3RlZFNjcmlwdCc7XG59XG5cbmV4cG9ydCBkZWNsYXJlIGludGVyZmFjZSBUcnVzdGVkVHlwZVBvbGljeUZhY3Rvcnkge1xuICBjcmVhdGVQb2xpY3koXG4gICAgcG9saWN5TmFtZTogc3RyaW5nLFxuICAgIHBvbGljeU9wdGlvbnM6IHtcbiAgICAgIGNyZWF0ZVNjcmlwdD86IChpbnB1dDogc3RyaW5nKSA9PiBzdHJpbmc7XG4gICAgfSxcbiAgKTogVHJ1c3RlZFR5cGVQb2xpY3k7XG59XG5cbmV4cG9ydCBkZWNsYXJlIGludGVyZmFjZSBUcnVzdGVkVHlwZVBvbGljeSB7XG4gIGNyZWF0ZVNjcmlwdChpbnB1dDogc3RyaW5nKTogVHJ1c3RlZFNjcmlwdDtcbn1cblxuLyoqXG4gKiBUaGUgVHJ1c3RlZCBUeXBlcyBwb2xpY3ksIG9yIG51bGwgaWYgVHJ1c3RlZCBUeXBlcyBhcmUgbm90XG4gKiBlbmFibGVkL3N1cHBvcnRlZCwgb3IgdW5kZWZpbmVkIGlmIHRoZSBwb2xpY3kgaGFzIG5vdCBiZWVuIGNyZWF0ZWQgeWV0LlxuICovXG5sZXQgcG9saWN5OiBUcnVzdGVkVHlwZVBvbGljeSB8IG51bGwgfCB1bmRlZmluZWQ7XG5cbi8qKlxuICogUmV0dXJucyB0aGUgVHJ1c3RlZCBUeXBlcyBwb2xpY3ksIG9yIG51bGwgaWYgVHJ1c3RlZCBUeXBlcyBhcmUgbm90XG4gKiBlbmFibGVkL3N1cHBvcnRlZC4gVGhlIGZpcnN0IGNhbGwgdG8gdGhpcyBmdW5jdGlvbiB3aWxsIGNyZWF0ZSB0aGUgcG9saWN5LlxuICovXG5mdW5jdGlvbiBnZXRQb2xpY3koKTogVHJ1c3RlZFR5cGVQb2xpY3kgfCBudWxsIHtcbiAgaWYgKHBvbGljeSA9PT0gdW5kZWZpbmVkKSB7XG4gICAgY29uc3QgdHJ1c3RlZFR5cGVzID0gZ2xvYmFsWyd0cnVzdGVkVHlwZXMnXSBhcyBUcnVzdGVkVHlwZVBvbGljeUZhY3RvcnkgfCB1bmRlZmluZWQ7XG4gICAgcG9saWN5ID0gbnVsbDtcblxuICAgIGlmICh0cnVzdGVkVHlwZXMpIHtcbiAgICAgIHRyeSB7XG4gICAgICAgIHBvbGljeSA9IHRydXN0ZWRUeXBlcy5jcmVhdGVQb2xpY3koJ2FuZ3VsYXIjdW5zYWZlLWppdCcsIHtcbiAgICAgICAgICBjcmVhdGVTY3JpcHQ6IChzOiBzdHJpbmcpID0+IHMsXG4gICAgICAgIH0pO1xuICAgICAgfSBjYXRjaCB7XG4gICAgICAgIC8vIHRydXN0ZWRUeXBlcy5jcmVhdGVQb2xpY3kgdGhyb3dzIGlmIGNhbGxlZCB3aXRoIGEgbmFtZSB0aGF0IGlzXG4gICAgICAgIC8vIGFscmVhZHkgcmVnaXN0ZXJlZCwgZXZlbiBpbiByZXBvcnQtb25seSBtb2RlLiBVbnRpbCB0aGUgQVBJIGNoYW5nZXMsXG4gICAgICAgIC8vIGNhdGNoIHRoZSBlcnJvciBub3QgdG8gYnJlYWsgdGhlIGFwcGxpY2F0aW9ucyBmdW5jdGlvbmFsbHkuIEluIHN1Y2hcbiAgICAgICAgLy8gY2FzZXMsIHRoZSBjb2RlIHdpbGwgZmFsbCBiYWNrIHRvIHVzaW5nIHN0cmluZ3MuXG4gICAgICB9XG4gICAgfVxuICB9XG4gIHJldHVybiBwb2xpY3k7XG59XG5cbi8qKlxuICogVW5zYWZlbHkgcHJvbW90ZSBhIHN0cmluZyB0byBhIFRydXN0ZWRTY3JpcHQsIGZhbGxpbmcgYmFjayB0byBzdHJpbmdzIHdoZW5cbiAqIFRydXN0ZWQgVHlwZXMgYXJlIG5vdCBhdmFpbGFibGUuXG4gKiBAc2VjdXJpdHkgSW4gcGFydGljdWxhciwgaXQgbXVzdCBiZSBhc3N1cmVkIHRoYXQgdGhlIHByb3ZpZGVkIHN0cmluZyB3aWxsXG4gKiBuZXZlciBjYXVzZSBhbiBYU1MgdnVsbmVyYWJpbGl0eSBpZiB1c2VkIGluIGEgY29udGV4dCB0aGF0IHdpbGwgYmVcbiAqIGludGVycHJldGVkIGFuZCBleGVjdXRlZCBhcyBhIHNjcmlwdCBieSBhIGJyb3dzZXIsIGUuZy4gd2hlbiBjYWxsaW5nIGV2YWwuXG4gKi9cbmZ1bmN0aW9uIHRydXN0ZWRTY3JpcHRGcm9tU3RyaW5nKHNjcmlwdDogc3RyaW5nKTogVHJ1c3RlZFNjcmlwdCB8IHN0cmluZyB7XG4gIHJldHVybiBnZXRQb2xpY3koKT8uY3JlYXRlU2NyaXB0KHNjcmlwdCkgfHwgc2NyaXB0O1xufVxuXG4vKipcbiAqIFVuc2FmZWx5IGNhbGwgdGhlIEZ1bmN0aW9uIGNvbnN0cnVjdG9yIHdpdGggdGhlIGdpdmVuIHN0cmluZyBhcmd1bWVudHMuXG4gKiBAc2VjdXJpdHkgVGhpcyBpcyBhIHNlY3VyaXR5LXNlbnNpdGl2ZSBmdW5jdGlvbjsgYW55IHVzZSBvZiB0aGlzIGZ1bmN0aW9uXG4gKiBtdXN0IGdvIHRocm91Z2ggc2VjdXJpdHkgcmV2aWV3LiBJbiBwYXJ0aWN1bGFyLCBpdCBtdXN0IGJlIGFzc3VyZWQgdGhhdCBpdFxuICogaXMgb25seSBjYWxsZWQgZnJvbSB0aGUgSklUIGNvbXBpbGVyLCBhcyB1c2UgaW4gb3RoZXIgY29kZSBjYW4gbGVhZCB0byBYU1NcbiAqIHZ1bG5lcmFiaWxpdGllcy5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIG5ld1RydXN0ZWRGdW5jdGlvbkZvckpJVCguLi5hcmdzOiBzdHJpbmdbXSk6IEZ1bmN0aW9uIHtcbiAgaWYgKCFnbG9iYWxbJ3RydXN0ZWRUeXBlcyddKSB7XG4gICAgLy8gSW4gZW52aXJvbm1lbnRzIHRoYXQgZG9uJ3Qgc3VwcG9ydCBUcnVzdGVkIFR5cGVzLCBmYWxsIGJhY2sgdG8gdGhlIG1vc3RcbiAgICAvLyBzdHJhaWdodGZvcndhcmQgaW1wbGVtZW50YXRpb246XG4gICAgcmV0dXJuIG5ldyBGdW5jdGlvbiguLi5hcmdzKTtcbiAgfVxuXG4gIC8vIENocm9tZSBjdXJyZW50bHkgZG9lcyBub3Qgc3VwcG9ydCBwYXNzaW5nIFRydXN0ZWRTY3JpcHQgdG8gdGhlIEZ1bmN0aW9uXG4gIC8vIGNvbnN0cnVjdG9yLiBUaGUgZm9sbG93aW5nIGltcGxlbWVudHMgdGhlIHdvcmthcm91bmQgcHJvcG9zZWQgb24gdGhlIHBhZ2VcbiAgLy8gYmVsb3csIHdoZXJlIHRoZSBDaHJvbWl1bSBidWcgaXMgYWxzbyByZWZlcmVuY2VkOlxuICAvLyBodHRwczovL2dpdGh1Yi5jb20vdzNjL3dlYmFwcHNlYy10cnVzdGVkLXR5cGVzL3dpa2kvVHJ1c3RlZC1UeXBlcy1mb3ItZnVuY3Rpb24tY29uc3RydWN0b3JcbiAgY29uc3QgZm5BcmdzID0gYXJncy5zbGljZSgwLCAtMSkuam9pbignLCcpO1xuICBjb25zdCBmbkJvZHkgPSBhcmdzW2FyZ3MubGVuZ3RoIC0gMV07XG4gIGNvbnN0IGJvZHkgPSBgKGZ1bmN0aW9uIGFub255bW91cygke2ZuQXJnc31cbikgeyAke2ZuQm9keX1cbn0pYDtcblxuICAvLyBVc2luZyBldmFsIGRpcmVjdGx5IGNvbmZ1c2VzIHRoZSBjb21waWxlciBhbmQgcHJldmVudHMgdGhpcyBtb2R1bGUgZnJvbVxuICAvLyBiZWluZyBzdHJpcHBlZCBvdXQgb2YgSlMgYmluYXJpZXMgZXZlbiBpZiBub3QgdXNlZC4gVGhlIGdsb2JhbFsnZXZhbCddXG4gIC8vIGluZGlyZWN0aW9uIGZpeGVzIHRoYXQuXG4gIGNvbnN0IGZuID0gZ2xvYmFsWydldmFsJ10odHJ1c3RlZFNjcmlwdEZyb21TdHJpbmcoYm9keSkgYXMgc3RyaW5nKSBhcyBGdW5jdGlvbjtcbiAgaWYgKGZuLmJpbmQgPT09IHVuZGVmaW5lZCkge1xuICAgIC8vIFdvcmthcm91bmQgZm9yIGEgYnJvd3NlciBidWcgdGhhdCBvbmx5IGV4aXN0cyBpbiBDaHJvbWUgODMsIHdoZXJlIHBhc3NpbmdcbiAgICAvLyBhIFRydXN0ZWRTY3JpcHQgdG8gZXZhbCBqdXN0IHJldHVybnMgdGhlIFRydXN0ZWRTY3JpcHQgYmFjayB3aXRob3V0XG4gICAgLy8gZXZhbHVhdGluZyBpdC4gSW4gdGhhdCBjYXNlLCBmYWxsIGJhY2sgdG8gdGhlIG1vc3Qgc3RyYWlnaHRmb3J3YXJkXG4gICAgLy8gaW1wbGVtZW50YXRpb246XG4gICAgcmV0dXJuIG5ldyBGdW5jdGlvbiguLi5hcmdzKTtcbiAgfVxuXG4gIC8vIFRvIGNvbXBsZXRlbHkgbWltaWMgdGhlIGJlaGF2aW9yIG9mIGNhbGxpbmcgXCJuZXcgRnVuY3Rpb25cIiwgdHdvIG1vcmVcbiAgLy8gdGhpbmdzIG5lZWQgdG8gaGFwcGVuOlxuICAvLyAxLiBTdHJpbmdpZnlpbmcgdGhlIHJlc3VsdGluZyBmdW5jdGlvbiBzaG91bGQgcmV0dXJuIGl0cyBzb3VyY2UgY29kZVxuICBmbi50b1N0cmluZyA9ICgpID0+IGJvZHk7XG4gIC8vIDIuIFdoZW4gY2FsbGluZyB0aGUgcmVzdWx0aW5nIGZ1bmN0aW9uLCBgdGhpc2Agc2hvdWxkIHJlZmVyIHRvIGBnbG9iYWxgXG4gIHJldHVybiBmbi5iaW5kKGdsb2JhbCk7XG5cbiAgLy8gV2hlbiBUcnVzdGVkIFR5cGVzIHN1cHBvcnQgaW4gRnVuY3Rpb24gY29uc3RydWN0b3JzIGlzIHdpZGVseSBhdmFpbGFibGUsXG4gIC8vIHRoZSBpbXBsZW1lbnRhdGlvbiBvZiB0aGlzIGZ1bmN0aW9uIGNhbiBiZSBzaW1wbGlmaWVkIHRvOlxuICAvLyByZXR1cm4gbmV3IEZ1bmN0aW9uKC4uLmFyZ3MubWFwKGEgPT4gdHJ1c3RlZFNjcmlwdEZyb21TdHJpbmcoYSkpKTtcbn1cbiJdfQ==

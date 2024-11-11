@@ -1,0 +1,17 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * An interface for retrieving documents by URL that the compiler uses to
+ * load templates.
+ *
+ * This is an abstract class, rather than an interface, so that it can be used
+ * as injection token.
+ */
+export class ResourceLoader {
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVzb3VyY2VfbG9hZGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvY29tcGlsZXIvc3JjL3Jlc291cmNlX2xvYWRlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSDs7Ozs7O0dBTUc7QUFDSCxNQUFNLE9BQWdCLGNBQWM7Q0FFbkMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbi8qKlxuICogQW4gaW50ZXJmYWNlIGZvciByZXRyaWV2aW5nIGRvY3VtZW50cyBieSBVUkwgdGhhdCB0aGUgY29tcGlsZXIgdXNlcyB0b1xuICogbG9hZCB0ZW1wbGF0ZXMuXG4gKlxuICogVGhpcyBpcyBhbiBhYnN0cmFjdCBjbGFzcywgcmF0aGVyIHRoYW4gYW4gaW50ZXJmYWNlLCBzbyB0aGF0IGl0IGNhbiBiZSB1c2VkXG4gKiBhcyBpbmplY3Rpb24gdG9rZW4uXG4gKi9cbmV4cG9ydCBhYnN0cmFjdCBjbGFzcyBSZXNvdXJjZUxvYWRlciB7XG4gIGFic3RyYWN0IGdldCh1cmw6IHN0cmluZyk6IFByb21pc2U8c3RyaW5nPiB8IHN0cmluZztcbn1cbiJdfQ==

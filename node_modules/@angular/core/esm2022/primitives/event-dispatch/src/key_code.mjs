@@ -1,0 +1,19 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * If on a Macintosh with an extended keyboard, the Enter key located in the
+ * numeric pad has a different ASCII code.
+ */
+export const MAC_ENTER = 3;
+/** The Enter key. */
+export const ENTER = 13;
+/** The Space key. */
+export const SPACE = 32;
+/** Special keycodes used by jsaction for the generic click action. */
+export const KeyCode = { MAC_ENTER, ENTER, SPACE };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoia2V5X2NvZGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9jb3JlL3ByaW1pdGl2ZXMvZXZlbnQtZGlzcGF0Y2gvc3JjL2tleV9jb2RlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVIOzs7R0FHRztBQUNILE1BQU0sQ0FBQyxNQUFNLFNBQVMsR0FBRyxDQUFDLENBQUM7QUFFM0IscUJBQXFCO0FBQ3JCLE1BQU0sQ0FBQyxNQUFNLEtBQUssR0FBRyxFQUFFLENBQUM7QUFFeEIscUJBQXFCO0FBQ3JCLE1BQU0sQ0FBQyxNQUFNLEtBQUssR0FBRyxFQUFFLENBQUM7QUFFeEIsc0VBQXNFO0FBQ3RFLE1BQU0sQ0FBQyxNQUFNLE9BQU8sR0FBRyxFQUFDLFNBQVMsRUFBRSxLQUFLLEVBQUUsS0FBSyxFQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbi8qKlxuICogSWYgb24gYSBNYWNpbnRvc2ggd2l0aCBhbiBleHRlbmRlZCBrZXlib2FyZCwgdGhlIEVudGVyIGtleSBsb2NhdGVkIGluIHRoZVxuICogbnVtZXJpYyBwYWQgaGFzIGEgZGlmZmVyZW50IEFTQ0lJIGNvZGUuXG4gKi9cbmV4cG9ydCBjb25zdCBNQUNfRU5URVIgPSAzO1xuXG4vKiogVGhlIEVudGVyIGtleS4gKi9cbmV4cG9ydCBjb25zdCBFTlRFUiA9IDEzO1xuXG4vKiogVGhlIFNwYWNlIGtleS4gKi9cbmV4cG9ydCBjb25zdCBTUEFDRSA9IDMyO1xuXG4vKiogU3BlY2lhbCBrZXljb2RlcyB1c2VkIGJ5IGpzYWN0aW9uIGZvciB0aGUgZ2VuZXJpYyBjbGljayBhY3Rpb24uICovXG5leHBvcnQgY29uc3QgS2V5Q29kZSA9IHtNQUNfRU5URVIsIEVOVEVSLCBTUEFDRX07XG4iXX0=

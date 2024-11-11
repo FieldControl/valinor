@@ -1,0 +1,19 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import { Parser } from './parser';
+import { getXmlTagDefinition } from './xml_tags';
+export class XmlParser extends Parser {
+    constructor() {
+        super(getXmlTagDefinition);
+    }
+    parse(source, url, options = {}) {
+        // Blocks and let declarations aren't supported in an XML context.
+        return super.parse(source, url, { ...options, tokenizeBlocks: false, tokenizeLet: false });
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoieG1sX3BhcnNlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvbXBpbGVyL3NyYy9tbF9wYXJzZXIveG1sX3BhcnNlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFHSCxPQUFPLEVBQUMsTUFBTSxFQUFrQixNQUFNLFVBQVUsQ0FBQztBQUNqRCxPQUFPLEVBQUMsbUJBQW1CLEVBQUMsTUFBTSxZQUFZLENBQUM7QUFFL0MsTUFBTSxPQUFPLFNBQVUsU0FBUSxNQUFNO0lBQ25DO1FBQ0UsS0FBSyxDQUFDLG1CQUFtQixDQUFDLENBQUM7SUFDN0IsQ0FBQztJQUVRLEtBQUssQ0FBQyxNQUFjLEVBQUUsR0FBVyxFQUFFLFVBQTJCLEVBQUU7UUFDdkUsa0VBQWtFO1FBQ2xFLE9BQU8sS0FBSyxDQUFDLEtBQUssQ0FBQyxNQUFNLEVBQUUsR0FBRyxFQUFFLEVBQUMsR0FBRyxPQUFPLEVBQUUsY0FBYyxFQUFFLEtBQUssRUFBRSxXQUFXLEVBQUUsS0FBSyxFQUFDLENBQUMsQ0FBQztJQUMzRixDQUFDO0NBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbmltcG9ydCB7VG9rZW5pemVPcHRpb25zfSBmcm9tICcuL2xleGVyJztcbmltcG9ydCB7UGFyc2VyLCBQYXJzZVRyZWVSZXN1bHR9IGZyb20gJy4vcGFyc2VyJztcbmltcG9ydCB7Z2V0WG1sVGFnRGVmaW5pdGlvbn0gZnJvbSAnLi94bWxfdGFncyc7XG5cbmV4cG9ydCBjbGFzcyBYbWxQYXJzZXIgZXh0ZW5kcyBQYXJzZXIge1xuICBjb25zdHJ1Y3RvcigpIHtcbiAgICBzdXBlcihnZXRYbWxUYWdEZWZpbml0aW9uKTtcbiAgfVxuXG4gIG92ZXJyaWRlIHBhcnNlKHNvdXJjZTogc3RyaW5nLCB1cmw6IHN0cmluZywgb3B0aW9uczogVG9rZW5pemVPcHRpb25zID0ge30pOiBQYXJzZVRyZWVSZXN1bHQge1xuICAgIC8vIEJsb2NrcyBhbmQgbGV0IGRlY2xhcmF0aW9ucyBhcmVuJ3Qgc3VwcG9ydGVkIGluIGFuIFhNTCBjb250ZXh0LlxuICAgIHJldHVybiBzdXBlci5wYXJzZShzb3VyY2UsIHVybCwgey4uLm9wdGlvbnMsIHRva2VuaXplQmxvY2tzOiBmYWxzZSwgdG9rZW5pemVMZXQ6IGZhbHNlfSk7XG4gIH1cbn1cbiJdfQ==

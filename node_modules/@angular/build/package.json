@@ -1,0 +1,105 @@
+{
+  "name": "@angular/build",
+  "version": "18.2.7",
+  "description": "Official build system for Angular",
+  "keywords": [
+    "Angular CLI",
+    "Angular DevKit",
+    "angular",
+    "angular-cli",
+    "devkit",
+    "sdk"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./private": {
+      "default": "./src/private.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "builders": "builders.json",
+  "dependencies": {
+    "@ampproject/remapping": "2.3.0",
+    "@angular-devkit/architect": "0.1802.7",
+    "@babel/core": "7.25.2",
+    "@babel/helper-annotate-as-pure": "7.24.7",
+    "@babel/helper-split-export-declaration": "7.24.7",
+    "@babel/plugin-syntax-import-attributes": "7.24.7",
+    "@inquirer/confirm": "3.1.22",
+    "@vitejs/plugin-basic-ssl": "1.1.0",
+    "browserslist": "^4.23.0",
+    "critters": "0.0.24",
+    "esbuild": "0.23.0",
+    "fast-glob": "3.3.2",
+    "https-proxy-agent": "7.0.5",
+    "listr2": "8.2.4",
+    "lmdb": "3.0.13",
+    "magic-string": "0.30.11",
+    "mrmime": "2.0.0",
+    "parse5-html-rewriting-stream": "7.0.0",
+    "picomatch": "4.0.2",
+    "piscina": "4.6.1",
+    "rollup": "4.22.4",
+    "sass": "1.77.6",
+    "semver": "7.6.3",
+    "vite": "5.4.6",
+    "watchpack": "2.4.1"
+  },
+  "peerDependencies": {
+    "@angular/compiler-cli": "^18.0.0",
+    "@angular/localize": "^18.0.0",
+    "@angular/platform-server": "^18.0.0",
+    "@angular/service-worker": "^18.0.0",
+    "less": "^4.2.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^2.0.0 || ^3.0.0",
+    "typescript": ">=5.4 <5.6"
+  },
+  "peerDependenciesMeta": {
+    "@angular/localize": {
+      "optional": true
+    },
+    "@angular/platform-server": {
+      "optional": true
+    },
+    "@angular/service-worker": {
+      "optional": true
+    },
+    "less": {
+      "optional": true
+    },
+    "postcss": {
+      "optional": true
+    },
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "packageManager": "yarn@4.4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/angular-cli.git"
+  },
+  "engines": {
+    "node": "^18.19.1 || ^20.11.1 || >=22.0.0",
+    "npm": "^6.11.0 || ^7.5.6 || >=8.0.0",
+    "yarn": ">= 1.13.0"
+  },
+  "author": "Angular Authors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular-cli/issues"
+  },
+  "homepage": "https://github.com/angular/angular-cli",
+  "dependenciesMeta": {
+    "esbuild": {
+      "built": true
+    },
+    "puppeteer": {
+      "built": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+/**
+ * Decorates the directive definition with support for input transform functions.
+ *
+ * If the directive uses inheritance, the feature should be included before the
+ * `InheritDefinitionFeature` to ensure that the `inputTransforms` field is populated.
+ *
+ * @codeGenApi
+ */
+export function ɵɵInputTransformsFeature(definition) {
+    const inputs = definition.inputConfig;
+    const inputTransforms = {};
+    for (const minifiedKey in inputs) {
+        if (inputs.hasOwnProperty(minifiedKey)) {
+            // Note: the private names are used for the keys, rather than the public ones, because public
+            // names can be re-aliased in host directives which would invalidate the lookup.
+            const value = inputs[minifiedKey];
+            if (Array.isArray(value) && value[3]) {
+                inputTransforms[minifiedKey] = value[3];
+            }
+        }
+    }
+    definition.inputTransforms = inputTransforms;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5wdXRfdHJhbnNmb3Jtc19mZWF0dXJlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvY29yZS9zcmMvcmVuZGVyMy9mZWF0dXJlcy9pbnB1dF90cmFuc2Zvcm1zX2ZlYXR1cmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBS0g7Ozs7Ozs7R0FPRztBQUNILE1BQU0sVUFBVSx3QkFBd0IsQ0FBSSxVQUEyQjtJQUNyRSxNQUFNLE1BQU0sR0FBRyxVQUFVLENBQUMsV0FBVyxDQUFDO0lBQ3RDLE1BQU0sZUFBZSxHQUEyQyxFQUFFLENBQUM7SUFFbkUsS0FBSyxNQUFNLFdBQVcsSUFBSSxNQUFNLEVBQUUsQ0FBQztRQUNqQyxJQUFJLE1BQU0sQ0FBQyxjQUFjLENBQUMsV0FBVyxDQUFDLEVBQUUsQ0FBQztZQUN2Qyw2RkFBNkY7WUFDN0YsZ0ZBQWdGO1lBQ2hGLE1BQU0sS0FBSyxHQUFHLE1BQU0sQ0FBQyxXQUFXLENBQUMsQ0FBQztZQUNsQyxJQUFJLEtBQUssQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLElBQUksS0FBSyxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUM7Z0JBQ3JDLGVBQWUsQ0FBQyxXQUFXLENBQUMsR0FBRyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUM7WUFDMUMsQ0FBQztRQUNILENBQUM7SUFDSCxDQUFDO0lBRUEsVUFBMEQsQ0FBQyxlQUFlLEdBQUcsZUFBZSxDQUFDO0FBQ2hHLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbmltcG9ydCB7TXV0YWJsZX0gZnJvbSAnLi4vLi4vaW50ZXJmYWNlL3R5cGUnO1xuaW1wb3J0IHtEaXJlY3RpdmVEZWYsIElucHV0VHJhbnNmb3JtRnVuY3Rpb259IGZyb20gJy4uL2ludGVyZmFjZXMvZGVmaW5pdGlvbic7XG5cbi8qKlxuICogRGVjb3JhdGVzIHRoZSBkaXJlY3RpdmUgZGVmaW5pdGlvbiB3aXRoIHN1cHBvcnQgZm9yIGlucHV0IHRyYW5zZm9ybSBmdW5jdGlvbnMuXG4gKlxuICogSWYgdGhlIGRpcmVjdGl2ZSB1c2VzIGluaGVyaXRhbmNlLCB0aGUgZmVhdHVyZSBzaG91bGQgYmUgaW5jbHVkZWQgYmVmb3JlIHRoZVxuICogYEluaGVyaXREZWZpbml0aW9uRmVhdHVyZWAgdG8gZW5zdXJlIHRoYXQgdGhlIGBpbnB1dFRyYW5zZm9ybXNgIGZpZWxkIGlzIHBvcHVsYXRlZC5cbiAqXG4gKiBAY29kZUdlbkFwaVxuICovXG5leHBvcnQgZnVuY3Rpb24gybXJtUlucHV0VHJhbnNmb3Jtc0ZlYXR1cmU8VD4oZGVmaW5pdGlvbjogRGlyZWN0aXZlRGVmPFQ+KTogdm9pZCB7XG4gIGNvbnN0IGlucHV0cyA9IGRlZmluaXRpb24uaW5wdXRDb25maWc7XG4gIGNvbnN0IGlucHV0VHJhbnNmb3JtczogUmVjb3JkPHN0cmluZywgSW5wdXRUcmFuc2Zvcm1GdW5jdGlvbj4gPSB7fTtcblxuICBmb3IgKGNvbnN0IG1pbmlmaWVkS2V5IGluIGlucHV0cykge1xuICAgIGlmIChpbnB1dHMuaGFzT3duUHJvcGVydHkobWluaWZpZWRLZXkpKSB7XG4gICAgICAvLyBOb3RlOiB0aGUgcHJpdmF0ZSBuYW1lcyBhcmUgdXNlZCBmb3IgdGhlIGtleXMsIHJhdGhlciB0aGFuIHRoZSBwdWJsaWMgb25lcywgYmVjYXVzZSBwdWJsaWNcbiAgICAgIC8vIG5hbWVzIGNhbiBiZSByZS1hbGlhc2VkIGluIGhvc3QgZGlyZWN0aXZlcyB3aGljaCB3b3VsZCBpbnZhbGlkYXRlIHRoZSBsb29rdXAuXG4gICAgICBjb25zdCB2YWx1ZSA9IGlucHV0c1ttaW5pZmllZEtleV07XG4gICAgICBpZiAoQXJyYXkuaXNBcnJheSh2YWx1ZSkgJiYgdmFsdWVbM10pIHtcbiAgICAgICAgaW5wdXRUcmFuc2Zvcm1zW21pbmlmaWVkS2V5XSA9IHZhbHVlWzNdO1xuICAgICAgfVxuICAgIH1cbiAgfVxuXG4gIChkZWZpbml0aW9uIGFzIE11dGFibGU8RGlyZWN0aXZlRGVmPFQ+LCAnaW5wdXRUcmFuc2Zvcm1zJz4pLmlucHV0VHJhbnNmb3JtcyA9IGlucHV0VHJhbnNmb3Jtcztcbn1cbiJdfQ==

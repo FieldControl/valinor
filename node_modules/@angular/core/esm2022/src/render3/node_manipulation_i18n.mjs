@@ -1,0 +1,64 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import { assertDomNode, assertIndexInRange } from '../util/assert';
+import { getInsertInFrontOfRNodeWithNoI18n, nativeInsertBefore } from './node_manipulation';
+import { unwrapRNode } from './util/view_utils';
+/**
+ * Find a node in front of which `currentTNode` should be inserted (takes i18n into account).
+ *
+ * This method determines the `RNode` in front of which we should insert the `currentRNode`. This
+ * takes `TNode.insertBeforeIndex` into account.
+ *
+ * @param parentTNode parent `TNode`
+ * @param currentTNode current `TNode` (The node which we would like to insert into the DOM)
+ * @param lView current `LView`
+ */
+export function getInsertInFrontOfRNodeWithI18n(parentTNode, currentTNode, lView) {
+    const tNodeInsertBeforeIndex = currentTNode.insertBeforeIndex;
+    const insertBeforeIndex = Array.isArray(tNodeInsertBeforeIndex)
+        ? tNodeInsertBeforeIndex[0]
+        : tNodeInsertBeforeIndex;
+    if (insertBeforeIndex === null) {
+        return getInsertInFrontOfRNodeWithNoI18n(parentTNode, currentTNode, lView);
+    }
+    else {
+        ngDevMode && assertIndexInRange(lView, insertBeforeIndex);
+        return unwrapRNode(lView[insertBeforeIndex]);
+    }
+}
+/**
+ * Process `TNode.insertBeforeIndex` by adding i18n text nodes.
+ *
+ * See `TNode.insertBeforeIndex`
+ */
+export function processI18nInsertBefore(renderer, childTNode, lView, childRNode, parentRElement) {
+    const tNodeInsertBeforeIndex = childTNode.insertBeforeIndex;
+    if (Array.isArray(tNodeInsertBeforeIndex)) {
+        // An array indicates that there are i18n nodes that need to be added as children of this
+        // `childRNode`. These i18n nodes were created before this `childRNode` was available and so
+        // only now can be added. The first element of the array is the normal index where we should
+        // insert the `childRNode`. Additional elements are the extra nodes to be added as children of
+        // `childRNode`.
+        ngDevMode && assertDomNode(childRNode);
+        let i18nParent = childRNode;
+        let anchorRNode = null;
+        if (!(childTNode.type & 3 /* TNodeType.AnyRNode */)) {
+            anchorRNode = i18nParent;
+            i18nParent = parentRElement;
+        }
+        if (i18nParent !== null && childTNode.componentOffset === -1) {
+            for (let i = 1; i < tNodeInsertBeforeIndex.length; i++) {
+                // No need to `unwrapRNode` because all of the indexes point to i18n text nodes.
+                // see `assertDomNode` below.
+                const i18nChild = lView[tNodeInsertBeforeIndex[i]];
+                nativeInsertBefore(renderer, i18nParent, i18nChild, anchorRNode, false);
+            }
+        }
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibm9kZV9tYW5pcHVsYXRpb25faTE4bi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL3JlbmRlcjMvbm9kZV9tYW5pcHVsYXRpb25faTE4bi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCxPQUFPLEVBQUMsYUFBYSxFQUFFLGtCQUFrQixFQUFDLE1BQU0sZ0JBQWdCLENBQUM7QUFNakUsT0FBTyxFQUFDLGlDQUFpQyxFQUFFLGtCQUFrQixFQUFDLE1BQU0scUJBQXFCLENBQUM7QUFDMUYsT0FBTyxFQUFDLFdBQVcsRUFBQyxNQUFNLG1CQUFtQixDQUFDO0FBRTlDOzs7Ozs7Ozs7R0FTRztBQUNILE1BQU0sVUFBVSwrQkFBK0IsQ0FDN0MsV0FBa0IsRUFDbEIsWUFBbUIsRUFDbkIsS0FBWTtJQUVaLE1BQU0sc0JBQXNCLEdBQUcsWUFBWSxDQUFDLGlCQUFpQixDQUFDO0lBQzlELE1BQU0saUJBQWlCLEdBQUcsS0FBSyxDQUFDLE9BQU8sQ0FBQyxzQkFBc0IsQ0FBQztRQUM3RCxDQUFDLENBQUMsc0JBQXNCLENBQUMsQ0FBQyxDQUFDO1FBQzNCLENBQUMsQ0FBQyxzQkFBc0IsQ0FBQztJQUMzQixJQUFJLGlCQUFpQixLQUFLLElBQUksRUFBRSxDQUFDO1FBQy9CLE9BQU8saUNBQWlDLENBQUMsV0FBVyxFQUFFLFlBQVksRUFBRSxLQUFLLENBQUMsQ0FBQztJQUM3RSxDQUFDO1NBQU0sQ0FBQztRQUNOLFNBQVMsSUFBSSxrQkFBa0IsQ0FBQyxLQUFLLEVBQUUsaUJBQWlCLENBQUMsQ0FBQztRQUMxRCxPQUFPLFdBQVcsQ0FBQyxLQUFLLENBQUMsaUJBQWlCLENBQUMsQ0FBQyxDQUFDO0lBQy9DLENBQUM7QUFDSCxDQUFDO0FBRUQ7Ozs7R0FJRztBQUNILE1BQU0sVUFBVSx1QkFBdUIsQ0FDckMsUUFBa0IsRUFDbEIsVUFBaUIsRUFDakIsS0FBWSxFQUNaLFVBQTJCLEVBQzNCLGNBQStCO0lBRS9CLE1BQU0sc0JBQXNCLEdBQUcsVUFBVSxDQUFDLGlCQUFpQixDQUFDO0lBQzVELElBQUksS0FBSyxDQUFDLE9BQU8sQ0FBQyxzQkFBc0IsQ0FBQyxFQUFFLENBQUM7UUFDMUMseUZBQXlGO1FBQ3pGLDRGQUE0RjtRQUM1Riw0RkFBNEY7UUFDNUYsOEZBQThGO1FBQzlGLGdCQUFnQjtRQUNoQixTQUFTLElBQUksYUFBYSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1FBQ3ZDLElBQUksVUFBVSxHQUFvQixVQUFzQixDQUFDO1FBQ3pELElBQUksV0FBVyxHQUFpQixJQUFJLENBQUM7UUFDckMsSUFBSSxDQUFDLENBQUMsVUFBVSxDQUFDLElBQUksNkJBQXFCLENBQUMsRUFBRSxDQUFDO1lBQzVDLFdBQVcsR0FBRyxVQUFVLENBQUM7WUFDekIsVUFBVSxHQUFHLGNBQWMsQ0FBQztRQUM5QixDQUFDO1FBQ0QsSUFBSSxVQUFVLEtBQUssSUFBSSxJQUFJLFVBQVUsQ0FBQyxlQUFlLEtBQUssQ0FBQyxDQUFDLEVBQUUsQ0FBQztZQUM3RCxLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsc0JBQXNCLENBQUMsTUFBTSxFQUFFLENBQUMsRUFBRSxFQUFFLENBQUM7Z0JBQ3ZELGdGQUFnRjtnQkFDaEYsNkJBQTZCO2dCQUM3QixNQUFNLFNBQVMsR0FBRyxLQUFLLENBQUMsc0JBQXNCLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztnQkFDbkQsa0JBQWtCLENBQUMsUUFBUSxFQUFFLFVBQVUsRUFBRSxTQUFTLEVBQUUsV0FBVyxFQUFFLEtBQUssQ0FBQyxDQUFDO1lBQzFFLENBQUM7UUFDSCxDQUFDO0lBQ0gsQ0FBQztBQUNILENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbmltcG9ydCB7YXNzZXJ0RG9tTm9kZSwgYXNzZXJ0SW5kZXhJblJhbmdlfSBmcm9tICcuLi91dGlsL2Fzc2VydCc7XG5cbmltcG9ydCB7VE5vZGUsIFROb2RlRmxhZ3MsIFROb2RlVHlwZX0gZnJvbSAnLi9pbnRlcmZhY2VzL25vZGUnO1xuaW1wb3J0IHtSZW5kZXJlcn0gZnJvbSAnLi9pbnRlcmZhY2VzL3JlbmRlcmVyJztcbmltcG9ydCB7UkVsZW1lbnQsIFJOb2RlfSBmcm9tICcuL2ludGVyZmFjZXMvcmVuZGVyZXJfZG9tJztcbmltcG9ydCB7TFZpZXd9IGZyb20gJy4vaW50ZXJmYWNlcy92aWV3JztcbmltcG9ydCB7Z2V0SW5zZXJ0SW5Gcm9udE9mUk5vZGVXaXRoTm9JMThuLCBuYXRpdmVJbnNlcnRCZWZvcmV9IGZyb20gJy4vbm9kZV9tYW5pcHVsYXRpb24nO1xuaW1wb3J0IHt1bndyYXBSTm9kZX0gZnJvbSAnLi91dGlsL3ZpZXdfdXRpbHMnO1xuXG4vKipcbiAqIEZpbmQgYSBub2RlIGluIGZyb250IG9mIHdoaWNoIGBjdXJyZW50VE5vZGVgIHNob3VsZCBiZSBpbnNlcnRlZCAodGFrZXMgaTE4biBpbnRvIGFjY291bnQpLlxuICpcbiAqIFRoaXMgbWV0aG9kIGRldGVybWluZXMgdGhlIGBSTm9kZWAgaW4gZnJvbnQgb2Ygd2hpY2ggd2Ugc2hvdWxkIGluc2VydCB0aGUgYGN1cnJlbnRSTm9kZWAuIFRoaXNcbiAqIHRha2VzIGBUTm9kZS5pbnNlcnRCZWZvcmVJbmRleGAgaW50byBhY2NvdW50LlxuICpcbiAqIEBwYXJhbSBwYXJlbnRUTm9kZSBwYXJlbnQgYFROb2RlYFxuICogQHBhcmFtIGN1cnJlbnRUTm9kZSBjdXJyZW50IGBUTm9kZWAgKFRoZSBub2RlIHdoaWNoIHdlIHdvdWxkIGxpa2UgdG8gaW5zZXJ0IGludG8gdGhlIERPTSlcbiAqIEBwYXJhbSBsVmlldyBjdXJyZW50IGBMVmlld2BcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGdldEluc2VydEluRnJvbnRPZlJOb2RlV2l0aEkxOG4oXG4gIHBhcmVudFROb2RlOiBUTm9kZSxcbiAgY3VycmVudFROb2RlOiBUTm9kZSxcbiAgbFZpZXc6IExWaWV3LFxuKTogUk5vZGUgfCBudWxsIHtcbiAgY29uc3QgdE5vZGVJbnNlcnRCZWZvcmVJbmRleCA9IGN1cnJlbnRUTm9kZS5pbnNlcnRCZWZvcmVJbmRleDtcbiAgY29uc3QgaW5zZXJ0QmVmb3JlSW5kZXggPSBBcnJheS5pc0FycmF5KHROb2RlSW5zZXJ0QmVmb3JlSW5kZXgpXG4gICAgPyB0Tm9kZUluc2VydEJlZm9yZUluZGV4WzBdXG4gICAgOiB0Tm9kZUluc2VydEJlZm9yZUluZGV4O1xuICBpZiAoaW5zZXJ0QmVmb3JlSW5kZXggPT09IG51bGwpIHtcbiAgICByZXR1cm4gZ2V0SW5zZXJ0SW5Gcm9udE9mUk5vZGVXaXRoTm9JMThuKHBhcmVudFROb2RlLCBjdXJyZW50VE5vZGUsIGxWaWV3KTtcbiAgfSBlbHNlIHtcbiAgICBuZ0Rldk1vZGUgJiYgYXNzZXJ0SW5kZXhJblJhbmdlKGxWaWV3LCBpbnNlcnRCZWZvcmVJbmRleCk7XG4gICAgcmV0dXJuIHVud3JhcFJOb2RlKGxWaWV3W2luc2VydEJlZm9yZUluZGV4XSk7XG4gIH1cbn1cblxuLyoqXG4gKiBQcm9jZXNzIGBUTm9kZS5pbnNlcnRCZWZvcmVJbmRleGAgYnkgYWRkaW5nIGkxOG4gdGV4dCBub2Rlcy5cbiAqXG4gKiBTZWUgYFROb2RlLmluc2VydEJlZm9yZUluZGV4YFxuICovXG5leHBvcnQgZnVuY3Rpb24gcHJvY2Vzc0kxOG5JbnNlcnRCZWZvcmUoXG4gIHJlbmRlcmVyOiBSZW5kZXJlcixcbiAgY2hpbGRUTm9kZTogVE5vZGUsXG4gIGxWaWV3OiBMVmlldyxcbiAgY2hpbGRSTm9kZTogUk5vZGUgfCBSTm9kZVtdLFxuICBwYXJlbnRSRWxlbWVudDogUkVsZW1lbnQgfCBudWxsLFxuKTogdm9pZCB7XG4gIGNvbnN0IHROb2RlSW5zZXJ0QmVmb3JlSW5kZXggPSBjaGlsZFROb2RlLmluc2VydEJlZm9yZUluZGV4O1xuICBpZiAoQXJyYXkuaXNBcnJheSh0Tm9kZUluc2VydEJlZm9yZUluZGV4KSkge1xuICAgIC8vIEFuIGFycmF5IGluZGljYXRlcyB0aGF0IHRoZXJlIGFyZSBpMThuIG5vZGVzIHRoYXQgbmVlZCB0byBiZSBhZGRlZCBhcyBjaGlsZHJlbiBvZiB0aGlzXG4gICAgLy8gYGNoaWxkUk5vZGVgLiBUaGVzZSBpMThuIG5vZGVzIHdlcmUgY3JlYXRlZCBiZWZvcmUgdGhpcyBgY2hpbGRSTm9kZWAgd2FzIGF2YWlsYWJsZSBhbmQgc29cbiAgICAvLyBvbmx5IG5vdyBjYW4gYmUgYWRkZWQuIFRoZSBmaXJzdCBlbGVtZW50IG9mIHRoZSBhcnJheSBpcyB0aGUgbm9ybWFsIGluZGV4IHdoZXJlIHdlIHNob3VsZFxuICAgIC8vIGluc2VydCB0aGUgYGNoaWxkUk5vZGVgLiBBZGRpdGlvbmFsIGVsZW1lbnRzIGFyZSB0aGUgZXh0cmEgbm9kZXMgdG8gYmUgYWRkZWQgYXMgY2hpbGRyZW4gb2ZcbiAgICAvLyBgY2hpbGRSTm9kZWAuXG4gICAgbmdEZXZNb2RlICYmIGFzc2VydERvbU5vZGUoY2hpbGRSTm9kZSk7XG4gICAgbGV0IGkxOG5QYXJlbnQ6IFJFbGVtZW50IHwgbnVsbCA9IGNoaWxkUk5vZGUgYXMgUkVsZW1lbnQ7XG4gICAgbGV0IGFuY2hvclJOb2RlOiBSTm9kZSB8IG51bGwgPSBudWxsO1xuICAgIGlmICghKGNoaWxkVE5vZGUudHlwZSAmIFROb2RlVHlwZS5BbnlSTm9kZSkpIHtcbiAgICAgIGFuY2hvclJOb2RlID0gaTE4blBhcmVudDtcbiAgICAgIGkxOG5QYXJlbnQgPSBwYXJlbnRSRWxlbWVudDtcbiAgICB9XG4gICAgaWYgKGkxOG5QYXJlbnQgIT09IG51bGwgJiYgY2hpbGRUTm9kZS5jb21wb25lbnRPZmZzZXQgPT09IC0xKSB7XG4gICAgICBmb3IgKGxldCBpID0gMTsgaSA8IHROb2RlSW5zZXJ0QmVmb3JlSW5kZXgubGVuZ3RoOyBpKyspIHtcbiAgICAgICAgLy8gTm8gbmVlZCB0byBgdW53cmFwUk5vZGVgIGJlY2F1c2UgYWxsIG9mIHRoZSBpbmRleGVzIHBvaW50IHRvIGkxOG4gdGV4dCBub2Rlcy5cbiAgICAgICAgLy8gc2VlIGBhc3NlcnREb21Ob2RlYCBiZWxvdy5cbiAgICAgICAgY29uc3QgaTE4bkNoaWxkID0gbFZpZXdbdE5vZGVJbnNlcnRCZWZvcmVJbmRleFtpXV07XG4gICAgICAgIG5hdGl2ZUluc2VydEJlZm9yZShyZW5kZXJlciwgaTE4blBhcmVudCwgaTE4bkNoaWxkLCBhbmNob3JSTm9kZSwgZmFsc2UpO1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19

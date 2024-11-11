@@ -1,0 +1,52 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import { PLACEHOLDER_QUALITY } from './constants';
+import { createImageLoader } from './image_loader';
+/**
+ * Name and URL tester for ImageKit.
+ */
+export const imageKitLoaderInfo = {
+    name: 'ImageKit',
+    testUrl: isImageKitUrl,
+};
+const IMAGE_KIT_LOADER_REGEX = /https?\:\/\/[^\/]+\.imagekit\.io\/.+/;
+/**
+ * Tests whether a URL is from ImageKit CDN.
+ */
+function isImageKitUrl(url) {
+    return IMAGE_KIT_LOADER_REGEX.test(url);
+}
+/**
+ * Function that generates an ImageLoader for ImageKit and turns it into an Angular provider.
+ *
+ * @param path Base URL of your ImageKit images
+ * This URL should match one of the following formats:
+ * https://ik.imagekit.io/myaccount
+ * https://subdomain.mysite.com
+ * @returns Set of providers to configure the ImageKit loader.
+ *
+ * @publicApi
+ */
+export const provideImageKitLoader = createImageLoader(createImagekitUrl, ngDevMode ? ['https://ik.imagekit.io/mysite', 'https://subdomain.mysite.com'] : undefined);
+export function createImagekitUrl(path, config) {
+    // Example of an ImageKit image URL:
+    // https://ik.imagekit.io/demo/tr:w-300,h-300/medium_cafe_B1iTdD0C.jpg
+    const { src, width } = config;
+    const params = [];
+    if (width) {
+        params.push(`w-${width}`);
+    }
+    // When requesting a placeholder image we ask for a low quality image to reduce the load time.
+    if (config.isPlaceholder) {
+        params.push(`q-${PLACEHOLDER_QUALITY}`);
+    }
+    const urlSegments = params.length ? [path, `tr:${params.join(',')}`, src] : [path, src];
+    const url = new URL(urlSegments.join('/'));
+    return url.href;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW1hZ2VraXRfbG9hZGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvY29tbW9uL3NyYy9kaXJlY3RpdmVzL25nX29wdGltaXplZF9pbWFnZS9pbWFnZV9sb2FkZXJzL2ltYWdla2l0X2xvYWRlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCxPQUFPLEVBQUMsbUJBQW1CLEVBQUMsTUFBTSxhQUFhLENBQUM7QUFDaEQsT0FBTyxFQUFDLGlCQUFpQixFQUFxQyxNQUFNLGdCQUFnQixDQUFDO0FBRXJGOztHQUVHO0FBQ0gsTUFBTSxDQUFDLE1BQU0sa0JBQWtCLEdBQW9CO0lBQ2pELElBQUksRUFBRSxVQUFVO0lBQ2hCLE9BQU8sRUFBRSxhQUFhO0NBQ3ZCLENBQUM7QUFFRixNQUFNLHNCQUFzQixHQUFHLHNDQUFzQyxDQUFDO0FBQ3RFOztHQUVHO0FBQ0gsU0FBUyxhQUFhLENBQUMsR0FBVztJQUNoQyxPQUFPLHNCQUFzQixDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztBQUMxQyxDQUFDO0FBRUQ7Ozs7Ozs7Ozs7R0FVRztBQUNILE1BQU0sQ0FBQyxNQUFNLHFCQUFxQixHQUFHLGlCQUFpQixDQUNwRCxpQkFBaUIsRUFDakIsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDLCtCQUErQixFQUFFLDhCQUE4QixDQUFDLENBQUMsQ0FBQyxDQUFDLFNBQVMsQ0FDMUYsQ0FBQztBQUVGLE1BQU0sVUFBVSxpQkFBaUIsQ0FBQyxJQUFZLEVBQUUsTUFBeUI7SUFDdkUsb0NBQW9DO0lBQ3BDLHNFQUFzRTtJQUN0RSxNQUFNLEVBQUMsR0FBRyxFQUFFLEtBQUssRUFBQyxHQUFHLE1BQU0sQ0FBQztJQUM1QixNQUFNLE1BQU0sR0FBYSxFQUFFLENBQUM7SUFFNUIsSUFBSSxLQUFLLEVBQUUsQ0FBQztRQUNWLE1BQU0sQ0FBQyxJQUFJLENBQUMsS0FBSyxLQUFLLEVBQUUsQ0FBQyxDQUFDO0lBQzVCLENBQUM7SUFFRCw4RkFBOEY7SUFDOUYsSUFBSSxNQUFNLENBQUMsYUFBYSxFQUFFLENBQUM7UUFDekIsTUFBTSxDQUFDLElBQUksQ0FBQyxLQUFLLG1CQUFtQixFQUFFLENBQUMsQ0FBQztJQUMxQyxDQUFDO0lBRUQsTUFBTSxXQUFXLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLEVBQUUsTUFBTSxNQUFNLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLEVBQUUsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxFQUFFLEdBQUcsQ0FBQyxDQUFDO0lBQ3hGLE1BQU0sR0FBRyxHQUFHLElBQUksR0FBRyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQztJQUMzQyxPQUFPLEdBQUcsQ0FBQyxJQUFJLENBQUM7QUFDbEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtQTEFDRUhPTERFUl9RVUFMSVRZfSBmcm9tICcuL2NvbnN0YW50cyc7XG5pbXBvcnQge2NyZWF0ZUltYWdlTG9hZGVyLCBJbWFnZUxvYWRlckNvbmZpZywgSW1hZ2VMb2FkZXJJbmZvfSBmcm9tICcuL2ltYWdlX2xvYWRlcic7XG5cbi8qKlxuICogTmFtZSBhbmQgVVJMIHRlc3RlciBmb3IgSW1hZ2VLaXQuXG4gKi9cbmV4cG9ydCBjb25zdCBpbWFnZUtpdExvYWRlckluZm86IEltYWdlTG9hZGVySW5mbyA9IHtcbiAgbmFtZTogJ0ltYWdlS2l0JyxcbiAgdGVzdFVybDogaXNJbWFnZUtpdFVybCxcbn07XG5cbmNvbnN0IElNQUdFX0tJVF9MT0FERVJfUkVHRVggPSAvaHR0cHM/XFw6XFwvXFwvW15cXC9dK1xcLmltYWdla2l0XFwuaW9cXC8uKy87XG4vKipcbiAqIFRlc3RzIHdoZXRoZXIgYSBVUkwgaXMgZnJvbSBJbWFnZUtpdCBDRE4uXG4gKi9cbmZ1bmN0aW9uIGlzSW1hZ2VLaXRVcmwodXJsOiBzdHJpbmcpOiBib29sZWFuIHtcbiAgcmV0dXJuIElNQUdFX0tJVF9MT0FERVJfUkVHRVgudGVzdCh1cmwpO1xufVxuXG4vKipcbiAqIEZ1bmN0aW9uIHRoYXQgZ2VuZXJhdGVzIGFuIEltYWdlTG9hZGVyIGZvciBJbWFnZUtpdCBhbmQgdHVybnMgaXQgaW50byBhbiBBbmd1bGFyIHByb3ZpZGVyLlxuICpcbiAqIEBwYXJhbSBwYXRoIEJhc2UgVVJMIG9mIHlvdXIgSW1hZ2VLaXQgaW1hZ2VzXG4gKiBUaGlzIFVSTCBzaG91bGQgbWF0Y2ggb25lIG9mIHRoZSBmb2xsb3dpbmcgZm9ybWF0czpcbiAqIGh0dHBzOi8vaWsuaW1hZ2VraXQuaW8vbXlhY2NvdW50XG4gKiBodHRwczovL3N1YmRvbWFpbi5teXNpdGUuY29tXG4gKiBAcmV0dXJucyBTZXQgb2YgcHJvdmlkZXJzIHRvIGNvbmZpZ3VyZSB0aGUgSW1hZ2VLaXQgbG9hZGVyLlxuICpcbiAqIEBwdWJsaWNBcGlcbiAqL1xuZXhwb3J0IGNvbnN0IHByb3ZpZGVJbWFnZUtpdExvYWRlciA9IGNyZWF0ZUltYWdlTG9hZGVyKFxuICBjcmVhdGVJbWFnZWtpdFVybCxcbiAgbmdEZXZNb2RlID8gWydodHRwczovL2lrLmltYWdla2l0LmlvL215c2l0ZScsICdodHRwczovL3N1YmRvbWFpbi5teXNpdGUuY29tJ10gOiB1bmRlZmluZWQsXG4pO1xuXG5leHBvcnQgZnVuY3Rpb24gY3JlYXRlSW1hZ2VraXRVcmwocGF0aDogc3RyaW5nLCBjb25maWc6IEltYWdlTG9hZGVyQ29uZmlnKTogc3RyaW5nIHtcbiAgLy8gRXhhbXBsZSBvZiBhbiBJbWFnZUtpdCBpbWFnZSBVUkw6XG4gIC8vIGh0dHBzOi8vaWsuaW1hZ2VraXQuaW8vZGVtby90cjp3LTMwMCxoLTMwMC9tZWRpdW1fY2FmZV9CMWlUZEQwQy5qcGdcbiAgY29uc3Qge3NyYywgd2lkdGh9ID0gY29uZmlnO1xuICBjb25zdCBwYXJhbXM6IHN0cmluZ1tdID0gW107XG5cbiAgaWYgKHdpZHRoKSB7XG4gICAgcGFyYW1zLnB1c2goYHctJHt3aWR0aH1gKTtcbiAgfVxuXG4gIC8vIFdoZW4gcmVxdWVzdGluZyBhIHBsYWNlaG9sZGVyIGltYWdlIHdlIGFzayBmb3IgYSBsb3cgcXVhbGl0eSBpbWFnZSB0byByZWR1Y2UgdGhlIGxvYWQgdGltZS5cbiAgaWYgKGNvbmZpZy5pc1BsYWNlaG9sZGVyKSB7XG4gICAgcGFyYW1zLnB1c2goYHEtJHtQTEFDRUhPTERFUl9RVUFMSVRZfWApO1xuICB9XG5cbiAgY29uc3QgdXJsU2VnbWVudHMgPSBwYXJhbXMubGVuZ3RoID8gW3BhdGgsIGB0cjoke3BhcmFtcy5qb2luKCcsJyl9YCwgc3JjXSA6IFtwYXRoLCBzcmNdO1xuICBjb25zdCB1cmwgPSBuZXcgVVJMKHVybFNlZ21lbnRzLmpvaW4oJy8nKSk7XG4gIHJldHVybiB1cmwuaHJlZjtcbn1cbiJdfQ==

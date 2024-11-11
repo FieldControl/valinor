@@ -1,0 +1,33 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+import * as o from '../../../../output/output_ast';
+import * as ir from '../../ir';
+/**
+ * Nullish coalescing expressions such as `a ?? b` have different semantics in Angular templates as
+ * compared to JavaScript. In particular, they default to `null` instead of `undefined`. Therefore,
+ * we replace them with ternary expressions, assigning temporaries as needed to avoid re-evaluating
+ * the same sub-expression multiple times.
+ */
+export function generateNullishCoalesceExpressions(job) {
+    for (const unit of job.units) {
+        for (const op of unit.ops()) {
+            ir.transformExpressionsInOp(op, (expr) => {
+                if (!(expr instanceof o.BinaryOperatorExpr) ||
+                    expr.operator !== o.BinaryOperator.NullishCoalesce) {
+                    return expr;
+                }
+                const assignment = new ir.AssignTemporaryExpr(expr.lhs.clone(), job.allocateXrefId());
+                const read = new ir.ReadTemporaryExpr(assignment.xref);
+                // TODO: When not in compatibility mode for TemplateDefinitionBuilder, we can just emit
+                // `t != null` instead of including an undefined check as well.
+                return new o.ConditionalExpr(new o.BinaryOperatorExpr(o.BinaryOperator.And, new o.BinaryOperatorExpr(o.BinaryOperator.NotIdentical, assignment, o.NULL_EXPR), new o.BinaryOperatorExpr(o.BinaryOperator.NotIdentical, read, new o.LiteralExpr(undefined))), read.clone(), expr.rhs);
+            }, ir.VisitorContextFlag.None);
+        }
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibnVsbGlzaF9jb2FsZXNjaW5nLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGFja2FnZXMvY29tcGlsZXIvc3JjL3RlbXBsYXRlL3BpcGVsaW5lL3NyYy9waGFzZXMvbnVsbGlzaF9jb2FsZXNjaW5nLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUVILE9BQU8sS0FBSyxDQUFDLE1BQU0sK0JBQStCLENBQUM7QUFDbkQsT0FBTyxLQUFLLEVBQUUsTUFBTSxVQUFVLENBQUM7QUFHL0I7Ozs7O0dBS0c7QUFDSCxNQUFNLFVBQVUsa0NBQWtDLENBQUMsR0FBbUI7SUFDcEUsS0FBSyxNQUFNLElBQUksSUFBSSxHQUFHLENBQUMsS0FBSyxFQUFFLENBQUM7UUFDN0IsS0FBSyxNQUFNLEVBQUUsSUFBSSxJQUFJLENBQUMsR0FBRyxFQUFFLEVBQUUsQ0FBQztZQUM1QixFQUFFLENBQUMsd0JBQXdCLENBQ3pCLEVBQUUsRUFDRixDQUFDLElBQUksRUFBRSxFQUFFO2dCQUNQLElBQ0UsQ0FBQyxDQUFDLElBQUksWUFBWSxDQUFDLENBQUMsa0JBQWtCLENBQUM7b0JBQ3ZDLElBQUksQ0FBQyxRQUFRLEtBQUssQ0FBQyxDQUFDLGNBQWMsQ0FBQyxlQUFlLEVBQ2xELENBQUM7b0JBQ0QsT0FBTyxJQUFJLENBQUM7Z0JBQ2QsQ0FBQztnQkFFRCxNQUFNLFVBQVUsR0FBRyxJQUFJLEVBQUUsQ0FBQyxtQkFBbUIsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssRUFBRSxFQUFFLEdBQUcsQ0FBQyxjQUFjLEVBQUUsQ0FBQyxDQUFDO2dCQUN0RixNQUFNLElBQUksR0FBRyxJQUFJLEVBQUUsQ0FBQyxpQkFBaUIsQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUM7Z0JBRXZELHVGQUF1RjtnQkFDdkYsK0RBQStEO2dCQUMvRCxPQUFPLElBQUksQ0FBQyxDQUFDLGVBQWUsQ0FDMUIsSUFBSSxDQUFDLENBQUMsa0JBQWtCLENBQ3RCLENBQUMsQ0FBQyxjQUFjLENBQUMsR0FBRyxFQUNwQixJQUFJLENBQUMsQ0FBQyxrQkFBa0IsQ0FBQyxDQUFDLENBQUMsY0FBYyxDQUFDLFlBQVksRUFBRSxVQUFVLEVBQUUsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxFQUNoRixJQUFJLENBQUMsQ0FBQyxrQkFBa0IsQ0FDdEIsQ0FBQyxDQUFDLGNBQWMsQ0FBQyxZQUFZLEVBQzdCLElBQUksRUFDSixJQUFJLENBQUMsQ0FBQyxXQUFXLENBQUMsU0FBUyxDQUFDLENBQzdCLENBQ0YsRUFDRCxJQUFJLENBQUMsS0FBSyxFQUFFLEVBQ1osSUFBSSxDQUFDLEdBQUcsQ0FDVCxDQUFDO1lBQ0osQ0FBQyxFQUNELEVBQUUsQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLENBQzNCLENBQUM7UUFDSixDQUFDO0lBQ0gsQ0FBQztBQUNILENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5kZXYvbGljZW5zZVxuICovXG5cbmltcG9ydCAqIGFzIG8gZnJvbSAnLi4vLi4vLi4vLi4vb3V0cHV0L291dHB1dF9hc3QnO1xuaW1wb3J0ICogYXMgaXIgZnJvbSAnLi4vLi4vaXInO1xuaW1wb3J0IHR5cGUge0NvbXBpbGF0aW9uSm9ifSBmcm9tICcuLi9jb21waWxhdGlvbic7XG5cbi8qKlxuICogTnVsbGlzaCBjb2FsZXNjaW5nIGV4cHJlc3Npb25zIHN1Y2ggYXMgYGEgPz8gYmAgaGF2ZSBkaWZmZXJlbnQgc2VtYW50aWNzIGluIEFuZ3VsYXIgdGVtcGxhdGVzIGFzXG4gKiBjb21wYXJlZCB0byBKYXZhU2NyaXB0LiBJbiBwYXJ0aWN1bGFyLCB0aGV5IGRlZmF1bHQgdG8gYG51bGxgIGluc3RlYWQgb2YgYHVuZGVmaW5lZGAuIFRoZXJlZm9yZSxcbiAqIHdlIHJlcGxhY2UgdGhlbSB3aXRoIHRlcm5hcnkgZXhwcmVzc2lvbnMsIGFzc2lnbmluZyB0ZW1wb3JhcmllcyBhcyBuZWVkZWQgdG8gYXZvaWQgcmUtZXZhbHVhdGluZ1xuICogdGhlIHNhbWUgc3ViLWV4cHJlc3Npb24gbXVsdGlwbGUgdGltZXMuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBnZW5lcmF0ZU51bGxpc2hDb2FsZXNjZUV4cHJlc3Npb25zKGpvYjogQ29tcGlsYXRpb25Kb2IpOiB2b2lkIHtcbiAgZm9yIChjb25zdCB1bml0IG9mIGpvYi51bml0cykge1xuICAgIGZvciAoY29uc3Qgb3Agb2YgdW5pdC5vcHMoKSkge1xuICAgICAgaXIudHJhbnNmb3JtRXhwcmVzc2lvbnNJbk9wKFxuICAgICAgICBvcCxcbiAgICAgICAgKGV4cHIpID0+IHtcbiAgICAgICAgICBpZiAoXG4gICAgICAgICAgICAhKGV4cHIgaW5zdGFuY2VvZiBvLkJpbmFyeU9wZXJhdG9yRXhwcikgfHxcbiAgICAgICAgICAgIGV4cHIub3BlcmF0b3IgIT09IG8uQmluYXJ5T3BlcmF0b3IuTnVsbGlzaENvYWxlc2NlXG4gICAgICAgICAgKSB7XG4gICAgICAgICAgICByZXR1cm4gZXhwcjtcbiAgICAgICAgICB9XG5cbiAgICAgICAgICBjb25zdCBhc3NpZ25tZW50ID0gbmV3IGlyLkFzc2lnblRlbXBvcmFyeUV4cHIoZXhwci5saHMuY2xvbmUoKSwgam9iLmFsbG9jYXRlWHJlZklkKCkpO1xuICAgICAgICAgIGNvbnN0IHJlYWQgPSBuZXcgaXIuUmVhZFRlbXBvcmFyeUV4cHIoYXNzaWdubWVudC54cmVmKTtcblxuICAgICAgICAgIC8vIFRPRE86IFdoZW4gbm90IGluIGNvbXBhdGliaWxpdHkgbW9kZSBmb3IgVGVtcGxhdGVEZWZpbml0aW9uQnVpbGRlciwgd2UgY2FuIGp1c3QgZW1pdFxuICAgICAgICAgIC8vIGB0ICE9IG51bGxgIGluc3RlYWQgb2YgaW5jbHVkaW5nIGFuIHVuZGVmaW5lZCBjaGVjayBhcyB3ZWxsLlxuICAgICAgICAgIHJldHVybiBuZXcgby5Db25kaXRpb25hbEV4cHIoXG4gICAgICAgICAgICBuZXcgby5CaW5hcnlPcGVyYXRvckV4cHIoXG4gICAgICAgICAgICAgIG8uQmluYXJ5T3BlcmF0b3IuQW5kLFxuICAgICAgICAgICAgICBuZXcgby5CaW5hcnlPcGVyYXRvckV4cHIoby5CaW5hcnlPcGVyYXRvci5Ob3RJZGVudGljYWwsIGFzc2lnbm1lbnQsIG8uTlVMTF9FWFBSKSxcbiAgICAgICAgICAgICAgbmV3IG8uQmluYXJ5T3BlcmF0b3JFeHByKFxuICAgICAgICAgICAgICAgIG8uQmluYXJ5T3BlcmF0b3IuTm90SWRlbnRpY2FsLFxuICAgICAgICAgICAgICAgIHJlYWQsXG4gICAgICAgICAgICAgICAgbmV3IG8uTGl0ZXJhbEV4cHIodW5kZWZpbmVkKSxcbiAgICAgICAgICAgICAgKSxcbiAgICAgICAgICAgICksXG4gICAgICAgICAgICByZWFkLmNsb25lKCksXG4gICAgICAgICAgICBleHByLnJocyxcbiAgICAgICAgICApO1xuICAgICAgICB9LFxuICAgICAgICBpci5WaXNpdG9yQ29udGV4dEZsYWcuTm9uZSxcbiAgICAgICk7XG4gICAgfVxuICB9XG59XG4iXX0=
