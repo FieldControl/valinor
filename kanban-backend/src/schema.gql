@@ -1,0 +1,152 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: Int!
+  createdAt: DateTime!
+  createdBy: Int!
+  lastLoginAt: DateTime!
+  email: String!
+  name: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type AuthType {
+  user: User!
+  token: String!
+}
+
+type Board {
+  id: Int
+  name: String
+  createdAt: DateTime
+  createdBy: Int
+  updatedAt: DateTime
+  updatedBy: Int
+  userId: Float
+  user: User
+}
+
+type Column {
+  id: Int
+  name: String
+  position: Float
+  createdAt: DateTime
+  createdBy: Float
+  updatedAt: DateTime
+  updatedBy: Float
+  board: Board
+  boardId: Int
+}
+
+type Card {
+  id: Int
+  title: String
+  description: String
+  position: Float
+  createdAt: DateTime
+  createdBy: Float
+  updatedAt: DateTime
+  updatedBy: Float
+  column: Column
+  columnId: Int
+}
+
+type Query {
+  getAllUsers: [User!]!
+  user(id: Int!): User!
+  userByEmail(email: String!): User
+  getAllBoards: [Board!]!
+  board(id: Int!): Board!
+  getAllColumns: [Column!]!
+  getColumnById(id: Float!): Column!
+  getAllCards: [Card!]!
+  getCardByColumnId(columnId: Float!): Card!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): User!
+  updateUser(id: Int!, data: UpdateUserInput!): User!
+  deleteUser(id: Int!): Boolean!
+  signup(data: SignupInput!): AuthType!
+  login(data: AuthInput!): AuthType!
+  logout(userId: Float!): Boolean!
+  createBoard(data: CreateBoardInput!): Board!
+  updateBoard(id: Int!, data: UpdateBoardInput!): Board!
+  deleteBoard(id: Int!): Boolean!
+  createColumn(data: CreateColumnInput!): Column!
+  updateColumn(id: Int!, data: UpdateColumnInput!): Column!
+  updateColumnsPositions(columns: [UpdateColumnInput!]!): [Column!]!
+  deleteColumn(id: Int!): Boolean!
+  createCard(data: CreateCardInput!): Card!
+  updateCard(id: Int!, data: UpdateCardInput!): Card!
+  deleteCard(id: Int!): Boolean!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  password: String
+}
+
+input SignupInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input AuthInput {
+  email: String!
+  password: String!
+}
+
+input CreateBoardInput {
+  name: String!
+  userId: Int!
+  createdBy: Int
+}
+
+input UpdateBoardInput {
+  id: Int
+  name: String
+  updatedBy: Int
+}
+
+input CreateColumnInput {
+  name: String!
+  position: Int!
+  boardId: Int!
+}
+
+input UpdateColumnInput {
+  id: Int
+  name: String
+  position: Int
+  boardId: Int
+}
+
+input CreateCardInput {
+  title: String!
+  description: String!
+  position: Float!
+  columnId: Float!
+}
+
+input UpdateCardInput {
+  id: Int
+  position: Float
+  title: String
+  description: String
+  columnId: Float
+}

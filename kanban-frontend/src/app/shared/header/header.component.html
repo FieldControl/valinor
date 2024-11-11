@@ -1,0 +1,17 @@
+<div class="header-container">
+  <ul nz-menu nzMode="horizontal" class="header-menu">
+    <li nz-menu-item nzSelected>
+      <span nz-icon nzType="appstore-add" nzTheme="outline" style="font-size: 18px;"></span>
+        Board
+    </li>
+    <li nz-menu-item nzDisabled>
+      <span nz-icon nzType="user" nzTheme="outline" style="font-size: 18px;"></span>
+      Usuários
+    </li>
+  </ul>
+  
+  <div class="header-actions">
+    <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+    <button nz-button nzType="primary" (click)="logout()">Logout</button>
+  </div>
+</div>

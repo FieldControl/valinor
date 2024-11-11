@@ -1,0 +1,56 @@
+@import 'ng-zorro-antd/ng-zorro-antd.min.css';
+
+$primary-color: #798BF2;
+$secondary-color: #7A8C51;
+$body-color: #fff;
+$background-color: #dadfe6;
+$text-color: #2c2e31;
+$font-size-base: 16px;
+$border-radius-base: 8px;
+
+body {
+  background-color: $body-color;
+  color: $primary-color;
+  font-size: $font-size-base;
+  border-radius: $border-radius-base;
+  padding: 20px;
+}
+
+button, .ant-btn {
+  background-color: $primary-color;
+  border-radius: $border-radius-base;
+  color: white;
+  border: none;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.ant-col {
+  scrollbar-width: none;
+}
+
+.cdk-drag-preview > .ant-card {
+  opacity: 0.8;
+  transform: rotate(3deg);
+  background-color: #e0e0e0;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+}
+
+.cdk-drop-list-dragging {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}

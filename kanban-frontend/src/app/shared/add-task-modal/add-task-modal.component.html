@@ -1,0 +1,19 @@
+<form nz-form (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="name">Nome</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="name" [(ngModel)]="name" name="name" required />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="description">Descrição</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input nz-input id="description" [(ngModel)]="description" name="description" required />
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-actions">
+    <button nz-button nzType="primary" type="submit">Adicionar</button>
+  </div>
+</form>

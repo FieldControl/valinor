@@ -1,0 +1,97 @@
+@if(columns){
+  <div
+    nz-row
+    [nzGutter]="[16, 16]"
+    cdkDropListGroup
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="moveList($event)"
+  >
+
+    @if(!columns.length){
+      <div class="empty-column-placeholder" cdkDrag>
+        Crie sua primeira coluna
+      </div>
+    }
+    
+    @for(column of columns; track column.id){
+      <div
+        nz-col
+        cdkDrag
+        cdkDragPreviewContainer="parent"
+      >
+
+        <nz-card [nzTitle]="column.name" class="column" [nzExtra]="properties">
+          <app-card [columnId]="column.id"></app-card>
+        </nz-card>
+
+        <ng-template #properties>
+          
+          <app-add-button [column]="column" label="Tarefa"></app-add-button>
+
+          <span nz-tooltip nzTooltipTitle="Informações">
+            <button
+              nz-button
+              nzType="primary"
+              nz-popover
+              nzPopoverTrigger="click"
+              [nzPopoverContent]="contentTemplate"
+            >
+              <span nz-icon nzType="profile" nzTheme="outline"></span>
+
+              <ng-template #contentTemplate>
+                <div>
+                  <p>
+                    <span class="text-bold">Nome da coluna: </span>
+                    {{ column.name }}
+                  </p>
+
+                  <p>
+                    <span class="text-bold">Criado em: </span>
+                    {{ column.createdAt | date: 'dd/MM/yyyy' }}
+                  </p>
+
+                  <p>
+                    <span class="text-bold">Criado por: </span>
+                    {{ column.createdBy }}
+                  </p>
+
+                  <p>
+                    <span class="text-bold">Atualizado em: </span>
+                    {{ column.updatedAt | date: 'dd/MM/yyyy' }}
+                  </p>
+
+                  <p>
+                    <span class="text-bold">Atualizado por: </span>
+                    {{ column.updatedBy }}
+                  </p>
+                </div>
+              </ng-template>
+
+            </button>
+          </span>
+
+          <button
+            nz-button
+            nzType="default"
+            (click)="openEditTaskModal(column)"
+            class="edit-button"
+          >
+            <span nz-icon nzType="edit" nzTheme="outline"></span>
+          </button>
+
+          <button
+            nz-button
+            nzType="default"
+            (click)="deleteColumn(column.id)"
+            class="delete-button"
+          >
+            <span nz-icon nzType="delete" nzTheme="outline"></span>
+          </button>
+
+        </ng-template>
+      </div>
+    }
+    <app-add-button class="add-column-button" label="Coluna"></app-add-button>
+  </div>
+}

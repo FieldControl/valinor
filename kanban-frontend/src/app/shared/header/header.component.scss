@@ -1,0 +1,23 @@
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #e1e2ec;
+    border-radius: 16px;
+  }
+  
+  .header-menu {
+    display: flex;
+    background-color: #e1e2ec;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  

@@ -1,0 +1,9 @@
+:host ::ng-deep .ant-modal-content {
+  border-radius: 24px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+}
