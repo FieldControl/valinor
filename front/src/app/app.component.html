@@ -1,0 +1,48 @@
+<div class="kanban-container">
+  <h1 class="kanban-title">Projeto Kanban</h1>
+  <div class="kanban-board" cdkDropList [cdkDropListData]="columns" (cdkDropListDropped)="onDrop($event)">
+    <div *ngFor="let column of columns" cdkDrag class="kanban-column">
+      <div class="column-header">
+        <h2 *ngIf="!column.isEditing" (click)="editColumn(column)">
+          {{ column.title }}
+        </h2>
+        <input *ngIf="column.isEditing" [(ngModel)]="column.title" (blur)="updateColumn(column)"
+          (keydown.enter)="updateColumn(column)" class="input-title" type="text" maxlength="20" />
+
+        <div class="button-container">
+          <button (click)="deleteColumn(column.id)" class="delete-button">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <ul cdkDropList [cdkDropListData]="column.cards ?? []" (cdkDropListDropped)="onDrop($event)">
+        <li *ngFor="let task of column.cards" cdkDrag class="task">
+          <span (click)="editCard(task, column.id)" class="title-card">
+            {{ task.title }}
+          </span>
+          <span class="description-card">{{ task.description }}</span>
+          <button *ngIf="task.id" (click)="deleteCard(task.id)" class="delete-button">
+            <i class="fa fa-trash"></i>
+          </button>
+        </li>
+      </ul>
+      <div class="column-footer">
+        <button (click)="createNewCardInColumn(column.id)" class="button">
+          Adicionar Tarefa
+        </button>
+      </div>
+    </div>
+    <div class="add-column-button" (click)="createColumn('')">
+      <button class="button">Adicionar outra lista</button>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="isEditingModalOpen">
+  <div class="modal">
+    <h2>Editando Card</h2>
+    <input [(ngModel)]="cardToEdit!.title" placeholder="Título" />
+    <textarea [(ngModel)]="cardToEdit!.description" placeholder="Descrição"></textarea>
+    <button (click)="updateCard()">Salvar</button>
+    <button (click)="closeEditModal()">Cancelar</button>
+  </div>
+</ng-container>

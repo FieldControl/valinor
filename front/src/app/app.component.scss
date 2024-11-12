@@ -1,0 +1,392 @@
+$primary-color: #4CAF50;
+$secondary-color: #FFC107;
+$background-color: #F4F4F4;
+$card-border: #ddd;
+$button-color: #2E8B57;
+$column-background: #FFFFFF;
+$task-background: #f8f8f8;
+
+.kanban-container {
+  margin: 0 auto;
+  padding: 0 2rem;
+  background-color: $background-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+
+  .kanban-title {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 10;
+    background: $primary-color;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid lighten($primary-color, 20%);
+  }
+
+  .kanban-board {
+    display: flex;
+    gap: 20px;
+    padding-top: 6rem;
+    padding-bottom: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    cursor: pointer;
+  }
+
+  .kanban-column {
+    width: 250px;
+    padding: 15px;
+    background-color: $column-background;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &.drop-target {
+      border: 2px dashed #007bff;
+      background-color: #e3f2fd;
+    }
+
+    .column-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h2 {
+        width: 100%;
+        text-align: start;
+        color: $primary-color;
+        font-size: 1.3rem;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .button-container {
+        display: flex;
+        align-items: center;
+
+        .edit-button,
+        .delete-button {
+          background: transparent;
+          border: none;
+          color: $primary-color;
+          font-size: 1.5rem;
+          cursor: pointer;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .task {
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid lighten($card-border, 15%);
+      border-radius: 8px;
+      background-color: $task-background;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      cursor: pointer;
+
+      &.dragging {
+        opacity: 0.5;
+        transform: scale(1.05);
+      }
+
+      &:hover {
+        background-color: lighten($task-background, 10%);
+        transform: translateY(-4px);
+      }
+
+      span {
+        font-weight: 600;
+        color: $primary-color;
+        margin-bottom: 8px;
+      }
+
+      .title-card {
+        font-size: 1.1rem;
+        border-bottom: 1px solid $primary-color;
+        white-space: normal;
+        word-wrap: break-word;
+        width: 100%;
+        display: block;
+      }
+
+      .description-card {
+        font-size: 0.7rem;
+        white-space: normal;
+        word-wrap: break-word;
+        width: 100%;
+        display: block;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: darken($primary-color, 20%);
+        margin-bottom: 12px;
+      }
+
+      .description-textarea {
+        width: 100%;
+        padding: 4px;
+        font-size: 14px;
+        resize: vertical;
+      }
+
+      .delete-button {
+        align-self: flex-end;
+        background: transparent;
+        border: none;
+        color: lighten($primary-color, 20%);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: darken($primary-color, 20%);
+        }
+      }
+    }
+  }
+
+  .input-title {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: #aaa;
+      font-style: italic;
+    }
+
+    &:focus {
+      border-color: #4caf50;
+      outline: none;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+    }
+
+    &:hover {
+      border-color: #888;
+    }
+
+    &:disabled {
+      background-color: #f4f4f4;
+      border-color: #ddd;
+      cursor: not-allowed;
+    }
+
+    &.error {
+      border-color: #f44336;
+      box-shadow: 0 0 8px rgba(244, 67, 54, 0.3);
+    }
+  }
+
+  .add-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 30px;
+
+    .add-task,
+    .add-column {
+      flex: 1;
+      padding: 15px;
+      background-color: $column-background;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+      h2 {
+        font-size: 1.5rem;
+        color: $primary-color;
+        margin-bottom: 15px;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid $card-border;
+        border-radius: 5px;
+        font-size: 1rem;
+        background-color: #f9f9f9;
+      }
+
+      .button {
+        width: 100%;
+        padding: 10px;
+        background-color: $button-color;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($button-color, 10%);
+        }
+      }
+    }
+  }
+
+  .button {
+    width: 100%;
+    padding: 8px;
+    background-color: $button-color;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($button-color, 10%);
+    }
+  }
+
+  .add-column-button {
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 2.5rem;
+    background-color: $column-background;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .button {
+      width: 100%;
+      padding: 10px;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+  transition: opacity 0.3s ease-in-out;
+
+  .modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: $primary-color;
+    text-align: center;
+  }
+
+  input,
+  textarea {
+    width: 50%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+
+  button {
+    width: 30%;
+    padding: 12px;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    &+button {
+      margin-top: 10px;
+    }
+  }
+
+  .close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: darken($primary-color, 20%);
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: lighten($primary-color, 20%);
+    }
+  }
+}
