@@ -1,0 +1,14 @@
+-- AlterTable
+ALTER TABLE "Board" ALTER COLUMN "createdBy" DROP NOT NULL,
+ALTER COLUMN "updatedBy" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Card" ALTER COLUMN "createdBy" DROP NOT NULL,
+ALTER COLUMN "updatedBy" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Column" ALTER COLUMN "createdBy" DROP NOT NULL,
+ALTER COLUMN "updatedBy" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "createdBy" DROP NOT NULL;

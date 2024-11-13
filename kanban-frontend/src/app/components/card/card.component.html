@@ -1,0 +1,50 @@
+<div
+  nz-row
+  [nzGutter]="[16, 16]"
+  cdkDropList
+  [cdkDropListData]="cards"
+  (cdkDropListDropped)="moveTask($event)"
+  class="column-drop-list"
+>
+  @if(!cards.length){
+    <div class="empty-card-placeholder" cdkDrag>
+      Arraste tarefas para cá
+    </div>
+  }
+
+  @if(cards){
+    @for(card of cards; track card.id){
+      <div
+        nz-col
+        [nzSpan]="24"
+        cdkDrag
+      >
+        <nz-card [nzTitle]="card.title" class="card" [nzExtra]="title">
+          <ng-template #title>
+            <button
+              nz-button
+              nzType="default"
+              nzSize="small"
+              (click)="openEditTaskModal(card)"
+              class="edit-button"
+            >
+              <span nz-icon nzType="edit" nzTheme="outline"></span>
+            </button>
+
+            <button
+              nz-button
+              nzType="default"
+              nzSize="small"
+              (click)="deleteCard(card.id)"
+              class="delete-button"
+            >
+              <span nz-icon nzType="delete" nzTheme="outline"></span>
+            </button>
+          </ng-template>
+
+          <p>{{ card.description }}</p>
+        </nz-card>
+      </div>
+    }
+  }
+</div>

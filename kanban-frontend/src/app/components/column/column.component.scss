@@ -1,0 +1,35 @@
+.column {
+  width: 350px;
+  border-radius: 8px;
+  background-color: #e1e2ec;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.add-column-button {
+  margin: 10px;
+}
+
+.edit-button {
+  margin-left: 4px;
+  background-color: rgb(104, 214, 163);
+  border-radius: 8px;
+}
+
+.delete-button {
+  margin-left: 4px;
+  background-color: rgb(214, 104, 104);
+}
+
+.empty-column-placeholder {
+  padding: 80px;
+  margin: 14px;
+  width: 350px;
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+}

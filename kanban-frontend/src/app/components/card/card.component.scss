@@ -1,0 +1,24 @@
+.card {
+  border-radius: 8px;
+}
+
+.edit-button {
+  margin-right: 4px;
+  background-color: rgb(104, 214, 163);
+  border-radius: 4px;
+}
+
+.delete-button {
+  background-color: rgb(214, 104, 104);
+  border-radius: 4px;
+}
+
+.empty-card-placeholder {
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+}

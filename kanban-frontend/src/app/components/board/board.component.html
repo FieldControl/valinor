@@ -1,0 +1,6 @@
+@if(boards[0] && boards.length > 0){
+  <h1 class="board-title">{{ boards[0].name }}</h1>
+  <div class="board" cdkDropListGroup>
+    <app-column [boardId]="boards[0].id"></app-column>
+  </div>
+}
