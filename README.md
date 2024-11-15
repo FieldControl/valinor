@@ -226,7 +226,17 @@ Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
 
 - Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+  Foi utilizado o framework CSS bulma para estilização do projeto, Angular CDK para adicionar o método drag e drop (arrastar e soltar),
+
 - Porque você optou pela tecnologia X e não a Y
+  Eu optei por utilizar o framework bulma do que o bootstrap, mais para conhecer melhor a sintaxe e o diferencial da linguegem de estilização
+
 - Quais princípios da engenharia de software que você usou?
+  foi preciso utilizar o Model para tonrar as tasks mais dinâmicas nas colunas, de modo que o código fique mais simples
+
 - Desafios e problemas que você enfrentou e como você resolveu
+  utilização da diretiva do Angular para tem acesso aos itens da tarefa, que permite percorrer um array ou objeto iterável e exibir cada item como elemento na tela. Foi resolvido com a importação. Também tive dificuldades em alguns detalhes do CSS, mas foi resolvido com ajuda de pessoas que estudam programação
+
 - O que você entende que pode ser melhorado e como fazer isso
+  Editar e excluir as tasks pela própria página e nãoi manualmete dentro do código e permanecer a atualização das tarefas em direfentes colunas,
+  porque quando a página é recarregada as tarefas voltam na posição inicial, para ser melhorado é preciso entender melhor o servidor, as requisições e implemnetar o método excluir e editar
