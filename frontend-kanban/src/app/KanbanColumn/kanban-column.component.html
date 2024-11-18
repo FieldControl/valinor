@@ -1,0 +1,11 @@
+<div class="kanban-column">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ column.name }}</mat-card-title>
+    </mat-card-header>
+    <div *ngFor="let card of column.cards">
+      <app-kanban-card [card]="card"></app-kanban-card>
+    </div>
+    <button (click)="onAddCard()">Adicionar Card</button>
+  </mat-card>
+</div>

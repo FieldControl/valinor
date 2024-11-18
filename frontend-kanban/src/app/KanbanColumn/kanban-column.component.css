@@ -1,0 +1,27 @@
+.kanban-column {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 8px;
+  width: 250px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #f9f9f9;
+}
+
+.column-title {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+}
+
+.cards-container {
+  margin-top: 16px;
+}
+
+.kanban-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: #fff;
+}
