@@ -1,0 +1,15 @@
+<div *ngIf="columns.length > 0">
+  <div *ngFor="let column of columns">
+    <h2>{{ column.name }}</h2>
+    <div *ngFor="let card of column.cards">
+      <div class="card">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="columns.length === 0">
+  <p>Carregando colunas...</p>
+</div>
