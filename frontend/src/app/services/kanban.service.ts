@@ -14,4 +14,8 @@ export class KanbanService {
   getColumns(): Observable<Column[]> {
     return this.http.get<Column[]>(this.apiUrl);
   }
+
+  addColumn(column: Partial<Column>): Observable<Column> {
+    return this.http.post<Column>(this.apiUrl, column);
+  }
 }

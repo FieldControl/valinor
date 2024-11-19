@@ -7,8 +7,9 @@ export class ColumnController {
   constructor(private readonly columnService: ColumnService) {}
 
   @Post()
-  create(@Body('name') name: string): Promise<Column> {
-    return this.columnService.create(name);
+  create(@Body() body: { name: string }): Promise<Column> {
+    const columnData: Partial<Column> = { name: body.name };
+    return this.columnService.create(columnData);
   }
 
   @Get()

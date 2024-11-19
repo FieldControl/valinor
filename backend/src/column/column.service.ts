@@ -7,15 +7,20 @@ import { Column } from './column.entity';
 export class ColumnService {
   constructor(
     @InjectRepository(Column)
-    private readonly columnRepository: Repository<Column>,
+    private columnRepository: Repository<Column>,
   ) {}
 
-  create(name: string): Promise<Column> {
+  /*create(name: string): Promise<Column> {
     const column = this.columnRepository.create({ name });
     return this.columnRepository.save(column);
-  }
+  }*/
 
   findAll(): Promise<Column[]> {
     return this.columnRepository.find({ relations: ['cards'] });
+  }
+
+  create(columnData: Partial<Column>): Promise<Column> {
+    const column = this.columnRepository.create(columnData);
+    return this.columnRepository.save(column);
   }
 }
