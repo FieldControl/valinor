@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: '<app-kanban-board></app-kanban-board>',
+  styles: [] // ou styleUrls: ['./app.component.css'], se existir o arquivo
 })
-export class AppComponent {
-  title = 'kanban-frontend';
-}
+export class AppComponent {}

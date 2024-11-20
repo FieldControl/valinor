@@ -6,15 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class KanbanService {
-  private apiUrl = 'http://localhost:3000'; // Backend API
+  private apiUrl = 'http://localhost:3000'; // URL do backend
 
   constructor(private http: HttpClient) {}
 
-  getColumns(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/columns`);
+  getColumns(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/columns`);
   }
 
   addColumn(title: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/columns`, { title });
+    return this.http.post<any>(`${this.apiUrl}/columns`, { title });
+  }
+
+  deleteColumn(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/columns/${id}`);
   }
 }

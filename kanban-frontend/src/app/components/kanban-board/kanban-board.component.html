@@ -1,0 +1,18 @@
+<div>
+    <h1>Kanban Board</h1>
+    <input #columnTitle type="text" placeholder="Add Column" />
+    <button (click)="addColumn(columnTitle.value)">Add</button>
+  
+    <div *ngFor="let column of columns">
+      <h3>{{ column.title }}</h3>
+      <button (click)="deleteColumn(column.id)">Delete</button>
+  
+      <!-- Lista os cards dentro da coluna -->
+      <ul>
+        <li *ngFor="let card of column.cards">
+          <strong>{{ card.title }}</strong>: {{ card.description }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
