@@ -18,4 +18,12 @@ export class KanbanService {
   addColumn(column: Partial<Column>): Observable<Column> {
     return this.http.post<Column>(this.apiUrl, column);
   }
+
+  addCard(cardData: {
+    title: string;
+    description: string;
+    columnId: string;
+  }): Observable<any> {
+    return this.http.post<any>(this.apiUrl, cardData);
+  }
 }

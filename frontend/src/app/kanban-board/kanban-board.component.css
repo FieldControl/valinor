@@ -2,18 +2,18 @@
 
 .kanban-board {
   display: flex;
-  justify-content: space-between;
-  overflow-x: auto;
-  padding: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .kanban-column {
-  background-color: #f4f5f7;
+  flex: 1 1 300px;
+  border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
-  width: 300px;
-  margin-right: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
 }
 
 .kanban-column h2 {
@@ -29,10 +29,12 @@
 }
 
 .kanban-card {
-  background-color: white;
-  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .kanban-card h3 {

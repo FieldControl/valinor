@@ -1,12 +1,32 @@
+<!-- Formulário para adicionar nova coluna -->
+<input [(ngModel)]="newColumnName" placeholder="Nome da nova coluna" />
+<button (click)="addNewColumn()">Adicionar Coluna</button>
+
+<!-- Container das colunas -->
 <div class="kanban-board">
   <div *ngFor="let column of columns" class="kanban-column">
     <h3>{{ column.name }}</h3>
+
+    <!-- Botão para exibir formulário de novo cartão -->
+    <button (click)="showAddCardForm(column.id)">Adicionar Cartão</button>
+
+    <!-- Exibe os cartões existentes -->
     <div *ngFor="let card of column.cards" class="kanban-card">
       <p>{{ card.title }}</p>
+      <p>{{ card.description }}</p>
+    </div>
+
+    <!-- Formulário para adicionar novo cartão -->
+    <div *ngIf="showAddCard[column.id]">
+      <input
+        [(ngModel)]="newCard[column.id].title"
+        placeholder="Título do novo card"
+      />
+      <input
+        [(ngModel)]="newCard[column.id].description"
+        placeholder="Descrição do novo card"
+      />
+      <button (click)="addNewCard(column.id)">Salvar Card</button>
     </div>
   </div>
-
-  <!-- Formulário para adicionar nova coluna -->
-  <input [(ngModel)]="newColumnName" placeholder="Nome da nova coluna" />
-  <button (click)="addNewColumn()">Adicionar Coluna</button>
 </div>

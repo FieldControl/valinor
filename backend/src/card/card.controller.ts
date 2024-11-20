@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { CardService } from '../card.service';
 import { Card } from './card.entity';
+import { CreateCardDto } from '../dto/create-card.dto';
 
 @Controller('cards') // Prefixo de rota para os endpoints dos cards
 export class CardController {
@@ -16,8 +17,8 @@ export class CardController {
 
   // Rota para criar um novo card
   @Post()
-  create(@Body() cardData: Partial<Card>): Promise<Card> {
-    return this.cardService.create(cardData);
+  async create(@Body() createCardDto: CreateCardDto) {
+    return this.cardService.create(createCardDto);
   }
 
   // Rota para listar todos os cards

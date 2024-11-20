@@ -23,4 +23,8 @@ export class ColumnService {
     const column = this.columnRepository.create(columnData);
     return this.columnRepository.save(column);
   }
+
+  async remove(id: number): Promise<void> {
+    await this.columnRepository.delete(id);
+  }
 }

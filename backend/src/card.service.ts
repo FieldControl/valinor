@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Card } from './card/card.entity';
+import { CreateCardDto } from './dto/create-card.dto';
 
 @Injectable()
 export class CardService {
@@ -11,9 +12,13 @@ export class CardService {
   ) {}
 
   // Método para criar um novo card
-  async create(cardData: Partial<Card>): Promise<Card> {
+  /*async create(cardData: Partial<Card>): Promise<Card> {
     const card = this.cardRepository.create(cardData);
     return this.cardRepository.save(card);
+  }*/
+  async create(createCardDto: CreateCardDto): Promise<Card> {
+    const newCard = this.cardRepository.create(createCardDto);
+    return this.cardRepository.save(newCard);
   }
 
   // Método para listar todos os cards
