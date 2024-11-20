@@ -1,16 +1,53 @@
 <div>
     <h1>Kanban Board</h1>
     <input #columnTitle type="text" placeholder="Add Column" />
-    <button (click)="addColumn(columnTitle.value)">Add</button>
+    <button (click)="addColumn(columnTitle.value)">Add Column</button>
   
-    <div *ngFor="let column of columns">
+    <div *ngFor="let column of columns" class="column">
       <h3>{{ column.title }}</h3>
-      <button (click)="deleteColumn(column.id)">Delete</button>
+      <button (click)="deleteColumn(column.id)">Delete Column</button>
   
-      <!-- Lista os cards dentro da coluna -->
+      <!-- Formulário para adicionar card -->
+      <div>
+        <input
+          #cardTitle
+          type="text"
+          placeholder="Card Title"
+          [attr.aria-label]="'Card Title for ' + column.title"
+        />
+        <input
+          #cardDescription
+          type="text"
+          placeholder="Card Description"
+          [attr.aria-label]="'Card Description for ' + column.title"
+        />
+        <button
+          (click)="addCard(column.id, cardTitle.value, cardDescription.value)"
+        >
+          Add Card
+        </button>
+      </div>
+  
+      <!-- Lista de cards -->
       <ul>
-        <li *ngFor="let card of column.cards">
-          <strong>{{ card.title }}</strong>: {{ card.description }}
+        <li *ngFor="let card of column.cards" class="card">
+          <input
+            [(ngModel)]="card.title"
+            placeholder="Edit Title"
+            [attr.aria-label]="'Edit Title for ' + card.title"
+          />
+          <input
+            [(ngModel)]="card.description"
+            placeholder="Edit Description"
+            [attr.aria-label]="'Edit Description for ' + card.title"
+          />
+          <button (click)="deleteCard(card.id)">Delete Card</button>
+          <!-- Botão para salvar alterações (apenas atualizar os valores, sem criar ou deletar cards) -->
+          <button
+            (click)="updateCard(card.id, card.title, card.description)"
+          >
+            Save Changes
+          </button>
         </li>
       </ul>
     </div>

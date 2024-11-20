@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { KanbanService } from '../../services/kanban.service';
 
+interface Card {
+  id: number;
+  title: string;
+  description: string;
+}
+
 interface Column {
   id: number;
   title: string;
-  cards: { id: number; title: string; description: string }[];
+  cards: Card[];
 }
 
 @Component({
@@ -13,7 +19,7 @@ interface Column {
   styleUrls: ['./kanban-board.component.css'],
 })
 export class KanbanBoardComponent implements OnInit {
-  columns: Column[] = []; // Define o tipo de 'columns'
+  columns: Column[] = [];
 
   constructor(private kanbanService: KanbanService) {}
 
@@ -23,7 +29,7 @@ export class KanbanBoardComponent implements OnInit {
 
   loadColumns() {
     this.kanbanService.getColumns().subscribe((data) => {
-      this.columns = data; // 'data' deve corresponder ao formato da interface Column
+      this.columns = data;
     });
   }
 
@@ -36,6 +42,26 @@ export class KanbanBoardComponent implements OnInit {
 
   deleteColumn(id: number) {
     this.kanbanService.deleteColumn(id).subscribe(() => {
+      this.loadColumns();
+    });
+  }
+
+  addCard(columnId: number, title: string, description: string) {
+    if (!title.trim() || !description.trim()) return;
+    this.kanbanService.addCard(columnId, title, description).subscribe(() => {
+      this.loadColumns();
+    });
+  }
+
+  deleteCard(cardId: number) {
+    this.kanbanService.deleteCard(cardId).subscribe(() => {
+      this.loadColumns();
+    });
+  }
+
+  updateCard(cardId: number, newTitle: string | null, newDescription: string | null) {
+    if (!newTitle || !newDescription) return;
+    this.kanbanService.updateCard(cardId, newTitle, newDescription).subscribe(() => {
       this.loadColumns();
     });
   }
