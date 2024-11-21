@@ -65,4 +65,17 @@ export class KanbanBoardComponent implements OnInit {
       this.loadColumns();
     });
   }
+
+  // Card selecionado para exibir no modal
+  selectedCard: any = null;
+
+  // Método para abrir o modal com o card selecionado
+  openModal(card: any): void {
+    this.selectedCard = card;
+  }
+
+  // Método para fechar o modal
+  closeModal(): void {
+    this.selectedCard = null;
+  }
 }
