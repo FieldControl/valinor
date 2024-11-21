@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppComponent } from './app.component';
 import { KanbanBoardComponent } from './components/kanban-board/kanban-board.component';
 
 @NgModule({
   declarations: [
-    AppComponent,        // Declaração do componente principal
-    KanbanBoardComponent // Declaração do componente Kanban Board
+    AppComponent,
+    KanbanBoardComponent,
   ],
   imports: [
-    BrowserModule,       // Módulo básico para rodar a aplicação no navegador
-    HttpClientModule,    // Para comunicação com APIs REST
-    FormsModule          // Para gerenciar formulários e bindings
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    DragDropModule,
   ],
   providers: [],
-  bootstrap: [AppComponent] // Componente inicial da aplicação
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
