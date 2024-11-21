@@ -47,7 +47,7 @@
       <ul class="cards">
         <li *ngFor="let card of column.cards" class="card">
           <strong>{{ card.title }}</strong>{{ card.description }}
-          <button (click)="deleteCard(card.id)">Delete</button>
+          <button (click)="deleteCard(card.id)" class="delete-button">Delete card</button>
           <button
             (click)="updateCard(card.id, card.title, card.description)"
           >

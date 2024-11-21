@@ -11,6 +11,7 @@ body {
 .flex {
   display: flex;
 }
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -60,6 +61,7 @@ button:hover {
 .columns {
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-start;
   color: #333;
   gap: 20px;
   overflow-x: auto;
