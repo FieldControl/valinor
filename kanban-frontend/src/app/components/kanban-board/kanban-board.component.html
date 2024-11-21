@@ -45,15 +45,12 @@
       <!-- Lista de cards dentro da coluna -->
       <ul class="cards">
         <li *ngFor="let card of column.cards" class="card" (click)="openModal(card)">
+          <div id="cardTitle">
           <strong>{{ card.title }}</strong>
-          <button (click)="deleteCard(card.id)" class="delete-button">Delete card</button>
-          <button
-            (click)="updateCard(card.id, card.title, card.description)"
-          >
-            Save Changes
-          </button>
+          </div>
         </li>
       </ul>
+      
       <!-- Modal para exibir detalhes do card -->
       <div
       *ngIf="selectedCard"
@@ -66,6 +63,15 @@
         >
           <h2>{{ selectedCard.title }}</h2>
           <p>{{ selectedCard.description }}</p>
+      
+      <div id="cardButtons">
+        <button
+          (click)="deleteCard(selectedCard.id)"
+          (click)="closeModal()"
+          class="delete-button"
+        >
+          Delete card
+        </button>
           <button (click)="closeModal()">Close</button>
       </div>
     </div>

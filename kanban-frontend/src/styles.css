@@ -135,10 +135,9 @@ button:hover {
   color: #333;
 }
 
-.card button {
-  align-self: flex-end;
-  font-size: 0.8rem;
-  padding: 4px 8px;
+#cardButtons {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Overlay escurecida */
