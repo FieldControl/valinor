@@ -68,7 +68,7 @@ button:hover {
 }
 
 .column {
-  flex: 0 0 300px;
+  flex: 0 0 250px;
   background-color: rgb(245, 255, 255);
   border: 1px solid #ddd;
   border-radius: 8px;
