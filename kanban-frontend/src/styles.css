@@ -8,6 +8,9 @@ body {
   /* overflow-y: auto !important; */
 }
 
+.flex {
+  display: flex;
+}
 /* Navbar */
 .navbar {
   display: flex;
@@ -40,8 +43,8 @@ button:hover {
   background-color: #2a9690;
 }
 
-.delete-button {
-  background-image: url('./assets/trash.png');
+.delete-button:hover {
+  background-color: rgb(223, 14, 14);
 }
 
 /* Kanban Board */

@@ -17,12 +17,6 @@
     <div *ngFor="let column of columns" class="column">
       <h3>{{ column.title }}</h3>
 
-      <button (click)="deleteColumn(column.id)" class="delete-button">
-        <!-- <img src="../../../assets/trash.png" alt="Delete"/> -->
-      </button>
-      im
-
-
       <!-- Formulário para adicionar card -->
       <div class="add-card-form">
         <input
@@ -37,11 +31,16 @@
           placeholder="Card Description"
           [attr.aria-label]="'Card Description for ' + column.title"
         />
-        <button
-          (click)="addCard(column.id, cardTitle.value, cardDescription.value)"
-        >
-          Add Card
-        </button>
+        
+        <div class="flex" style="justify-content: space-between;">
+          <button (click)="addCard(column.id, cardTitle.value, cardDescription.value)">
+            Add Card
+          </button>
+  
+          <button (click)="deleteColumn(column.id)" class="delete-button">
+            Delete column
+          </button>
+        </div>
       </div>
 
       <!-- Lista de cards dentro da coluna -->
