@@ -31,8 +31,8 @@ h1 {
 }
 
 button {
-  background-color: #3db3ad;
-  color: white;
+  background-color: #80d8e5 !important;
+  color: rgb(56, 56, 56) !important;
   border: none;
   border-radius: 4px;
   padding: 8px 12px;
@@ -41,11 +41,11 @@ button {
 }
 
 button:hover {
-  background-color: #2a9690;
+  background-color: #43b8b2 !important;
 }
 
 .delete-button:hover {
-  background-color: rgb(223, 14, 14);
+  background-color: rgb(252, 43, 43) !important;
 }
 
 /* Kanban Board */
@@ -157,7 +157,7 @@ button:hover {
 
 /* Conteúdo do modal */
 .modal-content {
-  background: #fff;
+  background: seashell;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
