@@ -1,55 +1,53 @@
-<div>
-    <h1>Kanban Board</h1>
-    <input #columnTitle type="text" placeholder="Add Column" />
-    <button (click)="addColumn(columnTitle.value)">Add Column</button>
+<div class="kanban-board">
+    <h1>Kanban - FieldControl</h1>
+
+    <!-- Formulário para adicionar coluna -->
+     <label for="columnTitle">Add Column:</label>
+     <div class="add-column-form">
+         <input #columnTitle id="columnTitle" type="text" placeholder="Add Column" />
+         <br>
+         <button (click)="addColumn(columnTitle.value)">Add Column</button>
+     </div>
   
-    <div *ngFor="let column of columns" class="column">
-      <h3>{{ column.title }}</h3>
-      <button (click)="deleteColumn(column.id)">Delete Column</button>
+    <div class="columns">
+      <div *ngFor="let column of columns" class="column">
+        <h3>{{ column.title }}</h3>
+        <button (click)="deleteColumn(column.id)">Delete Column</button>
   
-      <!-- Formulário para adicionar card -->
-      <div>
-        <input
-          #cardTitle
-          type="text"
-          placeholder="Card Title"
-          [attr.aria-label]="'Card Title for ' + column.title"
-        />
-        <input
-          #cardDescription
-          type="text"
-          placeholder="Card Description"
-          [attr.aria-label]="'Card Description for ' + column.title"
-        />
-        <button
-          (click)="addCard(column.id, cardTitle.value, cardDescription.value)"
-        >
-          Add Card
-        </button>
-      </div>
-  
-      <!-- Lista de cards -->
-      <ul>
-        <li *ngFor="let card of column.cards" class="card">
+        <!-- Formulário para adicionar card -->
+        <div class="add-card-form">
           <input
-            [(ngModel)]="card.title"
-            placeholder="Edit Title"
-            [attr.aria-label]="'Edit Title for ' + card.title"
+            #cardTitle
+            type="text"
+            placeholder="Card Title"
+            [attr.aria-label]="'Card Title for ' + column.title"
           />
           <input
-            [(ngModel)]="card.description"
-            placeholder="Edit Description"
-            [attr.aria-label]="'Edit Description for ' + card.title"
+            #cardDescription
+            type="text"
+            placeholder="Card Description"
+            [attr.aria-label]="'Card Description for ' + column.title"
           />
-          <button (click)="deleteCard(card.id)">Delete Card</button>
-          <!-- Botão para salvar alterações (apenas atualizar os valores, sem criar ou deletar cards) -->
           <button
-            (click)="updateCard(card.id, card.title, card.description)"
+            (click)="addCard(column.id, cardTitle.value, cardDescription.value)"
           >
-            Save Changes
+            Add Card
           </button>
-        </li>
-      </ul>
+        </div>
+  
+        <!-- Lista de cards dentro da coluna -->
+        <ul class="cards">
+          <li *ngFor="let card of column.cards" class="card">
+            <strong>{{ card.title }}</strong>{{ card.description }}
+            <button (click)="deleteCard(card.id)">Delete</button>
+            <button
+              (click)="updateCard(card.id, card.title, card.description)"
+            >
+              Save Changes
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   
