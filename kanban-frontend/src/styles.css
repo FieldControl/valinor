@@ -12,6 +12,14 @@ body {
   display: flex;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
