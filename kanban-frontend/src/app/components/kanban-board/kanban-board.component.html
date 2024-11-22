@@ -12,8 +12,14 @@
         <button (click)="addColumn(columnTitle.value)">Add Column</button>
     </div>
 
-  <div class="columns">
-    <div *ngFor="let column of columns" class="column">
+  <div class="columns" cdkDropListGroup>
+    <div
+      *ngFor="let column of columns"
+      class="column"
+      cdkDropList
+      [cdkDropListData]="column.cards"
+      (cdkDropListDropped)="drop($event, column)"
+    >
       <h3>{{ column.title }}</h3>
 
       <!-- Formulário para adicionar card -->
@@ -30,26 +36,22 @@
           placeholder="Card Description"
           [attr.aria-label]="'Card Description for ' + column.title"
         />
-        
-        <div class="flex" style="justify-content: space-between;">
-          <button (click)="addCard(column.id, cardTitle.value, cardDescription.value)">
-            Add Card
-          </button>
-  
-          <button (click)="deleteColumn(column.id)" class="delete-button">
-            Delete column
-          </button>
+        <div class="flex space-between">
+          <button (click)="addCard(column.id, cardTitle.value, cardDescription.value)">Add card</button>
+          <button (click)="deleteColumn(column.id)" class="delete-button">Delete column</button>
         </div>
       </div>
 
       <!-- Lista de cards dentro da coluna -->
       <ul class="cards">
-        <li *ngFor="let card of column.cards" class="card" (click)="openModal(card)">
+      <li *ngFor="let card of column.cards" class="card pointer" (click)="openModal(card)" cdkDrag>
           <div id="cardTitle">
           <strong>{{ card.title }}</strong>
           </div>
         </li>
       </ul>
+  </div>
+ 
       
       <!-- Modal para exibir detalhes do card -->
       <div

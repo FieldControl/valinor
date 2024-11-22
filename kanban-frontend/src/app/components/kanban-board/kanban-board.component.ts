@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { KanbanService } from '../../services/kanban.service';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 interface Card {
   id: number;
@@ -76,6 +81,37 @@ export class KanbanBoardComponent implements OnInit {
 
   // Método para fechar o modal
   closeModal(): void {
+    if (this.selectedCard) {
+      // Atualiza o conteúdo do card ao fechar o modal
+      this.updateCard(this.selectedCard.id, this.selectedCard.title, this.selectedCard.description);
+    }
     this.selectedCard = null;
+  }
+  
+  // Atualiza o backend para refletir a nova coluna do card
+  moveCard(cardId: number, targetColumnId: number): void {
+    this.kanbanService.moveCard(cardId, targetColumnId).subscribe(() => {
+      this.loadColumns();
+    });
+  }
+
+  // Troca o card entre colunas 
+  drop(event: CdkDragDrop<Card[]>, targetColumn: Column) {
+    if (event.previousContainer === event.container) {
+      // Reordena os cards na mesma coluna
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      this.updateCard(event.container.data[event.currentIndex].id, null, null); // Atualiza o backend para refletir a nova ordem dos cards na mesma coluna
+    } else {
+      // Move o card para outra coluna
+      const card = event.previousContainer.data[event.previousIndex];
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+  
+      this.moveCard(card.id, targetColumn.id);
+    }
   }
 }

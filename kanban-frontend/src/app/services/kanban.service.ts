@@ -33,4 +33,9 @@ export class KanbanService {
   updateCard(cardId: number, title: string, description: string): Observable<any> {
     return this.http.patch<any>(`${this.apiUrl}/cards/${cardId}`, { title, description });
   }
+
+  moveCard(cardId: number, targetColumnId: number): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/cards/${cardId}`, { columnId: targetColumnId });
+  }
+  
 }
