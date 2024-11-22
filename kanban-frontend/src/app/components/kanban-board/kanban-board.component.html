@@ -42,41 +42,41 @@
         </div>
       </div>
 
-      <!-- Lista de cards dentro da coluna -->
-      <ul class="cards">
+    <!-- Lista de cards dentro da coluna -->
+    <ul class="cards">
       <li *ngFor="let card of column.cards" class="card pointer" (click)="openModal(card)" cdkDrag>
-          <div id="cardTitle">
+        <div id="cardTitle">
           <strong>{{ card.title }}</strong>
-          </div>
-        </li>
-      </ul>
+        </div>
+      </li>
+    </ul>
   </div>
  
-      
-      <!-- Modal para exibir detalhes do card -->
-      <div
+    
+    <!-- Modal para exibir detalhes do card -->
+    <div
       *ngIf="selectedCard"
       class="modal-overlay"
       (click)="closeModal()"
+    >
+      <div
+        class="modal-content"
+        (click)="$event.stopPropagation()"
       >
-        <div
-          class="modal-content"
-          (click)="$event.stopPropagation()"
-        >
-          <h2>{{ selectedCard.title }}</h2>
-          <p>{{ selectedCard.description }}</p>
-      
-      <div id="cardButtons">
-        <button
-          (click)="deleteCard(selectedCard.id)"
-          (click)="closeModal()"
-          class="delete-button"
-        >
-          Delete card
-        </button>
+        <h2>{{ selectedCard.title }}</h2>
+        <p>{{ selectedCard.description }}</p>
+        
+        <div id="cardButtons">
+          <button
+            (click)="deleteCard(selectedCard.id)"
+            (click)="closeModal()"
+            class="delete-button"
+          >
+            Delete card
+          </button>
           <button (click)="closeModal()">Close</button>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
