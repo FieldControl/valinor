@@ -10,6 +10,9 @@ interface Card {
   id: number;
   title: string;
   description: string;
+  isEditing?: boolean;
+  previousTitle?: string;
+  previousDescription?: string;
 }
 
 interface Column {
@@ -25,6 +28,7 @@ interface Column {
 })
 export class KanbanBoardComponent implements OnInit {
   columns: Column[] = [];
+  selectedCard: any = null; // Card selecionado para exibir no modal
 
   constructor(private kanbanService: KanbanService) {}
 
@@ -71,19 +75,14 @@ export class KanbanBoardComponent implements OnInit {
     });
   }
 
-  // Card selecionado para exibir no modal
-  selectedCard: any = null;
-
-  // Método para abrir o modal com o card selecionado
   openModal(card: any): void {
     this.selectedCard = card;
   }
 
-  // Método para fechar o modal
   closeModal(): void {
-    if (this.selectedCard) {
-      // Atualiza o conteúdo do card ao fechar o modal
-      this.updateCard(this.selectedCard.id, this.selectedCard.title, this.selectedCard.description);
+    if (this.selectedCard.isEditing) {
+      // Cancela a edição do card
+      this.cancelCardEdit(this.selectedCard);
     }
     this.selectedCard = null;
   }
@@ -113,5 +112,28 @@ export class KanbanBoardComponent implements OnInit {
   
       this.moveCard(card.id, targetColumn.id);
     }
+  }
+
+  enableCardEdit(card: Card): void {
+  // Salva os valores antigos para restaurar caso o usuário cancele
+  card.isEditing = true;
+  card.previousTitle = card.title;
+  card.previousDescription = card.description;
+  }
+
+  saveCardChanges(card: Card): void {
+    if (card.title.trim() && card.description.trim()) {
+      this.updateCard(card.id, card.title, card.description); // Atualiza no backend
+      card.isEditing = false;
+    } else {
+      alert('Title and description cannot be empty.');
+    }
+  }
+
+  cancelCardEdit(card: Card): void {
+    // Restaura os valores antigos
+    card.title = card.previousTitle || '';
+    card.description = card.previousDescription || '';
+    card.isEditing = false;
   }
 }
