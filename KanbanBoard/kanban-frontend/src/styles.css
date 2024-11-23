@@ -143,11 +143,6 @@ button:hover {
   color: #333;
 }
 
-#cardButtons {
-  display: flex;
-  justify-content: space-between;
-}
-
 /* Estilo ao arrastar o card */
 .cdk-drag-preview {
   background-color: #ffffff;
