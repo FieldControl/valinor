@@ -1,7 +1,10 @@
 /* Estilos gerais */
 body {
   background-image: url('./assets/background.png');
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover; /* Faz a imagem cobrir todo o espaço disponível */
+  background-position: center;
+  background-attachment: fixed; /* Fixa o fundo */
   font-family: 'Arial', sans-serif;
   margin: 0;
   color: #333; /* Texto em cinza escuro */
@@ -25,6 +28,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
   padding: 10px;
   background-color: #000000;
   color: rgb(238, 238, 238);
@@ -61,6 +67,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  padding-top: 60px;
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -72,7 +79,6 @@ button:hover {
   align-items: flex-start;
   color: #333;
   gap: 20px;
-  overflow-x: auto;
 }
 
 .column {
@@ -141,6 +147,10 @@ button:hover {
 
 .card strong {
   color: #333;
+}
+
+.card-title {
+  max-width: 250px;
 }
 
 /* Estilo ao arrastar o card */

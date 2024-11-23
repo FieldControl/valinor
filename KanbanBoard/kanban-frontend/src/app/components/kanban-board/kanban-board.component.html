@@ -44,7 +44,7 @@
       <!-- Lista de cards dentro da coluna -->
       <ul class="cards">
         <li *ngFor="let card of column.cards" class="card pointer" (click)="openModal(card)" cdkDrag>
-          <div id="cardTitle">
+          <div class="card-title">
             <strong>{{ card.title }}</strong>
           </div>
         </li>
