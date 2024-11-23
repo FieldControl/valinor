@@ -8,7 +8,6 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   color: #333; /* Texto em cinza escuro */
-  /* overflow-y: auto !important; */
 }
 
 .flex {
@@ -69,8 +68,7 @@ button:hover {
   padding: 20px;
   padding-top: 60px;
   gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .columns {
@@ -79,6 +77,7 @@ button:hover {
   align-items: flex-start;
   color: #333;
   gap: 20px;
+  padding-top: 80px;
 }
 
 .column {
@@ -110,6 +109,7 @@ button:hover {
 
 .add-column-form{
   width: 300px;
+  position: fixed;
 }
 
 .add-card-form input {
