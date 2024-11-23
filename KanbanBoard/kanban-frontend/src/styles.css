@@ -148,6 +148,21 @@ button:hover {
   justify-content: space-between;
 }
 
+/* Estilo ao arrastar o card */
+.cdk-drag-preview {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* Destacar coluna ao arrastar */
+.cdk-drop-list-dragging {
+  background-color: rgb(228, 250, 250);
+  border: 2px dashed #3db3ad;
+  transition: background-color 0.3s;
+}
+
 /* Overlay escurecida */
 .modal-overlay {
   position: fixed;
