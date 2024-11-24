@@ -31,12 +31,18 @@ button:hover {
   background-color: #43b8b2 !important;
 }
 
-.delete-button:hover {
-  background-color: rgb(252, 43, 43) !important;
-}
-
 .flex {
   display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .space-between {
@@ -47,10 +53,6 @@ button:hover {
   cursor: pointer;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
 
 .gap-20 {
   gap: 20px;
@@ -58,6 +60,24 @@ button:hover {
 
 .mgt-20 {
   margin-top: 20px;
+}
+
+/* Trash button */
+#trash-icon {
+  width: 40px;
+  height: 40px;
+  background-image: url('./assets/trash.jpg');
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* X button */
+#x-icon {
+  width: 40px;
+  height: 40px;
+  background-image: url('./assets/x.png');
+  background-size: cover;
+  cursor: pointer;
 }
 
 /* Navbar */
@@ -82,6 +102,12 @@ button:hover {
   padding-top: 60px;
   gap: 20px;
   margin: auto;
+}
+
+#column-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .columns {
@@ -201,6 +227,7 @@ button:hover {
 .modal-content {
   background: seashell;
   padding: 20px;
+  padding-top: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 400px;
@@ -209,6 +236,7 @@ button:hover {
 }
 
 .modal-content h2 {
+  margin-top: 0;
   margin-bottom: 16px;
 }
 
