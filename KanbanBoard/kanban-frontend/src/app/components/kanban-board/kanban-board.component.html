@@ -18,7 +18,10 @@
       [cdkDropListData]="column.cards"
       (cdkDropListDropped)="drop($event, column)"
     >
-      <h3>{{ column.title }}</h3>
+      <div id="column-title">
+        <h3>{{ column.title }}</h3>
+        <div id="x-icon" (click)="deleteColumn(column.id)"></div>
+      </div>
 
       <!-- Formulário para adicionar card -->
       <div class="add-card-form">
@@ -36,7 +39,6 @@
         />
         <div class="flex space-between">
           <button (click)="addCard(column.id, cardTitle.value, cardDescription.value)">Add card</button>
-          <button (click)="deleteColumn(column.id)" class="delete-button">Delete column</button>
         </div>
       </div>
 
@@ -55,18 +57,14 @@
   <div *ngIf="selectedCard" class="modal-overlay" (click)="closeModal()">
     <div class="modal-content" (click)="$event.stopPropagation()">
       <div *ngIf="!selectedCard.isEditing">
+        <div class="flex-end">
+          <div id="x-icon" (click)="closeModal()"></div>
+        </div>
         <h2>{{ selectedCard.title }}</h2>
         <p>{{ selectedCard.description }}</p>
-        
+
         <div class="flex space-between">
-          <button
-            (click)="deleteCard(selectedCard.id)"
-            (click)="closeModal()"
-            class="delete-button"
-          >
-            Delete
-          </button>
-          <button (click)="closeModal()">Close</button>
+          <div id="trash-icon" (click)="deleteCard(selectedCard.id)" (click)="closeModal()"></div>
           <button (click)="enableCardEdit(selectedCard)">Edit</button>
         </div>
       </div>
@@ -82,7 +80,6 @@
 
           <div>
             <label for="description">Description:</label>
-            <!-- mudar a fonte do textarea -->
             <textarea
               id="description"
               [(ngModel)]="selectedCard.description"
