@@ -6,8 +6,7 @@
 <div class="kanban-board">
   <!-- Formulário para adicionar coluna -->
     <div class="add-column-form">
-      <input #columnTitle id="columnTitle" type="text" placeholder="Add Column" />
-      <br>
+      <input #columnTitle id="columnTitle" type="text" placeholder="New column name" />
       <button (click)="addColumn(columnTitle.value)">Add Column</button>
     </div>
 
@@ -65,21 +64,39 @@
             (click)="closeModal()"
             class="delete-button"
           >
-            Delete card
+            Delete
           </button>
           <button (click)="closeModal()">Close</button>
           <button (click)="enableCardEdit(selectedCard)">Edit</button>
         </div>
       </div>
 
+      <!-- Exibe o formulário para editar -->
       <div *ngIf="selectedCard.isEditing">
         <h2>Edit Card</h2>
-        <!-- Exibe o formulário para editar -->
-        <input [(ngModel)]="selectedCard.title" placeholder="Edit Title" />
-        <textarea [(ngModel)]="selectedCard.description" placeholder="Edit Description"></textarea>
-        <div class="flex space-between">
-          <button (click)="saveCardChanges(selectedCard)">Save</button>
+        <div class="flex-column gap-20">
+          <div>
+            <label for="title">Title: </label>
+            <input id="title" [(ngModel)]="selectedCard.title" />
+          </div>
+
+          <div>
+            <label for="description">Description:</label>
+            <!-- mudar a fonte do textarea -->
+            <textarea
+              id="description"
+              [(ngModel)]="selectedCard.description"
+              rows="4"
+              cols="50"
+              maxlength="5000"
+
+            >
+            </textarea>
+          </div>
+        </div>
+        <div class="flex space-between mgt-20">
           <button (click)="cancelCardEdit(selectedCard)">Cancel</button>
+          <button (click)="saveCardChanges(selectedCard)">Save</button>
         </div>
       </div>
     </div>
