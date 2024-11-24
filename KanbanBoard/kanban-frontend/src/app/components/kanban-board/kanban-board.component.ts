@@ -94,24 +94,17 @@ export class KanbanBoardComponent implements OnInit {
     });
   }
 
-  // Troca o card entre colunas 
+  // Move o card para outra coluna
   drop(event: CdkDragDrop<Card[]>, targetColumn: Column) {
-    if (event.previousContainer === event.container) {
-      // Reordena os cards na mesma coluna
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      this.updateCard(event.container.data[event.currentIndex].id, null, null); // Atualiza o backend para refletir a nova ordem dos cards na mesma coluna
-    } else {
-      // Move o card para outra coluna
-      const card = event.previousContainer.data[event.previousIndex];
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-  
-      this.moveCard(card.id, targetColumn.id);
-    }
+    const card = event.previousContainer.data[event.previousIndex];
+    transferArrayItem(
+      event.previousContainer.data,
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
+    );
+
+    this.moveCard(card.id, targetColumn.id);
   }
 
   enableCardEdit(card: Card): void {
