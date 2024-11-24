@@ -110,6 +110,12 @@ button:hover {
   align-items: center;
 }
 
+#column-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .columns {
   display: flex;
   justify-content: space-evenly;
@@ -228,6 +234,7 @@ button:hover {
   background: seashell;
   padding: 20px;
   padding-top: 10px;
+  padding-top: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 400px;
@@ -236,6 +243,7 @@ button:hover {
 }
 
 .modal-content h2 {
+  margin-top: 0;
   margin-top: 0;
   margin-bottom: 16px;
 }
