@@ -122,7 +122,6 @@ Vale ressaltar que a empresa pediu para que o kanban fosse feito com Angular e N
 ### **Passo 1: Clonar o Repositório**
 ```bash
 git clone https://github.com/heitorrsdev/valinor.git
-cd KanbanBoard
 ```
 ### **Passo 2: Configurar o Backend**
 1. Entre na pasta do backend:
