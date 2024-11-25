@@ -165,6 +165,8 @@ npm run test
 ## 9. Contato
 Criado por: Heitor Rosa da Silva
 
+Telefone: (17) 98151-1092
+
 E-mail: heitorrs.dev@gmail.com
 
 LinkedIn: https://www.linkedin.com/in/heitor-rosa-8233022a9/
