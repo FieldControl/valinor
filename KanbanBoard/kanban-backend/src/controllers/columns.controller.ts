@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Delete, Body, Param } from '@nestjs/common';
-import { ColumnsService } from './columns.service';
+import { ColumnsService } from '../services/columns.service';
 
 @Controller('columns')
 export class ColumnsController {

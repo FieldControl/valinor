@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { KanbanModule } from './kanban/kanban.module';
-import { Column } from './kanban/column.entity';
-import { Card } from './kanban/card.entity';
+import { KanbanModule } from './kanban.module';
+import { Column } from './entities/column.entity';
+import { Card } from './entities/card.entity';
 
 @Module({
   imports: [

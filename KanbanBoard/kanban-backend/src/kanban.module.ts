@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Column } from './column.entity';
-import { Card } from './card.entity';
-import { ColumnsService } from './columns.service';
-import { CardsService } from './cards.service';
-import { ColumnsController } from './columns.controller';
-import { CardsController } from './cards.controller';
+import { Column } from './entities/column.entity';
+import { Card } from './entities/card.entity';
+import { ColumnsService } from './services/columns.service';
+import { CardsService } from './services/cards.service';
+import { ColumnsController } from './controllers/columns.controller';
+import { CardsController } from './controllers/cards.controller';
 
 @Module({
   imports: [
