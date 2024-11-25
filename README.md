@@ -137,9 +137,9 @@ npm install
 npm run start
 ```
 ### **Passo 3**: Configurar o Frontend
-1. Entre na pasta do frontend:
+1. Abra um outro terminal e entre na pasta do frontend:
 ```bash
-cd ..\kanban-frontend\
+cd .\valinor\KanbanBoard\kanban-frontend\
 ```
 2. Instale as dependências:
 ```bash
