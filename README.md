@@ -149,7 +149,10 @@ npm install
 ```bash
 ng serve
 ```
-### **Passo 4**: Executar Testes
+### **Passo 4**: Acessar o servidor local:
+
+Entre em seu navegador acesse a seguinte URL: http://localhost:4200
+### **Passo 5**: Executar Testes
 * Frontend
 ```bash
 ng test
@@ -158,9 +161,7 @@ ng test
 ```bash
 npm run test
 ```
-### **Passo 5**: Acessar o servidor local:
 
-Entre em seu navegador acesse a seguinte URL: http://localhost:4200
 ## 9. Contato
 Criado por: Heitor Rosa da Silva
 
