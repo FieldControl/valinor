@@ -20,7 +20,7 @@ import { CardsController } from './controllers/cards.controller';
     CardsService,   // Serviço para lógica de cards
   ],
   exports: [
-    ColumnsService, // Exportação opcional, caso outros módulos precisem
+    ColumnsService,
     CardsService,
   ],
 })
