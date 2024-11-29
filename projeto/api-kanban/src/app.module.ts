@@ -6,6 +6,7 @@ import { ColumnModule } from './modules/column/column.module';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+import { TaskModule } from './modules/task/task.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
     }),
     PrismaModule,
     ColumnModule,
+    TaskModule,
   ],
   controllers: [],
   providers: [],
