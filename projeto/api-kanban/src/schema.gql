@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Column {
+  id: ID!
+  description: String!
+  deleted: Boolean!
+}
+
+type Query {
+  columns: [Column!]!
+}
+
+type Mutation {
+  createColumn(body: CreateColumn!): Column!
+}
+
+input CreateColumn {
+  description: String!
+  deleted: Boolean = false
+}
