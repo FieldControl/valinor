@@ -1,0 +1,40 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh; 
+  background-color: #ebeff3;
+}
+
+.main-header {
+  height: 96px;
+  flex-shrink: 0;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px
+}
+
+app-kanban-board {
+  flex-grow: 1; 
+  display: block; 
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+
+button {
+  height: 40px;
+  width: 144px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #2c4d78;
+  color: white;
+}
+
+button:hover {
+  background-color: #192538;
+}

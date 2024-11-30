@@ -1,0 +1,25 @@
+.task {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 112px;
+  width: 288px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  background-color: #f5f7f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-sequence {
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.task-description {
+  height: 76px;
+  display: flex;
+  text-align: justify;
+}
