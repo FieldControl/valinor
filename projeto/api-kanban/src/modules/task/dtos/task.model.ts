@@ -3,7 +3,4 @@ import { ITask } from "../interfaces/task.interface";
 import { Column } from "src/modules/column/dtos/column.model";
 
 @ObjectType()
-export class Task extends ITask {
-  @Field({ nullable: true })
-  column?: Column
-}
+export class Task extends ITask { }

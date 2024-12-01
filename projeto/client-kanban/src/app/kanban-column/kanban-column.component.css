@@ -1,5 +1,4 @@
 .column {
-  padding: 12px;
   display: flex; 
   flex-direction: column; 
   width: 288px;
@@ -8,20 +7,51 @@
 
 .column-title {
   height: 48px;
+  width: 288px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 6px;
 }
 
-.column-body {
+.column-task {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-button {
+.dialog-body {
+  display: flex;
+  align-items: center;
+  height: 82px;
+}
+
+.dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.icon {
   height: 28px;
   width: 28px;
   border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #2c4d78;
+  color: white;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  height: 40px;
+  width: 144px;
+  border-radius: 8px;
   cursor: pointer;
   border: none;
   transition: background-color 0.3s ease, color 0.3s ease;

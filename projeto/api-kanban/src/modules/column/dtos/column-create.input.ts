@@ -4,7 +4,7 @@ import { Field, InputType } from "@nestjs/graphql";
 export class CreateColumn {
   @Field()
   description: string;
-
+  
   @Field({ nullable: true, defaultValue: false })
   deleted?: boolean
 } 

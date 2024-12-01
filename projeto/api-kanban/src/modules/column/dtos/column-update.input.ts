@@ -6,5 +6,8 @@ export class UpdateColumn {
   id: number;
 
   @Field({ nullable: true })
+  sequence?: number;
+
+  @Field({ nullable: true })
   description?: string;
 } 

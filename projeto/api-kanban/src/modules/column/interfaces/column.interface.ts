@@ -9,5 +9,8 @@ export class IColumn {
   description: string
 
   @Field()
+  sequence: number;
+
+  @Field()
   deleted: boolean
 }

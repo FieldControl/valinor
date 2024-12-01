@@ -1,8 +1,21 @@
-
 <div class="main-page">
   <div class="main-header">
     <h1>Minhas tarefas</h1>
-    <button>Adicionar Coluna</button>
+    <button (click)="showDialog()">Adicionar Coluna</button>
   </div>
   <app-kanban-board></app-kanban-board>
+
+  <p-dialog header="Adicionar Coluna" [modal]="true" (onHide)="hideDialog()" [(visible)]="visible" draggable="false"
+    [style]="{ width: '25rem' }">
+    <div class="dialog-body">
+      <p-floatLabel style="width: 100%;">
+        <input pInputText id="column" [(ngModel)]="value" />
+        <label for="column">Coluna</label>
+      </p-floatLabel>
+    </div>
+
+    <div class="dialog-footer">
+      <button (click)="handleSubmit()">Salvar</button>
+    </div>
+  </p-dialog>
 </div>

@@ -17,7 +17,7 @@ export class TaskResolver {
   async createTask(
     @Args('body') body: CreateTask,
   ): Promise<Task> {
-    return await this.service.crate(body);
+    return await this.service.create(body);
   }
 
   @Mutation(() => Task)

@@ -9,6 +9,9 @@ export class ITask {
   id_column: number
 
   @Field()
+  sequence: number;
+
+  @Field()
   description: string
 
   @Field()

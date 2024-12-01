@@ -3,10 +3,10 @@ import { Field, InputType } from "@nestjs/graphql";
 @InputType()
 export class CreateTask {
   @Field()
-  id_column: number;
+  description: string;
 
   @Field()
-  description: string;
+  id_column: number;
 
   @Field({ nullable: true, defaultValue: false })
   deleted?: boolean

@@ -16,15 +16,17 @@ datasource db {
 model Column {
   id          Int      @id @default(autoincrement())
   description String   @unique
+  sequence    Int
   deleted     Boolean? @default(false)
-  tasks       Task[]
+  tasks       Task[]   @relation("ColumnTasks")
 }
 
 model Task {
   id          Int      @id @default(autoincrement())
   description String   @unique
+  sequence    Int
   deleted     Boolean? @default(false)
 
   id_column Int?
-  column    Column? @relation(fields: [id_column], references: [id])
+  column    Column? @relation("ColumnTasks", fields: [id_column], references: [id])
 }

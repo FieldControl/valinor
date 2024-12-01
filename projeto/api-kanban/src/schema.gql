@@ -2,18 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Column {
+type Task {
   id: ID!
+  id_column: Float!
+  sequence: Float!
   description: String!
   deleted: Boolean!
 }
 
-type Task {
+type Column {
   id: ID!
-  id_column: Float!
   description: String!
+  sequence: Float!
   deleted: Boolean!
-  column: Column
+  tasks: [Task!]
 }
 
 type Query {
@@ -37,18 +39,20 @@ input CreateColumn {
 
 input UpdateColumn {
   id: Float!
+  sequence: Float
   description: String
 }
 
 input CreateTask {
-  id_column: Float!
   description: String!
+  id_column: Float!
   deleted: Boolean = false
 }
 
 input UpdateTask {
   id: Float!
   id_column: Float
+  sequence: Float
   description: String
   deleted: Boolean = false
 }

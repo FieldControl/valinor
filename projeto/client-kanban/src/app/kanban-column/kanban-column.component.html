@@ -1,11 +1,31 @@
 <div class="column">
   <div class="column-title">
-    <h3>A fazer</h3>
-    <button>
+    <h3>{{ column.sequence }}. {{ column.description }}</h3>
+    <button (click)="showDialog()" class="icon">
       +
     </button>
   </div>
-  <div class="column-body">
-    <app-kanban-task></app-kanban-task>
+  <div *ngIf="column.tasks.length > 0; else noData" class="column-task">
+    <div *ngFor="let task of column.tasks">
+      <app-kanban-task [task]="task"></app-kanban-task>
+    </div>
   </div>
+  <ng-template #noData>
+    <p>Não há tarefas disponíveis.</p>
+  </ng-template>
+
 </div>
+
+<p-dialog header="Adicionar Tarefa" [modal]="true" (onHide)="hideDialog()" [(visible)]="visible" draggable="false"
+  [style]="{ width: '25rem' }">
+  <div class="dialog-body">
+    <p-floatLabel style="width: 100%;">
+      <input pInputText id="task" [(ngModel)]="value" />
+      <label for="task">Tarefa</label>
+    </p-floatLabel>
+  </div>
+
+  <div class="dialog-footer">
+    <button (click)="handleSubmit()">Salvar</button>
+  </div>
+</p-dialog>

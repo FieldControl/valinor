@@ -9,13 +9,33 @@ import { UpdateColumn } from './dtos/column-update.input';
 export class ColumnService {
   constructor(private prismaService: PrismaService) { }
 
+  async lastColumn(): Promise<Column | null> {
+    return await this.prismaService.column.findFirst({
+      orderBy: {
+        sequence: 'desc',
+      },
+    })
+  }
+
   async columns(): Promise<Column[]> {
-    return await this.prismaService.column.findMany()
+    return await this.prismaService.column.findMany({
+      include: {
+        tasks: true,
+      },
+      orderBy: {
+        sequence: 'asc',
+      }
+    })
   }
 
   async crate(body: CreateColumn): Promise<Column> {
+    const column = await this.lastColumn()
+
     return await this.prismaService.column.create({
-      data: body,
+      data: {
+        ...body,
+        sequence: column?.id ? column.sequence + 1 : 1
+      },
     })
   }
 

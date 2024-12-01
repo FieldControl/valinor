@@ -1,3 +1,12 @@
   <div class="board">
-    <app-kanban-column></app-kanban-column>
+    <div *ngIf="columns.length > 0; else noData" class="column">
+      <div *ngFor="let column of columns">
+        <app-kanban-column [column]="column"></app-kanban-column>
+      </div>
+    </div>
+    
+    <ng-template #noData>
+      <p>Não há colunas disponíveis.</p>
+    </ng-template>
+   
   </div>

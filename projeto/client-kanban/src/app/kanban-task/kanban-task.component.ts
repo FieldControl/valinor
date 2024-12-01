@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Task } from '../shared/models/task';
 
 @Component({
   selector: 'app-kanban-task',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './kanban-task.component.css'
 })
 export class KanbanTaskComponent {
-
+  @Input() task!: Task
 }

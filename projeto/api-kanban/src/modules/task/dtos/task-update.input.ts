@@ -9,6 +9,9 @@ export class UpdateTask {
   id_column?: number;
 
   @Field({ nullable: true })
+  sequence?: number;
+
+  @Field({ nullable: true })
   description?: string;
 
   @Field({ nullable: true, defaultValue: false })
