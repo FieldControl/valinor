@@ -13,26 +13,30 @@
       </button>
     </div>
   </div>
-  <div *ngIf="column.tasks.length > 0; else noData" class="column-task">
-    <div *ngFor="let task of column.tasks">
+
+  <!-- Conectar cdkDropList com outras listas -->
+  <div class="column-task" cdkDropList [id]="'list-' + column.id" [cdkDropListData]="column.tasks"
+    [cdkDropListConnectedTo]="connectedLists" (cdkDropListDropped)="onTaskDrop($event)">
+    <div *ngFor="let task of column.tasks" cdkDrag>
       <app-kanban-task [task]="task"></app-kanban-task>
     </div>
   </div>
-  <ng-template #noData>
-    <p>Não há tarefas disponíveis.</p>
-  </ng-template>
-  
-  <p-dialog header="{{ editTask ? 'Editar Tarefa' : 'Adicionar Tarefa' }}" [modal]="true" (onHide)="hideDialog()" [(visible)]="visible" draggable="false"
-    [style]="{ width: '25rem' }">
+
+  <p-dialog header="{{ editTask ? 'Editar Tarefa' : 'Adicionar Tarefa' }}" [modal]="true" (onHide)="hideDialog()"
+    [(visible)]="visible" draggable="false" [style]="{ width: '25rem' }">
     <div class="dialog-body">
       <p-floatLabel style="width: 100%;">
         <input pInputText id="task" [(ngModel)]="value" />
         <label for="task">Tarefa</label>
       </p-floatLabel>
     </div>
-  
+
     <div class="dialog-footer">
       <button (click)="handleSubmit()">Salvar</button>
     </div>
   </p-dialog>
+
+  <ng-template #noData>
+    <p>Não há tarefas disponíveis.</p>
+  </ng-template>
 </div>

@@ -79,9 +79,5 @@ export class ColumnService {
       query: GET_COLUMNS,
       fetchPolicy: 'network-only',
     })
-    // .then((response) => {
-    //   console.log('Resposta da API:', response.data);
-    //   return response;
-    // });
   }
 }

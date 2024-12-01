@@ -1,4 +1,4 @@
-.board {
+/* .board {
   display: flex;
   flex-direction: row;
   width: auto;
@@ -15,4 +15,73 @@
   display: flex;
   flex-direction: row;
   gap: 12px;
+} */
+
+.board {
+  display: flex;
+  flex-direction: row;
+  gap: 16px; /* Espaçamento entre as colunas */
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #fafbfc;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Permite rolagem horizontal caso as colunas excedam a largura */
+}
+
+.column {
+  display: flex;
+  flex-direction: column; /* Os itens dentro da coluna serão dispostos verticalmente */
+  gap: 12px; /* Espaçamento entre os itens da coluna */
+  min-width: 280px; /* Largura mínima de cada coluna */
+  max-width: 320px; /* Largura máxima de cada coluna */
+  height: auto; /* Permite ajustar a altura com base no conteúdo */
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.column-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.column-task {
+  flex: 1;
+  overflow-y: auto; /* Adiciona rolagem vertical para as tarefas caso ultrapassem a altura da coluna */
+  padding-top: 12px;
+}
+
+.task {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+}
+
+.task:hover {
+  background-color: #f0f0f0;
+}
+
+.cdk-drag-preview {
+  background-color: #e0e0e0;
+  border: 1px solid #aaa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.cdk-drag-placeholder {
+  background-color: #f7f7f7;
+  border: 2px dashed #aaa;
+  border-radius: 4px;
 }

@@ -19,7 +19,8 @@ export class TaskService {
   async lastTask(id_column: number): Promise<Task | null> {
     return await this.prismaService.task.findFirst({
       where: {
-        id_column
+        id_column,
+        deleted: false,
       },
       orderBy: {
         sequence: 'desc',

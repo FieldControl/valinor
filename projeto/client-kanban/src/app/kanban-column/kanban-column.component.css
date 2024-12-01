@@ -18,8 +18,28 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+  min-height: 50px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
 }
+
+.cdk-drag-preview {
+  background-color: #e0e0e0;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cdk-drag-placeholder {
+  background-color: #f0f0f0;
+  border: 2px dashed #aaa;
+  border-radius: 4px;
+}
+
 
 .dialog-body {
   display: flex;
