@@ -43,7 +43,7 @@ export class ColumnService {
     });
   }
 
-  deleteColumn(id: number) {
+  async deleteColumn(id: number) {
     const DELETE_COLUMN = gql`
       mutation DeleteColumn($deleteColumnId: Float!) {
         deleteColumn(id: $deleteColumnId) {
@@ -68,6 +68,7 @@ export class ColumnService {
           tasks {
             id
             description
+            id_column
             sequence
           }
         }

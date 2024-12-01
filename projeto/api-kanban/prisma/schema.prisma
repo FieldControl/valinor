@@ -15,7 +15,7 @@ datasource db {
 
 model Column {
   id          Int      @id @default(autoincrement())
-  description String   @unique
+  description String
   sequence    Int
   deleted     Boolean? @default(false)
   tasks       Task[]   @relation("ColumnTasks")
@@ -23,7 +23,7 @@ model Column {
 
 model Task {
   id          Int      @id @default(autoincrement())
-  description String   @unique
+  description String
   sequence    Int
   deleted     Boolean? @default(false)
 

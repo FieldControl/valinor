@@ -16,10 +16,46 @@
   height: 36px;
   display: flex;
   align-items: center;
+  gap: 12px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .task-description {
   height: 76px;
   display: flex;
   text-align: justify;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #2c4d78;
+  color: white;
+}
+
+button {
+  height: 40px;
+  width: 144px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #2c4d78;
+  color: white;
+}
+
+button:hover {
+  background-color: #192538;
 }

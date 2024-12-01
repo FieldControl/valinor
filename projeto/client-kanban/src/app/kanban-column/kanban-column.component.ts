@@ -2,7 +2,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -28,10 +28,13 @@ import { ColumnService } from '../services/column.service';
     FormsModule,
   ],
 })
-export class KanbanColumnComponent {
+export class KanbanColumnComponent implements OnInit {
   @Input() column!: Column;
   value: string | undefined;
+  id: number = 0;
+  id_column: number = 0;
   visible: boolean = false;
+  editTask: boolean = false;
 
   constructor(
     private columnService: ColumnService,
@@ -39,29 +42,53 @@ export class KanbanColumnComponent {
     private kanbanService: KanbanService,
   ) { }
 
+  ngOnInit(): void {
+    this.kanbanService.editTask$.subscribe(({ id, description, id_column }) => {
+      console.log(this.column.id, id_column)
+      if (Number(this.column.id) === Number(id_column)) {
+        this.visible = true
+        this.editTask = true
+        this.value = description
+        this.id = Number(id)
+        this.id_column = Number(id_column)
+      }
+    });
+  }
   showDialog() {
     this.visible = true;
   }
 
   hideDialog() {
-    this.visible = false;
     this.value = undefined;
+    this.editTask = false;
+    this.id = 0;
+    this.id_column = 0;
+    this.visible = false;
   }
 
   async handleSubmit() {
     if (!this.value) return;
 
-    await this.taskService.createTask({
-      description: this.value,
-      id_column: Number(this.column.id),
-    });
+    if (this.editTask) {
+      await this.taskService.updateTask({
+        description: this.value,
+        id_column: Number(this.column.id),
+        id: this.id,
+      });
+    } else {
+      await this.taskService.createTask({
+        description: this.value,
+        id_column: Number(this.column.id),
+      });
+    }
 
     this.kanbanService.notifyRefreshColumns();
-    this.value = undefined;
-    this.visible = false;
+
+    this.hideDialog()
   }
 
-  editColumn() {
+  handleEdit() {
+    console.log('aqui')
     this.kanbanService.editColumn(this.column.id, this.column.description);
   }
 

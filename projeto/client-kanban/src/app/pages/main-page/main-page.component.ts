@@ -46,6 +46,7 @@ export class MainPageComponent implements OnInit {
   hideDialog() {
     this.value = undefined;
     this.id = 0;
+    this.editColumn = false;
     this.visible = false;
   }
 

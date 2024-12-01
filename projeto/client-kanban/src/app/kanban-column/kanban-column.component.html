@@ -5,7 +5,7 @@
       <button (click)="showDialog()" class="icon">
         <i class="pi pi-plus"></i>
       </button>
-      <button (click)="editColumn()" class="icon">
+      <button (click)="handleEdit()" class="icon">
         <i class="pi pi-pencil"></i>
       </button>
       <button (click)="handleDelete()" class="icon">
@@ -21,19 +21,18 @@
   <ng-template #noData>
     <p>Não há tarefas disponíveis.</p>
   </ng-template>
-
+  
+  <p-dialog header="{{ editTask ? 'Editar Tarefa' : 'Adicionar Tarefa' }}" [modal]="true" (onHide)="hideDialog()" [(visible)]="visible" draggable="false"
+    [style]="{ width: '25rem' }">
+    <div class="dialog-body">
+      <p-floatLabel style="width: 100%;">
+        <input pInputText id="task" [(ngModel)]="value" />
+        <label for="task">Tarefa</label>
+      </p-floatLabel>
+    </div>
+  
+    <div class="dialog-footer">
+      <button (click)="handleSubmit()">Salvar</button>
+    </div>
+  </p-dialog>
 </div>
-
-<p-dialog header="Adicionar Tarefa" [modal]="true" (onHide)="hideDialog()" [(visible)]="visible" draggable="false"
-  [style]="{ width: '25rem' }">
-  <div class="dialog-body">
-    <p-floatLabel style="width: 100%;">
-      <input pInputText id="task" [(ngModel)]="value" />
-      <label for="task">Tarefa</label>
-    </p-floatLabel>
-  </div>
-
-  <div class="dialog-footer">
-    <button (click)="handleSubmit()">Salvar</button>
-  </div>
-</p-dialog>

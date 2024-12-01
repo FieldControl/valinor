@@ -11,7 +11,7 @@ export class TaskService {
   private taskCreatedSource = new BehaviorSubject<void>(undefined);
   taskCreated$ = this.taskCreatedSource.asObservable();
 
-  constructor(private graphqlService: GraphqlService) {}
+  constructor(private graphqlService: GraphqlService) { }
 
   async createTask(body: CreateTask) {
     const CREATE_TASK = gql`
@@ -29,9 +29,38 @@ export class TaskService {
         mutation: CREATE_TASK,
         variables: { body },
       })
-      .then((result) => {
-        this.taskCreatedSource.next(); // Emitir evento ao criar uma task
-        return result;
-      });
+  }
+
+  async updateTask(body: CreateTask & { id: number }) {
+    const UPDATE_TASK = gql`
+      mutation UpdateTask($body: UpdateTask!) {
+        updateTask(body: $body) {
+          id
+          description
+          id_column
+          sequence
+        }
+      }
+    `;
+
+    return this.graphqlService.client.mutate({
+      mutation: UPDATE_TASK,
+      variables: { body },
+    });
+  }
+
+  async deleteTask(id: number) {
+    const DELETE_TASK = gql`
+      mutation DeleteTask($deleteTaskId: Float!) {
+        deleteTask(id: $deleteTaskId) {
+          id
+        }
+      }
+    `;
+
+    return this.graphqlService.client.mutate({
+      mutation: DELETE_TASK,
+      variables: { deleteTaskId: id },
+    });
   }
 }
