@@ -1,9 +1,17 @@
 <div class="column">
   <div class="column-title">
     <h3>{{ column.sequence }}. {{ column.description }}</h3>
-    <button (click)="showDialog()" class="icon">
-      +
-    </button>
+    <div class="actions">
+      <button (click)="showDialog()" class="icon">
+        <i class="pi pi-plus"></i>
+      </button>
+      <button (click)="editColumn()" class="icon">
+        <i class="pi pi-pencil"></i>
+      </button>
+      <button (click)="handleDelete()" class="icon">
+        <i class="pi pi-trash"></i>
+      </button>
+    </div>
   </div>
   <div *ngIf="column.tasks.length > 0; else noData" class="column-task">
     <div *ngFor="let task of column.tasks">

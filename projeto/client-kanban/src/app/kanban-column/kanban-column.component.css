@@ -33,7 +33,16 @@
   justify-content: end;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 28px;
   width: 28px;
   border-radius: 4px;

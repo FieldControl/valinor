@@ -8,11 +8,6 @@ import { UpdateTask } from './dtos/task-update.input';
 export class TaskResolver {
   constructor(private service: TaskService) { }
 
-  @Query(() => [Task])
-  async tasks(): Promise<Task[]> {
-    return await this.service.tasks();
-  }
-
   @Mutation(() => Task)
   async createTask(
     @Args('body') body: CreateTask,

@@ -23,7 +23,6 @@ export class KanbanBoardComponent implements OnInit {
   ngOnInit(): void {
     this.fetchColumns();
 
-    // Atualizar colunas ao receber a notificação
     this.kanbanService.refreshColumns$.subscribe(() => {
       this.fetchColumns();
     });

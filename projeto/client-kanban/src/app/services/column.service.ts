@@ -9,7 +9,7 @@ import { CreateColumn } from '../shared/models/column';
 export class ColumnService {
   constructor(private graphqlService: GraphqlService) { }
 
-  createColumn(body: CreateColumn) {
+  async createColumn(body: CreateColumn) {
     const CREATE_COLUMN = gql`
       mutation CreateColumn($body: CreateColumn!) {
         createColumn(body: $body) {
@@ -23,45 +23,38 @@ export class ColumnService {
     return this.graphqlService.client.mutate({
       mutation: CREATE_COLUMN,
       variables: { body },
-      update: (cache, { data }) => {
-        const existingColumns: any = cache.readQuery({
-          query: gql`
-            query Columns {
-              columns {
-                id
-                description
-                sequence
-                tasks {
-                  id
-                  description
-                  sequence
-                }
-              }
-            }
-          `,
-        });
+    });
+  }
 
-        const newColumn = data.createColumn;
-        cache.writeQuery({
-          query: gql`
-            query Columns {
-              columns {
-                id
-                description
-                sequence
-                tasks {
-                  id
-                  description
-                  sequence
-                }
-              }
-            }
-          `,
-          data: {
-            columns: [...existingColumns.columns, newColumn],
-          },
-        });
-      },
+  async updateColumn(body: CreateColumn & { id: number }) {
+    const UPDATE_COLUMN = gql`
+      mutation UpdateColumn($body: UpdateColumn!) {
+        updateColumn(body: $body) {
+          id
+          sequence
+          description
+        }
+      }
+    `;
+
+    return this.graphqlService.client.mutate({
+      mutation: UPDATE_COLUMN,
+      variables: { body },
+    });
+  }
+
+  deleteColumn(id: number) {
+    const DELETE_COLUMN = gql`
+      mutation DeleteColumn($deleteColumnId: Float!) {
+        deleteColumn(id: $deleteColumnId) {
+          id
+        }
+      }
+    `;
+
+    return this.graphqlService.client.mutate({
+      mutation: DELETE_COLUMN,
+      variables: { deleteColumnId: id },
     });
   }
 
@@ -84,9 +77,10 @@ export class ColumnService {
     return this.graphqlService.client.query({
       query: GET_COLUMNS,
       fetchPolicy: 'network-only',
-    }).then((response) => {
-      console.log('Resposta da API:', response.data);
-      return response;
-    });
+    })
+    // .then((response) => {
+    //   console.log('Resposta da API:', response.data);
+    //   return response;
+    // });
   }
 }

@@ -9,8 +9,20 @@ import { UpdateColumn } from './dtos/column-update.input';
 export class ColumnService {
   constructor(private prismaService: PrismaService) { }
 
+  async column(id: number): Promise<Column> {
+    return await this.prismaService.column.findFirst({
+      where: {
+        id
+      }
+    })
+  }
+
+
   async lastColumn(): Promise<Column | null> {
     return await this.prismaService.column.findFirst({
+      where: {
+        deleted: false,
+      },
       orderBy: {
         sequence: 'desc',
       },
@@ -18,14 +30,23 @@ export class ColumnService {
   }
 
   async columns(): Promise<Column[]> {
-    return await this.prismaService.column.findMany({
+    const response = await this.prismaService.column.findMany({
+      where: {
+        deleted: false,
+      },
       include: {
-        tasks: true,
+        tasks: {
+          where: {
+            deleted: false,
+          }
+        }
       },
       orderBy: {
         sequence: 'asc',
       }
     })
+
+    return response
   }
 
   async crate(body: CreateColumn): Promise<Column> {
@@ -49,12 +70,38 @@ export class ColumnService {
   }
 
   async delete(id: number): Promise<{ id: number }> {
+    const column = await this.column(id)
+
     await this.prismaService.column.update({
       where: { id },
       data: {
         deleted: true,
       },
     })
+
+    await this.prismaService.column.updateMany({
+      where: {
+        id,
+        sequence: {
+          gte: column.sequence,
+        },
+        deleted: false,
+      },
+      data: {
+        sequence: {
+          decrement: 1,
+        },
+      },
+    });
+
+    await this.prismaService.task.updateMany({
+      where: {
+        id_column: id,
+      },
+      data: {
+        deleted: true,
+      },
+    });
 
     return { id }
   }

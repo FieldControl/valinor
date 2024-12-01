@@ -5,7 +5,7 @@
   </div>
   <app-kanban-board></app-kanban-board>
 
-  <p-dialog header="Adicionar Coluna" [modal]="true" (onHide)="hideDialog()" [(visible)]="visible" draggable="false"
+  <p-dialog header="{{ editColumn ? 'Editar Coluna' : 'Adicionar Coluna' }}" [modal]="true" (onHide)="hideDialog()" [(visible)]="visible" draggable="false"
     [style]="{ width: '25rem' }">
     <div class="dialog-body">
       <p-floatLabel style="width: 100%;">

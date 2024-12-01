@@ -8,6 +8,14 @@ import { UpdateTask } from './dtos/task-update.input';
 export class TaskService {
   constructor(private prismaService: PrismaService) { }
 
+  async task(id: number): Promise<Task> {
+    return await this.prismaService.task.findFirst({
+      where: {
+        id
+      },
+    })
+  }
+
   async lastTask(id_column: number): Promise<Task | null> {
     return await this.prismaService.task.findFirst({
       where: {
@@ -16,14 +24,6 @@ export class TaskService {
       orderBy: {
         sequence: 'desc',
       },
-    })
-  }
-
-  async tasks(): Promise<Task[]> {
-    return await this.prismaService.task.findMany({
-      include: {
-        column: true,
-      }
     })
   }
 
@@ -48,12 +48,29 @@ export class TaskService {
   }
 
   async delete(id: number): Promise<{ id: number }> {
+    const task = await this.task(id)
+
     await this.prismaService.task.update({
       where: { id },
       data: {
         deleted: true,
       },
     })
+
+    await this.prismaService.task.updateMany({
+      where: {
+        id_column: task.id_column,
+        sequence: {
+          gte: task.sequence,
+        },
+        deleted: false,
+      },
+      data: {
+        sequence: {
+          decrement: 1,
+        },
+      },
+    });
 
     return { id }
   }
