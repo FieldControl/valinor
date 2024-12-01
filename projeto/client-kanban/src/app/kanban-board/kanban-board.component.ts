@@ -42,7 +42,7 @@ export class KanbanBoardComponent implements OnInit {
     });
   }
 
-  handleTaskMovement(fromColumnId: number, toColumnId: number, task: any, targetIndex: number): void {
+  async handleTaskMovement(fromColumnId: number, toColumnId: number, task: any, targetIndex: number) {
     const mutableColumns = this.columns.map((col) => ({
       ...col,
       tasks: [...col.tasks],
@@ -64,8 +64,23 @@ export class KanbanBoardComponent implements OnInit {
 
     this.columns = mutableColumns;
 
-    const columnsUpdated = mutableColumns.filter(col => Number(col.id) === Number(fromColumnId) || Number(col.id) === Number(toColumnId))
+    const columnsUpdated = mutableColumns
+      .filter(col => Number(col.id) === Number(fromColumnId) || Number(col.id) === Number(toColumnId))
+      .map(col => ({
+        id: Number(col.id),
+        description: col.description,
+        sequence: col.sequence,
+        tasks: col.tasks.map((t, i) => ({
+          id: Number(t.id),
+          id_column: Number(col.id),
+          description: t.description,
+          sequence: i + 1,
+          deleted: t.deleted,
+        })),
+      }));
 
-    console.log(columnsUpdated)
+    await this.columnService.manyUpdateColumn(columnsUpdated)
+
+    this.kanbanService.notifyRefreshColumns()
   }
 }

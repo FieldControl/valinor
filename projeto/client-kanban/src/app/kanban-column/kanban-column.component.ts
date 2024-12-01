@@ -58,57 +58,54 @@ export class KanbanColumnComponent implements OnInit {
   }
 
   onTaskDrop(event: CdkDragDrop<any[]>): void {
-    const mutableTasks = [...this.column.tasks];
+    let mutableTasks = [...this.column.tasks];
 
     if (event.previousContainer === event.container) {
       moveItemInArray(mutableTasks, event.previousIndex, event.currentIndex);
 
+      mutableTasks = mutableTasks.map((task, i) => ({
+        description: task.description,
+        id: Number(task.id),
+        sequence: i + 1,
+        id_column: Number(task.id_column),
+        deleted: task.deleted,
+      }))
+
       this.column = { ...this.column, tasks: mutableTasks };
 
       this.updateTaskSequence()
+
+      return
     } else {
-      // Criar cópias mutáveis dos arrays de origem e destino
       const previousTasks = [...event.previousContainer.data];
       const currentTasks = [...event.container.data];
 
       transferArrayItem(previousTasks, currentTasks, event.previousIndex, event.currentIndex);
 
-      // Criar uma cópia mutável da tarefa
       const movedTask = { ...currentTasks[event.currentIndex] };
 
-      // Atualizar a coluna da tarefa
       movedTask.id_column = this.column.id;
 
-      // Atualizar o array de tarefas da coluna atual
       this.column = {
         ...this.column, tasks: currentTasks.map((task) =>
           task.id === movedTask.id ? movedTask : task
         )
       };
 
-      console.log('previous tasks', this.column.id)
-
-      // Notificar o KanbanService sobre a mudança
       this.kanbanService.moveTask(
         Number(event.previousContainer.id.split('-')[1]),
-        this.column.id,                     // ID da coluna de destino
+        this.column.id,
         movedTask,
-        event.currentIndex,                    // Tarefa movida
+        event.currentIndex,
       );
     }
   }
 
 
-  updateTaskSequence(): void {
-    // this.column.tasks.map((task, index) => {
-    //   task.sequence = index + 1;
-    // });
+  async updateTaskSequence() {
+    await this.taskService.manyUpdateTask(this.column.tasks)
 
-    console.log(this.column.tasks)
-
-    // this.taskService.updateTasks(this.column.tasks).then(() => {
-    //   this.kanbanService.notifyRefreshColumns();
-    // });
+    this.kanbanService.notifyRefreshColumns();
   }
 
   showDialog() {

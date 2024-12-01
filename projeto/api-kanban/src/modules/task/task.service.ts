@@ -48,6 +48,23 @@ export class TaskService {
     })
   }
 
+  async manyUpdate(body: UpdateTask[]): Promise<Task[]> {
+    const response: Task[] = []
+
+    for (let update of body) {
+      const { id, ...updatedFields } = update
+
+      const res = await this.prismaService.task.update({
+        where: { id },
+        data: updatedFields,
+      })
+
+      response.push(res)
+    }
+
+    return response
+  }
+
   async delete(id: number): Promise<{ id: number }> {
     const task = await this.task(id)
 

@@ -22,6 +22,13 @@ export class TaskResolver {
     return await this.service.update(body);
   }
 
+  @Mutation(() => [Task])
+  async manyUpdateTask(
+    @Args('body', { type: () => [UpdateTask] }) body: UpdateTask[],
+  ): Promise<Task[]> {
+    return await this.service.manyUpdate(body);
+  }
+
   @Mutation(() => Task)
   async deleteTask(
     @Args('id') id: number,

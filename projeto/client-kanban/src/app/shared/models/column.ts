@@ -11,3 +11,10 @@ export interface Column {
 export interface CreateColumn {
   description: string
 }
+
+export interface UpdateColumn {
+  id: number
+  description?: string
+  sequence?: number
+  tasks?: Task[]
+}

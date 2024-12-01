@@ -27,6 +27,13 @@ export class ColumnResolver {
     return await this.service.update(body);
   }
 
+  @Mutation(() => [Column])
+  async manyUpdateColumn(
+    @Args('body', { type: () => [UpdateColumn] }) body: UpdateColumn[],
+  ): Promise<Column[]> {
+    return await this.service.manyUpdate(body);
+  }
+
   @Mutation(() => Column)
   async deleteColumn(
     @Args('id') id: number,

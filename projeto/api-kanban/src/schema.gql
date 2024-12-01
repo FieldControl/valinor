@@ -25,9 +25,11 @@ type Query {
 type Mutation {
   createColumn(body: CreateColumn!): Column!
   updateColumn(body: UpdateColumn!): Column!
+  manyUpdateColumn(body: [UpdateColumn!]!): [Column!]!
   deleteColumn(id: Float!): Column!
   createTask(body: CreateTask!): Task!
   updateTask(body: UpdateTask!): Task!
+  manyUpdateTask(body: [UpdateTask!]!): [Task!]!
   deleteTask(id: Float!): Task!
 }
 
@@ -40,12 +42,7 @@ input UpdateColumn {
   id: Float!
   sequence: Float
   description: String
-}
-
-input CreateTask {
-  description: String!
-  id_column: Float!
-  deleted: Boolean = false
+  tasks: [UpdateTask!]
 }
 
 input UpdateTask {
@@ -53,5 +50,11 @@ input UpdateTask {
   id_column: Float
   sequence: Float
   description: String
+  deleted: Boolean = false
+}
+
+input CreateTask {
+  description: String!
+  id_column: Float!
   deleted: Boolean = false
 }

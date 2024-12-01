@@ -10,3 +10,9 @@ export interface CreateTask {
   description: string;
   id_column: number;
 }
+
+export interface UpdateTask {
+  id: number
+  description: string;
+  id_column: number;
+}

@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client/core';
 import { GraphqlService } from '../services/graphql.service';
 import { Injectable } from '@angular/core';
-import { CreateTask } from '../shared/models/task';
+import { CreateTask, UpdateTask } from '../shared/models/task';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -31,7 +31,7 @@ export class TaskService {
       })
   }
 
-  async updateTask(body: CreateTask & { id: number }) {
+  async updateTask(body: UpdateTask) {
     const UPDATE_TASK = gql`
       mutation UpdateTask($body: UpdateTask!) {
         updateTask(body: $body) {
@@ -45,6 +45,21 @@ export class TaskService {
 
     return this.graphqlService.client.mutate({
       mutation: UPDATE_TASK,
+      variables: { body },
+    });
+  }
+
+  async manyUpdateTask(body: UpdateTask[]) {
+    const MANY_UPDATE_TASK = gql`
+      mutation ManyUpdateTask($body: [UpdateTask!]!) {
+        manyUpdateTask(body: $body) {
+          id
+        }
+      }
+    `;
+
+    return this.graphqlService.client.mutate({
+      mutation: MANY_UPDATE_TASK,
       variables: { body },
     });
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GraphqlService } from '../services/graphql.service';
 import { gql } from '@apollo/client/core';
-import { CreateColumn } from '../shared/models/column';
+import { CreateColumn, UpdateColumn } from '../shared/models/column';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +42,22 @@ export class ColumnService {
       variables: { body },
     });
   }
+
+  async manyUpdateColumn(body: UpdateColumn[]) {
+    const MANY_UPDATE_COLUMN = gql`
+      mutation ManyUpdateColumn($body: [UpdateColumn!]!) {
+        manyUpdateColumn(body: $body) {
+          id
+        }
+      }
+    `;
+
+    return this.graphqlService.client.mutate({
+      mutation: MANY_UPDATE_COLUMN,
+      variables: { body },
+    });
+  }
+
 
   async deleteColumn(id: number) {
     const DELETE_COLUMN = gql`

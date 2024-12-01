@@ -38,6 +38,9 @@ export class ColumnService {
         tasks: {
           where: {
             deleted: false,
+          },
+          orderBy: {
+            sequence: 'asc',
           }
         }
       },
@@ -61,12 +64,36 @@ export class ColumnService {
   }
 
   async update(body: UpdateColumn): Promise<Column> {
-    const { id, ...updatedFields } = body
+    const { id, tasks, ...updatedFields } = body
 
     return await this.prismaService.column.update({
       where: { id },
       data: updatedFields,
     })
+  }
+
+  async manyUpdate(body: UpdateColumn[]): Promise<Column[]> {
+    const response: Column[] = []
+
+    for (let update of body) {
+      const { id, tasks, ...updatedFields } = update
+
+      const res = await this.prismaService.column.update({
+        where: { id },
+        data: updatedFields,
+      })
+
+      for (let task of tasks) {
+        await this.prismaService.task.update({
+          where: { id: task.id },
+          data: task,
+        })
+      }
+
+      response.push(res)
+    }
+
+    return response
   }
 
   async delete(id: number): Promise<{ id: number }> {
