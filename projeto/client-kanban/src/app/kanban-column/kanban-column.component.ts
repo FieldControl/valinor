@@ -14,6 +14,8 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { FormsModule } from '@angular/forms';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 @Component({
   selector: 'app-kanban-column',
@@ -23,11 +25,15 @@ import { FormsModule } from '@angular/forms';
   imports: [
     KanbanTaskComponent,
     CommonModule,
-    DragDropModule, // Adicione esta linha
+    DragDropModule,
     DialogModule,
     InputTextModule,
     FloatLabelModule,
     FormsModule,
+    ConfirmPopupModule,
+  ],
+  providers: [
+    ConfirmationService
   ],
 })
 export class KanbanColumnComponent implements OnInit {
@@ -42,7 +48,8 @@ export class KanbanColumnComponent implements OnInit {
   constructor(
     private columnService: ColumnService,
     private taskService: TaskService,
-    private kanbanService: KanbanService
+    private kanbanService: KanbanService,
+    private confirmationService: ConfirmationService
   ) { }
 
   ngOnInit(): void {
@@ -57,8 +64,22 @@ export class KanbanColumnComponent implements OnInit {
     });
   }
 
+  showDialog() {
+    this.visible = true;
+  }
+
+  hideDialog() {
+    this.value = undefined;
+    this.editTask = false;
+    this.id = 0;
+    this.id_column = 0;
+    this.visible = false;
+  }
+
   onTaskDrop(event: CdkDragDrop<any[]>): void {
     let mutableTasks = [...this.column.tasks];
+
+    if (event.previousContainer === event.container && event.previousIndex === event.currentIndex) return
 
     if (event.previousContainer === event.container) {
       moveItemInArray(mutableTasks, event.previousIndex, event.currentIndex);
@@ -101,23 +122,10 @@ export class KanbanColumnComponent implements OnInit {
     }
   }
 
-
   async updateTaskSequence() {
     await this.taskService.manyUpdateTask(this.column.tasks)
 
     this.kanbanService.notifyRefreshColumns();
-  }
-
-  showDialog() {
-    this.visible = true;
-  }
-
-  hideDialog() {
-    this.value = undefined;
-    this.editTask = false;
-    this.id = 0;
-    this.id_column = 0;
-    this.visible = false;
   }
 
   async handleSubmit() {
@@ -145,9 +153,23 @@ export class KanbanColumnComponent implements OnInit {
     this.kanbanService.editColumn(this.column.id, this.column.description);
   }
 
-  async handleDelete() {
-    await this.columnService.deleteColumn(Number(this.column.id));
+  async handleDelete(event: Event) {
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: 'Deseja excluir essa coluna?<br>As tarefas vinculadas a ela serão excluídas.',
+      header: 'Excluir Coluna',
+      icon: 'pi pi-info-circle',
+      acceptButtonStyleClass: "p-button-danger p-button-text",
+      rejectButtonStyleClass: "p-button-text p-button-text",
+      acceptIcon: "none",
+      rejectIcon: "none",
+      acceptLabel: 'Sim',
+      rejectLabel: 'Não',
+      accept: async () => {
+        await this.columnService.deleteColumn(Number(this.column.id));
 
-    this.kanbanService.notifyRefreshColumns();
+        this.kanbanService.notifyRefreshColumns();
+      },
+    });
   }
 }

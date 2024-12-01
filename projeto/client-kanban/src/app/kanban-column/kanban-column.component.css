@@ -67,10 +67,16 @@
   width: 28px;
   border-radius: 4px;
   cursor: pointer;
-  border: none;
+  background-color: #fafbfc;
   transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: #2c4d78;
-  color: white;
+}
+
+.add {
+  color: #2c4d78;
+}
+
+.trash {
+  color: #ff2323;
 }
 
 input {
@@ -90,4 +96,8 @@ button {
 
 button:hover {
   background-color: #192538;
+}
+
+.icon:hover {
+  background-color: #d3dce4;
 }

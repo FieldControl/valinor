@@ -2,13 +2,14 @@
   <div class="column-title">
     <h3>{{ column.sequence }}. {{ column.description }}</h3>
     <div class="actions">
-      <button (click)="showDialog()" class="icon">
+      <button (click)="showDialog()" class="add icon">
         <i class="pi pi-plus"></i>
       </button>
-      <button (click)="handleEdit()" class="icon">
+      <button (click)="handleEdit()" class="add icon">
         <i class="pi pi-pencil"></i>
       </button>
-      <button (click)="handleDelete()" class="icon">
+      <p-confirmPopup />
+      <button (click)="handleDelete($event)" class="trash icon">
         <i class="pi pi-trash"></i>
       </button>
     </div>
