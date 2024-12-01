@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 112px;
+  height: 100px;
   max-width: 288px;
   border-radius: 6px;
   box-sizing: border-box;

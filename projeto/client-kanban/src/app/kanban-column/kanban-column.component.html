@@ -15,7 +15,6 @@
     </div>
   </div>
 
-  <!-- Conectar cdkDropList com outras listas -->
   <div class="column-task" cdkDropList [id]="'list-' + column.id" [cdkDropListData]="column.tasks"
     [cdkDropListConnectedTo]="connectedLists" (cdkDropListDropped)="onTaskDrop($event)">
     <div *ngFor="let task of column.tasks" cdkDrag>
