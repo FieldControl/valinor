@@ -12,17 +12,8 @@
   overflow-x: auto; 
 }
 
-/* .column {
+.no-column-container {
   display: flex;
-  flex-direction: column; 
-  gap: 12px; 
-  min-width: 280px; 
-  max-width: 320px; 
-  height: auto; 
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-} */
-
+  align-items: center;
+  justify-content: center;
+}

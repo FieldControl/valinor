@@ -1,12 +1,9 @@
-<div class="board">
-  <app-kanban-column
-    class="column"
-    *ngFor="let column of columns"
-    [column]="column"
-    [connectedLists]="connectedLists"
-  ></app-kanban-column>
-</div>
-
-<ng-template #noData>
-  <p>Não há colunas disponíveis.</p>
-</ng-template>
+<div *ngIf="columns.length > 0; else noColumn" class="board">
+  <app-kanban-column class="column" *ngFor="let column of columns" [column]="column"
+    [connectedLists]="connectedLists"></app-kanban-column>
+  </div>
+  <ng-template #noColumn>
+    <div class="board no-column-container">
+      <p>Não há colunas disponíveis.</p>
+    </div>
+  </ng-template>

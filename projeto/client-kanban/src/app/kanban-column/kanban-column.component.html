@@ -8,19 +8,25 @@
       <button (click)="handleEdit()" class="add icon">
         <i class="pi pi-pencil"></i>
       </button>
-      <p-confirmPopup />
       <button (click)="handleDelete($event)" class="trash icon">
         <i class="pi pi-trash"></i>
       </button>
     </div>
   </div>
 
-  <div class="column-task" cdkDropList [id]="'list-' + column.id" [cdkDropListData]="column.tasks"
-    [cdkDropListConnectedTo]="connectedLists" (cdkDropListDropped)="onTaskDrop($event)">
+  <div class="column-task" *ngIf="column && column.tasks.length > 0; else noTasks" cdkDropList
+    [id]="'list-' + column.id" [cdkDropListData]="column.tasks" [cdkDropListConnectedTo]="connectedLists"
+    (cdkDropListDropped)="onTaskDrop($event)">
     <div *ngFor="let task of column.tasks" cdkDrag>
       <app-kanban-task [task]="task"></app-kanban-task>
     </div>
   </div>
+
+  <ng-template #noTasks>
+    <div class="column-task no-tasks-container">
+      <p class="no-tasks-message">Não há tarefas cadastradas.</p>
+    </div>
+  </ng-template>
 
   <p-dialog header="{{ editTask ? 'Editar Tarefa' : 'Adicionar Tarefa' }}" [modal]="true" (onHide)="hideDialog()"
     [(visible)]="visible" draggable="false" [style]="{ width: '25rem' }">
@@ -35,8 +41,6 @@
       <button (click)="handleSubmit()">Salvar</button>
     </div>
   </p-dialog>
-
-  <ng-template #noData>
-    <p>Não há tarefas disponíveis.</p>
-  </ng-template>
 </div>
+
+<p-confirmPopup />
