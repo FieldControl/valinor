@@ -38,7 +38,7 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
 })
 export class KanbanColumnComponent implements OnInit {
   @Input() column!: Column;
-  @Input() connectedLists: string[] = []; // Listas conectadas
+  @Input() connectedLists: string[] = [];
   value: string | undefined;
   id: number = 0;
   id_column: number = 0;

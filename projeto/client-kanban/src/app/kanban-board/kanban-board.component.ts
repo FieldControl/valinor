@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { KanbanService } from '../services/kanban.service';
 import { ColumnService } from '../services/column.service';
 import { Column } from '../shared/models/column';
