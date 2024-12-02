@@ -156,7 +156,7 @@ export class KanbanColumnComponent implements OnInit {
   async handleDelete(event: Event) {
     this.confirmationService.confirm({
       target: event.target as EventTarget,
-      message: 'Deseja excluir essa coluna?<br>As tarefas vinculadas a ela serão excluídas.',
+      message: 'Deseja excluir essa coluna? As tarefas vinculadas a ela serão excluídas.',
       header: 'Excluir Coluna',
       icon: 'pi pi-info-circle',
       acceptButtonStyleClass: "p-button-danger p-button-text",
