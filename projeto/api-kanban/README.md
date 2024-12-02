@@ -1,73 +1,69 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# ClientKanban
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+**ClientKanban** é um aplicativo interativo para gerenciamento de tarefas, organizado em colunas e tarefas dentro de um board. A solução oferece uma interface clara e eficiente, proporcionando controle total sobre as atividades.
 
-## Description
+## 🚀 Funcionalidades
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### 📂 Colunas
+- **Cadastrar:** Adicione novas colunas no board.
+- **Editar:** Atualize informações de colunas existentes.
+- **Excluir:** Remova colunas que não são mais necessárias.
 
-## Installation
+### 🗂️ Tarefas
+- **Cadastrar:** Crie novas tarefas associadas a uma coluna.
+- **Editar:** Modifique os detalhes das tarefas conforme necessário.
+- **Excluir:** Delete tarefas que não são mais relevantes.
+- **Mover:** Arraste tarefas entre colunas para reorganizá-las.
+- **Ordenar:** Altere a prioridade das tarefas dentro de uma coluna.
 
-```bash
-$ pnpm install
-```
+---
 
-## Running the app
+## 🛠️ Técnicas e Ferramentas Utilizadas
 
-```bash
-# development
-$ pnpm run start
+### ⚙️ **Ferramentas do Angular**
+- **Observables e Subscribe:**  
+  Utilizados para gerenciar fluxos de dados assíncronos, atualizando dinamicamente a interface com base em eventos ou respostas da API. Implementados com **RxJS** para garantir alta performance.
 
-# watch mode
-$ pnpm run start:dev
+- **Apollo Client:**  
+  Facilita a interação com a **API GraphQL**, proporcionando gerenciamento eficiente de estado e simplificando requisições e respostas.
 
-# production mode
-$ pnpm run start:prod
-```
+- **Angular CDK (Component Dev Kit):**  
+  Utilizado para funcionalidades nativas como **drag-and-drop**, garantindo uma experiência fluida e integrada.
 
-## Test
+- **Formulários Reativos:**  
+  Implementados para validação e manipulação de dados, assegurando consistência e controle de estados nos formulários.
 
-```bash
-# unit tests
-$ pnpm run test
+### 🖌️ **Componentização**
+O projeto foi estruturado em componentes modulares e reutilizáveis, otimizando a manutenção, a escalabilidade e a reutilização de código.
 
-# e2e tests
-$ pnpm run test:e2e
+---
 
-# test coverage
-$ pnpm run test:cov
-```
+## 🖥️ Como Executar
 
-## Support
+### 1️⃣ **Iniciar o servidor de desenvolvimento**
+Para rodar o aplicativo localmente, utilize o comando:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+ng serve
 
-## Stay in touch
+Abra o navegador e acesse: [http://localhost:4200](http://localhost:4200). As alterações feitas nos arquivos serão automaticamente refletidas no navegador.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### 2️⃣ **Compilar o projeto**
+Para gerar a build do projeto, execute:
 
-## License
+ng build
 
-Nest is [MIT licensed](LICENSE).
+Os artefatos de build serão salvos na pasta `dist/`, otimizados para produção.
+
+### 3️⃣ **Executar testes unitários**
+Para rodar os testes unitários com o **Karma**, use:
+
+ng test
+
+---
+
+## 📖 Estrutura e Navegação
+
+Este projeto foi desenvolvido com **Angular 19.0.2**, integrando tecnologias como **PrimeNG**, **Apollo Client** e **Angular CDK**. A interface foi projetada para ser intuitiva, priorizando produtividade e organização, com funcionalidades avançadas como drag-and-drop nativo para movimentação de tarefas.
+
+Para mais informações e recursos adicionais, consulte a [documentação oficial do Angular CLI](https://angular.dev/tools/cli).
