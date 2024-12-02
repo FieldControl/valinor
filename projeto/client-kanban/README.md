@@ -1,59 +1,69 @@
+
 # ClientKanban
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+**ClientKanban** é um aplicativo interativo para gerenciamento de tarefas, organizado em colunas e tarefas dentro de um board. A solução oferece uma interface clara e eficiente, proporcionando controle total sobre as atividades.
 
-## Development server
+## 🚀 Funcionalidades
 
-To start a local development server, run:
+### 📂 Colunas
+- **Cadastrar:** Adicione novas colunas no board.
+- **Editar:** Atualize informações de colunas existentes.
+- **Excluir:** Remova colunas que não são mais necessárias.
 
-```bash
+### 🗂️ Tarefas
+- **Cadastrar:** Crie novas tarefas associadas a uma coluna.
+- **Editar:** Modifique os detalhes das tarefas conforme necessário.
+- **Excluir:** Delete tarefas que não são mais relevantes.
+- **Mover:** Arraste tarefas entre colunas para reorganizá-las.
+- **Ordenar:** Altere a prioridade das tarefas dentro de uma coluna.
+
+---
+
+## 🛠️ Técnicas e Ferramentas Utilizadas
+
+### ⚙️ **Ferramentas do Angular**
+- **Observables e Subscribe:**  
+  Utilizados para gerenciar fluxos de dados assíncronos, atualizando dinamicamente a interface com base em eventos ou respostas da API. Implementados com **RxJS** para garantir alta performance.
+
+- **Apollo Client:**  
+  Facilita a interação com a **API GraphQL**, proporcionando gerenciamento eficiente de estado e simplificando requisições e respostas.
+
+- **Angular CDK (Component Dev Kit):**  
+  Utilizado para funcionalidades nativas como **drag-and-drop**, garantindo uma experiência fluida e integrada.
+
+- **Formulários Reativos:**  
+  Implementados para validação e manipulação de dados, assegurando consistência e controle de estados nos formulários.
+
+### 🖌️ **Componentização**
+O projeto foi estruturado em componentes modulares e reutilizáveis, otimizando a manutenção, a escalabilidade e a reutilização de código.
+
+---
+
+## 🖥️ Como Executar
+
+### 1️⃣ **Iniciar o servidor de desenvolvimento**
+Para rodar o aplicativo localmente, utilize o comando:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Abra o navegador e acesse: [http://localhost:4200](http://localhost:4200). As alterações feitas nos arquivos serão automaticamente refletidas no navegador.
 
-## Code scaffolding
+### 2️⃣ **Compilar o projeto**
+Para gerar a build do projeto, execute:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
 ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Os artefatos de build serão salvos na pasta `dist/`, otimizados para produção.
 
-## Running unit tests
+### 3️⃣ **Executar testes unitários**
+Para rodar os testes unitários com o **Karma**, use:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
 ng test
-```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📖 Estrutura e Navegação
 
-```bash
-ng e2e
-```
+Este projeto foi desenvolvido com **Angular 19.0.2**, integrando tecnologias como **PrimeNG**, **Apollo Client** e **Angular CDK**. A interface foi projetada para ser intuitiva, priorizando produtividade e organização, com funcionalidades avançadas como drag-and-drop nativo para movimentação de tarefas.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para mais informações e recursos adicionais, consulte a [documentação oficial do Angular CLI](https://angular.dev/tools/cli).

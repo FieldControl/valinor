@@ -1,69 +1,64 @@
 
-# ClientKanban
+# API - ClientKanban
 
-**ClientKanban** é um aplicativo interativo para gerenciamento de tarefas, organizado em colunas e tarefas dentro de um board. A solução oferece uma interface clara e eficiente, proporcionando controle total sobre as atividades.
+A API do **ClientKanban** foi desenvolvida para gerenciar os dados relacionados às colunas e tarefas de um board interativo. Ela consiste em dois módulos principais e utiliza tecnologias modernas para oferecer um desempenho eficiente e flexível.
 
-## 🚀 Funcionalidades
+## 🚀 Módulos
 
-### 📂 Colunas
-- **Cadastrar:** Adicione novas colunas no board.
-- **Editar:** Atualize informações de colunas existentes.
-- **Excluir:** Remova colunas que não são mais necessárias.
+### 📂 Coluna
+- Gerencia as operações de criação, edição e exclusão de colunas.
+- Permite o armazenamento e recuperação de informações estruturadas sobre as colunas do board.
 
-### 🗂️ Tarefas
-- **Cadastrar:** Crie novas tarefas associadas a uma coluna.
-- **Editar:** Modifique os detalhes das tarefas conforme necessário.
-- **Excluir:** Delete tarefas que não são mais relevantes.
-- **Mover:** Arraste tarefas entre colunas para reorganizá-las.
-- **Ordenar:** Altere a prioridade das tarefas dentro de uma coluna.
+### 🗂️ Tarefa
+- Gerencia as operações de criação, edição, exclusão e movimentação de tarefas.
+- Oferece suporte para alterar a ordem de prioridade das tarefas dentro de suas respectivas colunas.
 
 ---
 
-## 🛠️ Técnicas e Ferramentas Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-### ⚙️ **Ferramentas do Angular**
-- **Observables e Subscribe:**  
-  Utilizados para gerenciar fluxos de dados assíncronos, atualizando dinamicamente a interface com base em eventos ou respostas da API. Implementados com **RxJS** para garantir alta performance.
+### **NestJS**
+- Framework utilizado para estruturar e organizar a API, garantindo modularidade e escalabilidade.
 
-- **Apollo Client:**  
-  Facilita a interação com a **API GraphQL**, proporcionando gerenciamento eficiente de estado e simplificando requisições e respostas.
+### **GraphQL**
+- Proporciona uma comunicação eficiente e flexível entre o cliente e a API, permitindo consultas e mutações personalizadas.
 
-- **Angular CDK (Component Dev Kit):**  
-  Utilizado para funcionalidades nativas como **drag-and-drop**, garantindo uma experiência fluida e integrada.
+### **Prisma ORM**
+- Gerencia o acesso ao banco de dados com facilidade e eficiência, simplificando operações complexas e otimizando a produtividade.
 
-- **Formulários Reativos:**  
-  Implementados para validação e manipulação de dados, assegurando consistência e controle de estados nos formulários.
-
-### 🖌️ **Componentização**
-O projeto foi estruturado em componentes modulares e reutilizáveis, otimizando a manutenção, a escalabilidade e a reutilização de código.
+### **SQLite**
+- Banco de dados leve e simples, configurado para atender às necessidades do projeto sem a necessidade de instalação adicional.
 
 ---
 
 ## 🖥️ Como Executar
 
-### 1️⃣ **Iniciar o servidor de desenvolvimento**
-Para rodar o aplicativo localmente, utilize o comando:
+### 1️⃣ **Instalar dependências**
+Antes de executar, certifique-se de instalar todas as dependências necessárias com o comando:
 
-ng serve
+npm install
 
-Abra o navegador e acesse: [http://localhost:4200](http://localhost:4200). As alterações feitas nos arquivos serão automaticamente refletidas no navegador.
+### 2️⃣ **Iniciar o servidor**
+Para rodar o servidor da API, utilize:
 
-### 2️⃣ **Compilar o projeto**
-Para gerar a build do projeto, execute:
+npm run start:dev
 
-ng build
+A API estará disponível no endereço padrão: [http://localhost:3030/graphql](http://localhost:3030/graphql).
 
-Os artefatos de build serão salvos na pasta `dist/`, otimizados para produção.
-
-### 3️⃣ **Executar testes unitários**
-Para rodar os testes unitários com o **Karma**, use:
-
-ng test
+### 3️⃣ **Explorar a API**
+Você pode explorar e testar os endpoints da API utilizando o playground do GraphQL acessível no endereço acima.
 
 ---
 
-## 📖 Estrutura e Navegação
+## 📖 Estrutura da API
 
-Este projeto foi desenvolvido com **Angular 19.0.2**, integrando tecnologias como **PrimeNG**, **Apollo Client** e **Angular CDK**. A interface foi projetada para ser intuitiva, priorizando produtividade e organização, com funcionalidades avançadas como drag-and-drop nativo para movimentação de tarefas.
+O projeto foi desenvolvido com foco em modularidade e facilidade de manutenção. Ele inclui:
+- **Módulos organizados:** Cada funcionalidade (coluna e tarefa) está encapsulada em um módulo independente.
+- **Schemas bem definidos:** O uso de GraphQL assegura a clareza no design da API.
+- **Integração com Prisma:** Simplifica as interações com o banco de dados SQLite, garantindo confiabilidade e desempenho.
 
-Para mais informações e recursos adicionais, consulte a [documentação oficial do Angular CLI](https://angular.dev/tools/cli).
+Para mais informações sobre as tecnologias utilizadas, consulte suas respectivas documentações:
+- [NestJS](https://nestjs.com/)
+- [GraphQL](https://graphql.org/)
+- [Prisma ORM](https://www.prisma.io/)
+- [SQLite](https://sqlite.org/)
