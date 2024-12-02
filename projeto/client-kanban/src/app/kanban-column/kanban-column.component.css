@@ -27,8 +27,14 @@
 }
 
 .no-tasks-container {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.ng-class {
   display: flex;
-  align-items: center;
+  gap: 8px;
+  flex-direction: column;
 }
 
 .cdk-drag-preview {

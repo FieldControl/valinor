@@ -14,19 +14,20 @@
     </div>
   </div>
 
-  <div class="column-task" *ngIf="column && column.tasks.length > 0; else noTasks" cdkDropList
-    [id]="'list-' + column.id" [cdkDropListData]="column.tasks" [cdkDropListConnectedTo]="connectedLists"
-    (cdkDropListDropped)="onTaskDrop($event)">
-    <div *ngFor="let task of column.tasks" cdkDrag>
-      <app-kanban-task [task]="task"></app-kanban-task>
+  <div class="column-task" cdkDropList [id]="'list-' + column.id" [cdkDropListData]="column.tasks"
+    [cdkDropListConnectedTo]="connectedLists" (cdkDropListDropped)="onTaskDrop($event)">
+    <div class="ng-class" *ngIf="column && column.tasks.length > 0; else noTasks">
+      <div *ngFor="let task of column.tasks" cdkDrag>
+        <app-kanban-task [task]="task"></app-kanban-task>
+      </div>
     </div>
+    <ng-template #noTasks>
+      <div class="no-tasks-container">
+        Não há tarefas disponíveis.
+      </div>
+    </ng-template>
   </div>
 
-  <ng-template #noTasks>
-    <div class="column-task no-tasks-container">
-      <p class="no-tasks-message">Não há tarefas disponíveis.</p>
-    </div>
-  </ng-template>
 
   <p-dialog header="{{ editTask ? 'Editar Tarefa' : 'Adicionar Tarefa' }}" [modal]="true" (onHide)="hideDialog()"
     [(visible)]="visible" draggable="false" [style]="{ width: '25rem' }">
