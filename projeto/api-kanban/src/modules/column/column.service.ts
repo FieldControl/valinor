@@ -108,7 +108,6 @@ export class ColumnService {
 
     await this.prismaService.column.updateMany({
       where: {
-        id,
         sequence: {
           gte: column.sequence,
         },
