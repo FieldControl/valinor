@@ -36,7 +36,7 @@ Identificação por Cores: Aplicar cores para identificar as tarefas de acordo c
 **Vídeo de apresentação**
 
 Grave um vídeo do seu projeto rodando e envie o link:
-<!-- Dica: você pode usar o https://jam.dev/ para facilitar sua gravação ;) -->
+https://drive.google.com/file/d/1varNrRa1GNW7Bz-8l6l82WfriFpV6Ts4/view?usp=sharing
 
 **Sobre você**
 
