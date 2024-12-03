@@ -28,7 +28,7 @@ cd valinor
 
 ##### Frontend:
 ```bash
-cd kaanban-frontend
+cd kanban-frontend
 npm install
 ```
 
