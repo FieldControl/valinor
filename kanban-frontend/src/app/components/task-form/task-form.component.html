@@ -1,0 +1,13 @@
+<form (submit)="addTask($event)" class="flex items-center justify-center gap-2 w-full mt-4">
+  <input
+    type="text"
+    [(ngModel)]="title"
+    [ngModelOptions]="{standalone: true}"
+    class="bg-transparent ring-2 ring-gray-700 p-4 rounded-lg outline-none focus:ring-gray-100 flex-1 w-full max-w-[500px]"
+    placeholder="Nova Tarefa"
+    required
+  />
+  <button class="bg-gray-100 text-gray-950 p-4 rounded-lg font-semibold" type="submit">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+  </button>
+</form>

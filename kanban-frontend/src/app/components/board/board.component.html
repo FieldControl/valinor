@@ -1,0 +1,49 @@
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+  <!-- Coluna "Em Processo" -->
+  <div class="border border-gray-700 rounded-lg overflow-hidden flex flex-col">
+    <div class="p-6 bg-gray-900">
+      <h2 class="text-xl font-semibold">Em processo</h2>
+    </div>
+    <div class="flex-1 p-2">
+      <div class="bg-gray-900 p-2 rounded-lg mt-2" *ngFor="let task of tasksInProcess()">
+        <div class="flex items-center justify-between gap-2">
+          <p class="text-md font-semibold truncate">{{ task.title }}</p>
+          <div class="flex items-center">
+            <button class="bg-green-500 p-2 rounded-md hover:bg-green-400 mr-2"
+              (click)="finishTask(task.id)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+            </button>
+            <button class="bg-red-500 p-2 rounded-md hover:bg-red-400"
+              (click)="deleteTask(task.id)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna "Finalizado" -->
+  <div class="border border-gray-700 rounded-lg overflow-hidden flex flex-col">
+    <div class="p-6 bg-gray-900">
+      <h2 class="text-xl font-semibold">Finalizado</h2>
+    </div>
+    <div class="flex-1 p-2">
+      <div class="bg-gray-900 p-4 rounded-lg mt-2" *ngFor="let task of tasksFinalized()">
+        <div class="flex items-center justify-between">
+          <p class="text-md font-semibold truncate line-through">{{ task.title }}</p>
+          <div class="flex items-center">
+            <button class="bg-gray-800 p-2 rounded-md hover:bg-gray-600 mr-2"
+              (click)="revertTaskToInProcess(task.id)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-undo-2"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+            </button>
+            <button class="bg-red-500 p-2 rounded-md hover:bg-red-400"
+              (click)="deleteTask(task.id)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
