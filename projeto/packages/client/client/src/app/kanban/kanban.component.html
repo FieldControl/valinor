@@ -1,0 +1,74 @@
+<!-- Deixei o HTML com um layout mais simples, pois não tive muito tempo para mexer, estou desde dia 31/11/2024 01:30 tentando rodar esse código sem erros, hoje 06/12/2024 00:40
+consegui finalizar. -->
+
+<div class="kanban">
+  <div class="inputColuna">
+
+    <input
+      type="text"
+      [(ngModel)]="tituloColuna"
+      placeholder="Título da nova coluna"
+    />
+    <button class="editCard" (click)="criarColuna()">Criar Coluna</button>
+  </div>
+</div>
+
+
+
+<div class="kanban">
+  <div *ngFor="let coluna of colunas; let i = index" class="coluna">
+    <h3>{{ coluna.titulo }} <button class="editCard" (click)="editarTituloColuna(coluna)">Edita Coluna</button></h3>
+    
+    <div *ngIf="coluna.editing">
+      <input [(ngModel)]="coluna.novoTitulo" placeholder="Novo título da coluna" />
+      <button class="editCard" (click)="salvarTituloColuna(coluna)">Salvar</button>
+      <button class="editCard" (click)="coluna.editing = false">Cancelar</button>
+    </div>
+
+    <table class="card-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>ツ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let card of coluna.cards; let cardIndex = index">
+          <td>
+            <ng-container *ngIf="!card.editing; else editTitulo">
+              {{ card.titulo }}
+            </ng-container>
+            <ng-template #editTitulo>
+              <input [(ngModel)]="card.titulo" />
+            </ng-template>
+          </td>
+          <td>
+            <ng-container *ngIf="!card.editing; else editDescricao">
+              {{ card.descricao }}
+            </ng-container>
+            <ng-template #editDescricao>
+              <input [(ngModel)]="card.descricao" />
+            </ng-template>
+          </td>
+          <td>
+            <button class="editCard" (click)="!card.editing ? editarCard(coluna.idColuna, cardIndex) : salvarEdicao(coluna.idColuna, cardIndex)">
+              {{ card.editing ? 'Salvar' : 'Editar' }}
+            </button>
+            <button class="editCard" (click)="deletarCard(coluna.idColuna, cardIndex)">Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="add-card">
+      <input [(ngModel)]="colunas[i].tituloCard" placeholder="Título do Card" />
+      <input [(ngModel)]="colunas[i].descricaoCard"  placeholder="Descrição do Card" />
+      <button (click)="adicionarCard(coluna.idColuna, i)">Adicionar Card</button>
+    </div>
+  </div>
+</div>
+
+
+
+

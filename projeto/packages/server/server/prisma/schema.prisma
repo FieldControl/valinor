@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Coluna {
+  idColuna Int    @id @default(autoincrement())
+  titulo   String
+  cards     Card[]
+}
+
+model Card {
+  idCard    Int    @id @default(autoincrement())
+  titulo    String
+  descricao String
+  idColuna  Int
+  coluna    Coluna @relation(fields: [idColuna], references: [idColuna])
+}

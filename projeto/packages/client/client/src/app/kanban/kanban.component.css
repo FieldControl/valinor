@@ -1,0 +1,102 @@
+/* Organização das colunas */
+.kanban {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Rolagem horizontal se necessário */
+  padding: 10px;
+  align-items: flex-start;
+}
+
+/* Estilo de cada coluna */
+.coluna {
+  flex: none; /* Largura fixa de 300px para cada coluna */
+  width: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.inputColuna {
+  flex: none; /* Largura fixa de 300px para cada coluna */
+  width: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-left: 440px;
+}
+
+/* Tabela para os cards */
+.card-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.card-table th,
+.card-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.card-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.card-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Estilo da adição de cards */
+.add-card {
+  margin-top: 10px;
+}
+
+.add-card input {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.add-card button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-card button:hover {
+  background-color: #0056b3;
+}
+
+.card-list {
+  border: 1px dashed #ccc;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  cursor: move;
+}
+
+.editCard{
+  background-color: #007bff ;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 2px;
+  align-items: center;
+}
+
+.editCard:hover{
+  background-color: #0056b3;
+}
