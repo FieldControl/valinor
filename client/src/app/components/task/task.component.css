@@ -1,0 +1,28 @@
+section {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--tertiary-color);
+  border-radius: 12px;
+  width: 100%;
+
+  h3{
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+  }
+
+  p{
+    color: var(--secondary-text-color);
+    margin-bottom: 0.25rem;
+  }
+
+  .span-done{
+    color: var(--green);
+  }
+
+  .span-todo{
+    color: var(--gold);
+  }
+}

@@ -1,0 +1,24 @@
+<section>
+  <div class="task-info">
+    <h3>{{ name }}</h3>
+    <div *ngIf="counts.total > 0" >
+      <p>
+        Subtarefas <span class="span-done">{{ counts.completed }}</span
+        >/<span class="span-todo">{{ counts.total }}</span>
+      </p>
+    </div>
+  </div>
+  <button class="button-secondary" (click)="openModal()">Abrir</button>
+</section>
+<app-task-modal
+  [name]="this.name"
+  [description]="this.description"
+  [status]="this.status"
+  [color]="this.color"
+  [id]="this.id"
+  [columnId]="this.columnId"
+  [columns]="columns"
+  [subtasks]="subtasks"
+  *ngIf="isTaskModalOpen"
+  (closeTaskEvent)="closeModal()"
+></app-task-modal>

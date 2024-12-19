@@ -1,0 +1,59 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ColumnType {
+  id: ID!
+  color: String!
+  name: String!
+}
+
+type TaskType {
+  id: ID!
+  name: String!
+  description: String!
+  status: String!
+}
+
+type SubtaskType {
+  id: String!
+  isCompleted: Boolean!
+  name: String!
+  task: String!
+}
+
+type Query {
+  getAllColumns: [ColumnType!]!
+  getTasksByStatus(status: String!): [TaskType!]!
+  getSubtasksByTask(task: String!): [SubtaskType!]!
+}
+
+type Mutation {
+  createColumn(createColumnInput: CreateColumnInput!): ColumnType!
+  deleteColumn(id: String!): Boolean!
+  createTask(createTaskInput: CreateTaskInput!): TaskType!
+  deleteTask(id: String!): Boolean!
+  deleteTaskByStatus(status: String!): Boolean!
+  updateName(id: String!, newName: String!): Boolean!
+  updateStatus(id: String!, newStatus: String!): Boolean!
+  updateDescription(id: String!, newDescription: String!): Boolean!
+  createSubtask(createSubtaskInput: CreateSubtaskInput!): SubtaskType!
+  deleteSubtask(id: String!): Boolean!
+  updateSubtask(id: String!, isCompleted: Boolean!): Boolean!
+}
+
+input CreateColumnInput {
+  name: String!
+  color: String!
+}
+
+input CreateTaskInput {
+  name: String!
+  description: String!
+  status: String!
+}
+
+input CreateSubtaskInput {
+  name: String!
+  task: String!
+}

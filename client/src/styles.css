@@ -1,0 +1,111 @@
+:root {
+  --bg-color: #141a25;
+  --secondary-bg-color: #252f42;
+  --primary-color: white;
+
+  --secondary-color: #daa700;
+  
+  --tertiary-color: white;
+
+  --primary-shadow: rgba(148, 3, 252, 0.3);
+  --secondary-shadow: rgba(255, 255, 255, 0.3);
+
+  --primary-text-color: white;
+  --secondary-text-color: rgb(190, 190, 190);
+
+  --disabled-btn: rgb(192, 192, 192);
+  --gold: #daa700;
+  --blue: #00a2ff;
+  --green: #03ad03;
+  --red: #D32F2F;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: "Roboto", sans-serif;
+}
+
+/* ESTILO SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+h1 {
+  margin: auto;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+
+}
+
+
+.button-primary {
+  border: 2px solid var(--blue);
+  border-radius:  8px;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  font-weight: bold;
+  font-size: 1rem;
+  transition-duration: 300ms;
+}
+
+.button-primary:hover {
+  color: var(--blue);
+  box-shadow: 1px 1px 4px var(--primary-shadow);
+  scale: 110%;
+}
+
+.button-secondary {
+  border: 2px solid white;
+  border-radius:  8px;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  font-weight: bold;
+  font-size: 1rem;
+  transition-duration: 300ms;
+}
+
+.button-secondary:hover {
+  color: var(--primary-color);
+  box-shadow: 1px 1px 4px var(--secondary-shadow);
+  scale: 110%;
+}
+
+form {
+  padding: 0 20px;
+}

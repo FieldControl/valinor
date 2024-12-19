@@ -1,0 +1,77 @@
+.subtask {
+  display: flex;
+  height: fit-content;
+  gap: 8px;
+  width: 100%;
+}
+
+.subtask-text {
+  border: 1px solid white;
+  color: white;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  border-radius: 4px;
+  padding: 4px 6px;
+  width: 100%;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.checkbox-container input {
+  display: none;
+}
+
+.checkbox-container .checkmark {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid white;
+  border-radius: 4px;
+  position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-container input:checked + .checkmark {
+  background-color: #4caf50; /* Cor quando estiver marcado */
+  border-color: #4caf50;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 0.1rem;
+  width: 0.5rem;
+  height: 1rem;
+  border: solid white;
+  border-width: 0 0.2rem 0.2rem 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:focus + .checkmark {
+  outline: none;
+  border-color: white;
+}
+
+.checkbox-container input[type="checkbox"]:disabled + span:hover {
+  cursor: default;
+}
+
+.delete-subtask {
+  background-color: transparent;
+  border: none;
+  svg {
+    fill: white;
+    width: 0.75rem;
+  }
+  &:hover {
+    svg {
+      fill: var(--red);
+    }
+  }
+}

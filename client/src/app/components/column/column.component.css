@@ -1,0 +1,55 @@
+section {
+  max-width: 500px;
+  h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .column-class {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 5px solid ;
+    border-radius: 18px;
+    min-height: 80vh;
+    width: 100%;
+  }
+
+  .tasks-class {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.del-column-btn {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  margin: 15px 15px;
+  color: white;
+  border: 2px solid #D32F2F;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition-duration: 300ms;
+
+  svg {
+    width: 15px;
+    fill: #D32F2F;
+  }
+
+  button{
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
+
+  &:hover {
+    scale: 110%;
+  }
+}

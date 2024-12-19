@@ -1,0 +1,35 @@
+<header>
+  <section class="header-section">
+    <a href="/">
+      <img src="/kanbanLogo.svg" alt="Kanban Logo" />
+      <h1>Kanban Project</h1>
+    </a>
+    <div>
+      <button (click)="openAddColumnModal()" class="button-secondary">Adicionar Coluna</button>
+      <button (click)="openAddTaskModal()" class="button-primary">Criar tarefa</button>
+    </div>
+  </section>
+</header>
+<main>
+  <section class="column-section">
+    <div class="noColumns" *ngIf="columns.length === 0">Nenhuma coluna adicionada</div>
+    <div *ngFor="let column of columns" class="columnDiv">
+      <app-column
+        [columnName]="column.name"
+        [borderColor]="column.color"
+        [id]="column.id"
+        [columns]="columns"
+      >
+      </app-column>
+    </div>
+  </section>
+  <app-add-column-modal
+    *ngIf="isAddColumnModalOpen"
+    (closeAddColumnEvent)="closeAddColumnModal()"
+  ></app-add-column-modal>
+  <app-add-task-modal
+    [taskColumns]="taskColumns"
+    *ngIf="isAddTaskModalOpen"
+    (closeAddTaskEvent)="closeAddTaskModal()"
+  ></app-add-task-modal>
+</main>
