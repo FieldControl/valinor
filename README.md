@@ -1,7 +1,7 @@
-👨‍💻 Vaga para apaixonados por criação de software
+👨‍💻 Kanban para a Fild
 ===========================================
 
-A empresa
+Sobre mim!
 ----------
 
 Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
@@ -19,103 +19,42 @@ Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso i
 Origem
 ----------
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
-
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
 
 Condições
 ----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
-
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
-
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
-
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
 
 Oportunidade
 ----------
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
 
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack tecnológica é predominantemente JavaScript, abrangendo Node.js, Single Page Applications (SPA) e Hybrid Mobile Apps.
-
-Acreditamos firmemente que excelentes desenvolvedores são capazes de selecionar a ferramenta mais adequada para cada desafio. Por essa razão, para resolver problemas específicos, recorremos às melhores alternativas disponíveis, o que nos leva a incluir uma pitada de C#, Java e PHP em nossas soluções.
-
-Nossos servidores residem na AWS, onde utilizamos a nuvem como nossa plataforma principal. Temos aplicativos funcionando com Elastic BeanStalk, armazenamento em S3 e arquiteturas serverless com AWS Lambda.
-
-Antes mesmo de avaliar o conhecimento técnico, valorizamos o perfil pessoal dos candidatos. Para nós, a determinação, o interesse e a curiosidade são qualidades essenciais. Se você é alguém proativo, interessado e que busca constantemente aprender, é isso que realmente importa para nós! 😊
-
-Aqui está a seção com emojis adicionados:
 
 ---
 
 ## Requisitos Principais
 
-🌟 **Sem Ego**: Acreditamos que ninguém é melhor que ninguém e que todos podem aprender uns com os outros. Promovemos um ambiente onde a humildade, o respeito e a abertura para aprender e ensinar são valorizados.
+🌟 **Sem Ego**: 
 
-📈 **Evolução Contínua**: Encorajamos o crescimento pessoal e profissional de todos os membros da equipe. Estamos comprometidos em fornecer oportunidades de aprendizado e desenvolvimento, permitindo que cada indivíduo evolua constantemente em sua jornada.
+📈 **Evolução Contínua**: 
 
-🚀 **Proatividade**: Buscamos indivíduos proativos, capazes de antecipar problemas e buscar soluções de forma autônoma.
+🚀 **Proatividade**: 
 
-🔑 **Sentimento de Dono**: Valorizamos profissionais que assumem responsabilidade pelo seu trabalho e estão comprometidos com o sucesso do projeto como se fossem os donos.
+🔑 **Sentimento de Dono**: 
 
-🤝 **Boa Comunicação e Trabalho em Equipe**: Habilidades de comunicação eficaz e colaboração são essenciais para trabalhar de forma eficiente em equipe.
+🤝 **Boa Comunicação e Trabalho em Equipe**: 
 
-💻 **Proficiência em JavaScript e TypeScript**: Experiência sólida em JavaScript e TypeScript, demonstrando habilidade em desenvolver soluções robustas e escaláveis.
+💻 **Proficiência em JavaScript e TypeScript**: 
 
-🎨 **Experiência com CSS e HTML Semântico**: Conhecimento prático em CSS e HTML Semântico para criar interfaces atraentes e acessíveis.
+🎨 **Experiência com CSS e HTML Semântico**: 
 
-🔧 **Experiência Sólida com Angular e Ionic**: Capacidade comprovada no desenvolvimento com Angular e Ionic, demonstrando habilidade em construir aplicações web e mobile de alta qualidade.
+🔧 **Experiência Sólida com Angular e Ionic**: 
 
-🖌️ **Familiaridade com Princípios de UX**: Compreensão dos princípios de User Experience (UX) para criar interfaces intuitivas e amigáveis aos usuários.
+🖌️ **Familiaridade com Princípios de UX**: 
 
-🌐 **Familiaridade com APIs REST, GraphQL e WebSockets**: Conhecimento em APIs REST, GraphQL e WebSockets para comunicação eficiente entre cliente e servidor.
+🌐 **Familiaridade com APIs REST, GraphQL e WebSockets**: 
 
-🧪 **Prática em Testar Software**: Experiência prática em testes de software, incluindo testes unitários, integrados e de aceitação, garantindo a qualidade e a confiabilidade do sistema.
-
-Estes requisitos refletem nossa busca por profissionais qualificados e comprometidos, capazes de contribuir de forma significativa para o sucesso de nossos projetos.
+🧪 **Prática em Testar Software**: 
 
 O desafio de programação
 ----------
@@ -152,7 +91,7 @@ Os critérios de avaliação para este teste são os seguintes:
 
 ## Entrega
 
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório ;)
+Você deve enviar a resolução do desafio via pull request nesse mesmo repositório ;
 
 ## Estrutura do Projeto
 
