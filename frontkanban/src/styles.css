@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'Monstserrat';
+    src: url(assets/fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+.title-1{
+    font-weight: 700;
+    display: none;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .title-1{
+        display: block;
+    }
+}

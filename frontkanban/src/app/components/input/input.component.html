@@ -1,0 +1,16 @@
+<div class="w-full  p-3">
+    <label for="input" class="font-bold text-black flex flex-col items-start gap-2 text-xl">{{label}}
+        <div class="md:w-72 lg:w-96 flex flex-row items-center gap-2 ">
+            <input
+                [class]= "fullclass"
+                [name]="name"
+                [type]="type"
+                [placeholder]="placeholder"
+                [required]="required"
+                style="outline: none;"
+                [value]="this.value ? this.value :''"
+            >
+            <ng-content />
+        </div>
+    </label>
+</div>

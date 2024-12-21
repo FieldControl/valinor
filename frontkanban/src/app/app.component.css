@@ -1,0 +1,12 @@
+.bg-persona{
+    background-image: url("../../public/home-persona.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media screen and (min-width: 768px) {
+    .bg-persona {
+        background-color:white;
+        background-image: none;
+    }
+}

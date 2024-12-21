@@ -1,0 +1,29 @@
+@if(showthis){
+    <app-bg>
+        <app-card
+            title="Registre-se"
+            (close)="toggleShowThis()"
+        >
+            <form
+              class="flex flex-col justify-center items-center gap-2 " 
+              (submit)="registerSubmit($event)"
+            >
+                <app-input-name/>
+                <app-input-email/>
+                <app-input-password/>
+                <app-input-password
+                    placeholder="Confirme sua senha"
+                    type="password"
+                    label="Confirmar senha:"
+                    name="confirmar"                
+                />
+                <app-btn
+                    type="submit"
+                    text="Registre-se"
+                />
+            </form>
+
+
+        </app-card>
+    </app-bg>
+}

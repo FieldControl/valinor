@@ -1,0 +1,67 @@
+<p-accordion [value]="0" [style]="style">
+  
+  @for(task of tasks; track task.id){
+  <p-accordion-panel [value]="[]" [style]="style">
+    <p-accordion-header [style]="style">
+      {{ task.title }}
+    </p-accordion-header>
+    <p-accordion-content>
+      <div
+        class="-mx-5 -mb-5 mt-4 bg-white text-black flex flex-col gap-2 justify-center items-center"
+      >
+        <p class="">
+          {{ task.description }}
+        </p>
+        <div class="w-full flex flex-row justify-end items-center">
+          <div class="flex flex-row">
+            <div
+              class="flex justify-center items-center w-6 h-6 to-blue-500 rounded-full hover:text-white hover:bg-blue-600 cursor-pointer text-blue-600 m-1"
+              (click)="editTaskComponent.toggleShowthis(task)"
+            >
+              <fa-icon [icon]="faPencil" />
+            </div>
+            <div
+              class="flex justify-center items-center w-6 h-6 rounded-full hover:text-white hover:bg-red-600 cursor-pointer text-red-600 m-1"
+              (click)="deleteTask(task)"
+            >
+              <fa-icon [icon]="faTrash"/>
+            </div>
+          </div>
+        </div>
+        <div>
+          <ul class="none flex flex-row gap-2">
+            <li class="border-r-2 border-solid border-black px-3 py-1">
+              <label for="To-do"
+                >To-do
+                <input
+                  type="radio"
+                  [name]="task.id"
+                  value="{{ 1 }}"
+                  (click)="changeStatus(task, 1)"
+                  />
+              </label>
+            </li>
+            <li class="border-r-2 border-solid border-black px-3 py-1">
+              <label for="in-progress"
+                >In Progress
+                <input type="radio" [name]="task.id" value="{{ 2 }}" 
+                (click)="changeStatus(task, 2)" />
+              </label>
+            </li>
+            <li calss="px-3 py-1">
+              <label for="done"
+                >Done
+                <input type="radio" [name]="task.id" value="{{ 3 }}" 
+                (click)="changeStatus(task, 3)"/>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </p-accordion-content>
+  </p-accordion-panel>
+
+  }
+</p-accordion>
+<app-edit-task (taskEdited)="onTaskEdited($event)" #editTaskComponent />
+

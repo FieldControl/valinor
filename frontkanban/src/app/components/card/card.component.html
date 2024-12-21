@@ -1,0 +1,16 @@
+<div class="w-60 md:w-96 lg:w-[500px] h-auto bg-white justify-start rounded-md flex flex-col items-center shadow-lg p-3">
+  <header class="flex h-auto w-full justify-between items-center ">
+    <div></div>
+    <div class="title-1">
+      {{ title }}
+    </div>
+    <fa-icon
+      [icon]="faXmark"
+      class="text-blue-600 cursor-pointer hover:text-blue-900"
+      (click)="closed()"
+    />
+  </header>
+  <div class="h-full w-full flex flex-col justify-between items-center">
+    <ng-content />
+  </div>
+</div>

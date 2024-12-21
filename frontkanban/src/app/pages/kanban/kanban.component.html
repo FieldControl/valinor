@@ -1,0 +1,46 @@
+@if (auth != null) {
+<app-header-kanban>
+  <p class="title-1">Bem vindo ao Kanban! {{ name }}</p>
+  <div class="flex justify-end items-center gap-2">
+    <div
+      class="w-10 h-10 bg-blue-500 hover:bg-blue-600 cursor-pointer rounded-full flex justify-center items-center shadow-xl "
+      (click)="addTaskComponent.toggleShowthis()"
+    >
+      <fa-icon [icon]="faPlus" class="text-white text-2xl" />
+    </div>
+    <fa-icon 
+      [icon]="faSignOutAlt" class="text-3xl text-blue-900 cursor-pointer hover:text-blue-600"
+      (click)="logout()"
+    />
+  </div>
+</app-header-kanban>
+<main
+  class="pt-[69px] w-full flex items-center justify-between flex-col md:flex-row h-screen overflow-auto bg-white gap-2 p-2"
+>
+  <p-card header="To-Do" [class]="class" [style]="style">
+    <app-tasks
+      [tasks]="tasksToDo"
+      (taskDeleted)="deleteTask($event)"
+      (taskEdited)="onTaskEdited($event)"
+      (statusChanged)="changeStatus($event.task, $event.newStatus)"
+    />
+  </p-card>
+  <p-card header="In Progress" [class]="class" [style]="style">
+    <app-tasks
+      [tasks]="tasksInProcess"
+      (taskDeleted)="deleteTask($event)"
+      (taskEdited)="onTaskEdited($event)"
+      (statusChanged)="changeStatus($event.task, $event.newStatus)"
+    />
+  </p-card>
+  <p-card header="Done" [class]="class"  [style]="style">
+    <app-tasks
+      [tasks]="tasksDone"
+      (taskDeleted)="deleteTask($event)"
+      (taskEdited)="onTaskEdited($event)"
+      (statusChanged)="changeStatus($event.task, $event.newStatus)"
+    ></app-tasks>
+  </p-card>
+</main>
+<app-add-tasks #addTaskComponent (taskCreated)="onTaskCreated($event)" />
+}

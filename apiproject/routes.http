@@ -1,0 +1,68 @@
+### Users
+###
+POST http://localhost:3333/user
+Content-Type: application/json
+
+{
+    "name": "John Doe2",
+    "email": "john.doe5@example.com",
+    "password": "password123"
+}
+
+###
+PUT http://localhost:3333/user/48ba6b9d-ef71-45be-a5fd-f12cbc8b795c
+Content-Type: application/json
+
+{
+    "name": "John Doe Updated",
+    "email": "john.doe.updated@example.com",
+    "password": "password123"
+}
+###
+DELETE http://localhost:3333/user/48ba6b9d-ef71-45be-a5fd-f12cbc8b795c
+
+###
+###Login
+POST  http://localhost:3333/user/login
+Content-Type: application/json
+
+{
+    "email": "teste@exemplo.us",
+    "password": "asdfa"
+}
+
+### Tasks
+GET http://localhost:3333/task/39561ad8-ae50-4f6a-b1a2-7050f38bf3ab
+
+###
+
+POST http://localhost:3333/task
+Content-Type: application/json
+
+{   
+    "id": "",
+    "title": "Teste 0",
+    "description": "testando as atividades do crud",
+    "userId":"39561ad8-ae50-4f6a-b1a2-7050f38bf3ab",
+    "status": 1,
+    "data:": null
+}
+
+###
+
+PUT http://localhost:3333/task/06435cbd-2291-46cd-af68-522ea699b1a8
+Content-Type: application/json
+
+{   
+    "id": "",
+    "title": "Teste update 0",
+    "description": "testando as atividades do crud",
+    "userId":"39561ad8-ae50-4f6a-b1a2-7050f38bf3ab",
+    "status": 1,
+    "data:": null
+}
+
+###
+
+DELETE http://localhost:3333/task/06435cbd-2291-46cd-af68-522ea699b1a8
+

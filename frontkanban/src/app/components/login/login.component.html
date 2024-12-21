@@ -1,0 +1,35 @@
+@if(showthis){
+    <app-bg>
+        <app-card
+            title="Login"
+            (close)="toggleShowThis()"
+        > 
+        
+            <form 
+              (submit)="submitLogin($event)"
+              class="flex flex-col justify-center items-center"
+            >
+                <app-input-email/>
+                <app-input-password/>
+                <p class="md:w-72 lg:w-96 text-black">
+                    Você ainda não faz parte da nossa comunidade?
+                    <a 
+                        class="text-blue-500 hover:text-blue-700 cursor-pointer"
+                        (click)="registerComponent.toggleShowThis()"
+                        
+                    >
+                        Cadastre-se aqui
+                    </a>
+                </p>
+                <app-btn
+                    type="submit" 
+                    text="Login"
+                />
+
+            </form>
+        </app-card>
+    
+    </app-bg>
+    
+}
+<app-register #registerComponent/>
