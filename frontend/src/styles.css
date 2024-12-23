@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to left, #090126, #270B8C, #4624BF, #0D0259, #0A0140);
+    overflow-x: hidden;
+}

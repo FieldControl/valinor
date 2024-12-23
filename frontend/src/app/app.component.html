@@ -1,0 +1,70 @@
+<main>
+  <h1 class="titulo">Kanban</h1>
+   
+  <form (submit)="tarefaAdicionada($event)">
+      <label>Digite a tarefa</label>
+      <input type="text" placeholder="Digite a sua tarefa" name="task" class="task">
+      <label for="msg">Descrição</label>
+      <textarea name="msg" class="descricao" placeholder="Digite a descricao"></textarea>
+      <div class="btn-container">
+          <button  name="fazer" type="submit" class="btn-fazer">Fazer</button>
+          <button  name="fazendo" type="submit" class="btn-fazendo">Fazendo</button>
+          <button  name="feito" type="submit" class="btn-feito">Feito</button>
+      </div>
+  </form>
+
+<section class="container__posts">
+  
+      <div class="posts">
+          <h1 class="titulo__posts">Fazer</h1>
+              @for(itemFazer of listaFazer; track itemFazer) {
+                  <div class="container__task__fazer">
+
+                      <h2>{{ itemFazer.title }}</h2>
+                      <p>{{ itemFazer.description }}</p>
+                      <div class="div__posts__btn">
+                          <button (click)="moverTarefa(itemFazer, listaFazer, listaFazendo,  'fazendo')" name="fazendo"  class="btn__posts__fazendo">Fazendo</button>
+                          <button (click)="moverTarefa(itemFazer, listaFazer, listaFeito, 'feito')" name="feito" class="btn__posts__feito">Feito</button>
+                      </div>
+
+                      <button name="excluir" class="btn-excluir" (click)="excluirTarefa(itemFazer, listaFazer)">Excluir</button>
+                  </div>
+              }
+      </div>
+  
+      <div class="posts">
+          <h1 class="titulo__posts">Fazendo</h1>
+              @for(itemFazendo of listaFazendo; track itemFazendo) {
+                      <div class="container__task__fazendo">
+                          <h2>{{ itemFazendo.title }}</h2>
+                          <p>{{ itemFazendo.description }}</p>
+                          <div class="div__posts__btn">
+                          <button (click)="moverTarefa(itemFazendo, listaFazendo, listaFazer, 'fazer')" name="fazer" class="btn__posts__fazer">Fazer</button>
+                          <button (click)="moverTarefa(itemFazendo, listaFazendo, listaFeito, 'feito')" name="feito" class="btn__posts__feito">Feito</button>
+                      </div>
+
+                      <button name="excluir" class="btn-excluir" (click)="excluirTarefa(itemFazendo, listaFazendo)">Excluir</button>
+                    </div>
+              }
+      </div>
+  
+      <div class="posts">
+          <h1 class="titulo__posts">Feito</h1>
+              @for(itemFeito of listaFeito; track itemFeito) {
+                  <div class="container__task__feito">
+                      <h2>{{ itemFeito.title }}</h2>
+                      <p>{{ itemFeito.description }}</p>
+
+                      <div class="div__posts__btn">
+                      <button (click)="moverTarefa(itemFeito, listaFeito, listaFazer, 'fazer')" name="fazer" class="btn__posts__fazer">Fazer</button>
+                      <button (click)="moverTarefa(itemFeito, listaFeito, listaFazendo, 'fazendo' )" name="fazendo" class="btn__posts__fazendo">Fazendo</button>
+                      </div>
+
+                      <button name="excluir" class="btn-excluir" (click)="excluirTarefa(itemFeito, listaFeito)" >Excluir</button>
+                  </div>
+              }
+      </div>
+</section>
+</main>
+
+<router-outlet></router-outlet>
