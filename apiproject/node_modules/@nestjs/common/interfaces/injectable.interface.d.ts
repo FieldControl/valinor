@@ -1,1 +1,0 @@
-export type Injectable = unknown;

@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "ES2021",
-    "experimentalDecorators": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
-}
