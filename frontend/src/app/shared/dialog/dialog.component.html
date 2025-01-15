@@ -1,0 +1,16 @@
+<div
+  class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"
+>
+  <div class="bg-gray-800 p-4 rounded-md shadow-md border border-gray-700">
+    <p class="text-white">{{ message }}</p>
+    <div class="flex justify-center mt-4">
+      <button
+        type="button"
+        (click)="onClose()"
+        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+</div>

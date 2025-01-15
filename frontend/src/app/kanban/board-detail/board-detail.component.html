@@ -1,0 +1,113 @@
+<div class="board-detail p-5 text-white">
+  <button
+    type="button"
+    (click)="goBack()"
+    class="mb-4 px-2 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm flex items-center"
+  >
+    <svg
+      class="w-4 h-4 mr-2"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 19l-7-7 7-7"
+      ></path>
+    </svg>
+    Voltar
+  </button>
+  <h2 class="text-2xl font-bold mb-4 text-black">{{ boardTitle }}</h2>
+  <div class="add-column flex items-center space-x-4 mb-4">
+    <input
+      [(ngModel)]="newColumnTitle"
+      placeholder="Nova coluna"
+      class="w-1/8 px-4 py-2 border border-gray-700 bg-gray-800 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+    />
+    <button
+      type="button"
+      (click)="addColumn()"
+      class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+    >
+      Adicionar coluna
+    </button>
+  </div>
+  <div class="columns-container flex flex-wrap gap-4">
+    <div
+      *ngFor="let column of columns"
+      class="column-item p-4 border border-gray-700 bg-gray-800 rounded-md shadow-sm"
+    >
+      <div *ngIf="!column.isEditing">
+        <h3 class="font-semibold text-lg">{{ column.title }}</h3>
+        <div class="button-group mt-2 flex space-x-2">
+          <button
+            type="button"
+            (click)="editColumn(column)"
+            class="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+          >
+            Editar
+          </button>
+          <button
+            type="button"
+            (click)="addCard(column)"
+            class="px-2 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+          >
+            Adicionar tarefa
+          </button>
+          <button
+            type="button"
+            (click)="deleteColumn(column.id)"
+            class="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 text-sm"
+          >
+            Excluir
+          </button>
+        </div>
+      </div>
+      <div *ngIf="column.isEditing">
+        <input
+          [(ngModel)]="column.editTitle"
+          class="w-full px-4 py-2 border border-gray-700 bg-gray-800 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        />
+        <div class="button-group mt-2 flex space-x-2">
+          <button
+            type="button"
+            (click)="updateColumn(column)"
+            class="px-2 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+          >
+            Salvar
+          </button>
+          <button
+            type="button"
+            (click)="cancelEditColumn(column)"
+            class="px-2 py-1 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <div class="add-card mt-4">
+        <input
+          [(ngModel)]="column.newCardDescription"
+          placeholder="Nova tarefa"
+          class="w-full px-4 py-2 border border-gray-700 bg-gray-800 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        />
+      </div>
+      <div class="cards mt-4">
+        <app-card
+          *ngFor="let card of column.cards"
+          [description]="card.description"
+          [id]="card.id"
+          [column]="column"
+        ></app-card>
+      </div>
+    </div>
+  </div>
+  <app-dialog
+    *ngIf="showDialog"
+    [message]="dialogMessage"
+    (close)="closeDialog()"
+  ></app-dialog>
+</div>

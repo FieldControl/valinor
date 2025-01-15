@@ -1,0 +1,71 @@
+<div class="add-board ml-5 mt-4 flex items-center space-x-[10px]">
+  <label for="board-name" class="sr-only"></label>
+  <input
+    [(ngModel)]="newBoardTitle"
+    placeholder="Novo board"
+    class="w-1/8 px-4 py-2 border border-gray-700 bg-gray-800 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+  />
+  <button
+    type="button"
+    (click)="addBoard()"
+    class="px-4 py-2 bg-green-500 text-white text-sm rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+  >
+    Adicionar
+  </button>
+</div>
+
+<div class="boards-container ml-5 mt-4 flex flex-wrap gap-4">
+  <div
+    *ngFor="let board of boards"
+    class="board-item p-4 border border-gray-700 bg-gray-800 rounded-md shadow-sm"
+  >
+    <div *ngIf="selectedBoardId !== board.id">
+      <h2 class="font-semibold text-2xl text-white">{{ board.title }}</h2>
+      <div class="button-group mt-2 flex space-x-2">
+        <button
+          type="button"
+          (click)="editBoard(board.id, board.title)"
+          class="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+        >
+          Editar
+        </button>
+        <button
+          type="button"
+          (click)="deleteBoard(board.id)"
+          class="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 text-sm"
+        >
+          Excluir
+        </button>
+        <button
+          type="button"
+          (click)="navigateToBoard(board.id)"
+          class="px-2 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+        >
+          Acessar
+        </button>
+      </div>
+    </div>
+    <div *ngIf="selectedBoardId === board.id" class="edit-mode">
+      <input
+        [(ngModel)]="editBoardTitle"
+        class="edit-board-input w-full px-4 py-2 border border-gray-700 bg-gray-800 text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+      />
+      <div class="button-group mt-2 flex space-x-2">
+        <button
+          type="button"
+          (click)="cancelEdit()"
+          class="px-2 py-1 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          (click)="updateBoard()"
+          class="px-2 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+        >
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

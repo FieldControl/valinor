@@ -1,0 +1,9 @@
+services:
+  postgresql:
+    image: bitnami/postgresql:latest
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=kanban
+    ports:
+      - "5432:5432"

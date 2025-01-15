@@ -1,0 +1,21 @@
+<div
+  class="card flex items-center space-x-2 p-2 border border-gray-700 bg-gray-800 rounded-md shadow-sm mb-2"
+>
+  <input
+    type="checkbox"
+    [(ngModel)]="isCompleted"
+    (change)="toggleCompletion()"
+    class="form-checkbox h-5 w-5 text-blue-600"
+  />
+  <span
+    [attr.contenteditable]="isEditing"
+    (dblclick)="startEditing()"
+    (blur)="saveDescription()"
+    (keyup.enter)="saveDescription()"
+    (keyup.esc)="cancelEditing()"
+    class="text-sm text-white"
+    [class.editing]="isEditing"
+  >
+    {{ description }}
+  </span>
+</div>
