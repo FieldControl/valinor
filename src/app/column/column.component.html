@@ -1,10 +1,28 @@
-<div class="columns">
+<div
+  class="columns"
+  [id]="columnId"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onDrop($event)"
+>
   <div class="title-column">
     <h3>{{ titulo }}</h3>
-    <button class="add-card">
-      <i class="fa-solid fa-plus"></i>
-      Adicionar Tarefa
+    <button class="add-card" (click)="openModal()">
+      <i class="fa-solid fa-plus"></i> Adicionar Tarefa
     </button>
   </div>
-  <app-card></app-card>
+
+  <app-card
+    *ngFor="let card of cards; let i = index"
+    [title]="card.title"
+    [description]="card.description"
+    (cardRemoved)="removeCard(i)"
+    (dragStarted)="onDragStart($event, i)"
+  ></app-card>
+
+  <app-modal
+    *ngIf="isModalOpen"
+    (close)="closeModal()"
+    (cardAdded)="onCardAdded($event)"
+  ></app-modal>
 </div>

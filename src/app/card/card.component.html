@@ -1,6 +1,14 @@
 <div class="cards">
-  <div class="card">
-    <p class="card-title">Titulo do card</p>
-    <div class="card-info">Conteúdo do card</div>
+  <div
+    class="card"
+    draggable="true"
+    (dragstart)="onDragStart($event)"
+    (dragend)="onDragEnd($event)"
+  >
+    <p class="card-title">{{ title }}</p>
+    <div class="card-info">{{ description }}</div>
+    <button class="remove-card" (click)="removeCard()">
+      <i class="fa-solid fa-trash"></i>
+    </button>
   </div>
 </div>

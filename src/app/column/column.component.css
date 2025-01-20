@@ -1,12 +1,3 @@
-.container {
-  display: flex;
-  gap: 3em;
-  padding: 1em;
-  width: 100%;
-  height: 90vh;
-  justify-content: space-around;
-}
-
 .columns {
   display: flex;
   flex-direction: column;
@@ -14,16 +5,17 @@
   margin-bottom: 15px;
   gap: 1em;
   height: 100%;
-  width: 500px;
+  width: 450px;
   background-color: #f2f4f7;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .title-column {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  font-size: 25px;
   color: #54575c;
 }
 
@@ -33,7 +25,7 @@
   box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
     rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
     rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
-    rgba(44, 187, 99, 0.15) 0 16px 32px;
+    rgba(78, 94, 84, 0.15) 0 16px 32px;
   color: green;
   cursor: pointer;
   padding: 5px 10px;
@@ -44,6 +36,8 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  display: flex;
+  align-items: center;
 }
 
 .add-card:hover {
@@ -52,22 +46,4 @@
     rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
     rgba(44, 187, 99, 0.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 15px;
-  gap: 1em;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 12px;
-}
-
-.card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.card-title {
-  border-bottom: 2px solid #4c9bf5;
 }

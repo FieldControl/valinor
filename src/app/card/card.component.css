@@ -6,6 +6,7 @@
   gap: 1em;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -14,4 +15,31 @@
 
 .card-title {
   border-bottom: 2px solid #4c9bf5;
+}
+
+.dragging {
+  opacity: 0.2;
+}
+
+.cards-drag {
+  background-color: #f2f4f7;
+}
+
+.remove-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: #ff4d4d;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.remove-card:hover {
+  background-color: #ff1a1a;
 }
