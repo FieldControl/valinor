@@ -1,0 +1,56 @@
+{
+  "name": "purgecss",
+  "version": "7.0.2",
+  "description": "Remove unused css selectors",
+  "author": "Ffloriel",
+  "homepage": "https://purgecss.com",
+  "keywords": [
+    "optimize",
+    "optimization",
+    "remove",
+    "unused",
+    "css",
+    "html",
+    "rules",
+    "purge",
+    "uncss",
+    "purify"
+  ],
+  "license": "MIT",
+  "main": "lib/purgecss.js",
+  "module": "./lib/purgecss.esm.js",
+  "types": "./lib/purgecss.d.ts",
+  "bin": {
+    "purgecss": "bin/purgecss.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FullHuman/purgecss.git"
+  },
+  "scripts": {
+    "build": "ts-node build.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "glob": "^11.0.0",
+    "postcss": "^8.4.47",
+    "postcss-selector-parser": "^6.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/FullHuman/purgecss/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "gitHead": "e95398d961e03a809b5e3da75e3dae1813b46b68"
+}

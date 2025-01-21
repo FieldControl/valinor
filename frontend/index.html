@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="header">
+        <h1>Teste de Programação: Kanban</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="column" data-column="1">
+            <div class="head">
+                <span> A fazer </span>
+            </div>
+            <div class="body">
+                <div class="cards-list"></div>
+                <button class="add_btn" onclick="openModal(1)">+ Adicionar tarefa</button>
+            </div>
+        </div>
+
+        <div class="column" data-column="2">
+            <div class="head">
+                <span> Em progresso </span>
+            </div>
+            <div class="body">
+                <div class="cards-list"></div>
+                <button class="add_btn" onclick="openModal(2)">+ Adicionar tarefa</button>
+            </div>
+        </div>
+
+        <div class="column" data-column="3">
+            <div class="head">
+                <span> Finalizado </span>
+            </div>
+            <div class="body">
+                <div class="cards-list"></div>
+                <button class="add_btn" onclick="openModal(3)">+ Adicionar tarefa</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="modal">
+        <div class="box">
+            <div class="head">
+                <span id="creationModeTitle">Nova tarefa</span>
+                <span id="editionModeTitle">Editar tarefa</span>
+                <button onclick="closeModal()" class="iconCancel">x</button>
+            </div>
+            <div class="form">
+
+                <input type="hidden" id="idInput">
+
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="priority">Prioridade</label>
+                    <select id="priority">
+                        <option>Baixa</option>
+                        <option>Média</option>
+                        <option>Alta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="column">Coluna</label>
+                    <select id="column">
+                        <option value="1">A fazer</option>
+                        <option value="2">Em progresso</option>
+                        <option value="3">Finalizado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Prazo</label>
+                    <input type="date" id="deadLine">
+                </div>
+
+                <button class="primaryButton" onclick="createTask()" id="creationModeBtn">Adicionar</button>
+                <button class="primaryButton" onclick="updateTask()" id="editionModeBtn">Salvar alterações</button>
+                <button class="delete-btn" onclick="deleteTask()">Excluir task</button>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+    <script src="script.js"></script>
+
+</html>

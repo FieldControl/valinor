@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f7fc;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #ffffff;
+    padding: 40px 0; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.header h1 {
+    margin: 0; 
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333333;
+}
+
+.primaryButton {
+    border: none;
+    background-color: #00ffaa;
+    color: white;
+    font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.primaryButton:hover {
+    background-color: #0ba371;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 0;
+}
+
+.container .column {
+    width: 380px;
+    height: 500px; 
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container .column .head {
+    background-color: #0b7552;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.container .column .body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px;
+    overflow-y: auto;
+    transition: background-color 0.3s ease;
+}
+
+.container .column .body .card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.container .column .body .card:hover {
+    transform: translateY(-5px); 
+    background-color: #f0f0f0;
+}
+
+.container .column .body .card:active {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+.container .column .body .info {
+    font-size: 15px;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .column .body .add_btn {
+    background: none;
+    border: 1px solid #0b7552;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    color: #0b7552;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.container .column .body .add_btn:hover {
+    background-color: #f0f8ff;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal .box {
+    background-color: #ffffff;
+    width: 420px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#modal .box .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #DDD;
+}
+
+#modal .box .head span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+#modal .box .head .iconCancel {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #ff0000;
+}
+
+#modal .box .form {
+    padding: 25px;
+}
+
+#modal .box .form label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+#modal .box .form textarea,
+#modal .box .form select,
+#modal .box .form input {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+#modal .box .form button {
+    display: block;
+    margin-top: 30px;
+    background-color: #0b7552;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#modal .box .form button:hover {
+    background-color: #0c4935;
+}
+
+#modal .box .form button.delete-btn {
+    display: block;
+    margin-top: 10px;
+    background-color: transparent;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#modal .box .form button.delete-btn:hover {
+    background-color: #ff0000;
+    color: white;
+}
+
+#modal .box .form button.delete-btn:focus {
+    outline: none;
+}
+
+
+.container .column.droppable {
+    border: 2px dashed #0b7552;
+}
