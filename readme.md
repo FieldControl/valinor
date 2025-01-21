@@ -8,22 +8,6 @@ Este sistema foi desenvolvido com **HTML**, **CSS** e **JavaScript** para o fron
 
 O objetivo principal do sistema é permitir a organização de tarefas em colunas representando diferentes estados (como "A Fazer", "Em Progresso" e "Concluído"), utilizando funcionalidades intuitivas como drag-and-drop e edição direta.
 
-## Estrutura de páginas
-
-KANBAN_DB_NEST
-│
-├── backend
-│   └── (Código do servidor NestJS)
-│
-├── frontend
-│   └── (Código do cliente)
-│
-├── prints_sistema
-│   └── (Imagens ou capturas de tela do sistema)
-│
-└── readme.md
-    └── (Documentação do projeto)
-
 ## Funcionalidades Principais
 
 - **Adicionar Tarefas**: Criação de tarefas especificando descrição, prioridade, prazo e coluna inicial.
