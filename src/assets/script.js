@@ -1,5 +1,3 @@
-console.log("funciona desgrama");
-
 document.querySelectorAll(".card").forEach((card) => {
   card.addEventListener("dragstart", (e) => {
     e.currentTarget.classList.add("dragging");
