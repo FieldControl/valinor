@@ -1,0 +1,17 @@
+<section class="container editar-tarefa ff-inter">
+    <div class="modal">
+        <header class="header">
+            <h2>Edite o título da Tarefa</h2>
+        </header>
+        <form class="form">
+            <input type="text" placeholder="Edite o título da Tarefa" [(ngModel)]="tarefa.title" name="title"> 
+            <select [(ngModel)]="tarefa.columnId" name="columnId">
+                <option *ngFor="let coluna of colunas" [value]="coluna.id">{{ coluna.title }}</option>
+            </select>
+        </form>
+        <div class="divBtn">
+            <button class="btnCancel" (click)="cancelar()">Cancelar</button>
+            <button class="btnConfirm" (click)="editarTarefa()">Confirmar</button> 
+        </div>
+    </div>
+</section>

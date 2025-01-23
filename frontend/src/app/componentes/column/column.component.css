@@ -1,0 +1,57 @@
+.coluna{
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 10px;
+    height: auto;
+    margin-right: 20px;
+}
+.acoes{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+.titulo{
+    color: black;
+    padding:25px;
+}
+.btn-editar{
+    background-color: transparent;
+    border: none;
+    margin-right: 5px;
+    size: 10px;
+}
+.btn-excluir{
+    background-color: transparent;
+    border: none;
+    margin-right: 5px;
+    size: 30px;
+}
+header{
+    display: flex;
+}
+li{
+    color: blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+}
+p{
+    margin-left: 10px;
+}
+.cor{
+    color: black;
+}
+.row{
+    margin-right: 10px;
+    margin-left: 10px;
+    
+
+}

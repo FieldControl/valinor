@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.ff-inter { font-family: 'Inter', sans-serif; }
+.ff-roboto-mono { font-family: 'Roboto Mono', monospace; }
+
+h1 {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+h2 {
+  color: #154580;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.header {
+  margin: 1rem auto 2rem;
+}
+
+.container {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.botao {
+  background: #154580;
+  color: #ffffff;
+  max-width: 270px;
+  width: 250px;
+  padding: 1rem;
+  margin: 0 auto;
+  border: 2px solid #154580;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+.botao:hover {
+  border: 2px solid #84EEC1;
+  color: #84EEC1;
+}
+
+@media (min-width: 576px) {
+  .container {
+      width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+      width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+      width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+      width: 1140px;
+  }
+}
+
+

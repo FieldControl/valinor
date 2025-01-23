@@ -1,0 +1,67 @@
+
+.container {
+    width: 98.31%;
+    height: 700px;
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+    margin: 0px;
+    background-color: #8e97aa;
+  
+  }
+  
+  
+  
+  
+  .modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: 170px;
+    width: 20%; 
+    max-width: 600px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  input {
+    width: 80%;
+    height: 40px; 
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .btnConfirm,
+  .btnCancel {
+    font-weight: bold;
+    border-radius: 5px;
+    width: 80px;
+    height: 35px; 
+    font-size: 14px; 
+  }
+  .btnConfirm {
+    background-color: #0051ff;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    margin-left: 5px;
+  }
+  .btnCancel {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    margin-top: 15px;
+  }
+  .divBtn {
+    display: flex;
+    justify-content: center;
+  }
+  .form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+  }
+  

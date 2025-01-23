@@ -1,0 +1,8 @@
+.cor {
+    color: blue; /* Exemplo de estilo */
+}
+
+.acoes {
+    display: flex;
+    justify-content: space-between;
+}

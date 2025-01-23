@@ -1,0 +1,32 @@
+<div class="coluna">
+    <header>
+        <b><p class="titulo">{{ coluna.title }}</p></b>
+        <div class="acoes">
+            <button class="btn-editar btn-primary" [routerLink]="['/componentes/editarColuna', coluna.id]">
+                <img src="../../../assets/imagens/icone-editar.png" alt="">
+            </button>
+            <button class="btn-excluir" [routerLink]="['/componentes/excluirColuna', coluna.id]">
+                <img src="../../../assets/imagens/icone-excluir.png" alt="">
+            </button>
+        </div>
+    </header>
+    
+    <div class="tarefas">
+        <ul>
+            <div class="row">
+                <li *ngFor="let tarefa of tarefas">
+                    <p class="cor">{{ tarefa.title }}</p> 
+                    <div class="acoes">
+                        <button class="btn-editar btn-primary" [routerLink]="['/componentes/editarTarefa', tarefa.id]">
+                            <img src="../../../assets/imagens/icone-editar.png" alt="">
+                        </button>
+                        <button class="btn-excluir" [routerLink]="['/componentes/excluirTarefa', tarefa.id]">
+                            <img src="../../../assets/imagens/icone-excluir.png" alt="">
+                        </button>
+                    </div>
+                </li>
+                <br>
+            </div>
+        </ul>
+    </div>
+</div>

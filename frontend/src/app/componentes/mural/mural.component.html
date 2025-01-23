@@ -1,0 +1,10 @@
+<div class="mural" *ngIf="listaColunas.length > 0; else semColunas">
+    <div *ngFor="let coluna of listaColunas">
+        <app-column [coluna]="coluna"></app-column>
+    </div>
+</div>
+<ng-template #semColunas >
+    <div class="semColunas">
+    <p>Ainda não há colunas</p>
+</div>
+</ng-template>

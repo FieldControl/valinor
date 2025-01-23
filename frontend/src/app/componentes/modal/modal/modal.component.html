@@ -1,0 +1,29 @@
+<section class="container criar-tarefas ff-inter">
+    <div class="modal">
+        <header class="header">
+            <h2>Adicione uma Coluna</h2>
+        </header>
+        <form class="form" action="" method="post">
+            <input type="text" placeholder="Insira um nome a sua coluna:" [(ngModel)]="coluna.title" name="titulo">
+        </form>
+        <div class="divBtn">
+            <button class="btnCancel" (click)="cancelar()">Cancelar</button>
+            <button class="btnConfirm" (click)="criarColuna()">Confirmar</button>
+        </div>
+    </div>
+    <div class="modal">
+        <header class="header">
+            <h2>Adicione uma Tarefa</h2>
+        </header>
+        <form class="form" action="" method="post">
+            <input type="text" placeholder="Insira uma tarefa:" [(ngModel)]="task" name="title"> 
+            <select [(ngModel)]="selectedColunaId" name="colunaId">
+                <option *ngFor="let coluna of colunas" [value]="coluna.id">{{ coluna.title }}</option>
+            </select>
+        </form>
+        <div class="divBtn">
+            <button class="btnCancel" (click)="cancelar()">Cancelar</button>
+            <button class="btnConfirm" (click)="criarTarefa()">Confirmar</button> <!-- Passar o ID da coluna selecionada, com valor padrão -->
+        </div>
+    </div>
+</section>

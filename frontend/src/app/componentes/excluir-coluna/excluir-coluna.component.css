@@ -1,0 +1,67 @@
+.modal {
+    background: #fff;
+    box-shadow: 7px 8px 0px 0px #154580;
+    min-width: 360px;
+    min-height: 150px;
+    position: fixed;
+    left: 50%;
+    padding: 24px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 50px;
+  }
+  
+  .overlay {
+    background: #000;
+    height: 100vh;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+  }
+  
+  .acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 30px;
+  }
+  
+  .botao {
+    margin: 5px;
+    margin-top: 70px;
+    width: 200px;
+  }
+  
+  .botao-cancelar {
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+  .botao-excluir {
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+  
+  .excluir-coluna {
+    padding: 10rem 0;
+  }
+  
+  @media screen and (max-width: 548px) {
+    .modal {
+      width: 90%;
+      min-width: 90%;
+      padding: 50px 12px 24px;
+      font-size: 1.2rem;
+    }
+  }
