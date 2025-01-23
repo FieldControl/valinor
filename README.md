@@ -74,3 +74,10 @@ Execute a aplicação navegando para `http://localhost:4200/`. A aplicação ser
 
 ## Informações de Contato
 Para quaisquer perguntas, entre em contato por e-mail ou telefone.
+
+    ```bash
+    11941756013
+    ```
+    ```bash
+    bofe.ronaldo18@gmail.com
+    ```
