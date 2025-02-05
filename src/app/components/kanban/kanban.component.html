@@ -1,0 +1,20 @@
+<div class="board">
+  <button class="add-column-btn" (click)="addColumn()">+ Adicionar Coluna</button>
+
+  <div class="coluna" *ngFor="let column of columns; let columnIndex = index">
+    <div class="coluna-header">
+      <h3>{{ column.name }}</h3>
+      <button class="delete-column-btn" (click)="deleteColumn(columnIndex)">❌</button>
+    </div>
+
+    <button class="add-task-btn" (click)="addTask(columnIndex)">+ Adicionar Tarefa</button>
+
+    <div cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="drop($event)"
+      [cdkDropListConnectedTo]="connectedLists" class="drop-zone">
+      <div *ngFor="let task of column.tasks; let taskIndex = index" cdkDrag class="card">
+        {{ task.title }}
+        <button (click)="deleteTask(columnIndex, taskIndex)" class="delete-btn">🗑️</button>
+      </div>
+    </div>
+  </div>
+</div>
