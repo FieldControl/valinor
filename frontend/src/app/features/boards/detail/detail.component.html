@@ -1,0 +1,64 @@
+<div class="kb-board-header">
+  <button
+    mat-mini-fab
+    [routerLink]="['/boards']"
+    color="secondary"
+    aria-label="Back to boards"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <h1 class="kb-board-title">{{ board()?.name }}</h1>
+
+  <button color="primary" mat-flat-button (click)="addColumn()">
+    Nova coluna
+  </button>
+</div>
+
+<!-- Lists should come from columns for the board -->
+
+<div
+  cdkDropListGroup
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="onColumnChange($event)"
+  class="columns-wrapper"
+>
+  @for(column of board()?.columns; track column.id) {
+  <div class="column" cdkDrag>
+    <div class="column-header" cdkDragHandle>
+      <h2>{{ column.name }}</h2>
+      <div>
+        <button
+          color="secondary"
+          mat-stroked-button
+          (click)="editColumn(column)"
+        >
+          Editar
+        </button>
+      </div>
+    </div>
+
+    <div class="column-inner">
+      <div
+        class="column-inner__dragzone"
+        cdkDropList
+        cdkDropListOrientation="vertical"
+        [cdkDropListData]="column.cards"
+        (cdkDropListDropped)="onCardChange($event, column)"
+      >
+        @for(card of column.cards; track card.id) {
+        <button
+          class="column__card"
+          (click)="addOrEditCard(column, card)"
+          cdkDrag
+        >
+          {{ card.name }}
+        </button>
+        }
+      </div>
+    </div>
+    <button (click)="addOrEditCard(column)" mat-button>Novo card</button>
+  </div>
+  }
+</div>
