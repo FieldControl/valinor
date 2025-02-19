@@ -2,7 +2,6 @@
 
 Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
-<<<<<<< HEAD
 Antes de iniciar o desenvolvimento, estruturei o projeto no papel para ter uma visão clara dos requisitos e funcionalidades. Como nunca havia trabalhado com NestJS antes, decidi começar pelo back-end para me familiarizar com a tecnologia antes de integrar com o front-end.
 
 Dividi o projeto em partes para facilitar o desenvolvimento:
@@ -19,12 +18,10 @@ Após cada implementação, refinei as respostas da API, tratando exceções com
 Essa abordagem me permitiu desenvolver um back-end estruturado e funcional antes de avançar para a implementação do front-end com Angular.
 
 =======
->>>>>>> 915d3efad0e555662958efb94dd59e9a32efef4c
 **Framework, linguagem e ferramentas**
 
 Descreva ferramentas e bibliotecas (libraries, framework, tools etc) você usou.
 
-<<<<<<< HEAD
 Angular: Escolhi o Angular para o front-end devido à sua estrutura robusta, organização baseada em módulos e suporte a TypeScript.
 Já  tive contato anteriormente com Angular também, mas nada muito aprofundado, tive que estudar.
 
@@ -49,7 +46,7 @@ Mas sei que tem muitas melhorias a serem realizadas e vou desafiar a refazer o p
 **Melhorias e próximas implementações**
 
 A comunicação entre os components, usar corretamente as diretivas.
-=======
+
 **Técnologias X e Y**
 
 Justifique porque você optou pela tecnologia X e não a Y?
@@ -65,13 +62,11 @@ Conte um pouco sobre os desafios e problemas que você enfrentou e como você re
 **Melhorias e próximas implementações**
 
 O que você entende que pode ser melhorado e como isso pode ser feito?
->>>>>>> 915d3efad0e555662958efb94dd59e9a32efef4c
 
 **Vídeo de apresentação**
 
 Grave um vídeo do seu projeto rodando e envie o link:
-<<<<<<< HEAD
-
+<!-- Dica: você pode usar o https://jam.dev/ para facilitar sua gravação ;) -->
 
 **Sobre você**
 
@@ -79,31 +74,21 @@ Nasci em Guanhães/MG e atualmente moro em Patrocínio/MG, mas no final deste m�
 
 Para fortalecer minha base, fiz um curso técnico em T.I. e, posteriormente, me formei em Análise e Desenvolvimento de Sistemas. Com o tempo, fui me aprofundando no desenvolvimento de software e encontrei meu principal foco no back-end. No entanto, gosto de explorar o front-end também, buscando sempre entender todo o processo de desenvolvimento.
 
+Tenho experiência como Analista de Suporte Técnico em uma empresa de telecom durante 3 anos e pouco e atualmente trabalho com suporte técnico em sistemas ERP.
+
 Atualmente, estou aprimorando minhas habilidades como desenvolvedor back-end, trabalhando principalmente com C# e expandindo meu conhecimento em tecnologias modernas, como NestJS e Angular. Meu objetivo é continuar evoluindo e me tornar um desenvolvedor cada vez mais completo.
-=======
-<!-- Dica: você pode usar o https://jam.dev/ para facilitar sua gravação ;) -->
 
-**Sobre você**
-
-Queremos te conhecer um pouco melhor, conte um pouco sobre você.
-
-Onde nasceu/De onde você é? Lugares que estudou, empresas que trabalhou, como você se envolveu com desenvolvimento de software.. enfim, Quem é você?
->>>>>>> 915d3efad0e555662958efb94dd59e9a32efef4c
 
 **Outros detalhes**
 
 Se quiser enviar alguma informação adicional sobre o desafio..
-
-
 ---
 
 Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
 
-<<<<<<< HEAD
 CONTATO: (34) 9 9840-1044
 E-MAIL: fernando.iftm@outlook.com
 
-=======
->>>>>>> 915d3efad0e555662958efb94dd59e9a32efef4c
+
 
 
