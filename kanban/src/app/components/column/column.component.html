@@ -1,0 +1,92 @@
+<!-- Container principal -->
+<div class="container-fluid p-3">
+    <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-outline-primary m-2 p-2" (click)="openCardModal()">
+            <li class="fa fa-plus">
+                <span class="m-2">Cadastrar Card</span>
+            </li>
+        </button>
+        <button class="btn btn-outline-primary m-2 p-2" (click)="openModal()">
+            <li class="fa fa-plus">
+                <span class="m-2">Adicionar Coluna</span>
+            </li>
+        </button>
+    </div>
+    <!-- Modal Coluna-->
+    <div *ngIf="isModalColumnOpen" class="modal-overlay">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar Coluna</h5>
+                    <button type="button" class="btn-close" (click)="closeModal()">X</button>
+                </div>
+                <div class="modal-body">
+                    <input type="number" disabled class="form-control inputEdit" placeholder="id" [(ngModel)]="newColumn.id!">
+                    <input type="text" class="form-control" placeholder="Título da Coluna" [(ngModel)]="newColumn.title">
+                    <input type="number" class="form-control" placeholder="Posição da Coluna" [(ngModel)]="newColumn.position">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="closeModal()">Fechar</button>
+                    <button type="button" class="btn btn-primary" (click)="save()">
+                        {{ isEditMode ? 'Atualizar' : 'Salvar' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Card -->
+<div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mb-3">Adicionar novo Card</h5>
+                <button type="button" class="btn-close mb-3" (click)="closeModal()">X</button>
+            </div>
+            <div class="modal-body">
+                <input type="number" disabled class="form-control inputEdit" placeholder="id" [(ngModel)]="newCard.id">
+                <input type="text" class="form-control" placeholder="Título do Card" [(ngModel)]="newCard.title">
+                <input type="text" class="form-control" placeholder="Descrição do Card" [(ngModel)]="newCard.description">
+                <p style="margin-left: 11px; margin-bottom: 2px; color: #595C5F;">Posição do CARD na coluna</p>
+                <input type="number" class="form-control" placeholder="Posição do Card" [(ngModel)]="newCard.position">
+                <div>
+                    <p style="margin-left: 11px; margin-bottom: 2px; color: #595C5F;">Selecione uma Coluna</p>
+                    <select class="form-control" placeholder="Coluna"  [(ngModel)]="newCard.columnId">
+                        <option *ngFor="let column of columns$ | async" [value]="column.id">
+                            {{ column.position }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer mt-3">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Fechar</button>
+                <button type="button" class="btn btn-primary" (click)="saveCard()">
+                   Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<div class="d-flex flex-row overflow-auto">
+    <div *ngFor="let column of columns$ | async" class="kanban-column m-2 p-3 bg-light border rounded">
+    <!-- Cabeçalho da Coluna -->
+    <div class="kanban-column-header d-flex justify-content-between align-items-center">
+        <h2 class="h5 m-0">{{ column.position }}</h2>
+        <h3 class="h5 m-0">{{ column.title }}</h3>
+        <div class="column-actions">
+        <button class="btn-action">
+            <i class="fa fa-edit" (click)="editMode(column)"></i>
+        </button>
+        <button class="btn-action text-danger">
+            <i class="fa fa-trash" *ngIf="column.id" (click)="OnDelete(column.id)"></i>
+        </button>
+        </div>
+    </div>
+
+    <!-- Cards da Coluna -->
+    <app-card [Column$]="columns$" [columnId]="column.id!" (updateColumns)="getColumns()"/>
+    </div>
+</div>
+

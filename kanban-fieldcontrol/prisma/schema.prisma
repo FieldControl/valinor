@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Column {
+  id        Int      @id @default(autoincrement()) 
+  title     String
+  position  Int
+  cards     Card[]   @relation("ColumnToCard")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("columns")
+}
+
+model Card {
+  id          Int      @id @default(autoincrement()) 
+  title       String
+  description String?
+  position    Int
+  columnId    Int
+  column      Column   @relation("ColumnToCard", fields: [columnId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("cards")
+}

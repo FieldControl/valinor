@@ -1,0 +1,48 @@
+<div *ngFor="let card of cards$ | async">
+    <section class="kanban-card">
+      <div class="kanban-card-header">
+        <h4>{{ card.title }}</h4>
+        <div class="kanban-card-actions">
+          <button class="btn-action">
+            <i class="fa fa-edit" (click)="editCard(card)"></i>
+          </button>
+          <button class="btn-action">
+            <i class="fa fa-trash" (click)="deleteCard(card.id!)"></i>
+          </button>
+        </div>
+      </div>
+      <p class="kanban-card-description">{{card.description }}</p>
+    </section>
+  </div>
+
+  <div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mb-3">Adicionar novo Card</h5>
+                <button type="button" class="btn-close mb-3" (click)="closeModal()">X</button>
+            </div>
+            <div class="modal-body">
+                <input type="number" disabled class="form-control inputEdit" placeholder="id" [(ngModel)]="newCard.id!">
+                <input type="text" class="form-control" placeholder="Título do Card" [(ngModel)]="newCard.title">
+                <input type="text" class="form-control" placeholder="Descrição do Card" [(ngModel)]="newCard.description">
+                <p style="margin-left: 11px; margin-bottom: 2px; color: #595C5F;">Posição do CARD na coluna</p>
+                <input type="number" class="form-control" placeholder="Posição do Card" [(ngModel)]="newCard.position">
+                <div>
+                    <p style="margin-left: 11px; margin-bottom: 2px; color: #595C5F;">Selecione uma Coluna</p>
+                    <select class="form-control" placeholder="Coluna"  [(ngModel)]="newCard.columnId">
+                        <option *ngFor="let column of Column$ | async" [value]="column.id">
+                            {{ column.position }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer mt-3">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Fechar</button>
+                <button type="button" class="btn btn-primary" (click)="saveCard()">
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
