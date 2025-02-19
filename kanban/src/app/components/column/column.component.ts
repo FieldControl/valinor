@@ -66,6 +66,7 @@ export class ColumnComponent {
   save(){
     if(!this.isEditMode){
       this.createColumn();
+      this.isModalColumnOpen = false;
     } else {
       this.updateColumn(this.newColumn.id!, this.newColumn);
     }
@@ -73,7 +74,7 @@ export class ColumnComponent {
 
   openModal() {
     this.isEditMode = false;
-    this.isModalOpen = true;
+    this.isModalColumnOpen = true;
     this.newColumn = { title: '', position: 0 }
   }
 
