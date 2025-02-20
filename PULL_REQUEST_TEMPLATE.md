@@ -91,7 +91,9 @@ Se quiser enviar alguma informação adicional sobre o desafio..
 
 Muito obrigado pela oportunidade, foi uma ótima experiência desenvolver o projeto.
 
-Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :) 
+Ah, deixe seu e-mail ou telefone para entrarmos em contato com você :)
 
 CONTATO: (34) 9 9840-1044
+
 E-MAIL: fernando.iftm@outlook.com
+
