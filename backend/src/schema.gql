@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Column {
+  id: Int!
+  title: String!
+  cards: [Card!]!
+}
+
+type Card {
+  id: Int!
+  title: String!
+  description: String!
+  column: Column!
+}
+
+type Query {
+  getColumns: [Column!]!
+}
+
+type Mutation {
+  createColumn(title: String!): Column!
+  updateColumn(id: Float!, title: String!): Column!
+  deleteColumn(id: Float!): Column!
+  createCard(title: String!, description: String!, columnId: Float!): Card!
+  updateCard(cardId: Float!, title: String!, description: String!): Card!
+  deleteCard(cardId: Float!): Card!
+}

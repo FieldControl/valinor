@@ -18,6 +18,7 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@apollo/client": "^3.13.3",
+    "apollo-angular": "^10.0.3",
     "graphql": "^16.10.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
