@@ -20,4 +20,3 @@ model Card {
   columnId    Int
   column      Column @relation(fields: [columnId], references: [id])
 }
-

@@ -5,15 +5,25 @@ import { Column, Card } from './kanban.model';
 @Resolver((of) => Column)
 export class KanbanResolver {
   constructor(private kanbanService: KanbanService) {}
-  //query para pegar as colunas
+
+  // Query para pegar as colunas
   @Query((returns) => [Column])
   async getColumns(): Promise<Column[]> {
-    return this.kanbanService.getColumns();
+    const columns = await this.kanbanService.getColumns();
+    return columns.map((column) => ({
+      ...column,
+      cards: column.cards.map((card) => ({
+        ...card,
+        column: { id: column.id, title: column.title, cards: [] },
+      })),
+    }));
   }
-  //mutation para criar uma coluna
+
+  // Mutation para criar uma coluna
   @Mutation((returns) => Column)
   async createColumn(@Args('title') title: string): Promise<Column> {
-    return this.kanbanService.createColumn(title);
+    const column = await this.kanbanService.createColumn(title);
+    return { ...column, cards: [] };
   }
 
   // Mutation para atualizar a coluna
@@ -22,37 +32,60 @@ export class KanbanResolver {
     @Args('id') id: number,
     @Args('title') title: string,
   ): Promise<Column> {
-    return this.kanbanService.updateColumn(id, title);
+    const column = await this.kanbanService.updateColumn(id, title);
+    return { ...column, cards: [] };
   }
 
   // Mutation para deletar a coluna
   @Mutation((returns) => Column)
   async deleteColumn(@Args('id') id: number): Promise<Column> {
-    return this.kanbanService.deleteColumn(id);
+    const column = await this.kanbanService.deleteColumn(id);
+    return { ...column, cards: [] };
   }
 
-  //mutation para criar um card
+  // Mutation para criar um card
   @Mutation((returns) => Card)
   async createCard(
     @Args('title') title: string,
     @Args('description') description: string,
     @Args('columnId') columnId: number,
   ): Promise<Card> {
-    return this.kanbanService.createCard(title, description, columnId);
+    const card = await this.kanbanService.createCard(
+      title,
+      description,
+      columnId,
+    );
+    return {
+      ...card,
+      column: { id: columnId, title: '', cards: [] },
+    };
   }
-  //atualizar o card
+
+  // Mutation para atualizar o card
   @Mutation((returns) => Card)
   async updateCard(
     @Args('cardId') cardId: number,
     @Args('title') title: string,
     @Args('description') description: string,
   ): Promise<Card> {
-    return this.kanbanService.updateCard(cardId, title, description);
+    const card = await this.kanbanService.updateCard(
+      cardId,
+      title,
+      description,
+    );
+    return {
+      ...card,
+      column: { id: card.columnId, title: '', cards: [] },
+    };
   }
 
-  //deletar o card
+  // Mutation para deletar o card
   @Mutation((returns) => Card)
   async deleteCard(@Args('cardId') cardId: number): Promise<Card> {
-    return this.kanbanService.deleteCard(cardId);
+    const card = await this.kanbanService.deleteCard(cardId);
+    return {
+      ...card,
+      column: { id: card.columnId, title: '', cards: [] },
+    };
   }
 }

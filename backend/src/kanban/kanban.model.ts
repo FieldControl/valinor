@@ -23,6 +23,9 @@ export class Card {
   @Field()
   description: string;
 
-  @Field(type => Column)
-  column: Column;
+  @Field(type => Int)
+  columnId: number;
+
+  @Field(type => Column, { nullable: true })
+  column?: Column;
 }

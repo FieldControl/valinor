@@ -12,7 +12,8 @@ type Card {
   id: Int!
   title: String!
   description: String!
-  column: Column!
+  columnId: Int!
+  column: Column
 }
 
 type Query {
