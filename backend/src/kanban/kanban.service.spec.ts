@@ -28,7 +28,10 @@ describe('KanbanService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [KanbanService, PrismaService],
-    }).compile();
+    })
+      .overrideProvider(PrismaService)
+      .useValue(mockPrismaService)
+      .compile();
 
     kanbanService = module.get<KanbanService>(KanbanService);
     prismaService = module.get<PrismaService>(PrismaService);
@@ -38,12 +41,12 @@ describe('KanbanService', () => {
     expect(kanbanService).toBeDefined();
   });
 
-
   describe('getColumns', () => {
     it('should return an array of columns', async () => {
       mockPrismaService.column.findMany.mockResolvedValue([{ id: 1, title: 'Column 1', cards: [] }]);
 
       const columns = await kanbanService.getColumns();
+
       expect(columns).toEqual([{ id: 1, title: 'Column 1', cards: [] }]);
     });
   });
@@ -51,10 +54,12 @@ describe('KanbanService', () => {
   describe('createColumn', () => {
     it('should create a column successfully', async () => {
       const newColumn = { id: 1, title: 'New Column', cards: [] };
+
       mockPrismaService.column.findFirst.mockResolvedValue(null); // Garantindo que a coluna não exista
       mockPrismaService.column.create.mockResolvedValue(newColumn);
 
       const result = await kanbanService.createColumn('New Column');
+
       expect(result).toEqual(newColumn);
     });
 
@@ -74,6 +79,7 @@ describe('KanbanService', () => {
       mockPrismaService.column.update.mockResolvedValue(updatedColumn);
 
       const result = await kanbanService.updateColumn(1, 'Updated Title');
+
       expect(result).toEqual(updatedColumn);
     });
 
@@ -87,11 +93,13 @@ describe('KanbanService', () => {
   describe('deleteColumn', () => {
     it('should delete a column successfully', async () => {
       const column = { id: 1, title: 'Column to Delete', cards: [] };
+
       mockPrismaService.column.findFirst.mockResolvedValue(column);
       mockPrismaService.column.delete.mockResolvedValue(column);
       mockPrismaService.card.deleteMany.mockResolvedValue({ count: 0 });
 
       const result = await kanbanService.deleteColumn(1);
+
       expect(result).toEqual({ ...column, cards: [] });
     });
 
@@ -106,10 +114,12 @@ describe('KanbanService', () => {
     it('should create a card successfully', async () => {
       const column = { id: 1, title: 'Column 1', cards: [] };
       const card = { id: 1, title: 'New Card', description: 'Card description', columnId: 1 };
+
       mockPrismaService.column.findFirst.mockResolvedValue(column);
       mockPrismaService.card.create.mockResolvedValue(card);
 
       const result = await kanbanService.createCard('New Card', 'Card description', 1);
+
       expect(result).toEqual({
         ...card,
         column: { id: 1, title: 'Column 1', cards: [] },
