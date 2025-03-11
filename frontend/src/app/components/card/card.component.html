@@ -1,0 +1,22 @@
+<div class="card">
+  <p>{{ title }}</p>
+  <button (click)="openModal()">✏️ Editar</button>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <h3>Editar Card</h3>
+    <label>Nome:</label>
+    <input type="text" [(ngModel)]="title" aria-label="Editar Card" />
+
+    <label>Descrição:</label>
+    <textarea labe[(ngModel)]="description" aria-label="descrição do card" ></textarea>
+
+    <div class="modal-buttons">
+      <button (click)="saveChanges()">Salvar</button>
+      <button (click)="deleteCard()">Excluir</button>
+      <button (click)="closeModal()">Fechar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="column">
+    <div class="column-header">
+      <h3>{{ title }}</h3>
+      <div class="column-buttons">
+        <button (click)="editTitle()">✏️</button>
+        <button (click)="deleteColumn()">🗑️</button>
+      </div>
+    </div>
+    
+    <div class="cards">
+      <ng-content></ng-content> <!-- Espaço para os cards -->
+    </div>
+  </div>
+  
