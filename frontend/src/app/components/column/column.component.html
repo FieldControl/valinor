@@ -1,11 +1,12 @@
 <div class="column">
   <div class="column-header">
     <h3>{{title}}</h3>
-    <button (click)="editTitle()"> editar titulo</button>
+    <button (click)="editTitle()">editar titulo</button>
   </div>
 
   <div class="cards">
-    <app-card title="lavar a Louça"></app-card>
-    <app-card title="limpar a Casa"></app-card>
+    @for(card of cards; track card){
+    <app-card [title]="card"></app-card>
+    }
   </div>
 </div>

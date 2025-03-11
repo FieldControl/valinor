@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Component,inject } from '@angular/core';
+import { KanbanService } from './services/kanban.service';
+
 import { HeaderComponent } from './components/header/header.component';
-import { ContainerComponent } from './components/container/container.component';
 import { ColumnComponent } from './components/column/column.component';
-// import { CardComponent } from './components/card/card.component';
+
 @Component({
   selector: 'app-root',
   // imports: [RouterOutlet],
@@ -13,9 +14,20 @@ import { ColumnComponent } from './components/column/column.component';
 })
 export class AppComponent {
   title = 'Frontend';
-  columns = [
-    { title: 'A Fazer', cards: ['Tarefa 1', 'Tarefa 2'] },
-    { title: 'Em Progresso', cards: ['Tarefa 3'] },
-    { title: 'Concluído', cards: ['Tarefa 4', 'Tarefa 5'] }
-  ];
+  columns: { id: number; title: string }[] = []; 
+
+    private kanbanService = inject(KanbanService);
+  
+      ngOnInit() {
+      this.kanbanService.getColumns().subscribe(
+        (response) => {
+          console.log('Colunas recebidas:', JSON.stringify(response.data.getColumns, null, 2));
+          this.columns = response.data.getColumns;
+        },
+        (error) => {
+          console.error("Erro ao buscar colunas:", error);
+        }
+      );
+    }
+
 }

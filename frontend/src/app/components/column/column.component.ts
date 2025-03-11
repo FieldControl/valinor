@@ -6,10 +6,13 @@ import { CardComponent } from '../card/card.component';
   standalone: true,
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.css'],
-  imports:[CardComponent]
+  imports: [CardComponent]
 })
 export class ColumnComponent {
-  @Input() title: string = ' Samuel '; // Nome da coluna
+
+  @Input() title: string = 'Sem Titulo';// Nome padrão
+
+  @Input() cards: string[] = ["Tarefa 1", "Lavar a louça", "Bater na parede"];
 
   editTitle() {
     const newTitle = prompt('Editar nome da coluna:', this.title);
@@ -20,7 +23,6 @@ export class ColumnComponent {
 
   deleteColumn() {
     if (confirm('Tem certeza que deseja excluir esta coluna?')) {
-      // Aqui você pode emitir um evento para excluir a coluna do array de colunas no componente pai
       console.log('Coluna excluída:', this.title);
     }
   }
