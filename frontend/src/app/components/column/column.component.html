@@ -1,14 +1,11 @@
 <div class="column">
-    <div class="column-header">
-      <h3>{{ title }}</h3>
-      <div class="column-buttons">
-        <button (click)="editTitle()">✏️</button>
-        <button (click)="deleteColumn()">🗑️</button>
-      </div>
-    </div>
-    
-    <div class="cards">
-      <ng-content></ng-content> <!-- Espaço para os cards -->
-    </div>
+  <div class="column-header">
+    <h3>{{title}}</h3>
+    <button (click)="editTitle()"> editar titulo</button>
   </div>
-  
+
+  <div class="cards">
+    <app-card title="lavar a Louça"></app-card>
+    <app-card title="limpar a Casa"></app-card>
+  </div>
+</div>

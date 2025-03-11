@@ -1,3 +1,6 @@
 <app-header></app-header>
-<app-container></app-container>
-
+<div class="board">
+  @for(col of columns; track col.title){
+  <app-column [title]="col.title"></app-column>
+  }
+</div>

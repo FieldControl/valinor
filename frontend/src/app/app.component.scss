@@ -6,3 +6,13 @@ html,* {
   padding: 0;
   box-sizing: border-box;
 }
+
+.board {
+  display: flex; 
+  overflow-x: auto;
+  gap: 300px; 
+  padding: 10px;
+  height: calc(100vh - 115px); 
+    white-space: nowrap; 
+  background-color: red;
+}

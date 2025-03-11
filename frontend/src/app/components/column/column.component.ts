@@ -1,12 +1,15 @@
 import { Component, Input } from '@angular/core';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-column',
+  standalone: true,
   templateUrl: './column.component.html',
-  styleUrls: ['./column.component.css']
+  styleUrls: ['./column.component.css'],
+  imports:[CardComponent]
 })
 export class ColumnComponent {
-  @Input() title: string = ''; // Nome da coluna
+  @Input() title: string = ' Samuel '; // Nome da coluna
 
   editTitle() {
     const newTitle = prompt('Editar nome da coluna:', this.title);
