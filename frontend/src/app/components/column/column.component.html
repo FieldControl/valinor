@@ -26,7 +26,7 @@
 
   <div class="cards">
     @for(card of cards; track card){
-    <app-card [title]="card.title" [description]="card.description"></app-card>
+    <app-card [id]="card.id" [title]="card.title" [description]="card.description"></app-card>
     }
   </div>
 </div>

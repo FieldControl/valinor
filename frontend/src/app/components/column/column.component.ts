@@ -76,6 +76,7 @@ export class ColumnComponent {
           this.showCardForm = false;
           this.newCardTitle = '';
           this.newCardDescription = '';
+          console.log('Card criado:', newCard);
         },
 
         (error) => {
