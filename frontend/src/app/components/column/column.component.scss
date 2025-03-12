@@ -96,10 +96,25 @@
   margin-top: 10px;
 }
 
-/* Estilos dos cards */
 .card {
   background: white;
   padding: 10px;
   border-radius: 6px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Testes para veificar um negocio */
+.card-form {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  max-width: 300px;
+  min-height: 50px;
 }
