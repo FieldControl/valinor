@@ -98,13 +98,12 @@ export class KanbanService {
 
   deletCard(id: number): Observable<any> {
     const mutation = `
-    mutation DeleteCard($id: Float){
-      deleteCard(id: $id){
-        id
-        title
+      mutation DeleteCard($cardId: Float!) {
+        deleteCard(cardId: $cardId) {
+          id
+        }
       }
-    }
     `;
-    return this.executeQuery(mutation, { id: Number(id) });
-  }
+    return this.executeQuery(mutation, { cardId: id }); 
+  } 
 }
