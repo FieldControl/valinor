@@ -128,7 +128,7 @@ textarea {
   gap: 5px;
   height: 30px;
   justify-content: center;
-  background-color: #218b00;
+  background-color: #0fb300; 
   color: white;
   font-weight: bold;
   border-radius: 4px;
@@ -139,7 +139,7 @@ textarea {
 }
 
 .buttonSave:hover {
-  background-color: #0fb300;
+  background-color: #218b00;
 }
 
 .buttonCancel {
@@ -158,6 +158,6 @@ textarea {
   transition: background-color 0.3s ease;
 }
 
-.buttonSave:hover {
+.buttonCancel:hover {
   background-color: #b30000;
 }

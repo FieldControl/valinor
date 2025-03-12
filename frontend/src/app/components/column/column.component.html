@@ -27,9 +27,15 @@
       placeholder="Descrição do Card"
       [value]="newCardDescription"
       (input)="updateNewCardDescription($event)"
+      class="description"
     />
 
-    <button (click)="createCard()">Adicionar Card</button>
+    <button (click)="createCard()" class="confirmCard">
+      Adicionar Card<i class="fa fa-plus" aria-label="adicionar Card"></i>
+    </button>
+    <button (click)="cancelCreateCard()" class="cancelCard">
+      Cancelar<i class="fa fa-times"></i>
+    </button>
   </div>
 
   <div class="cards">

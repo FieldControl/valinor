@@ -50,6 +50,7 @@ export class ColumnComponent {
   newCardTitle: string = '';
   newCardDescription: string = '';
 
+
   updateNewCardTitle(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     this.newCardTitle = inputElement.value;
@@ -60,6 +61,9 @@ export class ColumnComponent {
     this.newCardDescription = inputElement.value;
   }
   
+  cancelCreateCard(){
+    this.showCardForm = false;
+  }
 
   createCard() {
     if (!this.newCardTitle || !this.newCardDescription) {
