@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CardComponent } from '../card/card.component';
+import { KanbanService } from '../../services/kanban.service';
 
 @Component({
   selector: 'app-column',
@@ -9,20 +10,38 @@ import { CardComponent } from '../card/card.component';
   imports: [CardComponent],
 })
 export class ColumnComponent {
-  @Input() title: string = 'Sem Titulo'; // Nome padrão
+  private kanbanService = inject(KanbanService);
 
+  @Input() id!: number; // Agora a coluna tem um ID
+  @Input() title: string = 'Sem Título'; // Nome padrão
   @Input() cards: { id: number; title: string; description: string }[] = [];
 
-  editTitle() {
-    const newTitle = prompt('Editar nome da coluna:', this.title);
-    if (newTitle !== null) {
-      this.title = newTitle;
-    }
+  editColumn() {
+    const newTitle = prompt('Digite o novo nome da coluna:', this.title);
+    if (!newTitle || newTitle === this.title) return;
+
+    this.kanbanService.updateColumn(this.id, newTitle).subscribe(
+      (response) => {
+        const updatedColumn = response.data.updateColumn;
+        this.title = updatedColumn.title; // Atualiza diretamente no componente
+      },
+      (error) => {
+        console.error('Erro ao atualizar a coluna:', error);
+      }
+    );
   }
 
   deleteColumn() {
     if (confirm('Tem certeza que deseja excluir esta coluna?')) {
-      console.log('Coluna excluída:', this.title);
+      this.kanbanService.deleteColumn(this.id).subscribe(
+        (response) =>{
+          const deletedColumn = response.data.deleteColumn;
+          console.log('Coluna deletada:', deletedColumn);
+        },
+        (error) => {
+          console.error('Erro ao deletar a coluna:', error);
+        }
+      )
     }
   }
 }

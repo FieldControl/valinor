@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="board">
   @for(col of columns; track col.title){
-  <app-column [title]="col.title" [cards]="col.cards"></app-column>
+  <app-column [title]="col.title" [id]="col.id" [cards]="col.cards"></app-column>
   }
 </div>

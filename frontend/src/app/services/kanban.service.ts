@@ -34,4 +34,46 @@ export class KanbanService {
   `;
     return this.executeQuery(query);
   }
+
+  createColumn(title: string): Observable<any> {
+    const mutation = `
+    mutation($title: String!) {
+      createColumn(title: $title) {
+        id
+        title
+      }
+    }
+    `;
+
+    const variables = { title };
+
+    return this.executeQuery(mutation, variables);
+  }
+
+  updateColumn(id: number, title: string): Observable<any> {
+    const mutation = `
+      mutation UpdateColumn($id: Float!, $title: String!) {
+        updateColumn(id: $id, title: $title) {
+          id
+          title
+        }
+      }
+    `;
+
+    const variables = { id: Number(id), title }; // Apenas certifcando que o id é do Float igual ao back
+
+    return this.executeQuery(mutation, variables);
+  }
+
+  deleteColumn(id: number): Observable<any> {
+    const mutation = `
+      mutation DeleteColumn($id: Float!) {
+        deleteColumn(id: $id) {
+          id
+          title
+        }
+      } 
+    `;
+    return this.executeQuery(mutation, { id: Number(id) });
+  }
 }
