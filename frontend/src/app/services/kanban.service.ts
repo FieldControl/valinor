@@ -96,6 +96,25 @@ export class KanbanService {
     return this.executeQuery(mutation, variables);
   }
 
+  editCard(
+    cardId: number,
+    title: string,
+    description: string
+  ): Observable<any> {
+    const mutation = `
+      mutation UpdateCard($cardId: Float!, $title: String!, $description: String!) {
+        updateCard(cardId: $cardId, title: $title, description: $description) {
+          id
+          title
+          description
+          columnId
+        }
+      }
+    `;
+
+    return this.executeQuery(mutation, { cardId, title, description });
+  }
+
   deletCard(id: number): Observable<any> {
     const mutation = `
       mutation DeleteCard($cardId: Float!) {
@@ -104,6 +123,6 @@ export class KanbanService {
         }
       }
     `;
-    return this.executeQuery(mutation, { cardId: id }); 
-  } 
+    return this.executeQuery(mutation, { cardId: id });
+  }
 }

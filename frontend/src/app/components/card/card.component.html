@@ -5,6 +5,12 @@
   <h4>
     {{ description }}
   </h4>
-  <button>Editar Card</button>
+  <div *ngIf="isEditing">
+    <input [(ngModel)]="newTitle" placeholder="Novo título" />
+    <textarea [(ngModel)]="newDescription" placeholder="Nova descrição"></textarea>
+    <button (click)="saveChanges()">Salvar</button>
+    <button (click)="cancelEdit()">Cancelar</button>
+  </div>
+  <button *ngIf="!isEditing" (click)="editCard()">Editar Card</button>
   <button (click)="deleteCard()">Excluir Card</button>
 </div>
