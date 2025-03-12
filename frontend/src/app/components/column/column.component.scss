@@ -1,17 +1,92 @@
 .column {
-  width: 250px;
-  background: #f8f9fa;
+  min-width: 300px;
+  background-color: rgb(184, 184, 160);
   border-radius: 8px;
   padding: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Cabeçalho da coluna */
 .column-header {
-  text-align: center;
-  font-weight: bold;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between; /* Alinha título à esquerda e botões à direita */
+  align-items: center;
   padding: 10px;
-  background: #ddd;
+  background-color: #f4f4f4;
   border-radius: 6px;
+}
+
+/* Título da coluna com limite de largura e reticências (...) se for grande */
+.column-header h3 {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Container dos botões */
+.buttons {
+  display: flex;
+  gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Estilização dos botões */
+.buttonEdit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonEdit:hover {
+  background-color: #0056b3;
+}
+.buttonDelete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonDelete:hover {
+  background-color: #b30000;
+}
+.buttonAddCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #218b00;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonAddCard:hover {
+  background-color: #0fb300;
 }
 
 .cards {
@@ -21,6 +96,7 @@
   margin-top: 10px;
 }
 
+/* Estilos dos cards */
 .card {
   background: white;
   padding: 10px;

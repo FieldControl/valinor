@@ -12,9 +12,9 @@
 >
   <div
     style="
-      max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+      padding-left: 30px;
       display: flex;
       align-items: center;
     "
@@ -29,15 +29,12 @@
 <div style="height: 60px"></div>
 
 <!-- Barra secundária abaixo do header -->
-<div
-  style="
-    background-color: rgba(87, 87, 87, 0.18);
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    color: black;
-  "
->
-  Field Control Board
-  <button (click)="addColumn()">Criar Coluna</button>
+<div class="board-secondary-header">
+  <div class="board-header-content">
+    <h3>Field Control Board</h3>
+    <button (click)="addColumn()">
+      Criar Coluna
+      <i class="fa fa-plus" aria-label="adicionar Card"></i>
+    </button>
+  </div>
 </div>

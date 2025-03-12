@@ -1,0 +1,34 @@
+.board-secondary-header {
+  background-color: rgba(48, 47, 47, 0.329);
+  padding: 10px 20px;
+}
+
+.board-header-content {
+  width: 20%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-header-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+button {
+  width: 150px;
+  height: 32px;
+  background-color: #218b00;
+  color: white;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0fb300;
+}

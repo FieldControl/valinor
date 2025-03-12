@@ -1,9 +1,17 @@
 <div class="column">
   <div class="column-header">
     <h3>{{ title }}</h3>
-    <button (click)="editColumn()">Editar Nome</button>
-    <button (click)="deleteColumn()">Deletar Coluna</button>
-    <button (click)="showCardForm = !showCardForm">Criar Card</button>
+    <div class="buttons">
+      <button (click)="editColumn()" class="buttonEdit">
+        <i class="fa fa-edit" aria-label="Editar botão"></i>
+      </button>
+      <button (click)="deleteColumn()" class="buttonDelete">
+        <i class="fa fa-trash" aria-label="deletar card"></i>
+      </button>
+      <button (click)="showCardForm = !showCardForm" class="buttonAddCard">
+        <i class="fa fa-plus" aria-label="adicionar Card"></i>
+      </button>
+    </div>
   </div>
 
   <div class="card-form" *ngIf="showCardForm">
@@ -26,7 +34,11 @@
 
   <div class="cards">
     @for(card of cards; track card){
-    <app-card [id]="card.id" [title]="card.title" [description]="card.description"></app-card>
+    <app-card
+      [id]="card.id"
+      [title]="card.title"
+      [description]="card.description"
+    ></app-card>
     }
   </div>
 </div>

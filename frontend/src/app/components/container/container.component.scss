@@ -1,18 +1,8 @@
 .container {
-    width: 100%;
-    height: 100vh;
-    background: url('../../../../public/pexels-photo-417074.jpeg') no-repeat center center;
-    background-size: cover;
-    position: relative;
-  }
-  
-  .container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(54, 54, 54, 0.7); /* Camada transparente */
-  }
-  
+  width: 100%;
+  height: 100vh;
+  background: url("../../../../public/pexels-photo-417074.jpeg") no-repeat
+    center center;
+  background-size: cover;
+  position: relative;
+}

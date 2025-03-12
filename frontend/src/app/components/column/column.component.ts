@@ -7,7 +7,7 @@ import { KanbanService } from '../../services/kanban.service';
   selector: 'app-column',
   standalone: true,
   templateUrl: './column.component.html',
-  styleUrls: ['./column.component.css'],
+  styleUrls: ['./column.component.scss'],
   imports: [CardComponent, CommonModule],
 })
 export class ColumnComponent {
