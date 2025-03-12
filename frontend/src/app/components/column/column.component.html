@@ -3,6 +3,25 @@
     <h3>{{ title }}</h3>
     <button (click)="editColumn()">Editar Nome</button>
     <button (click)="deleteColumn()">Deletar Coluna</button>
+    <button (click)="showCardForm = !showCardForm">Criar Card</button>
+  </div>
+
+  <div class="card-form" *ngIf="showCardForm">
+    <input
+      type="text"
+      placeholder="Título do Card"
+      [value]="newCardTitle"
+      (input)="updateNewCardTitle($event)"
+    />
+
+    <input
+      type="text"
+      placeholder="Descrição do Card"
+      [value]="newCardDescription"
+      (input)="updateNewCardDescription($event)"
+    />
+
+    <button (click)="createCard()">Adicionar Card</button>
   </div>
 
   <div class="cards">

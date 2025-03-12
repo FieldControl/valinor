@@ -1,5 +1,6 @@
 import { Component, Input, inject } from '@angular/core';
 import { CardComponent } from '../card/card.component';
+import { CommonModule } from '@angular/common';
 import { KanbanService } from '../../services/kanban.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { KanbanService } from '../../services/kanban.service';
   standalone: true,
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.css'],
-  imports: [CardComponent],
+  imports: [CardComponent, CommonModule],
 })
 export class ColumnComponent {
   private kanbanService = inject(KanbanService);
@@ -34,14 +35,54 @@ export class ColumnComponent {
   deleteColumn() {
     if (confirm('Tem certeza que deseja excluir esta coluna?')) {
       this.kanbanService.deleteColumn(this.id).subscribe(
-        (response) =>{
+        (response) => {
           const deletedColumn = response.data.deleteColumn;
           console.log('Coluna deletada:', deletedColumn);
         },
         (error) => {
           console.error('Erro ao deletar a coluna:', error);
         }
-      )
+      );
     }
+  }
+
+  showCardForm = false;
+  newCardTitle: string = '';
+  newCardDescription: string = '';
+
+  updateNewCardTitle(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.newCardTitle = inputElement.value;
+  }
+  
+  updateNewCardDescription(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.newCardDescription = inputElement.value;
+  }
+  
+
+  createCard() {
+    if (!this.newCardTitle || !this.newCardDescription) {
+      alert('Nome e descrição do card são obrigatórios!');
+      return;
+    }
+
+    this.kanbanService
+      .createCard(this.id, this.newCardTitle, this.newCardDescription)
+      .subscribe(
+        (response) => {
+          const newCard = response.data.createCard;
+          this.cards.push(newCard);
+          this.showCardForm = false;
+          this.newCardTitle = '';
+          this.newCardDescription = '';
+        },
+
+        (error) => {
+          console.error('Erro ao criar card:', error);
+        }
+      );
+
+    console.log('Criando um novo card');
   }
 }

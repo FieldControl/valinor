@@ -76,4 +76,19 @@ export class KanbanService {
     `;
     return this.executeQuery(mutation, { id: Number(id) });
   }
+
+  createCard(columnId: number, title: string, description: string): Observable<any> {
+    const mutation = `
+      mutation CreateCard($columnId: Float!, $title: String!, $description: String!) {
+        createCard(columnId: $columnId, title: $title, description: $description) {
+          id
+          title
+          description
+          columnId
+        }
+      }
+    `;
+    const variables = { columnId, title, description };
+    return this.executeQuery(mutation, variables);
+  }
 }
