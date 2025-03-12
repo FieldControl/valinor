@@ -1,7 +1,10 @@
 .card {
   background: white;
+  flex: column;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
 }

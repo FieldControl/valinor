@@ -6,13 +6,12 @@ import { CardComponent } from '../card/card.component';
   standalone: true,
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.css'],
-  imports: [CardComponent]
+  imports: [CardComponent],
 })
 export class ColumnComponent {
+  @Input() title: string = 'Sem Titulo'; // Nome padrão
 
-  @Input() title: string = 'Sem Titulo';// Nome padrão
-
-  @Input() cards: string[] = ["Tarefa 1", "Lavar a louça", "Bater na parede"];
+  @Input() cards: { id: number; title: string; description: string }[] = [];
 
   editTitle() {
     const newTitle = prompt('Editar nome da coluna:', this.title);

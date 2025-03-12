@@ -20,8 +20,18 @@ export class KanbanService {
 
   getColumns(): Observable<any> {
     const query = `
-      query { getColumns { id title } }
-    `;
+    query {
+      getColumns {
+        id
+        title
+        cards {
+          id
+          title
+          description
+        }
+      }
+    }
+  `;
     return this.executeQuery(query);
   }
 }

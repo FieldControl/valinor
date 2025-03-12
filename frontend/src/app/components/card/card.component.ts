@@ -4,8 +4,9 @@ import { Component, Input } from '@angular/core';
   selector: 'app-card',
   standalone: true,
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
   @Input() title: string = 'Tarefa sem nome';
+  @Input() description: string = 'Sem descrição';
 }
