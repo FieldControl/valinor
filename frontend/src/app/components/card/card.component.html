@@ -1,16 +1,30 @@
 <div class="card">
-  <h3>
-    {{ title }}
-  </h3>
   <h4>
-    {{ description }}
+    {{ title }}
   </h4>
-  <div *ngIf="isEditing">
-    <input [(ngModel)]="newTitle" placeholder="Novo título" />
-    <textarea [(ngModel)]="newDescription" placeholder="Nova descrição"></textarea>
-    <button (click)="saveChanges()">Salvar</button>
-    <button (click)="cancelEdit()">Cancelar</button>
+  <h5>
+    {{ description }}
+  </h5>
+  <div class="buttons">
+    <button *ngIf="!isEditing" (click)="editCard()" class="buttonEdit">
+      <i class="fa fa-edit" aria-label="Editar Coluna"></i>
+    </button>
+    <button *ngIf="!isEditing" (click)="deleteCard()" class="buttonDelete">
+      <i class="fa fa-trash" aria-label="deletar coluna"></i>
+    </button>
   </div>
-  <button *ngIf="!isEditing" (click)="editCard()">Editar Card</button>
-  <button (click)="deleteCard()">Excluir Card</button>
+  <div *ngIf="isEditing" class="edit">
+    <h3>Editar Card:</h3>
+    <input [(ngModel)]="newTitle" placeholder="Novo título" />
+    <textarea
+      [(ngModel)]="newDescription"
+      placeholder="Nova descrição"
+    ></textarea>
+    <button (click)="saveChanges()" class="buttonSave">
+      Salvar<i class="fa fa-save"></i>
+    </button>
+    <button (click)="cancelEdit()" class="buttonCancel">
+      Cancelar<i class="fa fa-times"></i>
+    </button>
+  </div>
 </div>

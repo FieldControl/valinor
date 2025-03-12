@@ -7,4 +7,156 @@
   margin-bottom: 10px;
   margin-top: 10px;
   font-weight: bold;
+  max-width: 300px;
+  min-height: 50px;
 }
+
+.card h4 {
+  font-weight: bold;
+  max-width: 250px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card h5 {
+  max-width: 250px;
+  font-size: 14px;
+  font-weight: normal;
+  min-height: 50px;
+  text-wrap: wrap;
+  word-break: break-word;
+  line-height: 1.2em;
+}
+
+.buttonEdit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-self: start;
+}
+
+.buttonEdit:hover {
+  background-color: #0056b3;
+}
+
+.buttonDelete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonDelete:hover {
+  background-color: #b30000;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 400px;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: rgb(253, 251, 117);
+  border-radius: 16px;
+}
+
+.edit h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+}
+
+input {
+  height: 20px;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 50px;
+  max-height: 100px;
+  font-size: 12px;
+  resize: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.buttonSave {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  justify-content: center;
+  background-color: #218b00;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonSave:hover {
+  background-color: #0fb300;
+}
+
+.buttonCancel{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  justify-content: center;
+  background-color: #ff0000;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonSave:hover {
+  background-color: #b30000;
+}
+
