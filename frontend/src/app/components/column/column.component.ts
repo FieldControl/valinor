@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
 import { KanbanService } from '../../services/kanban.service';
@@ -16,6 +16,7 @@ export class ColumnComponent {
   @Input() id!: number; // Agora a coluna tem um ID
   @Input() title: string = 'Sem Título'; // Nome padrão
   @Input() cards: { id: number; title: string; description: string }[] = [];
+  @Output() columnDeleted = new EventEmitter<number>();
 
   editColumn() {
     const newTitle = prompt('Digite o novo nome da coluna:', this.title);
@@ -37,7 +38,7 @@ export class ColumnComponent {
       this.kanbanService.deleteColumn(this.id).subscribe(
         (response) => {
           const deletedColumn = response.data.deleteColumn;
-          console.log('Coluna deletada:', deletedColumn);
+          this.columnDeleted.emit(deletedColumn.id);
         },
         (error) => {
           console.error('Erro ao deletar a coluna:', error);
@@ -80,14 +81,14 @@ export class ColumnComponent {
           this.showCardForm = false;
           this.newCardTitle = '';
           this.newCardDescription = '';
-          console.log('Card criado:', newCard);
         },
-
         (error) => {
           console.error('Erro ao criar card:', error);
         }
       );
-
-    console.log('Criando um novo card');
+  }
+  //listening para quando eu remover um card
+  removeCard(cardId: number) {
+    this.cards = this.cards.filter(card => card.id !== cardId);
   }
 }

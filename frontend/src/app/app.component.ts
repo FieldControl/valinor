@@ -7,7 +7,6 @@ import { ColumnComponent } from './components/column/column.component';
 
 @Component({
   selector: 'app-root',
-  // imports: [RouterOutlet],
   imports: [HeaderComponent, ColumnComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -22,6 +21,7 @@ export class AppComponent {
 
   private kanbanService = inject(KanbanService);
 
+  //listening para quando eu inicilizar o componente 
   ngOnInit() {
     this.kanbanService.getColumns().subscribe(
       (response) => {
@@ -35,5 +35,14 @@ export class AppComponent {
         console.error('Erro ao buscar colunas:', error);
       }
     );
+  }
+
+  //listening para quando eu adicionar uma coluna
+  addColumn(newColumn: any) {
+    this.columns = [...this.columns, newColumn]; 
+  }
+  //listening para quando eu deletar uma coluna
+  removeColumn(columnId: number) {
+    this.columns = this.columns.filter(col => col.id !== columnId);
   }
 }

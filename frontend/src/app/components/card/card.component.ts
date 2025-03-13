@@ -1,12 +1,12 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { KanbanService } from '../../services/kanban.service';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports:[CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
@@ -15,6 +15,7 @@ export class CardComponent {
   @Input() id!: number;
   @Input() title: string = 'Tarefa sem nome';
   @Input() description: string = 'Sem descrição';
+  @Output() cardDeleted = new EventEmitter<number>();
 
   isEditing = false;
   newTitle = this.title;
@@ -46,12 +47,11 @@ export class CardComponent {
 
   cancelEdit() {
     this.isEditing = false;
-    this.newTitle = this.title; // Reseta para o valor original
-    this.newDescription = this.description; // Reseta para o valor original
+    this.newTitle = this.title;
+    this.newDescription = this.description;
   }
 
   deleteCard() {
-    console.log('Tentando deletar card com ID:', this.id);
 
     if (!this.id) {
       console.error('Erro: ID do card está indefinido!');
@@ -62,7 +62,7 @@ export class CardComponent {
       this.kanbanService.deletCard(this.id).subscribe(
         (response) => {
           const deleteData = response.data.deleteCard;
-          console.log('Card deletado:', deleteData);
+          this.cardDeleted.emit(this.id);
         },
         (error) => {
           console.error('Erro ao deletar o card:', error);

@@ -1,6 +1,7 @@
-<app-header></app-header>
+<app-header (columnAdded)="addColumn($event)" ></app-header>
 <div class="board">
   @for(col of columns; track col.title){
-  <app-column [title]="col.title" [id]="col.id" [cards]="col.cards"></app-column>
+  <app-column [title]="col.title" [id]="col.id" [cards]="col.cards" (columnDeleted)="removeColumn($event)"></app-column>
   }
 </div>
+ 
