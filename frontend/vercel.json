@@ -1,11 +1,9 @@
 {
-    "builds": [
+    "rewrites": [
       {
-        "src": "frontend/angular.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "dist/frontend/browser"
-        }
+        "source": "/(.*)",
+        "destination": "/index.html"
       }
     ]
   }
+  
