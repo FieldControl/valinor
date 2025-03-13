@@ -21,7 +21,7 @@ export class KanbanService {
 
     return this.client.post<any>(this.apiUrl, body);
   }
-
+  //pega todas as colunas
   getColumns(): Observable<any> {
     const query = `
     query {
@@ -38,7 +38,7 @@ export class KanbanService {
   `;
     return this.executeQuery(query);
   }
-
+  //cria uma coluna
   createColumn(title: string): Observable<any> {
     const mutation = `
     mutation($title: String!) {
@@ -53,7 +53,7 @@ export class KanbanService {
 
     return this.executeQuery(mutation, variables);
   }
-
+  //atualiza o nome de uma coluna
   updateColumn(id: number, title: string): Observable<any> {
     const mutation = `
       mutation UpdateColumn($id: Float!, $title: String!) {
@@ -68,7 +68,7 @@ export class KanbanService {
 
     return this.executeQuery(mutation, variables);
   }
-
+  //deleta o nome de uma coluna
   deleteColumn(id: number): Observable<any> {
     const mutation = `
       mutation DeleteColumn($id: Float!) {
@@ -80,7 +80,7 @@ export class KanbanService {
     `;
     return this.executeQuery(mutation, { id: Number(id) });
   }
-
+  //cria um card
   createCard(
     columnId: number,
     title: string,
@@ -99,7 +99,7 @@ export class KanbanService {
     const variables = { columnId, title, description };
     return this.executeQuery(mutation, variables);
   }
-
+  //edita um card selecionado
   editCard(
     cardId: number,
     title: string,
@@ -118,7 +118,7 @@ export class KanbanService {
 
     return this.executeQuery(mutation, { cardId, title, description });
   }
-
+  //deleta um card
   deletCard(id: number): Observable<any> {
     const mutation = `
       mutation DeleteCard($cardId: Float!) {
