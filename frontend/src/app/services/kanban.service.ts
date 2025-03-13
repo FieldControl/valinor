@@ -6,7 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class KanbanService {
-  private apiUrl = 'http://localhost:3000/graphql';
+  //api de desenvolvimento
+  // private apiUrl = 'http://localhost:3000/graphql';
+
+  //api de produção
+  private apiUrl = 'https://valinor-production.up.railway.app/graphql';
   constructor(private client: HttpClient) {}
 
   executeQuery(query: string, variables?: any): Observable<any> {
