@@ -1,5 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 
+// Define o modelo Column para o GraphQL
 @ObjectType()
 export class Column {
   @Field(type => Int)
@@ -12,6 +13,7 @@ export class Column {
   cards: Card[];
 }
 
+// Define o modelo Card para o GraphQL
 @ObjectType()
 export class Card {
   @Field(type => Int)

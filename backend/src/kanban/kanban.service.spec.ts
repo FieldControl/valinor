@@ -3,6 +3,7 @@ import { KanbanService } from './kanban.service';
 import { PrismaService } from '../../prisma/prisma.service';
 import { NotFoundException } from '@nestjs/common';
 
+//arquivos para testes
 // Mock do PrismaService para não afetar o banco de dados real durante os testes
 const mockPrismaService = {
   column: {
