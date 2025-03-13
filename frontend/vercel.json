@@ -1,0 +1,11 @@
+{
+    "builds": [
+      {
+        "src": "frontend/angular.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist/frontend/browser"
+        }
+      }
+    ]
+  }
