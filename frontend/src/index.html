@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="/frontend/src/assets/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <app-kanban></app-kanban>
+  <title>LISTA KANBAN EM COLUNA</title>
+
+</head>
+<body>
+  <main class="kanban">
+    <app-root></app-root>
+    <router-outlet></router-outlet>
+  <!-- coluna 1 -->
+    <div class="kanban-column" data-id="1">
+      <div class="kanban-title">
+        <h2>
+          Pendente
+        </h2>
+        <button class="add-card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true">
+          <div class="badge high">
+            <span>
+              Alta prioridade
+            </span>
+          </div>
+
+          <p class="card-title">
+            Revisar documento do projeto
+          </p>
+
+          <div class="card-infos">
+            <div class="card-icons">
+              <p>
+                <i class="fa-regular fa-comment">
+                  1
+                </i>
+              </p>
+              <p>
+                <i class="fa-solid fa-paperclip">
+                  1
+                </i>
+                
+              </p>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="./assets/perfil1.jpg" alt="avatar">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+   <!-- coluna 2 -->
+    <div class="kanban-column" data-id="2">
+      <div class="kanban-title">
+        <h2>
+          Em front-end
+        </h2>
+
+        <button class="add-card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true">
+          <div class="badge medium">
+            <span>
+              Media prioridade
+            </span>
+          </div>
+
+          <p class="card-title">
+            Iniciar projeto front-end
+          </p>
+
+          <div class="card-infos">
+            <div class="card-icons">
+              <p>
+                <i class="fa-regular fa-comment">
+                  1
+                </i>
+              </p>
+              <p>
+                <i class="fa-solid fa-paperclip">
+                  1
+                </i>
+                
+              </p>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="./assets/perfil1.jpg" alt="avatar">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- coluna 3 -->
+    <div class="kanban-column" data-id="3">
+      <div class="kanban-title">
+        <h2>
+          Em back-end
+        </h2>
+
+        <button class="add-card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true">
+          <div class="badge medium">
+            <span>
+              Media prioridade
+            </span>
+          </div>
+
+          <p class="card-title">
+            projeto front-end Finalizado, iniciar back-end!
+          </p>
+
+          <div class="card-infos">
+            <div class="card-icons">
+              <p>
+                <i class="fa-regular fa-comment">
+                  1
+                </i>
+              </p>
+              <p>
+                <i class="fa-solid fa-paperclip">
+                  1
+                </i>
+                
+              </p>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="./assets/perfil2.jpg" alt="avatar">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- coluna 4 -->
+    <div class="kanban-column" data-id="4">
+      <div class="kanban-title">
+        <h2>
+          Em teste
+        </h2>
+
+        <button class="add-card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true">
+          <div class="badge medium">
+            <span>
+              Media prioridade
+            </span>
+          </div>
+
+          <p class="card-title">
+            Revisar sistema e suas funções
+          </p>
+
+          <div class="card-infos">
+            <div class="card-icons">
+              <p>
+                <i class="fa-regular fa-comment">
+                  1
+                </i>
+              </p>
+              <p>
+                <i class="fa-solid fa-paperclip">
+                  1
+                </i>
+                
+              </p>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="./assets/perfil2.jpg" alt="avatar">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- coluna 5 -->
+    <div class="kanban-column" data-id="5">
+      <div class="kanban-title">
+        <h2>
+          Finalizado
+        </h2>
+
+        <button class="add-card">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true">
+          <div class="badge low">
+            <span>
+              Projeto Finalizado
+            </span>
+          </div>
+
+          <p class="card-title">
+            Entregar produto para o cliente.
+          </p>
+
+          <div class="card-infos">
+            <div class="card-icons">
+              <p>
+                <i class="fa-regular fa-comment">
+                  1
+                </i>
+              </p>
+              <p>
+                <i class="fa-solid fa-paperclip">
+                  1
+                </i>
+                
+              </p>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="./assets/perfil1.jpg" alt="avatar">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
