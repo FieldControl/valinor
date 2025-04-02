@@ -1,0 +1,40 @@
+@startuml Diagrama de Casos de Uso do Kanban
+
+left to right direction
+actor Usuário
+
+rectangle "Sistema Kanban" {
+  usecase "Criar quadro" as UC1
+  usecase "Editar quadro" as UC2
+  usecase "Excluir quadro" as UC3
+  usecase "Adicionar coluna" as UC4
+  usecase "Editar coluna" as UC5
+  usecase "Excluir coluna" as UC6
+  usecase "Adicionar cartão" as UC7
+  usecase "Editar cartão" as UC8
+  usecase "Excluir cartão" as UC9
+  usecase "Mover cartão entre colunas" as UC10
+  usecase "Reordenar cartões" as UC11
+  usecase "Adicionar etiquetas" as UC12
+  usecase "Adicionar anexos" as UC13
+  usecase "Definir data limite" as UC14
+  usecase "Pesquisar cartões" as UC15
+}
+
+Usuário --> UC1
+Usuário --> UC2
+Usuário --> UC3
+Usuário --> UC4
+Usuário --> UC5
+Usuário --> UC6
+Usuário --> UC7
+Usuário --> UC8
+Usuário --> UC9
+Usuário --> UC10
+Usuário --> UC11
+Usuário --> UC12
+Usuário --> UC13
+Usuário --> UC14
+Usuário --> UC15
+
+@enduml 

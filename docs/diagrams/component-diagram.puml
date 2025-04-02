@@ -1,0 +1,51 @@
+@startuml Diagrama de Componentes do Kanban
+
+package "Frontend (Angular)" {
+  [AppComponent]
+  [BoardComponent]
+  [ColumnComponent]
+  [CardComponent]
+  [CardModalComponent]
+  [ColumnMenuComponent]
+  [SearchFormComponent]
+  [AuthComponent]
+  [ToastComponent]
+  [VersionSwitcherComponent]
+  [GraphQLModule]
+  [AppRoutesModule]
+}
+
+' Conexões no frontend
+AppComponent --> BoardComponent
+BoardComponent --> ColumnComponent
+ColumnComponent --> CardComponent
+ColumnComponent --> ColumnMenuComponent
+AppComponent --> SearchFormComponent
+CardComponent --> CardModalComponent
+AppComponent --> ToastComponent
+AppComponent --> VersionSwitcherComponent
+AppComponent --> AuthComponent
+
+package "Backend (Node.js)" {
+  [Apollo Server]
+  [BoardResolver]
+  [BoardService]
+  [TypeGraphQL]
+  [Middleware]
+}
+
+' Conexões no backend
+[Apollo Server] --> BoardResolver
+BoardResolver --> BoardService
+[Apollo Server] --> TypeGraphQL
+[Apollo Server] --> Middleware
+
+cloud "Database" {
+  [Firebase]
+}
+
+' Conexões entre sistemas
+[Frontend (Angular)] <--> [Apollo Server] : GraphQL API
+BoardService <--> [Firebase] : CRUD Operations
+
+@enduml 

@@ -1,0 +1,56 @@
+@startuml Diagrama de Classes do Kanban
+
+' Classes principais
+class Board {
+  id: string
+  title: string
+  userId: string
+  createdAt: Date
+  +addColumn(column: ColumnInput): Column
+  +removeColumn(columnId: string): boolean
+  +updateColumn(column: ColumnUpdateInput): Column
+}
+
+class Column {
+  id: string
+  title: string
+  cardLimit: number
+  color: string
+  +addCard(card: CardInput): Card
+  +removeCard(cardId: string): boolean
+  +updateCard(card: Card): Card
+  +moveCard(cardId: string, targetColumnId: string, newOrder: number): boolean
+}
+
+class Card {
+  id: string
+  title: string
+  description: string
+  dueDate: Date
+  order: number
+  +addTag(tag: TagInput): Tag
+  +removeTag(tagId: string): boolean
+  +addAttachment(attachment: AttachmentInput): Attachment
+  +removeAttachment(attachmentId: string): boolean
+}
+
+class Tag {
+  id: string
+  name: string
+  color: string
+}
+
+class Attachment {
+  id: string
+  name: string
+  url: string
+  type: string
+}
+
+' Relacionamentos
+Board "1" *-- "0..*" Column : contém
+Column "1" *-- "0..*" Card : contém
+Card "0..*" *-- "0..*" Tag : possui
+Card "1" *-- "0..*" Attachment : possui
+
+@enduml 

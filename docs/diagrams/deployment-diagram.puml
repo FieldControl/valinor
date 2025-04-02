@@ -1,0 +1,31 @@
+@startuml Diagrama de Implantação do Kanban
+
+node "Dispositivo do Cliente" {
+  [Navegador Web] as Browser
+}
+
+cloud "Serviços na Nuvem" {
+  node "Frontend (Vercel/Netlify)" {
+    [Angular App] as Angular
+  }
+  
+  node "Backend (Render/Railway)" {
+    [Node.js] as Node
+    [Apollo Server] as Apollo
+    [TypeGraphQL] as TypeGraphQL
+  }
+  
+  node "Firebase" {
+    [Firestore] as Firestore
+    [Authentication] as Auth
+    [Storage] as Storage
+  }
+}
+
+Browser --> Angular : HTTP/HTTPS
+Angular --> Apollo : GraphQL API
+Apollo --> Firestore : Dados
+Apollo --> Auth : Autenticação
+Apollo --> Storage : Arquivos
+
+@enduml 

@@ -1,0 +1,22 @@
+@startuml Diagrama de Sequência - Mover Cartão
+
+actor Usuário
+participant "Interface Angular" as Frontend
+participant "Apollo Client" as GraphQL
+participant "Backend (Apollo Server)" as Backend
+participant "BoardService" as Service
+participant "Firebase" as DB
+
+Usuário -> Frontend: Arrastar cartão para nova posição
+Frontend -> Frontend: Atualizar UI localmente (otimista)
+Frontend -> GraphQL: Mutation moveCard(cardId, targetColumnId, newOrder)
+GraphQL -> Backend: Executar mutation
+Backend -> Service: moveCard(cardId, targetColumnId, newOrder)
+Service -> DB: Atualizar posição do cartão
+DB --> Service: Confirmação
+Service --> Backend: Resultado atualizado
+Backend --> GraphQL: Resposta da mutation
+GraphQL --> Frontend: Atualização dos dados
+Frontend --> Usuário: Feedback visual concluído
+
+@enduml 
