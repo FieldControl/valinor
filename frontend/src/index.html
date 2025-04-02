@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Kanban Board</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Carrega as variáveis de ambiente em tempo de execução -->
+  <script src="assets/runtime-env.js"></script>
+  
+  <!-- Script para lidar com recarregamento de página no GitHub Pages -->
+  <script type="text/javascript">
+    // Verifica se estamos em uma URL do GitHub Pages (contém o nome do repositório)
+    if (window.location.href.indexOf('/kanban-entrega/') > -1) {
+      // Verifica se o usuário está tentando acessar uma rota diretamente (sem usar hash)
+      if (!window.location.href.includes('#/') && !window.location.pathname.endsWith('/kanban-entrega/')) {
+        // Pega a parte do caminho após o nome do repositório
+        const pathSegment = window.location.pathname
+          .replace('/kanban-entrega/', '')
+          .replace(/^\/|\/$/g, '');
+        
+        // Redireciona para a versão com hash se houver um caminho
+        if (pathSegment) {
+          const redirectUrl = window.location.origin + '/kanban-entrega/#/' + pathSegment + 
+                             (window.location.search || '');
+          window.location.replace(redirectUrl);
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html> 

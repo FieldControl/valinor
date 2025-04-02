@@ -1,0 +1,88 @@
+<div class="modal-overlay" (click)="onOverlayClick($event)">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>{{ isEdit ? 'Editar Card' : 'Novo Card' }}</h2>
+      <button class="close-button" (click)="onClose()" aria-label="Fechar">×</button>
+    </div>
+    
+    <div class="modal-body">
+      <!-- Title -->
+      <div class="form-group">
+        <label for="card-title">Título <span class="required">*</span></label>
+        <input 
+          type="text" 
+          id="card-title" 
+          [(ngModel)]="editedCard.title" 
+          [class.error]="titleError"
+          maxlength="50"
+          placeholder="Título do card (máx. 50 caracteres)"
+        >
+        <div *ngIf="titleError" class="error-message">{{ titleError }}</div>
+        <div class="character-count" [class.limit-reached]="editedCard.title.length >= 50">
+          {{ editedCard.title.length }}/50
+        </div>
+      </div>
+      
+      <!-- Description -->
+      <div class="form-group">
+        <label for="card-description">Descrição</label>
+        <textarea 
+          id="card-description" 
+          [(ngModel)]="editedCard.description" 
+          rows="5"
+          placeholder="Descrição detalhada do card (suporta markdown básico)"
+        ></textarea>
+      </div>
+      
+      <!-- Tags -->
+      <div class="form-group">
+        <span class="form-label">Tags</span>
+        <div class="tags-container">
+          <button 
+            *ngFor="let tag of availableTags" 
+            class="tag-button" 
+            [class.selected]="isTagSelected(tag.id)"
+            [style.backgroundColor]="isTagSelected(tag.id) ? tag.color : 'transparent'"
+            [style.color]="isTagSelected(tag.id) ? '#fff' : '#333'"
+            [style.borderColor]="tag.color"
+            (click)="toggleTag(tag)"
+          >
+            {{ tag.name }}
+          </button>
+        </div>
+      </div>
+      
+      <!-- Due Date -->
+      <div class="form-group">
+        <label for="card-due-date">Data de Vencimento</label>
+        <input 
+          type="date" 
+          id="card-due-date" 
+          [(ngModel)]="editedCard.dueDate"
+        >
+      </div>
+      
+      <!-- Attachments -->
+      <div class="form-group">
+        <span class="form-label">Anexos</span>
+        <div class="attachments-container">
+          <div *ngIf="editedCard.attachments && editedCard.attachments.length > 0" class="attachment-list">
+            <div *ngFor="let attachment of editedCard.attachments" class="attachment-item">
+              <span class="attachment-name">{{ attachment.name }}</span>
+              <button class="remove-attachment">×</button>
+            </div>
+          </div>
+          <button class="add-attachment-button">
+            <span>+</span> Adicionar Anexo
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="cancel-button" (click)="onClose()">Cancelar</button>
+      <button class="save-button" (click)="onSave()">Salvar</button>
+    </div>
+  </div>
+</div>
+

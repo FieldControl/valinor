@@ -1,0 +1,40 @@
+<div class="card-container" (click)="onCardClick()" (dblclick)="onDoubleClick($event)">
+  <!-- Card title -->
+  <div class="card-header">
+    <h3 class="card-title">{{ card.title || 'Sem título' }}</h3>
+    <button class="delete-button" (click)="onDeleteClick($event)" aria-label="Remover card">×</button>
+  </div>
+  
+  <!-- Card description (truncated) -->
+  <p *ngIf="card.description" class="card-description">
+    {{ card.description.length > 100 ? card.description.substring(0, 100) + '...' : card.description }}
+  </p>
+  
+  <!-- Card footer with metadata -->
+  <div class="card-footer">
+    <!-- Tags -->
+    <div *ngIf="card.tags && card.tags.length > 0" class="card-tags">
+      <span 
+        *ngFor="let tag of card.tags.slice(0, 3)" 
+        class="tag"
+        [ngStyle]="getTagStyle(tag.color)"
+      >
+        {{ tag.name }}
+      </span>
+      <span *ngIf="card.tags.length > 3" class="tag-more">+{{ card.tags.length - 3 }}</span>
+    </div>
+    
+    <!-- Due date -->
+    <div *ngIf="card.dueDate" class="card-due-date">
+      <span class="due-date-icon">📅</span>
+      <span>{{ formatDate(card.dueDate) }}</span>
+    </div>
+    
+    <!-- Attachments indicator -->
+    <div *ngIf="card.attachments && card.attachments.length > 0" class="card-attachments">
+      <span class="attachment-icon">📎</span>
+      <span>{{ card.attachments.length }}</span>
+    </div>
+  </div>
+</div>
+

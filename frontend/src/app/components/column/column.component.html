@@ -1,0 +1,99 @@
+<div class="column-container" [style.borderTopColor]="column.color || '#2D8CFF'">
+  <div class="column-header">
+    <!-- Title (view mode) -->
+    <div *ngIf="!isEditingTitle" class="column-title-container" (click)="onTitleClick()">
+      <h2 class="column-title">{{ column.title }}</h2>
+      <span class="card-count">{{ column.cards.length || 0 }}</span>
+    </div>
+    
+    <!-- Title (edit mode) -->
+    <div *ngIf="isEditingTitle" class="column-title-edit">
+      <input 
+        type="text" 
+        [id]="'column-title-' + column.id" 
+        [(ngModel)]="editableTitle" 
+        (blur)="onTitleBlur()" 
+        (keydown)="onTitleKeydown($event)" 
+        maxlength="30"
+      >
+    </div>
+    
+    <!-- Menu button (otimizado) -->
+    <button 
+      class="menu-button" 
+      (click)="onMenuToggle()" 
+      aria-label="Menu de opções da coluna"
+      [attr.data-column-id]="column.id"
+    >
+      <span>⋯</span>
+    </button>
+    
+    <!-- Column menu (carregado condicionalmente para maior performance) -->
+    <ng-container *ngIf="showMenu">
+      <app-column-menu 
+        (action)="onMenuAction($event)" 
+        (clickOutside)="showMenu = false"
+      ></app-column-menu>
+    </ng-container>
+  </div>
+  
+  <!-- Cards container -->
+  <div 
+    class="cards-container"
+    cdkDropList
+    [cdkDropListData]="column.cards"
+    (cdkDropListDropped)="onDrop($event)"
+    [id]="'list-' + column.id"
+    [cdkDropListConnectedTo]="connectedLists"
+    [cdkDropListEnterPredicate]="canDrop()"
+  >
+    <!-- Empty state -->
+    <div *ngIf="!column.cards || column.cards.length === 0" class="empty-state">
+      <button (click)="onAddCard()">+ Adicionar Card</button>
+    </div>
+    
+    <!-- Cards com trackBy para melhor performance -->
+    <ng-container *ngIf="column.cards && column.cards.length > 0">
+      <app-card 
+        *ngFor="let card of column.cards | sortBy:'order'; trackBy: trackByCardId" 
+        [card]="card" 
+        (editCard)="onEditCard($event)"
+        (deleteCard)="onDeleteCard($event)"
+        cdkDrag
+        [cdkDragData]="card"
+        cdkDragBoundary=".board-container" 
+        [cdkDragDisabled]="false"
+      >
+        <!-- Visualização personalizada durante o arrasto -->
+        <div *cdkDragPreview class="card-preview">
+          <div class="card-preview-content">
+            <h3>{{ card.title }}</h3>
+            <span *ngIf="card.description" class="card-description-preview">
+              {{ card.description | slice:0:50 }}{{ card.description.length > 50 ? '...' : '' }}
+            </span>
+            <div class="card-tags-preview" *ngIf="card.tags && card.tags.length > 0">
+              <span 
+                *ngFor="let tag of card.tags.slice(0, 3)" 
+                class="card-tag-preview"
+                [style.backgroundColor]="tag.color || '#ccc'"
+              >
+                {{ tag.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Área espaço reservado durante o arrasto -->
+        <div *cdkDragPlaceholder class="card-placeholder"></div>
+      </app-card>
+    </ng-container>
+  </div>
+  
+  <!-- Add card button -->
+  <div class="add-card-container">
+    <button class="add-card-button" (click)="onAddCard()">
+      <span>+</span> Adicionar Card
+    </button>
+  </div>
+</div>
+

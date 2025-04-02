@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Kanban Board</title>
+  <script>
+    // Lógica de redirecionamento SPA para GitHub Pages
+    (function() {
+      // Pegar o path atual depois do domínio
+      const path = window.location.pathname;
+      
+      // Extrair o repositório base do pathname (para GitHub Pages)
+      const repo = '/kanban-entrega/';
+      
+      // URL base (domínio + repo)
+      const baseUrl = window.location.origin + repo;
+      
+      // Hash URL para Angular router
+      const hashUrl = '#/' + path
+        .replace(repo, '')  // Remover o prefixo do repositório 
+        .replace(/^\//, ''); // Remover barra inicial se existir
+      
+      // Construir URL completa de redirecionamento
+      const redirectUrl = baseUrl + hashUrl + window.location.search;
+      
+      // Redirecionar para a página principal com o hash correto
+      window.location.href = redirectUrl;
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  Redirecionando...
+</body>
+</html> 

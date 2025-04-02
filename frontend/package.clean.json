@@ -1,0 +1,38 @@
+{
+  "name": "kanban-board",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "node build-env-config.js && ng serve",
+    "build": "node build-env-config.js && ng build",
+    "build:prod": "NODE_ENV=production node build-env-config.js && ng build --configuration production",
+    "watch": "ng build --watch --configuration development"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^19.2.3",
+    "@angular/cdk": "^19.2.6",
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/fire": "^19.0.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "@apollo/client": "^3.13.5",
+    "apollo-angular": "^10.0.3",
+    "firebase": "^11.5.0",
+    "graphql": "^16.10.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.4",
+    "@angular/cli": "^19.2.4",
+    "@angular/compiler-cli": "^19.2.0",
+    "typescript": "~5.7.2"
+  }
+} 

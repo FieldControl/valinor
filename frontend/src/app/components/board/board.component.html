@@ -1,0 +1,79 @@
+<div class="board-container">
+  <!-- Header com título e ações -->
+  <div class="board-header">
+    <div class="board-title-container">
+      <h1 class="board-title">{{ board.title }}</h1>
+      <span class="user-info" *ngIf="currentUser">
+        <span class="user-label">Quadro de:</span>
+        <span class="user-name">{{ currentUser.displayName || currentUser.email || 'Usuário' }}</span>
+      </span>
+    </div>
+    <div class="board-actions">
+      <button class="reset-board-button" (click)="onResetBoard()">
+        <span class="icon">🗑️</span>
+        <span>Limpar Quadro</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="isLoading" class="loading-skeleton">
+    <div class="skeleton-column" *ngFor="let i of [1, 2, 3]">
+      <div class="skeleton-header"></div>
+      <div class="skeleton-card" *ngFor="let j of [1, 2, 3, 4]"></div>
+    </div>
+  </div>
+
+  <!-- Board content -->
+  <div *ngIf="!isLoading" class="board-content">
+    <div class="columns-container">
+      <app-column
+        *ngFor="let column of board.columns"
+        [column]="column"
+        [connectedLists]="getConnectedLists(column.id)"
+        (addCard)="onAddCard($event)"
+        (editCard)="onEditCard($event)"
+        (deleteCard)="onCardDeleted($event)"
+        (updateColumn)="onColumnUpdated($event)"
+        (deleteColumn)="onColumnDeleted($event)"
+        (cardDropped)="onDrop($event)"
+      ></app-column>
+      
+      <div class="add-column-container">
+        <button class="add-column-button" (click)="onAddColumn()">
+          <span class="icon">+</span>
+          <span>Adicionar Coluna</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card Modal -->
+  <app-card-modal
+    *ngIf="showCardModal"
+    [card]="activeCard"
+    [isEdit]="isEditMode"
+    (save)="onCardSaved($event)"
+    (close)="closeCardModal()"
+  ></app-card-modal>
+
+  <!-- Reset Confirmation Modal -->
+  <div *ngIf="showResetConfirmation" class="modal-overlay">
+    <div class="confirmation-modal">
+      <h2>
+        <span class="warning-icon">⚠️</span>
+        Confirmar Limpeza do Quadro
+      </h2>
+      <p>Esta ação removerá <strong>todas as colunas e cards</strong> do seu quadro Kanban. Você terá que começar do zero após esta operação.</p>
+      <p class="warning-text">Esta ação não pode ser desfeita!</p>
+      <div class="modal-actions">
+        <button class="cancel-button" (click)="cancelReset()">Cancelar</button>
+        <button class="confirm-button" (click)="confirmReset()">Sim, Limpar Quadro</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <app-toast></app-toast>
+</div>
+
