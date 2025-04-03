@@ -1,0 +1,17 @@
+<h1>Bem-vindo ao Frontend-Kanban!</h1>
+
+<div *ngIf="currentPage === 'home'">
+  <app-home></app-home>
+</div>
+
+<div *ngIf="currentPage === 'about'">
+  <app-about></app-about>
+</div>
+
+<div *ngIf="currentPage === 'contact'">
+  <app-contact></app-contact>
+</div>
+
+<button (click)="navigateTo('home')">Home</button>
+<button (click)="navigateTo('about')">About</button>
+<button (click)="navigateTo('contact')">Contact</button>

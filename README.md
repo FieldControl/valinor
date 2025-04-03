@@ -230,3 +230,54 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 - Quais princípios da engenharia de software que você usou?
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
+
+
+
+
+
+
+
+
+DOCUMENTAÇÃO DO PROJETO 
+----------
+
+- Gostaria de expressar minha gratidão à FIELD pela oportunidade de participar deste desafio! Mesmo não conseguindo finalizá-lo por completo, fiquei muito satisfeito com meu empenho ao longo do processo e, principalmente, com o quanto aprendi durante o desenvolvimento.
+O desafio me proporcionou contato com novas linguagens, ferramentas e bibliotecas que, até então, eu não conhecia. Isso me motivou a buscar conhecimento em documentações, assistir vídeos explicativos e até recorrer a IAs para aprimorar meu entendimento e encontrar soluções.
+Ao longo desta semana de desenvolvimento, senti uma grande evolução nas minhas habilidades e percebi o quanto esse aprendizado foi valioso. Mais uma vez, agradeço imensamente à equipe da FIELD pela oportunidade e por essa experiência enriquecedora!
+
+
+- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
+
+As ferramentas que utilizei durante o projeto foram as seguintes 
+- BACKEND (NestJS): 
+1.NestJS	Framework para criar aplicações escaláveis em Node.js
+2.TypeScript	Superset do JavaScript com tipagem estática
+3.TypeORM	ORM para gerenciar banco de dados no NestJS
+4.PostgreSQL	Banco de dados relacional
+5.dotenv	Gerenciar variáveis de ambiente
+6.class-validator	Validação de dados nas DTOs
+
+- FRONTEND (Angular):
+1.Tecnologia	Descrição
+2.Angular	Framework front-end para aplicações SPA
+3.TypeScript	Utilizado no Angular para segurança e organização do código
+4.RxJS	Biblioteca para programação reativa e manipulação de streams de dados
+
+- FERRAMENTAS AUXILIARES 
+-Git e GitHub	Controle de versão e repositório do código
+-Postman / Insomnia (se usado)	Testes de API
+-VS Code	Editor de código
+
+- Quais princípios da engenharia de software que você usou?
+Durante a minha codificação do projeto usei os princípios a seguir:
+-Código Limpo e Manutenível 
+-Separação de Responsabilidades no backend 
+-Modularização e Reutilização de Código 
+-Boas Práticas de Banco de Dados
+
+- Desafios e problemas que você enfrentou e como você resolveu
+Como não tenho muito conhecimento com as linguagens envolvidas do projeto, tive dificuldade em entender os códigos e de colocamos para funcionar, além de outras funções, como o funcionamento do banco de dados etc. 
+Para a solução dos problemas encontrados eu pesquisei em foruns como reddit, videos no Youtube e recorri a IAs também. 
+
+- O que você entende que pode ser melhorado e como fazer isso
+Acredito que o que pode-se melhorar e eu como programador, aprender e me capacitar mais nesta área, que esta sempre em constante mudança.
