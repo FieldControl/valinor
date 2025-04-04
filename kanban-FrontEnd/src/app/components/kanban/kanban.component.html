@@ -1,0 +1,16 @@
+<div class="kanban-board">
+    <h2>Quadro Kanban</h2>
+  
+    @if (columns.length === 0) {
+      <div>Carregando colunas...</div>
+    }
+  
+    <div class="columns-container">
+      @for (column of columns; track column.id) {
+        <div class="column">
+          <h3>{{ column.title }}</h3>
+        </div>
+      }
+    </div>
+  </div>
+  

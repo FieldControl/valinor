@@ -1,0 +1,24 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Card {
+  id: String!
+  title: String!
+  description: String!
+}
+
+type Column {
+  id: String!
+  title: String!
+  cards: [Card!]
+}
+
+type Query {
+  getColumns: [Column!]!
+}
+
+type Mutation {
+  createColumn(title: String!): Column!
+  createCard(columnId: String!, title: String!, description: String!): Card!
+}
