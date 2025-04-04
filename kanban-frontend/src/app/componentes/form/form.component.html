@@ -1,0 +1,49 @@
+<section>
+  <header>
+    {{ isEditMode ? 'Editar Tarefa' : 'Adicionar Nova Tarefa'}}
+  </header>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <label for="title">Titulo</label>
+    <input type="text" id="title" formControlName="title" required>
+    <div *ngIf="formulario.get('title')?.touched && formulario.get('title')?.invalid" class="error">
+      O título é obrigatório!
+    </div>
+
+
+    <label for="description">Descrição</label>
+    <input type="text" id="description" formControlName="description" required>
+    <div *ngIf="formulario.get('description')?.touched && formulario.get('description')?.invalid" class="error">
+      A descrição é obrigatória!
+    </div>
+
+
+    <label for="responsavel">Responsável</label>
+    <input type="text" formControlName="responsavel" required>
+    <div *ngIf="formulario.get('responsavel')?.touched && formulario.get('description')?.invalid" class="error">
+      É necessário um responsável pela tarefa
+    </div>
+
+    <div class="status">
+      <label for="todo">To do</label>
+      <input type="radio" id="todo" value="to-do" formControlName="status">
+      <label for="inProgress">In Progress</label>
+      <input type="radio" id="inProgress" value="in-progress" formControlName="status">
+      <label for="done">Done</label>
+      <input type="radio" id="done" value="done" formControlName="status">
+    </div>
+
+
+    <div class="button">
+      <button type="submit" class="submit_button">
+        {{ isEditMode ? 'Salvar' : 'Criar' }}
+      </button>
+      <button (click)="cancelar()" class="cancel_button">
+        Cancelar
+      </button>
+    </div>
+
+
+
+  </form>
+</section>

@@ -1,0 +1,26 @@
+
+<header>
+  <h1>Kanban Board</h1>
+</header>
+<div class="board">
+
+  <div *ngFor="let status of ['to-do', 'in-progress','done']" class="list">
+    <h2>{{ status | titlecase }}</h2>
+
+
+    <div *ngFor="let task of filterTasks(status)" class="card">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+
+      <div class="icons">
+        <i class="fas fa-edit" [routerLink]="['/task/edit', task.id]" routerLinkActive="router-link-active"></i>
+        <i class="fas fa-trash" [routerLink]="['/excluir', task.id]" routerLinkActive="router-link-active" ></i>
+      </div>
+    </div>
+  </div>
+
+
+  <button (click)="formNewCard()">
+    Novo Card
+  </button>
+</div>
