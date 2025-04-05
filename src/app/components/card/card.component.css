@@ -1,12 +1,19 @@
 
 div.item-container{
-background: rgb(230, 182, 182);
+background: rgb(246, 244, 244);
 border-radius: 10px;
-padding: 20px;
-width: 50px;
-margin: auto;
-box-shadow: 15px, 5px, 10px, rgb(214, 38, 135);
+border-color: blue;
+border: solid 1px;
+width: 200px;
 font: normal 8pt Arial;
 text-align: center;
-margin: 10% ;
+margin: 20px;
+
+}
+.a:hover {
+    transform: scale(1.1);
+    /*passa o mouse */
+    transition: ease-in-out 0.2s;
+    /*tempo do aumento*/
+    cursor: pointer;
 }

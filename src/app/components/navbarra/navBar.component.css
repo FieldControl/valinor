@@ -1,0 +1,47 @@
+.flex-box {
+    background-color: rgb(223, 238, 228);
+    display: flex;
+
+    border-radius: 10px;
+    border: solid 1px;
+    border-color: rgb(99, 189, 48);
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.coluna1-menu {
+    font: normal 25pt Arial;
+    text-align:;
+    
+}
+.coluna2-menu {
+    font: normal 25pt Arial;
+    text-align: center;
+}
+.coluna2-menu {
+    font: normal 25pt Arial;
+    text-align: center;
+}
+
+.botao {
+    background-color: rgb(183, 231, 176);
+    border-radius: 20px;
+    border: solid 1px;
+    border-color: rgb(7, 123, 84);
+    font: normal 20pt Arial;
+    margin-left: 20px;
+    margin-bottom:5px ;
+   
+    
+}
+.a:hover {
+    transform: scale(1.1);
+    /*passa o mouse */
+    transition: ease-in-out 0.2s;
+    /*tempo do aumento*/
+    cursor: pointer;
+}

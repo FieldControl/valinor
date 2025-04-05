@@ -1,5 +1,7 @@
-.fundo {
+.home {
 
-    background: rgb(248, 225, 228);
+   border-color: black;
+   border: solid 1px;
+   border-radius: 10px;
     font: normal 15pt Arial;
 }
