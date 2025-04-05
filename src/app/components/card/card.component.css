@@ -1,0 +1,12 @@
+
+div.item-container{
+background: rgb(230, 182, 182);
+border-radius: 10px;
+padding: 20px;
+width: 50px;
+margin: auto;
+box-shadow: 15px, 5px, 10px, rgb(214, 38, 135);
+font: normal 8pt Arial;
+text-align: center;
+margin: 10% ;
+}
