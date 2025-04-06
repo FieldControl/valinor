@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Card } from '../../services/cardService';
 
 
 
@@ -11,5 +12,5 @@ import { Component } from '@angular/core';
 })
 
 export class CardComponent {
-    
+    @Input() parametrosCard!:Card;
 }

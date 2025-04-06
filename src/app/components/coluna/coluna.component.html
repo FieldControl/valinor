@@ -1,42 +1,13 @@
-<div class="flex-box container-box">
-    <div class="flex-box caixa-grande">
 
-        <div>
-            <div class="titulo-coluna1">
-                <strong>Em aberto</strong>
+     
+            <div class="{{classeTitulo}}" >
+                <strong>{{tituloColuna}}</strong>
             </div>
-            <div class="coluna1 ">
-                <card></card>
+            <div class="{{classeColuna}}">
+                <div >
+                    <card *ngFor="let card of cards" [parametrosCard]="card"></card> 
+                </div>
+                
             </div>
-
-        </div>
-
-        <div>
-            <div class="titulo-coluna2">
-                <strong>Refinamento</strong>
-            </div>
-            <div class="coluna2 ">
-                <card></card>
-            </div>
-        </div>
-
-        <div>
-            <div class="titulo-coluna3">
-                <strong>Em andamento</strong>
-            </div>
-            <div class="coluna3 ">
-                <card></card>
-            </div>
-        </div>
-
-       
-        <div>
-            <div class="titulo-coluna4">
-                <strong>Concluido</strong>
-            </div>
-            <div class="coluna4 ">
-                <card></card>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- *ngFor diretiva do angular que serve para criar elementos HTML a partir de um processo interativo. nosso caso temos um array de cards e com forme esse array aumenta vamos criando  do tipo card -->
+ 
