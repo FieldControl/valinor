@@ -1,0 +1,296 @@
+/* Estilos gerais */
+body {
+  background-image: url('./assets/windows.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  color: #333; 
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #326adc !important;
+  color: rgb(234, 224, 224) !important;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: #132ea5 !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.gap-20 {
+  gap: 20px;
+}
+
+.mgt-20 {
+  margin-top: 20px;
+}
+
+/*Imagem do kanbanzinho*/
+
+#kanban-img {
+  width: 40px;
+  height: 40px;
+  background-image: url('./assets/planning.png');
+  background-size: cover;
+}
+
+
+/* botão de excluir */
+#trash-icon {
+  width: 40px;
+  height: 40px;
+  background-image: url('./assets/lixo.png');
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* botão de sair */
+#x-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url('./assets/x.png');
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  padding: 10px;
+  background-color: #000000;
+  color: rgb(238, 238, 238);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Kanban Board */
+.board {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 60px;
+  gap: 20px;
+  margin: auto;
+}
+
+#column- {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#column-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  color: #333;
+  gap: 20px;
+  padding-top: 80px;
+}
+
+.column {
+  flex: 0 0 250px;
+  background-color: rgb(245, 255, 255);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.column h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #444;
+  text-align: center;
+}
+
+#columnTitle {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.add-column-form{
+  margin-top: 20px;
+  width: 300px;
+  position: fixed;
+}
+
+.add-card-form input {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 95%;
+}
+
+.add-card-form button {
+  margin-top: 8px;
+}
+
+
+/* MEUS CARDS */
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 290px;
+  overflow-y: auto;
+}
+
+.card {
+  background-color: rgb(255, 248, 41);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card strong {
+  color: #333;
+}
+
+.card-title {
+  max-width: 250px;
+}
+
+/* Ao arrastar o card, nosso estilo será */
+.cdk-drag-preview {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cdk-drop-list-dragging {
+  background-color: rgb(228, 250, 250);
+  border: 2px dashed #feffff;
+  transition: background-color 0.3s;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background: rgb(255, 248, 41);
+  padding: 20px;
+  padding-top: 10px;
+  padding-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.modal-content input {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 95%;
+}
+.modal-content textarea {
+  width: 95%;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .columns {
+    flex-wrap: wrap;
+  }
+
+  .column {
+    flex: 1 1 calc(100% - 20px);
+  }
+}

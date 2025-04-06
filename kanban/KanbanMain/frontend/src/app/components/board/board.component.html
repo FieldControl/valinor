@@ -1,0 +1,94 @@
+<div class="navbar">
+  <div id="kanban-img"></div>
+</div>
+
+<div class="board">
+    <div class="add-column-form">
+      <input #columnTitle id="columnTitle" type="text" placeholder="Escreva o nome da coluna" />
+      <button (click)="addColumn(columnTitle.value)">Adicionar coluna</button>
+    </div>
+
+  <div class="columns" cdkDropListGroup>
+    <div
+      *ngFor="let column of columns"
+      class="column"
+      cdkDropList
+      [cdkDropListData]="column.cards"
+      (cdkDropListDropped)="drop($event, column)"
+    >
+      <div id="column-title">
+        <div id="kanban-img"></div><h3>{{ column.title }}</h3>
+        <div id="x-icon" (click)="deleteColumn(column.id)"></div>
+      </div>
+
+      <div class="add-card-form">
+        <input
+          #cardTitle
+          type="text"
+          placeholder="Título"
+          [attr.aria-label]="'Card Title for ' + column.title"
+        />
+        <input
+          #cardDescription
+          type="text"
+          placeholder="Descrição"
+          [attr.aria-label]="'Card Description for ' + column.title"
+        />
+        <div class="flex space-between">
+          <button (click)="addCard(column.id, cardTitle.value, cardDescription.value)">Adicionar</button>
+        </div>
+      </div>
+
+      <ul class="cards">
+        <li *ngFor="let card of column.cards" class="card pointer" (click)="openModal(card)" cdkDrag>
+          <div class="card-title">
+            <strong>{{ card.title }}</strong>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div *ngIf="selectedCard" class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div *ngIf="!selectedCard.isEditing">
+        <div class="flex-end">
+          <div id="x-icon" (click)="closeModal()"></div>
+        </div>
+        <h2>{{ selectedCard.title }}</h2>
+        <p>{{ selectedCard.description }}</p>
+
+        <div class="flex space-between">
+          <div id="trash-icon" (click)="deleteCard(selectedCard.id)" (click)="closeModal()"></div>
+          <button (click)="enableCardEdit(selectedCard)">Editar</button>
+        </div>
+      </div>
+
+      <div *ngIf="selectedCard.isEditing">
+        <h2>Editar Card</h2>
+        <div class="flex-column gap-20">
+          <div>
+            <label for="title">Titulo: </label>
+            <input id="title" [(ngModel)]="selectedCard.title" />
+          </div>
+
+          <div>
+            <label for="description">Descrição:</label>
+            <textarea
+              id="description"
+              [(ngModel)]="selectedCard.description"
+              rows="4"
+              cols="50"
+              maxlength="5000"
+            >
+            </textarea>
+          </div>
+        </div>
+        <div class="flex space-between mgt-20">
+          <button (click)="cancelCardEdit(selectedCard)">Cancelar</button>
+          <button (click)="saveCardChanges(selectedCard)">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
