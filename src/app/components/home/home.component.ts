@@ -13,3 +13,4 @@ import{NavBarraComponent}from'../navbarra/navBar.component';
 export class HomeComponent {
   
 }
+

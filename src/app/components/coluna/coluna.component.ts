@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { CardComponent } from '../card/card.componente';
+import { CardService, Card } from'../../services/cardService'
 
 @Component({
     selector: 'coluna',
@@ -8,6 +9,6 @@ import { CardComponent } from '../card/card.componente';
     templateUrl: './coluna.component.html',
     styleUrl: './coluna.component.css'
 })
-export class ColunaComponent {
-   
+export class ColunaComponent  {
+  
 }
