@@ -1,0 +1,8 @@
+<div class="board">
+  <div class="column" *ngFor="let column of columns">
+    <h3>{{ column.name }}</h3>
+    <div class="card" *ngFor="let task of column.tasks">
+      {{ task.title }}
+    </div>
+  </div>
+</div>

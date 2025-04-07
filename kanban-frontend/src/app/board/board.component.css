@@ -1,0 +1,42 @@
+.kanban-board {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  gap: 20px;
+  background-color: #f3f4f6; /* cinza claro */
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.column {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.column h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #1f2937; /* cinza escuro */
+}
+
+.card {
+  background-color: #e5e7eb; /* cinza médio */
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  color: #111827; /* texto escuro */
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  background-color: #d1d5db;
+}
