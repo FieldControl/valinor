@@ -70,12 +70,16 @@ ng test
 A seguir, a lista de endpoints REST disponíveis na API:
 
 Método	Rota	Descrição
+
 GET	/columns	Retorna todas as colunas com tarefas
+
 POST	/columns	Cria uma nova coluna
+
 POST	/tasks	Cria uma nova tarefa
+
 PUT	/tasks/:id	Atualiza uma tarefa
+
 DELETE	/tasks/:id	Remove uma tarefa
-As rotas podem variar dependendo da implementação.
 
 7. Funcionalidades Implementadas
 Visualização de colunas e suas tarefas
