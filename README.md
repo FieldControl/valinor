@@ -37,8 +37,8 @@ Instale as dependências:
 
 nginx
 npm install
-Inicie o servidor:
 
+Inicie o servidor:
 npm run start
 O backend será iniciado na URL: http://localhost:3000
 
@@ -46,23 +46,22 @@ O backend será iniciado na URL: http://localhost:3000
 Acesse a pasta do frontend:
 cd frontend
 Instale as dependências:
-
 npm install
-Inicie o servidor:
 
+Inicie o servidor:
 npm run start
 O frontend será iniciado na URL: http://localhost:4200
 
 5. Como Executar os Testes
 Backend (NestJS)
 Para rodar os testes no backend, execute:
-
 npm run test
+
 Frontend (Angular)
 Para rodar os testes no frontend, execute:
 ng test
 
-6. Endpoints da API
+7. Endpoints da API
 A seguir, a lista de endpoints REST disponíveis na API:
 
 Método	Rota	Descrição
