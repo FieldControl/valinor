@@ -37,13 +37,14 @@ Para executar o projeto, é necessário ter os seguintes softwares instalados:
 4.2 Iniciando o Backend (NestJS)
 Acesse a pasta do backend:
 cd backend
-Instale as dependências:
 
+Instale as dependências:
 nginx
 npm install
 
 Inicie o servidor:
 npm run start
+
 O backend será iniciado na URL: http://localhost:3000
 
 4.3 Iniciando o Frontend (Angular)
