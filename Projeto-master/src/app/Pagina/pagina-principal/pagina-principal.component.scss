@@ -1,0 +1,220 @@
+/* Estilo geral do Kanban */
+.kanban-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #1e1e2f;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #e0e0e0;
+}
+
+.kanban-header {
+  background-color: #282a36;
+  color: #f8f8f2;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.kanban-column {
+  background-color: #2a2b3d;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 300px;
+  min-height: 400px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kanban-card {
+  border-radius: 5px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #f8f8f2;
+  word-wrap: break-word; /* Quebra palavras longas */
+  overflow-wrap: break-word; /* Quebra palavras longas */
+  word-break: break-word; /* Garante que palavras sem espaço sejam quebradas */
+  max-width: 100%; /* Garante que o contêiner não ultrapasse os limites */
+  box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+  white-space: normal; /* Permite que o texto quebre em várias linhas */
+}
+
+.kanban-card.task-todo {
+  background-color: #ff6b6b; /* Vermelho */
+}
+
+.kanban-card.task-in-progress {
+  background-color: #feca57; /* Amarelo */
+}
+
+.kanban-card.task-done {
+  background-color: #1dd1a1; /* Verde */
+}
+
+/* Cabeçalho da tarefa */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-wrap: break-word; /* Quebra palavras longas */
+  overflow-wrap: break-word; /* Quebra palavras longas */
+  white-space: normal; /* Permite que o texto quebre em várias linhas */
+
+  .task-name {
+    flex: 1; /* Garante que o texto ocupe o espaço disponível */
+    margin-right: 1rem; /* Adiciona espaçamento entre o texto e os botões */
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 0.5rem;
+
+    i {
+      background: none;
+      border: none;
+      cursor: pointer; /* Garante que o cursor seja exibido como ponteiro */
+      font-size: 1.2rem;
+      color: #f8f8f2;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #4caf50; /* Verde para o ícone de edição */
+      }
+
+      &.delete-icon:hover {
+        color: black; /* Vermelho para o ícone de exclusão */
+      }
+    }
+  }
+}
+
+/* Seção de comentários */
+.comments-section {
+  margin-top: 1rem;
+  background-color: #282a36;
+  padding: 1rem;
+  border-radius: 5px;
+  max-height: 150px; /* Limita a altura máxima */
+  overflow-y: auto; /* Adiciona barra de rolagem vertical */
+
+  h4 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      background-color: #3a3b4d;
+      border-radius: 5px;
+
+      span {
+        flex: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+      }
+
+      .comment-actions {
+        display: flex;
+        flex-direction: column; /* Alinha os botões na vertical */
+        gap: 0.5rem;
+
+        i {
+          cursor: pointer; /* Garante que o cursor seja exibido como ponteiro */
+          font-size: 1.2rem;
+          color: #f8f8f2;
+          transition: color 0.3s ease;
+          background: none; /* Remove o fundo */
+          border: none; /* Remove bordas */
+
+          &:hover {
+            color: #4caf50; /* Verde para o ícone de edição */
+          }
+
+          &.delete-icon:hover {
+            color: #ff6b6b; /* Vermelho para o ícone de exclusão */
+          }
+        }
+      }
+    }
+  }
+}
+
+.task-comment-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.task-comment-section input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #44475a;
+  border-radius: 5px;
+  background-color: #282a36;
+  color: #f8f8f2;
+  box-sizing: border-box; /* Garante que o input não ultrapasse os limites */
+  word-wrap: break-word; /* Quebra palavras longas */
+  overflow-wrap: break-word; /* Quebra palavras longas */
+  word-break: break-word; /* Garante que palavras sem espaço sejam quebradas */
+  white-space: normal; /* Permite que o texto quebre em várias linhas */
+}
+
+.task-comment-section i {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #6272a4;
+  transition: color 0.3s ease;
+}
+
+.task-comment-section i:hover {
+  color: #f8f8f2;
+}
+
+/* Botão de adicionar tarefa */
+.add-task-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-task-icon {
+  background-color: #6272a4;
+  color: white;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-icon:hover {
+  background-color: #44475a;
+}

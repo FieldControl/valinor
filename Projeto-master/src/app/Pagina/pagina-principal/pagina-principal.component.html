@@ -1,0 +1,92 @@
+<div class="kanban-root">
+  <header class="kanban-header">
+    <h1 class="kanban-title">Kanban</h1>
+  </header>
+  <main class="kanban-board">
+    <!-- Colunas -->
+    <div
+      class="kanban-column"
+      *ngFor="let column of columns"
+      (dragover)="allowDrop($event)"
+      (drop)="dropTask($event, column.name)"
+    >
+      <h2 class="kanban-column-title">{{ column.title }}</h2>
+      <div
+        class="kanban-card"
+        *ngFor="let task of tasks[column.name]"
+        [ngClass]="{
+          'task-todo': column.name === 'A Fazer',
+          'task-in-progress': column.name === 'Em Progresso',
+          'task-done': column.name === 'Concluído'
+        }"
+        draggable="true"
+        (dragstart)="dragTask($event, task, column.name)"
+        (dragend)="endDrag($event)"
+      >
+        <!-- Cabeçalho da Tarefa -->
+        <div class="task-header">
+          <span class="task-name">{{ task.name }}</span>
+          <div class="task-actions">
+            <i
+              class="fas fa-edit edit-icon"
+              (click)="editTask(task, column.name)"
+              aria-label="Editar tarefa"
+            ></i>
+            <i
+              class="fas fa-times delete-icon"
+              (click)="deleteTask(task)"
+              aria-label="Excluir tarefa"
+            ></i>
+          </div>
+        </div>
+
+        <!-- Seção de Comentários -->
+        <div class="task-comment-section">
+          <input
+            type="text"
+            placeholder="Escreva um comentário..."
+            [(ngModel)]="task.newComment"
+            (keydown.enter)="addComment(task)"
+          />
+          <i
+            class="fas"
+            [ngClass]="{
+              'fa-comment': !task.comments || task.comments.length === 0,
+              'fa-comment-dots': task.comments && task.comments.length > 0
+            }"
+            (click)="toggleComments(task)"
+          ></i>
+        </div>
+
+        <!-- Lista de Comentários -->
+        <div *ngIf="task.showComments" class="comments-section">
+          <h4>Comentários</h4>
+          <ul>
+            <li *ngFor="let comment of task.comments; let i = index">
+              <span>{{ comment }}</span>
+              <div class="comment-actions">
+                <i
+                class="fas fa-times delete-icon"
+                (click)="deleteComment(task, i)"
+                aria-label="Excluir comentário"
+                ></i>
+                <i
+                class="fas fa-edit"
+                (click)="editComment(task, i)"
+                aria-label="Editar comentário"
+                ></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Botão de Adicionar Tarefa -->
+      <div class="add-task-container">
+        <span class="add-task-icon" (click)="addTask(column.name)">
+          <i class="fas fa-plus"></i>
+        </span>
+      </div>
+    </div>
+  </main>
+</div>
