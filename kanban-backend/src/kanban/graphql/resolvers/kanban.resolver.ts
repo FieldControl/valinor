@@ -27,4 +27,10 @@ export class KanbanResolver {
   async updateCard(@Args('data') data: UpdateCardInput): Promise<CardModel> {
     return this.kanbanService.updateCard(data);
   }
+
+  // Mutation para deletar um card
+  @Mutation(() => Boolean)
+  async deleteCard(@Args('id', { type: () => Int }) id: number): Promise<boolean> {
+    return this.kanbanService.deleteCard(id);
+  }
 }

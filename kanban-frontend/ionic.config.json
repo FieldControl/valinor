@@ -1,0 +1,7 @@
+{
+  "name": "kanban-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

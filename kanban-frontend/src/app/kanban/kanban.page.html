@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kanban Board</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4" *ngFor="let column of columns">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ column.title }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div
+              class="drop-zone"
+              cdkDropList
+              [cdkDropListData]="cards[column.id] || []"
+              [id]="'columnDropList-' + column.id"
+              [cdkDropListConnectedTo]="connectedDropLists"
+              (cdkDropListDropped)="onCardDrop($event, column.id)">
+
+              <ng-container *ngIf="!loading && cards[column.id] && cards[column.id].length > 0; else emptyOrLoading">
+                <div *ngFor="let card of cards[column.id]" cdkDrag class="card-item">
+                  <ion-item>
+                    <ion-label>
+                      <h2>{{ card.title }}</h2>
+                      <p>{{ card.description || 'Sem descrição' }}</p>
+                    </ion-label>
+                    <ion-button
+                      slot="end"
+                      color="danger"
+                      fill="clear"
+                      size="small"
+                      (click)="deleteCard(card, column.id)">
+                      <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
+                  </ion-item>
+                </div>
+              </ng-container>
+
+              <ng-template #emptyOrLoading>
+                <ng-container *ngIf="loading">
+                  <ion-spinner name="crescent"></ion-spinner>
+                </ng-container>
+              </ng-template>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="error" class="error-message">
+    <ion-text color="danger">Erro ao carregar os dados: {{ error.message || 'Tente novamente mais tarde.' }}</ion-text>
+  </div>
+</ion-content>

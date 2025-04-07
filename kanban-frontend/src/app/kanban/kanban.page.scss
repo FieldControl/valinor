@@ -1,0 +1,49 @@
+.drop-zone {
+  min-height: 200px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.card-item {
+  margin-bottom: 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-item ion-item {
+  --background: transparent;
+  --color: #fff;
+}
+
+.error-message {
+  text-align: center;
+  padding: 16px;
+}
+
+ion-spinner {
+  display: block;
+  margin: 0 auto;
+}
+
+ion-text[color="medium"] {
+  display: block;
+  text-align: center;
+  padding: 16px;
+}
+
+.card-hover {
+  position: relative;
+
+  .delete-btn {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    color: #8b0000; // vermelho escuro
+  }
+
+  &:hover .delete-btn {
+    opacity: 1;
+  }
+}

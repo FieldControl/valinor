@@ -44,4 +44,12 @@ export class KanbanService {
     }
     return cards;
   }
+
+  async deleteCard(id: number): Promise<boolean> {
+    const result = await this.cardRepo.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException('Card não encontrado');
+    }
+    return true;
+  }
 }
