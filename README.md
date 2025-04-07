@@ -15,7 +15,9 @@ Backend:
 -Prisma ORM (opcional)
 
 3. Estrutura do Projeto
+
 kanban-project/
+
 ├── frontend/        (Projeto Angular)
 
 ├── backend/         (Projeto NestJS)
