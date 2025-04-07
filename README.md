@@ -17,7 +17,9 @@ Backend:
 3. Estrutura do Projeto
 kanban-project/
 ├── frontend/        (Projeto Angular)
+
 ├── backend/         (Projeto NestJS)
+
 ├── README.md        (Documentação do Projeto)
 
 4. Como Executar o Projeto
