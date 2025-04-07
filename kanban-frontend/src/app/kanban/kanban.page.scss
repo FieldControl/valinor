@@ -1,21 +1,62 @@
+ion-content {
+  --background: #ffffff;
+}
+
+ion-header {
+  --background: #2d2b2b;
+  border-bottom: 2px solid #000;
+}
+
+ion-card-title {
+  color: #ffffff;
+  background-color: #2d2b2b;
+  --background: transparent;
+
+}
+
+ion-card-content {
+  background-color: #2d2b2b;
+  --background: transparent;
+  
+}
+
+.kanban-title {
+  text-align: center;
+  padding: 20px 0; 
+  color: #ffffff;
+}
+
+.column-header {
+  text-align: center;
+  background-color: #2d2b2b;
+}
+
+.column-card {
+  background-color: #ffffff;
+  border: 2px solid #000;
+  border-radius: 15px;
+}
+
 .drop-zone {
   min-height: 200px;
   padding: 10px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 2px solid #000;
+  border-radius: 15px;
 }
 
-.card-item {
+.card-item ion-item {
   margin-bottom: 10px;
-  background-color: #333;
-  color: #fff;
+  background-color: #ffffff;
+  color: #181818;
+  border: 2px solid #007BFF;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card-item ion-item {
   --background: transparent;
-  --color: #fff;
+  --color: #000;
 }
 
 .error-message {
@@ -32,18 +73,4 @@ ion-text[color="medium"] {
   display: block;
   text-align: center;
   padding: 16px;
-}
-
-.card-hover {
-  position: relative;
-
-  .delete-btn {
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    color: #8b0000; // vermelho escuro
-  }
-
-  &:hover .delete-btn {
-    opacity: 1;
-  }
 }

@@ -13,17 +13,13 @@ import { environment } from './environments/environment';
 
 import { addIcons } from 'ionicons';
 import {
-  close,
-  closeOutline,
-  trash,
-  trashOutline
+  trashOutline, 
+  openOutline
 } from 'ionicons/icons';
 
 addIcons({
-  'close': close,
-  'close-outline': closeOutline,
-  'trash': trash,
-  'trash-outline': trashOutline
+  'trash-outline': trashOutline,
+  'open-outline': openOutline
 });
 
 enableProdMode();

@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Kanban Board</ion-title>
+    <ion-title class="kanban-title">Kanban Board</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="4" *ngFor="let column of columns">
-        <ion-card>
-          <ion-card-header>
+        <ion-card class="column-card">
+          <ion-card-header class="column-header">
             <ion-card-title>{{ column.title }}</ion-card-title>
           </ion-card-header>
 
@@ -24,11 +24,20 @@
 
               <ng-container *ngIf="!loading && cards[column.id] && cards[column.id].length > 0; else emptyOrLoading">
                 <div *ngFor="let card of cards[column.id]" cdkDrag class="card-item">
-                  <ion-item>
+                  <ion-item lines="none">
                     <ion-label>
                       <h2>{{ card.title }}</h2>
                       <p>{{ card.description || 'Sem descrição' }}</p>
                     </ion-label>
+                    <ion-button
+                      slot="end"
+                      color="primary"
+                      fill="clear"
+                      size="small"
+                      class="edit-card"
+                      >
+                      <ion-icon name="open-outline"></ion-icon>
+                    </ion-button>
                     <ion-button
                       slot="end"
                       color="danger"
