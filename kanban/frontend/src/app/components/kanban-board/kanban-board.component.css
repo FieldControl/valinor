@@ -1,0 +1,216 @@
+.kanban-board {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #00a0eb;
+  min-height: 100vh;
+}
+
+.kanban-board h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+  font-size: 2rem;
+}
+
+.add-column {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.add-column input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  width: 220px;
+}
+
+.add-column button {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-column button:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 16px; 
+  margin-top: 20px;
+}
+
+
+.column {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+  box-sizing: border-box;
+  flex-shrink: 0; 
+}
+
+
+.column h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #1f2937;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.column h3 button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.column h3 button:hover {
+  color: #111827;
+}
+
+.card-list {
+  padding: 12px;
+  background-color: #e5e7eb; 
+  border-radius: 12px;
+  min-height: 100px;
+  border: 1px dashed #cbd5e1; 
+  transition: background-color 0.3s;
+}
+
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.card h4 button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.card h4 button:hover {
+  color: #111827;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.new-card-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.new-card-form input,
+.new-card-form textarea {
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  resize: none;
+}
+
+.new-card-form button {
+  margin-top: 4px;
+}
+
+button {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #059669;
+}
+
+.add-card-btn {
+  margin-top: 10px;
+  background-color: #3b82f6;
+}
+
+.add-card-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .columns {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .column {
+    width: 90%;
+  }
+
+  .add-column input {
+    width: 100%;
+  }
+
+  .add-column {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.button-function {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.button-function:hover {
+  transform: scale(1.3); 
+}

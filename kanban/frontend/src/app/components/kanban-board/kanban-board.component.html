@@ -1,0 +1,53 @@
+<div class="kanban-board">
+  <h2>Quadro Kanban SIMPLES</h2>
+
+  <div class="add-column">
+    <input [(ngModel)]="newColumnTitle" placeholder="Nova coluna" />
+    <button (click)="addColumn()">Adicionar Coluna</button>
+  </div>
+
+  <div class="columns">
+    @for (column of columns; track column.id) {
+      <div class="column">
+        <h3>
+          {{ column.title }}
+          <button class="button-function" (click)="editColumnTitle(column)">✏️</button>
+          <button class="button-function" (click)="removeColumn(column.id)">🗑️</button>
+        </h3>
+        <hr>
+
+        <!-- Drag and Drop de cards (não consegui fazer funcionar, mas está parcialmente integrado) -->
+        <div
+          cdkDropList
+          [cdkDropListData]="column.cards"
+          [id]="column.id"
+          class="card-list"
+          (cdkDropListDropped)="drop($event, column.id)"
+        >
+          @for (card of column.cards; track card.id) {
+            <div class="card" cdkDrag [cdkDragData]="card">
+              <h4>
+                {{ card.title }}
+                <button class="button-function" (click)="editCard(card)">✏️</button>
+                <button class="button-function" (click)="removeCard(card.id)">🗑️</button>
+              </h4>
+              <hr>
+              <p>{{ card.description }}</p>
+            </div>
+          }
+        </div>
+
+        <button (click)="openCardForm(column.id)">+ Adicionar Card</button>
+
+        @if (selectedColumnId === column.id) {
+          <div class="new-card-form">
+            <input [(ngModel)]="newCardTitle" placeholder="Título do card" />
+            <textarea [(ngModel)]="newCardDescription" placeholder="Descrição (opcional)"></textarea>
+            <button (click)="addCard(column.id)">Adicionar</button>
+            <button (click)="closeCardForm()">Cancelar</button>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
