@@ -104,6 +104,7 @@ Acesse em: [http://localhost:4200](http://localhost:4200)
 - Criar filtros e ordenação por colunas.
 - Salvar dados em **localStorage** para manter entre sessões.
 
+
 ### 🔄 **Drag and Drop de cards entre colunas**
 
 - Já está preparado com Angular CDK instalado.
@@ -111,6 +112,14 @@ Acesse em: [http://localhost:4200](http://localhost:4200)
   - Usar `CdkDropList` e `CdkDrag` nos cards.
   - Detectar mudança de coluna ao soltar o card.
   - Chamar uma mutation GraphQL (`updateCard`) para atualizar o `columnId` no backend.
+
+### 🔄 **Refazer o sistema do CRUD**
+
+- Está funcional, porém, ainda sim acho que podem haver melhorias.
+- Alguns exemplos seriam:
+  - Feedback visual mais dinâmico das mudanças.
+  - Código reformulado para melhor compreensão.
+  - Remoção de elementos desnecessários e melhor aplicação de DRY (Don't Repeat Yourself).
 
 ---
 
