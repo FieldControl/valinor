@@ -174,11 +174,11 @@ export class KanbanPage implements OnInit {
   async openAddEditModal(card?: Card, columnId: number = 1) {
     const modal = await this.modalController.create({
       component: AddEditCardModalComponent,
-      cssClass: 'custom-size-modal',
+      cssClass: 'custom-size-modal rounded-modal',
       componentProps: {
         title: card?.title || '',
         description: card?.description || '',
-        isEdit: !!card // 👈 true se estiver editando, false se for novo
+        isEdit: !!card
       }
     });
 

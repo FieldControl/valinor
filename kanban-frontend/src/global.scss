@@ -37,9 +37,16 @@
 @import '@ionic/angular/css/palettes/dark.system.css';
 
 .custom-size-modal {
-    --height: 29%;
+    --height: auto;
     --width: 25%;
     --border-radius: 16px;
     --box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --overflow: visible;
+    --background: #2d2b2b;
 }
-  
+
+ion-modal.rounded-modal::part(content) {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
