@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{ isEdit ? 'Editar Card' : 'Adicionar Card' }}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button fill="clear" (click)="dismiss()">
+                <ion-icon name="close-outline" slot="icon-only" color="danger"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="custom-modal-content" scroll-y="false">
+    <ion-item [color]="titleError ? 'danger' : ''">
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [(ngModel)]="title" (ionInput)="titleError = false" required></ion-input>
+        <ion-note slot="helper" color="danger" *ngIf="titleError">
+            O título é obrigatório.
+        </ion-note>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-textarea [(ngModel)]="description"></ion-textarea>
+    </ion-item>
+
+    <ion-footer class="ion-padding">
+        <ion-button expand="block" (click)="dismiss(true)">Salvar</ion-button>
+    </ion-footer>
+</ion-content>

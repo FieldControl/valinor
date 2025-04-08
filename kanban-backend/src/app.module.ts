@@ -38,17 +38,9 @@ import { KanbanModule } from './kanban/kanban.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
-      playground: true,
+      playground: false,
     }),
 
-    // Importando o módulo KanbanModule que contém
-    // a lógica de negócios e as entidades do Kanban
-    // e o resolver GraphQL para o Kanban.
-    // O KanbanModule é responsável por gerenciar as colunas e cards do Kanban.
-    // Ele importa o TypeOrmModule para usar o TypeORM com o NestJS,
-    // KanbanService para lógica de negócios,
-    // ColumnEntity e CardEntity para as entidades do banco de dados,
-    // e KanbanResolver para resolver as queries e mutations GraphQL.
     KanbanModule,
   ],
 })

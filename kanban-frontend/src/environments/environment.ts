@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  graphqlUri: 'http://localhost:3000/graphql'
+  graphqlUri: 'http://localhost:3000/graphql',
+  socketUrl: 'http://localhost:3000'
 };
 /*
  * For easier debugging in development mode, you can import the following file

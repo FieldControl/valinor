@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title class="kanban-title">Kanban Board</ion-title>
+    <ion-buttons slot="end" class="ms-auto me-2">
+      <ion-button class="custom-add-button" color="dark" (click)="openAddEditModal()">
+        <ion-icon slot="icon-only" name="add-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -14,12 +19,8 @@
           </ion-card-header>
 
           <ion-card-content>
-            <div
-              class="drop-zone"
-              cdkDropList
-              [cdkDropListData]="cards[column.id] || []"
-              [id]="'columnDropList-' + column.id"
-              [cdkDropListConnectedTo]="connectedDropLists"
+            <div class="drop-zone" cdkDropList [cdkDropListData]="cards[column.id] || []"
+              [id]="'columnDropList-' + column.id" [cdkDropListConnectedTo]="connectedDropLists"
               (cdkDropListDropped)="onCardDrop($event, column.id)">
 
               <ng-container *ngIf="!loading && cards[column.id] && cards[column.id].length > 0; else emptyOrLoading">
@@ -29,23 +30,16 @@
                       <h2>{{ card.title }}</h2>
                       <p>{{ card.description || 'Sem descrição' }}</p>
                     </ion-label>
-                    <ion-button
-                      slot="end"
-                      color="primary"
-                      fill="clear"
-                      size="small"
-                      class="edit-card"
-                      >
-                      <ion-icon name="open-outline"></ion-icon>
-                    </ion-button>
-                    <ion-button
-                      slot="end"
-                      color="danger"
-                      fill="clear"
-                      size="small"
-                      (click)="deleteCard(card, column.id)">
-                      <ion-icon name="trash-outline"></ion-icon>
-                    </ion-button>
+                    <div class="card-actions">
+                      <ion-button slot="end" color="primary" fill="clear" size="small" class="edit-card"
+                        (click)="openAddEditModal(card, column.id)">
+                        <ion-icon name="open-outline"></ion-icon>
+                      </ion-button>
+                      <ion-button slot="end" color="danger" fill="clear" size="small"
+                        (click)="deleteCard(card, column.id)">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </ion-button>
+                    </div>
                   </ion-item>
                 </div>
               </ng-container>

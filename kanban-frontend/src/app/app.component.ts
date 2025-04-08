@@ -10,4 +10,4 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [IonicModule, RouterModule]
 })
-export class AppComponent {}
+export class AppComponent { }

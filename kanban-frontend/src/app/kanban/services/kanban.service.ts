@@ -17,6 +17,28 @@ const GET_CARDS = gql`
   }
 `;
 
+const GET_CARD = gql`
+  query GetCard($id: Int!) {
+    getCard(id: $id) {
+      id
+      title
+      description
+      columnId
+    }
+  }
+`;
+
+const CREATE_CARD = gql`
+  mutation CreateCard($data: CreateCardInput!) {
+    createCard(data: $data) {
+      id
+      title
+      description
+      columnId
+    }
+  }
+`;
+
 const UPDATE_CARD = gql`
   mutation UpdateCard($data: UpdateCardInput!) {
     updateCard(data: $data) {
@@ -48,11 +70,32 @@ export class KanbanService {
     }).valueChanges.pipe(map(result => result.data.getCardsByColumnId));
   }
 
+  createCard(data: { title: string; description?: string; columnId: number }): Observable<Card> {
+    return this.apollo.mutate<{ createCard: Card }>({
+      mutation: CREATE_CARD,
+      variables: { data },
+    }).pipe(map(result => result.data!.createCard));
+  }
+
   updateCardColumn(cardId: number, columnId: number): Observable<Card> {
     return this.apollo.mutate<{ updateCard: Card }>({
       mutation: UPDATE_CARD,
       variables: {
         data: { id: cardId, columnId },
+      },
+    }).pipe(map(result => result.data!.updateCard));
+  }
+
+  updateCard(card: Card): Observable<Card> {
+    return this.apollo.mutate<{ updateCard: Card }>({
+      mutation: UPDATE_CARD,
+      variables: {
+        data: {
+          id: card.id,
+          title: card.title,
+          description: card.description,
+          columnId: card.columnId
+        },
       },
     }).pipe(map(result => result.data!.updateCard));
   }
