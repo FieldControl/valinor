@@ -1,8 +1,21 @@
-<div class="item-container a" cdkDrag>
-    
-    <h1><label><textarea placeholder="Título:" maxlength=50></textarea></label></h1>
+<div class="item-container a" cdkDrag (click)="habilitaInput()">
+    <div (click)="habilitaInput()">
+        <h1>
+            <label>
+                <textarea 
+                    (blur)="onBlur()" 
+                    [disabled]="desabilita"
+                    (keydown)="onKeyDown($event)"
+                    placeholder="Título:"
+                    maxlength=50></textarea>
+                </label>
+            </h1>
+        </div>
     <hr>
-    <p><label><textarea placeholder="Descrição:" maxlength=100></textarea></label></p>
-
+    <p>
+        <label>
+            <textarea placeholder="Descrição:" maxlength=0></textarea>
+        </label>
+    </p>
 </div>
 

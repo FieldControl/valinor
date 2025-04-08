@@ -33,7 +33,7 @@ export class HomeComponent {
   cardsConcluido: Card[] = [
     { "titulo": "refinando", "descricao": "refinamento", "id": 4 },
 
-  ];
+  ]
 
   drop(event: CdkDragDrop<Card[]>) {
     if (event.previousContainer === event.container) {

@@ -24,7 +24,7 @@ export class ColunaComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if (this.classeColuna.startsWith("coluna1")) { // verifica se o inicio da string é oq eu necessito tipo o contains
+        if (this.classeColuna.startsWith("coluna1")) { // verifica se o inicio da string é oq eu necessito tipo
             this.cardService.cardsAdicionados$.subscribe(novoCard => {
                 this.cards.push(novoCard);
             })
