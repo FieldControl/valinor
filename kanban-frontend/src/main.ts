@@ -14,12 +14,16 @@ import { environment } from './environments/environment';
 import { addIcons } from 'ionicons';
 import {
   trashOutline, 
-  openOutline
+  openOutline,
+  closeOutline,
+  addOutline
 } from 'ionicons/icons';
 
 addIcons({
+  'close-outline': closeOutline,
   'trash-outline': trashOutline,
-  'open-outline': openOutline
+  'open-outline': openOutline,
+  'add-outline': addOutline
 });
 
 enableProdMode();

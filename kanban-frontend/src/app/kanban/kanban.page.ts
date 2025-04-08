@@ -4,12 +4,16 @@ import { IonicModule } from '@ionic/angular';
 import { DragDropModule, CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Card } from './models/card.model';
 import { KanbanService } from './services/kanban.service';
+import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { AddEditCardModalComponent } from './modals/kanban-add-edit-card.modal';
+import { SocketService } from '../services/socket.service';
+import { Subscription } from 'rxjs';
 
 interface Column {
   id: number;
   title: string;
 }
-
 
 @Component({
   selector: 'app-kanban',
@@ -29,9 +33,14 @@ export class KanbanPage implements OnInit {
   loading = true;
   error: any;
 
+  private socketSubscriptions: Subscription[] = [];
+
   constructor(
     private kanbanService: KanbanService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private alertController: AlertController,
+    private modalController: ModalController,
+    private socketService: SocketService
   ) { }
 
   ngOnInit() {
@@ -41,6 +50,15 @@ export class KanbanPage implements OnInit {
 
     this.connectedDropLists = this.columns.map((c) => `columnDropList-${c.id}`);
     this.loadCards();
+    this.listenToSocketEvents();
+  }
+
+  listenToSocketEvents() {
+    this.socketSubscriptions.push(
+      this.socketService.onCardCreated().subscribe(() => this.loadCards()),
+      this.socketService.onCardUpdated().subscribe(() => this.loadCards()),
+      this.socketService.onCardDeleted().subscribe(() => this.loadCards())
+    );
   }
 
   loadCards() {
@@ -117,20 +135,77 @@ export class KanbanPage implements OnInit {
     }
   }
 
-  deleteCard(card: Card, columnId: number) {
-    const newCards = { ...this.cards };
-    newCards[columnId] = newCards[columnId].filter(c => c.id !== card.id);
-    this.cards = { ...newCards };
-    this.cdr.detectChanges();
+  async deleteCard(card: Card, columnId: number) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar exclusão',
+      message: `Você tem certeza que deseja excluir o card "${card.title}"?`,
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Excluir',
+          role: 'destructive',
+          handler: () => {
+            const newCards = { ...this.cards };
+            newCards[columnId] = newCards[columnId].filter(c => c.id !== card.id);
+            this.cards = { ...newCards };
+            this.cdr.detectChanges();
 
-    this.kanbanService.deleteCard(card.id).subscribe({
-      next: () => {
-        this.loadCards();
-      },
-      error: (err) => {
-        console.error('Erro ao deletar card no banco:', err);
-        this.loadCards();
-      },
+            this.kanbanService.deleteCard(card.id).subscribe({
+              next: () => {
+                this.loadCards();
+              },
+              error: (err) => {
+                console.error('Erro ao deletar card no banco:', err);
+                this.loadCards();
+              },
+            });
+          }
+        }
+      ]
     });
+
+    await alert.present();
+  }
+
+  async openAddEditModal(card?: Card, columnId: number = 1) {
+    const modal = await this.modalController.create({
+      component: AddEditCardModalComponent,
+      cssClass: 'custom-size-modal',
+      componentProps: {
+        title: card?.title || '',
+        description: card?.description || '',
+        isEdit: !!card // 👈 true se estiver editando, false se for novo
+      }
+    });
+
+    await modal.present();
+    const { data } = await modal.onDidDismiss();
+
+    if (data) {
+      if (!card) {
+        const cardInput = {
+          ...data,
+          columnId: columnId
+        };
+        this.kanbanService.createCard(cardInput).subscribe({
+          next: () => this.loadCards(),
+          error: err => console.error('Erro ao criar card:', err)
+        });
+      } else {
+        const updatedCard = {
+          ...card,
+          title: data.title,
+          description: data.description
+        };
+        this.kanbanService.updateCard(updatedCard).subscribe({
+          next: () => this.loadCards(),
+          error: err => console.error('Erro ao atualizar card:', err)
+        });
+      }
+    }
   }
 }

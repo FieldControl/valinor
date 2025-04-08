@@ -1,191 +1,129 @@
 import { INestApplication } from '@nestjs/common';
-import { Test } from '@nestjs/testing';
+import { Test, TestingModule } from '@nestjs/testing';
+import { AppModule } from '../src/app.module';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
 import { Server } from 'http';
+import { io, Socket } from 'socket.io-client';
+
+// Interfaces para tipagem segura
+interface Card {
+  id: number;
+  title: string;
+  description: string;
+  columnId: number;
+}
+
+interface GraphQLResponse<T> {
+  data: T;
+}
 
 describe('KanbanResolver (e2e)', () => {
   let app: INestApplication;
-  let createdColumnId: number;
-  let createdCardId: number;
-
-  const getHttpServer = (): Server => {
-    return app.getHttpServer() as unknown as Server;
-  };
+  let httpServer: Server;
+  let socket: Socket;
+  let url: string;
 
   beforeAll(async () => {
-    const moduleFixture = await Test.createTestingModule({
+    const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
+
+    httpServer = app.getHttpServer() as Server;
+
+    await new Promise<void>((resolve) => {
+      httpServer.listen(0, () => resolve());
+    });
+
+    const address = httpServer.address();
+    if (address && typeof address !== 'string') {
+      const { port } = address;
+      url = `http://localhost:${port}`;
+    } else {
+      throw new Error('Não foi possível obter o endereço do servidor');
+    }
+
+    socket = io(url, { transports: ['websocket'] });
+
+    await new Promise<void>((resolve) => {
+      socket.on('connect', () => resolve());
+    });
   });
 
   afterAll(async () => {
+    if (socket && socket.connected) {
+      socket.disconnect();
+    }
     await app.close();
   });
 
-  it('🟩 Deve criar uma coluna', async () => {
-    const query = `
-      mutation {
-        createColumn(input: { title: "Minha coluna teste" }) {
-          id
-          title
-        }
-      }
-    `;
-
-    const response = await request(getHttpServer())
-      .post('/graphql')
-      .send({ query });
-
-    const data = response.body as {
-      data: {
-        createColumn: {
-          id: number;
-          title: string;
-        };
-      };
-    };
-
-    expect(data.data.createColumn).toHaveProperty('id');
-    expect(data.data.createColumn.title).toBe('Minha coluna teste');
-
-    createdColumnId = data.data.createColumn.id;
-  });
-
-  it('🟦 Deve criar um card dentro da coluna', async () => {
+  it('deve criar um card e emitir cardCreated', async () => {
     const mutation = `
       mutation {
-        createCard(input: {
+        createCard(data: {
           title: "Novo Card",
-          description: "Descrição teste",
-          columnId: ${createdColumnId}
+          description: "Descrição do Card",
+          columnId: 1
         }) {
           id
           title
-          column {
-            id
-          }
+          description
+          columnId
         }
       }
     `;
 
-    const response = await request(getHttpServer())
+    const eventPromise = new Promise<Card>((resolve) => {
+      socket.once('cardCreated', (payload: Card) => {
+        resolve(payload);
+      });
+    });
+
+    const response = await request(httpServer)
       .post('/graphql')
       .send({ query: mutation });
 
-    const data = response.body as {
-      data: {
-        createCard: {
-          id: number;
-          title: string;
-          column: {
-            id: number;
-          };
-        };
-      };
-    };
+    const body = response.body as GraphQLResponse<{ createCard: Card }>;
+    const card = body.data.createCard;
+    const emitted = await eventPromise;
 
-    expect(data.data.createCard.title).toBe('Novo Card');
-    expect(Number(data.data.createCard.column.id)).toBe(createdColumnId);
-
-    createdCardId = data.data.createCard.id;
+    expect(card.title).toBe('Novo Card');
+    expect(card.description).toBe('Descrição do Card');
+    expect(card.columnId).toBe(1);
+    expect(emitted).toMatchObject(card);
   });
 
-  it('🟨 Deve buscar todas as colunas com seus cards', async () => {
-    const query = `
-      query {
-        getColumns {
-          id
-          title
-          cards {
-            id
-            title
-          }
-        }
-      }
-    `;
-
-    const response = await request(getHttpServer())
-      .post('/graphql')
-      .send({ query });
-
-    const data = response.body as {
-      data: {
-        getColumns: Array<{
-          id: number;
-          title: string;
-          cards: Array<{ id: number; title: string }>;
-        }>;
-      };
-    };
-
-    expect(Array.isArray(data.data.getColumns)).toBe(true);
-    expect(data.data.getColumns.length).toBeGreaterThan(0);
-  });
-
-  it('🟫 Deve buscar os cards de uma coluna específica', async () => {
-    const query = `
-      query {
-        getCardsByColumn(columnId: ${createdColumnId}) {
-          id
-          title
-        }
-      }
-    `;
-
-    const response = await request(getHttpServer())
-      .post('/graphql')
-      .send({ query });
-
-    const data = response.body as {
-      data: {
-        getCardsByColumn: Array<{ id: number; title: string }>;
-      };
-    };
-
-    expect(Array.isArray(data.data.getCardsByColumn)).toBe(true);
-    expect(data.data.getCardsByColumn.length).toBeGreaterThan(0);
-  });
-
-  it('🟪 Deve atualizar o título de uma coluna', async () => {
-    const mutation = `
+  it('deve atualizar um card e emitir cardUpdated', async () => {
+    const createMutation = `
       mutation {
-        updateColumn(input: {
-          id: ${createdColumnId},
-          title: "Coluna Atualizada"
+        createCard(data: {
+          title: "Temp Card",
+          description: "Temp Desc",
+          columnId: 1
         }) {
           id
-          title
         }
       }
     `;
 
-    const response = await request(getHttpServer())
+    const createRes = await request(httpServer)
       .post('/graphql')
-      .send({ query: mutation });
+      .send({ query: createMutation });
 
-    const data = response.body as {
-      data: {
-        updateColumn: {
-          id: number;
-          title: string;
-        };
-      };
-    };
+    const createBody = createRes.body as GraphQLResponse<{
+      createCard: { id: number };
+    }>;
 
-    expect(data.data.updateColumn.title).toBe('Coluna Atualizada');
-  });
+    const cardId = createBody.data.createCard.id;
 
-  it('🟥 Deve atualizar um card existente', async () => {
-    const mutation = `
+    const updateMutation = `
       mutation {
-        updateCard(input: {
-          id: ${createdCardId},
-          title: "Card Atualizado",
-          description: "Nova descrição"
+        updateCard(data: {
+          id: ${cardId},
+          title: "Atualizado",
+          description: "Atualizado Desc"
         }) {
           id
           title
@@ -194,21 +132,72 @@ describe('KanbanResolver (e2e)', () => {
       }
     `;
 
-    const response = await request(getHttpServer())
+    const eventPromise = new Promise<Partial<Card>>((resolve) => {
+      socket.once('cardUpdated', (payload: Partial<Card>) => {
+        resolve(payload);
+      });
+    });
+
+    const response = await request(httpServer)
       .post('/graphql')
-      .send({ query: mutation });
+      .send({ query: updateMutation });
 
-    const data = response.body as {
-      data: {
-        updateCard: {
-          id: number;
-          title: string;
-          description: string;
-        };
-      };
-    };
+    const body = response.body as GraphQLResponse<{
+      updateCard: Partial<Card>;
+    }>;
 
-    expect(data.data.updateCard.title).toBe('Card Atualizado');
-    expect(data.data.updateCard.description).toBe('Nova descrição');
+    const card = body.data.updateCard;
+    const emitted = await eventPromise;
+
+    expect(card.title).toBe('Atualizado');
+    expect(card.description).toBe('Atualizado Desc');
+    expect(emitted).toMatchObject(card);
+  });
+
+  it('deve deletar um card e emitir cardDeleted', async () => {
+    const createMutation = `
+      mutation {
+        createCard(data: {
+          title: "Temp Delete",
+          description: "To Delete",
+          columnId: 1
+        }) {
+          id
+        }
+      }
+    `;
+
+    const createRes = await request(httpServer)
+      .post('/graphql')
+      .send({ query: createMutation });
+
+    const createBody = createRes.body as GraphQLResponse<{
+      createCard: { id: number };
+    }>;
+
+    const cardId = createBody.data.createCard.id;
+
+    const deleteMutation = `
+      mutation {
+        deleteCard(id: ${cardId})
+      }
+    `;
+
+    const eventPromise = new Promise<number>((resolve) => {
+      socket.once('cardDeleted', (payload: number) => {
+        resolve(payload);
+      });
+    });
+
+    const response = await request(httpServer)
+      .post('/graphql')
+      .send({ query: deleteMutation });
+
+    const body = response.body as GraphQLResponse<{ deleteCard: boolean }>;
+    const result = body.data.deleteCard;
+    const emitted = await eventPromise;
+
+    expect(result).toBe(true);
+    expect(emitted).toBe(cardId);
   });
 });

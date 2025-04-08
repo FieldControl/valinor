@@ -11,19 +11,33 @@ ion-card-title {
   color: #ffffff;
   background-color: #2d2b2b;
   --background: transparent;
-
 }
 
 ion-card-content {
   background-color: #2d2b2b;
   --background: transparent;
-  
+}
+
+ion-toolbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 56px;
 }
 
 .kanban-title {
-  text-align: center;
-  padding: 20px 0; 
-  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cdk-drag-preview,
+.cdk-drag-placeholder {
+  overflow: hidden !important;
 }
 
 .column-header {
@@ -52,25 +66,23 @@ ion-card-content {
   border: 2px solid #007BFF;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card-item ion-item {
   --background: transparent;
   --color: #000;
 }
 
+.card-item {
+  position: relative;
+
+  .card-actions {
+    display: none;
+  }
+
+  &:hover .card-actions {
+    display: flex;
+  }
+}
+
 .error-message {
-  text-align: center;
-  padding: 16px;
-}
-
-ion-spinner {
-  display: block;
-  margin: 0 auto;
-}
-
-ion-text[color="medium"] {
-  display: block;
   text-align: center;
   padding: 16px;
 }

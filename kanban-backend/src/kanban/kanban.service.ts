@@ -37,9 +37,21 @@ export class KanbanService {
     return this.cardRepo.save(card);
   }
 
+  //Serviço para buscar um card pelo id
+  async getCard(id: number): Promise<CardEntity> {
+    const card = await this.cardRepo.findOneBy({ id });
+    if (!card) {
+      throw new NotFoundException('Card não encontrado');
+    }
+    return card;
+  }
+
   async getCardsByColumnId(columnId: number): Promise<CardEntity[]> {
-    const cards = await this.cardRepo.findBy({ columnId });
-    if (!cards) {
+    const cards = await this.cardRepo.find({
+      where: { columnId },
+      order: { updatedAt: 'ASC' },
+    });
+    if (!cards || cards.length === 0) {
       throw new NotFoundException('Nenhum card encontrado para esta coluna');
     }
     return cards;
