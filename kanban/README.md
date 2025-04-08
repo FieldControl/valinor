@@ -20,8 +20,8 @@ Este é um sistema simples de **Kanban** construído com **Angular 19+** no fron
 ### 📁 Clonar o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/kanban-simples.git
-cd kanban-simples
+git clone https://github.com/Pedro-B-Siqueira/valinorDesafioField.git
+cd kanban
 ```
 
 ---
@@ -30,7 +30,7 @@ cd kanban-simples
 
 ```bash
 cd backend
-npm install
+npm install -g @nestjs/cli
 npm run start:dev
 ```
 
@@ -42,7 +42,7 @@ O backend será iniciado em: [http://localhost:3000/graphql](http://localhost:30
 
 ```bash
 cd frontend
-npm install
+npm install -g @angular/cli
 ng serve
 ```
 
