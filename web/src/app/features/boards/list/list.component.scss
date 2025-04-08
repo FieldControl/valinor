@@ -1,0 +1,126 @@
+@use "variables.scss" as v;
+
+.boards-wrapper {
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+
+  .board-header {
+    padding: 24px 16px;
+    
+    .board-title {
+      margin: 0;
+      padding: 6px 12px;
+
+      font: normal 500 16px "Montserrat", sans-serif;
+      color: #FFF;
+
+      width: fit-content;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      background: rgba(50, 48, 48, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      border: 1px solid rgba(50, 48, 48, 0.3);
+
+      border-radius: 8px;
+    }
+  }
+}
+
+.board-wrapper {
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+
+  .board {
+    all: unset;
+    max-width: calc(20%);
+    min-width: 250px;
+    height: 100%;
+    cursor: pointer;
+    
+    box-sizing: border-box;
+
+    mat-card {
+      padding: 16px 16px 8px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+      height: fit-content;
+      min-width: 240px;
+      width: 100%;
+
+      background-color: #FFF;
+      border-radius: 6px; 
+      border: 1px solid #e6cbae;
+
+      mat-card-header {
+        margin-bottom: 4px;
+        padding: 0 0 8px 0;
+
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: #FFF;
+        border-bottom: 1px solid #aaa;
+
+        mat-card-title {
+          font: normal 500 18px "Montserrat", sans-serif;
+          letter-spacing: 0;
+        }
+      }
+
+      mat-card-actions {
+        padding: 0;
+        width: 100%;
+        display: flex;
+        gap: 4px;
+
+        button {
+          padding: 8px 10px;
+
+          width: 100%;
+
+          font: normal 500 12px "Montserrat", sans-serif;
+          letter-spacing: normal;
+          color: #FFF;
+
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+
+        .btn-edit {
+          background-color: #4F46E5;
+        }
+        .btn-delete {
+          background-color: #DC2626;
+        }
+      }
+    }
+  }
+
+  .add-board {
+    margin-left: 20px;
+    padding: 0;
+    font-size: 24px;
+  }
+}

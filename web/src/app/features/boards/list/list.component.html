@@ -1,0 +1,28 @@
+<section class="boards-container">
+  <section class="boards-wrapper">
+    <section class="board-header">
+      <h1 class="board-title">Meus boards</h1>
+    </section>
+    
+    <div class="board-wrapper">
+      @for (board of boards(); track board) {
+      <a class="board" [routerLink]="['/boards', board.id]">
+        <mat-card appearance="outlined">
+          <mat-card-header>
+            <mat-card-title>{{ board.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <button class="btn-edit" (click)="openNewBoardFlow($event, board)" mat-button>
+              Editar
+            </button>
+            <button class="btn-delete" (click)="deleteBoard($event, board)" mat-button>Deletar</button>
+          </mat-card-actions>
+        </mat-card>
+      </a>
+      }
+      <button class="add-board" (click)="openNewBoardFlow($event)" mat-flat-button color="primary">
+        +
+      </button>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,62 @@
+<section class="board-container">
+  <section class="board-wrapper">
+    <div class="board-header">
+      <div class="board-header-title">
+        <button [routerLink]="['/boards']" color="secondary" aria-label="Voltar aos boards">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <h1 class="board-title">{{ board()?.name }}</h1>
+      </div>
+    </div>
+    
+    <div cdkDropListGroup cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onSwimlaneChange($event)" class="swimlanes-wrapper">
+    
+      @for(swimlane of board()?.swimlanes; track swimlane) {
+          <div class="swimlane" cdkDrag>
+            <div class="swimlane-header" cdkDragHandle>
+              <h2>{{ swimlane.name }}</h2>
+              <button color="secondary" mat-stroked-button (click)="editSwimlane(swimlane)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+        
+            <div class="swimlane-inner">
+              <div class="swimlane-inner__dragzone" cdkDropList cdkDropListOrientation="vertical" [cdkDropListData]="swimlane.cards" (cdkDropListDropped)="onCardChange($event, swimlane)">
+                @for(card of swimlane.cards; track card) {
+                <button class="swimlane__card" (click)="addOrEditCard(swimlane, card)" cdkDrag>
+                  <h1>{{ card.name }}</h1>
+                  <p>{{card.content}}</p>
+                </button>
+                }
+              </div>
+            </div>
+            <button class="add-card" (click)="addOrEditCard(swimlane)" mat-button>
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+      }
+  
+      <div class="swimlane new-swimlane">
+        <div class="swimlane-header">
+          <h2 class=>Nova raia</h2>
+        </div>
+        
+        <div class="swimlane-inner">
+          <form [formGroup]="swimlaneForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Nome</mat-label>
+              <input matInput formControlName="name" placeholder="Ex. To Do" />
+    
+              @if (!swimlaneForm.controls.name.hasError('required')) {
+                <mat-error>Insira um nome válido</mat-error>
+              } </mat-form-field
+            ><br />
+            <button (click)="addSwimlane()" color="primary" mat-flat-button>
+              Adicionar raia
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

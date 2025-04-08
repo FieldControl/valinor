@@ -1,0 +1,138 @@
+@use "variables.scss" as v;
+@use "typography.scss" as t;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  font-family: "Montserrat", "Roboto", sans-serif;
+  letter-spacing: normal;
+
+  background-image: url("./bg-city.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.form-container {
+  padding: 150px 0 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;
+
+  background-image: url("./bg-kanban.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  .form-wrapper {
+    display: flex;
+  }
+
+  .user-form {
+    margin-bottom: 100px;
+    padding: 42px 54px;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.2px);
+    -webkit-backdrop-filter: blur(9.2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    width: 440px;
+
+    border-radius: 20px;
+
+    .form-title {
+      font: normal 600 24px "Montserrat", "Roboto", sans-serif;
+      text-align: left;
+      width: 100%;
+    }
+
+    mat-form-field {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      align-self: stretch;
+      width: 100%;
+    }
+
+    mat-label, mat-error {
+      font: normal 400 14px "Montserrat", sans-serif;
+    }
+
+    mat-error {
+      font-size: 12px;
+    }
+
+    .btn-sendForm {
+      padding: 16px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      gap: 5px;
+
+      font: normal 500 16px "Montserrat", sans-serif;
+      letter-spacing: normal;
+
+      height: 52px;
+      width: 100%;
+
+      border-radius: 8px;
+    }
+
+    .link-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      font: normal 400 14px "Montserrat", sans-serif;
+
+      .link {
+        padding: 0 2px;
+        font: normal 400 14px "Montserrat", sans-serif;
+        letter-spacing: normal;
+        color: #0077cc;
+
+        background: transparent;
+      }
+    }
+  }
+
+  .button-group {
+    display: flex;
+    gap: 16px;
+  }
+
+  .cdk-drag-preview {
+    padding: 24px 24px 32px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .kb-link {
+    @include t.kb-link;
+  }
+}

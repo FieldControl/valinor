@@ -1,0 +1,46 @@
+@use "variables.scss" as v;
+@use "typography.scss" as t;
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+
+  font: normal 400 14px 'Montserrat', 'Roboto', sans-serif;
+
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+  background: rgba(50, 48, 48, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(50, 48, 48, 0.3);
+
+  ul {
+    list-style: none;
+
+    margin: 0 15px;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    a {
+      @include t.kb-link;
+    }
+  }
+}

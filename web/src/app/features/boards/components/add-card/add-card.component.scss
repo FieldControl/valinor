@@ -1,0 +1,37 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 18px;
+
+  h1 {
+    font: normal 600 18px "Montserrat", sans-serif;
+  }
+
+  mat-form-field, mat-label {
+    font: normal 500 14px "Montserrat", sans-serif;
+    letter-spacing: normal;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 16px;
+  }
+
+  button {
+    font: normal 500 14px "Montserrat", sans-serif;
+    letter-spacing: normal;
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  .close-modal {
+    color: #fff;
+    background-color: #DC2626;
+  }
+}

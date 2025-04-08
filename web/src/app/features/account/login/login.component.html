@@ -1,0 +1,48 @@
+<section class="form-container">
+  <form class="user-form" [formGroup]="loginForm">
+    <h1 class="form-title">Faça seu Login</h1>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+  
+      <input type="email" matInput formControlName="email" placeholder="Ex: email@gmail.com"/>
+  
+      @if (loginForm.controls.email.hasError('email') &&
+      !loginForm.controls.email.hasError('required')) {
+        <mat-error>Insira um e-mail válido</mat-error>
+      } @if (loginForm.controls.email.hasError('required')) {
+        <mat-error>Insira um e-mail válido</mat-error>
+      }
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+    
+      <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password"/>
+  
+      <button mat-icon-button matSuffix type="button" 
+        (click)="hidePassword = !hidePassword" 
+        [attr.aria-label]="'Toggle password visibility'" 
+        [attr.aria-pressed]="!hidePassword">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    
+      @if (!loginForm.controls.password.hasError('required')) {
+        <mat-error>Insira uma senha válida</mat-error>
+      } @if (!loginForm.controls.password.hasError('minlength')) {
+        <mat-error>A senha deve ter ao menos 8 caracteres</mat-error>
+      }
+    </mat-form-field>
+  
+    <button class="btn-sendForm" (click)="login()" mat-flat-button color="primary">Log In</button>
+    
+    <div class="link-container">
+      Não possui uma conta? 
+      <a [routerLink]="['/register']">
+        <button mat-flat-button class="link">
+          Cadastre-se agora
+        </button>
+      </a>
+    </div>
+  </form>
+</section>

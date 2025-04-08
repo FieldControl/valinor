@@ -1,0 +1,64 @@
+<section class="form-container">
+  <form class="user-form" [formGroup]="registerForm">
+    <h1 class="form-title">Crie sua conta</h1>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="Ex: email@gmail.com"/>
+
+      @if (registerForm.controls.email.hasError('email') &&
+      !registerForm.controls.email.hasError('required')) {
+        <mat-error>Insira um e-mail válido</mat-error>
+      } @if (registerForm.controls.email.hasError('required')) {
+        <mat-error>Insira um e-mail válido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="firstName" />
+
+      @if (!registerForm.controls.firstName.hasError('required')) {
+        <mat-error>Insira um nome válido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput formControlName="lastName" />
+
+      @if (!registerForm.controls.lastName.hasError('required')) {
+        <mat-error>Insira um sobrenome válido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+    
+      <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password"/>
+
+      <button mat-icon-button matSuffix type="button" 
+        (click)="hidePassword = !hidePassword" 
+        [attr.aria-label]="'Toggle password visibility'" 
+        [attr.aria-pressed]="!hidePassword">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    
+      @if (!registerForm.controls.password.hasError('required')) {
+        <mat-error>Insira uma senha válida</mat-error>
+      } @if (!registerForm.controls.password.hasError('minlength')) {
+        <mat-error>A senha deve ter ao menos 8 caracteres</mat-error>
+      }
+    </mat-form-field>
+
+    <button class="btn-sendForm" (click)="register()" mat-flat-button color="primary">Cadastre-se</button>
+    <div class="link-container">
+      Já possui uma conta?
+      <a [routerLink]="['/login']">
+        <button mat-flat-button class="link">
+          LogIn aqui
+        </button>
+      </a>
+    </div>
+  </form>
+</section>
