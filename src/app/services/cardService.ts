@@ -22,6 +22,5 @@ export interface Card { //interface com as propriedades do meiu card
     adicionarCard(titulo: string, descricao:string) {
       const newCard: Card = { id: this.nextId++, titulo: 'titulo', descricao: 'descricao' };
       this.cardsAdicionadosSource.next(newCard);
-      
     }
   }

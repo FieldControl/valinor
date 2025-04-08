@@ -8,6 +8,8 @@ import { CardService, Card } from '../../services/cardService';
     imports: [CommonModule, CardComponent],
     templateUrl: './coluna.component.html',
     styleUrl: './coluna.component.css'
+   
+    
 })
 export class ColunaComponent implements OnInit {
     titulo: string = '';
@@ -15,16 +17,16 @@ export class ColunaComponent implements OnInit {
     @Input() tituloColuna: string ='';
     @Input() classeColuna: string='';
     @Input() classeTitulo: string='';
-    cards: Card[] = [];
+    @Input () cards: Card[] = [];
+
 
     constructor(private cardService: CardService) {
     }
 
     ngOnInit(): void {
-        if (this.classeColuna === "coluna1") {
+        if (this.classeColuna.startsWith("coluna1")) { // verifica se o inicio da string é oq eu necessito tipo o contains
             this.cardService.cardsAdicionados$.subscribe(novoCard => {
                 this.cards.push(novoCard);
-              
             })
         }
     }

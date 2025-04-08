@@ -1,8 +1,14 @@
 
+
+.barraRolagem{
+    overflow-x: hidden;
+    overflow-y: auto; 
+    white-space: nowrap; 
+}
 .titulo-coluna1 {
     text-align: center;
     font: normal 20pt Arial;
-    background-color:  rgb(247, 227, 164);
+    background-color:  rgb(250, 224, 141);
     border-radius: 10px;
     border:solid 1px
 }
@@ -15,8 +21,8 @@
     max-height: 600px;
     min-width: 250px;
     height: 1000px;
-    border:solid 1px
-   
+    border:solid 1px;
+
 }
 
 .titulo-coluna2 {
@@ -59,7 +65,7 @@
 .titulo-coluna4 {
     text-align: center;
     font: normal 20pt Arial;
-    background-color:   rgb(186, 248, 211);
+    background-color:   rgb(54, 218, 119);
     border-radius: 10px;
     border:solid 1px
 }
@@ -74,3 +80,5 @@
     height: 1000px;
     border:solid 1px
 }
+
+ 

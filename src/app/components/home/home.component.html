@@ -2,11 +2,66 @@
     <nav-barra></nav-barra>
     <div class="flex-box container-box">
         <div class="flex-box caixa-grande">
+            <!--COLUNA 1-->
+            <coluna 
+            tituloColuna="Em aberto" 
+            classeColuna="coluna1 barraRolagem" 
+            classeTitulo="titulo-coluna1" 
 
-            <coluna tituloColuna="Em aberto" classeColuna="coluna1" classeTitulo="titulo-coluna1"></coluna>
-            <coluna tituloColuna="Refinamento" classeColuna="coluna2" classeTitulo="titulo-coluna2"></coluna>
-            <coluna tituloColuna="Em execução" classeColuna="coluna3" classeTitulo="titulo-coluna3"></coluna>
-            <coluna tituloColuna="Concluído" classeColuna="coluna4" classeTitulo="titulo-coluna4"></coluna>
+            cdkDropList
+            #cardsEmAbertoList="cdkDropList"
+            [cdkDropListData]="cardsEmAberto"
+            [cdkDropListConnectedTo]="[cardsRefinamentoList,cardsExecucaoList,cardsConcluidoList]  "
+            class="HomeComponent" 
+            (cdkDropListDropped)="drop($event)"
+            [cards]="cardsEmAberto">
+            
+            </coluna>
+
+             <!--COLUNA 2-->
+            <coluna 
+            tituloColuna="Refinamento" 
+            classeColuna="coluna2 barraRolagem" 
+            classeTitulo="titulo-coluna2" 
+            
+            cdkDropList
+            #cardsRefinamentoList="cdkDropList" 
+            [cdkDropListData]="cardsRefinamento"
+            [cdkDropListConnectedTo]="[cardsEmAbertoList,cardsExecucaoList,cardsConcluidoList]"
+            class="HomeComponent" 
+            (cdkDropListDropped)="drop($event)"
+            [cards]="cardsRefinamento">
+            </coluna>
+
+            <!--COLUNA 3-->
+            <coluna 
+            tituloColuna="Em Execução"
+            classeColuna="coluna3 barraRolagem" 
+            classeTitulo="titulo-coluna3" 
+            
+            cdkDropList
+            #cardsExecucaoList="cdkDropList" 
+            [cdkDropListData]="cardsExecucao"
+            [cdkDropListConnectedTo]="[cardsRefinamentoList,cardsEmAbertoList,cardsConcluidoList]"
+            class="HomeComponent" 
+            (cdkDropListDropped)="drop($event)"
+            [cards]="cardsExecucao">
+            </coluna>
+
+             <!--COLUNA 4-->
+             <coluna 
+             tituloColuna="Concluído" 
+             classeColuna="coluna4 barraRolagem" 
+             classeTitulo="titulo-coluna4" 
+             
+             cdkDropList
+             #cardsConcluidoList="cdkDropList" 
+             [cdkDropListData]="cardsConcluido"
+             [cdkDropListConnectedTo]="[cardsExecucaoList,cardsRefinamentoList,cardsEmAbertoList]"
+             class="HomeComponent" 
+             (cdkDropListDropped)="drop($event)"
+             [cards]="cardsConcluido">
+             </coluna>
         </div>
     </div>
 </div>
