@@ -49,39 +49,48 @@ export class KanbanPage implements OnInit {
     });
 
     this.connectedDropLists = this.columns.map((c) => `columnDropList-${c.id}`);
-    this.loadCards();
     this.listenToSocketEvents();
+    this.loadCards();
   }
 
   listenToSocketEvents() {
-    this.socketSubscriptions.push(
+    const subs = [
       this.socketService.onCardCreated().subscribe(() => this.loadCards()),
       this.socketService.onCardUpdated().subscribe(() => this.loadCards()),
       this.socketService.onCardDeleted().subscribe(() => this.loadCards())
-    );
+    ];
+
+    this.socketSubscriptions.push(...subs);
   }
+
+
 
   loadCards() {
     this.loading = true;
     this.error = null;
     let completed = 0;
+    const totalColumns = this.columns.length;
 
     this.columns.forEach((column) => {
       this.kanbanService.getCardsByColumnId(column.id).subscribe({
         next: (cards) => {
-          this.cards[column.id] = cards;
+          this.cards[column.id] = cards || [];
           completed++;
-          if (completed === this.columns.length) {
+          if (completed === totalColumns) {
             this.loading = false;
             this.cdr.detectChanges();
           }
         },
         error: (err) => {
-          console.error(`Erro ao carregar cards da coluna ${column.id}:`, err);
-          this.error = err;
-          this.cards[column.id] = [];
+          if (err.message.includes('Nenhum card encontrado')) {
+            this.cards[column.id] = [];
+          } else {
+            console.error(`Erro ao carregar cards da coluna ${column.id}:`, err);
+            this.error = err;
+            this.cards[column.id] = [];
+          }
           completed++;
-          if (completed === this.columns.length) {
+          if (completed === totalColumns) {
             this.loading = false;
             this.cdr.detectChanges();
           }
@@ -102,7 +111,6 @@ export class KanbanPage implements OnInit {
       moveItemInArray(newCards[targetColumnId], event.previousIndex, event.currentIndex);
       this.cards = { ...newCards };
       this.cdr.detectChanges();
-      this.loadCards();
     } else {
       transferArrayItem(
         newCards[prevColumnId],
@@ -111,12 +119,8 @@ export class KanbanPage implements OnInit {
         event.currentIndex
       );
 
-      this.cards = { ...newCards };
-      this.cdr.detectChanges();
-
       this.kanbanService.updateCardColumn(movedCard.id, targetColumnId).subscribe({
         next: () => {
-          this.loadCards();
         },
         error: (err) => {
           console.error('Erro ao atualizar card no banco:', err);
@@ -156,7 +160,6 @@ export class KanbanPage implements OnInit {
 
             this.kanbanService.deleteCard(card.id).subscribe({
               next: () => {
-                this.loadCards();
               },
               error: (err) => {
                 console.error('Erro ao deletar card no banco:', err);

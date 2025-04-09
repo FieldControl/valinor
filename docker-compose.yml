@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./kanban-backend
+    container_name: nest-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./kanban-backend/.env
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  frontend:
+    build: ./kanban-frontend
+    container_name: ionic-frontend
+    ports:
+      - "4200:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postdba
+      POSTGRES_DB: kanban_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  pgdata:
+
+networks:
+  app-network:
+    driver: bridge
