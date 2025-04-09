@@ -12,10 +12,6 @@ import { KanbanModule } from './kanban/kanban.module';
       isGlobal: true,
     }),
 
-    // Configurações do TypeORM com dados do banco de dados
-    // usando o ConfigService para pegar as variáveis de ambiente
-    // e o TypeOrmModule para conectar ao banco de dados
-    // e carregar as entidades automaticamente.
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -31,9 +27,6 @@ import { KanbanModule } from './kanban/kanban.module';
       }),
     }),
 
-    // Configuração do GraphQL com o ApolloDriver
-    // GraphQLModule para configurar o GraphQL
-    // e gerar o schema automaticamente.
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),

@@ -37,7 +37,6 @@ export class KanbanPage implements OnInit {
 
   constructor(
     private kanbanService: KanbanService,
-    private cdr: ChangeDetectorRef,
     private alertController: AlertController,
     private modalController: ModalController,
     private socketService: SocketService
@@ -59,11 +58,8 @@ export class KanbanPage implements OnInit {
       this.socketService.onCardUpdated().subscribe(() => this.loadCards()),
       this.socketService.onCardDeleted().subscribe(() => this.loadCards())
     ];
-
     this.socketSubscriptions.push(...subs);
   }
-
-
 
   loadCards() {
     this.loading = true;
@@ -78,7 +74,6 @@ export class KanbanPage implements OnInit {
           completed++;
           if (completed === totalColumns) {
             this.loading = false;
-            this.cdr.detectChanges();
           }
         },
         error: (err) => {
@@ -92,7 +87,6 @@ export class KanbanPage implements OnInit {
           completed++;
           if (completed === totalColumns) {
             this.loading = false;
-            this.cdr.detectChanges();
           }
         },
       });
@@ -110,7 +104,6 @@ export class KanbanPage implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(newCards[targetColumnId], event.previousIndex, event.currentIndex);
       this.cards = { ...newCards };
-      this.cdr.detectChanges();
     } else {
       transferArrayItem(
         newCards[prevColumnId],
@@ -120,8 +113,6 @@ export class KanbanPage implements OnInit {
       );
 
       this.kanbanService.updateCardColumn(movedCard.id, targetColumnId).subscribe({
-        next: () => {
-        },
         error: (err) => {
           console.error('Erro ao atualizar card no banco:', err);
           const revertCards = { ...this.cards };
@@ -132,8 +123,6 @@ export class KanbanPage implements OnInit {
             event.previousIndex
           );
           this.cards = { ...revertCards };
-          this.cdr.detectChanges();
-          this.loadCards();
         },
       });
     }
@@ -156,21 +145,15 @@ export class KanbanPage implements OnInit {
             const newCards = { ...this.cards };
             newCards[columnId] = newCards[columnId].filter(c => c.id !== card.id);
             this.cards = { ...newCards };
-            this.cdr.detectChanges();
-
             this.kanbanService.deleteCard(card.id).subscribe({
-              next: () => {
-              },
               error: (err) => {
                 console.error('Erro ao deletar card no banco:', err);
-                this.loadCards();
               },
             });
           }
         }
       ]
     });
-
     await alert.present();
   }
 
@@ -187,7 +170,6 @@ export class KanbanPage implements OnInit {
 
     await modal.present();
     const { data } = await modal.onDidDismiss();
-
     if (data) {
       if (!card) {
         const cardInput = {
@@ -195,7 +177,6 @@ export class KanbanPage implements OnInit {
           columnId: columnId
         };
         this.kanbanService.createCard(cardInput).subscribe({
-          next: () => this.loadCards(),
           error: err => console.error('Erro ao criar card:', err)
         });
       } else {
@@ -205,7 +186,6 @@ export class KanbanPage implements OnInit {
           description: data.description
         };
         this.kanbanService.updateCard(updatedCard).subscribe({
-          next: () => this.loadCards(),
           error: err => console.error('Erro ao atualizar card:', err)
         });
       }

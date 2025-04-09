@@ -12,19 +12,16 @@ export class KanbanService {
     private readonly cardRepo: Repository<CardEntity>,
   ) {}
 
-  //Serviço para criar um card o input é um DTO que contém o título, descrição e id da coluna
   async createCard(data: CreateCardInput): Promise<CardEntity> {
     const card = this.cardRepo.create(data);
     return this.cardRepo.save(card);
   }
 
-  //Serviço para atualizar um card o input é um DTO que contém o id do card, título, descrição e id da coluna
   async updateCard(data: UpdateCardInput): Promise<CardEntity> {
     const card = await this.cardRepo.findOneBy({ id: data.id });
     if (!card) {
       throw new NotFoundException('Card não encontrado');
     }
-    // Atualiza apenas os campos definidos
     if (data.title !== undefined) {
       card.title = data.title;
     }
@@ -37,7 +34,6 @@ export class KanbanService {
     return this.cardRepo.save(card);
   }
 
-  //Serviço para buscar um card pelo id
   async getCard(id: number): Promise<CardEntity> {
     const card = await this.cardRepo.findOneBy({ id });
     if (!card) {

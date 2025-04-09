@@ -12,7 +12,6 @@ export class KanbanResolver {
     private readonly kanbanGateway: KanbanGateway,
   ) {}
 
-  // Query para buscar todos os cards de uma coluna
   @Query(() => [CardModel])
   async getCardsByColumnId(
     @Args('columnId', { type: () => Int }) columnId: number,
@@ -20,7 +19,6 @@ export class KanbanResolver {
     return this.kanbanService.getCardsByColumnId(columnId);
   }
 
-  // Query para buscar um card pelo id
   @Query(() => CardModel)
   async getCard(
     @Args('id', { type: () => Int }) id: number,
@@ -28,7 +26,6 @@ export class KanbanResolver {
     return this.kanbanService.getCard(id);
   }
 
-  // Mutation para criar um card
   @Mutation(() => CardModel)
   async createCard(@Args('data') input: CreateCardInput): Promise<CardModel> {
     const card = await this.kanbanService.createCard(input);
@@ -36,7 +33,6 @@ export class KanbanResolver {
     return card;
   }
 
-  // Mutation para atualizar um card
   @Mutation(() => CardModel)
   async updateCard(@Args('data') data: UpdateCardInput): Promise<CardModel> {
     const card = await this.kanbanService.updateCard(data);
@@ -44,7 +40,6 @@ export class KanbanResolver {
     return card;
   }
 
-  // Mutation para deletar um card
   @Mutation(() => Boolean)
   async deleteCard(
     @Args('id', { type: () => Int }) id: number,
