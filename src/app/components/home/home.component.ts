@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ColunaComponent } from '../coluna/coluna.component';
 import { NavBarraComponent } from '../navbarra/navBar.component';
 import {
@@ -8,7 +8,7 @@ import {
   transferArrayItem,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
-import { Card } from '../../services/cardService';
+import { Card, CardService } from '../../services/cardService';
 
 
 @Component({
@@ -17,23 +17,26 @@ import { Card } from '../../services/cardService';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
-  cardsEmAberto: Card[] = [
-    { "titulo": "123", "descricao": "456", "id": 1 },
+export class HomeComponent implements OnInit  {
+  cardsEmAberto: Card[] = [];
+  cardsRefinamento: Card[] = [];
+  cardsExecucao: Card[] = [];
+  cardsConcluido: Card[] = [];
+  ehPrimeiraColuna: boolean = false
 
-  ];
-  cardsRefinamento: Card[] = [
-    { "titulo": "refinando", "descricao": "refinamento", "id": 2 },
+  constructor(private cardService: CardService) {
+  }
 
-  ];
-  cardsExecucao: Card[] = [
-    { "titulo": "refinando", "descricao": "refinamento", "id": 3 },
+  ngOnInit(): void {
+   // verifica se o inicio da string é oq eu necessito tipo
+      this.cardService.cardsAdicionados$.subscribe(novoCard => 
+        this.cardsEmAberto.push(novoCard));
+      }
 
-  ];
-  cardsConcluido: Card[] = [
-    { "titulo": "refinando", "descricao": "refinamento", "id": 4 },
-
-  ]
+    //let cardsAberto = service.getItem("cards-em-aberto")
+    //verificar qual coluna estou trabalhando
+    //cards = cardsAberto
+  
 
   drop(event: CdkDragDrop<Card[]>) {
     if (event.previousContainer === event.container) {

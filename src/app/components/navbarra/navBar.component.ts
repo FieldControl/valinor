@@ -12,9 +12,8 @@ export class NavBarraComponent {
     constructor(private cardService: CardService) { }
 
     adicionaNovoCard(titulo: string, descricao: string) {
-        if (titulo.trim()) { //trim remove os espaços para poder filtrar o card e ver se é valido para validar que n esta em branco
             this.cardService.adicionarCard(titulo, descricao) //chamo o "carteiro"
-        }
+
     }
 
 }

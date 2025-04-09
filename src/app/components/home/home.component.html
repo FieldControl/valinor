@@ -4,18 +4,17 @@
         <div class="flex-box caixa-grande">
             <!--COLUNA 1-->
             <coluna 
+            ehPrimeiraColuna=true
+            class="HomeComponent" 
             tituloColuna="Em aberto" 
             classeColuna="coluna1 barraRolagem" 
             classeTitulo="titulo-coluna1" 
-
             cdkDropList
             #cardsEmAbertoList="cdkDropList"
             [cdkDropListData]="cardsEmAberto"
-            [cdkDropListConnectedTo]="[cardsRefinamentoList,cardsExecucaoList,cardsConcluidoList]  "
-            class="HomeComponent" 
+            [cdkDropListConnectedTo]="[cardsRefinamentoList,cardsExecucaoList,cardsConcluidoList]"
             (cdkDropListDropped)="drop($event)"
             [cards]="cardsEmAberto">
-            
             </coluna>
 
              <!--COLUNA 2-->

@@ -3,9 +3,10 @@
         <h1>
             <label>
                 <textarea 
+                [(ngModel)]="parametrosCard.titulo"
                     (blur)="onBlur()" 
-                    [disabled]="desabilita"
                     (keydown)="onKeyDown($event)"
+                    [disabled]="desabilita"
                     placeholder="Título:"
                     maxlength=50></textarea>
                 </label>
@@ -14,7 +15,13 @@
     <hr>
     <p>
         <label>
-            <textarea placeholder="Descrição:" maxlength=0></textarea>
+            <textarea 
+            [(ngModel)]="parametrosCard.descricao"
+                    (blur)="onBlur()" 
+                    (keydown)="onKeyDown($event)"
+                    [disabled]="desabilita"
+                    placeholder="Descrição:"
+                    maxlength=100></textarea>
         </label>
     </p>
 </div>

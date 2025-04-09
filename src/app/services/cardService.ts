@@ -20,7 +20,7 @@ export interface Card { //interface com as propriedades do meiu card
     private nextId = 1; // Simples gerador de ID
   
     adicionarCard(titulo: string, descricao:string) {
-      const newCard: Card = { id: this.nextId++, titulo: 'titulo', descricao: 'descricao' };
+      const newCard: Card = { id: this.nextId++, titulo: titulo, descricao: descricao };
       this.cardsAdicionadosSource.next(newCard);
     }
   }

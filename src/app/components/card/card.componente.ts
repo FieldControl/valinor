@@ -10,8 +10,11 @@ import { FormsModule } from '@angular/forms';
     imports: [CommonModule, CdkDrag, FormsModule],
     templateUrl: './card.component.html',
     styleUrl: './card.component.css'
+    
 })
 
+
+  
 export class CardComponent {
     @Input() parametrosCard!: Card;
     desabilita: boolean = false;
@@ -23,8 +26,12 @@ export class CardComponent {
         if (event.key === 'Enter') {
             this.desabilita = true;
         }
+
+        //service.save("cards-coluna-em-aberto", cards);
+
     }
     habilitaInput(){
         this.desabilita=false
     }
+
 }
