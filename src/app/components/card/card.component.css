@@ -1,22 +1,21 @@
-
-div.item-container{
-background: rgb(252, 250, 250);
-border-radius: 10px;
-border-color: rgb(97, 97, 99);
-border: solid 2px;
-width: 200px;
-font: normal 8pt Arial;
-text-align: center;
-margin: 20px;
+div.item-container {
+    background: rgb(252, 250, 250);
+    border-radius: 10px;
+    border-color: rgb(97, 97, 99);
+    border: solid 2px;
+    width: 200px;
+    font: normal 8pt Arial;
+    text-align: center;
+    margin: 20px;
 }
+
 .a:hover {
     transform: scale(1.1);
-    /*passa o mouse */
     transition: ease-in-out 0.2s;
-    /*tempo do aumento*/
     cursor: pointer;
 }
-textarea{
+
+textarea {
     border: solid 2px;
     border-radius: 10px;
     border-color: rgb(217, 217, 219);

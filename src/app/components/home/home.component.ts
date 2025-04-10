@@ -17,7 +17,7 @@ import { Card, CardService } from '../../services/cardService';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit  {
+export class HomeComponent implements OnInit {
   cardsEmAberto: Card[] = [];
   cardsRefinamento: Card[] = [];
   cardsExecucao: Card[] = [];
@@ -28,15 +28,9 @@ export class HomeComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-   // verifica se o inicio da string é oq eu necessito tipo
-      this.cardService.cardsAdicionados$.subscribe(novoCard => 
-        this.cardsEmAberto.push(novoCard));
-      }
-
-    //let cardsAberto = service.getItem("cards-em-aberto")
-    //verificar qual coluna estou trabalhando
-    //cards = cardsAberto
-  
+    this.cardService.cardsAdicionados$.subscribe(novoCard =>
+      this.cardsEmAberto.push(novoCard));
+  }
 
   drop(event: CdkDragDrop<Card[]>) {
     if (event.previousContainer === event.container) {

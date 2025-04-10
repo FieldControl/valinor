@@ -40,8 +40,6 @@
 }
 .a:hover {
     transform: scale(1.1);
-    /*passa o mouse */
     transition: ease-in-out 0.2s;
-    /*tempo do aumento*/
     cursor: pointer;
 }

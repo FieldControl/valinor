@@ -27,8 +27,6 @@ export class CardComponent {
             this.desabilita = true;
         }
 
-        //service.save("cards-coluna-em-aberto", cards);
-
     }
     habilitaInput(){
         this.desabilita=false

@@ -12,7 +12,7 @@ export class NavBarraComponent {
     constructor(private cardService: CardService) { }
 
     adicionaNovoCard(titulo: string, descricao: string) {
-            this.cardService.adicionarCard(titulo, descricao) //chamo o "carteiro"
+        this.cardService.adicionarCard(titulo, descricao)
 
     }
 

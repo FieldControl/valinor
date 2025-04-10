@@ -29,7 +29,7 @@ A proposta deste projeto foi:
 - [RxJS](https://rxjs.dev/)
 - [Angular CDK - Drag and Drop](https://material.angular.io/cdk/drag-drop/overview)
 - HTML5 / CSS3 (com responsividade)
-- FormsModule / EventEmitter / Input & Output decorators
+- FormsModule / EventEmitter / Input & Output 
 
 ## 🧩 Arquitetura dos Componentes
 
@@ -41,21 +41,20 @@ A proposta deste projeto foi:
 
 ## 📷 Preview do Projeto
 
-![kanban-preview](./src/assets/kanban-c:\Users\crist\Downloads\WhatsApp Image 2025-04-09 at 15.42.28.jpeg) 
-
+![kanban-preview](./img/Kanban-Imagem-projeto.jpeg)
 ## 🛠️ Como executar localmente
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seuusuario/kanban-angular.git
+git clone https://github.com/cristianaLuiza/valinor.git
 
 # Entre na pasta do projeto
-cd kanban-angular
+cd valinor
 
 # Instale as dependências
 npm install
 
 # Rode o servidor de desenvolvimento
-ng serve
+npm run start
 
 # Acesse em http://localhost:4200

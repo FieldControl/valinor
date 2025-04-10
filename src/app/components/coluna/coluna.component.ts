@@ -8,30 +8,14 @@ import { CardService, Card } from '../../services/cardService';
     imports: [CommonModule, CardComponent],
     templateUrl: './coluna.component.html',
     styleUrl: './coluna.component.css'
-   
-    
+
+
 })
-export class ColunaComponent /*implements OnInit */{
+export class ColunaComponent {
     titulo: string = '';
-    descricao: string ='';
-    @Input() tituloColuna: string ='';
-    @Input() classeColuna: string='';
-    @Input() classeTitulo: string='';
-    @Input () cards: Card[] = [];
-
-
-    // constructor(private cardService: CardService) {
-    // }
-
-    // ngOnInit(): void {
-    //     if (this.classeColuna.startsWith("coluna1")) { // verifica se o inicio da string é oq eu necessito tipo
-    //         this.cardService.cardsAdicionados$.subscribe(novoCard => {
-    //             this.cards.push(novoCard);
-    //         })
-    //     }
-
-    //     //let cardsAberto = service.getItem("cards-em-aberto")
-    //     //verificar qual coluna estou trabalhando
-    //     //cards = cardsAberto
-    // }
+    descricao: string = '';
+    @Input() tituloColuna: string = '';
+    @Input() classeColuna: string = '';
+    @Input() classeTitulo: string = '';
+    @Input() cards: Card[] = [];
 }
