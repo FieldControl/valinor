@@ -1,0 +1,11 @@
+.container{
+    width:700px;
+    position:relative;
+    box-sizing: border-box;
+}
+@media (max-width: 750px){
+    .container{
+        width:100%;
+        padding: 0 20px;
+    }
+}
