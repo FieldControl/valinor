@@ -1,0 +1,27 @@
+name: Pull-and-Deploy-on-Server
+
+on:
+  push:
+    branches:
+      - minha-feature
+
+jobs:
+  deploy:
+    name: Deploy no Servidor
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do repositório
+      uses: actions/checkout@v4
+
+    - name: Executar git pull e atualizar containers via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.kanban_private_key }}
+        script: |
+          cd ~/MatheusKanban
+          git pull origin minha-feature
+          sudo docker-compose down
+          sudo docker-compose --env-file ./kanban-backend/.env up -d
