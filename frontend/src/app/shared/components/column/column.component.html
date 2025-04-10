@@ -1,1 +1,9 @@
-<p>column works!</p>
+<div class="columns-container">
+  <div *ngFor="let column of columns" class="column-container">
+    <h3 class="column-title">{{ column.title }}</h3>
+    <div class="column-content">
+      <app-card />
+    </div>
+  </div>
+
+ 

@@ -1,1 +1,10 @@
-<p>card works!</p>
+<div class="checkbox-group">
+  <div *ngFor="let item of items" class="checkbox-item">
+    <label>
+      <input type="checkbox" /> {{ item }}
+    </label>
+  </div>
+</div>
+
+<input type="text" [(ngModel)]="newItem" />
+<button class="add-btn" id="add-card" (click)="addItem()">+</button>
