@@ -9,5 +9,19 @@
     --black-010: #2a2a30;
     
     --grey:#9b9ba0;
+    
+}
 
+.central-col,
+.central-row,
+.centralized{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.central-col{
+    flex-direction: column;
+}
+.central-row{
+    flex-direction: row;
 }

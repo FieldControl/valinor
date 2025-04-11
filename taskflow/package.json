@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "rimraf ./angular && ng serve --watch",
+    "prebuild": "rimraf ./dist",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -22,6 +23,7 @@
     "@angular/ssr": "^19.2.7",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
+    "taskflow": "file:",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
