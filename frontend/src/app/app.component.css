@@ -1,0 +1,110 @@
+/* Estilo global do body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #f2f2f2;
+    color: #333;
+  }
+  
+  /* Container principal */
+  .app {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título principal */
+  .app h2 {
+    margin-top: 0;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  /* Formulário */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Aumentando o espaçamento entre os campos */
+  }
+  
+  form label {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  form input, form select, form textarea {
+    padding: 10px; /* Aumentando o padding */
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  form button {
+    width: 150px;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Efeito hover no botão */
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo dos cards */
+  .cards-list {
+    margin-top: 30px;
+  }
+  
+  .cards-list h3 {
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  .card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;  /* Aumentando o padding do card */
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h4 {
+    margin: 0 0 8px 0;
+    font-weight: 500;
+  }
+  
+  .card p {
+    margin: 4px 0;
+    line-height: 1.4;
+  }
+  
+  /* Botões dentro do card */
+  .card button {
+    margin-right: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .card button.btn-danger {
+    background-color: #dc3545; /* Cor do botão de excluir */
+  }
+  
+  .card button.btn-danger:hover {
+    background-color: #c82333; /* Efeito hover no botão de excluir */
+  }
+  

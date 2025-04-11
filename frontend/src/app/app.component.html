@@ -1,0 +1,82 @@
+<!-- Botão de nova tarefa -->
+<button (click)="mostrarFormulario = true" class="btn-adicionar">+ Nova Tarefa</button>
+
+<!-- Formulário de criação -->
+<div *ngIf="mostrarFormulario" class="formulario-container">
+  <form [formGroup]="cardForm" (ngSubmit)="submitForm()" class="formulario">
+    <label>
+      Qual a tarefa:
+      <input formControlName="nome" type="text" placeholder="Título da tarefa" />
+    </label>
+
+    <label>
+      Categoria:
+      <input formControlName="categoria" type="text" placeholder="Categoria" />
+    </label>
+
+    <label>
+      Descrição:
+      <textarea formControlName="descricao" placeholder="Descrição detalhada"></textarea>
+    </label>
+
+    <label>
+      Data:
+      <input formControlName="data" type="date" [min]="minDate" [max]="maxDate" />
+    </label>
+
+    <button type="submit" [disabled]="cardForm.invalid">Salvar</button>
+    <button type="button" (click)="cancelarEdicao()">Cancelar</button>
+  </form>
+</div>
+
+<!-- Quadro Kanban -->
+<div class="kanban-board">
+  <!-- Coluna Pendente -->
+  <div class="kanban-column">
+    <h2>Pendente</h2>
+    <div *ngFor="let card of cardsPendente" class="kanban-card">
+      <h3>{{ card.nome }}</h3>
+      <p><strong>Categoria:</strong> {{ card.categoria }}</p>
+      <p><strong>Descrição:</strong> {{ card.descricao }}</p>
+      <p><strong>Data:</strong> {{ card.data | date }}</p>
+      <div class="card-actions">
+        <button (click)="editarCard(card)">Editar</button>
+        <button (click)="excluirCard(card)">Excluir</button>
+        <button (click)="moverCard(card, 'Fazendo')">→ Fazendo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna Fazendo -->
+  <div class="kanban-column">
+    <h2>Fazendo</h2>
+    <div *ngFor="let card of cardsFazendo" class="kanban-card">
+      <h3>{{ card.nome }}</h3>
+      <p><strong>Categoria:</strong> {{ card.categoria }}</p>
+      <p><strong>Descrição:</strong> {{ card.descricao }}</p>
+      <p><strong>Data:</strong> {{ card.data | date }}</p>
+      <div class="card-actions">
+        <button (click)="editarCard(card)">Editar</button>
+        <button (click)="excluirCard(card)">Excluir</button>
+        <button (click)="moverCard(card, 'Pendente')">← Pendente</button>
+        <button (click)="moverCard(card, 'Finalizado')">→ Finalizado</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna Finalizado -->
+  <div class="kanban-column">
+    <h2>Finalizado</h2>
+    <div *ngFor="let card of cardsFinalizado" class="kanban-card">
+      <h3>{{ card.nome }}</h3>
+      <p><strong>Categoria:</strong> {{ card.categoria }}</p>
+      <p><strong>Descrição:</strong> {{ card.descricao }}</p>
+      <p><strong>Data:</strong> {{ card.data | date }}</p>
+      <div class="card-actions">
+        <button (click)="editarCard(card)">Editar</button>
+        <button (click)="excluirCard(card)">Excluir</button>
+        <button (click)="moverCard(card, 'Fazendo')">← Fazendo</button>
+      </div>
+    </div>
+  </div>
+</div>
