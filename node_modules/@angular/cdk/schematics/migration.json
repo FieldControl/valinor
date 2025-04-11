@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "migration-v19": {
+      "version": "19.0.0-0",
+      "description": "Updates the Angular CDK to v19",
+      "factory": "./ng-update/index#updateToV19"
+    },
+    "ng-post-update": {
+      "description": "Prints out results after ng-update.",
+      "factory": "./ng-update/index#postUpdate",
+      "private": true
+    }
+  }
+}

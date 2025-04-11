@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/uuid": "^10.0.0"
+  },
+  "dependencies": {
+    "@angular/cdk": "^19.2.9",
+    "@nestjs/core": "^11.0.15",
+    "cors": "^2.8.5"
+  }
+}

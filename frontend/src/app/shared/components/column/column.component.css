@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap');
+
 @media (max-width: 1024px) {
   .column-container {
     flex-basis: 20%;
@@ -16,17 +18,47 @@
   }
 }
 
+h1 {
+  color: white;
+  margin-left: 20px;
+}
+
 .columns-container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 20px;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  max-width: 100%;
+}
+
+.columns-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.columns-container::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 8px;
+}
+
+.columns-container::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 8px;
+}
+
+.columns-container::-webkit-scrollbar-thumb:hover {
+  background: #777777;
 }
 
 .column-container {
-  flex: 0 0 20%;
+  flex: 0 0 auto;
+  max-width: 100%;
   background-color: #1e1e1e;
   border-radius: 12px;
   padding: 16px;
@@ -41,14 +73,97 @@
 }
 
 .column-title {
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 16px;
   color: #ffffff;
+  text-align: center;
+}
+
+.column-title h3 {
+  cursor: pointer;
 }
 
 .column-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.button {
+  background-color: #333333;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: #ffffff;
+  font-size: 0.9em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #444444;
+  text-decoration: none;
+}
+
+.button:active {
+  background-color: #555555;
+}
+
+.button:hover,
+.button:focus {
+  text-decoration: none !important;
+  outline: none;
+}
+
+button.button {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+button.button:hover,
+button.button:focus {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.add-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.input-field {
+  background-color: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 0.9em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.delete-column-button {
+  background-color: red;
+  border: none;
+  color: #ffffff;
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.add-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }

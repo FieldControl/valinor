@@ -1,14 +1,15 @@
 <div class="checkbox-group">
-  <div *ngFor="let item of items" class="checkbox-item">
+  <div *ngFor="let item of items; let i = index" class="checkbox-item">
     <label class="label-checkbox">
       <input type="checkbox" />
-      {{ item }}
+      <span>{{ item }}</span>
     </label>
+    <button class="delete-button" (click)="deleteItem(i)">x</button>
   </div>
 </div>
 
 <div class="add-card">
-  <textarea [(ngModel)]="newItem" class="input-field" placeholder="Adicione um item"></textarea>
+  <textarea [(ngModel)]="newItem.name" class="input-field" placeholder="Adicione um item"></textarea>
   <button class="button" id="add-card" (click)="addItem()">
     <span>+</span>
   </button>

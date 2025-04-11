@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RequestMethod = void 0;
+var RequestMethod;
+(function (RequestMethod) {
+    RequestMethod[RequestMethod["GET"] = 0] = "GET";
+    RequestMethod[RequestMethod["POST"] = 1] = "POST";
+    RequestMethod[RequestMethod["PUT"] = 2] = "PUT";
+    RequestMethod[RequestMethod["DELETE"] = 3] = "DELETE";
+    RequestMethod[RequestMethod["PATCH"] = 4] = "PATCH";
+    RequestMethod[RequestMethod["ALL"] = 5] = "ALL";
+    RequestMethod[RequestMethod["OPTIONS"] = 6] = "OPTIONS";
+    RequestMethod[RequestMethod["HEAD"] = 7] = "HEAD";
+    RequestMethod[RequestMethod["SEARCH"] = 8] = "SEARCH";
+    RequestMethod[RequestMethod["PROPFIND"] = 9] = "PROPFIND";
+    RequestMethod[RequestMethod["PROPPATCH"] = 10] = "PROPPATCH";
+    RequestMethod[RequestMethod["MKCOL"] = 11] = "MKCOL";
+    RequestMethod[RequestMethod["COPY"] = 12] = "COPY";
+    RequestMethod[RequestMethod["MOVE"] = 13] = "MOVE";
+    RequestMethod[RequestMethod["LOCK"] = 14] = "LOCK";
+    RequestMethod[RequestMethod["UNLOCK"] = 15] = "UNLOCK";
+})(RequestMethod || (exports.RequestMethod = RequestMethod = {}));

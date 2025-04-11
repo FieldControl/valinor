@@ -3,16 +3,25 @@ GET http://localhost:3000/kanban
 
 # get kanban by id
 
-GET http://localhost:3000/kanban/3
+GET http://localhost:3000/kanban/{id}
 
-# create kanban
+# create item
 
-POST http://localhost:3000/kanban
+POST http://localhost:3000/kanban/
 Content-Type: application/json
 
 {
-  "item": "kanban",
-  "id": 3
+  "id": 2,
+  "item": "kanban"  
+}
+
+POST http://localhost:3000/kanban/columns
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Nova Coluna",
+  "cards": []
 }
 
 # update kanban

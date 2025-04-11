@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap');
+
 .checkbox-group {
   display: flex;
   flex-direction: column;
@@ -29,6 +31,7 @@
 .checkbox-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: #0066ff;
   border-radius: 8px;
   padding: 8px 12px;
@@ -37,7 +40,17 @@
   width: 90%;
 }
 
-.checkbox-item input[type="checkbox"] {
+.label-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 0.9em;
+  font-weight: bold;
+  justify-content: flex-start;
+}
+
+.label-checkbox input[type="checkbox"] {
   appearance: none;
   width: 16px;
   height: 16px;
@@ -46,19 +59,39 @@
   outline: none;
   cursor: pointer;
   background-color: #ffffff;
-  margin-right: 10px;
 }
 
-.checkbox-item input[type="checkbox"]:checked {
+.label-checkbox input[type="checkbox"]:checked {
   background-color: #4caf50;
   border-color: #4caf50;
 }
 
-.checkbox-item label {
-  color: white;
+.label-checkbox input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: #5eff00;
+}
+
+.delete-button {
+  background-color: #e66262;
+  border: none;
+  color: #ffffff;
   font-size: 0.9em;
   cursor: pointer;
-  font-weight: bold;
+  border-radius: 30px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #f56410;
+}
+
+.delete-button:active {
+  background-color: #ff0000;
 }
 
 .kanban-item {
@@ -81,6 +114,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
   color: #ffffff;
   font-size: 0.9em;
   cursor: pointer;
@@ -99,6 +133,7 @@
   color: #ffffff;
   font-size: 0.9em;
   width: 100%;
+  padding-right: 40px;
   box-sizing: border-box;
   resize: none;
   overflow-wrap: break-word;
@@ -110,6 +145,34 @@
   outline: none;
   border-color: #555555;
   background-color: #2a2a2a;
+}
+
+.input-field:hover {
+  text-decoration: none;
+}
+
+.input-field:hover,
+.input-field:focus {
+  text-decoration: none !important;
+  outline: none;
+}
+
+.input-field::-webkit-scrollbar {
+  width: 8px;
+}
+
+.input-field::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 8px;
+}
+
+.input-field::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 8px;
+}
+
+.input-field::-webkit-scrollbar-thumb:hover {
+  background: #777777;
 }
 
 .button {
@@ -129,8 +192,48 @@
 
 .button:hover {
   background-color: #444444;
+  text-decoration: none;
 }
 
 .button:active {
   background-color: #555555;
+}
+
+.button:hover,
+.button:focus {
+  text-decoration: none !important;
+  outline: none;
+}
+
+button.button {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+button.button:hover,
+button.button:focus {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.button#add-card {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  font-size: 1em;
+  border-radius: 50%;
+  background-color: #333333;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button#add-card:hover {
+  background-color: #444444;
 }

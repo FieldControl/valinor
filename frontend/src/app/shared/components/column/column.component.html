@@ -1,7 +1,45 @@
+<h1>  Desafio Kanban Field Control </h1>
+<!-- Formulário para adicionar nova coluna -->
+
+<div class="add-column">
+  <ng-container *ngIf="isAddingColumn; else addButton">
+    <input
+      type="text"
+      [(ngModel)]="newColumnTitle"
+      class="input-field"
+      placeholder="Digite o nome da nova coluna"
+    />
+    <button class="button" (click)="addColumn()">Confirmar</button>
+    <button class="button cancel" (click)="cancelAddingColumn()">Cancelar</button>
+  </ng-container>
+  <ng-template #addButton>
+    <button class="button" (click)="startAddingColumn()">Adicionar Coluna</button>
+  </ng-template>
+</div>
+
 <div class="columns-container">
-  <div *ngFor="let column of columns" class="column-container">
-    <h3 class="column-title">{{ column.title }}</h3>
+  <div *ngFor="let column of columns; let i = index" class="column-container">
+    <div class="column-title">
+      <ng-container *ngIf="editingColumnIndex === i; else viewMode">
+        <input
+          type="text"
+          [(ngModel)]="editedColumnTitle"
+          class="input-field"
+          placeholder="Editar título da coluna"
+        />
+        <button class="button" (click)="saveColumnTitle(i)">Salvar</button>
+        <button class="button cancel" (click)="cancelEditingColumn()">Cancelar</button>
+      </ng-container>
+      <ng-template #viewMode>
+        <h3 (click)="startEditingColumn(i)">{{ column.title }}</h3>
+      </ng-template>
+    </div>
     <div class="column-content">
-      <app-card />
+      <app-card></app-card>
+    </div>
+    <div class="add-item">
+      <button class="button delete-column-button" (click)="confirmDeleteColumn(i)">Excluir Coluna</button>
     </div>
   </div>
+
+

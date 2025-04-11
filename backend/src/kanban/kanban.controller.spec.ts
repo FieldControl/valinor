@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Test, TestingModule } from '@nestjs/testing';
 import { KanbanController } from './kanban.controller';
 import { KanbanService } from './kanban.service';
