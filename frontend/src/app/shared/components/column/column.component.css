@@ -18,9 +18,17 @@
   }
 }
 
-h1 {
+h1, h2 {
   color: white;
   margin-left: 20px;
+  
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Google Sans', sans-serif;
+    
 }
 
 .columns-container {
@@ -145,7 +153,7 @@ button.button:focus {
   padding: 8px 12px;
   color: #ffffff;
   font-size: 0.9em;
-  width: 100%;
+  width: 30%;
   box-sizing: border-box;
 }
 
