@@ -1,0 +1,24 @@
+# list kanban
+GET http://localhost:3000/kanban 
+
+# get kanban by id
+
+GET http://localhost:3000/kanban/3
+
+# create kanban
+
+POST http://localhost:3000/kanban
+Content-Type: application/json
+
+{
+  "item": "kanban",
+  "id": 3
+}
+
+# update kanban
+
+PATCH http://localhost:3000/kanban/3
+
+# delete kanban
+
+DELETE http://localhost:3000/kanban/3

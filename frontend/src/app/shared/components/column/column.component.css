@@ -19,23 +19,36 @@
 .columns-container {
   display: flex;
   justify-content: flex-start;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 20px;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 .column-container {
-  flex: 1 1 15%;
-  border: 1px solid #ccc;
+  flex: 0 0 20%;
+  background-color: #1e1e1e;
+  border-radius: 12px;
   padding: 16px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: 10px;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  max-height: 150%;
+  overflow: hidden;
 }
 
 .column-title {
-  font-size: 1.5em;
+  font-size: 1.1em;
+  font-weight: bold;
   margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.column-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
