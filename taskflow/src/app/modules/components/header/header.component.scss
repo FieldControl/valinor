@@ -1,0 +1,22 @@
+@use "../../../../scss/theme/variables";
+:host{
+    header{
+        @extend .central-row;
+        width: 100vw;
+        height: auto;
+        border-bottom:1px solid var(--grey);
+        justify-content: space-between;
+        box-shadow: 0px 0px 5px #979797;
+        margin: 0;
+        z-index: 99;
+        position: fixed;
+        img{
+            height:auto;
+            width: 200px;
+            margin: 10px;
+            
+            
+        }
+    }
+    
+}

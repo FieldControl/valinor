@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+
 
 
 html,
@@ -9,13 +9,13 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: var(--black);
+    background-color: var(--white);
 }
 h1,h2,h3{
     font-size:22;
 }
 h1,h2,h3,a{
-    color: var(--white)
+    color: var(--black)
 }
 p{
     color: var(--grey);
