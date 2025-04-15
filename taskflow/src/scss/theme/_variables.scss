@@ -25,3 +25,8 @@
 .central-row{
     flex-direction: row;
 }
+.central-row-between{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}

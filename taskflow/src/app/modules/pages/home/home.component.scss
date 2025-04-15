@@ -1,36 +1,65 @@
 @use "../../../../scss/theme/_variables.scss";
-
+@use "../../../../scss/components/button";
 
 :host {
   main {
     @extend .central-col;
-    height: 100vh;
+    height: calc(100vh - 25px);
     width: 100vw;
+    div {
     h2,p{
       text-align: center;
 
     }
     form {
+      width: 480px;
       @extend .central-col;
       label{
         @extend .central-col;
         span{
           align-self:flex-start;
-          
         }
         input{
           width: 480px;
           height:45px;
           font-size:  30px;
           border-radius: 7px;
-          border:2px solid var(--primary)
-        }
-        input:focus{
-          border:2px solid var(--primary-010)
+          border:2px solid var(--primary);
+          &:focus{
+            outline: none; 
+            border:2px solid var(--primary-020)
+          }  
         }
         
+        
+      }
+      span{
+        @extend .central-row-between;
+        width: 100%;
+        margin: 5px;
+        label{
+          flex-direction: row;
+          input{
+          width: 13px;
+          height: 13px;
+          }
+        }
+      }
+
+    }
+
+    .g-button{
+      @extend .btn, .btn-primary;
+      background-color: #cccccc;
+      color: black;
+      justify-self: center;
+      img{
+        width: 20px;
+        height: 20px;
+        margin: 0px 5px; 
       }
     }
+
     .divider {
       @extend .central-row;
       text-align: center;
@@ -48,8 +77,13 @@
       border-bottom: 1px solid #ccc;
       margin: 0 10px;
     }
-  
   }
+  }
+footer{
+  width: 100vw;
+  height: 20px;
+  @extend .central-row
+}
 
 
 }

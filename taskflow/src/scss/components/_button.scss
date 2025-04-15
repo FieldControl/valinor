@@ -11,9 +11,11 @@
         padding:10px;
         font-size: 16px;
         border-radius: 7px;
+        border: 1px solid var(--primary);
     }
+
     &.btn-primary{
-        color: var(--black-010);
+        color: var(--white);
         background: var(--primary);
         &:hover{
             background: var(--primary-010);
