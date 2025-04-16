@@ -1,0 +1,36 @@
+@use '../theme/variables';
+@use '../components/input-text';
+
+.form {
+    form {
+        gap: 5px;
+
+        &,
+        label {
+            @extend .central-col;
+            margin: 5px 20px;
+
+            span {
+                align-self: start;
+            }
+
+            input {
+                @extend .input-text;
+            }
+
+
+        }
+        span{
+            label{
+                @extend .central-row;
+                input{
+                    width: 13px;
+                    height: 13px;
+                }
+            }
+        }
+
+
+    }
+
+}

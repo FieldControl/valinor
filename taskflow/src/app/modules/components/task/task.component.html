@@ -1,0 +1,31 @@
+<div class="task-card">
+  <header>
+    <div class="task-title">
+      <h3>{{ task.title }}</h3>
+      <span class="priority" [ngClass]="getPriorityClass(task.priorityLevel).toLowerCase()">{{
+        getPriorityText(task.priorityLevel)
+      }}</span>
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="editTask(task)">
+        <mat-icon>edit</mat-icon>
+        Editar
+      </button>
+      <button mat-menu-item (click)="deleteTask(task)" class="delete">
+        <mat-icon color="warn">delete</mat-icon>
+        Excluir
+      </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </header>
+  <p class="description">{{ task.description }}</p>
+
+  <div class="footer">
+    <span class="date">{{ dates(task) }}</span>
+    <button class="status-btn" [ngClass]="getStatusClass(task.status)">
+      <mat-icon>check_circle</mat-icon>
+    </button>
+  </div>
+</div>

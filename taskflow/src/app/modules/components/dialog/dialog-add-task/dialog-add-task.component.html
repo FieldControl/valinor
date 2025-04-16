@@ -1,0 +1,57 @@
+<h2>Adicionar Nova Tarefa</h2>
+<form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+  <label>
+    <span>Título</span>
+    <input type="text" name="title" [(ngModel)]="task.title" required class="input-text"/>
+  </label>
+
+  <label
+    ><span>Descrição</span>
+    <textarea
+      class="input-text"
+      matInput
+      name="description"
+      [(ngModel)]="task.description"
+    ></textarea>
+  </label>
+
+  <label
+    ><span>Status</span>
+    <select class="input-text" name="status" [(ngModel)]="task.status" required>
+      <option value="To-do">To-do</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Done">Done</option>
+    </select>
+  </label>
+
+  <label
+    ><span>Prioridade</span>
+
+    <select class="input-text"name="priorityLevel" [(ngModel)]="task.priorityLevel" required>
+      <option value="1">Baixíssima</option>
+      <option value="2">Baixa</option>
+      <option value="3">Média</option>
+      <option value="4">Alta</option>
+      <option value="5">Altíssima</option>
+    </select>
+  </label>
+
+  <label
+    ><span>Data de Início</span>
+
+    <input class="input-text" type="date" name="initDate" [(ngModel)]="task.initDate" required />
+  </label>
+  <label
+    ><span>Data de Término</span>
+    <input class="input-text" type="date" name="endDate" [(ngModel)]="task.endDate" />
+  </label>
+
+  <div class="actions">
+    <button class="btn btn-primary" type="button" (click)="onCancel()">
+      Cancelar
+    </button>
+    <button class="btn btn-primary" type="submit" [disabled]="taskForm.invalid">
+      Salvar
+    </button>
+  </div>
+</form>

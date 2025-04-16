@@ -1,5 +1,6 @@
 @use '../../../../styles.scss';
 :host{
+    
     .perfil{
         @extend .centralized;
         height: 30px;
@@ -10,10 +11,43 @@
         background-color: var(--primary);
         margin-right: 10px;
     }
+    .menu{
+        padding-top: 70px;
+        width: calc(100vw - 20px);
+        display: flex;
+        justify-content: end;
+        box-sizing: border-box;
+    }
     main{
-        
-        div.stap{
+        @extend .central-row;
+        width: calc(100vw - 20px);
+        height: calc(100vh - 150px);
+        margin: 2px;
+        padding:5px;
+        align-self: center;
+        gap: 10px;
+        @media (max-width: 750px) {
+            flex-direction: column;
+            min-height: 300px;
+            max-height: auto;
+        }
+        div.step{
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 1px 1px 4px gray;
+            border-radius: 5px;
+            h3{
+                width: 100%;
+                text-align: center;
+            }
+            ul{
+                height: calc(100% - 55px);
+                overflow: auto;
+            }
 
         }
+        
     }
 }

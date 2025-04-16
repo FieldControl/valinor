@@ -1,16 +1,46 @@
 <app-header>
-    <div class="perfil">
-        J
-    </div>
+  <div class="perfil">J</div>
 </app-header>
 <div class="menu">
-    <button>
-        Adicionar
-    </button>
+  <button class="btn btn-primary" (click)=" openDialog()">
+    <img src="/assets/icons/plus.svg" alt="" /> Adicionar tarefa
+  </button>
 </div>
 <main>
-
-    <div class="step"></div>
-    <div class="step"></div>
-    <div class="step"></div>
+  <div class="step">
+    <h3>To-do</h3>
+    <ul>
+        @for (item of toDoTasks; track item) {
+            <li>
+                <app-task
+                    [task]="item"
+                />
+            </li>
+        }
+    </ul>
+  </div>
+  <div class="step">
+    <h3>In Progress</h3>
+    <ul>
+      @for (item of inProgressTasks; track item) {
+          <li>
+              <app-task
+                  [task]="item"
+              />
+          </li>
+      }
+  </ul>
+  </div>
+  <div class="step">
+    <h3>Done</h3>
+    <ul>
+      @for (item of doneTasks; track item) {
+          <li>
+              <app-task
+                  [task]="item"
+              />
+          </li>
+      }
+  </ul>
+  </div>
 </main>
