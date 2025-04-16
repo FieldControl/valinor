@@ -1,4 +1,4 @@
-<h2>Adicionar Nova Tarefa</h2>
+<h2>{{titleDialog}}</h2>
 <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
   <label>
     <span>Título</span>
@@ -39,11 +39,11 @@
   <label
     ><span>Data de Início</span>
 
-    <input class="input-text" type="date" name="initDate" [(ngModel)]="task.initDate" required />
+    <input class="input-text" type="date" name="initDate" [(ngModel)]="task.initDate"  required />
   </label>
   <label
     ><span>Data de Término</span>
-    <input class="input-text" type="date" name="endDate" [(ngModel)]="task.endDate" />
+    <input class="input-text" type="date" name="endDate" [(ngModel)]="task.endDate" [value]="task.initDate" />
   </label>
 
   <div class="actions">

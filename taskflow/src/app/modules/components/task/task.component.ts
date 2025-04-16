@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Task } from '../../interface/task.interface';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { DialogAddTaskComponent } from '../dialog/dialog-add-task/dialog-add-task.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-task',
@@ -13,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class TaskComponent {
   @Input() task!: Task;
+  #dialog = inject(MatDialog);
   getPriorityText(priorityLevel: number): string {
     switch (priorityLevel) {
       case 1:
@@ -71,10 +74,8 @@ export class TaskComponent {
     return `${day}/${month}`;
   }
   editTask(task: Task): void {
-    console.log('Editando tarefa:', task);
-    // Adicione aqui a lógica para editar a tarefa
+      this.#dialog.open(DialogAddTaskComponent, { data: { taskEdit: task } })
   }
-
   deleteTask(task: Task): void {
     console.log('Excluindo tarefa:', task);
     // Adicione aqui a lógica para excluir a tarefa
