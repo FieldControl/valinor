@@ -1,0 +1,13 @@
+@use "../../../../styles.scss";
+.g-button {
+    @extend .btn, .btn-primary;
+    background-color: #cccccc;
+    color: black;
+    justify-self: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 0px 5px;
+    }
+  }

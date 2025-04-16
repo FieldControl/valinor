@@ -1,0 +1,19 @@
+@use '../../../../styles.scss';
+:host{
+    .perfil{
+        @extend .centralized;
+        height: 30px;
+        width: 30px;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        background-color: var(--primary);
+        margin-right: 10px;
+    }
+    main{
+        
+        div.stap{
+
+        }
+    }
+}

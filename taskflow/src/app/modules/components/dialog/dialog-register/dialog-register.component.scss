@@ -1,0 +1,65 @@
+@use '../../../../../styles.scss';
+
+:host {
+
+    header {
+        @extend .central-row-between;
+
+        h2 {
+            text-align: center;
+            margin-left:15px ;
+
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+            color: var(--primary-020);
+            box-sizing: border-box;
+            padding: 3px;
+            margin: 10px;
+
+            &:hover {
+                background-color: var(--primary);
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+    form {
+        gap: 5px;
+
+        &,
+        label {
+            @extend .central-col;
+            margin: 5px 20px;
+
+            span {
+                align-self: start;
+            }
+
+            input {
+                @extend .input-text;
+            }
+
+
+        }
+        span{
+            label{
+                @extend .central-row;
+                input{
+                    width: 13px;
+                    height: 13px;
+                }
+            }
+        }
+
+
+    }
+    p{
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,19 @@
+@use '../theme/variables';
+.divider {
+  @extend .central-row;
+  text-align: center;
+  margin: 20px 0;
+
+  span {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin: 0 10px;
+  }
+}

@@ -23,8 +23,11 @@
       <div class="divider">
         <span>ou continue com</span>
       </div>
-      <button class="g-button"><img src="assets/google.png" alt="google logo">Google</button>
-      <p>Não tem uma conta? <a href="">Cadastre-se</a></p>
+      <app-google-btn
+        text="Google"
+        (click)="clickGoogle()"
+      />
+      <p>Não tem uma conta? <button (click)="openDialog()">Cadastre-se</button></p>
   </div>
 </main>
 <footer>
