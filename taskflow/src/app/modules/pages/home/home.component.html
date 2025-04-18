@@ -4,13 +4,13 @@
   <div class="login">
     <h2>Bem-vindo de volta!</h2>
     <p>Entre na sua conta para continuar</p>
-    <form action="">
+    <form (ngSubmit)="login(form)" #form = "ngForm">
         <label for=""><span>E-mail</span>
-            <input type="email" />
+            <input type="email" name="email" required ngModel />
         </label
         >
         <label for=""><span>Senha</span>
-            <input type="password" />
+            <input type="password" name="password" required ngModel />
         </label>
         <span>
           <label for="">
@@ -18,15 +18,9 @@
           </label>
           <a href="#">Esqueceu sua senha?</a>
         </span>
-        <button class="btn btn-primary">Entrar</button>
+        <button type="submit" class="btn btn-primary">Entrar</button>
       </form>
-      <div class="divider">
-        <span>ou continue com</span>
-      </div>
-      <app-google-btn
-        text="Google"
-        (click)="clickGoogle()"
-      />
+      
       <p>Não tem uma conta? <button (click)="openDialog()">Cadastre-se</button></p>
   </div>
 </main>

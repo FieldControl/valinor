@@ -5,162 +5,87 @@ import { HeaderComponent } from "../../components/header/header.component";
 import { TaskComponent } from "../../components/task/task.component";
 import { DialogAddTaskComponent } from "../../components/dialog/dialog-add-task/dialog-add-task.component";
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { LoginResponse } from '../../interface/login-response.interface';
+import { AuthService } from '../../../auth.service';
+import { gql, GraphQLClient } from 'graphql-request';
 
+interface FindAllUserTaskResponse {
+  findAllUserTask: Task[];
+}
 @Component({
   selector: 'app-workspace',
   imports: [HeaderComponent, MatDialogModule, TaskComponent],
   templateUrl: './workspace.component.html',
   styleUrl: './workspace.component.scss'
 })
-export class WorkspaceComponent {
-  private tasksSubject = new BehaviorSubject<Task[]>([]); 
-  public tasks$ = this.tasksSubject.asObservable(); 
 
+export class WorkspaceComponent {
+  public user: LoginResponse;
+  private tasksSubject = new BehaviorSubject<Task[]>([]);
+  public tasks$ = this.tasksSubject.asObservable();
   public toDoTasks: Task[] = [];
   public inProgressTasks: Task[] = [];
   public doneTasks: Task[] = [];
+  public graphQlClient: GraphQLClient;
   #dialog = inject(MatDialog);
+ 
     public openDialog(){
       this.#dialog.open(DialogAddTaskComponent,{
         width:'600px'
       })
     }
-  constructor() {
-    this.tasksSubject.next(this.tasks); 
-    this.observeTasks(); 
-  }
-  
-
-  public tasks: Task[] = [
-    {
-      _id: '1',
-      userId: '123',
-      title: 'Finalizar relatório',
-      description: 'Completar o relatório mensal de vendas.',
-      status: 'In Progress',
-      priorityLevel: 3,
-      initDate: new Date('2025-04-10'),
-      endDate: new Date('2025-04-15')
-    },
-    {
-      _id: '2',
-      userId: '124',
-      title: 'Revisar código',
-      description: 'Revisar o código do módulo de autenticação.',
-      status: 'To-do',
-      priorityLevel: 2,
-      initDate: new Date('2025-04-12')
-    },
-    {
-      _id: '3',
-      userId: '125',
-      title: 'Planejar reunião',
-      description: 'Planejar a reunião de alinhamento com a equipe.',
-      status: 'Done',
-      priorityLevel: 1,
-      initDate: new Date('2025-04-14'),
-      endDate: new Date('2025-04-16')
-    },
-    {
-      _id: '4',
-      userId: '126',
-      title: 'Criar apresentação',
-      description: 'Preparar slides para a reunião de vendas.',
-      status: 'In Progress',
-      priorityLevel: 5,
-      initDate: new Date('2025-04-15')
-    },
-    {
-      _id: '5',
-      userId: '127',
-      title: 'Atualizar documentação',
-      description: 'Revisar e atualizar a documentação do projeto.',
-      status: 'To-do',
-      priorityLevel: 3,
-      initDate: new Date('2025-04-16'),
-      endDate: new Date('2025-04-20')
-    },
-    {
-      _id: '6',
-      userId: '128',
-      title: 'Testar funcionalidades',
-      description: 'Executar testes no módulo de pagamentos.',
-      status: 'Done',
-      priorityLevel: 4,
-      initDate: new Date('2025-04-17'),
-      endDate: new Date('2025-04-18')
-    },
-    {
-      _id: '7',
-      userId: '129',
-      title: 'Corrigir bugs',
-      description: 'Resolver problemas relatados no sistema.',
-      status: 'In Progress',
-      priorityLevel: 5,
-      initDate: new Date('2025-04-18')
-    },
-    {
-      _id: '8',
-      userId: '130',
-      title: 'Planejar campanha',
-      description: 'Definir estratégias para a nova campanha de marketing.',
-      status: 'To-do',
-      priorityLevel: 1,
-      initDate: new Date('2025-04-19')
-    },
-    {
-      _id: '9',
-      userId: '131',
-      title: 'Revisar contratos',
-      description: 'Analisar contratos com fornecedores.',
-      status: 'Done',
-      priorityLevel: 2,
-      initDate: new Date('2025-04-20'),
-      endDate: new Date('2025-04-22')
-    },
-    {
-      _id: '10',
-      userId: '132',
-      title: 'Configurar servidor',
-      description: 'Configurar o novo servidor de produção.',
-      status: 'In Progress',
-      priorityLevel: 5,
-      initDate: new Date('2025-04-21')
-    },
-    {
-      _id: '11',
-      userId: '133',
-      title: 'Criar wireframes',
-      description: 'Desenhar wireframes para o novo site.',
-      status: 'To-do',
-      priorityLevel: 3,
-      initDate: new Date('2025-04-22'),
-      endDate: new Date('2025-04-25')
-    },
-    {
-      _id: '12',
-      userId: '134',
-      title: 'Realizar treinamento',
-      description: 'Treinar a equipe sobre o novo sistema.',
-      status: 'Done',
-      priorityLevel: 5,
-      initDate: new Date('2025-04-23'),
-      endDate: new Date('2025-04-24')
-    },
-    {
-      _id: '13',
-      userId: '135',
-      title: 'Escrever artigo',
-      description: 'Escrever um artigo para o blog da empresa.',
-      status: 'In Progress',
-      priorityLevel: 1,
-      initDate: new Date('2025-04-24')
+    constructor(private authService: AuthService) {
+      const apiUrl =
+      (import.meta as any).env.VITE_API_URL || 'http://localhost:3333/api';
+      this.graphQlClient = new GraphQLClient(apiUrl);
+      this.user = this.authService.getUser();
+      this.loadTasks(); 
+      this.observeTasks();
     }
-  ];
+    
+    private async loadTasks() {
+      const tasks = await this.takeTasks(this.user);
+      if (tasks) {
+        this.tasksSubject.next(tasks.findAllUserTask);
+      }else{
+        this.tasksSubject.next([])
+      }
+    }
+  
+  
+  private async takeTasks(user:LoginResponse){
+    console.log('JORGE', user)
+      const userId = user.login._id
+      
+      const query = gql`
+        query FindAllUserTasks($userId: String!){
+          findAllUserTasks(userId: $userId){
+            _id
+            userId
+            title
+            description
+            status
+            priorityLevel
+            initDate
+            endDate
+          }
+        }
+      
+      `
+      try{
+        const response:FindAllUserTaskResponse = await this.graphQlClient.request(query,
+          {userId}
+        )
+        console.log('tesks encontradas', response)
+        return response;
+      }catch(error){
+        console.error('Erro ao encontrar tasks ', error)
+        return;
+      }
+  }
 
   private observeTasks(): void {
     this.tasks$.subscribe(tasks => {
-      
       this.toDoTasks = [];
       this.inProgressTasks = [];
       this.doneTasks = [];
@@ -187,5 +112,8 @@ export class WorkspaceComponent {
   
   public updateTasks(newTasks: Task[]): void {
     this.tasksSubject.next(newTasks);
+  }
+  public first(){
+    return this.user?.login.name.charAt(0).toUpperCase()
   }
 }

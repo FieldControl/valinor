@@ -1,43 +1,49 @@
-<div id="container">
-<header>
-  <h2 mat-dialog-title>Criar Conta</h2>
-  <img (click)="close()" src="/assets/dialog/close.svg" alt="" />
-</header>
-    <form (ngSubmit)="register(form)" #form>
-    
-      <label for="nome">
-        <span>Nome</span>
-        <input type="text" required/>
+<div class="">
+  <header>
+    <h2 mat-dialog-title>Criar Conta</h2>
+    <img (click)="close()" src="/assets/dialog/close.svg" alt="" />
+  </header>
+  <form (ngSubmit)="register(form)" #form="ngForm">
+  
+    <label for="nome">
+      <span>Nome</span>
+      <input type="text" name="name" required ngModel />
+    </label>
+  
+    <label for="email">
+      <span>E-mail</span>
+      <input type="email" name="email" required ngModel />
+    </label>
+  
+    <label for="password">
+      <span>Senha</span>
+      <input type="password" name="password" required ngModel />
+    </label>
+  
+    <label for="confirm-password">
+      <span>Confirme a Senha</span>
+      <input type="password" name="confirmPassword" required ngModel />
+    </label>
+  
+    <span>
+      <label id="term-acept" for="acept">
+        <input type="checkbox" name="terms" required ngModel />
+        <p>Aceito os Termos e Condições</p>
       </label>
+    </span>
+  
+    <button type="submit" class="btn btn-primary">
+      Criar Conta
+    </button>
     
-      <label for="email">
-        <span>E-mail</span>
-        <input type="email" required/>
-      </label>
     
-      <label for="password">
-        <span>Senha</span>
-        <input type="password" required/>
-      </label>
-    
-      <label for="confirm-password">
-        <span>Confirme a Senha</span>
-        <input type="password" required/>
-      </label>
-      <span><label id="term-acept" for="acept"><input type="checkbox"> <p>Aceito os Termos e Condições</p></label></span>
-      <button class="btn btn-primary">
-        Criar Conta
-      </button>
-    </form>
-    <div class="divider">
-        <span>ou continue com</span>
-    </div>
-    <app-google-btn
-        text="Cadastre-se com o google"
-        (click)="clickGoogle()"
-    />
-
-        <hr>
-    <p>Já tem uma conta? <a href="">Fazer login</a></p>
-
+  </form>
+  <!-- <div class="divider">
+    <span>ou continue com</span>
+  </div> -->
+  
+  
+    <hr>
+  <p>Já tem uma conta? <a href="">Fazer login</a></p>
 </div>
+

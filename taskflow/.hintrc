@@ -23,6 +23,7 @@
           "text-justify"
         ]
       }
-    ]
+    ],
+    "button-type": "off"
   }
 }
