@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { TaskService } from '../../../service/task.service';
 import { AuthService } from '../../../service/auth.service';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-dialog-add-task',
@@ -13,6 +14,7 @@ import { AuthService } from '../../../service/auth.service';
   imports: [CommonModule, FormsModule],
 })
 export class DialogAddTaskComponent implements OnInit {
+  @Output() taskUpdated = new EventEmitter<void>();
   public initDateFormatted: string = '';
   public endDateFormatted: string = '';
   public userId: string = '';
@@ -66,9 +68,15 @@ export class DialogAddTaskComponent implements OnInit {
     ? new Date(this.endDateFormatted)
     : undefined;
     if (this.data) {
-      this.taskService.updateTask(this.task)
+      this.taskService.updateTask(this.task).then(() => {
+        this.taskUpdated.emit();
+        this.dialogRef.close(this.task);
+      });
     } else {
-      this.taskService.createTask(this.task)
+      this.taskService.createTask(this.task).then(() => {
+        this.taskUpdated.emit();
+        this.dialogRef.close(this.task);
+      });
     }
     this.dialogRef.close();
   }

@@ -24,7 +24,10 @@
 
   <div class="footer">
     <span class="date">{{ dates() }}</span>
-    <button class="status-btn" [ngClass]="getStatusClass(task.status)">
+    <button 
+      class="status-btn"
+      [ngClass]="getStatusClass(task.status)"
+      (click)="changeStatus(task)">
       <mat-icon>check_circle</mat-icon>
     </button>
   </div>

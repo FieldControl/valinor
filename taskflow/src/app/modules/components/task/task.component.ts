@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component,  inject, Input } from '@angular/core';
 import { Task } from '../../interface/task.interface';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogAddTaskComponent } from '../dialog/dialog-add-task/dialog-add-task.component';
 import { MatDialog } from '@angular/material/dialog';
+import { TaskService } from '../../service/task.service';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -15,7 +17,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class TaskComponent {
   @Input() task!: Task;
+  @Output() taskUpdated = new EventEmitter<void>();
+
   #dialog = inject(MatDialog);
+  public service = new TaskService
+  constructor(){
+     
+  }
+
+  
+  
   getPriorityText(priorityLevel: number): string {
     switch (priorityLevel) {
       case 1:
@@ -49,6 +60,7 @@ export class TaskComponent {
         return 'priority-unknown';
     }
   }
+
   getStatusClass(status: string): string {
     switch (status.toLowerCase()) {
       case 'to-do':
@@ -61,6 +73,7 @@ export class TaskComponent {
         return 'status-unknown';
     }
   }
+
   dates(): string {
     if (this.task.endDate) {
       return `${this.formatDate(this.task.initDate)} | ${this.formatDate(this.task.endDate)}`;
@@ -68,6 +81,7 @@ export class TaskComponent {
       return this.formatDate(this.task.initDate);
     }
   }
+
   private formatDate(date: string | Date | null | undefined): string {
     if (!date) return 'Sem data';
   
@@ -80,7 +94,8 @@ export class TaskComponent {
     const month = (d.getMonth() + 1).toString().padStart(2, '0');
     return `${day}/${month}`;
   }
-  ormatDateForInput(date: string | Date | null | undefined): string {
+
+  formatDateForInput(date: string | Date | null | undefined): string {
     if (!date) return '';
   
     const d = new Date(date);
@@ -94,11 +109,30 @@ export class TaskComponent {
   
     return `${year}-${month}-${day}`;
   }
+
+  public changeStatus(task:Task){
+    if(task.status === 'To-do'){
+      task.status = 'In Progress'; 
+    }else if(task.status === 'In Progress'){
+      task.status = 'Done'
+    }else if(task.status === 'Done'){
+      task.status = 'To-do'
+    }else{
+      alert('ta estranho')
+    }
+    this.service.updateTask(task).then(()=>this.taskUpdated.emit())
+    
+  }
+
   editTask(task: Task): void {
       this.#dialog.open(DialogAddTaskComponent, { data: { taskEdit: task } })
   }
+
   deleteTask(task: Task): void {
     console.log('Excluindo tarefa:', task);
-    // Adicione aqui a lógica para excluir a tarefa
+    this.service.delete(task._id).then(() => {
+      this.taskUpdated.emit();
+    });
   }
+
 }

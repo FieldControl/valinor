@@ -7,7 +7,6 @@ import { DialogAddTaskComponent } from "../../components/dialog/dialog-add-task/
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginResponse } from '../../interface/login-response.interface';
 import { AuthService } from '../../service/auth.service';
-import { gql, GraphQLClient } from 'graphql-request';
 import { Router } from '@angular/router';
 import { TaskService } from '../../service/task.service';
 import {FindAllUserTasksResponse } from '../../interface/find-all-user-task-response.interface';
@@ -33,9 +32,14 @@ export class WorkspaceComponent {
   #dialog = inject(MatDialog);
  
     public openDialog(){
-      this.#dialog.open(DialogAddTaskComponent,{
+      const dialogRef = this.#dialog.open(DialogAddTaskComponent,{
         width:'600px'
       })
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.loadTasks(); 
+        }
+      });
     }
     constructor(private authService: AuthService, private router: Router) {
       this.user = this.authService.getUser();
@@ -43,7 +47,7 @@ export class WorkspaceComponent {
       this.observeTasks();
     }
     
-    private async loadTasks() {
+    public async loadTasks() {
       if(this.user){
         const tasks = await this.service.getTasks(this.user.login._id as string) as FindAllUserTasksResponse | undefined ;
         if (tasks) {
@@ -89,6 +93,7 @@ export class WorkspaceComponent {
   public updateTasks(newTasks: Task[]): void {
     this.tasksSubject.next(newTasks);
   }
+  
   public first(){
     return this.user?.login.name.charAt(0).toUpperCase()
   }

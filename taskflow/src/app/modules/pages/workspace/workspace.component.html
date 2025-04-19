@@ -14,6 +14,7 @@
             <li>
                 <app-task
                     [task]="item"
+                    (taskUpdated)="loadTasks()"
                 />
             </li>
         }
@@ -26,6 +27,7 @@
           <li>
               <app-task
                   [task]="item"
+                  (taskUpdated)="loadTasks()"
               />
           </li>
       }
@@ -38,6 +40,7 @@
           <li>
               <app-task
                   [task]="item"
+                  (taskUpdated)="loadTasks()"
               />
           </li>
       }

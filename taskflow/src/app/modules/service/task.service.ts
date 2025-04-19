@@ -5,24 +5,21 @@ import { GraphQLClient, gql } from 'graphql-request';
 import { Task } from '../interface/task.interface';
 import { FindAllUserTasksResponse } from '../interface/find-all-user-task-response.interface';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class TaskService {
   
   private graphQlClient: GraphQLClient;
 
-  
   constructor() {
-    const apiUrl = (import.meta as any).env.VITE_API_URL || 'http://localhost:3333/api';
+    const apiUrl =
+      (import.meta as any).env.VITE_API_URL || 'http://localhost:3333/api';
     this.graphQlClient = new GraphQLClient(apiUrl);
   }
 
   async createTask(task: Task) {
-    console.log('task a ser criada:', task)
+    console.log('task a ser criada:', task);
     const mutation = gql`
       mutation CreateTask($createTaskInput: CreateTaskInput!) {
         createTask(createTaskInput: $createTaskInput) {
@@ -46,8 +43,8 @@ export class TaskService {
         status: task.status,
         priorityLevel: task.priorityLevel,
         initDate: task.initDate,
-        endDate: task.endDate
-      }
+        endDate: task.endDate,
+      },
     });
   }
 
@@ -76,36 +73,60 @@ export class TaskService {
         status: task.status,
         priorityLevel: task.priorityLevel,
         initDate: task.initDate,
-        endDate: task.endDate
-      }
+        endDate: task.endDate,
+      },
     });
   }
 
-  async  getTasks(userId:string): Promise<FindAllUserTasksResponse | undefined>{
+  async getTasks(userId: string): Promise<FindAllUserTasksResponse | undefined> {
     const query = gql`
-        query FindAllUserTasks($userId: String!){
-          findAllUserTasks(userId: $userId){
-            _id
-            userId
-            title
-            description
-            status
-            priorityLevel
-            initDate
-            endDate
-          }
+      query FindAllUserTasks($userId: String!) {
+        findAllUserTasks(userId: $userId) {
+          _id
+          userId
+          title
+          description
+          status
+          priorityLevel
+          initDate
+          endDate
         }
-      
-      `
-      try{
-        const response:FindAllUserTasksResponse = await this.graphQlClient.request(query,
-          {userId}
-        )
-        console.log('tesks encontradas', response)
-        return response;
-      }catch(error){
-        console.error('Erro ao encontrar tasks ', error)
-        return;
       }
+    `;
+    try {
+      const response: FindAllUserTasksResponse =
+        await this.graphQlClient.request(query, { userId });
+      console.log('tesks encontradas', response);
+      return response;
+    } catch (error) {
+      console.error('Erro ao encontrar tasks ', error);
+      return;
+    }
+  }
+
+  async delete(taskId: string) {
+    const id = taskId
+    const mutation = gql`
+      mutation RemoveTask($id: String!) {
+        removeTask(id: $id) {
+          _id
+          userId
+          title
+          description
+          status
+          priorityLevel
+          initDate
+          endDate
+        }
+      }
+    `;
+    try{
+    const response = await this.graphQlClient.request(mutation, {id})
+    console.log("task deletada ", response)
+    return response;
+    }catch(error){
+      console.log('task não pode ser deletada', error)
+      return;
+    }
   }
 }
