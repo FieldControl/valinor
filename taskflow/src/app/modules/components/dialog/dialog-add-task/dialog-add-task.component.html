@@ -39,11 +39,12 @@
   <label
     ><span>Data de Início</span>
 
-    <input class="input-text" type="date" name="initDate" [(ngModel)]="task.initDate"  required />
+    <input class="input-text" type="date" name="initDate" [(ngModel)]="initDateFormatted" [value]="initDateFormatted"  required />
   </label>
+  
   <label
     ><span>Data de Término</span>
-    <input class="input-text" type="date" name="endDate" [(ngModel)]="task.endDate" [value]="task.initDate" />
+    <input class="input-text" type="date" name="endDate" [(ngModel)]="endDateFormatted" [value]="endDateFormatted" />
   </label>
 
   <div class="actions">

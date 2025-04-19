@@ -6,12 +6,14 @@ import { TaskComponent } from "../../components/task/task.component";
 import { DialogAddTaskComponent } from "../../components/dialog/dialog-add-task/dialog-add-task.component";
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginResponse } from '../../interface/login-response.interface';
-import { AuthService } from '../../../auth.service';
+import { AuthService } from '../../service/auth.service';
 import { gql, GraphQLClient } from 'graphql-request';
+import { Router } from '@angular/router';
+import { TaskService } from '../../service/task.service';
+import {FindAllUserTasksResponse } from '../../interface/find-all-user-task-response.interface';
 
-interface FindAllUserTaskResponse {
-  findAllUserTask: Task[];
-}
+
+
 @Component({
   selector: 'app-workspace',
   imports: [HeaderComponent, MatDialogModule, TaskComponent],
@@ -20,13 +22,14 @@ interface FindAllUserTaskResponse {
 })
 
 export class WorkspaceComponent {
-  public user: LoginResponse;
+  public user: LoginResponse |null = null;
   private tasksSubject = new BehaviorSubject<Task[]>([]);
   public tasks$ = this.tasksSubject.asObservable();
   public toDoTasks: Task[] = [];
   public inProgressTasks: Task[] = [];
   public doneTasks: Task[] = [];
-  public graphQlClient: GraphQLClient;
+  public service= new TaskService;
+  
   #dialog = inject(MatDialog);
  
     public openDialog(){
@@ -34,55 +37,28 @@ export class WorkspaceComponent {
         width:'600px'
       })
     }
-    constructor(private authService: AuthService) {
-      const apiUrl =
-      (import.meta as any).env.VITE_API_URL || 'http://localhost:3333/api';
-      this.graphQlClient = new GraphQLClient(apiUrl);
+    constructor(private authService: AuthService, private router: Router) {
       this.user = this.authService.getUser();
       this.loadTasks(); 
       this.observeTasks();
     }
     
     private async loadTasks() {
-      const tasks = await this.takeTasks(this.user);
-      if (tasks) {
-        this.tasksSubject.next(tasks.findAllUserTask);
+      if(this.user){
+        const tasks = await this.service.getTasks(this.user.login._id as string) as FindAllUserTasksResponse | undefined ;
+        if (tasks) {
+          this.tasksSubject.next(tasks.findAllUserTasks as Task []);
+        }else{
+          this.tasksSubject.next([])
+        }
       }else{
-        this.tasksSubject.next([])
+        this.router.navigate(['/'])
       }
+      
     }
   
   
-  private async takeTasks(user:LoginResponse){
-    console.log('JORGE', user)
-      const userId = user.login._id
-      
-      const query = gql`
-        query FindAllUserTasks($userId: String!){
-          findAllUserTasks(userId: $userId){
-            _id
-            userId
-            title
-            description
-            status
-            priorityLevel
-            initDate
-            endDate
-          }
-        }
-      
-      `
-      try{
-        const response:FindAllUserTaskResponse = await this.graphQlClient.request(query,
-          {userId}
-        )
-        console.log('tesks encontradas', response)
-        return response;
-      }catch(error){
-        console.error('Erro ao encontrar tasks ', error)
-        return;
-      }
-  }
+  
 
   private observeTasks(): void {
     this.tasks$.subscribe(tasks => {

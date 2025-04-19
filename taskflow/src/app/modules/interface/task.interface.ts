@@ -5,6 +5,6 @@ export interface Task {
   description: string;
   status: string;
   priorityLevel: number;
-  initDate: Date;
-  endDate?: Date;
+  initDate:Date;
+  endDate?:Date;
 }

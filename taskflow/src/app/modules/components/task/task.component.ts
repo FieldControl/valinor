@@ -61,16 +61,23 @@ export class TaskComponent {
         return 'status-unknown';
     }
   }
-  dates(task:Task){
-    if (task.endDate) {
-      return `${this.formatDate(task.initDate)} | ${this.formatDate(task.endDate)}`;
+  dates(): string {
+    if (this.task.endDate) {
+      return `${this.formatDate(this.task.initDate)} | ${this.formatDate(this.task.endDate)}`;
     } else {
-      return this.formatDate(task.initDate);
+      return this.formatDate(this.task.initDate);
     }
   }
-  private formatDate(date: Date): string {
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  private formatDate(date: string | Date | null | undefined): string {
+    if (!date) return 'Sem data';
+  
+    const d = new Date(date);
+    if (isNaN(d.getTime())) {
+      return 'Data inválida';
+    }
+  
+    const day = d.getDate().toString().padStart(2, '0');
+    const month = (d.getMonth() + 1).toString().padStart(2, '0');
     return `${day}/${month}`;
   }
   editTask(task: Task): void {
