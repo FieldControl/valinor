@@ -22,6 +22,7 @@ export class TaskService {
   }
 
   async createTask(task: Task) {
+    console.log('task a ser criada:', task)
     const mutation = gql`
       mutation CreateTask($createTaskInput: CreateTaskInput!) {
         createTask(createTaskInput: $createTaskInput) {

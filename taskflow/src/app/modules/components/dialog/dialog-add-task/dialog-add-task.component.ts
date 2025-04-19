@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { TaskService } from '../../../service/task.service';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-dialog-add-task',
@@ -14,14 +15,17 @@ import { TaskService } from '../../../service/task.service';
 export class DialogAddTaskComponent implements OnInit {
   public initDateFormatted: string = '';
   public endDateFormatted: string = '';
+  public userId: string = '';
 
   public titleDialog: string = 'Adicionar Nova Tarefa';
 
   constructor(
     private dialogRef: MatDialogRef<DialogAddTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { taskEdit: Task },
-    private taskService: TaskService
-  ) {}
+    private taskService: TaskService,
+    private authService: AuthService,
+    @Inject(MAT_DIALOG_DATA) public data?: { taskEdit: Task },
+  ) {
+  }
 
   public task: Task = {
     _id: '',
@@ -35,23 +39,21 @@ export class DialogAddTaskComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    if (this.data.taskEdit) {
+    if (this.data) {
       this.editDialog();
-    }
-    if (this.task) {
-      this.initDateFormatted = this.formatDateForInput(this.task.initDate);
-      this.endDateFormatted = this.task.endDate
-        ? this.formatDateForInput(this.task.endDate)
-        : '';
-    }
-    console.log(
+      console.log(
       'taskEdit recebido no ngOnInit:',
-      this.data.taskEdit?.description
+      this.data.taskEdit?.description,
     );
+    this.initDateFormatted = this.formatDateForInput(this.task.initDate);
+    this.endDateFormatted = this.task.endDate
+      ? this.formatDateForInput(this.task.endDate)
+      : '';
+    }    
   }
 
   public editDialog(): void {
-    if (this.data.taskEdit !== null) {
+    if (this.data) {
       this.task = this.data.taskEdit;
       this.titleDialog = 'Editar Tarefa';
     }
@@ -59,10 +61,11 @@ export class DialogAddTaskComponent implements OnInit {
 
   onSubmit(): void {
     this.task.initDate = new Date(this.initDateFormatted);
-    this.task.endDate = this.endDateFormatted
+    this.task.userId = this.authService.getUser()?.login._id as string|| '';
+    this.task.endDate = this.endDateFormatted    
     ? new Date(this.endDateFormatted)
     : undefined;
-    if (this.data.taskEdit) {
+    if (this.data) {
       this.taskService.updateTask(this.task)
     } else {
       this.taskService.createTask(this.task)
@@ -73,6 +76,7 @@ export class DialogAddTaskComponent implements OnInit {
   onCancel(): void {
     this.dialogRef.close();
   }
+  
   formatDateForInput(date: string | Date | null | undefined): string {
     if (!date) return '';
 

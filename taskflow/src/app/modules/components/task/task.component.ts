@@ -80,6 +80,20 @@ export class TaskComponent {
     const month = (d.getMonth() + 1).toString().padStart(2, '0');
     return `${day}/${month}`;
   }
+  ormatDateForInput(date: string | Date | null | undefined): string {
+    if (!date) return '';
+  
+    const d = new Date(date);
+    if (isNaN(d.getTime())) {
+      return '';
+    }
+  
+    const year = d.getFullYear();
+    const month = (d.getMonth() + 1).toString().padStart(2, '0');
+    const day = d.getDate().toString().padStart(2, '0');
+  
+    return `${year}-${month}-${day}`;
+  }
   editTask(task: Task): void {
       this.#dialog.open(DialogAddTaskComponent, { data: { taskEdit: task } })
   }

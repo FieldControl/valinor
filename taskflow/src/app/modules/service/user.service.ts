@@ -22,6 +22,7 @@ export class UserService {
     const apiUrl = (import.meta as any).env.VITE_API_URL || 'http://localhost:3333/api';
     this.graphQlClient = new GraphQLClient(apiUrl);
   }
+  
   async login(form: NgForm) {
     if (form.invalid) {
       console.error('Formulário inválido');
@@ -49,7 +50,7 @@ export class UserService {
       console.error("Erro ao logar: ", error)
     }
   }
-  
+
   async register(form: NgForm) {
     if (form.invalid) {
       console.error('Formulário inválido');
