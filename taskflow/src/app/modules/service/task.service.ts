@@ -9,7 +9,6 @@ import { FindAllUserTasksResponse } from '../interface/find-all-user-task-respon
   providedIn: 'root',
 })
 export class TaskService {
-  
   private graphQlClient: GraphQLClient;
 
   constructor() {
@@ -41,7 +40,7 @@ export class TaskService {
         title: task.title,
         description: task.description,
         status: task.status,
-        priorityLevel: task.priorityLevel,
+        priorityLevel: Number(task.priorityLevel),
         initDate: task.initDate,
         endDate: task.endDate,
       },
@@ -71,7 +70,7 @@ export class TaskService {
         title: task.title,
         description: task.description,
         status: task.status,
-        priorityLevel: task.priorityLevel,
+        priorityLevel: Number(task.priorityLevel),
         initDate: task.initDate,
         endDate: task.endDate,
       },
@@ -105,7 +104,7 @@ export class TaskService {
   }
 
   async delete(taskId: string) {
-    const id = taskId
+    const id = taskId;
     const mutation = gql`
       mutation RemoveTask($id: String!) {
         removeTask(id: $id) {
@@ -120,13 +119,15 @@ export class TaskService {
         }
       }
     `;
-    try{
-    const response = await this.graphQlClient.request(mutation, {id})
-    console.log("task deletada ", response)
-    return response;
-    }catch(error){
-      console.log('task não pode ser deletada', error)
+    try {
+      const response = await this.graphQlClient.request(mutation, { id });
+      console.log('task deletada ', response);
+      return response;
+    } catch (error) {
+      console.log('task não pode ser deletada', error);
       return;
     }
   }
+
+  
 }

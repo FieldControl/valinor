@@ -4,9 +4,6 @@ import { DialogRegisterComponent } from '../../components/dialog/dialog-register
 import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, NgForm } from '@angular/forms';
-import { LoginResponse } from '../../interface/login-response.interface';
-import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';
 import { UserService } from '../../service/user.service';
 
 @Component({

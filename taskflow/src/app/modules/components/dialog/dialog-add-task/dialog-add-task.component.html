@@ -1,12 +1,11 @@
 <h2>{{titleDialog}}</h2>
 <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
-  <label>
-    <span>Título</span>
+
+  <label><span>Título</span>
     <input type="text" name="title" [(ngModel)]="task.title" required class="input-text"/>
   </label>
 
-  <label
-    ><span>Descrição</span>
+  <label><span>Descrição</span>
     <textarea
       class="input-text"
       matInput
@@ -15,8 +14,7 @@
     ></textarea>
   </label>
 
-  <label
-    ><span>Status</span>
+  <label><span>Status</span>
     <select class="input-text" name="status" [(ngModel)]="task.status" required>
       <option value="To-do">To-do</option>
       <option value="In Progress">In Progress</option>
@@ -24,26 +22,21 @@
     </select>
   </label>
 
-  <label
-    ><span>Prioridade</span>
-
+  <label><span>Prioridade</span>
     <select class="input-text"name="priorityLevel" [(ngModel)]="task.priorityLevel" required>
-      <option value="1">Baixíssima</option>
-      <option value="2">Baixa</option>
-      <option value="3">Média</option>
-      <option value="4">Alta</option>
-      <option value="5">Altíssima</option>
+      <option value={{1}}>Baixíssima</option>
+      <option value={{2}}>Baixa</option>
+      <option value={{3}}>Média</option>
+      <option value={{4}}>Alta</option>
+      <option value={{5}}>Altíssima</option>
     </select>
   </label>
 
-  <label
-    ><span>Data de Início</span>
-
+  <label><span>Data de Início</span>
     <input class="input-text" type="date" name="initDate" [(ngModel)]="initDateFormatted" [value]="initDateFormatted"  required />
   </label>
   
-  <label
-    ><span>Data de Término</span>
+  <label><span>Data de Término</span>
     <input class="input-text" type="date" name="endDate" [(ngModel)]="endDateFormatted" [value]="endDateFormatted" />
   </label>
 

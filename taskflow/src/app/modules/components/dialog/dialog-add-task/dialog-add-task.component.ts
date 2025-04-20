@@ -36,18 +36,18 @@ export class DialogAddTaskComponent implements OnInit {
     description: '',
     status: 'To-do',
     priorityLevel: 3,
-    initDate: new Date(),
+    initDate: new Date,
     endDate: undefined,
   };
 
   ngOnInit(): void {
+    this.initDateFormatted = this.formatDateForInput(this.task.initDate);
     if (this.data) {
       this.editDialog();
       console.log(
       'taskEdit recebido no ngOnInit:',
       this.data.taskEdit?.description,
     );
-    this.initDateFormatted = this.formatDateForInput(this.task.initDate);
     this.endDateFormatted = this.task.endDate
       ? this.formatDateForInput(this.task.endDate)
       : '';
@@ -63,8 +63,9 @@ export class DialogAddTaskComponent implements OnInit {
 
   onSubmit(): void {
     this.task.initDate = new Date(this.initDateFormatted);
+    this.task.priorityLevel = Number(this.task.priorityLevel )  
     this.task.userId = this.authService.getUser()?.login._id as string|| '';
-    this.task.endDate = this.endDateFormatted    
+    this.task.endDate = this.endDateFormatted
     ? new Date(this.endDateFormatted)
     : undefined;
     if (this.data) {

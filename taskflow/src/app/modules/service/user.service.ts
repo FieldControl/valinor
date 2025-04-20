@@ -92,5 +92,24 @@ export class UserService {
       return;
     }
   }
+  
+  async delete(id:string){
+    const mutation = gql`
+      mutation DeleteUser($id: String!) {
+      removeUser(id: $id) {
+        _id
+        email
+        name
+      }
+    }
+    `
+    try{
+      await this.graphQlClient.request(mutation, {id})
+    }catch(error){
+      console.log(error)
 
+    }
+  }
+
+  
 }

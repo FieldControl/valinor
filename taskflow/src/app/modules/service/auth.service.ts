@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LoginResponse } from '../interface/login-response.interface';
 
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private user: LoginResponse | null = null;

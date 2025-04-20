@@ -1,8 +1,20 @@
 <app-header>
-  <div class="perfil">{{first()}}</div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Sair
+    </button>
+    <button mat-menu-item (click)="deleteAccount()" class="delete">
+      <mat-icon color="warn">delete</mat-icon>
+      Excluir Conta
+    </button>
+  </mat-menu>
+  <button class="perfil" mat-icon-button [matMenuTriggerFor]="menu">
+    {{ first() }}
+  </button>
 </app-header>
 <div class="menu">
-  <button class="btn btn-primary" (click)=" openDialog()">
+  <button class="btn btn-primary" (click)="openDialog()">
     <img src="/assets/icons/plus.svg" alt="" /> Adicionar tarefa
   </button>
 </div>
@@ -10,40 +22,31 @@
   <div class="step">
     <h3>To-do</h3>
     <ul>
-        @for (item of toDoTasks; track item) {
-            <li>
-                <app-task
-                    [task]="item"
-                    (taskUpdated)="loadTasks()"
-                />
-            </li>
-        }
+      @for (item of toDoTasks; track item) {
+      <li>
+        <app-task [task]="item" (taskUpdated)="loadTasks()" />
+      </li>
+      }
     </ul>
   </div>
   <div class="step">
     <h3>In Progress</h3>
     <ul>
       @for (item of inProgressTasks; track item) {
-          <li>
-              <app-task
-                  [task]="item"
-                  (taskUpdated)="loadTasks()"
-              />
-          </li>
+      <li>
+        <app-task [task]="item" (taskUpdated)="loadTasks()" />
+      </li>
       }
-  </ul>
+    </ul>
   </div>
   <div class="step">
     <h3>Done</h3>
     <ul>
       @for (item of doneTasks; track item) {
-          <li>
-              <app-task
-                  [task]="item"
-                  (taskUpdated)="loadTasks()"
-              />
-          </li>
+      <li>
+        <app-task [task]="item" (taskUpdated)="loadTasks()" />
+      </li>
       }
-  </ul>
+    </ul>
   </div>
 </main>

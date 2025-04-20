@@ -1,10 +1,14 @@
 <div class="task-card">
   <header>
     <div class="task-title">
-      <h3>{{ task.title }}</h3>
-      <span class="priority" [ngClass]="getPriorityClass(task.priorityLevel).toLowerCase()">{{
+      <h3>
+        {{ task.title }}
+      </h3>
+      <span 
+       class="priority" [ngClass]="getPriorityClass(task.priorityLevel).toLowerCase()">{{
         getPriorityText(task.priorityLevel)
-      }}</span>
+       }}
+      </span>
     </div>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="editTask(task)">
