@@ -6,6 +6,8 @@ import { LoginResponse } from '../interface/login-response.interface';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+// import * as dotenv from 'dotenv'
+// dotenv.config();
 
 
 
@@ -17,9 +19,9 @@ export class UserService {
   private router = new Router
   private authService = new AuthService
   private graphQlClient: GraphQLClient;
-
+  //(import.meta as any).env.VITE_API_URL||
   constructor( ) {
-    const apiUrl = (import.meta as any).env.VITE_API_URL || 'http://localhost:3333/api';
+    const apiUrl ='http://localhost:3333/api';
     this.graphQlClient = new GraphQLClient(apiUrl);
   }
   
