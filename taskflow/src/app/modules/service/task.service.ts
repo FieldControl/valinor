@@ -4,8 +4,8 @@ import { GraphQLClient, gql } from 'graphql-request';
 //interfaces
 import { Task } from '../interface/task.interface';
 import { FindAllUserTasksResponse } from '../interface/find-all-user-task-response.interface';
-// import * as dotenv from 'dotenv'
-// dotenv.config()
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class TaskService {
   private graphQlClient: GraphQLClient;
 
   constructor() {
-    const apiUrl = 'http://localhost:3333/api';
+    const apiUrl =process.env['API_URL']||'';
     this.graphQlClient = new GraphQLClient(apiUrl);
   }
 
