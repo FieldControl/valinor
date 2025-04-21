@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { GraphQLClient, gql } from 'graphql-request';
+import { environment } from '../../../enviroments/environment';
 
 //interfaces
 import { LoginResponse } from '../interface/login-response.interface';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import * as dotenv from 'dotenv'
-dotenv.config();
+
 
 
 
@@ -19,9 +19,8 @@ export class UserService {
   private router = new Router
   private authService = new AuthService
   private graphQlClient: GraphQLClient;
-  //(import.meta as any).env.VITE_API_URL||
   constructor( ) {
-    const apiUrl =process.env['API_URL']||'';
+    const apiUrl = environment.apiUrl;
     this.graphQlClient = new GraphQLClient(apiUrl);
   }
   

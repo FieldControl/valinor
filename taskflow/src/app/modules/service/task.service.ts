@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { GraphQLClient, gql } from 'graphql-request';
+import { environment } from '../../../enviroments/environment';
 
 //interfaces
 import { Task } from '../interface/task.interface';
 import { FindAllUserTasksResponse } from '../interface/find-all-user-task-response.interface';
-import * as dotenv from 'dotenv'
-dotenv.config()
+
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class TaskService {
   private graphQlClient: GraphQLClient;
 
   constructor() {
-    const apiUrl =process.env['API_URL']||'';
+    const apiUrl = environment.apiUrl;
     this.graphQlClient = new GraphQLClient(apiUrl);
   }
 
