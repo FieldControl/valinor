@@ -1,12 +1,14 @@
 # The Task Flow
 
 
-<img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
-<img src="https://brandlogos.net/wp-content/uploads/2025/04/angular_icon-logo_brandlogos.net_jn7wi-512x542.png" width="120" alt="Angular Logo" />
-<img src="https://mongodb.gallerycdn.vsassets.io/extensions/mongodb/mongodb-vscode/1.13.0/1743770490090/Microsoft.VisualStudio.Services.Icons.Default" width="120" alt="MongoDB Logo" />
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1200px-GraphQL_Logo.svg.png" width="120" alt="GraphQL Logo" />
+<p>
+  <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
+  <img src="https://brandlogos.net/wp-content/uploads/2025/04/angular_icon-logo_brandlogos.net_jn7wi-512x542.png" width="120" alt="Angular Logo" />
+  <img src="https://mongodb.gallerycdn.vsassets.io/extensions/mongodb/mongodb-vscode/1.13.0/1743770490090/Microsoft.VisualStudio.Services.Icons.Default" width="120" alt="MongoDB Logo" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1200px-GraphQL_Logo.svg.png" width="120" alt="GraphQL Logo" />
+</p>
 
-Acesse: https://taskflowvalinor.netlify.app/
+Acesse: <a href="https://taskflowvalinor.netlify.app/" >Site completo</a>
 
 ## Modo de preparo
 Fiz um fork da aplicação do valinor depois criei dois repositorios dentro do clone onde um é a api e o outro é o front;
