@@ -11,10 +11,12 @@
 Acesse: <a href="https://taskflowvalinor.netlify.app/" >Site completo</a>
 
 ## Modo de preparo
-Fiz um fork da aplicação do valinor depois criei dois repositorios dentro do clone onde um é a api e o outro é o front;
-O banco ja foi feito direto em nuvem utilizando o mongoDB:https://www.mongodb.com.
-O back-end foi feito o deploy no Render de forma gratuita:https://dashboard.render.com.
-O Front-end foi feito o deploy no NetliFy também de forma gratuita:https://app.netlify.com.
+<p>Fiz um fork da aplicação do valinor depois criei dois repositorios dentro do clone onde um é a api e o outro é o front;</p>
+<ul>
+  <li>O banco ja foi feito direto em nuvem utilizando o mongoDB:https://www.mongodb.com.</li>
+  <li>O back-end foi feito o deploy no Render de forma gratuita:https://dashboard.render.com.</li>
+  <li>O Front-end foi feito o deploy no NetliFy também de forma gratuita:https://app.netlify.com.</li>
+</ul>
 
 Utilizei as tecnologias indicadas pelo desafio para realiza-lo
 
