@@ -16,6 +16,7 @@
 
       form {
         width: 480px;
+        gap:10px;
         
         @extend .central-col;
 
@@ -24,6 +25,7 @@
 
           span {
             align-self: flex-start;
+            
           }
 
           input {
@@ -37,6 +39,9 @@
           @extend .central-row-between;
           width: 100%;
           margin: 5px;
+          @media (max-width:500) {
+            width: 90vw;              
+          }
 
           label {
             flex-direction: row;
