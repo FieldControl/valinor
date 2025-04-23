@@ -1,0 +1,30 @@
+.board-container {
+    padding: 20px;
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+}
+
+.board {
+    display: flex;
+    overflow-x: auto;
+    min-height: 500px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.columns {
+    display: flex;
+    gap: 20px;
+}
+
+.add-column {
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+}

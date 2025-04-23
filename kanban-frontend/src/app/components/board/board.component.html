@@ -1,0 +1,30 @@
+<!-- src/app/components/board/board.component.html -->
+<div class="board-container">
+  <div *ngIf="isLoading" class="loading">
+    Carregando quadro...
+  </div>
+  
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="!isLoading && !errorMessage">
+    <h1>{{ board.title }}</h1>
+    
+    <div class="board">
+      <div class="columns">
+        <app-column 
+          *ngFor="let column of board.columns" 
+          [column]="column"
+          [boardId]="board.id"
+          [connectedTo]="getConnectedColumnIds()"
+          (taskDrop)="onTaskDrop($event)">
+        </app-column>
+      </div>
+      
+      <div class="add-column">
+        <button (click)="createColumn('Nova Coluna')">+ Adicionar Coluna</button>
+      </div>
+    </div>
+  </div>
+</div>

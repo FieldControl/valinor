@@ -1,0 +1,25 @@
+<div class="column">
+    <div class="column-header">
+        <h2>{{ column.title }}</h2>
+        <span class="task-count">{{ column.tasks.length }}</span>
+    </div>
+
+    <div cdkDropList
+        [id]="column.id"
+        [cdkDropListData]="column.tasks"
+        [cdkDropListConnectedTo]="connectedTo"
+        (cdkDropListDropped)="onTaskDrop($event)"
+        class="task-list">
+
+        <app-task-card *ngFor="let task of column.tasks" [task]="task" cdkDrag>
+        </app-task-card>
+
+        <div *ngIf="column.tasks.length === 0" class="empty-column">
+            Nenhuma tarefa nesta coluna
+        </div>
+    </div>
+
+    <div class="column-footer">
+        <button (click)="addTask()">+ Adicionar Tarefa</button>
+    </div>
+</div>
