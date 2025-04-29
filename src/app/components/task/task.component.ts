@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TaskService, Task } from '../../services/task.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-task',
@@ -15,6 +16,7 @@ export class TaskComponent {
   form: FormGroup
   allTasks: Task[] = []
 
+
   constructor(private fb: FormBuilder, private taskService: TaskService){
     this.form = this.fb.group({
       id: [''],
@@ -28,14 +30,14 @@ export class TaskComponent {
   addTask(): void {
     if(this.form.valid){
       const newTask: Task = {
-        id: this.allTasks.length,
+        id: uuidv4(),
         name: this.form.value.name,
         description: this.form.value.description,
         status: this.form.value.status,
         priority: this.form.value.priority
       }
-
     this.taskService.addTask(newTask)
+    this.form.reset()
     // this.taskService.addTask(newTask).subscribe((data) => {
     //   this.allTasks.push(data);
     // });

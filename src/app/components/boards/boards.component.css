@@ -54,16 +54,23 @@
     padding:0.5em 0;
 }
 
-.custom-delete-icon {
+.action{
+    display: flex;
+    align-items: center;
+}
+
+.custom-delete-icon, .custom-menu-icon {
     color:#555;
     cursor: pointer;
+    transition: 0.1s linear;
+    margin: 0;
+    padding: 0;
 }
 
 .custom-delete-icon:hover {
-    color: #a13830;
-    transition: 0.1s linear;
+    color: #a13830; 
 }
 
-.move-task {
-    
+.custom-menu-icon:hover {
+    color: #428abd;
 }

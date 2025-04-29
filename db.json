@@ -1,30 +1,23 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "name": "Ir no médico",
-      "description": "Ir no médico ver se estou quase morrendo",
+      "id": "38bbb0bc-d006-4651-9d5a-34a018e809c8",
+      "name": "Terminar desafio ",
+      "description": "Finalizar desafio da Field Control e enviar pull request",
       "status": "ToDo",
-      "priority": "Low"
+      "priority": "High"
     },
     {
-      "id": 0,
-      "name": "alguma tarefa",
-      "description": "dfjdaskfjsdklçfjadlskçfj",
+      "id": "7251a27a-b906-4459-9b52-7984c63e835c",
+      "name": "Nova tarefa ",
+      "description": "criando nova tarefa",
       "status": "Doing",
       "priority": "Medium"
     },
     {
-      "id": 0,
-      "name": "Mais uma tarefa ",
-      "description": "Prioridade altíssima ",
-      "status": "Finished",
-      "priority": "High"
-    },
-    {
-      "id": 0,
-      "name": "Enviar email ",
-      "description": "enviar um email",
+      "id": "1fdee9b2-81a2-4f07-9ed9-3ff631e55905",
+      "name": "Verificar se está tudo certo",
+      "description": "Verificar se está tudo certo antes de dar um pull request",
       "status": "ToDo",
       "priority": "Low"
     }
