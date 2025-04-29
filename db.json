@@ -1,0 +1,32 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "name": "Ir no médico",
+      "description": "Ir no médico ver se estou quase morrendo",
+      "status": "ToDo",
+      "priority": "Low"
+    },
+    {
+      "id": 0,
+      "name": "alguma tarefa",
+      "description": "dfjdaskfjsdklçfjadlskçfj",
+      "status": "Doing",
+      "priority": "Medium"
+    },
+    {
+      "id": 0,
+      "name": "Mais uma tarefa ",
+      "description": "Prioridade altíssima ",
+      "status": "Finished",
+      "priority": "High"
+    },
+    {
+      "id": 0,
+      "name": "Enviar email ",
+      "description": "enviar um email",
+      "status": "ToDo",
+      "priority": "Low"
+    }
+  ]
+}

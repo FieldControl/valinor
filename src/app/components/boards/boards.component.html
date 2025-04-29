@@ -1,0 +1,41 @@
+<div class="board">
+    <div class="column">
+      <h2>To Do</h2>
+      @for (task of todoTasks; track task.id) {
+        <div class="task-card">
+          <h3>{{ task.name }}</h3>
+          <p>{{ task.description }}</p>
+          <small>Priority: {{ task.priority }}</small>
+        </div>
+      } @empty {
+        <p>No tasks to do.</p>
+      }
+    </div>
+  
+    <div class="column">
+      <h2>Doing</h2>
+      @for (task of doingTasks; track task.id) {
+        <div class="task-card">
+          <h3>{{ task.name }}</h3>
+          <p>{{ task.description }}</p>
+          <small>Priority: {{ task.priority }}</small>
+        </div>
+      } @empty {
+        <p>No tasks in progress.</p>
+      }
+    </div>
+  
+    <div class="column">
+      <h2>Finished</h2>
+      @for (task of finishedTasks; track task.id) {
+        <div class="task-card">
+          <h3>{{ task.name }}</h3>
+          <p>{{ task.description }}</p>
+          <small>Priority: {{ task.priority }}</small>
+        </div>
+      } @empty {
+        <p>No finished tasks.</p>
+      }
+    </div>
+  </div>
+  

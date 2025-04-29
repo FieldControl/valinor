@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "json-server": "json-server --watch db.json",
     "test": "ng test",
     "serve:ssr:kanban-field": "node dist/kanban-field/server/server.mjs"
   },
