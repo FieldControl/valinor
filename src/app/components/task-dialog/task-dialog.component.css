@@ -1,0 +1,23 @@
+
+
+.header-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0 1em;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-modal h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color:#333;
+}
+
+.close-modal-btn {
+    background-color: #f8f8f8;
+    border: none;
+    cursor: pointer;
+    color:#555;
+}

@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { TaskService, Task } from '../../services/task.service';
-import { v4 as uuidv4 } from 'uuid';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
@@ -13,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-task',
   standalone: true, 
-  imports: [ReactiveFormsModule,MatIconModule, MatDividerModule, MatButtonModule, MatMenuModule, MatDialogModule], 
+  imports: [MatIconModule, MatDividerModule, MatButtonModule, MatMenuModule, MatDialogModule], 
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
@@ -22,7 +19,7 @@ export class TaskComponent {
   constructor(private dialog: MatDialog) {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(TaskDialogComponent);
+    const dialogRef = this.dialog.open(TaskDialogComponent , {width: "40%"});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

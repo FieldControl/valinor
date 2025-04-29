@@ -3,21 +3,14 @@
     <input id="name" formControlName="name" type="text" />
   
     <label for="description">Descrição</label>
-    <input id="description" formControlName="description" type="text" />
+    <textarea id="description" formControlName="description"></textarea>
   
-    <label for="status">Status</label>
-    <select id="status" formControlName="status">
-      <option value="ToDo">To Do</option>
-      <option value="Doing">Doing</option>
-      <option value="Finished">Finished</option>
+    <label for="status">Estado</label>
+    <select id="status" formControlName="status" placeholder="Selecione o estado da tarefa">
+      <option value="ToDo">Pendente</option>
+      <option value="Doing">Em progresso</option>
+      <option value="Finished">Finalizada</option>
     </select>
-  
-    <label for="priority">Prioridade</label>
-    <select id="priority" formControlName="priority">
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
-  
-    <button type="submit">Adicionar Tarefa</button>
+
+    <button type="submit" class="confirm-task-btn">Adicionar Tarefa</button>
   </form>

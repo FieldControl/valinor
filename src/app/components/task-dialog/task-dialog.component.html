@@ -1,7 +1,15 @@
-<h2 mat-dialog-title>Nova Tarefa</h2>
-<mat-dialog-content>
-  <app-form></app-form>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button (click)="close()">Fechar</button>
-</mat-dialog-actions>
+<div class="modal">
+  <div class="header-modal">
+    <h2 mat-dialog-title>Adicionar tarefa</h2>
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="close()" class="close-modal-btn">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-dialog-actions>
+  </div>
+  
+  <mat-dialog-content class="content-modal" container-min-width="50%">
+    <app-form></app-form>
+  </mat-dialog-content>
+</div>
+

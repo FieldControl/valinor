@@ -4,11 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 export interface Task {
-  id: string;
-  name: string;
-  description: string;
-  status: 'ToDo' | 'Doing' | 'Finished';
-  priority: 'Low' | 'Medium' | 'High';
+  id: string
+  name: string
+  description: string
+  status: 'ToDo' | 'Doing' | 'Finished'
 }
 
 @Injectable({

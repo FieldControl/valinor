@@ -19,8 +19,6 @@ export class FormComponent {
   form: FormGroup
   allTasks: Task[] = []
 
-  // private dialogRef: MatDialogRef<TaskDialogComponent>
-
   constructor(
     private dialogRef: MatDialogRef<TaskDialogComponent>,
     private fb: FormBuilder, private taskService: TaskService){
@@ -28,8 +26,7 @@ export class FormComponent {
       id: [''],
       name: ['', Validators.required],
       description: [''],
-      status: ['', Validators.required],
-      priority: ['', Validators.required]
+      status: ['ToDo', Validators.required],
     });
   }
 
@@ -40,7 +37,6 @@ export class FormComponent {
         name: this.form.value.name,
         description: this.form.value.description,
         status: this.form.value.status,
-        priority: this.form.value.priority
       }
       this.taskService.addTask(newTask)
       this.dialogRef.close(newTask);
