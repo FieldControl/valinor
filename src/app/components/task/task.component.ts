@@ -2,80 +2,34 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TaskService, Task } from '../../services/task.service';
 import { v4 as uuidv4 } from 'uuid';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { MatDialog } from '@angular/material/dialog'; 
 
 @Component({
   selector: 'app-task',
   standalone: true, 
-  imports: [ReactiveFormsModule], 
+  imports: [ReactiveFormsModule,MatIconModule, MatDividerModule, MatButtonModule, MatMenuModule, MatDialogModule], 
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
 
 export class TaskComponent {
+  constructor(private dialog: MatDialog) {}
 
-  form: FormGroup
-  allTasks: Task[] = []
+  openDialog() {
+    const dialogRef = this.dialog.open(TaskDialogComponent);
 
-
-  constructor(private fb: FormBuilder, private taskService: TaskService){
-    this.form = this.fb.group({
-      id: [''],
-      name: ['', Validators.required],
-      description: [''],
-      status: ['', Validators.required],
-      priority: ['', Validators.required]
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Nova tarefa:', result);
+        // this.taskService.addTask(result);
+      }
     });
   }
 
-  addTask(): void {
-    if(this.form.valid){
-      const newTask: Task = {
-        id: uuidv4(),
-        name: this.form.value.name,
-        description: this.form.value.description,
-        status: this.form.value.status,
-        priority: this.form.value.priority
-      }
-    this.taskService.addTask(newTask)
-    this.form.reset()
-    // this.taskService.addTask(newTask).subscribe((data) => {
-    //   this.allTasks.push(data);
-    // });
-  }
 }
-}
-
-// export class TaskComponent {
-//   form: FormGroup
-
-//   constructor(private fb: FormBuilder){
-//     this.form = this.fb.group({
-//       id: [''],
-//       name: ['', Validators.required],
-//       description: [''],
-//       status: ['', Validators.required],
-//       priority: ['', Validators.required]
-//     });
-//   }
-
-//   // Cria uma nova tarefa 
-//   addTask(){
-//     if(this.form.valid){
-//       const newTask: Task = {
-//         id: allTasks.length,
-//         name: this.form.value.name,
-//         description: this.form.value.description,
-//         status: this.form.value.status as TaskStatus,
-//         priority: this.form.value.priority as TaskPriority
-//       }
-//       console.log("Tarefa adicionada com sucesso: ", newTask)
-//       allTasks.push(newTask)
-//     }
-//     else {
-//       console.log("Formulário inválido")
-//     }
-//     console.log(allTasks)
-
-
-//   }
-// }

@@ -1,23 +1,18 @@
-<form [formGroup]="form" (ngSubmit)="addTask()">
-    <label for="name">Nome</label>
-    <input id="name" formControlName="name" type="text" />
-  
-    <label for="description">Descrição</label>
-    <input id="description" formControlName="description" type="text" />
-  
-    <label for="status">Status</label>
-    <select id="status" formControlName="status">
-      <option value="ToDo">To Do</option>
-      <option value="Doing">Doing</option>
-      <option value="Finished">Finished</option>
-    </select>
-  
-    <label for="priority">Prioridade</label>
-    <select id="priority" formControlName="priority">
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
-  
-    <button type="submit">Adicionar Tarefa</button>
-  </form>
+<header>
+  <nav>
+    <h1>Kanban</h1>
+    <h2> Desafio Field</h2>
+  </nav>
+
+  <nav>
+    <button mat-fab extended class="add-task-btn" (click)="openDialog()">
+      Adicionar tarefa
+      <mat-icon>add</mat-icon>
+    </button>
+  </nav>
+
+</header>
+
+
+
+<!-- (click)="openDialog()" -->
