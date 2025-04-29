@@ -1,0 +1,22 @@
+.cards-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .column-cards {
+    min-width: 250px;
+    min-height: 100px;
+  }
+  .card {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: move;
+  }
+  .add-card {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }

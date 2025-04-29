@@ -1,0 +1,7 @@
+/*estilização body*/
+body{
+    background: hsl(195, 39%, 74%);
+    margin: 0px;
+    overflow-x: hidden;
+    font-family: poppins;
+}

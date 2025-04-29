@@ -1,0 +1,250 @@
+.kanban-container {
+  padding: 20px;
+  width: 100%;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+h3 {
+  color: white;
+  font-family: poppins;
+  display: inline-flex;
+  text-align: center;
+  padding: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 35px;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 95%;
+  width: 75%;
+  align-items: flex-start;
+}
+
+.column {
+  background: hsl(214, 73%, 30%);
+  border-radius: 4px;
+  min-width: 300px;
+  height: fit-content;
+  max-height: 95%;
+  padding: 16px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards {
+  min-height: 100px;
+  background: rgba(0,0,0,0.03);
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.card {
+  background: hsl(195, 39%, 74%);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color:black;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.column-actions, .card-actions {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 25px;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  line-height: 1;
+  margin-left: auto;
+}
+
+.card .edit-button{
+  color: black ;
+  font-size: 25px;
+}
+
+
+
+
+.card-actions {
+  margin-left: auto;
+}
+
+.add-column {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.add-column input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 150px;
+  height: 10px;
+}
+
+.add-column button {
+  padding: 2px 10px;
+  background: hsl(214, 73%, 30%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.add-card {
+  margin-top: 10px;
+}
+
+.add-card input {
+  width: 150px;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 10px;
+}
+
+.add-card button {
+  padding: 2px 10px;
+  background: hsl(195, 39%, 74%);
+  color: hsl(214, 73%, 30%);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.add-card, .add-column {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-form {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.edit-form input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.edit-form button {
+  padding: 8px;
+  background: hsl(147, 71%, 36%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-form button:last-child {
+  background: #dc3545;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Estilo para o botão de deletar coluna */
+.delete-button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 10px 5px;
+  font-size: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+/* Estilo para o botão de deletar card */
+.card .delete-button {
+  color: black !important;
+
+}
+
+.delete-column-button:hover,
+.delete-card-button:hover {
+  opacity: 0.7;
+}

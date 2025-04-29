@@ -1,0 +1,12 @@
+.header { 
+  background: hsl(214, 73%, 30%);
+  font-family: poppins;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  
+}
+h2 {
+  margin: 0;
+}
+
