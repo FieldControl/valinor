@@ -1,4 +1,69 @@
-div{
-    background-color: #ccc;
+/* Container principal */
+.container{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     padding:1em;
+    gap:2em;
+}
+
+/* Quadros (fazer, em progresso e finalizado)*/
+.board {
+    display: flex;
+    flex-direction: column;
+    gap:1.5em;
+    width:30%;
+    background-color: #f0f0f0;
+    border-radius: 0.5em;
+    padding:1em;
+    box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.2);
+}
+
+.board h2 {
+    text-align: left;
+    padding:0.5em 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    color:#333;
+    border-width: 0 0 0.1em 0;
+    border-style: solid;
+}
+
+/* Card de tarefa */
+.task-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    border:1px solid #ccc;
+    border-radius: 0.35em;
+}
+
+.task-card h3{
+    font-size: 1.25em;
+    font-weight: 500;
+    color:#333;
+}
+
+.task-card p {
+    font-size: 1em;
+    font-weight: 400;
+    color: #555;
+    padding:0.5em 0;
+}
+
+.custom-delete-icon {
+    color:#555;
+    cursor: pointer;
+}
+
+.custom-delete-icon:hover {
+    color: #a13830;
+    transition: 0.1s linear;
+}
+
+.move-task {
+    
 }

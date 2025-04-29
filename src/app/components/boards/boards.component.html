@@ -1,40 +1,52 @@
-<div class="board">
-    <div class="column">
-      <h2>To Do</h2>
+<h1>Kanban</h1>
+
+<div class="container">
+    <div class="board toDo">
+      <h2 style=" border-color: #c94634;">Fazer</h2>
       @for (task of todoTasks; track task.id) {
         <div class="task-card">
-          <h3>{{ task.name }}</h3>
-          <p>{{ task.description }}</p>
-          <small>Priority: {{ task.priority }}</small>
+            <div>
+                <h3>{{ task.name }}</h3>
+                <p>{{ task.description }}</p>
+                <span>{{ task.priority }}</span>
+            </div>
+            <div>
+                <mat-icon aria-hidden="false" fontIcon="delete" class="custom-delete-icon"></mat-icon>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                  </mat-menu>
+            </div>
         </div>
       } @empty {
-        <p>No tasks to do.</p>
+        <p>Nenhuma tarefa para começar.</p>
       }
     </div>
   
-    <div class="column">
-      <h2>Doing</h2>
+    <div class="board">
+      <h2 style=" border-color: #de953e;">Em progresso</h2>
       @for (task of doingTasks; track task.id) {
         <div class="task-card">
           <h3>{{ task.name }}</h3>
           <p>{{ task.description }}</p>
-          <small>Priority: {{ task.priority }}</small>
+          <span>{{ task.priority }}</span>
         </div>
       } @empty {
-        <p>No tasks in progress.</p>
+        <p>Nenhuma tarefa em progresso.</p>
       }
     </div>
   
-    <div class="column">
-      <h2>Finished</h2>
+    <div class="board">
+      <h2 style=" border-color: #2a8c41;">Finalizado</h2>
       @for (task of finishedTasks; track task.id) {
         <div class="task-card">
           <h3>{{ task.name }}</h3>
           <p>{{ task.description }}</p>
-          <small>Priority: {{ task.priority }}</small>
+          <span>{{ task.priority }}</span>
         </div>
       } @empty {
-        <p>No finished tasks.</p>
+        <p>Nenhuma tarefa finalizada</p>
       }
     </div>
   </div>
