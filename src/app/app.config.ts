@@ -9,6 +9,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient()  // Adicionando o HttpClient
+    provideHttpClient()  // Adiciona o HttpClient para consumir o db.json 
   ]
 };

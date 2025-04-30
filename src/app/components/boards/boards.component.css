@@ -54,6 +54,7 @@
     padding:0.5em 0;
 }
 
+/* Botões de ação */
 .action{
     display: flex;
     align-items: center;

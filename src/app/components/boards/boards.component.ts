@@ -11,12 +11,13 @@ import { MatMenuModule } from '@angular/material/menu';
   templateUrl: './boards.component.html',
   styleUrl: './boards.component.css'
 })
-export class BoardsComponent implements OnInit {
-  // allTasks: Task[] = [];
-  todoTasks: Task[] = [];
-  doingTasks: Task[] = [];
-  finishedTasks: Task[] = [];
 
+export class BoardsComponent implements OnInit {
+  todoTasks: Task[] = []; // array que armazena tarefas com status = "ToDo"
+  doingTasks: Task[] = []; // array que armazena tarefas com status = "Doing"
+  finishedTasks: Task[] = []; // array que armazena tarefas com status = "Finished"
+
+  // Importando o service Task
   constructor(private taskService: TaskService) { }
 
   // Carrega as tarefas em seus respectivos quadros 
@@ -29,10 +30,12 @@ export class BoardsComponent implements OnInit {
     });
   }
 
+  // Função para deletar tarefa
   deleteTask(id: string): void {
     this.taskService.deleteTask(id);
   }
 
+  // Função para mover tarefa para outro quadro 
   moveTask(id: string, newStatus:string){
     this.taskService.moveTask(id, newStatus);
   }

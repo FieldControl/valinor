@@ -5,12 +5,14 @@ form{
     gap:1em
 }
 
+/* Label */
 label {
     font-size: 1.25em;
     color:#555;
     margin-top: 0.5em;
 }
 
+/* Inputs */
 input[type=text], textarea, select{
     width:100%;
     border: none;
@@ -30,6 +32,7 @@ input[type=text]:focus , textarea:focus , select:focus {
     box-shadow: 0 0.15em 0.25em 0 rgba(0, 0, 0, 0.15);
 }
 
+/* Botão*/
 .confirm-task-btn {
     background-color: #2747e6 ;
     border-radius: 0.5em;

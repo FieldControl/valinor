@@ -16,15 +16,15 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class TaskComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {} // Módulo para utilizar modal - Angular material Design UI 
 
+  // Função para abrir modal após clique no botão "Adicionar tarefa"
   openDialog() {
-    const dialogRef = this.dialog.open(TaskDialogComponent , {width: "40%"});
+    const dialogRef = this.dialog.open(TaskDialogComponent , {width: "40%"}); // Definindo largura como 40% 
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Nova tarefa:', result);
-        // this.taskService.addTask(result);
+        console.log('Tarefa adicionada:', result); // Imprime resultado no console para teste e apuração 
       }
     });
   }
