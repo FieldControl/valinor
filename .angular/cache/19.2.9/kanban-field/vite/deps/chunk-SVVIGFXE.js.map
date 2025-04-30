@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../node_modules/@angular/cdk/fesm2022/boolean-property-_aCfQwp8.mjs", "../../../../../../node_modules/@angular/cdk/fesm2022/css-pixel-value-C1yoKJ7R.mjs"],
+  "sourcesContent": ["/** Coerces a data-bound value (typically a string) to a boolean. */\nfunction coerceBooleanProperty(value) {\n  return value != null && `${value}` !== 'false';\n}\nexport { coerceBooleanProperty };\n", "/** Coerces a value to a CSS pixel value. */\nfunction coerceCssPixelValue(value) {\n  if (value == null) {\n    return '';\n  }\n  return typeof value === 'string' ? value : `${value}px`;\n}\nexport { coerceCssPixelValue };\n"],
+  "mappings": ";AACA,SAAS,sBAAsB,OAAO;AACpC,SAAO,SAAS,QAAQ,GAAG,KAAK,OAAO;AACzC;;;ACFA,SAAS,oBAAoB,OAAO;AAClC,MAAI,SAAS,MAAM;AACjB,WAAO;AAAA,EACT;AACA,SAAO,OAAO,UAAU,WAAW,QAAQ,GAAG,KAAK;AACrD;",
+  "names": []
+}
