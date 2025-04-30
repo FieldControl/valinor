@@ -1,0 +1,14 @@
+
+/* Import da fonte Inter, utilizada no app*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* redefine margens, padding e define fonte padrão*/
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inter;
+}
+
+html, body { height: 100%; }
+body { background-color: #e0e0e0; margin: 0; font-family: Inter, Roboto, "Helvetica Neue", sans-serif; }

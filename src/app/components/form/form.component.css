@@ -1,0 +1,54 @@
+form{
+    display: flex;
+    flex-direction: column;
+    padding:2.5em 1em;
+    gap:1em
+}
+
+/* Label */
+label {
+    font-size: 1.25em;
+    color:#555;
+    margin-top: 0.5em;
+}
+
+/* Inputs */
+input[type=text], textarea, select{
+    width:100%;
+    border: none;
+    border-radius: 0.25em;
+    padding:1em 0.5em;
+    font-size: 1.25em;
+    resize:none;
+    background-color: #e5e5e5;
+    color:#555;
+    transition: 0.1s linear;
+}
+
+input[type=text]:focus , textarea:focus , select:focus {
+    background-color: #f0f0f0;
+    border: none;
+    outline: none;
+    box-shadow: 0 0.15em 0.25em 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Botão*/
+.confirm-task-btn {
+    background-color: #2747e6 ;
+    border-radius: 0.5em;
+    border: none;
+    color:#f0f0f0;
+    box-shadow: none;
+    padding:1em;
+    transition: 0.1s linear;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 1.5em;
+    cursor: pointer;
+}
+
+.confirm-task-btn:hover {
+    background-color: #2441d1;
+    box-shadow: 0 0.15em 0.25em 0 rgba(0, 0, 0, 0.25);
+}
+

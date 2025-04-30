@@ -1,0 +1,96 @@
+<div class="container">
+
+    <!-- Primeiro quadro de tarefas - Tarefas Pendentes -->
+    <div class="board toDo">
+      <h2 style=" border-color: #c94634;">Tarefas pendentes</h2>
+      <!-- Loop para renderizar respectivas tarefas no quadro -->
+      @for (task of todoTasks; track task.id) {
+        <div class="task-card">
+            <div>
+                <h3>{{ task.name }}</h3>
+                <p>{{ task.description }}</p>
+            </div>
+
+            <!-- Botões de ação do card de tarefas - Excluir tarefa | Mover tarefa para outro quadro -->
+            <div class="action">
+                <!-- Botão para deletar tarefa -->
+                <button mat-icon-button class="custom-delete-icon" (click)="deleteTask(task.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <!-- Botão para mover tarefa (com drop down para escolher o quadro que deseja mover) -->
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="custom-menu-icon" >
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="moveTask(task.id, 'Doing')">Começar tarefa</button>
+                    <button mat-menu-item (click)="moveTask(task.id, 'Finished')">Finalizar tarefa</button>
+                </mat-menu>
+            </div>
+        </div>
+      } 
+      <!-- Caso não exista tarefas no quadro: -->
+      @empty {
+        <p>Nenhuma tarefa para começar.</p>
+      }
+    </div>
+  
+    <!-- Segundo quadro de tarefas - Em progresso -->
+    <div class="board">
+      <h2 style=" border-color: #de953e;">Em progresso</h2>
+      <!-- Loop para renderizar respectivas tarefas no quadro -->
+      @for (task of doingTasks; track task.id) {
+        <div class="task-card">
+            <div>
+                <h3>{{ task.name }}</h3>
+                <p>{{ task.description }}</p>
+            </div>
+
+            <!-- Botões de ação do card de tarefas - Excluir tarefa | Mover tarefa para outro quadro -->
+            <div class="action">
+                <!-- Botão para deletar tarefa -->
+                <button mat-icon-button class="custom-delete-icon" (click)="deleteTask(task.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <!-- Botão para mover tarefa (com drop down para escolher o quadro que deseja mover) -->
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="custom-menu-icon" >
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="moveTask(task.id, 'Finished')">Finalizar tarefa</button>
+                    <button mat-menu-item (click)="moveTask(task.id, 'ToDo')">Enviar para "Tarefas Pendentes"</button>
+                </mat-menu>
+            </div>
+        </div>
+      } 
+      <!-- Caso não exista tarefas no quadro: -->
+      @empty {
+        <p>Nenhuma tarefa em progresso.</p>
+      }
+    </div>
+  
+    <!-- Terceiro quadro de tarefas - Finalizaas -->
+    <div class="board">
+      <h2 style=" border-color: #2a8c41;">Finalizado</h2>
+      <!-- Loop para renderizar respectivas tarefas no quadro -->
+      @for (task of finishedTasks; track task.id) {
+        <div class="task-card">
+            <div>
+                <h3>{{ task.name }}</h3>
+                <p>{{ task.description }}</p>
+            </div>
+
+            <!-- Botão de ação: excluir tarefa (já que, como a tarefa foi finalizada não precisa ser movida para outro quadro.) -->
+            <div class="action">
+                <button mat-icon-button class="custom-delete-icon" (click)="deleteTask(task.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+      } 
+      <!-- Caso não exista tarefas no quadro: -->
+      @empty {
+        <p>Nenhuma tarefa finalizada</p>
+      }
+    </div>
+  </div>
+  

@@ -1,0 +1,47 @@
+
+/* Header */
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0.5em 5%;
+    align-items: center;
+    background-color: #ebebeb;
+    box-shadow: 0 0.2em 0.5em 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Bloco esquerdo */
+header h1{
+    color:#2747e6;
+    font-size: 1.75vw;
+    font-weight: 700;
+}
+header h2 {
+    color:#2747e6;
+    font-size: 1.25vw;
+    font-weight: 500; 
+}
+
+/* Bloco direito */
+.add-task-btn{
+    background-color: #2747e6 ;
+    border-radius: 0.5em;
+    color:#f0f0f0;
+    box-shadow: none;
+    padding:1em;
+    transition: 0.1s linear;
+}
+
+.add-task-btn:hover{
+    background-color: #2441d1;
+    box-shadow: 0 0.3em 0.35em 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Config reset UI material design*/
+.add-task-btn.mat-mdc-fab.mat-primary:hover {
+    box-shadow: none !important;
+}
+
+.add-task-btn::after {
+    background: none !important;
+  }

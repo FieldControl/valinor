@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="addTask()">
+    <label for="name">Nome</label>
+    <input id="name" formControlName="name" type="text" />
+  
+    <label for="description">Descrição</label>
+    <textarea id="description" formControlName="description"></textarea>
+  
+    <label for="status">Estado</label>
+    <select id="status" formControlName="status" placeholder="Selecione o estado da tarefa">
+      <option value="ToDo">Pendente</option>
+      <option value="Doing">Em progresso</option>
+      <option value="Finished">Finalizada</option>
+    </select>
+
+    <button type="submit" class="confirm-task-btn">Adicionar Tarefa</button>
+  </form>
