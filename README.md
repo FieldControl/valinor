@@ -1,4 +1,4 @@
-# Kanban App
+# Desafio Field
 
 Este é um sistema básico de Kanban desenvolvido com Angular no frontend e NestJS no backend. Ele permite a criação dinâmica de colunas e cards, oferecendo uma base sólida para gerenciamento de tarefas.
 
@@ -158,11 +158,6 @@ NestJS oferece estrutura modular, suporte nativo a TypeScript, validação via d
 - Deploy na nuvem (ex: Vercel + Render)
 - Acessibilidade (teclado/navegadores assistivos)
 - Internacionalização com i18n
-
----
-
-## Licença
-[MIT](LICENSE)
 
 ---
 
