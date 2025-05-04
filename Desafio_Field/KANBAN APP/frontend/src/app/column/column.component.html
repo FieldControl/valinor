@@ -1,0 +1,12 @@
+<!-- frontend/src/app/column/column.component.html -->
+<div class="column">
+  <h3>{{ column.title }}</h3>
+  <div class="cards">
+    <app-card *ngFor="let card of column.cards" [card]="card"></app-card>
+  </div>
+
+  <div class="add-card">
+    <input [(ngModel)]="newCardContent" placeholder="Enter card content" />
+    <button (click)="addCard()">Add Card</button>
+  </div>
+</div>

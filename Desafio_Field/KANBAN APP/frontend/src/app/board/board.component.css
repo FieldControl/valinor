@@ -1,0 +1,27 @@
+/* frontend/src/app/board/board.component.css */
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-column {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-column input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.add-column button {
+  padding: 10px 16px;
+  background-color: #3498db;
+  color: white

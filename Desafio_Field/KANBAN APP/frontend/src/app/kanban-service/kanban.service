@@ -1,0 +1,26 @@
+// frontend/src/app/kanban-service/kanban.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Column } from '../column/column.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class KanbanService {
+  private apiUrl = 'http://localhost:3000/kanban'; // Ajustado para porta 3000
+
+  constructor(private http: HttpClient) {}
+
+  getColumns(): Observable<Column[]> {
+    return this.http.get<Column[]>(`${this.apiUrl}/columns`);
+  }
+
+  addColumn(title: string): Observable<Column> {
+    return this.http.post<Column>(`${this.apiUrl}/column`, { title }); // Ajustado para o endpoint correto
+  }
+
+  addCard(columnId: string, content: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/columns/${columnId}/cards`, { content });
+  }
+}

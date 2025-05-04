@@ -1,0 +1,13 @@
+<!-- frontend/src/app/board/board.component.html -->
+<div class="board">
+  <h2>Kanban Board</h2>
+
+  <div class="add-column">
+    <input [(ngModel)]="newColumnTitle" placeholder="Enter column title" />
+    <button (click)="addColumn()">Add Column</button>
+  </div>
+
+  <div class="columns">
+    <app-column *ngFor="let column of columns" [column]="column"></app-column>
+  </div>
+</div>
