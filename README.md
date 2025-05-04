@@ -70,34 +70,6 @@ Acesse em: http://localhost:4200
 
 ---
 
-## Estrutura de Diretórios
-
-### _Backend_
-```
-_backend/_
-├── _src/_
-│   ├── _app.module.ts_
-│   ├── _columns/_
-│   └── _cards/_
-├── _test/_
-├── _.env_
-└── _main.ts_
-```
-
-### _Frontend_
-```
-_frontend/_
-├── _src/_
-│   ├── _app/_
-│   │   ├── _components/_
-│   │   ├── _services/_
-│   │   └── _models/_
-├── _angular.json_
-└── _main.ts_
-```
-
----
-
 ## Testes
 
 ### Backend
@@ -164,7 +136,7 @@ NestJS oferece estrutura modular, suporte nativo a TypeScript, validação via d
 ## Autor
 Este projeto foi desenvolvido por [Victor Custodio], com apoio de inteligência artificial para auxiliar nas decisões técnicas e na implementação, devido à falta de experiência prévia com esse tipo de aplicação.
 
-Sou natural de São José do Rio Preto (SP) e iniciei minha trajetória em tecnologia durante o ensino médio, por meio de um curso técnico integrado em TI. Nesse período, tive meus primeiros contatos com lógica de programação, redes e desenvolvimento de sistemas.
+Sou natural de São José do Rio Preto (SP) e iniciei minha trajetória em tecnologia durante o ensino médio, por meio de um curso ensino medio técnico integrado em TI (Senac Rio Preto). Nesse período, tive meus primeiros contatos com lógica de programação, redes e desenvolvimento de sistemas.
 
 Minha motivação para ingressar na área de desenvolvimento de software surgiu da curiosidade em entender como funcionam os sistemas por trás das interfaces e da vontade de criar soluções úteis. Ainda estou no início da minha jornada profissional e vejo neste projeto uma valiosa oportunidade de aprendizado prático.
 
