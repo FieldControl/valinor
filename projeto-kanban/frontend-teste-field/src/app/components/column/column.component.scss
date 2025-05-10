@@ -1,0 +1,51 @@
+.column {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFF;
+    width: 250px;
+
+
+    & .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    & h2{
+        text-align: left;
+        margin: 0;
+        color: #0055FF;
+    }
+
+    & .title-wrapper{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 15px;
+        align-items: center;
+        height: 37px;
+        box-sizing: border-box;
+
+    }
+
+    & .new-card-forms{
+        background: #e5eeff;
+        padding: 20px 10px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+}

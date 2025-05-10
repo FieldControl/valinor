@@ -1,0 +1,65 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Card {
+  columnId: Float
+  description: String
+  id: Int!
+  title: String!
+}
+
+type ColumnKanban {
+  id: Int!
+  title: String!
+}
+
+input CreateCardInput {
+  columnId: Int!
+  description: String
+  title: String!
+}
+
+input CreateColumnKanbanInput {
+  title: String!
+}
+
+input DeleteColumnKanbanInput {
+  id: Int!
+  title: String
+}
+
+type Mutation {
+  createCard(createCardInput: CreateCardInput!): Card!
+  createColumn(createColumnInput: CreateColumnKanbanInput!): ColumnKanban!
+  removeCard(removeCardInput: RemoveCardInput!): Card!
+  removeColumn(removeColumnInput: DeleteColumnKanbanInput!): ColumnKanban!
+  updateCard(updateCardInput: UpdateCardInput!): Card!
+  updateColumn(updateColumnInput: UpdateColumnKanbanInput!): ColumnKanban!
+}
+
+type Query {
+  card(id: Int!): Card
+  cards: [Card!]!
+  column(id: Int!): ColumnKanban!
+  columns: [ColumnKanban!]!
+}
+
+input RemoveCardInput {
+  columnId: Int
+  description: String
+  id: Int!
+  title: String
+}
+
+input UpdateCardInput {
+  columnId: Int
+  description: String
+  id: Int!
+  title: String
+}
+
+input UpdateColumnKanbanInput {
+  id: Int!
+  title: String
+}

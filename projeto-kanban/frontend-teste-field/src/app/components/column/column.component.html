@@ -1,0 +1,57 @@
+<div class="column">
+    <ng-container *ngIf="!editModeTitle">
+        <div class="title-wrapper">
+            <h2>{{ columnTitle }}</h2>
+            <div>
+                <button class="botao-icon" (click)="editModeTitle = true" title="Editar Título da Coluna"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 50 50">
+                    <path d="M 43.050781 1.9746094 C 41.800781 1.9746094 40.549609 2.4503906 39.599609 3.4003906 L 38.800781 4.1992188 L 45.699219 11.099609 L 46.5 10.300781 C 48.4 8.4007812 48.4 5.3003906 46.5 3.4003906 C 45.55 2.4503906 44.300781 1.9746094 43.050781 1.9746094 z M 37.482422 6.0898438 A 1.0001 1.0001 0 0 0 36.794922 6.3925781 L 4.2949219 38.791016 A 1.0001 1.0001 0 0 0 4.0332031 39.242188 L 2.0332031 46.742188 A 1.0001 1.0001 0 0 0 3.2578125 47.966797 L 10.757812 45.966797 A 1.0001 1.0001 0 0 0 11.208984 45.705078 L 43.607422 13.205078 A 1.0001 1.0001 0 1 0 42.191406 11.794922 L 9.9921875 44.09375 L 5.90625 40.007812 L 38.205078 7.8085938 A 1.0001 1.0001 0 0 0 37.482422 6.0898438 z"></path>
+                    </svg>
+                </button>
+                <button class="botao-icon" *ngIf="!showConfirmColumn && cards.length == 0" (click)="showModalColumn = true" title="Apagar Coluna">
+                    <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 12L14 16M14 12L10 16M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                </button>
+                
+                <div *ngIf="showModalColumn" class="modal-backdrop" (click)="cancelRemove()">
+                    <div class="modal-content" (click)="$event.stopPropagation()">
+                        <p>Tem certeza que deseja apagar a coluna <b>{{ columnTitle }}</b>?</p>
+                        <p>Esta ação não poderá ser desfeita.</p>
+                        <button class="botao-padrao botao-confirmar" (click)="onRemoveColumn()">Confirmar</button>
+                        <button class="botao-padrao botao-cancelar" (click)="cancelRemove()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div *ngIf="editModeTitle" class="title-wrapper">
+            <input class="input-clean" [hidden]="!editModeTitle" [(ngModel)]="newTitle" />
+            <button title="Salvar Edição" [hidden]="!editModeTitle" (click)="saveTitle()" class="botao-icon">
+                <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M18.1716 1C18.702 1 19.2107 1.21071 19.5858 1.58579L22.4142 4.41421C22.7893 4.78929 23 5.29799 23 5.82843V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H18.1716ZM4 3C3.44772 3 3 3.44772 3 4V20C3 20.5523 3.44772 21 4 21L5 21L5 15C5 13.3431 6.34315 12 8 12L16 12C17.6569 12 19 13.3431 19 15V21H20C20.5523 21 21 20.5523 21 20V6.82843C21 6.29799 20.7893 5.78929 20.4142 5.41421L18.5858 3.58579C18.2107 3.21071 17.702 3 17.1716 3H17V5C17 6.65685 15.6569 8 14 8H10C8.34315 8 7 6.65685 7 5V3H4ZM17 21V15C17 14.4477 16.5523 14 16 14L8 14C7.44772 14 7 14.4477 7 15L7 21L17 21ZM9 3H15V5C15 5.55228 14.5523 6 14 6H10C9.44772 6 9 5.55228 9 5V3Z" fill="#0F0F0F"></path> </g></svg>
+            </button>
+            <button title="Cancelar Edição" [hidden]="!editModeTitle" (click)="cancelEdit()" class="botao-icon">
+                <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="24" height="24" fill="white"></rect> <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7 7.00001L16.8995 16.8995" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </button>
+        </div>
+    </ng-container>
+
+    <div *ngIf="!newCardToggle">
+        <button class="botao-padrao" (click)="newCardToggle = true;">+ Novo Card</button>
+    </div>
+    
+    <form *ngIf="newCardToggle" (ngSubmit)="onAddCard()" #cardForm="ngForm" class="new-card-forms">
+        <input class="input-padrao" name="title" [(ngModel)]="newCard.title" placeholder="Título" required />
+        <textarea class="input-padrao textarea-padrao" name="description" [(ngModel)]="newCard.description" placeholder="Descrição" required></textarea> 
+        <button class="botao-padrao botao-confirmar" type="submit">Adicionar</button>
+        <button class="botao-padrao botao-cancelar" (click)="newCardToggle = false;" type="submit">Cancelar</button>
+    </form>
+
+    <ng-container *ngIf="columns?.length">
+        <app-card *ngFor="let card of cards" [id]="card.id" [title]="card.title" [description]="card.description"
+            [columns]="columns" [columnId]="card.columnId" (RemoveCard)="onRemoveCard(card.id)"
+            (UpdateCard)="onUpdateCardEmitted($event)">
+        </app-card>
+    </ng-container>
+
+    <p *ngIf="cards.length === 0">Nenhum card nesta coluna.</p>
+</div>

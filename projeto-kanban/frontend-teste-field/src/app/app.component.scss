@@ -1,0 +1,84 @@
+#kanban {
+	text-align: center;
+	box-sizing: border-box;
+	padding: 30px 20px;
+	height: 100vh;
+	width: 100vw;
+	background-image: url(../../public/background.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	h1 {
+		margin: 0;
+		color: #0055FF
+	}
+
+	& .kanban-columns {
+		display: flex;
+		overflow: auto;
+		margin-top: 20px;
+		height: calc(100vh - 133.5px);
+	}
+}
+
+* {
+	font-family: 'Montserrat';
+}
+
+.input-padrao {
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	outline: none;
+}
+
+.input-title {
+	margin-right: 10px;
+}
+
+.title-wrapper h2{
+	text-overflow: ellipsis;
+	height: 24px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.botao-icon{
+    border: none;
+    background: none;
+    cursor: pointer;
+    vertical-align: sub;
+}
+
+.botao-padrao{
+    border: none;
+    padding: 5px 10px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    background: #0055ff;
+    color: #fff;
+}
+
+.botao-padrao.botao-confirmar{
+    background: #33cb33;
+    margin-right: 5px;
+}
+
+.botao-padrao.botao-cancelar{
+    background: #e63c3c;
+}
+
+.textarea-padrao{
+    height: 50px;
+    resize: none;
+    margin-top: 10px;
+}
+
+.input-clean{
+    border: none;
+    border-bottom: solid 2px #E5EEFF;
+    outline: none;
+    font-size: 22px;
+    width: 100%;
+}

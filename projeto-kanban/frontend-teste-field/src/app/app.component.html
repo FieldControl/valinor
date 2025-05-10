@@ -1,0 +1,16 @@
+<div id="kanban">
+	<h1>Field Kanban - Matheus Airon</h1>
+	<div>
+		<form (ngSubmit)="handleAddColumn(newColumn.title)" #columnForm="ngForm">
+			<input class="input-padrao input-title" name="title" type="string" [(ngModel)]="newColumn.title" placeholder="Título" required />
+			<button type="submit" class="botao-padrao">Adicionar Coluna</button>
+		</form>
+	</div>
+	<div class="kanban-columns" *ngIf="columns.length">
+		<app-column *ngFor="let column of columns" [columnId]="column.id" [columnTitle]="column.title"
+			[columns]="columns" [cards]="column.cards" (addCard)="handleAddCard($event)"
+			(removeCard)="handleRemoveCard($event)" (removeColumn)="handleRemoveColumn($event)"
+			(updateCard)="handleUpdateCard($event)" (updateColumnTitle)="handleUpdateColumnTitle($event)">
+		</app-column>
+	</div>
+</div>
