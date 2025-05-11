@@ -8,7 +8,7 @@
 
 1. **Criação do arquivo `.env`:**
    
-   No diretório `backend-field-teste`, crie um arquivo `.env` com as seguintes variáveis de ambiente:
+   No diretório `backend-teste-field`, crie um arquivo `.env` com as seguintes variáveis de ambiente:
    
    ```env
     DATABASE_HOST=*seuhost*
@@ -26,11 +26,11 @@
 
 1. **Instalar Dependências:**
 
-No diretório do `frontend-field-teste`, execute `npm install` para instalar as dependências necessárias.
+No diretório do `frontend-teste-field`, execute `npm install` para instalar as dependências necessárias.
 
 2. **Iniciar o Projeto:**
 
-Após instalar as dependências de ambos projetos, no diretório `backend-field-teste`, execute: `npm start`, no diretório `frontend-field-teste` execute `ng serve`.
+Após instalar as dependências de ambos projetos, no diretório `backend-teste-field`, execute: `npm start`, no diretório `frontend-teste-field` execute `ng serve`.
 
 
 ### Explicação das Abordagens:
