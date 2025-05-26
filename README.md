@@ -87,8 +87,6 @@ Nossos servidores residem na AWS, onde utilizamos a nuvem como nossa plataforma 
 
 Antes mesmo de avaliar o conhecimento técnico, valorizamos o perfil pessoal dos candidatos. Para nós, a determinação, o interesse e a curiosidade são qualidades essenciais. Se você é alguém proativo, interessado e que busca constantemente aprender, é isso que realmente importa para nós! 😊
 
-Aqui está a seção com emojis adicionados:
-
 ---
 
 ## Requisitos Principais
