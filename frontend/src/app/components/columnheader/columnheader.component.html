@@ -1,0 +1,22 @@
+<div class="card-header">
+  @if(isEditing) {
+    <form (ngSubmit)="onSave()">
+      <input type="text" 
+             [(ngModel)]="editedName"
+             name="editedName"
+             (keyup.escape)="cancel.emit()"
+             autofocus>
+    </form>
+  } @else {
+    <h3>{{ column.name }}</h3>
+  }
+
+  <div class="icons">
+    <button (click)="editStart.emit()" class="icon-btn">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    <button (click)="delete.emit()" class="icon-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+</div>

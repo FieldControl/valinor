@@ -1,0 +1,18 @@
+<div class="form">
+  <form (ngSubmit)="onSubmit($event)">
+    <input type="text" 
+           [(ngModel)]="taskName"
+           name="taskName"
+           placeholder="Nome da Tarefa"
+           required>
+
+    <div class="flex gap-1">
+      <button type="submit" class="btn-primary">
+        Adicionar Tarefa
+      </button>
+      <button type="button" class="btn-primary" (click)="onCancel()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

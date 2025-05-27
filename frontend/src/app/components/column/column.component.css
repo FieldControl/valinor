@@ -1,0 +1,45 @@
+.column-wrapper {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  align-items: flex-start;
+}
+
+.column-card {
+  background-color: var(--card-bg);
+  border-radius: .5rem;
+  padding: .75rem .75rem ;
+  color: var(--slate-200);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.header-btn {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: .5rem;
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--slate-700);
+  }
+}
+
+.card-footer {
+  & .btn {
+    margin-top: 1rem;
+    width: 85%;
+  }
+}
+
+.tasks-list {
+  display: grid;
+  margin-block: 1rem;
+  gap: .5rem;
+}

@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Column {
+  id String @id @default(uuid())
+  name String @unique
+  tasks Task[]
+  order Int @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  @@map("columns")
+}
+
+model Task {
+  id String @id @default(uuid())
+  name String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  order Int @default(0)
+  
+  columnId String @map("column_id")
+  column Column @relation(fields: [columnId], references: [id], onDelete: Cascade)
+
+  @@map("tasks")
+}
+

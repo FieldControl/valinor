@@ -1,0 +1,62 @@
+<div class="column-wrapper" cdkDropListGroup>
+  <!-- Adicione um container para as colunas com cdkDropList -->
+  <div class="columns-container"
+       cdkDropList
+       (cdkDropListDropped)="dropColumn($event)"
+       [cdkDropListData]="columns">
+    
+    @for(column of columns; track column.id; let i = $index) {
+      <!-- Adicione cdkDrag à div da coluna -->
+      <div class="card column-card" 
+           cdkDrag
+           [cdkDragData]="column"
+           cdkDropList
+           [id]="'column-' + column.id"
+           [cdkDropListData]="column.tasks"
+           (cdkDropListDropped)="dropTask($event)"
+           [cdkDropListConnectedTo]="getConnectedLists()">
+
+        <app-columnheader 
+          [column]="column"
+          [isEditing]="editingColumnId === column.id"
+          [editedName]="editedColumnName"
+          (editStart)="startEditingColumn(column)"
+          (save)="saveColumnName(column.id, $event)"
+          (cancel)="cancelEditingColumn()"
+          (delete)="deleteColumn(column.id)">
+        </app-columnheader>
+
+        <div class="tasks-list">
+          @for(task of column.tasks; track task.id) {
+            <div class="task-item" cdkDrag [cdkDragData]="task">
+              <app-task 
+                [task]="task"
+                [isEditing]="editingTaskId === task.id"
+                [editedName]="editedTaskName"
+                (edit)="startEditingTask(task)"
+                (save)="saveTaskName(task.id, column.id, $event)"
+                (cancel)="cancelEditingTask()"
+                (delete)="deleteTask(task.id)">
+              </app-task>
+            </div>
+          }
+        </div>
+
+        @if(addingTaskToColumnId === column.id) {
+          <app-task-form
+            [taskName]="newTaskName"
+            (taskSubmitted)="addTask($event, column.id)"
+            (cancel)="cancelAddingTask()">
+          </app-task-form>
+        } @else {
+          <button class="btn-primary" (click)="startAddingTask(column.id)">
+            <div class="flex align-center gap-1">
+              <i class="fa-solid fa-plus"></i>
+              Adicionar tarefa
+            </div>
+          </button>
+        }
+      </div>
+    }
+  </div>
+</div>

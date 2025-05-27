@@ -1,0 +1,20 @@
+<div class="task-item">
+  @if(isEditing) {
+    <form (ngSubmit)="onSave()">
+      <input type="text" [(ngModel)]="editedName" name="editedName" 
+             (keyup.escape)="cancel.emit()" autofocus />
+      <button type="submit" style="display: none"></button>
+    </form>
+  } @else {
+    <h3>{{ task.name }}</h3>
+  }
+
+  <div class="icons">
+    <button class="task-btn" (click)="edit.emit()" aria-label="Editar tarefa">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    <button class="task-btn" (click)="delete.emit()" aria-label="Excluir tarefa">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+</div>

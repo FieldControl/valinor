@@ -1,0 +1,25 @@
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.icon-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: .5rem;
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--slate-700);
+  }
+}

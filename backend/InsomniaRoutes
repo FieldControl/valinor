@@ -1,0 +1,291 @@
+type: collection.insomnia.rest/5.0
+name: Valinor
+meta:
+  id: wrk_fa466a488dac434b992aecd2f1d5fe1a
+  created: 1743724501110
+  modified: 1743724501110
+collection:
+  - name: Columns
+    meta:
+      id: fld_a2ef68867bcc4d6b846cd45e78d67092
+      created: 1743726327718
+      modified: 1743726444591
+      sortKey: -1743726327718
+    children:
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+        name: Create
+        meta:
+          id: req_0648da42537643d398c00a127240d055
+          created: 1743726336204
+          modified: 1744217985435
+          isPrivate: false
+          sortKey: -1743726336204
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Teste 2"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+          }}/051cd132-911a-4c2d-8646-fbd5487918ed"
+        name: Update
+        meta:
+          id: req_99deedc13cf04c6ea402b76913d6dd5c
+          created: 1743800012950
+          modified: 1743802603504
+          isPrivate: false
+          sortKey: -1743800012950
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Não sei"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+        name: Index
+        meta:
+          id: req_ca33ba19bd9b45c5b1fd8b0bf0fc58bf
+          created: 1743800199014
+          modified: 1744162030644
+          isPrivate: false
+          sortKey: -1743800199014
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+          }}/8580ab5b-a086-4e63-b66e-cb1e0f93f711"
+        name: Delete
+        meta:
+          id: req_333f8e5d3cfb44548668095d07c3f424
+          created: 1743800324481
+          modified: 1744072488430
+          isPrivate: false
+          sortKey: -1743800324481
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        RESOURCE: columns
+  - name: Tasks
+    meta:
+      id: fld_dbe333af2a694f5180d87711fd7423d9
+      created: 1743800943596
+      modified: 1743800995328
+      sortKey: -1743800943596
+    children:
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+        name: Create
+        meta:
+          id: req_2000feeed6e24e629853b2f49597bd35
+          created: 1743800959564
+          modified: 1744213760627
+          isPrivate: false
+          sortKey: -1743800959564
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Teste task",
+            	"columnId": "773e91ea-965d-48d6-8377-a6e764b59101"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+          }}/6b465bb8-74fe-4d75-9356-a6b53a44596a"
+        name: Get by Column
+        meta:
+          id: req_055fc41ec68944caa66eac5bd6551e81
+          created: 1743801834053
+          modified: 1744162058612
+          isPrivate: false
+          sortKey: -1743801834053
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+          }}/6a0cd904-7117-48bb-8160-489b6fe1e402"
+        name: Update
+        meta:
+          id: req_fbbea03b67994a5d897c9f18cdcaeb2c
+          created: 1743801918634
+          modified: 1743802100776
+          isPrivate: false
+          sortKey: -1743801918634
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Terminar",
+            	"description": "",
+            	"columnId": "051cd132-911a-4c2d-8646-fbd5487918ed",
+            	"order": 0
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+          }}/6a0cd904-7117-48bb-8160-489b6fe1e402"
+        name: Delete
+        meta:
+          id: req_c3f7ed542deb4c688a55bd237ee3ba1c
+          created: 1743802154755
+          modified: 1743802172099
+          isPrivate: false
+          sortKey: -1743802154755
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+          }}/bc712907-eeeb-4027-88e5-299b03736cf8/column"
+        name: Patch
+        meta:
+          id: req_4aec4d39ee3744078f0096cfd2dcd54c
+          created: 1744161763230
+          modified: 1744162108304
+          isPrivate: false
+          sortKey: -1744161763230
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"columnId": "f0bd224e-f599-4a55-a153-ba44dcc817c2"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        RESOURCE: tasks
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_f5fc007b4c9ce1bc289c85c81519172e12d0c68e
+    created: 1743724501118
+    modified: 1743724501118
+environments:
+  name: Base Environment
+  meta:
+    id: env_f5fc007b4c9ce1bc289c85c81519172e12d0c68e
+    created: 1743724501117
+    modified: 1743724501117
+    isPrivate: false
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_1b78c251de284037bfd18f9971bde75b
+        created: 1743726283494
+        modified: 1743726308954
+        isPrivate: false
+        sortKey: 1743726283494
+      data:
+        "":
+          BASE_URL: localhost:3333
+    - name: Prod
+      meta:
+        id: env_d7760d265f36423eb2a26166c05fced7
+        created: 1744213708606
+        modified: 1744213731213
+        isPrivate: false
+        sortKey: 1744213708606
+      data:
+        "":
+          BASE_URL: https://valinor-api.onrender.com

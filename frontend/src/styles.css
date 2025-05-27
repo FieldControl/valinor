@@ -1,0 +1,155 @@
+:root {
+  --gray-900: oklch(21% 0.034 264.665);
+
+  --slate-900: oklch(20.8% 0.042 265.755);
+  --slate-800: oklch(20.8% 0.042 265.755);
+  --slate-700: oklch(27.9% 0.041 260.031);
+  --slate-600: oklch(44.6% 0.043 257.281);
+  --slate-500: oklch(55.4% 0.046 257.417);
+  --slate-400: oklch(70.4% 0.04 256.788);
+  --slate-300: oklch(70.4% 0.04 256.788);
+  --slate-200: oklch(92.9% 0.013 255.508);
+  --slate-100: oklch(96.8% 0.007 247.896);
+
+  --blue-400: oklch(70.7% 0.165 254.624);
+  --blue-300: oklch(80.9% 0.105 251.813);
+
+  --card-bg: #364b6c;
+}
+
+body {
+  background-color: var(--gray-900);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-items {
+  align-items: center;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.btn {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--card-bg);
+  border-radius: .5rem;
+  padding: .75rem 1rem;
+  color: var(--slate-100);
+}
+
+.btn-primary {
+  all: unset;
+  padding: .5rem;
+  background-color: var(--blue-400);
+  border-radius: .25rem;
+  color: black;
+  transition: .2s;
+  cursor: pointer;
+  width: auto;
+  text-align: center;
+
+  &:hover {
+    background-color: var(--blue-300);
+  }
+}
+
+.card {
+  width: 17rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  & input {
+    all: unset;
+    width: 90%;
+    padding: .25rem;
+    border-radius: .25rem;
+    background-color: var(--slate-700);
+    border: 1px solid var(--slate-400);
+    color: var(--slate-200);
+
+    &::placeholder {
+      color: var(--slate-300);
+    }
+
+    &:focus {
+      outline: 1px solid var(--blue-400);
+      border: 1px solid var(--blue-400);
+    }
+  }
+}
+
+.form-card {
+  border-radius: .5rem;
+  background-color: var(--card-bg);
+  padding: .75rem .5rem;
+}
+
+/* Estilo durante o drag */
+.cdk-drag-preview {
+  box-sizing: border-box;
+  color: var(--slate-200);
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* Estilo do placeholder */
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+/* Animação ao soltar */
+.cdk-drop-list-dragging .task-item:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.columns-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  align-items: flex-start;
+}
+
+/* Estilo durante o arraste de colunas */
+.card.column-card.cdk-drag-preview {
+  opacity: 0.8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(3deg);
+}
+
+/* Animação ao soltar coluna */
+.card.column-card.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Espaço reservado durante o arraste */
+.columns-container.cdk-drop-list-dragging .card.column-card:not(.cdk-drag-placeholder) {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}

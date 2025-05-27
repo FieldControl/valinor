@@ -1,0 +1,24 @@
+@if(!isCreatingColumn) {
+  <button class="btn card" (click)="startCreatingColumn()">
+    <div class="flex align-center gap-1">
+      <i class="fa-solid fa-plus"></i>
+      <p>Adicionar coluna</p>
+    </div>
+  </button>
+} @else {
+  <div class="card form-card">
+    <form class="card" (ngSubmit)="createColumn($event)">
+      <input type="text" placeholder="Nome da coluna" required name="columnName" [(ngModel)]="newColumnName"/>
+
+      <div class="flex gap-1">
+        <button type="submit" class="btn-primary">
+          Adicionar coluna
+        </button>
+  
+        <button type="button" class="btn-primary" (click)="cancelCreatingColumn()"  >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+}

@@ -1,0 +1,29 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--slate-800);
+  border-radius: .25rem;
+  gap: .5rem;
+  padding: .5rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.task-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: .5rem;
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--slate-700);
+  }
+}
