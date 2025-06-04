@@ -1,0 +1,19 @@
+<div class="card" draggable="true" (dragstart)="onDragStart($event)">
+  <ng-container *ngIf="!isEditing">
+    <h3>{{ card.title }}</h3>
+    <p *ngIf="card.description">{{ card.description }}</p>
+    <div class="card-actions">
+      <button (click)="toggleEditMode()">Editar</button>
+      <button class="delete-card-btn" (click)="onDeleteCard()">Excluir</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isEditing">
+    <input type="text" [(ngModel)]="editedTitle" placeholder="Título do Card" />
+    <textarea [(ngModel)]="editedDescription" placeholder="Descrição do Card"></textarea>
+    <div class="card-actions">
+      <button (click)="saveCardChanges()">Salvar</button>
+      <button (click)="toggleEditMode()">Cancelar</button>
+    </div>
+  </ng-container>
+</div>

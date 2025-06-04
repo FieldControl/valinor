@@ -1,0 +1,24 @@
+<div class="kanban-board">
+  <h1>Meu Quadro Kanban</h1>
+
+  <div class="column-container">
+    <app-column
+      *ngFor="let column of columns"
+      [column]="column"
+      (cardDropped)="onCardDropped($event)"
+      (cardDeleted)="onCardDeleted($event)"
+      (newCardAdded)="onCardAdded($event.newCard, $event.columnId)"
+      (columnDeleted)="deleteColumn($event)"
+    ></app-column>
+
+    <div class="add-column-form">
+      <input
+        type="text"
+        [(ngModel)]="newColumnTitle"
+        placeholder="Adicionar nova coluna"
+        (keyup.enter)="createColumn()"
+      />
+      <button (click)="createColumn()">+</button>
+    </div>
+  </div>
+</div>

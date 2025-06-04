@@ -1,0 +1,31 @@
+<div class="kanban-column"
+     (drop)="onDragDrop($event)"
+     (dragover)="allowDrop($event)">
+
+  <div class="column-header">
+    <h2>{{ column.title }}</h2>
+    <button class="delete-button" (click)="deleteColumn()">X</button>
+  </div>
+
+  <div class="cards-container">
+    <ng-container *ngFor = "let card of column.cards; trackBy: trackByCardId">
+        <app-card
+        [card]="card"
+        (dragStart)="drag($event.event, $event.card)"
+        (cardDeleted)="onCardDeleted($event)"
+      ></app-card>
+    </ng-container>
+
+  </div>
+
+
+
+ <form class="add-card-form" (submit)="createCard(); $event.preventDefault()">
+  <input
+    type="text"
+    [(ngModel)]="newCardTitle"
+    name="newCardTitle"
+    placeholder="Adicionar novo card"
+  />
+  <button type="submit">+</button>
+</form>

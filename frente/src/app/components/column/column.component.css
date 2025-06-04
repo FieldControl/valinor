@@ -1,0 +1,83 @@
+.column {
+  background-color: #f4f5f7;
+  border-radius: 8px;
+  padding: 15px;
+  min-width: 280px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1000px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.column-header h2 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #172b4d;
+}
+
+.delete-column-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.delete-column-btn:hover {
+  background-color: #c82333;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-card-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-card-btn:hover {
+  background-color: #0056b3;
+}
+
+.add-card-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.add-card-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-card-form button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-card-form button:hover {
+  background-color: #0056b3;
+}
