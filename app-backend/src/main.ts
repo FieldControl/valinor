@@ -7,23 +7,19 @@ async function bootstrap(): Promise<void> {
   const app: INestApplication = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
-  // (opcional) habilite CORS se precisar:
-  // app.enableCors();
-
-  // Configurações do Swagger:
   const config = new DocumentBuilder()
     .setTitle('Kanban API')
     .setDescription('API para gerenciar usuários, colunas e cards')
     .setVersion('1.0')
-    .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' })
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
-  const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+  const port = Number(process.env.PORT) || 3000;
   await app.listen(port);
-  console.log(`Application is running on: http://localhost:${port}`);
+  console.log(`Application running on: http://localhost:${port}`);
 }
 
 bootstrap();
