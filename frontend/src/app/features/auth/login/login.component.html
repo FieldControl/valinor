@@ -1,0 +1,18 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <h1>Login</h1>
+    <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Digite seu email" />
+        @if (loginForm.get('email')?.invalid) {
+        <span class="error">Email inválido</span>
+        }
+    </div>
+    <div>
+        <label>Senha</label>
+        <input type="password" formControlName="password" placeholder="Digite sua senha" />
+        @if (loginForm.get('password')?.invalid) {
+        <span class="error">Senha inválida</span>
+        }
+    </div>
+    <button (click)="login()" type="button">Entrar</button>
+</form>
