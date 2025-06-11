@@ -1,0 +1,11 @@
+### Buscar todas as colunas
+GET http://localhost:3000/columns
+### Criar um novo cartão
+POST http://localhost:3000/cards
+Content-Type: application/json
+
+{
+  "title": "Aprender sobre NestJS",
+  "content": "Estudar sobre Módulos e Serviços",
+  "columnId": 1
+}
