@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -11,7 +12,7 @@ export class UsersService {
     email: string;
     password: string;
     tipo?: number;
-  }) {
+  }): Promise<User> {
     const hashedPassword = await bcrypt.hash(data.password, 10);
     return this.prisma.user.create({
       data: {
@@ -23,20 +24,21 @@ export class UsersService {
     });
   }
 
-  async findByEmail(email: string) {
+  async findAll(): Promise<Omit<User, 'password'>[]> {
+    const users = await this.prisma.user.findMany();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return users.map(({ password, ...u }) => u);
+  }
+
+  async findByEmail(email: string): Promise<User | null> {
     return this.prisma.user.findUnique({ where: { email } });
   }
 
-  async updateUserRole(userId: number, tipo: number) {
-    console.log(userId, tipo);
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-    });
-
+  async updateUserRole(userId: number, tipo: number): Promise<User> {
+    const user = await this.prisma.user.findUnique({ where: { id: userId } });
     if (!user) {
       throw new NotFoundException('Usuário não encontrado');
     }
-
     return this.prisma.user.update({
       where: { id: userId },
       data: { tipo },

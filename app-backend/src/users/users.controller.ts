@@ -5,6 +5,7 @@ import {
   Body,
   UseGuards,
   ParseIntPipe,
+  Get,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -24,6 +25,12 @@ import { UpdateUserRoleDto } from './dto/update-user-role.dto';
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
+
+  @Get()
+  @Roles(0)
+  async findAll() {
+    return this.usersService.findAll();
+  }
 
   @Patch(':id/role')
   @Roles(0)

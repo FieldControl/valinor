@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "@angular/cdk": "^20.0.3"
   }
 }
