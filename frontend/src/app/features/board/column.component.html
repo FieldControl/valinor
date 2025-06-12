@@ -4,13 +4,19 @@
     <button class="delete-btn" (click)="onDelete()">×</button>
   </div>
 
-  <ul class="cards">
-    <li *ngFor="let c of column.cards" class="card">
-      <app-card [card]="c" (deleted)="onDeleteCard(c.id)"></app-card>
-    </li>
-  </ul>
+  <div class="cards-list">
+    <div *ngFor="let card of column.cards" class="card">
+      <span>{{ card.title }}</span>
+      <button class="delete-btn" (click)="onDeleteCard(card.id)">×</button>
+    </div>
+  </div>
 
-  <button class="add-card-btn" (click)="onAddCard()">
-    + Card
+  <div *ngIf="addingCard" class="add-card-form">
+    <input [(ngModel)]="newCardTitle" placeholder="Título do card" (keyup.enter)="confirmAddCard()" />
+    <button (click)="confirmAddCard()">✔</button>
+    <button (click)="cancelAddCard()">✖</button>
+  </div>
+  <button *ngIf="!addingCard" class="add-card-btn" (click)="startAddCard()">
+    + Adicionar card
   </button>
 </div>
