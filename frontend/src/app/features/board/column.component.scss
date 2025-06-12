@@ -1,0 +1,23 @@
+.column {
+  background: #e2e4e6;
+  border-radius: 6px;
+  padding: 12px;
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+}

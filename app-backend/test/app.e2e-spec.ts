@@ -70,15 +70,6 @@ describe('Kanban API E2E', () => {
     expect(typeof res.body.access_token).toBe('string');
   });
 
-  // it('/users/me (GET) → profile', async () => {
-  //   const res = await request(app.getHttpServer())
-  //     .get('/users/me')
-  //     .set('Authorization', `Bearer ${authToken}`)
-  //     .expect(200);
-  //   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  //   expect(res.body.email).toBe('admin@test.com');
-  // });
-
   it('/users/:id/role (PATCH) → update role', async () => {
     const res = await request(app.getHttpServer())
       .patch(`/users/${userId}/role`)

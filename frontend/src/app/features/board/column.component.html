@@ -1,0 +1,7 @@
+<div class="column">
+  <h3>{{ column.title }}</h3>
+  <div class="cards-list">
+    <app-card *ngFor="let card of column.cards" [card]="card">
+    </app-card>
+  </div>
+</div>

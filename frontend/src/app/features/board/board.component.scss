@@ -1,0 +1,7 @@
+.board-container {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  overflow-x: auto;
+  min-height: calc(100vh - 80px);
+}

@@ -1,18 +1,12 @@
 {
-    "name": "valinor-monorepo",
-    "private": true,
-    "workspaces": ["app-backend", "client"],
-    "scripts": {
-      "start:backend": "npm --prefix app-backend run start:dev",
-      "start:client": "npm --prefix client run start",
-      "start": "concurrently \"npm run start:backend\" \"npm run start:client\"",
-      "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
-      "format": "prettier --write ."
-    },
-    "devDependencies": {
-      "concurrently": "^7.0.0",
-      "eslint": "^8.0.0",
-      "prettier": "^3.0.0"
-    }
+  "name": "valinor-monorepo",
+  "private": true,
+  "scripts": {
+    "start:backend": "cd app-backend && npm run start:dev",
+    "start:frontend": "cd client    && npm run start",
+    "start": "npm run start:backend"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   }
-  
+}
