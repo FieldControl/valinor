@@ -1,27 +1,44 @@
 import { Injectable } from '@angular/core';
-import { Router }     from '@angular/router';
+import { Observable, of } from 'rxjs';
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  tipo: number;
+}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  // credenciais fixas
-  private readonly USER = { email: 'admin@test.com', password: 'adminpass' };
-
-  constructor(private router: Router) {}
+  private _loggedIn = false;
+  private users: User[] = [
+    { id: 1, name: 'Admin', email: 'admin@test.com', tipo: 0 },
+    { id: 2, name: 'User',  email: 'user@test.com',  tipo: 2 },
+  ];
 
   login(email: string, password: string): boolean {
-    if (email === this.USER.email && password === this.USER.password) {
-      localStorage.setItem('loggedIn', 'true');
+    if (email === 'admin@test.com' && password === 'adminpass') {
+      this._loggedIn = true;
       return true;
     }
     return false;
   }
 
-  logout() {
-    localStorage.removeItem('loggedIn');
-    this.router.navigate(['/login']);
+  isLogged(): boolean {
+    return this._loggedIn;
   }
 
-  isLogged(): boolean {
-    return localStorage.getItem('loggedIn') === 'true';
+  getAllUsers(): User[] {
+    return [...this.users];
+  }
+
+  updateRole(id: number, newTipo: number): Observable<User> {
+    const u = this.users.find(x => x.id === id)!;
+    u.tipo = newTipo;
+    return of(u);
+  }
+
+  logout(): void {
+    this._loggedIn = false;
   }
 }

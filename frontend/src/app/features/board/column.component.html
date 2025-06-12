@@ -1,7 +1,12 @@
+<!-- src/app/features/board/column.component.html -->
 <div class="column">
-  <h3>{{ column.title }}</h3>
-  <div class="cards-list">
-    <app-card *ngFor="let card of column.cards" [card]="card">
-    </app-card>
+  <div class="column-header">
+    <h3>{{ column.title }}</h3>
+    <button class="delete-btn" (click)="onDelete()">×</button>
   </div>
+
+  <!-- Renderiza cada card -->
+  <app-card *ngFor="let card of column.cards" [card]="card" (delete)="onDeleteCard($event)"></app-card>
+
+  <button class="add-card-btn" (click)="onAddCard()">+ Novo Card</button>
 </div>

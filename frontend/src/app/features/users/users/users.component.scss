@@ -1,0 +1,30 @@
+.users-container {
+  padding: 24px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    select {
+      padding: 4px;
+    }
+
+    button {
+      padding: 4px 8px;
+      background: #61dafb;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background: #21a1f1
+      }
+    }
+  }
+}

@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Column, Card } from '../../shared/models/column.model';
+import { Column }     from '../../shared/models/column.model';
+import { Card }       from '../../shared/models/card.model';
 
 @Injectable({ providedIn: 'root' })
 export class DummyService {
-  private data: Column[] = [
-    { id: 1, title: 'Todo', order: 0, cards: [
-      { id: 1, title: 'Tarefa A', order: 0 },
-      { id: 2, title: 'Tarefa B', order: 1 },
-    ]},
-    { id: 2, title: 'Doing', order: 1, cards: [] },
-    { id: 3, title: 'Done', order: 2, cards: [] },
-  ];
-
   getColumns(): Column[] {
-    return this.data;
+    return [
+      {
+        id: 1, title: 'Todo', order: 0,
+        cards: [
+          { id: 1, title: 'Tarefa A', description: '', order: 0, columnId: 1 },
+          { id: 2, title: 'Tarefa B', description: '', order: 1, columnId: 1 },
+        ],
+      },
+      { id: 2, title: 'Doing', order: 1, cards: [] },
+      { id: 3, title: 'Done',  order: 2, cards: [] },
+    ];
   }
 }

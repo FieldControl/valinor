@@ -1,1 +1,7 @@
+<nav *ngIf="auth.isLogged()" class="main-nav">
+  <a routerLink="/board" routerLinkActive="active">Quadro</a>
+  <a routerLink="/users" routerLinkActive="active">Usuários</a>
+  <a (click)="logout()">Sair</a>
+</nav>
+
 <router-outlet></router-outlet>

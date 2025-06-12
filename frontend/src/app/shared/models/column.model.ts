@@ -1,9 +1,5 @@
-export interface Card {
-  id: number;
-  title: string;
-  description?: string;
-  order: number;
-}
+// src/app/shared/models/column.model.ts
+import { Card } from './card.model';
 
 export interface Column {
   id: number;

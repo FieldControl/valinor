@@ -1,0 +1,16 @@
+/* app.component.scss */
+.main-nav {
+  background: #6195FF;
+  padding: 8px 16px;
+
+  a {
+    color: white;
+    margin-right: 12px;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline
+    }
+  }
+}

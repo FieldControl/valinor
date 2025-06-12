@@ -1,4 +1,20 @@
-<div class="board-container">
-  <app-column *ngFor="let col of columns" [column]="col">
-  </app-column>
+<div class="board">
+
+  <div class="column" *ngFor="let col of columns">
+    <div class="column-header">
+      <h3>{{ col.title }}</h3>
+      <button class="delete-btn" (click)="onDeleteColumn(col.id)">×</button>
+    </div>
+
+    <ul class="cards">
+      <li class="card" *ngFor="let card of col.cards">
+        {{ card.title }}
+        <button class="delete-btn" (click)="onDeleteCard(card.id)">×</button>
+      </li>
+    </ul>
+
+    <button class="add-card-btn" (click)="onAddCard(col.id)">+ Novo Card</button>
+  </div>
+
+  <button class="add-column-btn" (click)="addColumn()">+ Nova Coluna</button>
 </div>

@@ -1,7 +1,78 @@
-.board-container {
+.board {
   display: flex;
   gap: 16px;
-  padding: 24px;
-  overflow-x: auto;
-  min-height: calc(100vh - 80px);
+  padding: 16px;
+  background: #f5f7fa;
+}
+
+.column {
+  background: #e0e0e0;
+  border-radius: 4px;
+  padding: 8px;
+  width: 200px;
+
+  .column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    h3 {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    .delete-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #900;
+    }
+  }
+
+  .cards {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 8px 0;
+
+    .card {
+      background: white;
+      border-radius: 2px;
+      padding: 6px 8px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .delete-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: #900;
+      }
+    }
+  }
+
+  .add-card-btn {
+    display: block;
+    width: 100%;
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+}
+
+.add-column-btn {
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: start;
 }
