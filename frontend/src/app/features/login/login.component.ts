@@ -2,13 +2,17 @@
 import { Component }      from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { Router }         from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { AuthService }    from '../../core/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -20,10 +24,18 @@ export class LoginComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
   submit() {
-    if (this.auth.login(this.email, this.password)) {
-      this.router.navigate(['/board']);
-    } else {
-      this.error = 'Credenciais inválidas';
-    }
+    this.error = '';
+    this.auth.login(this.email, this.password)
+      .subscribe({
+        next: () => {
+          // login bem-sucedido: vai para o board
+          this.router.navigate(['/board']);
+        },
+        error: (err) => {
+          // se a API responder erro 401 ou falhar, cai aqui
+          console.error('login falhou', err);
+          this.error = 'Credenciais inválidas';
+        }
+      });
   }
 }

@@ -1,9 +1,7 @@
-import { Component, OnInit }   from '@angular/core';
-import { CommonModule }        from '@angular/common';
-import { FormsModule }         from '@angular/forms';
-import { AuthService }         from '../../../core/auth/auth.service';
-
-interface User { id: number; name: string; email: string; tipo: number; }
+import { Component, OnInit }    from '@angular/core';
+import { CommonModule }         from '@angular/common';
+import { FormsModule }          from '@angular/forms';
+import { UsersApiService, User } from '../../../core/api/users-api.service';
 
 @Component({
   selector: 'app-users',
@@ -21,15 +19,22 @@ export class UsersComponent implements OnInit {
     { value: 3, label: 'None' },
   ];
 
-  constructor(private auth: AuthService) {}
+  constructor(private usersApi: UsersApiService) {}
 
   ngOnInit() {
-    this.users = this.auth.getAllUsers(); // ou via novo UsersService
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.usersApi.getAll().subscribe((list: User[]) => {
+      this.users = list;
+    });
   }
 
   changeRole(user: User, newRole: number) {
-    user.tipo = newRole;
-    this.auth.updateRole(user.id, newRole)
-      .subscribe(); // adaptar à sua API
+    this.usersApi.updateRole(user.id, newRole)
+      .subscribe((updated: User) => {
+        user.tipo = updated.tipo;
+      });
   }
 }

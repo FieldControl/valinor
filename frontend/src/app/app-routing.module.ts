@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
+// src/app/app-routing.module.ts
+import { NgModule }       from '@angular/core';
+import { RouterModule,
+         Routes }         from '@angular/router';
 import { LoginComponent } from './features/login/login.component';
 import { BoardComponent } from './features/board/board.component';
 import { UsersComponent } from './features/users/users/users.component';
-import { AuthGuard } from './core/auth/auth.guard';
+import { AuthGuard }      from './core/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
@@ -15,9 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { useHash: true }),
-  ],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

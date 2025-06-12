@@ -1,44 +1,32 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable }            from '@angular/core';
+import { HttpClient }            from '@angular/common/http';
+import { tap }                   from 'rxjs/operators';
+import { Observable }            from 'rxjs';
+import { environment }           from '../../../enviroments/enviroment';
 
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-  tipo: number;
-}
+interface LoginResponse { access_token: string; }
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private _loggedIn = false;
-  private users: User[] = [
-    { id: 1, name: 'Admin', email: 'admin@test.com', tipo: 0 },
-    { id: 2, name: 'User',  email: 'user@test.com',  tipo: 2 },
-  ];
+  private token: string | null = null;
 
-  login(email: string, password: string): boolean {
-    if (email === 'admin@test.com' && password === 'adminpass') {
-      this._loggedIn = true;
-      return true;
-    }
-    return false;
+  constructor(private http: HttpClient) {}
+
+  login(email: string, password: string): Observable<LoginResponse> {
+    return this.http
+      .post<LoginResponse>(`${environment.apiUrl}/auth/login`, { email, password })
+      .pipe(tap(res => this.token = res.access_token));
   }
 
   isLogged(): boolean {
-    return this._loggedIn;
+    return !!this.token;
   }
 
-  getAllUsers(): User[] {
-    return [...this.users];
+  logout() {
+    this.token = null;
   }
 
-  updateRole(id: number, newTipo: number): Observable<User> {
-    const u = this.users.find(x => x.id === id)!;
-    u.tipo = newTipo;
-    return of(u);
-  }
-
-  logout(): void {
-    this._loggedIn = false;
+  getToken(): string | null {
+    return this.token;
   }
 }

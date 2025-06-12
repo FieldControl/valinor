@@ -1,27 +1,17 @@
-<div class="users-container">
-  <h2>Gerenciar Usuários</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let u of users">
-        <td>{{ u.name }}</td>
-        <td>{{ u.email }}</td>
-        <td>
-          <select [(ngModel)]="u.tipo">
-            <option *ngFor="let r of roles" [value]="r.value">{{ r.label }}</option>
-          </select>
-        </td>
-        <td>
-          <button (click)="changeRole(u, u.tipo)">Salvar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h2>Usuários</h2>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Role</th>
+  </tr>
+  <tr *ngFor="let u of users">
+    <td>{{u.name}}</td>
+    <td>{{u.email}}</td>
+    <td>
+      <select [(ngModel)]="u.tipo" (change)="changeRole(u, u.tipo)">
+        <option *ngFor="let r of roles" [value]="r.value">{{r.label}}</option>
+      </select>
+    </td>
+  </tr>
+</table>

@@ -1,26 +1,6 @@
 <div class="board">
-  <ng-container *ngFor="let col of columns">
-    <div class="column" cdkDropList [id]="'col-' + col.id" [cdkDropListData]="col.cards"
-      [cdkDropListConnectedTo]="connectedTo" (cdkDropListDropped)="drop($event)">
-      <div class="column-header">
-        <h3>{{ col.title }}</h3>
-        <button class="delete-btn" (click)="onDeleteColumn(col.id)">×</button>
-      </div>
+  <app-column *ngFor="let col of columns" [column]="col" (deleted)="onDeletedColumn()" (cardAdded)="onCardAdded()"
+    (cardDeleted)="onCardDeleted()" (cardMoved)="onCardMoved()"></app-column>
 
-      <div class="cards-list">
-        <div class="card" *ngFor="let card of col.cards" cdkDrag>
-          <span>{{ card.title }}</span>
-          <button class="delete-btn" (click)="onDeleteCard(card.id)">×</button>
-        </div>
-      </div>
-
-      <button class="add-card-btn" (click)="onAddCard(col.id)">
-        + Add Card
-      </button>
-    </div>
-  </ng-container>
-
-  <button class="add-column-btn" (click)="addColumn()">
-    + Add Column
-  </button>
+  <button class="add-column-btn" (click)="onCreateColumn()">+ Nova Coluna</button>
 </div>

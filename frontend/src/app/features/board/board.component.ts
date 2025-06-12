@@ -1,75 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule }       from '@angular/common';
-import {
-  DragDropModule,
-  CdkDragDrop,
-  transferArrayItem
-}                             from '@angular/cdk/drag-drop';
-import { DummyService }       from './dummy.service';
-import { Column }             from '../../shared/models/column.model';
-import { Card }               from '../../shared/models/card.model';
+import { Component, OnInit }      from '@angular/core';
+import { CommonModule }           from '@angular/common';
+import { ColumnComponent }        from './column.component';
+import { ColumnsApiService }      from '../../core/api/columns-api.service';
+import { CardsApiService }        from '../../core/api/cards-api.service';
+import { Column }                 from '../../shared/models/column.model';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule, DragDropModule],
+  imports: [
+    CommonModule,
+    ColumnComponent,
+  ],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
   columns: Column[] = [];
 
-  constructor(private ds: DummyService) {}
+  constructor(
+    private colsApi: ColumnsApiService,
+    private cardsApi: CardsApiService,
+  ) {}
 
   ngOnInit() {
-    this.columns = this.ds.getColumns();
+    this.reload();
   }
 
-  // retorna array de IDs de todas as drop lists
-  get connectedTo(): string[] {
-    return this.columns.map(c => `col-${c.id}`);
+  reload() {
+    this.colsApi.getAll().subscribe(cols => this.columns = cols);
   }
 
-  drop(event: CdkDragDrop<Card[]>) {
-    if (event.previousContainer === event.container) return;
-    transferArrayItem(
-      event.previousContainer.data,
-      event.container.data,
-      event.previousIndex,
-      event.currentIndex,
-    );
+  onCreateColumn() {
+    const dto = { title: 'Nova Coluna', order: this.columns.length };
+    this.colsApi.create(dto).subscribe(() => this.reload());
   }
 
-  onDeleteColumn(colId: number) {
-    this.columns = this.columns.filter(c => c.id !== colId);
+  onDeletedColumn() {
+    this.reload();
   }
-
-  onDeleteCard(cardId: number) {
-    this.columns.forEach(c =>
-      (c.cards = c.cards.filter(card => card.id !== cardId))
-    );
+  onCardAdded() {
+    this.reload();
   }
-
-  addColumn() {
-    const newId = Math.max(0, ...this.columns.map(c => c.id)) + 1;
-    this.columns.push({
-      id: newId,
-      title: 'Nova Coluna',
-      order: this.columns.length,
-      cards: [],
-    });
+  onCardDeleted() {
+    this.reload();
   }
-
-  onAddCard(columnId: number) {
-    const col = this.columns.find(c => c.id === columnId)!;
-    const newCardId =
-      Math.max(0, ...this.columns.flatMap(c => c.cards.map(card => card.id))) + 1;
-    col.cards.push({
-      id: newCardId,
-      title: 'Novo Card',
-      description: '',
-      order: col.cards.length,
-      columnId,
-    });
+  onCardMoved() {
+    this.reload();
   }
 }
