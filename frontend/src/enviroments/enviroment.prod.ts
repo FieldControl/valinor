@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://sua-api.com'
+  apiUrl: 'https://seu-backend-em-producao',
+  wsUrl: 'https://seu-backend-em-producao'
 };
