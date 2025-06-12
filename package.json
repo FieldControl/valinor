@@ -3,8 +3,7 @@
   "private": true,
   "scripts": {
     "start:backend": "cd app-backend && npm run start:dev",
-    "start:frontend": "cd client    && npm run start",
-    "start": "npm run start:backend"
+    "start:frontend": "cd client    && npm run start"
   },
   "devDependencies": {
     "concurrently": "^7.0.0"
