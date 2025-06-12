@@ -3,16 +3,19 @@
     <div>
         <label>Email</label>
         <input type="email" formControlName="email" placeholder="Digite seu email" />
-        @if (loginForm.get('email')?.invalid) {
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
         <span class="error">Email inválido</span>
         }
     </div>
     <div>
         <label>Senha</label>
         <input type="password" formControlName="password" placeholder="Digite sua senha" />
-        @if (loginForm.get('password')?.invalid) {
+        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
         <span class="error">Senha inválida</span>
         }
     </div>
     <button (click)="login()" type="button">Entrar</button>
+    <div>
+        Ainda não tem uma conta? <a href="/register">Cadastre-se</a>
+    </div>
 </form>

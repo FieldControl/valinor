@@ -1,0 +1,29 @@
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../../shared/services/auth.service';
+import { RegisterDto } from '../../../shared/DTO/auth.dto';
+@Component({
+  selector: 'app-register',
+  imports: [ReactiveFormsModule],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
+})
+
+export class RegisterComponent {
+  protected title = "Register";
+  private readonly authService = inject(AuthService)
+
+
+  registerForm = new FormGroup({
+    name: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required, Validators.minLength(6)])
+  })
+  register() {
+    if (!this.registerForm.valid) return;
+    this.authService.register(this.registerForm.value as RegisterDto).subscribe({
+
+    });
+  }
+}
+
