@@ -1,19 +1,15 @@
-// src/app/features/column/column.component.ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule }                           from '@angular/common';
 import { FormsModule }                            from '@angular/forms';
 import { Column }                                 from '../../shared/models/column.model';
-import { Card }                                   from '../../shared/models/card.model';
+import { CardComponent }                          from '../board/card.component';  // ← aqui
 import { ColumnsApiService }                      from '../../core/api/columns-api.service';
 import { CardsApiService }                        from '../../core/api/cards-api.service';
 
 @Component({
   selector: 'app-column',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule         // ← para o input do novo card
-  ],
+  imports: [CommonModule, FormsModule, CardComponent],  // ← adiciona CardComponent
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss'],
 })
@@ -25,7 +21,7 @@ export class ColumnComponent {
   @Output() cardMoved   = new EventEmitter<void>();
 
   newCardTitle = '';
-  addingCard = false;
+  addingCard   = false;
 
   constructor(
     private colsApi: ColumnsApiService,
@@ -53,7 +49,7 @@ export class ColumnComponent {
     const dto = {
       title,
       order: this.column.cards.length,
-      columnId: this.column.id
+      columnId: this.column.id,
     };
     this.cardsApi.create(dto)
       .subscribe(() => {
@@ -67,8 +63,8 @@ export class ColumnComponent {
       .subscribe(() => this.cardDeleted.emit());
   }
 
-  onMoveCard(card: Card, targetColId: number, newOrder: number) {
-    this.cardsApi.move(card.id, targetColId, newOrder)
-      .subscribe(() => this.cardMoved.emit());
+  onMoveCard(cardId: number) {
+    // se implementado drag&drop depois, aqui emitiria para o pai tratar
+    this.cardMoved.emit();
   }
 }

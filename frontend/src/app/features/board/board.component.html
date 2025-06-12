@@ -1,11 +1,11 @@
-<div class="board">
-  <!-- criação de nova coluna -->
-  <div class="add-column">
-    <input type="text" placeholder="Nome da nova coluna" [(ngModel)]="newColumnTitle" (keyup.enter)="createColumn()" />
-    <button (click)="createColumn()">+</button>
+<div class="board-container">
+  <div class="board-header">
+    <input type="text" placeholder="Nova coluna" [(ngModel)]="newColumnTitle" (keyup.enter)="createColumn()" />
+    <button (click)="createColumn()" class="btn-add-column">+ Coluna</button>
   </div>
 
-  <!-- exibição das colunas -->
-  <app-column *ngFor="let col of columns" [column]="col" (deleted)="reload()" (cardAdded)="reload()"
-    (cardDeleted)="reload()" (cardMoved)="reload()"></app-column>
+  <div class="board">
+    <app-column *ngFor="let col of columns" [column]="col" (deleted)="reload()" (cardAdded)="reload()"
+      (cardDeleted)="reload()" (cardMoved)="reload()"></app-column>
+  </div>
 </div>

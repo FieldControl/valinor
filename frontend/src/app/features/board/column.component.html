@@ -1,22 +1,24 @@
 <div class="column">
   <div class="column-header">
     <h3>{{ column.title }}</h3>
-    <button class="delete-btn" (click)="onDelete()">×</button>
+    <button class="btn-delete" (click)="onDelete()">×</button>
   </div>
 
-  <div class="cards-list">
-    <div *ngFor="let card of column.cards" class="card">
-      <span>{{ card.title }}</span>
-      <button class="delete-btn" (click)="onDeleteCard(card.id)">×</button>
+  <ul class="cards-list">
+    <li *ngFor="let card of column.cards" class="card-item">
+      <app-card [card]="card" (delete)="onDeleteCard($event)"></app-card>
+    </li>
+  </ul>
+
+  <div class="add-card-section">
+    <button class="btn-start-add" *ngIf="!addingCard" (click)="startAddCard()">+ Card</button>
+
+    <div *ngIf="addingCard" class="new-card-form">
+      <input type="text" placeholder="Título do card" [(ngModel)]="newCardTitle" (keyup.enter)="confirmAddCard()" />
+      <div class="actions">
+        <button class="btn-confirm" (click)="confirmAddCard()">OK</button>
+        <button class="btn-cancel" (click)="cancelAddCard()">✕</button>
+      </div>
     </div>
   </div>
-
-  <div *ngIf="addingCard" class="add-card-form">
-    <input [(ngModel)]="newCardTitle" placeholder="Título do card" (keyup.enter)="confirmAddCard()" />
-    <button (click)="confirmAddCard()">✔</button>
-    <button (click)="cancelAddCard()">✖</button>
-  </div>
-  <button *ngIf="!addingCard" class="add-card-btn" (click)="startAddCard()">
-    + Adicionar card
-  </button>
 </div>

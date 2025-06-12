@@ -1,17 +1,33 @@
-<h2>Usuários</h2>
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Email</th>
-    <th>Role</th>
-  </tr>
-  <tr *ngFor="let u of users">
-    <td>{{u.name}}</td>
-    <td>{{u.email}}</td>
-    <td>
-      <select [(ngModel)]="u.tipo" (change)="changeRole(u, u.tipo)">
-        <option *ngFor="let r of roles" [value]="r.value">{{r.label}}</option>
-      </select>
-    </td>
-  </tr>
-</table>
+<div class="users-container">
+  <div class="users-header">
+    <h2>Usuários</h2>
+    <button class="refresh-btn" (click)="loadUsers()">Atualizar</button>
+  </div>
+
+  <table class="users-table" *ngIf="users.length; else empty">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th class="role-cell">Perfil</th>
+        <th class="actions-cell">Alterar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{ u.name }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ getRoleLabel(u.tipo) }}</td>
+        <td class="actions-cell">
+          <select [(ngModel)]="u.tipo" (change)="changeRole(u, u.tipo)">
+            <option *ngFor="let r of roles" [value]="r.value">{{ r.label }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #empty>
+    <div class="no-users">Nenhum usuário cadastrado</div>
+  </ng-template>
+</div>

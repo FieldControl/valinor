@@ -1,23 +1,28 @@
 .card {
   background: #fff;
   border-radius: 4px;
-  padding: 10px 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  cursor: grab;
-  transition: box-shadow 0.15s;
-
-  &:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  }
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   .card-title {
-    font-weight: bold;
-    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: #333;
+    flex: 1;
   }
 
-  .card-desc {
-    font-size: 13px;
-    color: #666;
+  .btn-delete {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: #c0392b;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #922b21;
+    }
   }
 }

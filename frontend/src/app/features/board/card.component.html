@@ -1,5 +1,4 @@
-<div class="card" cdkDrag>
-  <button class="delete-btn" (click)="onDelete()">×</button>
-  <div class="card-title">{{ card.title }}</div>
-  <div *ngIf="card.description" class="card-desc">{{ card.description }}</div>
+<div class="card">
+  <span class="card-title">{{ card.title }}</span>
+  <button class="btn-delete" (click)="onDelete()">×</button>
 </div>

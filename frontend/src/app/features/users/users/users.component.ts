@@ -1,7 +1,8 @@
-import { Component, OnInit }    from '@angular/core';
-import { CommonModule }         from '@angular/common';
-import { FormsModule }          from '@angular/forms';
-import { UsersApiService, User } from '../../../core/api/users-api.service';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule }      from '@angular/common';
+import { FormsModule }       from '@angular/forms';
+import { UsersApiService }   from '../../../core/api/users-api.service';
+import { User }              from '../../../shared/models/user.model';
 
 @Component({
   selector: 'app-users',
@@ -26,15 +27,20 @@ export class UsersComponent implements OnInit {
   }
 
   loadUsers() {
-    this.usersApi.getAll().subscribe((list: User[]) => {
+    this.usersApi.getAll().subscribe(list => {
       this.users = list;
     });
   }
 
   changeRole(user: User, newRole: number) {
     this.usersApi.updateRole(user.id, newRole)
-      .subscribe((updated: User) => {
+      .subscribe(updated => {
         user.tipo = updated.tipo;
       });
+  }
+
+  getRoleLabel(tipo: number): string {
+    const found = this.roles.find(r => r.value === tipo);
+    return found ? found.label : 'Unknown';
   }
 }

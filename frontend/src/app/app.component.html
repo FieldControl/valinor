@@ -1,7 +1,7 @@
 <nav *ngIf="auth.isLogged()" class="main-nav">
   <a routerLink="/board" routerLinkActive="active">Quadro</a>
   <a routerLink="/users" routerLinkActive="active">Usuários</a>
-  <a (click)="logout()">Sair</a>
+  <button class="btn-logout" (click)="logout()">Sair</button>
 </nav>
 
 <router-outlet></router-outlet>

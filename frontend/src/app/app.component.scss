@@ -1,16 +1,37 @@
-/* app.component.scss */
 .main-nav {
-  background: #6195FF;
-  padding: 8px 16px;
+  display: flex;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
 
   a {
-    color: white;
-    margin-right: 12px;
     text-decoration: none;
-    font-weight: bold;
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+
+    &.active,
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+
+  .btn-logout {
+    margin-left: auto;
+    background: #e74c3c;
+    border: none;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
 
     &:hover {
-      text-decoration: underline
+      background: #c0392b;
     }
   }
 }
