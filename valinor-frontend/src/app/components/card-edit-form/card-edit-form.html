@@ -1,4 +1,4 @@
-<div class="modal-overlay">
+<div class="modal-overlay" *ngIf="isOpen">
     <div class="modal-content">
         <h2>Editar nota</h2>
         <form (ngSubmit)="submit()">

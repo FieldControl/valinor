@@ -9,7 +9,7 @@
         (onClose)="isEditFormOpen = false"
         (onSubmit)="editCard($event)"
     ></app-card-edit-form>
-    <div class="modal-overlay">
+    <div class="modal-overlay" *ngIf="isMoveFormOpen">
         <div *ngIf="isMoveFormOpen" class="modal-content">
             <select [(ngModel)]="selectedColumnId">
             <option *ngFor="let column of columns" [value]="column.id">{{column.title}}</option>
