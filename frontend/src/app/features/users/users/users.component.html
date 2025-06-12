@@ -20,7 +20,7 @@
         <td>{{ getRoleLabel(u.tipo) }}</td>
         <td class="actions-cell">
           <select [(ngModel)]="u.tipo" (change)="changeRole(u, u.tipo)">
-            <option *ngFor="let r of roles" [value]="r.value">{{ r.label }}</option>
+            <option *ngFor="let r of roles" [ngValue]="r.value">{{ r.label }}</option>
           </select>
         </td>
       </tr>
