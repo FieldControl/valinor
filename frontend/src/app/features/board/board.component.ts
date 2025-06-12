@@ -1,4 +1,3 @@
-// src/app/features/board/board.component.ts
 import { Component, OnInit }      from '@angular/core';
 import { CommonModule }           from '@angular/common';
 import { FormsModule }            from '@angular/forms';
@@ -11,7 +10,7 @@ import { Column }                 from '../../shared/models/column.model';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,        // ← necessário para ngModel
+    FormsModule,
     ColumnComponent,
   ],
   templateUrl: './board.component.html',
@@ -39,5 +38,12 @@ export class BoardComponent implements OnInit {
     if (!title) return;
     this.colsApi.create({ title, order: this.columns.length })
       .subscribe(() => this.reload());
+  }
+
+  /** IDs de drop-lists conectadas (para cross-column drop) */
+  connectedIds(currentId: number): string[] {
+    return this.columns
+      .map(c => `col-${c.id}`)
+      .filter(id => id !== `col-${currentId}`);
   }
 }

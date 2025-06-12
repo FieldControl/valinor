@@ -36,8 +36,17 @@ export class ColumnsService {
   }
 
   async remove(id: number): Promise<void> {
-    await this.findOne(id); // lança 404 se não existir
-    await this.prisma.column.delete({ where: { id } });
-    // sem return => Promise<void>
+    // lança NotFound se não existir
+    await this.findOne(id);
+
+    // delete cards relacionados
+    await this.prisma.card.deleteMany({
+      where: { columnId: id },
+    });
+
+    // delete a coluna
+    await this.prisma.column.delete({
+      where: { id },
+    });
   }
 }

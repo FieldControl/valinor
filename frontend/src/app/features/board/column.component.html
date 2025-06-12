@@ -1,11 +1,12 @@
-<div class="column">
+<div class="column" cdkDropList [cdkDropListData]="column.cards" [cdkDropListConnectedTo]="connectedTo"
+  (cdkDropListDropped)="drop($event)" id="col-{{ column.id }}">
   <div class="column-header">
     <h3>{{ column.title }}</h3>
     <button class="btn-delete" (click)="onDelete()">×</button>
   </div>
 
   <ul class="cards-list">
-    <li *ngFor="let card of column.cards" class="card-item">
+    <li *ngFor="let card of column.cards" class="card-item" cdkDrag>
       <app-card [card]="card" (delete)="onDeleteCard($event)"></app-card>
     </li>
   </ul>
