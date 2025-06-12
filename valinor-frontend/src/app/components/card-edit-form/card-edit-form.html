@@ -1,0 +1,17 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+        <h2>Editar nota</h2>
+        <form (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="content">Conteúdo</label>
+                <textarea [(ngModel)]="content" name="content" rows="3" [class.error]="!isContentValid()">
+                </textarea>
+                <div *ngIf="!isContentValid()">{{getErrors()}}</div>
+            </div>
+            <div>
+                <button type="button" (click)="close()">Fechar</button>
+                <button type="submit" [disabled]="!canSubmit()">Salvar alterações</button>
+            </div>
+        </form>
+    </div>
+</div>

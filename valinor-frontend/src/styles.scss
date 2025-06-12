@@ -1,0 +1,128 @@
+$primary: #10b981;
+$primary-hover: #059669;
+$background: #f8fafc;
+$column-bg: #fff;
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: $background;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+    color: #047857;
+    margin-bottom: 0.5rem;
+  }
+  
+  button {
+    background: $primary;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 0 2px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+
+  button:hover {
+    background: #059669;
+  }
+  
+  div {
+    margin-bottom: 8px;
+  }
+
+  .board-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    margin-top: 32px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .column {
+    background: $column-bg;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 20px;
+    min-width: 250px;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card {
+    margin-bottom: 8px;
+  }
+
+  .modal-content, .form-group, .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  input, textarea, select {
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px;
+    margin-bottom: 8px;
+    width: 100%;
+    font-size: 1rem;
+  }  
+
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px #0003;
+    padding: 32px 24px;
+    min-width: 320px;
+    max-width: 90vw;
+    z-index: 1001;
+  }
+
+  .kanban-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  
+    h1 {
+      font-size: 2rem;
+      color: #047857;
+      margin-bottom: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  
+    button {
+      margin-bottom: 0;
+    }
+  }

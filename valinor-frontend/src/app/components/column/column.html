@@ -1,0 +1,10 @@
+<div>
+    <h2>{{column.title}}</h2>
+    <div class="column">
+        <app-card *ngFor="let card of column.cards" [card]="card" [columns]="columns"
+        (onEdit)="editCard($event.cardId, $event.content)"
+        (onMove)="moveCard(card.id, $event.newColumnId)"
+        (onDelete)="deleteCard($event)"
+        ></app-card>
+    </div>
+</div>

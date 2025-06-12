@@ -1,0 +1,27 @@
+<div>
+    <div *ngIf="loading">
+        Carregando página!
+    </div>
+    <div *ngIf="error">
+        {{error}}
+    </div>
+    <div *ngIf="!loading && !error">
+        <div class="kanban-header">
+            <h1>Kanban João Figueiredo</h1>
+            <button (click)="openNewCardForm()"> + Nova nota </button>    
+        </div>
+        <div class="board-container">
+            <app-column *ngFor="let column of columns" [column]="column" [columns]="columns"
+                (onAddCard)="addCard($event.columnId, $event.content)" 
+                (onEditCard)="editCard($event.cardId, $event.content)"
+                (onMoveCard)="moveCard($event.cardId, $event.newColumnId)"
+                (onDeleteCard)="deleteCard($event)"
+                >
+            </app-column>
+        </div>
+        <app-card-form [isOpen]="isFormOpen" [columns]="columns"
+            (onClose)="isFormOpen = false"
+            (onSubmit)="addCard($event.columnId, $event.content)">
+        </app-card-form>
+    </div>
+</div>

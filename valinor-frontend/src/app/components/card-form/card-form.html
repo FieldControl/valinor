@@ -1,0 +1,37 @@
+<div class="modal-overlay" *ngIf="isOpen">
+    <div class="modal-content">
+      <div class="header">
+        <h2 class="title">Criar nova nota</h2>
+      </div>
+      <form (ngSubmit)="submit()" class="form">
+        <div class="form-group">
+          <label>Conteúdo</label>
+          <textarea 
+            [(ngModel)]="content"
+            name="content"
+            rows="3"
+            [class.error]="!isContentValid()"
+          ></textarea>
+          <div *ngIf="!isContentValid()">{{ getErrors() }}</div>
+        </div>
+        <div class="form-group">
+          <label>Coluna</label>
+          <select 
+            [(ngModel)]="selectedColumnId"
+            name="selectedColumnId"
+            [class.error]="!isColumnValid()"
+          >
+            <option value="">Selecione uma coluna</option>
+            <option *ngFor="let column of columns" [value]="column.id">
+              {{ column.title }}
+            </option>
+          </select>
+          <div *ngIf="!isColumnValid()">{{getErrors()}}</div>
+        </div>
+        <div>
+          <button type="button" (click)="close()">Cancelar</button>
+          <button type="submit" [disabled]="!canSubmit()">Criar</button>
+        </div>
+      </form>
+    </div>
+  </div>
