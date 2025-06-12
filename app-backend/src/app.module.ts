@@ -8,14 +8,15 @@ import { ColumnsModule } from './columns/columns.module';
 import { CardsModule } from './cards/cards.module';
 import { LoggerMiddleware } from './commom/middleware/logger.middleware';
 
+import { EventsGateway } from './events/events.gateway';
+
 @Module({
   imports: [PrismaModule, AuthModule, UsersModule, ColumnsModule, CardsModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, EventsGateway],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    // Aplica o LoggerMiddleware em todas as rotas
     consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }

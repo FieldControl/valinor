@@ -1,18 +1,19 @@
-// src/cards/cards.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { ColumnsService } from '../columns/columns.service';
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
+import { EventsGateway } from '../events/events.gateway';
 
 @Injectable()
 export class CardsService {
   constructor(
     private prisma: PrismaService,
     private columnsService: ColumnsService,
+    private gateway: EventsGateway,
   ) {}
 
-  findAll() {
+  async findAll() {
     return this.prisma.card.findMany({
       include: { column: true },
       orderBy: { order: 'asc' },
@@ -30,30 +31,38 @@ export class CardsService {
 
   async create(dto: CreateCardDto) {
     await this.columnsService.findOne(dto.columnId);
-    return this.prisma.card.create({ data: dto });
+    const created = await this.prisma.card.create({ data: dto });
+    this.gateway.server.emit('cardCreated', created);
+    return created;
   }
 
   async update(id: number, dto: UpdateCardDto) {
     await this.findOne(id);
-    return this.prisma.card.update({ where: { id }, data: dto });
+    const updated = await this.prisma.card.update({
+      where: { id },
+      data: dto,
+    });
+    this.gateway.server.emit('cardUpdated', updated);
+    return updated;
   }
 
   async remove(id: number) {
     await this.findOne(id);
-    return this.prisma.card.delete({ where: { id } });
+    await this.prisma.card.delete({ where: { id } });
+    this.gateway.server.emit('cardDeleted', { id });
   }
 
   /**
    * Move um card para outra coluna e posição (order).
    */
   async move(id: number, columnId: number, order: number) {
-    // valida existência sem criar variável
     await this.findOne(id);
     await this.columnsService.findOne(columnId);
-
-    return this.prisma.card.update({
+    const moved = await this.prisma.card.update({
       where: { id },
       data: { columnId, order },
     });
+    this.gateway.server.emit('cardMoved', moved);
+    return moved;
   }
 }

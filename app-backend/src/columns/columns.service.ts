@@ -2,12 +2,16 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
+import { EventsGateway } from '../events/events.gateway';
 
 @Injectable()
 export class ColumnsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private gateway: EventsGateway,
+  ) {}
 
-  findAll() {
+  async findAll() {
     return this.prisma.column.findMany({
       include: { cards: true },
       orderBy: { order: 'asc' },
@@ -23,30 +27,29 @@ export class ColumnsService {
     return column;
   }
 
-  create(dto: CreateColumnDto) {
-    return this.prisma.column.create({ data: dto });
+  async create(dto: CreateColumnDto) {
+    const created = await this.prisma.column.create({ data: dto });
+    // dispara evento
+    this.gateway.server.emit('columnCreated', created);
+    return created;
   }
 
   async update(id: number, dto: UpdateColumnDto) {
     await this.findOne(id);
-    return this.prisma.column.update({
+    const updated = await this.prisma.column.update({
       where: { id },
       data: dto,
     });
+    this.gateway.server.emit('columnUpdated', updated);
+    return updated;
   }
 
   async remove(id: number): Promise<void> {
-    // lança NotFound se não existir
     await this.findOne(id);
-
-    // delete cards relacionados
-    await this.prisma.card.deleteMany({
-      where: { columnId: id },
-    });
-
-    // delete a coluna
-    await this.prisma.column.delete({
-      where: { id },
-    });
+    // remove cards filhos
+    await this.prisma.card.deleteMany({ where: { columnId: id } });
+    // remove a coluna
+    await this.prisma.column.delete({ where: { id } });
+    this.gateway.server.emit('columnDeleted', { id });
   }
 }
