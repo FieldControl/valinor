@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/services/auth.service';
 import { RegisterDto } from '../../../shared/DTO/auth.dto';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule],
@@ -12,7 +13,7 @@ import { RegisterDto } from '../../../shared/DTO/auth.dto';
 export class RegisterComponent {
   protected title = "Register";
   private readonly authService = inject(AuthService)
-
+  private readonly router = inject(Router)
 
   registerForm = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(2)]),
@@ -22,7 +23,12 @@ export class RegisterComponent {
   register() {
     if (!this.registerForm.valid) return;
     this.authService.register(this.registerForm.value as RegisterDto).subscribe({
-
+      next: () => {
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        console.error('Registration failed', err);
+      }
     });
   }
 }

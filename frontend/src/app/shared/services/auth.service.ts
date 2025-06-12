@@ -11,11 +11,11 @@ export class AuthService {
 
     // Fazer login
     login(login: LoginDto) {
-        return this.http.post("/api/login", login);
+        return this.http.post("/api/auth/login", login);
     }
 
     // Criar uma conta
     register(register: RegisterDto) {
-        return this.http.post("/api/register", register);
+        return this.http.post("/api/auth/register", register);
     }
 }
