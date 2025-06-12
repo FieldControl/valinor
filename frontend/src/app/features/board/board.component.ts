@@ -1,13 +1,18 @@
-// src/app/features/board/board.component.ts
 import { Component, OnInit } from '@angular/core';
-import { CommonModule }      from '@angular/common';
-import { DummyService }      from './dummy.service';
-import { Column }            from '../../shared/models/column.model';
+import { CommonModule }       from '@angular/common';
+import {
+  DragDropModule,
+  CdkDragDrop,
+  transferArrayItem
+}                             from '@angular/cdk/drag-drop';
+import { DummyService }       from './dummy.service';
+import { Column }             from '../../shared/models/column.model';
+import { Card }               from '../../shared/models/card.model';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [ CommonModule ],
+  imports: [CommonModule, DragDropModule],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
@@ -18,16 +23,30 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     this.columns = this.ds.getColumns();
-    console.log('colunas:', this.columns);
   }
 
-  onDeleteColumn(id: number) {
-    this.columns = this.columns.filter(c => c.id !== id);
+  // retorna array de IDs de todas as drop lists
+  get connectedTo(): string[] {
+    return this.columns.map(c => `col-${c.id}`);
   }
 
-  onDeleteCard(id: number) {
+  drop(event: CdkDragDrop<Card[]>) {
+    if (event.previousContainer === event.container) return;
+    transferArrayItem(
+      event.previousContainer.data,
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex,
+    );
+  }
+
+  onDeleteColumn(colId: number) {
+    this.columns = this.columns.filter(c => c.id !== colId);
+  }
+
+  onDeleteCard(cardId: number) {
     this.columns.forEach(c =>
-      c.cards = c.cards.filter(card => card.id !== id)
+      (c.cards = c.cards.filter(card => card.id !== cardId))
     );
   }
 

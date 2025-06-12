@@ -1,20 +1,26 @@
 <div class="board">
+  <ng-container *ngFor="let col of columns">
+    <div class="column" cdkDropList [id]="'col-' + col.id" [cdkDropListData]="col.cards"
+      [cdkDropListConnectedTo]="connectedTo" (cdkDropListDropped)="drop($event)">
+      <div class="column-header">
+        <h3>{{ col.title }}</h3>
+        <button class="delete-btn" (click)="onDeleteColumn(col.id)">×</button>
+      </div>
 
-  <div class="column" *ngFor="let col of columns">
-    <div class="column-header">
-      <h3>{{ col.title }}</h3>
-      <button class="delete-btn" (click)="onDeleteColumn(col.id)">×</button>
+      <div class="cards-list">
+        <div class="card" *ngFor="let card of col.cards" cdkDrag>
+          <span>{{ card.title }}</span>
+          <button class="delete-btn" (click)="onDeleteCard(card.id)">×</button>
+        </div>
+      </div>
+
+      <button class="add-card-btn" (click)="onAddCard(col.id)">
+        + Add Card
+      </button>
     </div>
+  </ng-container>
 
-    <ul class="cards">
-      <li class="card" *ngFor="let card of col.cards">
-        {{ card.title }}
-        <button class="delete-btn" (click)="onDeleteCard(card.id)">×</button>
-      </li>
-    </ul>
-
-    <button class="add-card-btn" (click)="onAddCard(col.id)">+ Novo Card</button>
-  </div>
-
-  <button class="add-column-btn" (click)="addColumn()">+ Nova Coluna</button>
+  <button class="add-column-btn" (click)="addColumn()">
+    + Add Column
+  </button>
 </div>

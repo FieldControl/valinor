@@ -8,7 +8,11 @@
   flex-direction: column;
   margin-right: 16px;
 
-  & .column-header {
+  &.cdk-drop-list.dropping-over {
+    background: #d0d0d0 !important;
+  }
+
+  .column-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,19 +45,21 @@
     gap: 10px;
     overflow-y: auto;
     flex-grow: 1;
-    .add-card-btn {
-        margin-top: 12px;
-        padding: 6px;
-        width: 100%;
-        background: #61dafb;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
+  }
 
-        &:hover {
-          background: #21a1f1
-        }
-      }
+  .add-card-btn {
+    margin-top: 12px;
+    padding: 6px;
+    width: 100%;
+    background: #61dafb;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #21a1f1;
     }
   }
+}
