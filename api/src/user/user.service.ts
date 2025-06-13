@@ -8,9 +8,19 @@ import { Repository } from 'typeorm';
 export class UserService {
     constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) { }
 
-    create(user: CreateUserDto) {
-        console.log(user);
-        
+    async create(user: CreateUserDto) {
+        if (!user.email || !user.password) {
+            throw new Error('Email e senha são obrigatórios');
+        }
+
+        const existingUser = await this.userRepository.findOne({
+            where: { email: user.email.toLowerCase() },
+        });
+
+        if (existingUser) {
+            throw new Error('Usuário com este email já existe');
+        }
+
         const newUser = this.userRepository.create(user);
         return this.userRepository.save(newUser);
     }
