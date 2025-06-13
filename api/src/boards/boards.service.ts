@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Board } from './entities/board.entity';
-import { IBoardCreate } from './DTO/create-board.dto';
+import { IBoardCreate, IBoardUpdate } from './DTO/create-board.dto';
 
 @Injectable()
 export class BoardsService {
@@ -27,4 +27,15 @@ export class BoardsService {
 
         return this.boardRepository.save(board);
     }
+
+    async updateBoard(board: IBoardUpdate): Promise<Board> {
+        const existingBoard = await this.boardRepository.findOneBy({ id: board.id });
+        if (!existingBoard) {
+            throw new Error('Board not found');
+        }
+
+        existingBoard.title = board.title;
+        return this.boardRepository.save(existingBoard);
+    }
+
 }

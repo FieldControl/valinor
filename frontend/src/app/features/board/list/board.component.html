@@ -3,6 +3,8 @@
     @for (board of boards(); track board.id) {
     <div class="board-card" (click)="putBoard($event, board)">
         <h3>{{ board.title }}</h3>
+        <button (click)="putBoard($event, board)">Editar</button>
+        <button (click)="deleteBoard($event, board)">Deletar</button>
     </div>
     } @empty {
     <p>Nenhum quadro encontrado</p>

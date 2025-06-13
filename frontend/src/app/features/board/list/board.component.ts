@@ -31,7 +31,9 @@ export class BoardComponent {
     $event.preventDefault();
     $event.stopPropagation();
     this.router.navigate(['/board/add'], {
-      queryParams: { board: board ?? null }
+      state: { board }
     });
   }
+
+  deleteBoard($event: Event, board: IBoard) { }
 }
