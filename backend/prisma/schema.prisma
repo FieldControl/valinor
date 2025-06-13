@@ -1,0 +1,31 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Continua lendo da variável de ambiente
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Board {
+  id      Int      @id @default(autoincrement())
+  title   String
+  columns Column[]
+}
+
+model Column {
+  id       Int    @id @default(autoincrement())
+  title    String
+  position Int
+  boardId  Int
+  board    Board  @relation(fields: [boardId], references: [id])
+  cards    Card[]
+}
+
+model Card {
+  id       Int    @id @default(autoincrement())
+  title    String
+  position Int
+  columnId Int
+  column   Column @relation(fields: [columnId], references: [id])
+}
