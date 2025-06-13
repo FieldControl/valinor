@@ -28,7 +28,6 @@ export class AuthService {
 
         console.log('ta aqui');
 
-
         const payload = { email: user.email, id: user.id };
         return {
             data: { token: await this.jwtService.signAsync(payload), },

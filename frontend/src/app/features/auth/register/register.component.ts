@@ -21,7 +21,6 @@ export class RegisterComponent {
   })
   register() {
     if (!this.registerForm.valid) return;
-    console.log(this.registerForm.value);
     
     this.authService.register(this.registerForm.value as RegisterDto).subscribe({
       next: () => {
