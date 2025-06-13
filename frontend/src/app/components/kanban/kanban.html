@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Lista de Tarefas</h1>
+
+  <div class="columns-container">
+    <div
+      class="column"
+      *ngFor="let column of columns"
+      (drop)="onDrop(column)"
+      (dragover)="$event.preventDefault()"
+    >
+      <div class="column-title">
+        <h3 [attr.data-cards]="column.cards.length">{{ column.title }}</h3>
+        <div>
+          <button (click)="addCard(column)" title="Adicionar Card a {{column.title}}">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div
+          class="card"
+          *ngFor="let card of column.cards"
+          draggable="true"
+          (dragstart)="onDragStart(card)"
+        >
+          <div *ngIf="card.editing; else displayCard">
+            <input
+              #cardInput
+              [id]="card.id ? 'card-input-' + card.id : 'card-input-new-' + column.id + '-' + card.position"
+              type="text"
+              [(ngModel)]="card.title"
+              (keydown)="handleKeyDown($event, card, cardInput)"
+              (blur)="saveCardEdit(card, cardInput.value)"
+              autofocus
+            />
+            <menu>
+                <button class="icon-button" (click)="saveCardEdit(card, cardInput.value)" title="Salvar Edição">
+                    <i class="bi bi-check-lg"></i>
+                </button>
+                <button class="icon-button" (click)="cancelCardEdit(card)" title="Cancelar Edição">
+                    <i class="bi bi-x"></i>
+                </button>
+            </menu>
+          </div>
+
+          <ng-template #displayCard>
+            <div>{{ card.title }}</div>
+            <menu>
+              <button class="icon-button" (click)="editCard(card)" title="Editar Card">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button class="icon-button" (click)="deleteCard(card)" title="Excluir Card">
+                <i class="bi bi-trash"></i>
+              </button>
+            </menu>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
