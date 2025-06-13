@@ -5,3 +5,7 @@ export interface IBoard {
     createdAt: Date;
     updatedAt: Date;
 }
+
+export interface IBoardCreate {
+    title: string;
+}

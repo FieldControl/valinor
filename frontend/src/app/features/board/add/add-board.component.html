@@ -1,1 +1,12 @@
-<p>add-board.component works!</p>
+<form [formGroup]="boardForm" (ngSubmit)="addBoard()">
+    <h1>Adicionar Quadro</h1>
+    <div>
+        <label for="name">Nome do Quadro</label>
+        <input type="text" formControlName="title" placeholder="Digite o nome do quadro" />
+        @if (boardForm.get('title')?.invalid && boardForm.get('title')?.touched) {
+        <span class="error">Informe um nome válido</span>
+        }
+    </div>
+
+    <button type="submit" [disabled]="boardForm.invalid">Adicionar Quadro</button>
+</form>
