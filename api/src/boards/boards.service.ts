@@ -38,4 +38,15 @@ export class BoardsService {
         return this.boardRepository.save(existingBoard);
     }
 
+    async deleteBoard(id: number): Promise<void> {
+        if (!id) {
+            throw new Error('Board ID is required');
+        }
+
+        const result = await this.boardRepository.delete(id);
+        if (result.affected === 0) {
+            throw new Error('Board not found');
+        }
+    }
+
 }

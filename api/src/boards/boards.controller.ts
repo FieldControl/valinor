@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { UserId } from 'src/decorators/decorator';
 import { JwtGuard } from 'src/guards/jwt.guard';
 import { BoardsService } from './boards.service';
@@ -27,5 +27,11 @@ export class BoardsController {
     @UseGuards(JwtGuard)
     async updateBoard(@Body() board: IBoardUpdate) {
         return this._boardService.updateBoard(board);
+    }
+
+    @Delete(':id')
+    @UseGuards(JwtGuard)
+    async deleteBoard(@Param('id') id: number) {
+        return this._boardService.deleteBoard(id);
     }
 }

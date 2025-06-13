@@ -35,5 +35,13 @@ export class BoardComponent {
     });
   }
 
-  deleteBoard($event: Event, board: IBoard) { }
+  deleteBoard($event: Event, board: IBoard) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.boardService
+      .delete(board.id)
+      .subscribe(() => {
+        this.refetch$.next();
+      });
+  }
 }

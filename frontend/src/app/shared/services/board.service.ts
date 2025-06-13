@@ -20,4 +20,8 @@ export class BoardService {
     patch(board: IBoardUpdate) {
         return this.http.patch(`http://localhost:3000/boards/${board.id}`, board);
     }
+
+    delete(id: number) {
+        return this.http.delete(`http://localhost:3000/boards/${id}`);
+    }
 }
