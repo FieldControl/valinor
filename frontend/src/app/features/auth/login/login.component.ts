@@ -29,7 +29,7 @@ export class LoginComponent {
             .subscribe((response) => {
                 const loginResponse = response as ILoginResponseDto;
                 this.authService.token = loginResponse.data.token;
-                this.router.navigate(['/login']);
+                this.router.navigate(['/boards']);
             });
     }
 }
