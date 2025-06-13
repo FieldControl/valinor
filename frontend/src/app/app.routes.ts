@@ -15,6 +15,6 @@ export const routes: Routes = [
     },
     {
         path: 'board/add',
-        loadComponent: () => import('./features/board/add/add-board.component').then(m => m.AddBoardComponent)
+        loadComponent: () => import('./features/board/add-board/add-board.component').then(m => m.AddBoardComponent)
     }
 ];
