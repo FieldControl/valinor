@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+:root {
+  --bg-color: #e2e8f0;
+  --text-color: #404040;
+  --primary-color: #475569;
+  --secondary-color: #cbd5e1;
+  --task-color: #ffffff;
+  --cancel-color: #e5e7eb;
+  --confirm-color: #dc2626;
+  --confirm-hover-color: #b91c1c;
+  --task-size: 48px;
+
+  --add-button-color: transparent;
+  --add-button-hover-color: rgba(71, 85, 105, 0.1);
+  --count-bg-color: #B0E0E6;
+  --count-text-color: var(--primary-color);
+  --card-border: transparent;
+
+  --card-shadow-initial: rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  font-family: 'Mulish', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para o corpo da página */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* O container principal do seu quadro Kanban */
+.container {
+  width: 90%; 
+  margin: 0 5%; 
+  height: 100%;
+  padding: 2rem 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  background-color: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Título do Quadro Kanban (h1) */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: left; 
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+  width: 100%; 
+  max-width: none;
+}
+
+.columns-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  width: 100%;
+  padding-bottom: 1rem;
+  flex-grow: 1;
+  align-items: flex-start;
+  height: calc(100% - 6rem);
+}
+
+.columns-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.columns-container::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.column {
+  background-color: var(--column-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-width: 280px;
+  flex-shrink: 0;
+  max-height: 100%;
+  display: grid;
+  grid-template-rows: var(--task-size) 1fr;
+  gap: 0.5rem;
+  box-shadow: 0 1px 3px var(--shadow-light);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.column:hover {
+  box-shadow: 0 2px 8px var(--shadow-medium);
+}
+
+.column-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.column-title h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  position: relative;
+  padding-right: 3rem;
+  text-transform: uppercase;
+}
+
+/* Contador de cards no título da coluna */
+.column-title h3::after {
+  content: attr(data-cards);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--count-bg-color);
+  color: var(--count-text-color);
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  font-weight: 600;
+  box-shadow: none;
+  z-index: 1;
+  min-width: unset;
+  height: unset;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Botão de adicionar tarefa */
+.column-title button {
+  background: var(--add-button-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 400;
+  transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.column-title button:hover {
+  background-color: var(--add-button-hover-color);
+  transform: scale(1.1);
+  box-shadow: none;
+  opacity: 1;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 5px;
+}
+
+/* Estilo para a barra de rolagem dos cards */
+.cards::-webkit-scrollbar {
+  width: 6px;
+}
+.cards::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.card {
+  background: var(--task-color);
+  border-radius: 0.25rem;
+  padding: 0.875rem;
+  box-shadow: 0 2px 4px var(--card-shadow-initial);
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: var(--task-size);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--card-shadow-hover);
+}
+
+.card input[type="text"] {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-dark);
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.card menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  opacity: 0.7;
+}
+
+.icon-button:hover {
+  background-color: var(--background-light);
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Estilo para ícones do Bootstrap */
+.bi {
+  vertical-align: middle;
+}
+
+.card[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+.column[drop-active] {
+  border: 2px dashed var(--primary-color);
+  background-color: #e6f7ff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    width: 95%;
+    margin: 0 auto; 
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    text-align: center; 
+  }
+
+  .columns-container {
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    padding-bottom: 0;
+  }
+
+  .column {
+    width: 95%;
+    min-width: auto;
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+  }
+
+  .column:last-child {
+    margin-bottom: 0;
+  }
+}
