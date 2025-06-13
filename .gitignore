@@ -1,3 +1,4 @@
 /api/node_modules
 /api/db.sqlite
 /api/dist/
+api/.env

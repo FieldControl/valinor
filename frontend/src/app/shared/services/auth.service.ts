@@ -1,4 +1,5 @@
-import { inject, Injectable, signal, WritableSignal } from "@angular/core";
+import { inject, Injectable, signal, WritableSignal, PLATFORM_ID } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
 import { LoginDto, RegisterDto } from "../DTO/auth.dto";
 import { HttpClient } from "@angular/common/http";
 import { jwtDecode } from "jwt-decode";
@@ -10,17 +11,22 @@ import { jwtDecode } from "jwt-decode";
 export class AuthService {
     private _token = signal<string | undefined>(undefined);
     http = inject(HttpClient);
+    private platformId = inject(PLATFORM_ID);
 
     constructor() {
-        const token = localStorage.getItem('token');
-        if (token) {
-            this._token.set(token);
+        if (isPlatformBrowser(this.platformId)) {
+            const token = localStorage.getItem('token');
+            if (token) {
+                this._token.set(token);
+            }
         }
     }
 
     set token(_token: string | undefined) {
         this._token.set(_token);
-        localStorage.setItem('token', _token || '');
+        if (isPlatformBrowser(this.platformId)) {
+            localStorage.setItem('token', _token || '');
+        }
     }
 
     get token(): WritableSignal<string | undefined> {
@@ -46,7 +52,7 @@ export class AuthService {
         const now = Date.now() / 1000;
 
         if (!decodedToken.exp) return false;
-        
+
         return decodedToken.exp > now;
     }
 }

@@ -1,8 +1,8 @@
 import { Component, inject } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { AuthService } from "../../../shared/services/auth.service";
-import { LoginDto } from "../../../shared/DTO/auth.dto";
 import { Router } from "@angular/router";
+import { ILoginResponseDto, LoginDto } from "../../../shared/DTO/auth.dto";
+import { AuthService } from "../../../shared/services/auth.service";
 
 
 @Component({
@@ -26,9 +26,10 @@ export class LoginComponent {
         if (this.loginForm.invalid) return;
 
         this.authService.login(this.loginForm.value as LoginDto)
-            .subscribe((token) => {
-                this.authService.token = token as string;
-                this.router.navigateByUrl('/boards');
+            .subscribe((response) => {
+                const loginResponse = response as ILoginResponseDto;
+                this.authService.token = loginResponse.data.token;
+                this.router.navigate(['/login']);
             });
     }
 }

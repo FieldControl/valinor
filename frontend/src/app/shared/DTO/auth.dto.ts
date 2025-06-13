@@ -17,3 +17,8 @@ export class RegisterDto {
         this.password = password;
     }
 }
+
+export interface ILoginResponseDto {
+    data: { token: string; };
+    message: string;
+}

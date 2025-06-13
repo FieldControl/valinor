@@ -10,7 +10,7 @@ export class UserService {
 
     create(user: CreateUserDto) {
         console.log(user);
-
+        
         const newUser = this.userRepository.create(user);
         return this.userRepository.save(newUser);
     }
