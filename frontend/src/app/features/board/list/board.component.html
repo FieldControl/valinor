@@ -1,1 +1,10 @@
 <button (click)="putBoard($event)">Adicionar um Quadro</button>
+<div class="board-grid">
+    @for (board of boards(); track board.id) {
+    <div class="board-card" (click)="putBoard($event, board)">
+        <h3>{{ board.title }}</h3>
+    </div>
+    } @empty {
+    <p>Nenhum quadro encontrado</p>
+    }
+</div>

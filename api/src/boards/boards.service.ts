@@ -11,6 +11,14 @@ export class BoardsService {
         private boardRepository: Repository<Board>,
     ) { }
 
+    async getAllBoards(userId: number): Promise<Board[]> {
+        return this.boardRepository.find({
+            where: { user: { id: userId } },
+            order: { createdAt: 'DESC' },
+            relations: ['user']
+        });
+    }
+
     async createBoard(createBoardDto: IBoardCreate, userId: number): Promise<Board> {
         const board = this.boardRepository.create({
             ...createBoardDto,

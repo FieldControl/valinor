@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, UseGuards } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { IBoardCreate } from './DTO/create-board.dto';
 import { JwtGuard } from 'src/guards/jwt.guard';
@@ -9,6 +9,12 @@ export class BoardsController {
     private readonly _boardService: BoardsService;
     constructor(boardService: BoardsService) {
         this._boardService = boardService;
+    }
+
+    @Get()
+    @UseGuards(JwtGuard)
+    async getAllBoards(@UserId() userId: number) {
+        return this._boardService.getAllBoards(userId);
     }
 
     @Post()
