@@ -1,19 +1,32 @@
-import { Column } from "src/columns/entities/column.entity";
-import { BeforeInsert, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column as ColumnEntity } from "../../columns/entities/column.entity";
+import { BeforeInsert, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Task {
     @PrimaryGeneratedColumn()
     id: number;
+
+    @Column({ length: 255 })
     title: string;
+
+    @Column()
     description: string;
+
+    @Column()
     status: string; // "todo", "in-progress", "done"
+
+    @Column()
     position: number;
+
+    @Column()
     columnId: number;
-    @ManyToOne(() => Column, (column) => column.tasks)
-    column: Column;
+
+    @ManyToOne(() => ColumnEntity, (column) => column.tasks)
+    column: ColumnEntity;
+
     @CreateDateColumn()
     createdAt: Date;
+    
     @UpdateDateColumn()
     updatedAt: Date;
 }

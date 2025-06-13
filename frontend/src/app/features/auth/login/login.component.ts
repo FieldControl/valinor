@@ -1,5 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { AuthService } from "../../../shared/services/auth.service";
+import { LoginDto } from "../../../shared/DTO/auth.dto";
+import { Router } from "@angular/router";
+
 
 @Component({
     selector: "app-login",
@@ -9,6 +13,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 })
 
 export class LoginComponent {
+    private readonly authService = inject(AuthService)
+    private readonly router = inject(Router)
+
     protected title = "Login";
     loginForm = new FormGroup({
         email: new FormControl("", [Validators.required, Validators.email]),
@@ -16,6 +23,12 @@ export class LoginComponent {
     })
 
     login() {
-        console.log(this.loginForm.value)
+        if (this.loginForm.invalid) return;
+
+        this.authService.login(this.loginForm.value as LoginDto)
+            .subscribe((token) => {
+                this.authService.token = token as string;
+                this.router.navigateByUrl('/boards');
+            });
     }
 }

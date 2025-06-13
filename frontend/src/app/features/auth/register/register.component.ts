@@ -16,12 +16,13 @@ export class RegisterComponent {
   private readonly router = inject(Router)
 
   registerForm = new FormGroup({
-    name: new FormControl("", [Validators.required, Validators.minLength(2)]),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(6)])
   })
   register() {
     if (!this.registerForm.valid) return;
+    console.log(this.registerForm.value);
+    
     this.authService.register(this.registerForm.value as RegisterDto).subscribe({
       next: () => {
         this.router.navigate(['/login']);

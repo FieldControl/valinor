@@ -20,6 +20,7 @@
     "@angular/router": "^20.0.0",
     "@angular/ssr": "^20.0.1",
     "express": "^5.1.0",
+    "jwt-decode": "^4.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

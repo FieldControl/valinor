@@ -9,12 +9,10 @@ export class LoginDto {
 }
 
 export class RegisterDto {
-    name: string;
     email: string;
     password: string;
 
-    constructor(name: string, email: string, password: string) {
-        this.name = name;
+    constructor(email: string, password: string) {
         this.email = email;
         this.password = password;
     }

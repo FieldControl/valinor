@@ -1,13 +1,6 @@
 <form [formGroup]="registerForm" (ngSubmit)="register()">
     <h1>Criar conta</h1>
     <div>
-        <label>Nome</label>
-        <input type="text" formControlName="name" placeholder="Digite seu nome" />
-        @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
-        <span class="error">Nome inválido</span>
-        }
-    </div>
-    <div>
         <label>Email</label>
         <input type="email" formControlName="email" placeholder="Digite seu email" />
         @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {

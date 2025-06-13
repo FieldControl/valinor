@@ -8,6 +8,6 @@ export const AppDataSource = new DataSource({
     type: 'sqlite',
     database: 'db.sqlite',
     entities: [User, Board, Column, Task],
-    migrations: ['dist/migrations/*.js'],
+    migrations: ['src/migrations/*.ts'],
     synchronize: false,
 });
