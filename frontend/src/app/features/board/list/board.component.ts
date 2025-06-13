@@ -15,7 +15,7 @@ export class BoardComponent {
   putBoard($event: Event, board?: IBoard) {
     $event.preventDefault();
     $event.stopPropagation();
-    this.router.navigate(['/board/put'], {
+    this.router.navigate(['/board/add'], {
       queryParams: { board: board ?? null }
     });
   }
