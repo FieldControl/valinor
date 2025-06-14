@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject, switchMap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IColumnCreate } from '../../shared/DTO/column.dto';
+import { ColumnService } from '../../shared/services/column.service';
 
 @Component({
   selector: 'app-board-detail.component',
@@ -13,6 +15,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class BoardDetailComponent {
   private readonly boardService = inject(BoardService);
+  private readonly columnService = inject(ColumnService);
   private readonly activatedRoute = inject(ActivatedRoute);
   refetch$ = new Subject<void>();
   board = toSignal(
@@ -35,7 +38,23 @@ export class BoardDetailComponent {
   })
 
   addColumn() {
+    if (this.columnForm.invalid) return;
 
+    const newColumn = {
+      title: this.columnForm.value.name,
+      position: Number(this.columnForm.value.position),
+      boardId: this.board()?.id
+    } as IColumnCreate;
+
+    this.columnService.post(newColumn).subscribe({
+      next: () => {
+        this.refetch$.next();
+        this.columnForm.reset();
+      },
+      error: (error) => {
+        console.error("Error creating column:", error);
+      }
+    });
   }
 
   sortedColumns() {

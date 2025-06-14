@@ -14,4 +14,20 @@ export class ColumnService {
         const columns = await this.columnRepository.find({ where: { boardId } });
         return columns;
     }
+
+    async createColumn(columnData: Partial<Column>) {
+        const existingColumn = await this.columnRepository.findOne({
+            where: {
+                title: columnData.title,
+                boardId: columnData.boardId
+            }
+        });
+
+        if (existingColumn) {
+            throw new Error('Já existe uma coluna com este título para este quadro.');
+        }
+
+        const column = this.columnRepository.create(columnData);
+        return this.columnRepository.save(column);
+    }
 }

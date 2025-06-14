@@ -24,15 +24,18 @@ export class BoardsService {
     async getBoardById(id: number): Promise<Board> {
         const board = await this.boardRepository.findOne({
             where: { id },
-            relations: ['user']
+            relations: ['user', 'columns'],
+            order: {
+                columns: {
+                    position: 'ASC'
+                }
+            }
         });
 
         if (!board) {
             throw new Error('Board not found');
         }
 
-        const columns = await this.columnService.getColumnsByBoardId(id);
-        board.columns = columns;
         return board;
     }
 

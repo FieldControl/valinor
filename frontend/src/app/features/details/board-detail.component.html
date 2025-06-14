@@ -5,11 +5,16 @@
     <div>
         <h1>{{ board()?.title }}</h1>
     </div>
-    <div>
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
         @if (sortedColumns().length > 0) {
         @for (column of sortedColumns(); track $index) {
         <div>
-            <h3>{{ column.name }}</h3>
+            <div>
+                <h3>{{ column.title }}</h3>
+            </div>
+            <div>
+                Adicionar Tarefa
+            </div>
         </div>
         }
         } @else {
