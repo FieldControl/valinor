@@ -13,6 +13,9 @@ import { Board } from './boards/entities/board.entity';
 import { ColumnController } from './columns/column.controller';
 import { ColumnService } from './columns/column.service';
 import { Column } from './columns/entities/column.entity';
+import { TasksController } from './tasks/tasks.controller';
+import { TasksService } from './tasks/tasks.service';
+import { Task } from './tasks/entities/task.entity';
 
 @Module({
   imports: [
@@ -26,13 +29,14 @@ import { Column } from './columns/entities/column.entity';
     TypeOrmModule.forFeature([User]),
     TypeOrmModule.forFeature([Board]),
     TypeOrmModule.forFeature([Column]),
+    TypeOrmModule.forFeature([Task]),
     JwtModule.register({
       global: true,
       secret: 'secretKey',
       signOptions: { expiresIn: '3h' },
     }),
   ],
-  controllers: [AppController, AuthController, BoardsController, ColumnController],
-  providers: [AppService, AuthService, UserService, BoardsService, ColumnService],
+  controllers: [AppController, AuthController, BoardsController, ColumnController, TasksController],
+  providers: [AppService, AuthService, UserService, BoardsService, ColumnService, TasksService],
 })
 export class AppModule { }
