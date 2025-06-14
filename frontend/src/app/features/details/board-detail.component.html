@@ -1,1 +1,30 @@
-<p>board-detail.component works!</p>
+<a href="/boards" role="button">
+    Voltar
+</a>
+<h1>{{ board()?.title }}</h1>
+<div>
+    <div>
+        <h2>Nova Seção</h2>
+        <div>
+            <form [formGroup]="columnForm" (ngSubmit)="addColumn()">
+                <div>
+                    <label>Nome</label>
+                    <input formControlName="name" placeholder="Ex. Todo" />
+                    @if (columnForm.get('name')?.invalid && columnForm.get('name')?.touched) {
+                    <span class="error">Nome inválido</span>
+                    }
+                </div>
+                <div>
+                    <label>Posição</label>
+                    <input type="number" formControlName="position" min="1" max="100" />
+                    @if (columnForm.get('position')?.invalid && columnForm.get('position')?.touched) {
+                    <span class="error">Posição inválida</span>
+                    }
+                </div>
+
+                <button (click)="addColumn()" type="button">Adicionar</button>
+
+            </form>
+        </div>
+    </div>
+</div>
