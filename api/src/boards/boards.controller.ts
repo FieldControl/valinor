@@ -17,6 +17,12 @@ export class BoardsController {
         return this._boardService.getAllBoards(userId);
     }
 
+    @Get(':id')
+    @UseGuards(JwtGuard)
+    async getBoardById(@Param('id') id: number) {
+        return this._boardService.getBoardById(id);
+    }
+
     @Post()
     @UseGuards(JwtGuard)
     async createBoard(@Body() board: IBoardCreate, @UserId() userId: number) {

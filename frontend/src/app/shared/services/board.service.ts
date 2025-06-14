@@ -13,6 +13,10 @@ export class BoardService {
         return this.http.get<IBoard[]>("http://localhost:3000/boards");
     }
 
+    getBoardById(id: number) {
+        return this.http.get<IBoard>(`http://localhost:3000/boards/${id}`);
+    }
+
     post(board: IBoardCreate) {
         return this.http.post("http://localhost:3000/boards", board);
     }

@@ -19,6 +19,19 @@ export class BoardsService {
         });
     }
 
+    async getBoardById(id: number): Promise<Board> {
+        const board = await this.boardRepository.findOne({
+            where: { id },
+            relations: ['user']
+        });
+
+        if (!board) {
+            throw new Error('Board not found');
+        }
+
+        return board;
+    }
+
     async createBoard(createBoardDto: IBoardCreate, userId: number): Promise<Board> {
         const board = this.boardRepository.create({
             ...createBoardDto,
