@@ -1,21 +1,61 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-    <h1>Login</h1>
-    <div>
-        <label>Email</label>
-        <input type="email" formControlName="email" placeholder="Digite seu email" />
-        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
-        <span class="error">Email inválido</span>
-        }
+<div class="login-page">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo">
+                <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h1>Bem-vindo</h1>
+            <p class="subtitle">Entre na sua conta para continuar</p>
+        </div>
+
+        <div class="login-form">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input id="email" type="email" formControlName="email" placeholder="Digite seu email"
+                            [class.error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" />
+                    </div>
+                    @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <span>Por favor, insira um email válido</span>
+                    </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Senha
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input id="password" type="password" formControlName="password" placeholder="Digite sua senha"
+                            [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" />
+                    </div>
+                    @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <span>Por favor, insira uma senha válida</span>
+                    </div>
+                    }
+                </div> <button type="submit" class="login-button" [disabled]="loginForm.invalid">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Entrar
+                </button>
+            </form>
+
+            <div class="register-link">
+                <p>
+                    Ainda não tem uma conta?
+                    <a href="/register">Cadastre-se aqui</a>
+                </p>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Senha</label>
-        <input type="password" formControlName="password" placeholder="Digite sua senha" />
-        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
-        <span class="error">Senha inválida</span>
-        }
-    </div>
-    <button (click)="login()" type="button">Entrar</button>
-    <div>
-        Ainda não tem uma conta? <a href="/register">Cadastre-se</a>
-    </div>
-</form>
+</div>

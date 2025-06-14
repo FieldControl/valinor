@@ -1,12 +1,42 @@
-<form [formGroup]="boardForm" (ngSubmit)="addBoard()">
-    <h1>Adicionar Quadro</h1>
-    <div>
-        <label for="name">Nome do Quadro</label>
-        <input type="text" formControlName="title" placeholder="Digite o nome do quadro" />
-        @if (boardForm.get('title')?.invalid && boardForm.get('title')?.touched) {
-        <span class="error">Informe um nome válido</span>
-        }
+<div class="add-board-container">
+  <div class="form-container">
+    <div class="form-header">
+      <h1>Criar Novo Quadro</h1>
+      <p class="subtitle">Organize suas tarefas com um novo quadro Kanban</p>
     </div>
 
-    <button type="submit" [disabled]="boardForm.invalid">Adicionar Quadro</button>
-</form>
+    <form [formGroup]="boardForm" (ngSubmit)="addBoard()">
+      <div class="form-group">
+        <label for="title">
+          <i class="fas fa-clipboard-list"></i>
+          Nome do Quadro
+        </label>
+        <input 
+          id="title"
+          type="text" 
+          formControlName="title" 
+          placeholder="Ex: Projeto Website, Sprint Planning..."
+          [class.error]="boardForm.get('title')?.invalid && boardForm.get('title')?.touched"
+        />
+        @if (boardForm.get('title')?.invalid && boardForm.get('title')?.touched) {
+          <div class="error-message">
+            <i class="fas fa-exclamation-circle error-icon"></i>
+            <span>Por favor, informe um nome válido para o quadro</span>
+          </div>
+        }
+      </div>
+
+      <div class="form-actions">
+        <a href="/boards" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i>
+          Cancelar
+        </a>
+        <button type="submit" class="btn btn-primary" [disabled]="boardForm.invalid">
+          <i class="fas fa-plus"></i>
+          Criar Quadro
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>

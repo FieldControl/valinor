@@ -1,18 +1,80 @@
-<form [formGroup]="registerForm" (ngSubmit)="register()">
-    <h1>Criar conta</h1>
-    <div>
-        <label>Email</label>
-        <input type="email" formControlName="email" placeholder="Digite seu email" />
-        @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
-        <span class="error">Email inválido</span>
-        }
+<div class="register-page">
+    <div class="register-container">
+        <div class="register-header">
+            <div class="logo">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h1>Criar Conta</h1>
+            <p class="subtitle">Junte-se a nós e organize suas tarefas</p>
+        </div>
+
+        <div class="register-form">
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="form-group">
+                    @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <span>Por favor, insira seu nome completo</span>
+                    </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input id="email" type="email" formControlName="email" placeholder="Digite seu email"
+                            [class.error]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" />
+                    </div>
+                    @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <span>Por favor, insira um email válido</span>
+                    </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Senha
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input id="password" type="password" formControlName="password" placeholder="Digite sua senha"
+                            [class.error]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" />
+                    </div>
+                    @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <span>A senha deve ter pelo menos 6 caracteres</span>
+                    </div>
+                    }
+                </div>
+
+                <button type="submit" class="register-button" [disabled]="registerForm.invalid">
+                    <i class="fas fa-user-plus"></i>
+                    Criar Conta
+                </button>
+            </form>
+
+            <div class="login-link">
+                <p>
+                    Já tem uma conta?
+                    <a href="/login">Entre aqui</a>
+                </p>
+            </div>
+
+            <div class="terms-notice">
+                <p>
+                    Ao criar uma conta, você concorda com nossos
+                    <a href="/terms">Termos de Uso</a> e
+                    <a href="/privacy">Política de Privacidade</a>
+                </p>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Senha</label>
-        <input type="password" formControlName="password" placeholder="Digite sua senha" />
-        @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
-        <span class="error">Senha inválida</span>
-        }
-    </div>
-    <button (click)="register()" type="button">Registrar</button>
-</form>
+</div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserDto } from 'src/auth/DTO/create-user.dto';
 import { User } from './entities/user.entity';
@@ -18,7 +18,7 @@ export class UserService {
         });
 
         if (existingUser) {
-            throw new Error('Usuário com este email já existe');
+            throw new UnauthorizedException('Usuário com este email já existe');
         }
 
         const newUser = this.userRepository.create(user);

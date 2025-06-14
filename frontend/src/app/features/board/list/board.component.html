@@ -1,15 +1,66 @@
-<button (click)="putBoard($event)">Adicionar um Quadro</button>
-<div class="board-grid">
-    @for (board of boards(); track board.id) {
-    <a href="/board/{{ board.id }}">
-        <div class="board-card">
-            <h3>{{ board.title }}</h3>
-            <button (click)="putBoard($event, board); $event.stopPropagation(); $event.preventDefault()">Editar</button>
-            <button
-                (click)="deleteBoard($event, board); $event.stopPropagation(); $event.preventDefault()">Deletar</button>
+<div class="boards-container">
+  <div class="header">
+    <h1>Meus Quadros Kanban</h1>
+    <button class="create-btn" (click)="putBoard($event)">
+      <i class="fas fa-plus"></i>
+      Criar Quadro
+    </button>
+  </div>
+
+  <div class="boards-grid">    @for (board of boards(); track board.id) {
+      <div class="board-card">
+        <div class="board-header">
+          <h3 class="board-title">{{ board.title }}</h3>
+          <button class="board-menu" (click)="$event.stopPropagation()">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
         </div>
-    </a>
+        
+        <div class="board-meta">
+          <div class="board-stats">
+            <div class="stat">
+              <i class="fas fa-list"></i>
+              <span>0 listas</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-check-square"></i>
+              <span>0 cards</span>
+            </div>
+          </div>
+          
+          @if (board.updatedAt) {
+            <div class="board-date">
+              {{ board.updatedAt }}
+            </div>
+          }
+        </div>
+
+        <div class="board-actions" (click)="$event.stopPropagation()">
+          <a href="/board/{{ board.id }}" class="view-btn">
+            <i class="fas fa-eye"></i>
+            Ver Quadro
+          </a>
+          <button class="edit-btn" (click)="putBoard($event, board)">
+            <i class="fas fa-edit"></i>
+            Editar
+          </button>
+          <button class="delete-btn" (click)="deleteBoard($event, board)">
+            <i class="fas fa-trash"></i>
+            Deletar
+          </button>
+        </div>
+      </div>
     } @empty {
-    <p>Nenhum quadro encontrado</p>
+      <div class="empty-state">
+        <div class="empty-icon">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <h3>Nenhum quadro encontrado</h3>
+        <p>Crie seu primeiro quadro Kanban para começar a organizar suas tarefas</p>
+        <button class="create-first-btn" (click)="putBoard($event)">
+          <i class="fas fa-plus"></i>
+          Criar Primeiro Quadro
+        </button>      </div>
     }
+  </div>
 </div>
