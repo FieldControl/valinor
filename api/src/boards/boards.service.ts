@@ -71,9 +71,24 @@ export class BoardsService {
             throw new BadRequestException('Board ID is required');
         }
 
+        const board = await this.boardRepository.findOne({
+            where: { id },
+            relations: ['columns']
+        });
+
+        if (!board) {
+            throw new NotFoundException(`Board com ID ${id} não encontrada`);
+        }
+
+        if (board.columns && board.columns.length > 0) {
+            for (const column of board.columns) {
+                await this.columnService.deleteColumn(column.id);
+            }
+        }
+
         const result = await this.boardRepository.delete(id);
         if (result.affected === 0) {
-            throw new NotFoundException(`Board with ID ${id} not found`);
+            throw new NotFoundException(`Board com ID ${id} não encontrada`);
         }
     }
 

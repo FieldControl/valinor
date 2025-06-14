@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Column } from './entities/column.entity';
@@ -29,5 +29,23 @@ export class ColumnService {
 
         const column = this.columnRepository.create(columnData);
         return this.columnRepository.save(column);
+    }
+
+    async deleteColumn(id: number) {
+        const column = await this.columnRepository.findOne({
+            where: { id },
+            relations: ['tasks']
+        });
+
+        if (!column) {
+            throw new NotFoundException('Coluna não encontrada.');
+        }
+
+        if (column.tasks && column.tasks.length > 0) {
+            await this.columnRepository.manager.remove(column.tasks);
+        }
+
+        await this.columnRepository.remove(column);
+        return { message: 'Coluna deletada com sucesso.' };
     }
 }
