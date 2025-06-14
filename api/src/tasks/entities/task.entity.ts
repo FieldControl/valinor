@@ -10,15 +10,6 @@ export class Task {
     title: string;
 
     @Column()
-    description: string;
-
-    @Column()
-    status: string; // "todo", "in-progress", "done"
-
-    @Column()
-    position: number;
-
-    @Column()
     columnId: number;
 
     @ManyToOne(() => ColumnEntity, (column) => column.tasks)

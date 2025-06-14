@@ -13,7 +13,8 @@
                 <h3>{{ column.title }}</h3>
             </div>
             <div>
-                Adicionar Tarefa
+                <input type="text" placeholder="Adicionar tarefa"
+                    (keyup.enter)="addTask(column.id, $any($event.target).value || '')" />
             </div>
         </div>
         }

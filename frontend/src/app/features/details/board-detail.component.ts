@@ -57,6 +57,11 @@ export class BoardDetailComponent {
     });
   }
 
+  addTask(columnId: number, taskName: string) {
+    
+
+  }
+
   sortedColumns() {
     return this.board()?.columns?.sort((a, b) => a.position - b.position) || [];
   }
