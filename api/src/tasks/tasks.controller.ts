@@ -1,16 +1,20 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards, ValidationPipe } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './DTO/create-task.dto';
+import { JwtGuard } from 'src/guards/jwt.guard';
 
 @Controller('tasks')
+@UseGuards(JwtGuard)
 export class TasksController {
-    private readonly _taskService: TasksService;
-    constructor(taskService: TasksService) {
-        this._taskService = taskService;
-    }
+    constructor(private readonly taskService: TasksService) { }
 
     @Post()
-    async createTask(@Body() model: CreateTaskDto) {
-        return this._taskService.createTask(model);
+    async createTask(@Body(ValidationPipe) model: CreateTaskDto) {
+        return this.taskService.createTask(model);
+    }
+
+    @Get('column/:columnId')
+    async getTasksByColumnId(@Param('columnId') columnId: number) {
+        return this.taskService.getTasksByColumnId(columnId);
     }
 }

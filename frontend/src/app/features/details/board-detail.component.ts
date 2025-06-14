@@ -21,6 +21,8 @@ export class BoardDetailComponent {
   private readonly taskService = inject(TaskService);
   private readonly activatedRoute = inject(ActivatedRoute);
   refetch$ = new Subject<void>();
+  errorMessage = '';
+  isLoading = false;
   board = toSignal(
     this.refetch$
       .asObservable()
@@ -43,6 +45,9 @@ export class BoardDetailComponent {
   addColumn() {
     if (this.columnForm.invalid) return;
 
+    this.isLoading = true;
+    this.errorMessage = '';
+
     const newColumn = {
       title: this.columnForm.value.name,
       position: Number(this.columnForm.value.position),
@@ -53,34 +58,44 @@ export class BoardDetailComponent {
       next: () => {
         this.refetch$.next();
         this.columnForm.reset();
+        this.isLoading = false;
       },
       error: (error) => {
         console.error("Error creating column:", error);
+        this.errorMessage = 'Erro ao criar coluna. Tente novamente.';
+        this.isLoading = false;
       }
     });
   }
 
   addTask(columnId: number, taskName: string) {
     if (!taskName || taskName.trim() === '') {
-      console.error("Informe o nome da tarefa.");
+      this.errorMessage = "Informe o nome da tarefa.";
       return;
     }
 
+    this.isLoading = true;
+    this.errorMessage = '';
+
     const newTask = {
-      title: taskName,
+      title: taskName.trim(),
       columnId: columnId
     } as ITaskCreate;
 
     this.taskService.post(newTask).subscribe({
       next: () => {
         this.refetch$.next();
-        const inputElement = document.querySelector(`input[placeholder="Adicionar tarefa"]`) as HTMLInputElement;
+        // Limpar o input específico da coluna
+        const inputElement = document.querySelector(`input[data-column-id="${columnId}"]`) as HTMLInputElement;
         if (inputElement) {
           inputElement.value = '';
         }
+        this.isLoading = false;
       },
       error: (error) => {
         console.error("Error creating task:", error);
+        this.errorMessage = 'Erro ao criar tarefa. Tente novamente.';
+        this.isLoading = false;
       }
     });
   }

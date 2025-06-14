@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Board } from './entities/board.entity';
@@ -34,14 +34,14 @@ export class BoardsService {
                 columns: {
                     position: 'ASC',
                     tasks: {
-                        id: 'ASC' // ou outro campo para ordenar as tasks
+                        id: 'ASC'
                     }
                 }
             }
         });
 
         if (!board) {
-            throw new Error('Board not found');
+            throw new NotFoundException(`Board with ID ${id} not found`);
         }
 
         return board;
@@ -59,7 +59,7 @@ export class BoardsService {
     async updateBoard(board: IBoardUpdate): Promise<Board> {
         const existingBoard = await this.boardRepository.findOneBy({ id: board.id });
         if (!existingBoard) {
-            throw new Error('Board not found');
+            throw new NotFoundException(`Board with ID ${board.id} not found`);
         }
 
         existingBoard.title = board.title;
@@ -68,12 +68,12 @@ export class BoardsService {
 
     async deleteBoard(id: number): Promise<void> {
         if (!id) {
-            throw new Error('Board ID is required');
+            throw new BadRequestException('Board ID is required');
         }
 
         const result = await this.boardRepository.delete(id);
         if (result.affected === 0) {
-            throw new Error('Board not found');
+            throw new NotFoundException(`Board with ID ${id} not found`);
         }
     }
 
