@@ -3,12 +3,15 @@ import { UserId } from 'src/decorators/decorator';
 import { JwtGuard } from 'src/guards/jwt.guard';
 import { BoardsService } from './boards.service';
 import { IBoardCreate, IBoardUpdate } from './DTO/create-board.dto';
+import { ColumnService } from 'src/columns/column.service';
 
 @Controller('boards')
 export class BoardsController {
     private readonly _boardService: BoardsService;
-    constructor(boardService: BoardsService) {
+    private readonly _columnService: ColumnService;
+    constructor(boardService: BoardsService, columnService: ColumnService) {
         this._boardService = boardService;
+        this._columnService = columnService;
     }
 
     @Get()
@@ -21,6 +24,12 @@ export class BoardsController {
     @UseGuards(JwtGuard)
     async getBoardById(@Param('id') id: number) {
         return this._boardService.getBoardById(id);
+    }
+
+    @Get(':id/columns')
+    @UseGuards(JwtGuard)
+    async getColumnsByBoardId(@Param('id') id: number) {
+        return this._columnService.getColumnsByBoardId(id);
     }
 
     @Post()

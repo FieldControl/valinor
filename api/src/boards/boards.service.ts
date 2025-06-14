@@ -3,12 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Board } from './entities/board.entity';
 import { IBoardCreate, IBoardUpdate } from './DTO/create-board.dto';
+import { ColumnService } from 'src/columns/column.service';
 
 @Injectable()
 export class BoardsService {
     constructor(
         @InjectRepository(Board)
         private boardRepository: Repository<Board>,
+        private readonly columnService: ColumnService
     ) { }
 
     async getAllBoards(userId: number): Promise<Board[]> {
@@ -29,6 +31,8 @@ export class BoardsService {
             throw new Error('Board not found');
         }
 
+        const columns = await this.columnService.getColumnsByBoardId(id);
+        board.columns = columns;
         return board;
     }
 

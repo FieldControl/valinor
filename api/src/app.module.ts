@@ -10,6 +10,9 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
 import { BoardsController } from './boards/boards.controller';
 import { BoardsService } from './boards/boards.service';
 import { Board } from './boards/entities/board.entity';
+import { ColumnController } from './columns/column.controller';
+import { ColumnService } from './columns/column.service';
+import { Column } from './columns/entities/column.entity';
 
 @Module({
   imports: [
@@ -22,13 +25,14 @@ import { Board } from './boards/entities/board.entity';
     }),
     TypeOrmModule.forFeature([User]),
     TypeOrmModule.forFeature([Board]),
+    TypeOrmModule.forFeature([Column]),
     JwtModule.register({
       global: true,
       secret: 'secretKey',
       signOptions: { expiresIn: '3h' },
     }),
   ],
-  controllers: [AppController, AuthController, BoardsController],
-  providers: [AppService, AuthService, UserService, BoardsService],
+  controllers: [AppController, AuthController, BoardsController, ColumnController],
+  providers: [AppService, AuthService, UserService, BoardsService, ColumnService],
 })
 export class AppModule { }

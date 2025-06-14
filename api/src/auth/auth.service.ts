@@ -8,7 +8,9 @@ import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-    constructor(@InjectRepository(User) private readonly userRepository: Repository<User>, private jwtService: JwtService) { }
+    constructor(
+        @InjectRepository(User) private readonly userRepository: Repository<User>,
+        private jwtService: JwtService) { }
 
     async login(model: LoginUserDto) {
         const { email, password } = model;

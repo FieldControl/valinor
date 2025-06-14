@@ -1,7 +1,23 @@
 <a href="/boards" role="button">
     Voltar
 </a>
-<h1>{{ board()?.title }}</h1>
+<div>
+    <div>
+        <h1>{{ board()?.title }}</h1>
+    </div>
+    <div>
+        @if (sortedColumns().length > 0) {
+        @for (column of sortedColumns(); track $index) {
+        <div>
+            <h3>{{ column.name }}</h3>
+        </div>
+        }
+        } @else {
+        <p>Nenhuma seção adicionada</p>
+        }
+    </div>
+
+</div>
 <div>
     <div>
         <h2>Nova Seção</h2>

@@ -34,8 +34,12 @@ export class BoardDetailComponent {
     position: new FormControl("", [Validators.required, Validators.min(0)]),
   })
 
-  addColumn(){
+  addColumn() {
 
+  }
+
+  sortedColumns() {
+    return this.board()?.columns?.sort((a, b) => a.position - b.position) || [];
   }
 
 
