@@ -14,6 +14,9 @@
                 <div class="column-header" [class.requested]="$index === 0" [class.in-progress]="$index === 1"
                     [class.done]="$index === 2">
                     <h3 class="column-title">{{ column.title }}</h3>
+                    <button class="delete-column-button" (click)="deleteColumn(column.id)" title="Excluir coluna">
+                        ×
+                    </button>
                     @if (column.tasks && column.tasks.length > 0) {
                     <span class="task-count">{{ column.tasks.length }}/10</span>
                     }
@@ -21,12 +24,17 @@
 
                 <div class="column-content">
                     <div class="tasks-section">
-                        @if (column.tasks && column.tasks.length > 0) { @for (task of column.tasks; track task.id) {
+                        @if (column.tasks && column.tasks.length > 0) {
+                        @for (task of column.tasks; track task.id) {
                         <div class="task-card">
                             <div class="task-content">
                                 <p class="task-title">{{ task.title }}</p>
+                                <div class="task-actions"></div>
                                 <div class="task-indicator" [class.blue]="$index === 0" [class.orange]="$index === 1"
                                     [class.green]="$index === 2"></div>
+                                <button class="delete-button" (click)="deleteTask(task.id)" title="Excluir tarefa">
+                                    ×
+                                </button>
                             </div>
                         </div>
                         }
@@ -36,11 +44,11 @@
                         </div>
                         }
                     </div>
+                </div>
 
-                    <div class="add-task-section">
-                        <input type="text" class="add-task-input" placeholder="+ Adicionar tarefa"
-                            (keyup.enter)="addTask(column.id, $any($event.target).value || '')" />
-                    </div>
+                <div class="add-task-section">
+                    <input type="text" class="add-task-input" placeholder="+ Adicionar tarefa"
+                        (keyup.enter)="addTask(column.id, $any($event.target).value || '')" />
                 </div>
             </div>
             }

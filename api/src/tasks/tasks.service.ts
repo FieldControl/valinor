@@ -19,4 +19,12 @@ export class TasksService {
     async getTasksByColumnId(columnId: number) {
         return this.taskRepository.find({ where: { columnId } });
     }
+
+    async deleteTask(taskId: number) {
+        const task = await this.taskRepository.findOne({ where: { id: taskId } });
+        if (!task) {
+            throw new Error('Task not found');
+        }
+        return this.taskRepository.remove(task);
+    }
 }

@@ -15,6 +15,10 @@ export class ColumnService {
     post(column: IColumnCreate) {
         return this.http.post<IColumn>(`http://localhost:3000/columns`, column);
     }
+
+    delete(columnId: number) {
+        return this.http.delete(`http://localhost:3000/columns/${columnId}`);
+    }
 }
 
 

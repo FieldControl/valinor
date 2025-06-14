@@ -100,6 +100,40 @@ export class BoardDetailComponent {
     });
   }
 
+  deleteTask(id: number) {
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.taskService.delete(id).subscribe({
+      next: () => {
+        this.refetch$.next();
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error("Error deleting task:", error);
+        this.errorMessage = 'Erro ao excluir tarefa. Tente novamente.';
+        this.isLoading = false;
+      }
+    });
+  }
+
+  deleteColumn(id: number) {
+    this.isLoading = true;
+    this.errorMessage = '';
+    this.columnService.delete(id).subscribe({
+      next: () => {
+        this.refetch$.next();
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error("Error deleting column:", error);
+        this.errorMessage = 'Erro ao excluir coluna. Tente novamente.';
+        this.isLoading = false;
+      }
+    });
+    
+  }
+
   sortedColumns() {
     return this.board()?.columns?.sort((a, b) => a.position - b.position) || [];
   }

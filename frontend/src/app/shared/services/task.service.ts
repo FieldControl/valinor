@@ -12,6 +12,10 @@ export class TaskService {
     post(task: ITaskCreate) {
         return this.http.post<ITask>(`http://localhost:3000/tasks`, task);
     }
+
+    delete(taskId: number) {
+        return this.http.delete(`http://localhost:3000/tasks/${taskId}`);
+    }
 }
 
 
