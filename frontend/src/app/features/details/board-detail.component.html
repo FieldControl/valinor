@@ -12,6 +12,20 @@
             <div>
                 <h3>{{ column.title }}</h3>
             </div>
+
+            <!-- Lista de tasks da coluna -->
+            <div class="tasks-container">
+                @if (column.tasks && column.tasks.length > 0) {
+                @for (task of column.tasks; track task.id) {
+                <div class="task-card">
+                    <p>{{ task.title }}</p>
+                </div>
+                }
+                } @else {
+                <p>Nenhuma tarefa</p>
+                }
+            </div>
+
             <div>
                 <input type="text" placeholder="Adicionar tarefa"
                     (keyup.enter)="addTask(column.id, $any($event.target).value || '')" />

@@ -1,3 +1,5 @@
+import { ITask } from "./task.dto";
+
 export interface IColumn {
     id: number;
     title: string;
@@ -5,6 +7,7 @@ export interface IColumn {
     boardId: number;
     createdAt: Date;
     updatedAt: Date;
+    tasks?: ITask[];
 }
 
 export interface IColumnCreate {

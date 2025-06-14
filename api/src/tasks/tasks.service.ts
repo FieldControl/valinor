@@ -15,4 +15,8 @@ export class TasksService {
         const task = this.taskRepository.create(model);
         return this.taskRepository.save(task);
     }
+
+    async getTasksByColumnId(columnId: number) {
+        return this.taskRepository.find({ where: { columnId } });
+    }
 }

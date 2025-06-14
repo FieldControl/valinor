@@ -1,4 +1,5 @@
 import { IColumn } from "./column.dto";
+import { ITask } from "./task.dto";
 
 export interface IBoard {
     id: number;

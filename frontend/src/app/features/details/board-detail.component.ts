@@ -74,6 +74,10 @@ export class BoardDetailComponent {
     this.taskService.post(newTask).subscribe({
       next: () => {
         this.refetch$.next();
+        const inputElement = document.querySelector(`input[placeholder="Adicionar tarefa"]`) as HTMLInputElement;
+        if (inputElement) {
+          inputElement.value = '';
+        }
       },
       error: (error) => {
         console.error("Error creating task:", error);
