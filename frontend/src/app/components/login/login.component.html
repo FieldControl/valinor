@@ -1,0 +1,17 @@
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="login()">
+    <label for="username">Usuário:</label>
+    <input id="username" name="username" [(ngModel)]="username" required />
+
+    <label for="password">Senha:</label>
+    <input id="password" name="password" type="password" [(ngModel)]="password" required />
+
+    <button type="submit">Entrar</button>
+
+    <p>não possui conta?:</p>
+    <button type="button" (click)="goToRegister()">Criar conta</button>
+  </form>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+</div>

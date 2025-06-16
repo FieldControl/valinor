@@ -1,0 +1,16 @@
+<h2>Cadastro</h2>
+<form (ngSubmit)="register()">
+  <input type="text" [(ngModel)]="username" name="username" placeholder="Username" required />
+  <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
+  <input type="password" [(ngModel)]="password" name="password" placeholder="Senha" required />
+
+  <select [(ngModel)]="role" name="role">
+    <option value="MEMBER">Member</option>
+    <option value="LEADER">Leader</option>
+  </select>
+
+  <button type="submit">Cadastrar</button>
+</form>
+
+<p *ngIf="error" style="color: red">{{ error }}</p>
+<p *ngIf="success" style="color: green">{{ success }}</p>
