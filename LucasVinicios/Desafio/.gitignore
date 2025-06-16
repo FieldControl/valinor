@@ -1,0 +1,20 @@
+# Global ignores
+.env
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode/
+
+# Backend ignores
+/kanban-backend/node_modules/
+/kanban-backend/dist/
+/kanban-backend/db.sqlite
+/kanban-backend/npm-debug.log*
+
+# Frontend ignores
+/kanban-frontend/node_modules/
+/kanban-frontend/dist/
+/kanban-frontend/out/
+/kanban-frontend/build/
+/kanban-frontend/.angular/cache/

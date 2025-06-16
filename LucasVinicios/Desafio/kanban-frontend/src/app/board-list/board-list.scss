@@ -1,0 +1,202 @@
+// src/app/board-list/board-list.scss
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.boards-list-section {
+  padding: var(--spacing-lg) 0;
+  .section-title {
+    color: var(--text-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+}
+
+.board-card {
+  @include card-style($shadow: var(--box-shadow-md), $bg: var(--surface-color), $radius: var(--border-radius-md));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 150px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+    cursor: pointer;
+  }
+
+  .board-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .board-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    &:hover {
+      text-decoration: underline;
+      color: var(--primary-dark);
+    }
+  }
+
+  .board-actions {
+    margin-top: auto;
+    .board-edit-button,
+    .board-delete-button {
+      @include button-style(transparent, var(--primary-color), var(--tertiary-color));
+      border: 1px solid var(--primary-color);
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      i {
+        font-size: 1rem;
+      }
+    }
+
+    .board-delete-button {
+      color: var(--danger-color);
+      border-color: var(--danger-color);
+      &:hover {
+        background-color: var(--danger-color);
+        color: white;
+      }
+    }
+  }
+}
+
+.alert.alert-info {
+  background-color: var(--info-color-light);
+  color: var(--info-color-dark);
+  border-color: var(--info-color);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-top: var(--spacing-md);
+}
+
+/* --- Estilos para o Card "Criar Novo Quadro" --- */
+.add-board-card {
+  @include card-style($shadow: var(--box-shadow-sm), $bg: var(--tertiary-color), $radius: var(--border-radius-md));
+  min-height: 150px;
+  border: 2px dashed var(--border-color);
+  color: var(--text-light-color);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .add-board-icon {
+    font-size: 3rem;
+  }
+
+  .add-board-text {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}
+
+.add-board-form-card {
+  @include card-style($shadow: var(--box-shadow-md), $bg: var(--surface-color), $radius: var(--border-radius-md));
+  min-height: 150px;
+  padding: var(--spacing-md);
+
+  .new-board-input {
+    border: 1px solid var(--border-color);
+    &:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(var(--primary-color), 0.25);
+    }
+  }
+}
+
+
+/* --- Estilos para o Modal de Edição --- */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  backdrop-filter: blur(5px);
+}
+
+.custom-modal-content {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  padding: var(--spacing-lg);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  animation: fadeInScale 0.3s ease-out;
+}
+
+.custom-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-md);
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .custom-btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light-color);
+    cursor: pointer;
+    &:hover {
+      color: var(--danger-color);
+    }
+  }
+}
+
+.custom-modal-body {
+  padding-bottom: var(--spacing-md);
+  
+  .form-label {
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+  .form-control {
+    border-color: var(--border-color);
+    &:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(var(--primary-color), 0.25);
+    }
+  }
+}
+
+.custom-modal-actions {
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Animação para o modal */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

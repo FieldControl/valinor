@@ -1,0 +1,97 @@
+/* src/styles.scss */
+
+
+@import './styles/mixins';
+@import './styles/variables';
+
+:root {
+  --primary-color: #{$primary-color};
+  --primary-dark: #{$primary-dark};
+  --secondary-color: #{$secondary-color};
+  --tertiary-color: #{$tertiary-color};
+
+  --success-color: #{$success-color};
+  --danger-color: #{$danger-color};
+  --warning-color: #{$warning-color};
+  --info-color: #{$info-color};
+  --info-color-light: #{lighten($info-color, 30%)};
+  --info-color-dark: #{darken($info-color, 20%)};
+
+  --background-color: #{$background-color};
+  --surface-color: #{$surface-color};
+  --border-color: #{$border-color};
+  --text-color: #{$text-color};
+  --text-light-color: #{$text-light-color};
+
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --box-shadow-sm: #{$box-shadow-sm};
+  --box-shadow-md: #{$box-shadow-md};
+}
+
+/* Estilos globais para o layout da aplicação (sticky footer) */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--background-color);
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilos para a barra de navegação superior */
+.custom-navbar {
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white !important;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.8) !important;
+
+    &:hover {
+      color: white !important;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+
+/* Estilos para o conteúdo principal */
+main.container {
+  flex-grow: 1;
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* Estilos para o rodapé */
+.app-footer {
+  width: 100%;
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  color: var(--text-light-color);
+  background-color: var(--surface-color);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}

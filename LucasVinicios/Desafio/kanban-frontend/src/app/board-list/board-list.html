@@ -1,0 +1,84 @@
+<section class="boards-list-section container my-4">
+  <h2 class="text-center mb-4 section-title">Meus Boards:</h2>
+
+  <div *ngIf="boards.length === 0 && !showCreateBoardForm" class="alert alert-info text-center mb-4">
+    <p>Você ainda não tem nenhum quadro. Comece criando um novo quadro!</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let board of boards">
+      <div class="board-card h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title board-title mb-2">
+            <a [routerLink]="['/board', board.id]" class="board-link">
+              {{ board.title }}
+            </a>
+          </h5>
+          <div class="board-actions mt-auto d-flex justify-content-end gap-2">
+            <button
+              class="btn btn-sm btn-outline-primary board-edit-button"
+              (click)="openEditBoardModal(board)"
+            >
+              <i class="bi bi-pencil-square me-1"></i> Editar
+            </button>
+            <button
+              class="btn btn-sm btn-outline-danger board-delete-button"
+              (click)="deleteBoard(board.id)"
+            >
+              <i class="bi bi-trash-fill me-1"></i> Excluir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div
+        class="add-board-card h-100 d-flex flex-column justify-content-center align-items-center text-center"
+        *ngIf="!showCreateBoardForm; else createBoardFormTemplate"
+        (click)="toggleCreateBoardForm()"
+      >
+        <i class="bi bi-plus-circle-fill add-board-icon"></i>
+        <p class="add-board-text mt-2">Criar Novo Quadro</p>
+      </div>
+
+      <ng-template #createBoardFormTemplate>
+        <div class="add-board-form-card h-100 d-flex flex-column">
+          <input
+            type="text"
+            class="form-control form-control-lg new-board-input mb-2"
+            placeholder="Título do novo quadro"
+            [(ngModel)]="newBoardTitle"
+            name="newBoardTitle"
+            (keyup.enter)="createBoardAndHideForm()"
+            autofocus
+          />
+          <div class="d-flex mt-auto gap-2 justify-content-end">
+            <button class="btn btn-primary btn-sm" (click)="createBoardAndHideForm()">Criar</button>
+            <button class="btn btn-secondary btn-sm" (click)="toggleCreateBoardForm()">Cancelar</button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="custom-modal-overlay" *ngIf="showEditBoardModal" (click)="closeEditBoardModal()">
+    <div class="custom-modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header custom-modal-header">
+        <h2 class="modal-title">Editar quadro: {{editingBoard?.title}}</h2>
+        <button type="button" class="btn-close custom-btn-close" aria-label="Close" (click)="closeEditBoardModal()"></button>
+      </div>
+
+      <div class="modal-body custom-modal-body">
+        <div class="mb-3">
+          <label for="editedTitle" class="form-label">Título do Quadro:</label>
+          <input type="text" id="editedTitle" [(ngModel)]="editedBoardTitle" name="editedBoardTitle" class="form-control form-control-lg" required />
+        </div>
+        <div class="d-flex justify-content-end gap-2 custom-modal-actions">
+          <button type="button" class="btn btn-primary" (click)="saveEditedBoard()">Salvar</button>
+          <button type="button" class="btn btn-secondary" (click)="closeEditBoardModal()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

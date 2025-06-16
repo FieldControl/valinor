@@ -1,0 +1,62 @@
+// src/app/app.component.scss
+@import '../styles/mixins'; // Mantenha suas variáveis
+@import '../styles/variables';    // Mantenha seus mixins
+
+:root { 
+  --primary-color: #0d6efd;     
+  --primary-dark: #0a58ca;      
+  --secondary-color: #6a8cd2;   
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  .navbar {
+    background-color: $secondary-color; // Usa a nova variável de cor
+    box-shadow: 0 1px 0 rgba($secondary-color, 0.5); // Sombra sutil
+
+    .navbar-brand {
+      color: white !important; // Garante que o texto do brand seja branco
+      font-weight: bold;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs; // Espaço entre ícone e texto
+      i {
+        font-size: 1.4rem; // Tamanho do ícone do Trello
+      }
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8) !important; // Cor mais suave para links
+      &:hover {
+        color: white !important; // Branco sólido no hover
+      }
+    }
+    .btn-outline-light { // Estilo para o botão "Sair"
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+    }
+  }
+}
+
+main.container-fluid {
+  flex-grow: 1;
+}
+
+footer.bg-light {
+  background-color: $secondary-color !important; // Usa sua cor secundária
+  color: white !important; // Garante texto branco
+  .text-muted {
+    font-size: 0.9rem;
+    color: white !important; // Garante texto branco mesmo com text-muted
+  }
+}

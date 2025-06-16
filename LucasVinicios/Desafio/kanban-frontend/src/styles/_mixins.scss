@@ -1,0 +1,36 @@
+// src/styles/_mixins.scss
+// Mixin para estilos de caixa (box-shadow, border-radius)
+@mixin card-style($shadow: $box-shadow-sm, $bg: $surface-color, $radius: $border-radius-md) {
+  background-color: $bg;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: $spacing-md;
+}
+
+// Mixin para botões
+@mixin button-style($bg-color, $text-color: white, $hover-bg: darken($bg-color, 10%)) {
+  padding: 10px $spacing-md;
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $hover-bg;
+  }
+
+  &:disabled {
+    background-color: $secondary-color;
+    cursor: not-allowed;
+  }
+}
+
+// Mixin para centralizar conteúdo flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

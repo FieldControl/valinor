@@ -1,0 +1,49 @@
+<div class="container d-flex justify-content-center align-items-center"> <div class="card p-4 shadow-sm login-form-card" style="max-width: 400px; width: 100%;">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4 login-title">Login</h2>
+      <form (ngSubmit)="onLogin()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            class="form-control form-control-lg login-input"
+            placeholder="seu@email.com"
+            required
+          >
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha:</label>
+          <div class="input-group">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              class="form-control form-control-lg login-input"
+              placeholder="Sua senha"
+              required
+            >
+            <button
+              class="btn btn-outline-secondary toggle-password-btn"
+              type="button"
+              (click)="togglePasswordVisibility()"
+            >
+              <i class="bi" [class.bi-eye-fill]="!showPassword" [class.bi-eye-slash-fill]="showPassword"></i>
+              <span class="ms-1">{{ showPassword ? 'Ocultar' : 'Mostrar' }}</span>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger error-message" role="alert">
+          {{ errorMessage }}
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg w-100 login-submit-btn">Entrar</button>
+      </form>
+      <p class="text-center mt-3 mb-0 register-text">
+        Não tem uma conta? <a class="register-link" (click)="navigateToRegister()">Cadastre-se aqui</a>
+      </p>
+    </div>
+  </div>
+</div>

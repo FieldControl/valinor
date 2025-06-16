@@ -1,0 +1,84 @@
+// src/app/login/login.scss
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.login-page-container { // Esta classe pode ser mais genérica se usada em outros lugares.
+  min-height: 100vh; // Removido do HTML, mas mantido aqui para centralização inicial
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-md);
+}
+
+.login-form-card {
+  @include card-style($shadow: var(--box-shadow-md), $bg: var(--surface-color), $radius: var(--border-radius-md));
+  max-width: 400px;
+  width: 100%;
+  padding: var(--spacing-xl) !important;
+
+  .login-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .form-label {
+    color: var(--text-color);
+    font-weight: 500;
+  }
+
+  .login-input {
+    border: 1px solid var(--border-color);
+    &:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(var(--primary-color), 0.25);
+    }
+  }
+
+  .toggle-password-btn {
+    color: var(--text-light-color);
+    border-color: var(--border-color);
+    &:hover {
+      background-color: var(--tertiary-color);
+      border-color: var(--primary-color);
+      color: var(--primary-dark);
+    }
+    i {
+      font-size: 1.1rem;
+    }
+  }
+
+  .error-message {
+    background-color: var(--info-color-light); // Usando info-color-light para erros
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+    font-size: 0.9rem;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-sm);
+  }
+
+  .login-submit-btn {
+    @include button-style(var(--primary-color), white, var(--primary-dark));
+    font-size: 1.2rem;
+    padding: 12px var(--spacing-xl);
+    margin-top: var(--spacing-md);
+  }
+
+  .register-text {
+    color: var(--text-light-color);
+    font-size: 0.95rem;
+    margin-top: var(--spacing-md);
+    .register-link {
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        color: var(--primary-dark);
+      }
+    }
+  }
+}

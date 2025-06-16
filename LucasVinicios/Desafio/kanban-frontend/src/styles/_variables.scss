@@ -1,0 +1,27 @@
+// src/styles/_variables.scss
+$primary-color: #0d6efd;     
+$primary-dark: #0a58ca;      
+$secondary-color: #6a8cd2;   
+$tertiary-color: #e3f2fd;    
+
+$success-color: #28a745;     
+$danger-color: #dc3545;      
+$warning-color: #ffc107;     
+$info-color: #0dcaf0;        
+
+$background-color: #e9ecef;  
+$surface-color: #ffffff;    
+$border-color: #c9d2de;      
+$text-color: #212529;        
+$text-light-color: #495057;  
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+$border-radius-sm: 3px;
+$border-radius-md: 6px;
+$box-shadow-sm: 0 1px 0 rgba(9, 30, 66, 0.25);
+$box-shadow-md: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.08);

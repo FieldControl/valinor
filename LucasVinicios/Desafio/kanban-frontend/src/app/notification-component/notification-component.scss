@@ -1,0 +1,50 @@
+// src/app/notification-component/notification-component.component.scss
+@import '../../styles/variables'; // Importa suas variáveis
+
+.notification-container {
+  position: fixed;
+  top: $spacing-md; /* 16px do topo */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  color: white;
+  font-weight: bold;
+  z-index: 9999; /* Garante que fique acima de tudo */
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  box-shadow: $box-shadow-md; // Sua sombra customizada
+  transition: opacity 0.3s ease-in-out; // Transição suave
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.success {
+    background-color: $success-color;
+  }
+  &.error {
+    background-color: $danger-color;
+  }
+  &.info {
+    background-color: $info-color;
+  }
+  &.warning {
+    background-color: $warning-color;
+    color: $text-color; // Texto mais escuro para amarelo
+  }
+}

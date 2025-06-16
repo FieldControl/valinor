@@ -1,0 +1,226 @@
+// src/app/board-detail/board-detail.scss
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.board-detail-container {
+  padding: var(--spacing-lg);
+  background-color: var(--background-color); // Fundo da página
+  min-height: calc(100vh - 60px); // Ajusta para a altura da navbar
+}
+
+.board-header {
+  background-color: var(--surface-color); // Fundo claro para o header
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  margin-bottom: var(--spacing-xl);
+
+  .back-link {
+    color: var(--text-color);
+    &:hover {
+      color: var(--primary-dark);
+    }
+    i {
+      font-size: 1.1rem;
+    }
+  }
+
+  .board-title-main {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .members-button {
+    @include button-style(var(--primary-color), white, var(--primary-dark));
+    font-size: 1.1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    i {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.columns-container {
+  /* Estilos para o container flexível das colunas */
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding-bottom: var(--spacing-md);
+  height: calc(100vh - 180px); /* Mantenha uma altura para o scroll horizontal funcionar no container */
+  
+  .column-wrapper {
+    flex-basis: 350px; /* Aumenta a largura padrão de cada coluna */
+    max-width: 350px; /* Garante que a largura máxima não exceda o flex-basis */
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: auto; /* Permite que a altura se adapte ao conteúdo */
+    margin-right: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column-card {
+    background-color: var(--tertiary-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    box-shadow: var(--box-shadow-sm);
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Permite que a altura do card se adapte ao conteúdo */
+    min-height: 100px;
+    flex-grow: 1;
+    
+    .column-header {
+      flex-shrink: 0;
+      margin-bottom: var(--spacing-md);
+      
+      .column-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+
+      .badge {
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.3em 0.6em;
+      }
+
+      .dropdown-toggle {
+        color: var(--text-light-color);
+        &:hover {
+          color: var(--text-color);
+        }
+      }
+    }
+
+    .cards-list {
+      flex-grow: 1;
+      overflow-y: auto; /* Rolagem vertical apenas se o conteúdo exceder a altura da coluna */
+      padding-top: var(--spacing-sm);
+      padding-bottom: var(--spacing-sm);
+
+      .card-item {
+        background-color: var(--surface-color);
+        border-radius: var(--border-radius-sm);
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
+        cursor: grab;
+        transition: box-shadow 0.2s ease-in-out;
+
+        &:hover {
+          box-shadow: var(--box-shadow-md);
+        }
+
+        .card-title-item {
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text-color);
+        }
+
+        .card-description-item {
+          font-size: 0.85rem;
+          color: var(--text-light-color);
+          margin-bottom: 0;
+        }
+
+        &.cdk-drag-placeholder {
+          opacity: 0.5;
+          background-color: lighten($primary-color, 40%);
+          border: 1px dashed var(--primary-color);
+          border-radius: var(--border-radius-sm);
+        }
+
+        &.cdk-drag-animating {
+          transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+        }
+        .card-delete-button {
+        position: absolute;
+        top: var(--spacing-sm);    /* 8px do topo */
+        right: var(--spacing-sm);  /* 8px da direita */
+        padding: 0px 4px;          /* Padding pequeno para o botão */
+        font-size: 0.8rem;         /* Tamanho da fonte menor */
+        color: var(--text-light-color); /* Cor discreta */
+        background-color: rgba(var(--surface-color), 0.7); /* Fundo semi-transparente */
+        border-radius: var(--border-radius-sm); /* Bordas arredondadas */
+        border: none;
+        box-shadow: none;
+        opacity: 0;               /* Inicialmente invisível */
+        transition: opacity 0.2s ease-in-out; /* Transição suave */
+
+        &:hover {
+          color: var(--danger-color); /* Fica vermelho no hover */
+          background-color: var(--surface-color); /* Fundo sólido no hover */
+          box-shadow: var(--box-shadow-sm);
+        }
+      }
+
+      &:hover .card-delete-button {
+        opacity: 1;
+        }
+      }
+    }
+
+    .add-card-container {
+      flex-shrink: 0;
+      margin-top: var(--spacing-md);
+      .add-card-button {
+        color: var(--text-light-color);
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+
+      .add-card-form {
+        background-color: var(--background-color);
+        border-radius: var(--border-radius-md);
+        padding: var(--spacing-md);
+
+        textarea.form-control {
+          resize: vertical;
+          min-height: 60px;
+          border-color: var(--border-color);
+          &:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(var(--primary-color), 0.25);
+          }
+        }
+      }
+    }
+  }
+
+  .add-column-placeholder {
+    @include card-style($shadow: var(--box-shadow-sm), $bg: var(--background-color), $radius: var(--border-radius-md));
+    flex-basis: 400px; /* Largura do placeholder/formulário de adicionar coluna */
+    max-width: 400px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 100px;
+    border: 2px dashed var(--border-color);
+    color: var(--text-light-color);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      box-shadow: var(--box-shadow-md);
+    }
+
+    i {
+      font-size: 1.5rem;
+    }
+  }
+
+  .add-column-form {
+    @include card-style($shadow: var(--box-shadow-md), $bg: var(--surface-color), $radius: var(--border-radius-md));
+    flex-basis: 380px;
+    max-width: 380px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: auto;
+    padding: var(--spacing-md);
+  }
+}

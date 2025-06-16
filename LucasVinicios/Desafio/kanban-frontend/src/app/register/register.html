@@ -1,0 +1,66 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-sm register-form-card" style="max-width: 400px; width: 100%;">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4 register-title">Cadastro</h2>
+      <form (ngSubmit)="onRegister()" class="register-form">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control form-control-lg register-input" placeholder="seu@email.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha:</label>
+          <div class="input-group">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              class="form-control form-control-lg register-input"
+              placeholder="Sua senha"
+              required
+            >
+            <button
+              class="btn btn-outline-secondary toggle-password-btn"
+              type="button"
+              (click)="togglePasswordVisibility()"
+            >
+              <i class="bi" [class.bi-eye-fill]="!showPassword" [class.bi-eye-slash-fill]="showPassword"></i>
+              <span class="ms-1">{{ showPassword ? 'Ocultar' : 'Mostrar' }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="passwordConfirm" class="form-label">Confirmar Senha:</label>
+          <div class="input-group">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="passwordConfirm"
+              [(ngModel)]="passwordConfirm"
+              name="passwordConfirm"
+              class="form-control form-control-lg register-input"
+              placeholder="Confirme sua senha"
+              required
+            >
+            <button
+              class="btn btn-outline-secondary toggle-password-btn"
+              type="button"
+              (click)="togglePasswordVisibility()"
+            >
+              <i class="bi" [class.bi-eye-fill]="!showPassword" [class.bi-eye-slash-fill]="showPassword"></i>
+              <span class="ms-1">{{ showPassword ? 'Ocultar' : 'Mostrar' }}</span>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger error-message" role="alert">
+          {{ errorMessage }}
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success success-message" role="alert">
+          {{ successMessage }}
+        </div>
+        <button type="submit" class="btn btn-success btn-lg w-100 register-submit-btn mb-3">Cadastrar</button>
+      </form>
+      <p class="text-center mt-3 mb-0 register-text">
+        Já tem uma conta?<a class="register-link" (click)="navigateToLogin()">Faça o login aqui</a>
+    </div>
+  </div>
+</div>
