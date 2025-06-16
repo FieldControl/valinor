@@ -15,24 +15,19 @@ export declare class CardsService {
     } & {
         id: number;
         title: string;
+        memberId: number;
         sentByMember: boolean;
         leaderId: number;
-        memberId: number;
     }>;
     findCardsByMemberId(memberId: number): Promise<Card[]>;
     submitCard(cardId: number, userId: number): Promise<{
         id: number;
         title: string;
+        memberId: number;
         sentByMember: boolean;
         leaderId: number;
-        memberId: number;
     }>;
     findSubmittedCardsByLeader(leaderId: number): Promise<({
-        member: {
-            id: number;
-            username: string;
-            email: string;
-        };
         tasks: {
             id: number;
             description: string;
@@ -40,18 +35,23 @@ export declare class CardsService {
             assignedToId: number;
             cardId: number;
         }[];
+        member: {
+            id: number;
+            username: string;
+            email: string;
+        };
     } & {
         id: number;
         title: string;
+        memberId: number;
         sentByMember: boolean;
         leaderId: number;
-        memberId: number;
     })[]>;
     deleteSubmittedCardByLeader(cardId: number, leaderId: number): Promise<{
         id: number;
         title: string;
+        memberId: number;
         sentByMember: boolean;
         leaderId: number;
-        memberId: number;
     }>;
 }

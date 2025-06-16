@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CardsService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
+const client_1 = require("@prisma/client");
 let CardsService = class CardsService {
     constructor(prisma) {
         this.prisma = prisma;
@@ -22,6 +23,9 @@ let CardsService = class CardsService {
         });
         if (!member) {
             throw new common_1.NotFoundException(`Usuário com ID ${dto.memberId} não existe`);
+        }
+        if (member.role === client_1.Role.LEADER) {
+            throw new common_1.BadRequestException('Não é possível atribuir cards a usuários LEADER');
         }
         return this.prisma.card.create({
             data: {

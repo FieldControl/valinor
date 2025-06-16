@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCardDto } from './dto/create-card-with-tasks.dto';
-import { Card} from '@prisma/client';
+import { Card, Role} from '@prisma/client';
 
 @Injectable()
 export class CardsService {
@@ -14,6 +14,10 @@ export class CardsService {
 
         if (!member) {
             throw new NotFoundException(`Usuário com ID ${dto.memberId} não existe`);
+        }
+
+        if (member.role === Role.LEADER) {
+            throw new BadRequestException('Não é possível atribuir cards a usuários LEADER');
         }
 
         return this.prisma.card.create({
