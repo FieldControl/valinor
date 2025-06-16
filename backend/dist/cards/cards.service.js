@@ -9,46 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsersService = void 0;
+exports.CardsService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
-const bcrypt = require("bcrypt");
-let UsersService = class UsersService {
+let CardsService = class CardsService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async createUser(username, email, password, role) {
-        const hashed = await bcrypt.hash(password, 10);
-        return this.prisma.user.create({
+    async createCardForMember(leaderId, dto) {
+        return this.prisma.card.create({
             data: {
-                username,
-                email,
-                password: hashed,
-                role,
+                title: dto.title,
+                leaderId,
+                memberId: dto.memberId,
+                tasks: {
+                    create: dto.tasks.map(task => ({
+                        description: task.description,
+                        assignedToId: dto.memberId,
+                    })),
+                },
+            },
+            include: {
+                tasks: true,
             },
         });
-    }
-    async findAllMembers() {
-        return this.prisma.user.findMany({
-            where: { role: 'MEMBER' },
-            select: {
-                id: true,
-                username: true,
-                email: true,
-                role: true,
-            },
-        });
-    }
-    async findByUsername(username) {
-        return this.prisma.user.findUnique({ where: { username } });
-    }
-    async findById(id) {
-        return this.prisma.user.findUnique({ where: { id } });
     }
 };
-exports.UsersService = UsersService;
-exports.UsersService = UsersService = __decorate([
+exports.CardsService = CardsService;
+exports.CardsService = CardsService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], UsersService);
-//# sourceMappingURL=users.service.js.map
+], CardsService);
+//# sourceMappingURL=cards.service.js.map

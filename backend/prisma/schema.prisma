@@ -9,22 +9,26 @@ generator client {
 
 
 model User {
-  id       Int      @id @default(autoincrement())
-  username String   @unique
-  email    String   @unique
-  password String
-  role     Role     @default(MEMBER)
-  cards    Card[]   @relation("LeaderCards")
-  tasks    Task[]   @relation("AssignedTasks")
+  id             Int      @id @default(autoincrement())
+  username       String   @unique
+  email          String   @unique
+  password       String
+  role           Role
+
+  leaderCards    Card[]   @relation("LeaderCards")
+  receivedCards  Card[]   @relation("MemberCards")
+  assignedTasks  Task[]   @relation("AssignedTasks")
 }
 
 model Card {
-  id          Int      @id @default(autoincrement())
-  title       String
-  sentByMember Boolean @default(false)
-  leaderId    Int
-  leader      User     @relation(fields: [leaderId], references: [id], name: "LeaderCards")
-  tasks       Task[]   @relation("CardTasks")
+  id             Int       @id @default(autoincrement())
+  title          String
+  sentByMember   Boolean   @default(false)
+  leaderId       Int
+  memberId       Int
+  leader         User      @relation(fields: [leaderId], references: [id], name: "LeaderCards")
+  member         User      @relation(fields: [memberId], references: [id], name: "MemberCards")
+  tasks          Task[]    @relation("CardTasks")
 }
 
 model Task {

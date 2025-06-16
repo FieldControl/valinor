@@ -9,6 +9,12 @@ declare class RegisterDto {
 export declare class UsersController {
     private usersService;
     constructor(usersService: UsersService);
+    getMembers(): Promise<{
+        id: number;
+        username: string;
+        email: string;
+        role: import(".prisma/client").$Enums.Role;
+    }[]>;
     register(data: RegisterDto): Promise<{
         id: number;
         username: string;

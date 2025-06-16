@@ -13,6 +13,7 @@ const app_service_1 = require("./app.service");
 const prisma_module_1 = require("./prisma/prisma.module");
 const users_module_1 = require("./users/users.module");
 const auth_module_1 = require("./auth/auth.module");
+const cards_module_1 = require("./cards/cards.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -21,7 +22,8 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             auth_module_1.AuthModule,
             prisma_module_1.PrismaModule,
-            users_module_1.UsersModule
+            users_module_1.UsersModule,
+            cards_module_1.CardsModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

@@ -3,6 +3,8 @@ import { PrismaService } from '../prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { Role, User } from '@prisma/client';
 
+type UserWithoutPassword = Omit<User, 'password'>;
+
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
@@ -15,6 +17,18 @@ export class UsersService {
         email,   // variável correta aqui
         password: hashed,
         role,
+      },
+    });
+  }
+
+  async findAllMembers(): Promise<UserWithoutPassword[]> {
+    return this.prisma.user.findMany({
+      where: { role: 'MEMBER' },
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        role: true,
       },
     });
   }
