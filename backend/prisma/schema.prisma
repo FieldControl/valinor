@@ -1,0 +1,49 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model User {
+  id       Int      @id @default(autoincrement())
+  username String   @unique
+  email    String   @unique
+  password String
+  role     Role     @default(MEMBER)
+  cards    Card[]   @relation("LeaderCards")
+  tasks    Task[]   @relation("AssignedTasks")
+}
+
+model Card {
+  id          Int      @id @default(autoincrement())
+  title       String
+  sentByMember Boolean @default(false)
+  leaderId    Int
+  leader      User     @relation(fields: [leaderId], references: [id], name: "LeaderCards")
+  tasks       Task[]   @relation("CardTasks")
+}
+
+model Task {
+  id          Int       @id @default(autoincrement())
+  description String
+  status      TaskStatus @default(TODO)
+  cardId      Int
+  card        Card      @relation(fields: [cardId], references: [id], name: "CardTasks")
+  assignedToId Int
+  assignedTo  User      @relation(fields: [assignedToId], references: [id], name: "AssignedTasks")
+}
+
+enum Role {
+  LEADER
+  MEMBER
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+}
