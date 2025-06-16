@@ -1,10 +1,11 @@
-import { Body, Controller, Post, UseGuards, Req, Get, Request } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards, Req, Get, Request, Patch, ParseIntPipe, Param } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { Role } from '@prisma/client';
 import { CardsService } from './cards.service';
 import { CreateCardDto } from './dto/create-card-with-tasks.dto';
+import { UserId } from '../users/decorators/user.decorator';
 
 
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -25,5 +26,14 @@ export class CardsController {
   async getMyCards(@Request() req) {
     const memberId = req.user.userId;
     return this.cardsService.findCardsByMemberId(memberId);
+  }
+
+  @Roles(Role.MEMBER)
+  @Patch(':id/submit')
+  async submitCard(
+    @Param('id', ParseIntPipe) cardId: number,
+    @UserId() userId: number,
+  ) {
+    return this.cardsService.submitCard(cardId, userId);
   }
 }

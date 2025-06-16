@@ -48,6 +48,25 @@ let CardsService = class CardsService {
             },
         });
     }
+    async submitCard(cardId, userId) {
+        const card = await this.prisma.card.findUnique({
+            where: { id: cardId },
+            include: { tasks: true },
+        });
+        if (!card)
+            throw new common_1.NotFoundException('Card nao encontrado meu camarada');
+        if (card.memberId !== userId) {
+            throw new common_1.ForbiddenException('Esse card nao é teu rapais');
+        }
+        const allDone = card.tasks.every(task => task.status === 'DONE');
+        if (!allDone) {
+            throw new common_1.BadRequestException('Todas as tasks tem que estar marcadas, espertin...');
+        }
+        return this.prisma.card.update({
+            where: { id: cardId },
+            data: { sentByMember: true },
+        });
+    }
 };
 exports.CardsService = CardsService;
 exports.CardsService = CardsService = __decorate([

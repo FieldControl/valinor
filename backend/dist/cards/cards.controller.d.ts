@@ -14,15 +14,22 @@ export declare class CardsController {
     } & {
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     }>;
     getMyCards(req: any): Promise<{
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     }[]>;
+    submitCard(cardId: number, userId: number): Promise<{
+        id: number;
+        title: string;
+        sentByMember: boolean;
+        leaderId: number;
+        memberId: number;
+    }>;
 }

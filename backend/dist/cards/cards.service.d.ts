@@ -15,9 +15,16 @@ export declare class CardsService {
     } & {
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     }>;
     findCardsByMemberId(memberId: number): Promise<Card[]>;
+    submitCard(cardId: number, userId: number): Promise<{
+        id: number;
+        title: string;
+        sentByMember: boolean;
+        leaderId: number;
+        memberId: number;
+    }>;
 }

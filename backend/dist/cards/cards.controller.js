@@ -20,6 +20,7 @@ const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 const client_1 = require("@prisma/client");
 const cards_service_1 = require("./cards.service");
 const create_card_with_tasks_dto_1 = require("./dto/create-card-with-tasks.dto");
+const user_decorator_1 = require("../users/decorators/user.decorator");
 let CardsController = class CardsController {
     constructor(cardsService) {
         this.cardsService = cardsService;
@@ -31,6 +32,9 @@ let CardsController = class CardsController {
     async getMyCards(req) {
         const memberId = req.user.userId;
         return this.cardsService.findCardsByMemberId(memberId);
+    }
+    async submitCard(cardId, userId) {
+        return this.cardsService.submitCard(cardId, userId);
     }
 };
 exports.CardsController = CardsController;
@@ -51,6 +55,15 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], CardsController.prototype, "getMyCards", null);
+__decorate([
+    (0, roles_decorator_1.Roles)(client_1.Role.MEMBER),
+    (0, common_1.Patch)(':id/submit'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, user_decorator_1.UserId)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Promise)
+], CardsController.prototype, "submitCard", null);
 exports.CardsController = CardsController = __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, common_1.Controller)('cards'),
