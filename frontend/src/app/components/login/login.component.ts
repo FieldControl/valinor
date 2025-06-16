@@ -18,6 +18,7 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   async login() {
+    
     this.error = '';
     try {
       const res = await fetch('http://localhost:3000/auth/login', {
@@ -33,8 +34,13 @@ export class LoginComponent {
 
       const data = await res.json();
       localStorage.setItem('token', data.access_token);
+      localStorage.setItem('role', data.role);
 
-      this.router.navigate(['/dashboard']);
+      if (data.role === 'LEADER') {
+        this.router.navigate(['/dashboard/leader']);
+      } else {
+        this.router.navigate(['/dashboard/member']);
+      }
     } catch {
       this.error = 'Erro de conexão';
     }

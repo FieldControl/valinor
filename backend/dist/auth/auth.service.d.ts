@@ -12,5 +12,6 @@ export declare class AuthService {
     }>;
     login(user: any): Promise<{
         access_token: string;
+        role: any;
     }>;
 }
