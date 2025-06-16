@@ -5,7 +5,7 @@ import { KanbanApiService } from '../kanban-api';
 import { Board } from '../models/board.model';
 import { RouterModule } from '@angular/router'; 
 import { FormsModule } from '@angular/forms';
-import { NotificationService } from '../notification'; // Verifique o caminho correto
+import { NotificationService } from '../notificacao'; // Verifique o caminho correto
 
 @Component({
   selector: 'app-board-list',

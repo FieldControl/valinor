@@ -25,8 +25,8 @@ import { NgbModal, NgbPopoverModule, NgbModalModule } from '@ng-bootstrap/ng-boo
     NgbPopoverModule,
     NgbModalModule
   ],
-  templateUrl: './board-detail.html',
-  styleUrl: './board-detail.scss'
+  templateUrl: './board-detalhes.html',
+  styleUrl: './board-detalhes.scss'
 })
 export class BoardDetailComponent implements OnInit {
   boardId!: number;

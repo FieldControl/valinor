@@ -1,7 +1,7 @@
 // src/app/notification-component/notification-component.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotificationService, Notification } from '../notification'; // Importe o serviço
+import { NotificationService, Notification } from '../notificacao'; // Importe o serviço
 import { Subscription, timer } from 'rxjs'; // timer para a duração, Subscription para gerenciar
 import { takeUntil } from 'rxjs/operators'; // Para gerenciar a expiração
 import { Subject } from 'rxjs'; // Para o takeUntil

@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ColumnEntity } from '../entities/column.entity';
-import { Board } from '../entities/board.entity'; // Importe a entidade Board
+import { ColumnEntity } from '../entidades/column.entity';
+import { Board } from '../entidades/board.entity'; // Importe a entidade Board
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
 

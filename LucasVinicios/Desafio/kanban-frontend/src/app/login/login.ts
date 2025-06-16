@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import { NotificationService } from '../notification'; // Verifique o caminho real
+import { NotificationService } from '../notificacao'; // Verifique o caminho real
 
 @Component({
   selector: 'app-login',

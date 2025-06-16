@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { NotificationComponent } from "./notification-component/notification-component";
+import { NotificationComponent } from "./notificacao/notification-component";
 
 
 @Component({

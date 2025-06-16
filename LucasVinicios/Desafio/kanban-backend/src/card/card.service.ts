@@ -2,8 +2,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Card } from '../entities/card.entity';
-import { ColumnEntity } from '../entities/column.entity'; // Importe a entidade ColumnEntity
+import { Card } from '../entidades/card.entity';
+import { ColumnEntity } from '../entidades/column.entity'; // Importe a entidade ColumnEntity
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
 

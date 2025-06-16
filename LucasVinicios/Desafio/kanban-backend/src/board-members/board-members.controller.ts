@@ -2,7 +2,7 @@
 import { Controller, Get, Post, Body, Param, Delete, HttpCode, HttpStatus, ValidationPipe } from '@nestjs/common';
 import { BoardMembersService } from './board-members.service';
 import { AddMemberDto } from './dto/add-member.dto';
-import { User } from '../entities/user.entity';
+import { User } from '../entidades/user.entity';
 // import { UseGuards } from '@nestjs/common';
 // import { AuthGuard } from '@nestjs/passport';
 
