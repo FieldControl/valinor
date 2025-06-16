@@ -17,6 +17,12 @@ let CardsService = class CardsService {
         this.prisma = prisma;
     }
     async createCardForMember(leaderId, dto) {
+        const member = await this.prisma.user.findUnique({
+            where: { id: dto.memberId },
+        });
+        if (!member) {
+            throw new common_1.NotFoundException(`Usuário com ID ${dto.memberId} não existe`);
+        }
         return this.prisma.card.create({
             data: {
                 title: dto.title,
@@ -29,6 +35,14 @@ let CardsService = class CardsService {
                     })),
                 },
             },
+            include: {
+                tasks: true,
+            },
+        });
+    }
+    async findCardsByMemberId(memberId) {
+        return this.prisma.card.findMany({
+            where: { memberId },
             include: {
                 tasks: true,
             },

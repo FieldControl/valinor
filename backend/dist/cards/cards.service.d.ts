@@ -1,5 +1,6 @@
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCardDto } from './dto/create-card-with-tasks.dto';
+import { Card } from '@prisma/client';
 export declare class CardsService {
     private prisma;
     constructor(prisma: PrismaService);
@@ -18,4 +19,5 @@ export declare class CardsService {
         sentByMember: boolean;
         leaderId: number;
     }>;
+    findCardsByMemberId(memberId: number): Promise<Card[]>;
 }

@@ -18,4 +18,11 @@ export declare class CardsController {
         sentByMember: boolean;
         leaderId: number;
     }>;
+    getMyCards(req: any): Promise<{
+        id: number;
+        title: string;
+        memberId: number;
+        sentByMember: boolean;
+        leaderId: number;
+    }[]>;
 }
