@@ -27,4 +27,31 @@ export declare class CardsService {
         leaderId: number;
         memberId: number;
     }>;
+    findSubmittedCardsByLeader(leaderId: number): Promise<({
+        member: {
+            id: number;
+            username: string;
+            email: string;
+        };
+        tasks: {
+            id: number;
+            description: string;
+            status: import(".prisma/client").$Enums.TaskStatus;
+            assignedToId: number;
+            cardId: number;
+        }[];
+    } & {
+        id: number;
+        title: string;
+        sentByMember: boolean;
+        leaderId: number;
+        memberId: number;
+    })[]>;
+    deleteSubmittedCardByLeader(cardId: number, leaderId: number): Promise<{
+        id: number;
+        title: string;
+        sentByMember: boolean;
+        leaderId: number;
+        memberId: number;
+    }>;
 }

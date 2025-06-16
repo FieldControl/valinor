@@ -29,6 +29,14 @@ let CardsController = class CardsController {
         const leaderId = req.user.userId;
         return this.cardsService.createCardForMember(leaderId, dto);
     }
+    async getSubmittedCards(req) {
+        const leaderId = req.user.userId;
+        return this.cardsService.findSubmittedCardsByLeader(leaderId);
+    }
+    async deleteSubmittedCard(cardId, req) {
+        const leaderId = req.user.userId;
+        return this.cardsService.deleteSubmittedCardByLeader(cardId, leaderId);
+    }
     async getMyCards(req) {
         const memberId = req.user.userId;
         return this.cardsService.findCardsByMemberId(memberId);
@@ -47,6 +55,23 @@ __decorate([
     __metadata("design:paramtypes", [create_card_with_tasks_dto_1.CreateCardDto, Object]),
     __metadata("design:returntype", Promise)
 ], CardsController.prototype, "create", null);
+__decorate([
+    (0, roles_decorator_1.Roles)(client_1.Role.LEADER),
+    (0, common_1.Get)('submitted'),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], CardsController.prototype, "getSubmittedCards", null);
+__decorate([
+    (0, roles_decorator_1.Roles)(client_1.Role.LEADER),
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:returntype", Promise)
+], CardsController.prototype, "deleteSubmittedCard", null);
 __decorate([
     (0, roles_decorator_1.Roles)(client_1.Role.MEMBER),
     (0, common_1.Get)('membercards'),

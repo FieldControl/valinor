@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards, Req, Get, Request, Patch, ParseIntPipe, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Post, UseGuards, Req, Get, Request, Patch, ParseIntPipe, Param } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -19,6 +19,23 @@ export class CardsController {
   async create(@Body() dto: CreateCardDto, @Req() req: any) {
     const leaderId = req.user.userId;
     return this.cardsService.createCardForMember(leaderId, dto);
+  }
+
+  @Roles(Role.LEADER)
+  @Get('submitted')
+  async getSubmittedCards(@Req() req: any) {
+    const leaderId = req.user.userId;
+    return this.cardsService.findSubmittedCardsByLeader(leaderId);
+  }
+
+  @Roles(Role.LEADER)
+  @Delete(':id')
+  async deleteSubmittedCard(
+    @Param('id', ParseIntPipe) cardId: number,
+    @Req() req: any
+  ) {
+    const leaderId = req.user.userId;
+    return this.cardsService.deleteSubmittedCardByLeader(cardId, leaderId);
   }
 
   @Roles(Role.MEMBER)

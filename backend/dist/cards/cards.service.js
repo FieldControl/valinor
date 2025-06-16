@@ -67,6 +67,40 @@ let CardsService = class CardsService {
             data: { sentByMember: true },
         });
     }
+    async findSubmittedCardsByLeader(leaderId) {
+        return this.prisma.card.findMany({
+            where: {
+                leaderId,
+                sentByMember: true,
+            },
+            include: {
+                tasks: true,
+                member: {
+                    select: {
+                        id: true,
+                        username: true,
+                        email: true,
+                    },
+                },
+            },
+        });
+    }
+    async deleteSubmittedCardByLeader(cardId, leaderId) {
+        const card = await this.prisma.card.findUnique({
+            where: { id: cardId },
+        });
+        if (!card) {
+            throw new common_1.NotFoundException('Card não encontrado');
+        }
+        if (card.leaderId !== leaderId) {
+            throw new common_1.ForbiddenException('Você não tem permissão para deletar este card');
+        }
+        if (!card.sentByMember) {
+            throw new common_1.BadRequestException('Este card ainda não foi enviado pelo membro');
+        }
+        await this.prisma.task.deleteMany({ where: { cardId } });
+        return this.prisma.card.delete({ where: { id: cardId } });
+    }
 };
 exports.CardsService = CardsService;
 exports.CardsService = CardsService = __decorate([

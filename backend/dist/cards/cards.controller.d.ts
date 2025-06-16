@@ -18,6 +18,33 @@ export declare class CardsController {
         leaderId: number;
         memberId: number;
     }>;
+    getSubmittedCards(req: any): Promise<({
+        member: {
+            id: number;
+            username: string;
+            email: string;
+        };
+        tasks: {
+            id: number;
+            description: string;
+            status: import(".prisma/client").$Enums.TaskStatus;
+            assignedToId: number;
+            cardId: number;
+        }[];
+    } & {
+        id: number;
+        title: string;
+        sentByMember: boolean;
+        leaderId: number;
+        memberId: number;
+    })[]>;
+    deleteSubmittedCard(cardId: number, req: any): Promise<{
+        id: number;
+        title: string;
+        sentByMember: boolean;
+        leaderId: number;
+        memberId: number;
+    }>;
     getMyCards(req: any): Promise<{
         id: number;
         title: string;

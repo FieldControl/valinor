@@ -66,4 +66,47 @@ export class CardsService {
         });
     }
 
+    async findSubmittedCardsByLeader(leaderId: number) {
+        return this.prisma.card.findMany({
+            where: {
+                leaderId,
+                sentByMember: true,
+            },
+            include: {
+                tasks: true,
+                member: {
+                    select: {
+                        id: true,
+                        username: true,
+                        email: true,
+                    },
+                },
+            },
+        });
+    }
+
+    async deleteSubmittedCardByLeader(cardId: number, leaderId: number) {
+        const card = await this.prisma.card.findUnique({
+            where: { id: cardId },
+        });
+
+        if (!card) {
+            throw new NotFoundException('Card não encontrado');
+        }
+
+        if (card.leaderId !== leaderId) {
+            throw new ForbiddenException('Você não tem permissão para deletar este card');
+        }
+
+        if (!card.sentByMember) {
+            throw new BadRequestException('Este card ainda não foi enviado pelo membro');
+        }
+
+        // Exclui tasks vinculadas antes, por integridade referencial
+        await this.prisma.task.deleteMany({ where: { cardId } });
+
+        // Agora deleta o card
+        return this.prisma.card.delete({ where: { id: cardId } });
+    }
+
 }
