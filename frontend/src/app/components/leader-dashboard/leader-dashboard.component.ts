@@ -31,7 +31,7 @@ export class LeaderDashboardComponent implements OnInit {
   async fetchMembers() {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:3000/users/members', {
+      const res = await fetch('/api/users/members', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -68,7 +68,7 @@ export class LeaderDashboardComponent implements OnInit {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/cards', {
+      const res = await fetch('/api/cards', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export class LeaderDashboardComponent implements OnInit {
   }
 
   loadSubmittedCards() {
-    fetch('http://localhost:3000/cards/submitted', {
+    fetch('/api/cards/submitted', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -117,7 +117,7 @@ export class LeaderDashboardComponent implements OnInit {
 
     if (!confirmed) return;
 
-    fetch(`http://localhost:3000/cards/${cardId}`, {
+    fetch(`/api/cards/${cardId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

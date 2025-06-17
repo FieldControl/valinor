@@ -32,7 +32,7 @@ export class MemberDashboardComponent implements OnInit {
   }
 
   fetchCards() {
-    fetch('http://localhost:3000/cards/membercards', {
+    fetch('/api/cards/membercards', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -51,7 +51,7 @@ export class MemberDashboardComponent implements OnInit {
   }
 
   updateTaskStatus(task: Task) {
-    fetch(`http://localhost:3000/tasks/${task.id}/status`, {
+    fetch(`/api/tasks/${task.id}/status`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export class MemberDashboardComponent implements OnInit {
       return;
     } 
 
-    fetch(`http://localhost:3000/cards/${cardId}/submit`, {
+    fetch(`/api/cards/${cardId}/submit`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`

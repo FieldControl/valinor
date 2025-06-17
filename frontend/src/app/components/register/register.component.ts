@@ -24,7 +24,7 @@ export class RegisterComponent {
   async register() {
     this.error = '';
     try {
-      const res = await fetch('http://localhost:3000/users/register', {
+      const res = await fetch('http://jairomatheus89.site/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
