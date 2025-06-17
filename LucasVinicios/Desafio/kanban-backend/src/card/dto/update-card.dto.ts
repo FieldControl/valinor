@@ -1,4 +1,3 @@
-// src/card/dto/update-card.dto.ts
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateCardDto } from './create-card.dto';
 import { IsString, IsNumber, IsOptional } from 'class-validator';

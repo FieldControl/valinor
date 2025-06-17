@@ -1,10 +1,8 @@
-// src/app/register/register.component.scss
+
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-// Sugestão: Se "login-page-container" for usado apenas aqui ou em poucas páginas,
-// e se seus estilos forem idênticos em login.scss, você pode considerá-lo.
-// Idealmente, estilos de layout de página como este podem ir em um SCSS global ou compartilhado.
+
 .login-page-container {
   min-height: 100vh;
   display: flex;
@@ -14,8 +12,8 @@
   padding: var(--spacing-md);
 }
 
-// CORREÇÃO: "refister-form-card" deve ser "register-form-card"
-.register-form-card { // <<--- CORRIGIDO O NOME DA CLASSE AQUI
+
+.register-form-card { 
   @include card-style($shadow: var(--box-shadow-md), $bg: var(--surface-color), $radius: var(--border-radius-md));
   max-width: 400px;
   width: 100%;
@@ -55,7 +53,7 @@
   }
 
   .error-message {
-    background-color: var(--danger-color); // Corrigido para danger-color
+    background-color: var(--danger-color); 
     color: white;
     border-color: darken($danger-color, 10%);
     font-size: 0.9rem;
@@ -64,7 +62,7 @@
     margin-top: var(--spacing-sm);
   }
 
-  .success-message { // Adicionado para estilizar a mensagem de sucesso
+  .success-message { 
     background-color: var(--success-color);
     color: white;
     border-color: darken($success-color, 10%);
@@ -74,14 +72,14 @@
     margin-top: var(--spacing-sm);
   }
 
-  .register-submit-btn { // O nome do botão de submit no cadastro é "register-submit-btn"
-    @include button-style($success-color, white, 10%); // Botão verde de sucesso
+  .register-submit-btn { 
+    @include button-style($success-color, white, 10%); 
     font-size: 1.2rem;
     padding: 12px var(--spacing-xl);
     margin-top: var(--spacing-md);
   }
 
-  .back-to-login-btn { // Adicionado o estilo para o botão de voltar ao login
+  .back-to-login-btn { 
     @include button-style(transparent, var(--text-light-color), var(--tertiary-color));
     border: 1px solid var(--border-color);
     font-size: 1.1rem;

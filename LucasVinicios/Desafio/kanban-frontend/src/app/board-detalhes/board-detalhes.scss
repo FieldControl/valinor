@@ -1,16 +1,15 @@
-// src/app/board-detail/board-detail.scss
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
 .board-detail-container {
   padding: var(--spacing-lg);
-  background-color: var(--background-color); // Fundo da página
-  min-height: calc(100vh - 60px); // Ajusta para a altura da navbar
+  background-color: var(--background-color); 
+  min-height: calc(100vh - 60px); 
   width: auto;
 }
 
 .board-header {
-  background-color: var(--surface-color); // Fundo claro para o header
+  background-color: var(--surface-color); 
   padding: var(--spacing-md);
   border-radius: var(--border-radius-md);
   box-shadow: var(--box-shadow-sm);
@@ -43,20 +42,19 @@
 }
 
 .columns-container {
-  /* Estilos para o container flexível das colunas */
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
   overflow-x: auto;
   padding-bottom: var(--spacing-md);
-  height: calc(100vh - 180px); /* Mantenha uma altura para o scroll horizontal funcionar no container */
+  height: calc(100vh - 180px); 
   
   .column-wrapper {
-    flex-basis: 350px; /* Aumenta a largura padrão de cada coluna */
-    max-width: 350px; /* Garante que a largura máxima não exceda o flex-basis */
+    flex-basis: 350px; 
+    max-width: 350px; 
     flex-grow: 0;
     flex-shrink: 0;
-    height: auto; /* Permite que a altura se adapte ao conteúdo */
+    height: auto; 
     margin-right: var(--spacing-md);
     display: flex;
     flex-direction: column;
@@ -69,7 +67,7 @@
     box-shadow: var(--box-shadow-sm);
     display: flex;
     flex-direction: column;
-    height: auto; /* Permite que a altura do card se adapte ao conteúdo */
+    height: auto; 
     min-height: 100px;
     flex-grow: 1;
     
@@ -103,7 +101,7 @@
 
     .cards-list {
       flex-grow: 1;
-      overflow-y: auto; /* Rolagem vertical apenas se o conteúdo exceder a altura da coluna */
+      overflow-y: auto; 
       padding-top: var(--spacing-sm);
       padding-bottom: var(--spacing-sm);
 
@@ -143,21 +141,21 @@
         }
         .card-delete-button {
         position: absolute;
-        top: var(--spacing-sm);    /* 8px do topo */
-        right: var(--spacing-sm);  /* 8px da direita */
-        padding: 0px 4px;          /* Padding pequeno para o botão */
-        font-size: 0.8rem;         /* Tamanho da fonte menor */
-        color: var(--text-light-color); /* Cor discreta */
-        background-color: rgba(var(--surface-color), 0.7); /* Fundo semi-transparente */
-        border-radius: var(--border-radius-sm); /* Bordas arredondadas */
+        top: var(--spacing-sm);    
+        right: var(--spacing-sm);  
+        padding: 0px 4px;          
+        font-size: 0.8rem;         
+        color: var(--text-light-color); 
+        background-color: rgba(var(--surface-color), 0.7); 
+        border-radius: var(--border-radius-sm); 
         border: none;
         box-shadow: none;
-        opacity: 0;               /* Inicialmente invisível */
-        transition: opacity 0.2s ease-in-out; /* Transição suave */
+        opacity: 0;               
+        transition: opacity 0.2s ease-in-out; 
 
         &:hover {
-          color: var(--danger-color); /* Fica vermelho no hover */
-          background-color: var(--surface-color); /* Fundo sólido no hover */
+          color: var(--danger-color); 
+          background-color: var(--surface-color);
           box-shadow: var(--box-shadow-sm);
         }
       }
@@ -198,7 +196,7 @@
 
   .add-column-placeholder {
     @include card-style($shadow: var(--box-shadow-sm), $bg: var(--background-color), $radius: var(--border-radius-md));
-    flex-basis: 400px; /* Largura do placeholder/formulário de adicionar coluna */
+    flex-basis: 400px; 
     max-width: 400px;
     flex-grow: 0;
     flex-shrink: 0;

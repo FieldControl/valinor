@@ -1,4 +1,3 @@
-// src/app/login/login.scss
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
@@ -51,7 +50,7 @@
   }
 
   .error-message {
-    background-color: var(--info-color-light); // Usando info-color-light para erros
+    background-color: var(--info-color-light); 
     color: var(--danger-color);
     border-color: var(--danger-color);
     font-size: 0.9rem;

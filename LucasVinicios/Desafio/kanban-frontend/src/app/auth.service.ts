@@ -1,6 +1,5 @@
-// src/app/auth.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // <<-- ESTE IMPORT
+import { HttpClient } from '@angular/common/http'; 
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -13,7 +12,7 @@ export class AuthService {
   private tokenKey = 'accessToken';
   private _isAuthenticated = new BehaviorSubject<boolean>(this.hasToken());
 
-  constructor(private http: HttpClient, private router: Router) { } // <<-- ESTE CONSTRUTOR QUE INJETA HTTPCLIENT
+  constructor(private http: HttpClient, private router: Router) { } 
 
   isAuthenticated(): Observable<boolean> {
     return this._isAuthenticated.asObservable();

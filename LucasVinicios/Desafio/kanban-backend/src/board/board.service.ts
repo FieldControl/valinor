@@ -9,21 +9,21 @@ import { UpdateBoardDto } from './dto/update-board.dto';
 @Injectable()
 export class BoardService {
   constructor(
-    @InjectRepository(Board) // Injeta o repositório da entidade Board
+    @InjectRepository(Board) 
     private boardRepository: Repository<Board>,
   ) {}
 
   async create(createBoardDto: CreateBoardDto): Promise<Board> {
-    const board = this.boardRepository.create(createBoardDto); // Cria uma nova instância de Board
-    return this.boardRepository.save(board); // Salva no banco de dados
+    const board = this.boardRepository.create(createBoardDto); 
+    return this.boardRepository.save(board); 
   }
 
   async findAll(): Promise<Board[]> {
-    return this.boardRepository.find(); // Retorna todos os boards
+    return this.boardRepository.find(); 
   }
 
   async findOne(id: number): Promise<Board> {
-    const board = await this.boardRepository.findOne({ where: { id } }); // Busca um board pelo ID
+    const board = await this.boardRepository.findOne({ where: { id } }); 
     if (!board) {
       throw new NotFoundException(`Board with ID "${id}" not found`);
     }
@@ -31,13 +31,13 @@ export class BoardService {
   }
 
   async update(id: number, updateBoardDto: UpdateBoardDto): Promise<Board> {
-    const board = await this.findOne(id); // Reutiliza findOne para verificar existência
-    this.boardRepository.merge(board, updateBoardDto); // Mescla as alterações
-    return this.boardRepository.save(board); // Salva as alterações
+    const board = await this.findOne(id); 
+    this.boardRepository.merge(board, updateBoardDto); 
+    return this.boardRepository.save(board); 
   }
 
   async remove(id: number): Promise<void> {
-    const result = await this.boardRepository.delete(id); // Deleta o board pelo ID
+    const result = await this.boardRepository.delete(id); 
     if (result.affected === 0) {
       throw new NotFoundException(`Board with ID "${id}" not found`);
     }

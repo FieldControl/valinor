@@ -1,6 +1,5 @@
-// src/entities/user.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany } from 'typeorm'; // Adicione ManyToMany
-import { Board } from './board.entity'; // Importe a entidade Board
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany } from 'typeorm'; 
+import { Board } from './board.entity'; 
 
 @Entity('users')
 export class User {
@@ -13,11 +12,11 @@ export class User {
   @Column()
   password: string;
 
-  // Boards que o usuário é o proprietário
-  @OneToMany(() => Board, board => board.owner) // 'owner' é a propriedade de volta na entidade Board
+  
+  @OneToMany(() => Board, board => board.owner) 
   ownedBoards: Board[];
 
-  // Boards que o usuário é membro (relação muitos-para-muitos)
-  @ManyToMany(() => Board, board => board.members) // 'members' é a propriedade de volta na entidade Board
+  
+  @ManyToMany(() => Board, board => board.members) 
   boardsAsMember: Board[];
 }

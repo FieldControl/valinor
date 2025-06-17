@@ -5,14 +5,14 @@ import { Observable } from 'rxjs';
 import { Board } from './models/board.model';
 import { Column } from './models/column.model';
 import { Card } from './models/card.model';
-import { User } from './models/user.model'; // Importe o modelo User
+import { User } from './models/user.model'; 
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class KanbanApiService {
-  private apiUrl = 'http://localhost:3000'; // URL base do seu backend NestJS
+  private apiUrl = 'http://localhost:3000'; 
 
   constructor(private http: HttpClient) { }
 

@@ -1,8 +1,7 @@
-// src/entities/card.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { ColumnEntity } from './column.entity'; // Importe a entidade ColumnEntity
+import { ColumnEntity } from './column.entity'; 
 
-@Entity('cards') // Define o nome da tabela
+@Entity('cards') 
 export class Card {
   @PrimaryGeneratedColumn()
   id: number;
@@ -10,14 +9,14 @@ export class Card {
   @Column()
   title: string;
 
-  @Column({ nullable: true, type: 'text' }) // Descrição é opcional
+  @Column({ nullable: true, type: 'text' }) 
   description: string;
 
   @Column()
-  order: number; // Para definir a ordem dos cartões na coluna
+  order: number; 
 
   @ManyToOne(() => ColumnEntity, column => column.cards, {
     onDelete: 'CASCADE',
   })
-  column: ColumnEntity; // Um Card pertence a uma ColumnEntity
+  column: ColumnEntity; 
 }

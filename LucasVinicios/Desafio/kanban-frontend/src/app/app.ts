@@ -1,4 +1,3 @@
-// src/app/app.ts (SEU ARQUIVO DO COMPONENTE RAIZ)
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, Router, RouterModule } from '@angular/router';

@@ -1,4 +1,3 @@
-// src/main.ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
@@ -23,7 +22,7 @@ async function bootstrap() {
   await app.listen(3000);
 }
 
-// Chame a função bootstrap e adicione um .catch para lidar com erros de inicialização
+
 bootstrap().catch(err => {
   console.error('Application failed to start', err);
 });

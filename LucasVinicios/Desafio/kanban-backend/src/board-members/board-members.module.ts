@@ -1,4 +1,3 @@
-// src/board-members/board-members.module.ts
 import { Module } from '@nestjs/common';
 import { BoardMembersService } from './board-members.service';
 import { BoardMembersController } from './board-members.controller';

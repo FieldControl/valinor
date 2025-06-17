@@ -1,4 +1,3 @@
-// src/card/card.controller.ts
 import {
   Controller,
   Get,
@@ -17,7 +16,7 @@ import { UpdateCardDto } from './dto/update-card.dto';
 // import { AuthGuard } from '@nestjs/passport';
 
 // @UseGuards(AuthGuard('jwt'))
-@Controller('card') // Prefira 'cards' para ser mais RESTful
+@Controller('card') 
 export class CardController {
   constructor(private readonly cardService: CardService) {}
 

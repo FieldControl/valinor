@@ -1,11 +1,10 @@
-// src/app/board-list/board-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { KanbanApiService } from '../kanban-api'; 
 import { Board } from '../models/board.model';
 import { RouterModule } from '@angular/router'; 
 import { FormsModule } from '@angular/forms';
-import { NotificationService } from '../notificacao'; // Verifique o caminho correto
+import { NotificationService } from '../notificacao'; 
 
 @Component({
   selector: 'app-board-list',

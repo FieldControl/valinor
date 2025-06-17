@@ -1,4 +1,3 @@
-
 import { Controller, Get, Post, Body, Param, Delete, HttpCode, HttpStatus, ValidationPipe } from '@nestjs/common';
 import { BoardMembersService } from './board-members.service';
 import { AddMemberDto } from './dto/add-member.dto';

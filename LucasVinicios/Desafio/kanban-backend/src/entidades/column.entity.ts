@@ -1,4 +1,3 @@
-// src/entities/column.entity.ts
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,12 +5,12 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { Board } from './board.entity'; // Importe a entidade Board
-import { Card } from './card.entity'; // Importe a entidade Card
+import { Board } from './board.entity'; 
+import { Card } from './card.entity'; 
 
-@Entity('columns') // Define o nome da tabela
+@Entity('columns') 
 export class ColumnEntity {
-  // Renomeado para evitar conflito com 'Column' do TypeORM
+  
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -19,11 +18,11 @@ export class ColumnEntity {
   title: string;
 
   @Column()
-  order: number; // Para definir a ordem das colunas no quadro
+  order: number; 
 
   @ManyToOne(() => Board, board => board.columns, { onDelete: 'CASCADE' })
-  board: Board; // Uma Column pertence a uma Board
+  board: Board;
 
   @OneToMany(() => Card, card => card.column, { cascade: true })
-  cards: Card[]; // Uma Column tem muitos Cards
+  cards: Card[]; 
 }

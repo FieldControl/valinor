@@ -1,4 +1,3 @@
-// src/column/column.service.ts
 import {
   Injectable,
   NotFoundException,

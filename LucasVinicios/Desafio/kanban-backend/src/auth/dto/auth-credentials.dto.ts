@@ -1,4 +1,3 @@
-// src/auth/dto/auth-credentials.dto.ts
 import {
   IsString,
   IsNotEmpty,
