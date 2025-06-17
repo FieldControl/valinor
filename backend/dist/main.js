@@ -10,7 +10,7 @@ async function bootstrap() {
         whitelist: true,
     }));
     app.enableCors({
-        origin: 'http://localhost:4200',
+        origin: ['http://localhost:4200', 'https://jairomatheus89.site'],
         credentials: true,
     });
     await app.listen(3000, '0.0.0.0');
