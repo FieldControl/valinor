@@ -1,230 +1,137 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+🛠️ Instruções de Instalação e Execução do Projeto
+✅ Pré-requisitos
+Node.js na versão mais recente (recomendado: LTS)
 
-A empresa
-----------
+Obs: projeto desenvolvido com Node v22.16.0
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+Angular CLI instalado globalmente
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+Editor de código (recomendo o Visual Studio Code)
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
+📁 Estrutura do Projeto
+desafio-field/ → Frontend (Angular)
 
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
+graphql-field/ → Backend (GraphQL + Express)
 
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
+🔧 Instalação do Projeto
+Clone o repositório e abra a pasta raiz do projeto (aprendendo/) em sua IDE.
 
-Origem
-----------
+Instale as dependências necessárias, navegando até as pastas corretas. Se ocorrer algum erro de caminho, use cd desafio-field antes de instalar:
 
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
+# A partir da pasta 'aprendendo'
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
+# Instalar dependências do frontend
+cd desafio-field
+npm install
+npm install -g @angular/cli
+npm install apollo-angular @apollo/client graphql
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
+# Instalar dependências do backend
+cd ../graphql-field
+npm install apollo-server-express express graphql cors
+▶️ Execução da Aplicação
+Abra dois terminais:
 
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
+Terminal 1 – Frontend (Angular)
+cd desafio-field
+npm run start
+# Acesse: http://localhost:4200
+Terminal 2 – Backend (GraphQL com Express)
+cd graphql-field
+node index.js
+# Acesse: http://localhost:4000/graphql
 
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
+🧩 Organização dos Arquivos
 
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
+📂 desafio-field/src/app/desafio-field/index
+index.ts
+Contém a lógica principal de interação: adição de tarefas, integração com GraphQL e o uso do CdkDropList para permitir o arrastar e soltar de cards.
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
+index.html
+Estrutura visual principal do projeto. Inclui colunas, cards, botões e tudo o que o usuário interage diretamente.
 
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
+index.css
+Responsável pela estilização da aplicação. Define a aparência visual e responsividade da interface.
 
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
+📂 graphql-field/
+index.js
+Contém toda a configuração da API GraphQL usando Apollo Server + Express. Foi projetada para ser um backend funcional com armazenamento em memória, simulando um banco de dados.
 
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
+⚠️ Ainda não consegui integrar completamente este backend com o frontend, mas a API está funcional e pode ser testada diretamente via Playground do GraphQL.
 
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
 
-Oportunidade
-----------
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
+Gostaria de compartilhar como foi meu processo de desenvolvimento, as decisões técnicas que tomei e os aprendizados obtidos ao longo do desafio.
 
-Na Field, o seu dia-a-dia será repleto de:
+🚀 Linguagens, Frameworks e Ferramentas
+TypeScript
+Escolhi TypeScript tanto para o frontend quanto para o backend. Além de ser uma linguagem moderna baseada em JavaScript, sua tipagem estática opcional traz mais segurança, produtividade e facilita refatorações e manutenção do código.
 
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
+Frontend: Angular
+Optei pelo Angular por ser um framework robusto para aplicações SPA (Single Page Application). Sua estrutura baseada em componentes, forte integração com TypeScript e suporte a testes tornam o desenvolvimento mais organizado e escalável.
 
-Nossa stack tecnológica é predominantemente JavaScript, abrangendo Node.js, Single Page Applications (SPA) e Hybrid Mobile Apps.
+Apollo Angular
+Biblioteca oficial que conecta aplicações Angular com APIs GraphQL. Foi utilizada para realizar queries e mutations, garantindo uma comunicação eficaz entre frontend e backend com tipagem forte.
 
-Acreditamos firmemente que excelentes desenvolvedores são capazes de selecionar a ferramenta mais adequada para cada desafio. Por essa razão, para resolver problemas específicos, recorremos às melhores alternativas disponíveis, o que nos leva a incluir uma pitada de C#, Java e PHP em nossas soluções.
+Angular CDK (Component Dev Kit)
+Utilizei o CDK para implementar o sistema de drag and drop das tarefas entre colunas. Ele permite criar interações ricas sem depender de bibliotecas externase utiliza CSS puro, o que facilita a personalização.
 
-Nossos servidores residem na AWS, onde utilizamos a nuvem como nossa plataforma principal. Temos aplicativos funcionando com Elastic BeanStalk, armazenamento em S3 e arquiteturas serverless com AWS Lambda.
+CSS Puro
+Escolhi CSS puro ao invés de SCSS ou bibliotecas como Angular Material para manter total controle visual e garantir leveza à interface.
 
-Antes mesmo de avaliar o conhecimento técnico, valorizamos o perfil pessoal dos candidatos. Para nós, a determinação, o interesse e a curiosidade são qualidades essenciais. Se você é alguém proativo, interessado e que busca constantemente aprender, é isso que realmente importa para nós! 😊
+Backend: NestJS
+Framework moderno baseado em TypeScript, com arquitetura modular, inspirado nos conceitos do Angular (como decorators, injeção de dependência e providers). Sua estrutura facilita a escalabilidade e manutenibilidade do projeto.
 
----
+GraphQL com Apollo Server
+Utilizei o pacote @nestjs/graphql com Apollo para estruturar toda a API via GraphQL, permitindo uma comunicação eficiente entre as camadas com queries e mutations bem definidas.
 
-## Requisitos Principais
 
-🌟 **Sem Ego**: Acreditamos que ninguém é melhor que ninguém e que todos podem aprender uns com os outros. Promovemos um ambiente onde a humildade, o respeito e a abertura para aprender e ensinar são valorizados.
+🧠 Motivações Técnicas
+Angular: escolhido por sua robustez, arquitetura clara, integração com TypeScript e excelente suporte para projetos em equipe.
 
-📈 **Evolução Contínua**: Encorajamos o crescimento pessoal e profissional de todos os membros da equipe. Estamos comprometidos em fornecer oportunidades de aprendizado e desenvolvimento, permitindo que cada indivíduo evolua constantemente em sua jornada.
+NestJS: complemento ideal ao Angular, com suporte nativo ao GraphQL e arquitetura modular.
 
-🚀 **Proatividade**: Buscamos indivíduos proativos, capazes de antecipar problemas e buscar soluções de forma autônoma.
+GraphQL: proporciona maior controle sobre os dados transmitidos, evitando overfetching e facilitando a integração.
 
-🔑 **Sentimento de Dono**: Valorizamos profissionais que assumem responsabilidade pelo seu trabalho e estão comprometidos com o sucesso do projeto como se fossem os donos.
+Banco em memória: optei por usar dados em memória para manter o projeto leve e fácil de rodar localmente, ideal para fins didáticos e protótipos.
 
-🤝 **Boa Comunicação e Trabalho em Equipe**: Habilidades de comunicação eficaz e colaboração são essenciais para trabalhar de forma eficiente em equipe.
+🧱 Princípios de Desenvolvimento
 
-💻 **Proficiência em JavaScript e TypeScript**: Experiência sólida em JavaScript e TypeScript, demonstrando habilidade em desenvolver soluções robustas e escaláveis.
+Single Responsibility Principle (SRP): cada classe e função tem apenas uma função bem definida.
 
-🎨 **Experiência com CSS e HTML Semântico**: Conhecimento prático em CSS e HTML Semântico para criar interfaces atraentes e acessíveis.
+Clean Code: nomes claros e descritivos, comentários explicativos, código dividido em camadas e bem organizado.
 
-🔧 **Experiência Sólida com Angular e Ionic**: Capacidade comprovada no desenvolvimento com Angular e Ionic, demonstrando habilidade em construir aplicações web e mobile de alta qualidade.
+Componentização: a aplicação frontend está dividida em componentes reutilizáveis e independentes.
 
-🖌️ **Familiaridade com Princípios de UX**: Compreensão dos princípios de User Experience (UX) para criar interfaces intuitivas e amigáveis aos usuários.
+Boas práticas com GraphQL: uso de DTOs, validação de inputs, schema estruturado e consistente.
 
-🌐 **Familiaridade com APIs REST, GraphQL e WebSockets**: Conhecimento em APIs REST, GraphQL e WebSockets para comunicação eficiente entre cliente e servidor.
+🧩 Desafios e Soluções
+1. Utilizar o Angular pela primeira vez: 
+➡️Nunca havia utilizado esse framework antes, havia apenas feito uma SPA utilizando html e css apenas, sem nenhum uso de frameworks. Comecei pelo que eu tinha facilidade, então já no primeiro dia havia terminado a parte de html e css que já estava familiarizado. No segundo dia percebi que não seria tão fácil aplicar o angular, já que na verdade o Angular tem que vir praticamente antes de fazer qualquer coisa. Tive muitas dificuldade, em instalar as bibliotecas necessárias, em aplicar meu código já feito no Angular. Para solucionar esses problemas passei o segundo dia inteiro estudando sobre o Angular, no fim do dia consegui aplicar o angular na minha IDE e abrir meu primeiro projeto em Angular. Consegui também criar novos componentes e colocar meu código já pronto dentro dele. e Após o segundo dia minha aplicação já estava rodando em Angular.
 
-🧪 **Prática em Testar Software**: Experiência prática em testes de software, incluindo testes unitários, integrados e de aceitação, garantindo a qualidade e a confiabilidade do sistema.
+➡️A próxima dificuldade foi em utilizar a biblioteca CDK. Eu havia feito as funções de arrastar em JavaScript, mas resolvi me desafiar e navegando pela documentação do Angular achei a parte de drag and drop, tive muita dificuldade em aplicar no meu código, sempre dava erro, os elementos não arrastavam, ou então não puxava o array de items do meu typescript, mas fui com muita paciência pesquisando e consegui fazer com que fosse permitido que as tarefas fossem arrastadas entre as colunas. 
 
-Estes requisitos refletem nossa busca por profissionais qualificados e comprometidos, capazes de contribuir de forma significativa para o sucesso de nossos projetos.
 
-O desafio de programação
-----------
+2. Integração entre Angular e Apollo GraphQL
+➡️Infelizmente não consegui fazer a integração entre meu front-end e meu back-end, fazia de todas as formas possíveis, mas sempre dava erro crítico e meu site inteiro ficava branco, ambas as partes ficaram prontas, mas infelizmente os dados do front-end não estão sendo enviados para o back-end, e não consegui resolver esse erro crítico.
 
-Se você é apaixonado por desenvolvimento de software e busca desafios para impulsionar sua carreira, este teste é para você! Realize o desafio abaixo e faça um fork deste repositório para começar a codificar. [Let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)! 🚀
+🔧 Melhorias Futuras
+Melhorias rápidas:
+Adicionar campo de data de criação aos cards completos e não só tarefas.
 
-# Teste de Programação: Kanban
+Aplicar um banco de dados sólido para que os dados não sejam excluídas ao recarregar a página e guardar os dados de tarefas criadas.
 
-Este é um teste de programação que consiste em implementar um Kanban, utilizando Angular para o client side e NestJs para o back-end. 
+Próximos passos:
 
-O objetivo é avaliar a capacidade do candidato em estruturar um projeto seguindo as boas práticas de ambos os frameworks e implementar um fluxo básico de colunas e cards dentro do Kanban.
+Detectar mudança de coluna ao soltar um card.
 
-## Critérios de Avaliação
+Aplicar o CRUD inteiramente em Graphql
 
-Os critérios de avaliação para este teste são os seguintes:
+🎥 Apresentação em Vídeo
+👉 https://youtu.be/aPSqkiChv0g
 
-1. **Código Limpo e Organização**: Avalia a clareza, legibilidade e organização do código fonte.
+👨‍💻 Sobre mim
+Sou de São José do Rio Preto e tive contato com programação pela primeira vez durante o ensino médio no SENAC, desenvolvi ao final do ano de 2024 um projeto, onde tive que desenvolver um site em HTML e CSS e ligar uma página de login a um banco de dados, usando MySQL e MongoDB.
 
-2. **Testes de Software**: Serão avaliados os testes unitários e integrados para garantir a robustez do sistema.
 
-3. **Semântica**: A utilização de nomes significativos para variáveis, funções, classes, etc., será observada.
-
-4. **Documentação do Projeto (README)**: A qualidade e completude da documentação do projeto, que inclui informações sobre como executar, testar e utilizar o sistema.
-
-5. **Segurança**: A adoção de práticas de segurança apropriadas, como proteção contra ataques comuns, será considerada.
-
-## Instruções
-
-1. Implemente um Kanban básico que permita a criação de colunas e cards.
-2. Utilize Angular para o desenvolvimento do cliente e NestJs para o desenvolvimento do servidor.
-3. Siga as boas práticas de desenvolvimento de software recomendadas pelos frameworks.
-4. Implemente testes unitários e integrados para garantir a qualidade e robustez do sistema.
-5. Documente o projeto de forma clara e completa neste arquivo README.
-
-## Entrega
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório ;)
-
-## Estrutura do Projeto
-
-A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJs, com os arquivos de configuração e código-fonte organizados de maneira lógica e intuitiva.
-
-## Observações
-
-- Certifique-se de que o código está devidamente comentado e documentado para facilitar a compreensão e manutenção futura.
-- Evite a utilização de bibliotecas ou frameworks que não sejam necessários para a implementação do Kanban básico.
-- Qualquer dúvida ou problema encontrado durante a execução do projeto, entre em contato com os avaliadores.
-
-## Referências
-
-### Angular
-
-- Documentação Oficial do Angular: [Angular Docs](https://angular.io/docs)
-- Repositório do Angular no GitHub: [Angular GitHub](https://github.com/angular/angular)
-
-### NestJs
-
-- Documentação Oficial do NestJs: [NestJs Docs](https://docs.nestjs.com/)
-- Repositório do NestJs no GitHub: [NestJs GitHub](https://github.com/nestjs/nest)
-
-Estes recursos fornecem uma base sólida para aprender e se aprofundar nos frameworks Angular e NestJs.
-
-## Para Iniciantes
-
-Se você é um iniciante nesta jornada de desenvolvimento, queremos encorajá-lo a participar deste teste e fazer o seu melhor. Na Field, valorizamos a força de vontade, a iniciativa e o desejo de aprender.
-
-Não se preocupe se você não conseguir entregar um projeto perfeito ou completo. O objetivo é que você ganhe experiência, aprenda com o processo e se desafie a ir além do que já conhece.
-
-Aqui estão algumas dicas para ajudá-lo durante o teste:
-
-1. **Comece com o Básico**: Concentre-se em entender os conceitos fundamentais do Angular e do NestJs. Explore tutoriais, documentações e exemplos de código para se familiarizar com as tecnologias.
-
-2. **Divida o Projeto em Etapas**: Em vez de tentar implementar tudo de uma vez, divida o projeto em etapas menores e gerenciáveis. Concentre-se em uma funcionalidade de cada vez e avance gradualmente.
-
-3. **Não Tenha Medo de Errar**: O processo de aprendizado envolve tentativa e erro. Não se preocupe com os erros ou obstáculos que encontrar ao longo do caminho. Eles fazem parte do processo e são oportunidades de aprendizado.
-
-4. **Celebre suas Conquistas**: Cada pequeno progresso é uma conquista. Celebre suas realizações, por menores que sejam, e reconheça o esforço e a dedicação que você está dedicando ao projeto.
-
-Lembre-se, o importante é tentar e aprender durante o processo. Valorizamos sua iniciativa e estamos aqui para apoiá-lo em sua jornada de desenvolvimento. Boa sorte e divirta-se codificando! 🌟
-
-## Diferenciais
-
-Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais pode agregar valor ao projeto:
-
-### Aplicação Publicada e Rodando
-
-- Configurar e publicar a aplicação em um ambiente de hospedagem como Heroku, Netlify, AWS, Azure, etc., para demonstrar a capacidade de implantar e disponibilizar o sistema para uso real.
-
-### Testes Integrados e E2E
-
-- Implementar testes integrados e end-to-end (E2E) utilizando ferramentas como Jasmine, Protractor, Jest, etc., para garantir a qualidade e estabilidade do sistema em diferentes níveis de teste.
-
-### API em GraphQL ao Invés de REST
-
-- Utilizar GraphQL como interface de programação de aplicativos (API) em vez de REST para oferecer uma forma mais flexível e eficiente de consultar e manipular dados entre o cliente e o servidor.
-
-### Realtime com Socket.io
-
-- Implementar funcionalidades em tempo real utilizando Socket.io para fornecer uma experiência interativa e dinâmica aos usuários, permitindo atualizações instantâneas e sincronizadas entre os diferentes clientes conectados à aplicação.
-
-A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a aplicação de tecnologias modernas e práticas de desenvolvimento de software, elevando a qualidade e a experiência do usuário final.
-
-
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+Sou movido por desafios e aprendizado constante. Esse foi meu primeiro contato com Angular, NestJS e GraphQL, e mesmo com pouco tempo, consegui desenvolver algo funcional e estou orgulhoso da evolução que tive.

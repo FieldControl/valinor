@@ -1,0 +1,1 @@
+{"version":3,"file":"Prettify.js","sourceRoot":"","sources":["../../../src/utilities/types/Prettify.ts"],"names":[],"mappings":"","sourcesContent":["export type Prettify<T> = { [K in keyof T]: T[K] } & {};\n"]}

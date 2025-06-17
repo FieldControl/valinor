@@ -1,0 +1,1 @@
+{"version":3,"file":"RemoveIndexSignature.js","sourceRoot":"","sources":["../../../src/utilities/types/RemoveIndexSignature.ts"],"names":[],"mappings":"","sourcesContent":["export type RemoveIndexSignature<T> = {\n  [K in keyof T as string extends K ? never\n  : number extends K ? never\n  : symbol extends K ? never\n  : K]: T[K];\n};\n"]}
