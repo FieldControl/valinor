@@ -1,15 +1,14 @@
-<section class="boards-list-section container my-4">
+<section class="boards-list-section">
   <h2 class="text-center mb-4 section-title">Meus Boards:</h2>
 
-  <div *ngIf="boards.length === 0 && !showCreateBoardForm" class="alert alert-info text-center mb-4">
+  <div *ngIf="boards.length === 0 && !showCreateBoardForm" class="alert-info">
     <p>Você ainda não tem nenhum quadro. Comece criando um novo quadro!</p>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div class=''>
     <div class="col" *ngFor="let board of boards">
       <div class="board-card h-100">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title board-title mb-2">
+        <h5 class="board-title">
             <a [routerLink]="['/board', board.id]" class="board-link">
               {{ board.title }}
             </a>
@@ -60,7 +59,6 @@
         </div>
       </ng-template>
     </div>
-  </div>
 
   <div class="custom-modal-overlay" *ngIf="showEditBoardModal" (click)="closeEditBoardModal()">
     <div class="custom-modal-content" (click)="$event.stopPropagation()">

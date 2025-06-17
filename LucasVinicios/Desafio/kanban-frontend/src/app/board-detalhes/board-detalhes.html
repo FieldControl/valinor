@@ -1,22 +1,22 @@
-<div class="board-detail-container container-fluid">
-  <div class="board-header d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded shadow-sm">
-    <a [routerLink]="['/boards']" class="btn btn-outline-secondary back-link">
-      <i class="fas fa-arrow-left me-2"></i> Voltar para Boards
+<div class="board-detail-container">
+  <div class="board-header">
+    <a [routerLink]="['/boards']" class="back-link">
+      <i class="fa-arrow-left"></i> Voltar para Boards
     </a>
-    <h1 class="board-title-main text-center flex-grow-1 mx-3">{{ boardTitle }}</h1>
-    <button class="btn btn-primary members-button" (click)="openMembersModal(membersModalContent)">
+    <h1 class="board-title-main">{{ boardTitle }}</h1>
+    <button class="members-button" (click)="openMembersModal(membersModalContent)">
       <i class="fas fa-users me-2"></i> Membros
     </button>
   </div>
 
-  <div class="columns-container d-flex flex-nowrap align-items-start overflow-auto pb-3" cdkDropListGroup>
+  <div class="columns-container " cdkDropListGroup>
     <div class="column-wrapper" *ngFor="let column of columns">
-      <div class="column-card shadow-sm rounded p-3 me-3 flex-shrink-0">
-        <div class="column-header d-flex justify-content-between align-items-center mb-3">
-          <h3 class="column-title mb-0">{{ column.title }}</h3>
-          <span class="badge bg-secondary rounded-pill ms-2">{{ column.cards ? column.cards.length : 0 }}</span>
+      <div class="column-card">
+        <div class="column-header ">
+          <h3 class="column-title ">{{ column.title }}</h3>
+          <span class="badge bg-secondary">{{ column.cards ? column.cards.length : 0 }}</span>
           <div class="dropdown ms-auto">
-            <button class="btn btn-sm btn-light dropdown-toggle" type="button" [attr.id]="'columnActions' + column.id" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn-light dropdown-toggle" type="button" [attr.id]="'columnActions' + column.id" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-ellipsis-h"></i>
             </button>
             <ul class="dropdown-menu" [attr.aria-labelledby]="'columnActions' + column.id">
@@ -42,11 +42,11 @@
                cdkDrag
                (click)="openEditCardModal(card, editCardModalContent)">
             <div class="card-body">
-              <h4 class="card-title-item mb-1">{{ card.title }}</h4>
-              <p class="card-description-item text-muted" *ngIf="card.description">{{ card.description }}</p>
+              <h4 class="card-title-item">{{ card.title }}</h4>
+              <p class="card-description-item" *ngIf="card.description">{{ card.description }}</p>
             </div>
             <button
-              class="btn btn-sm btn-light card-delete-button"
+              class="card-delete-button"
               (click)="deleteCard(card.id); $event.stopPropagation();"
             >Deletar Card
               <i class="fas fa-trash-alt"></i>
@@ -55,17 +55,17 @@
           </div>
         </div>
 
-        <div class="add-card-container mt-3">
+        <div class="add-card-container">
           <button
-            class="add-card-button btn btn-outline-secondary btn-sm w-100"
+            class="add-card-button"
             *ngIf="showAddCardFormForColumnId !== column.id; else addCardForm"
             (click)="toggleAddCardForm(column.id)"
           >
-            <i class="fas fa-plus me-2"></i> Adicionar um cartão
+            <i class="fa-plus me-2"></i> Adicionar um cartão
           </button>
 
           <ng-template #addCardForm>
-            <div class="add-card-form p-2 rounded bg-light">
+            <div class="add-card-form">
               <textarea
                 class="form-control mb-2"
                 placeholder="Inserir título do cartão"
@@ -77,9 +77,9 @@
                 placeholder="Descrição (opcional)"
                 [(ngModel)]="newCardDescription"
               ></textarea>
-              <div class="form-actions d-flex justify-content-end gap-2">
-                <button class="btn btn-primary btn-sm" (click)="createCard(column)">Adicionar cartão</button>
-                <button class="btn btn-outline-secondary btn-sm" (click)="toggleAddCardForm(column.id)">Cancelar</button>
+              <div class="form-actions">
+                <button class="btn-primary btn-sm" (click)="createCard(column)">Adicionar cartão</button>
+                <button class="btn-outline-secondary btn-sm" (click)="toggleAddCardForm(column.id)">Cancelar</button>
               </div>
             </div>
           </ng-template>
@@ -87,23 +87,23 @@
       </div>
     </div>
 
-    <div class="add-column-placeholder flex-shrink-0 d-flex justify-content-center align-items-center text-center p-3 rounded shadow-sm"
+    <div class="add-column-placeholder"
       *ngIf="!showAddColumnForm; else addColumnForm" (click)="toggleAddColumnForm()">
       <i class="fas fa-plus me-2"></i> Adicionar outra lista
     </div>
 
     <ng-template #addColumnForm>
-      <div class="add-column-form p-3 rounded shadow-sm bg-light flex-shrink-0">
+      <div class="add-column-form">
         <input
           type="text"
-          class="form-control mb-2"
+          class="form-control"
           placeholder="Inserir título da lista"
           [(ngModel)]="newColumnTitle"
           (keyup.enter)="createColumn()"
         />
-        <div class="form-actions d-flex justify-content-end gap-2">
-          <button class="btn btn-primary btn-sm" (click)="createColumn()">Adicionar lista</button>
-          <button class="btn btn-outline-secondary btn-sm" (click)="toggleAddColumnForm()">Cancelar</button>
+        <div class="form-actions">
+          <button class="btn-primary btn-sm" (click)="createColumn()">Adicionar lista</button>
+          <button class="btn-outline-secondary btn-sm" (click)="toggleAddColumnForm()">Cancelar</button>
         </div>
       </div>
     </ng-template>
@@ -116,10 +116,10 @@
     </div>
     <div class="modal-body">
       <h3>Membros Atuais:</h3>
-      <ul class="list-group member-list mb-3">
-        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let member of boardMembers">
+      <ul class="list-group member-list">
+        <li class="list-group-item" *ngFor="let member of boardMembers">
           {{ member.email }} (ID: {{ member.id }})
-          <button type="button" *ngIf="member.id !== 1" class="remove-member-button btn btn-sm btn-danger" (click)="removeMember(member.id); modal.close('Member removed')">Remover</button>
+          <button type="button" *ngIf="member.id !== 1" class="remove-member-button" (click)="removeMember(member.id); modal.close('MemberRemoved')">Remover</button>
         </li>
         <li class="list-group-item" *ngIf="boardMembers.length === 0">Nenhum membro ainda.</li>
       </ul>
@@ -132,7 +132,7 @@
           [(ngModel)]="newMemberEmail"
           (keyup.enter)="inviteMember(); modal.close('Member invited')"
         />
-        <button type="button" class="btn btn-primary" (click)="inviteMember(); modal.close('Member invited')">Convidar</button>
+        <button type="button" class="btn-primary" (click)="inviteMember(); modal.close('Member invited')">Convidar</button>
       </div>
       <p *ngIf="memberInviteError" class="alert alert-danger mt-2">{{ memberInviteError }}</p>
     </div>

@@ -3,11 +3,11 @@ import { Module } from '@nestjs/common';
 import { BoardMembersService } from './board-members.service';
 import { BoardMembersController } from './board-members.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Board } from '../entidades/board.entity'; // Importe Board
-import { User } from '../entidades/user.entity';   // Importe User
+import { Board } from '../entidades/board.entity'; 
+import { User } from '../entidades/user.entity';   
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Board, User])], // Adicione Board e User repositórios
+  imports: [TypeOrmModule.forFeature([Board, User])], 
   controllers: [BoardMembersController],
   providers: [BoardMembersService],
 })

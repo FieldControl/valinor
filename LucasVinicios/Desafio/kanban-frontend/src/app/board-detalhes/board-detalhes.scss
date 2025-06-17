@@ -6,6 +6,7 @@
   padding: var(--spacing-lg);
   background-color: var(--background-color); // Fundo da página
   min-height: calc(100vh - 60px); // Ajusta para a altura da navbar
+  width: auto;
 }
 
 .board-header {
@@ -80,6 +81,10 @@
         font-size: 1.3rem;
         font-weight: 600;
         color: var(--text-color);
+        white-space: nowrap;         
+        overflow: hidden;              
+        text-overflow: ellipsis;       
+        min-width: 0;                  
       }
 
       .badge {

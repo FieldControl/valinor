@@ -1,19 +1,17 @@
-// src/auth/auth.module.ts
+
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { TypeOrmModule } from '@nestjs/typeorm'; // Importe TypeOrmModule
-import { User } from '../entidades/user.entity'; // Importe a entidade User
-import { JwtModule } from '@nestjs/jwt'; // Importe JwtModule
-import { PassportModule } from '@nestjs/passport'; // Importe PassportModule
-import { JwtStrategy } from './jwt-strategy'; // Importe JwtStrategy
-
+import { TypeOrmModule } from '@nestjs/typeorm'; 
+import { User } from '../entidades/user.entity'; 
+import { PassportModule } from '@nestjs/passport'; 
+import { JwtStrategy } from './jwt-strategy'; 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User]), // <<--- ESTA LINHA É CRUCIAL E PROVAVELMENTE ESTÁ FALTANDO OU INCORRETA
+    TypeOrmModule.forFeature([User]), 
     PassportModule,
     JwtModule.register({
-      secret: 'LUVAS', // Sua chave secreta aqui
+      secret: 'LUVAS',
       signOptions: { expiresIn: '1h' },
     }),
   ],

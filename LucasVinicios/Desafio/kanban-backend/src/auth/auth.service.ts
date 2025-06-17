@@ -1,4 +1,4 @@
-// src/auth/auth.service.ts (BACKEND - NESTJS)
+
 import { Injectable, ConflictException, UnauthorizedException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -25,7 +25,7 @@ export class AuthService {
 
     try {
       await this.usersRepository.save(user);
-    } catch (error: any) { // Cast para 'any' para evitar 'Unsafe member access'
+    } catch (error: any) {
       if (error.code === 'SQLITE_CONSTRAINT' || error.errno === 19) {
         throw new ConflictException('Email já cadastrado.');
       } else {

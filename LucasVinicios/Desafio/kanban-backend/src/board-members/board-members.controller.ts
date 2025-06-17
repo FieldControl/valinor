@@ -1,4 +1,4 @@
-// src/board-members/board-members.controller.ts
+
 import { Controller, Get, Post, Body, Param, Delete, HttpCode, HttpStatus, ValidationPipe } from '@nestjs/common';
 import { BoardMembersService } from './board-members.service';
 import { AddMemberDto } from './dto/add-member.dto';
@@ -25,7 +25,7 @@ export class BoardMembersController {
     return this.boardMembersService.addMemberToBoard(+boardId, addMemberDto);
   }
 
-  @Delete(':userId') // <<--- VERIFIQUE AQUI SE ESTÁ EXATAMENTE '@Delete(':userId')'
+  @Delete(':userId') 
   @HttpCode(HttpStatus.NO_CONTENT)
   removeMember(
     @Param('boardId') boardId: string,

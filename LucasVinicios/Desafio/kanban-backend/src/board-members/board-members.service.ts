@@ -15,11 +15,11 @@ export class BoardMembersService {
     private userRepository: Repository<User>,
   ) {}
 
-  // Método para obter todos os membros de um board
+  
   async getBoardMembers(boardId: number): Promise<User[]> {
     const board = await this.boardRepository.findOne({
       where: { id: boardId },
-      relations: ['members'], // Carrega os membros relacionados
+      relations: ['members'], 
     });
 
     if (!board) {
@@ -28,13 +28,13 @@ export class BoardMembersService {
     return board.members;
   }
 
-  // Método para adicionar um membro a um board
+  
   async addMemberToBoard(boardId: number, addMemberDto: AddMemberDto): Promise<Board> {
     const { email } = addMemberDto;
 
     const board = await this.boardRepository.findOne({
       where: { id: boardId },
-      relations: ['members'], // Carrega os membros existentes
+      relations: ['members'], 
     });
 
     if (!board) {
@@ -47,40 +47,30 @@ export class BoardMembersService {
       throw new NotFoundException(`User with email "${email}" not found.`);
     }
 
-    // Verifica se o usuário já é membro
+    
     if (board.members.some(member => member.id === userToAdd.id)) {
       throw new ConflictException(`User "${email}" is already a member of this board.`);
     }
 
-    // Adiciona o usuário à lista de membros
+    
     board.members.push(userToAdd);
-    await this.boardRepository.save(board); // Salva as alterações no board (atualiza a join table)
+    await this.boardRepository.save(board); 
     return board;
   }
 
-  // Método para remover um membro de um board
+  
   async removeMemberFromBoard(boardId: number, userId: number): Promise<void> {
     const board = await this.boardRepository.findOne({
       where: { id: boardId },
-      relations: ['members'], // Carrega os membros existentes
+      relations: ['members'], 
     });
 
     if (!board) {
       throw new NotFoundException(`Board with ID "${boardId}" not found.`);
     }
 
-    // Filtra o membro a ser removido
+    
     board.members = board.members.filter(member => member.id !== userId);
-    await this.boardRepository.save(board); // Salva as alterações
+    await this.boardRepository.save(board); 
   }
-
-  // Futuramente: Método para verificar se um usuário é dono/membro (para permissões)
-  // async isOwnerOrMember(boardId: number, userId: number): Promise<boolean> {
-  //   const board = await this.boardRepository.findOne({
-  //     where: { id: boardId },
-  //     relations: ['members'],
-  //   });
-  //   if (!board) return false;
-  //   return board.ownerId === userId || board.members.some(member => member.id === userId);
-  // }
 }
