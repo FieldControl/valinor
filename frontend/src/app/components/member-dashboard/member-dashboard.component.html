@@ -1,4 +1,36 @@
-<div>
-    <h2>Minhas Tasks:</h2>
-    <p>usuario membro</p>
+<div id="dashboardContainer">
+
+    <div id="cardsListContainer">
+        <h3>My Cards</h3>
+        <div id="cardsList">
+            <div *ngFor="let card of cards" (click)="selectCard(card)" class="card">
+                <h4>{{ card.title }}</h4>
+                <p>Tasks: {{ card.tasks.length }}</p>
+                <p>Status: {{ card.sentByMember ? 'Enviado' : 'Pendente' }}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="cardManagerContainer">
+        <ng-container *ngIf="selectedCard; else placeholder">
+            <h3>{{ selectedCard.title }}</h3>
+            <ul>
+                <li *ngFor="let task of selectedCard.tasks">
+                    {{ task.description }}
+                    <select id="gapzinselects" [(ngModel)]="task.status" [disabled]="selectedCard.sentByMember" (change)="updateTaskStatus(task)">
+                        <option value="TODO">TODO</option>
+                        <option value="IN_PROGRESS">IN_PROGRESS</option>
+                        <option value="DONE">DONE</option>
+                    </select>
+                </li>
+            </ul>
+            <button id="butzin" [disabled]="!allTasksDone()" (click)="submitCard(selectedCard.id)">
+                Enviar Card
+            </button>
+            </ng-container>
+            <ng-template #placeholder>
+            <p>Selecione um card para ver os detalhes</p>
+        </ng-template>
+    </div>
 </div>

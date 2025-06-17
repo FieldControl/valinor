@@ -1,8 +1,11 @@
 import { Controller, Post, Body, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { IsString } from 'class-validator';
 
 class LoginDto {
+  @IsString()
   username: string;
+  @IsString()
   password: string;
 }
 

@@ -5,7 +5,10 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true, // <-- ESSENCIAL para que @Type() funcione
+    whitelist: true, // opcional: remove propriedades não validadas
+  }));
 
   app.enableCors({
     origin: 'http://localhost:4200',

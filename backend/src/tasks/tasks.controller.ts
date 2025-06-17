@@ -2,8 +2,10 @@ import { Controller, Patch, Param, Body, UseGuards, ParseIntPipe, Request } from
 import { TasksService } from './tasks.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { TaskStatus } from '@prisma/client';
+import { IsEnum } from 'class-validator';
 
 class UpdateTaskStatusDto {
+  @IsEnum(TaskStatus)
   status: TaskStatus;
 }
 

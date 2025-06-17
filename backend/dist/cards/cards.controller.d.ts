@@ -14,11 +14,16 @@ export declare class CardsController {
     } & {
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     }>;
     getSubmittedCards(req: any): Promise<({
+        member: {
+            id: number;
+            username: string;
+            email: string;
+        };
         tasks: {
             id: number;
             description: string;
@@ -26,37 +31,32 @@ export declare class CardsController {
             assignedToId: number;
             cardId: number;
         }[];
-        member: {
-            id: number;
-            username: string;
-            email: string;
-        };
     } & {
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     })[]>;
     deleteSubmittedCard(cardId: number, req: any): Promise<{
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     }>;
     getMyCards(req: any): Promise<{
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     }[]>;
     submitCard(cardId: number, userId: number): Promise<{
         id: number;
         title: string;
-        memberId: number;
         sentByMember: boolean;
         leaderId: number;
+        memberId: number;
     }>;
 }

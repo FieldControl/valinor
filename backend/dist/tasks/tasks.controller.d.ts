@@ -10,8 +10,8 @@ export declare class TasksController {
         id: number;
         description: string;
         status: import(".prisma/client").$Enums.TaskStatus;
-        assignedToId: number;
         cardId: number;
+        assignedToId: number;
     }>;
 }
 export {};

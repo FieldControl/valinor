@@ -17,13 +17,15 @@ let TasksService = class TasksService {
         this.prisma = prisma;
     }
     async updateStatus(taskId, userId, status) {
-        const task = await this.prisma.task.findUnique({ where: { id: taskId } });
+        const task = await this.prisma.task.findUnique({ where: { id: taskId }, include: { card: true } });
         if (!task) {
             throw new common_1.NotFoundException('Task not found');
         }
         if (task.assignedToId !== userId) {
             throw new common_1.ForbiddenException('You can only update your own tasks');
         }
+        if (task.card.sentByMember)
+            throw new common_1.BadRequestException('Card já enviado, não pode ser editado');
         return this.prisma.task.update({
             where: { id: taskId },
             data: { status },

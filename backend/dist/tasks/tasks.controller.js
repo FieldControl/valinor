@@ -16,8 +16,14 @@ exports.TasksController = void 0;
 const common_1 = require("@nestjs/common");
 const tasks_service_1 = require("./tasks.service");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
+const client_1 = require("@prisma/client");
+const class_validator_1 = require("class-validator");
 class UpdateTaskStatusDto {
 }
+__decorate([
+    (0, class_validator_1.IsEnum)(client_1.TaskStatus),
+    __metadata("design:type", String)
+], UpdateTaskStatusDto.prototype, "status", void 0);
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;

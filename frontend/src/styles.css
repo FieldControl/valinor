@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color:rgb(162, 179, 255);
+    display:flex;
+    height:97vh;
+    background-color:rgb(12, 19, 59);
+    color:white;
+
+}
+
+app-root{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:100%;
 }

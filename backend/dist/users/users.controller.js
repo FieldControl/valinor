@@ -19,8 +19,26 @@ const roles_guard_1 = require("../auth/guards/roles.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 const client_1 = require("@prisma/client");
 const users_service_1 = require("./users.service");
+const client_2 = require("@prisma/client");
+const class_validator_1 = require("class-validator");
 class RegisterDto {
 }
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], RegisterDto.prototype, "username", void 0);
+__decorate([
+    (0, class_validator_1.IsEmail)(),
+    __metadata("design:type", String)
+], RegisterDto.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], RegisterDto.prototype, "password", void 0);
+__decorate([
+    (0, class_validator_1.IsEnum)(client_2.Role),
+    __metadata("design:type", String)
+], RegisterDto.prototype, "role", void 0);
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
@@ -29,6 +47,7 @@ let UsersController = class UsersController {
         return this.usersService.findAllMembers();
     }
     async register(data) {
+        console.log('Payload recebido no register:', data);
         try {
             const user = await this.usersService.createUser(data.username, data.email, data.password, data.role);
             return { id: user.id, username: user.username, email: user.email, role: user.role };

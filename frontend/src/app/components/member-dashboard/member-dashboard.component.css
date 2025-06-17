@@ -1,0 +1,80 @@
+#dashboardContainer{
+    display:flex;
+    justify-content: space-around;
+    height: 500px;
+    text-shadow: 1px 1px 4px black;
+}
+
+#cardsListContainer{
+    text-align: center;
+    background-color: rgb(43, 100, 255);
+    height: 97.5%;
+    width: 30%;
+    padding: 6px;
+    border-radius: 30px;
+}
+
+#cardsList{
+    display:flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 87%;
+    gap: 8px;
+}
+
+.card{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 30px;
+}
+
+.card:hover{
+    color:blue;
+    background-color: white;
+    border: 2px solid blue;
+    cursor:pointer;
+}
+
+#cardManagerContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(43, 100, 255);
+    width: 50%;
+    border-radius:30px ;
+}
+
+#gapzinselects{
+    display:flex;
+    flex-direction: column;
+}
+
+h3{
+    font-size: 26px;
+}
+
+#butzin{
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
+    color: rgb(43, 100, 255);
+    border-radius: 20px;
+}
+
+#butzin:hover{
+    cursor:pointer;
+    color:white;
+    background-color: blue;
+    border: 2px solid white;
+}
+
+#cardManagerContainer ul{
+    padding-left: 10px;
+}
+
+#cardManagerContainer li{
+    text-align: center;
+}

@@ -17,6 +17,8 @@ export class CardsController {
   @Roles(Role.LEADER)
   @Post()
   async create(@Body() dto: CreateCardDto, @Req() req: any) {
+    console.log('DTO recebido:', dto);
+    console.log('Tipo de tasks[0]:', dto.tasks?.[0]?.constructor?.name);
     const leaderId = req.user.userId;
     return this.cardsService.createCardForMember(leaderId, dto);
   }
@@ -51,6 +53,7 @@ export class CardsController {
     @Param('id', ParseIntPipe) cardId: number,
     @UserId() userId: number,
   ) {
+    console.log('submitCard called with:', { cardId, userId });
     return this.cardsService.submitCard(cardId, userId);
   }
 }

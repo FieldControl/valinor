@@ -1,0 +1,113 @@
+.dashboard-container{
+    display:flex;
+    height: 500px;
+    justify-content: space-around;
+    text-shadow: 1px 1px 4px black;
+}
+
+.showMember-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:20%;
+    background-color: rgb(43, 100, 255);
+    border-radius: 30px;
+}
+
+.createCard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+    background-color: rgb(43, 100, 255);
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+#membersListContainer{
+    width:90%;
+    height: 86%;
+    overflow-y: auto;
+}
+
+#createCardContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    height: 86%;
+}
+
+li{
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 14px;
+    padding:4px;
+}
+
+ul{
+    display:flex;
+    flex-direction: column;
+    gap:0.5em;
+    padding-left: 0px;
+}
+
+#cardsinhocontainer{
+    display:flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: rgb(43, 100, 255);
+    border-radius: 30px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.submittedCards-container {
+    display:flex;
+    flex-direction: column;
+    background: rgb(12, 19, 59);
+     border-radius: 8px;
+     overflow-y: auto;
+    height:85%;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgb(16, 30, 153);
+  border-radius: 8px;
+}
+
+button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+#formzin{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.butzin{
+    color:rgb(43, 100, 255);
+    background-color: white;
+}
+
+.butzin:hover{
+    color:white;
+    background-color: blue;
+}

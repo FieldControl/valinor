@@ -1,3 +1,52 @@
 .error{
     color:red;
 }
+
+.login-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    margin-bottom:50px;
+}
+
+h2{
+    font-size:42px;
+}
+
+#formzin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28px;
+    gap:10px;
+    text-shadow: 2px 2px 1px black;
+
+}
+
+p{
+    font-size:16px;
+}
+
+.buttons{
+    color:white;
+    background-color: rgb(43, 100, 255);
+    
+    border: 0;
+    width:60%;
+    border-radius: 30px;
+    font-size: 18px;
+    box-shadow: 2px 2px 1px black;
+    text-shadow: 1px 1px 5px black;
+}
+
+.buttons:hover{
+    cursor: pointer;
+    color:rgb(43, 100, 255);
+    background-color: white;
+}
+
+.inputsbox{
+    box-shadow: 2px 2px 1px black;
+}

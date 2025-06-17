@@ -26,6 +26,8 @@ let CardsController = class CardsController {
         this.cardsService = cardsService;
     }
     async create(dto, req) {
+        console.log('DTO recebido:', dto);
+        console.log('Tipo de tasks[0]:', dto.tasks?.[0]?.constructor?.name);
         const leaderId = req.user.userId;
         return this.cardsService.createCardForMember(leaderId, dto);
     }
@@ -42,6 +44,7 @@ let CardsController = class CardsController {
         return this.cardsService.findCardsByMemberId(memberId);
     }
     async submitCard(cardId, userId) {
+        console.log('submitCard called with:', { cardId, userId });
         return this.cardsService.submitCard(cardId, userId);
     }
 };
