@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #010622, #182635);
+}
+
+.kanban {
+    display: flex;
+    gap: 14px;
+    padding: 24px;
+    width: 100%;
+    height: 90vh;
+    overflow-x: auto;
+}
+
+.kanban-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0% 2.7%;
+    gap: 18px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #00205f;
+    border-radius: 12px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    overflow: hidden;
+    position: relative;
+    min-width: 252px;
+}
+
+.kanban-column::after {
+    position: absolute;
+    content: '';
+    height: 5px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+}
+
+.kanban-column[data-id="1"]::after {
+    background-color: #142201;
+}
+
+.kanban-column[data-id="2"]::after {
+    background-color: #010725;
+}
+
+.kanban-column[data-id="3"]::after {
+    background-color: #2e061d;
+}
+
+.kanban-column[data-id="4"]::after {
+    background-color: #000000;
+}
+
+.kanban-column[data-id="5"]::after {
+    background-color: #ff0000;
+}
+
+.kanban-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanban-title h2 {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.add-card {
+    color: #ffffff;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.kanban-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.kanban-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: solid 1px #ccc;
+    overflow: hidden;
+}
+
+.badge {
+    color: #ffffff;
+    width: fit-content;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.badge.high {
+    background-color: #ff0000;
+}
+
+.badge.medium {
+    background-color: #f1813b;
+}
+
+.badge.low {
+    background-color: #2f95c0;
+}
+
+.card-infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-icons {
+    display: flex;
+    gap: 18px;
+}
+
+.card-icons i {
+    color: #000064;
+}
+
+.user img {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+.cards-hover {
+    background-color: #003cbd;
+    border-radius: 8px;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #eaeffa;
+    border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #b7d3fb;
+    border-radius: 20px;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Kanban Desafio Field</title>
+</head>
+<body>
+    <main class="kanban">
+        <!-- COLUMN 1 -->
+        <div class="kanban-column" data-id="1" cdkDropListGroup>
+            <div class="kanban-title">
+                <h2>Pendente</h2>
+                <button id="Pendente" class="add-card"  (click)="addCard('todo')" >
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" 
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="todo"
+                [cdkDropListConnectedTo]="[edList, urgenteList, todoList, concluidoList, lixeiraList]"
+                (cdkDropListDropped)="drop($event)">
+                @for (item of todo; track item) {
+                <div class="example-box" cdkDrag>{{item}}</div>
+                    }
+                
+                >
+                    <div class="badge medium"><span>Média prioridade</span></div>
+                    <p class="card-title"></p>
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p><i class="fa-regular fa-comment"></i> 1</p>
+                            <p><i class="fa-solid fa-paperclip"></i> 1</p>
+                        </div>
+                        <div class="user">
+                            <img src="avatar2.png" alt="Avatar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div class="kanban-column" data-id="2" cdkDropListGroup>
+            <div class="kanban-title">
+                <h2>Em Desenvolvimento</h2>
+                <button id="ed"  class="add-card"  (click)="addCard('done')">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" 
+                cdkDropList
+                #edList="cdkDropList"
+                [cdkDropListData]="ed"
+                [cdkDropListConnectedTo]="[todoList, urgenteList, edList, concluidoList, lixeiraList]"
+                (cdkDropListDropped)="drop($event)">
+                @for (item of ed; track item) {
+                <div class="example-box" cdkDrag>{{item}}</div>
+                    }
+                
+                >
+                    <div class="badge low"><span>Baixa Prioridade</span></div>
+                    <p class="card-title"></p>
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p><i class="fa-regular fa-comment"></i> 1</p>
+                            <p><i class="fa-solid fa-paperclip"></i> 1</p>
+                        </div>
+                        <div class="user">
+                            <img src="avatar.png" alt="Avatar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- COLUMN 3 -->
+        <div class="kanban-column" data-id="3" cdkDropListGroup>
+            <div class="kanban-title">
+                <h2>Urgente</h2>
+                <button id="urgente" class="add-card" (click)="addCard('urgente')">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" 
+                cdkDropList
+                #urgenteList="cdkDropList"
+                [cdkDropListData]="urgente"
+                [cdkDropListConnectedTo]="[edList, todoList, urgenteList, concluidoList, lixeiraList]"
+                (cdkDropListDropped)="drop($event)">
+                @for (item of urgente; track item) {
+                <div class="example-box" cdkDrag>{{item}}</div>
+                    }
+                
+                >
+                    <div class="badge high"><span>Alta prioridade</span></div>
+                    <p class="card-title"></p>
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p><i class="fa-regular fa-comment"></i> 1</p>
+                            <p><i class="fa-solid fa-paperclip"></i> 1</p>
+                        </div>
+                        <div class="user">
+                            <img src="avatar3.png" alt="Avatar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- COLUMN 4 -->
+         <div class="kanban-column" data-id="4" cdkDropListGroup>
+            <div class="kanban-title">
+                <h2>Concluído</h2>
+                <button id="concluido" class="add-card"  (click)="addCard('concluido')">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" 
+                cdkDropList
+                #concluidoList="cdkDropList"
+                [cdkDropListData]="concluido"
+                [cdkDropListConnectedTo]="[edList, urgenteList, todoList, concluidoList, lixeiraList]"
+                (cdkDropListDropped)="drop($event)">
+                @for (item of concluido; track item) {
+                <div class="example-box" cdkDrag>{{item}}</div>
+                    }
+                
+                >
+                    <div class="badge low"><span>Baixa prioridade</span></div>
+                    <p class="card-title"></p>
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p><i class="fa-regular fa-comment"></i> 1</p>
+                            <p><i class="fa-solid fa-paperclip"></i> 1</p>
+                        </div>
+                        <div class="user">
+                            <img src="avatar.png" alt="Avatar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <!-- COLUNA LIXEIRA -->
+<div class="kanban-column" data-id="5" cdkDropListGroup>
+  <div class="kanban-title">
+    <h2 style="color: red;">Lixeira</h2>
+  </div>
+
+  <div class="kanban-cards">
+    <div class="kanban-card"
+      cdkDropList
+      #lixeiraList="cdkDropList"
+      id="lixeiraList"
+      [cdkDropListData]="lixeira"
+      [cdkDropListConnectedTo]="[edList, urgenteList, todoList, concluidoList]"
+      (cdkDropListDropped)="drop($event)">
+      <p style="text-align: center; color: gray;">Arraste aqui para excluir</p>
+    </div>
+  </div>
+</div>
+
+    </main>
+
+     <script></script>
+</body>
+</html>
