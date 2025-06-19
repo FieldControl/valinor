@@ -1,0 +1,11 @@
+<h2>{{ board?.title }}</h2>
+
+<div class="board">
+  <div class="column" *ngFor="let column of board?.columns">
+    <h3>{{ column.title }}</h3>
+
+    <div class="card" *ngFor="let card of column.cards">
+      {{ card.title }}
+    </div>
+  </div>
+</div>
