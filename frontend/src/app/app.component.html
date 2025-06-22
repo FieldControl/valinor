@@ -1,0 +1,57 @@
+<h1>KANBAN</h1>
+
+<!-- Exibir as colunas do Kanban -->
+ <div class="task-form">
+<input [(ngModel)]="newTask.title" placeholder="Título" />
+<input [(ngModel)]="newTask.description" placeholder="Descrição" />
+<button (click)="addTask()" class="addTask">Adicionar Tarefa</button>
+</div>
+
+<!-- Exibir as colunas do Kanban -->
+<div class="kanban-board"> 
+  <div class="column">
+  <h2>A fazer </h2>
+    <div *ngFor="let task of getTasksByStatus('OPEN')">
+
+      <!-- Exibir título e descrição da tarefa -->
+      <p><strong>{{ task.title }}</strong></p>
+      <p>{{ task.description }}</p>
+
+      <!-- Botões para atualizar o status da tarefa -->
+      <button (click)="updateTask(task, 'DONE')">Concluída</button>
+      <button (click)="updateTask(task, 'IN_PROGRESS')">Em progresso</button>
+      <button (click)="deleteTask(task)">Excluir</button>
+    </div>
+  </div>
+
+  <!-- Coluna para tarefas em progresso -->
+  <div class="column">
+    <h2>Em Progresso</h2>
+    <div *ngFor="let task of getTasksByStatus('IN_PROGRESS')">
+      <p><strong>{{ task.title }}</strong></p>
+      <p>{{ task.description }}</p>
+
+      <!-- Botões para atualizar o status da tarefa -->
+      <button (click)="updateTask(task, 'OPEN')">A Fazer</button>
+      <button (click)="updateTask(task, 'DONE')">Concluída</button>
+      <button (click)="deleteTask(task)">Excluir</button>
+    </div>
+  </div>
+
+  <!-- Coluna para tarefas concluídas -->
+  <div class="column">
+    <h2>Concluída</h2>
+    <div *ngFor="let task of getTasksByStatus('DONE')">
+      <p><strong>{{ task.title }}</strong></p>
+      <p>{{ task.description }}</p>
+
+      <!-- Botões para atualizar o status da tarefa -->
+      <button (click)="updateTask(task, 'OPEN')">A Fazer</button>
+      <button (click)="deleteTask(task)">Excluir</button>
+    </div>
+  </div>
+</div>
+
+  
+
+

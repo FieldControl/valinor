@@ -1,0 +1,79 @@
+h1{
+    text-align: center;
+    color:  #ac1c34;
+}
+
+.task-form{
+    display:block;
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+input{
+    display: inline-block; 
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #ac1c34;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+h2{
+    color: #555;
+    margin-top: 20px;
+}
+
+.kanban-board{
+    display: block;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 30px;
+    border: 1px solid pink;
+    border-radius: 10px;
+    background-color: #ac1c34;
+}
+
+.column{
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ac1c34;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button{
+    display: inline-block;
+    margin: 5px;
+    width: 30%;
+    padding: 10px;
+    background-color: #ac1c34;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.addTask{
+    background-color: rgb(172, 28, 52);
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    width: 50%;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: pink;
+    color: black;
+}
