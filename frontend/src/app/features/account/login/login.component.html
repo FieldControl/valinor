@@ -1,0 +1,39 @@
+<form class="small-centered-form" [formGroup]="loginForm">
+  <h1>Entrar</h1>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Ex. field@exemplo.com"
+    />
+
+    <!-- Lidar com campo vazio e de formato inválido no campo "email"-->
+    @if (loginForm.controls.email.hasError('email') &&
+    !loginForm.controls.email.hasError('required')) {
+    <mat-error>Por favor coloque um email válido!</mat-error>
+    } @if (loginForm.controls.email.hasError('required')) {
+    <mat-error>É preciso um <strong>email</strong></mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput formControlName="password"/>
+
+    <!-- Lidar com campo vazio e com caractere mínimo no campo "senha" -->
+    @if (!loginForm.controls.password.hasError('required')) {
+    <mat-error>Por favor coloque uma senha válida!</mat-error>
+    } @if (!loginForm.controls.password.hasError('minlength')) {
+    <mat-error>No mínimo 8 caracteres</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Realizar login ou ir a página de cadastrar -->
+  <button (click)="login()" mat-flat-button color="primary">Entrar</button>
+  <a [routerLink]="['/register']">
+    <button tabindex="-1" mat-flat-button color="secondary">
+      Não tem cadastro? Cadastre-se aqui.
+    </button>
+  </a>
+</form>

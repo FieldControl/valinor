@@ -1,0 +1,57 @@
+<form class="small-centered-form" [formGroup]="registerForm">
+  <h1>Cadastro</h1>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Ex. field@exemplo.com"
+    />
+
+    <!-- Lidar com campo vazio e formato inválido do campo "Email" -->
+    @if (registerForm.controls.email.hasError('email') &&
+    !registerForm.controls.email.hasError('required')) {
+    <mat-error>Por favor coloque um email válido!</mat-error>
+    } @if (registerForm.controls.email.hasError('required')) {
+    <mat-error>É preciso um <strong>email</strong></mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="firstName" />
+
+    <!-- Lidar com campo vazio do campo "Nome" -->
+    @if (!registerForm.controls.firstName.hasError('required')) {
+    <mat-error>Por favor coloque seu nome!</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sobrenome</mat-label>
+    <input matInput formControlName="lastName" />
+
+    <!-- Lidar com campo vazio do campo "Sobrenome" -->
+    @if (!registerForm.controls.lastName.hasError('required')) {
+    <mat-error>Por favor coloque seu sobrenome!</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput formControlName="password" />
+
+    <!-- Lidar com campo vazio e caractere mínimno do campo "Senha" -->
+    @if (!registerForm.controls.password.hasError('required')) {
+    <mat-error>Por favor coloque uma senha válida!</mat-error>
+    } @if (!registerForm.controls.password.hasError('minlength')) {
+    <mat-error>Mínimo de 8 caracteres</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Realizar cadastro ou ir a página de login -->
+  <button (click)="register()" mat-flat-button color="primary">Cadastrar</button>
+  <a [routerLink]="['/login']">
+    <button tabindex="-1" mat-flat-button color="secondary">
+      Já tem uma conta? Entre agora.
+    </button>
+  </a>
+</form>

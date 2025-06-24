@@ -1,0 +1,7 @@
+@use "variables.scss" as v;
+
+:host {
+  display: block;
+  padding: 24px 24px 32px;
+  background: v.$background-color2;
+}
