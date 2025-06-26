@@ -1,0 +1,41 @@
+@use "variables.scss" as v;
+
+.kb-dialog {
+  width: 340px;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #fff0f5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  .kb-dialog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid v.$border-color;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+
+    .kb-dialog__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #d63384;
+      margin: 0;
+    }
+  }
+
+  .kb-dialog__content {
+    padding-bottom: 20px;
+    font-size: 15px;
+    color: #444;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    button {
+      font-weight: 500;
+    }
+  }
+}

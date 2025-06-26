@@ -1,0 +1,43 @@
+<form class="card-form" [formGroup]="addCardForm">
+  <h1 class="title">
+    {{ data.card?.id ? "Editar cartão" : "Criar novo cartão" }}
+  </h1>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nome</mat-label>
+    <input
+      matInput
+      formControlName="name"
+      placeholder="Ex. Tarefa importante"
+    />
+    @if (!addCardForm.controls.name.hasError('required')) {
+      <mat-error>Digite um nome válido</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Conteúdo</mat-label>
+    <textarea
+      matInput
+      formControlName="content"
+      placeholder="Descreva o cartão aqui..."
+      rows="4"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="button-group">
+    <button (click)="createOrEditCard()" mat-flat-button color="primary">
+      {{ data.card?.id ? "Salvar alterações" : "Criar cartão" }}
+    </button>
+
+    @if (data.card?.id) {
+      <button (click)="deleteCard()" mat-flat-button color="warn">
+        Excluir cartão
+      </button>
+    }
+
+    <button (click)="closeDialog()" mat-flat-button color="secondary">
+      Cancelar
+    </button>
+  </div>
+</form>

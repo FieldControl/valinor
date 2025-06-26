@@ -1,0 +1,74 @@
+:host {
+  display: block;
+  padding: 32px;
+  background-color: #fff0f5;
+
+  .title {
+    text-align: center;
+    font-size: 28px;
+    color: #d63384;
+    margin-bottom: 32px;
+  }
+
+  .board-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+    .board {
+      all: unset;
+      width: 260px;
+      cursor: pointer;
+
+      mat-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+
+        mat-card-header {
+          padding-bottom: 0;
+        }
+
+        mat-card-title {
+          font-size: 18px;
+          color: #d63384;
+        }
+
+        mat-card-actions {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 16px;
+
+          button {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+
+  .add-board-btn {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+
+    button {
+      font-size: 16px;
+      background-color: #d63384;
+      color: #fff;
+
+      &:hover {
+        background-color: #c2186b;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,94 @@
+@use "variables.scss" as v;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff0f5;
+
+  .kb-board-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 0 24px 20px;
+    border-bottom: 2px solid v.$border-color;
+    gap: 16px;
+
+    .kb-board-title {
+      margin: 0;
+      font-size: 26px;
+      color: #d63384;
+    }
+  }
+
+  .swimlanes-wrapper {
+    flex-grow: 1;
+    overflow-x: auto;
+    padding: 0 24px 20px;
+    display: flex;
+    gap: 24px;
+    height: 100%;
+
+    .swimlane {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 16px;
+      width: 260px;
+      flex-shrink: 0;
+      flex-grow: 0;
+
+      .swimlane-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+
+        h2 {
+          margin: 0;
+          font-size: 18px;
+          color: #d63384;
+        }
+      }
+
+      .swimlane-inner {
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
+
+        .swimlane-inner__dragzone {
+          min-height: 50px;
+        }
+      }
+
+      .swimlane__card {
+        background-color: #ffe4ec;
+        margin-bottom: 12px;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        text-align: left;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+          background-color: #fcd3e1;
+        }
+      }
+
+      mat-form-field,
+      input,
+      button {
+        width: 100%;
+      }
+
+      button[mat-flat-button] {
+        margin-top: 10px;
+        font-weight: 500;
+      }
+    }
+  }
+}

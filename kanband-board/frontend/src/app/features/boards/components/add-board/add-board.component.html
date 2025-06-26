@@ -1,0 +1,31 @@
+<form class="board-form" [formGroup]="addBoardForm">
+  <h1 class="title">
+    {{ data.board?.id ? "Editar quadro" : "Criar novo quadro" }}
+  </h1>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nome do quadro</mat-label>
+    <input matInput formControlName="name" placeholder="Ex. Projeto Design" />
+    @if (!addBoardForm.controls.name.hasError('required')) {
+      <mat-error>Digite um nome válido</mat-error>
+    }
+  </mat-form-field>
+
+  <div class="button-group">
+    <button
+      (click)="createOrEditBoard()"
+      mat-flat-button
+      color="primary"
+    >
+      {{ data.board?.id ? "Salvar alterações" : "Criar quadro" }}
+    </button>
+
+    <button
+      (click)="closeDialog()"
+      mat-flat-button
+      color="secondary"
+    >
+      Cancelar
+    </button>
+  </div>
+</form>

@@ -1,0 +1,38 @@
+.register-form {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 2.5rem;
+  background: #fff0f5;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 26px;
+  color: #d63384;
+  font-weight: 600;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login-link {
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.login-link strong {
+  color: #d63384;
+}

@@ -1,0 +1,48 @@
+@use "variables.scss" as v;
+@use "typography.scss" as t;
+
+.kb-header {
+  background-color: #fff0f5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  height: 64px;
+  padding: 0 24px;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d63384;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .menu-items {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        font-size: 15px;
+        font-weight: 500;
+        color: #d63384;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: background-color 0.2s;
+
+        &.active,
+        &:hover {
+          background-color: #ffd6e8;
+        }
+      }
+    }
+  }
+}
+

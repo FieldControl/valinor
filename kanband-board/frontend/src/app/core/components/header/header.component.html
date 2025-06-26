@@ -1,0 +1,14 @@
+<nav class="kb-header">
+  <ul>
+    <li class="logo">Meu Kanban</li>
+    <li class="menu-items">
+      @if (isLoggedIn()) {
+        <a [routerLinkActive]="'active'" routerLink="/boards">Quadros</a>
+        <a (click)="signOut()">Sair</a>
+      } @else {
+        <a [routerLinkActive]="'active'" routerLink="/login">Entrar / Cadastrar</a>
+      }
+    </li>
+  </ul>
+</nav>
+

@@ -1,0 +1,45 @@
+<form class="login-form" [formGroup]="loginForm">
+  <h1 class="title">Bem-vindo de volta 👋</h1>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="exemplo@email.com"
+    />
+    @if (loginForm.controls.email.hasError('email') &&
+    !loginForm.controls.email.hasError('required')) {
+      <mat-error>Digite um e-mail válido</mat-error>
+    }
+    @if (loginForm.controls.email.hasError('required')) {
+      <mat-error>O e-mail é <strong>obrigatório</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Senha</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+      placeholder="Sua senha"
+    />
+    @if (!loginForm.controls.password.hasError('required')) {
+      <mat-error>Digite uma senha válida</mat-error>
+    }
+    @if (!loginForm.controls.password.hasError('minlength')) {
+      <mat-error>Mínimo de 8 caracteres</mat-error>
+    }
+  </mat-form-field>
+
+  <div class="actions">
+    <button (click)="login()" mat-flat-button color="primary">
+      Entrar
+    </button>
+    <a [routerLink]="['/register']" class="register-link">
+      Não tem conta? <strong>Cadastre-se</strong>
+    </a>
+  </div>
+</form>

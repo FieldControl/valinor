@@ -1,0 +1,28 @@
+<h1 class="title">Meus quadros</h1>
+
+<!-- Boards -->
+<div class="board-wrapper">
+  @for (board of boards(); track board) {
+    <a class="board" [routerLink]="['/boards', board.id]">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ board.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <button (click)="openNewBoardFlow($event, board)" mat-stroked-button color="primary">
+            Editar
+          </button>
+          <button (click)="deleteBoard($event, board)" mat-stroked-button color="warn">
+            Excluir
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </a>
+  }
+</div>
+
+<div class="add-board-btn">
+  <button (click)="openNewBoardFlow($event)" mat-flat-button color="primary">
+    ➕ Criar novo quadro
+  </button>
+</div>

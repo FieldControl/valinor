@@ -1,0 +1,61 @@
+<form class="register-form" [formGroup]="registerForm">
+  <h1 class="title">Crie sua conta ✨</h1>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="exemplo@email.com"
+    />
+    @if (registerForm.controls.email.hasError('email') &&
+    !registerForm.controls.email.hasError('required')) {
+      <mat-error>Digite um e-mail válido</mat-error>
+    }
+    @if (registerForm.controls.email.hasError('required')) {
+      <mat-error>O e-mail é <strong>obrigatório</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Primeiro nome</mat-label>
+    <input matInput formControlName="firstName" placeholder="Seu primeiro nome" />
+    @if (!registerForm.controls.firstName.hasError('required')) {
+      <mat-error>Digite um nome válido</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Sobrenome</mat-label>
+    <input matInput formControlName="lastName" placeholder="Seu sobrenome" />
+    @if (!registerForm.controls.lastName.hasError('required')) {
+      <mat-error>Digite um sobrenome válido</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Senha</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+      placeholder="Crie uma senha"
+    />
+    @if (!registerForm.controls.password.hasError('required')) {
+      <mat-error>Digite uma senha válida</mat-error>
+    }
+    @if (!registerForm.controls.password.hasError('minlength')) {
+      <mat-error>Mínimo de 8 caracteres</mat-error>
+    }
+  </mat-form-field>
+
+  <div class="actions">
+    <button (click)="register()" mat-flat-button color="primary">
+      Registrar
+    </button>
+    <a [routerLink]="['/login']" class="login-link">
+      Já tem uma conta? <strong>Entre agora</strong>
+    </a>
+  </div>
+</form>
