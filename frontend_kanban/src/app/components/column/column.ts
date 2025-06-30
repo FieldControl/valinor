@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
-import { Card } from '../card/card';
+import { Component, Input } from '@angular/core';
+import { ColumnModel, CardModel } from '../../models/kanban.model';
+import { Card } from "../card/card";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-column',
-  imports: [],
+  imports: [Card, CommonModule],
   templateUrl: './column.html',
   styleUrl: './column.css'
 })
-export class Column {
- 
+export class Column{
+
+  @Input() columnModel!: ColumnModel;
+
+
 }
   
