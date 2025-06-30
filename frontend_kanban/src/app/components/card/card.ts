@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CardModel } from '../../models/kanban.model';
 
 @Component({
   selector: 'app-card',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './card.css'
 })
 export class Card {
+  @Input() cardModel!: CardModel;
+
+constructor() {}
 
 }

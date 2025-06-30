@@ -6,24 +6,6 @@
   flex-direction: column; 
   padding: 5px;
   border-radius: 5%;
-  width: 20%;
-  height: 0%;
+  width: max-content;
 }
 
-.card-subtitle {
-  text-align: center;
-  
-}
-
-.card-buttons {
-  margin-top: 3px;
-}
-
-.card-button {
-  background-color: blue;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-}

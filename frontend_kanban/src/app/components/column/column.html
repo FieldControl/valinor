@@ -1,9 +1,11 @@
 <div>
-    <p>collumn title</p>
-    <button>edit</button>
-    <button>delete</button>
-    <div>
+    <div class="card-show">
+        <!-- <p class="column-id">{{ columnModel.id}}</p> -->
+        <p class="column-title">{{ columnModel.title}}</p><br>
+        <button>edit</button>
+        <button>delete</button>
         <p>cards</p>
+        <app-card *ngFor="let card of columnModel?.cards"[cardModel]="card"></app-card>
   
     </div>
 </div>
