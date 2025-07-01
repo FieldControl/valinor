@@ -1,7 +1,8 @@
 <div class="kanban">
-    <h1>Kanban</h1>
+    <div class="navbar-kanban"><h1 class="navbar-text">K A N B A N</h1></div>
+    <button class="column-add"><b>+ Column</b></button>
     <div class="column">
-        <app-column *ngFor="let column of Data"[columnModel] = "column"></app-column>
+        <app-column *ngFor="let column of Data"[columnModel] = "column" class="column-item"></app-column>
         
     </div>
 </div>

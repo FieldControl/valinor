@@ -1,10 +1,14 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div>
-    <div class="card-show">
-        <!-- <p class="column-id">{{ columnModel.id}}</p> -->
+    <div class="column-head">
         <p class="column-title">{{ columnModel.title}}</p><br>
-        <button>edit</button>
-        <button>delete</button>
-        <p>cards</p>
+        <div class="buttons">
+            <button class="button"><i class="fas fa-pen"></i></button>
+            <button class="button"><i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+    <div class="card-show">
         <app-card *ngFor="let card of columnModel?.cards"[cardModel]="card"></app-card>
   
     </div>

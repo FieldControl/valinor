@@ -1,5 +1,47 @@
-.card-show {
+.column-head {
+    background-color: darkblue;
+    padding: 10px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.column-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.buttons{
     display: flex;
     flex-direction: column;
-    width: auto ;
+}
+
+.button{
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: darkblue; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: rgb(1, 1, 107);
+}
+
+.card-show {
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 2px solid #d1d5db; 
+    border-radius: 0 0 12px 12px; 
 }

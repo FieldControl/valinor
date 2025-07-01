@@ -1,4 +1,43 @@
+.navbar-kanban{
+    background-color: darkblue;
+    color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+.navbar-text {
+    color: white;
+    font-size: 50px;
+    letter-spacing: 4px;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.column-add {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    padding: 12px;
+    margin: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.column-add:hover {
+    background-color: rgb(0, 0, 103);
+}
+
 .column{
     display: flex;
     flex-direction: row;
+    gap: 10px;
+    padding-left: 30px;
+}
+
+.column-item{
+    margin-left: 10px;   
+    width: 250px;
 }
