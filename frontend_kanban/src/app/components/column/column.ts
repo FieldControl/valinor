@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ColumnModel, CardModel } from '../../models/kanban.model';
+import { ColumnModel } from '../../models/kanban.model';
 import { Card } from "../card/card";
 import { CommonModule } from '@angular/common';
 
