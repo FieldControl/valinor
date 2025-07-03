@@ -1,5 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { FirebaseService } from 'src/firebase/firebase.service';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import * as admin from 'firebase-admin'; 
 import { CreateCardDTO } from './dto/create-card.dto';
 import { UpdateCardDTO } from './dto/update-card.dto';
@@ -7,12 +6,10 @@ import { Card } from 'src/interface/card.interface';
 
 @Injectable()
 export class CardService {
-    private firestore: admin.firestore.Firestore;
     private columnsCollection: admin.firestore.CollectionReference;
 
-    constructor(private readonly firebaseService: FirebaseService){
-        this.firestore = this.firebaseService.firestore;
-        this.columnsCollection = this.firebaseService.firestore.collection('columns');
+    constructor(@Inject('FIRESTORE_DB')private readonly fireStorInstance: admin.firestore.Firestore){
+        this.columnsCollection = this.fireStorInstance.collection('columns');
     }
 
     private getCardsCollectionRef(columnId: string): admin.firestore.CollectionReference{

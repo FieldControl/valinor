@@ -20,7 +20,7 @@ constructor(private readonly columnService: ColumnService){}
     @Patch(':id')
     update(@Param('id') id: string,
     @Body() updateCardDTO: UpdateCardDTO){
-        return this.columnService(this.update(id, updateCardDTO))
+        return this.columnService.update(id, updateCardDTO);
     }
 
     @Delete(':id')

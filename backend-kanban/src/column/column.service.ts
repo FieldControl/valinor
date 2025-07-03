@@ -1,5 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { FirebaseService } from 'src/firebase/firebase.service';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateColumnDTO } from './dto/create-column.dto';
 import { Column } from 'src/interface/column.interface';
 import * as admin from 'firebase-admin';
@@ -8,12 +7,10 @@ import { instanceToPlain } from 'class-transformer';
 
 @Injectable()
 export class ColumnService {
-    private firestore: admin.firestore.Firestore;
     private columnsCollection: admin.firestore.CollectionReference;
 
-    constructor(private readonly firebaseService: FirebaseService){
-        this.firestore = this.firebaseService.firestore;
-        this.columnsCollection = this.firebaseService.firestore.collection('columns');
+    constructor(@Inject('FIRESTORE_DB')private readonly firestoreInstance: admin.firestore.Firestore){
+        this.columnsCollection = this.firestoreInstance.collection('columns');
     }
 
      async create(createColumnDTO : CreateColumnDTO): Promise<Column>{
@@ -57,7 +54,7 @@ export class ColumnService {
         }
 
         const cardsSnapshot = await columnRef.collection('cards').get()
-        const batch = this.firestore.batch();
+        const batch = this.firestoreInstance.batch();
 
         cardsSnapshot.docs.forEach((doc) => {
             batch.delete(doc.ref);
