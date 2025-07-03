@@ -5,9 +5,12 @@ import { CardModule } from './card/card.module';
 import { FirebaseModule } from './firebase/firebase.module';
 import { ColumnService } from './column/column.service';
 import { ColumnModule } from './column/column.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [CardModule, FirebaseModule, ColumnModule],
+  imports: [CardModule, FirebaseModule, ColumnModule, ConfigModule.forRoot({
+    isGlobal: true,
+  })],
   controllers: [AppController],
   providers: [AppService, ColumnService],
 })
