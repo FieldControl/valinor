@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@nestjs/config": "^4.0.2",
+    "dotenv": "^17.0.1"
+  }
+}
