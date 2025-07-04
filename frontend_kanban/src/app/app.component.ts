@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Column } from './components/column/column';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class App implements OnInit{
   }
 
   fetchData(){
-    this.http.get<any[]>('${this.API_URL}/column').subscribe({
+    this.http.get<any[]>(`${this.API_URL}/column`).subscribe({
       next: (response) => {
         this.data = response;
         console.log('Data received: ', this.data);

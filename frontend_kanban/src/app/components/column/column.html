@@ -4,12 +4,12 @@
         <p class="column-title">{{ columnModel.title}}</p><br>
         <div class="buttons">
             <button class="button"><i class="fas fa-pen"></i></button>
-            <button class="button"><i class="fas fa-plus"></i></button>
+            <button class="button" (click)="emitEvent()"><i class="fas fa-plus"></i></button>
         </div>
     </div>
 
     <div class="card-show">
-        <app-card *ngFor="let card of columnModel?.cards"[cardModel]="card"></app-card>
+        <app-card *ngFor="let card of columnModel?.cards"[cardModel]="card" ></app-card>
   
     </div>
 </div>

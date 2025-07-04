@@ -1,22 +1,67 @@
-import { Component } from '@angular/core';
-import { ColumnModel } from '../../models/kanban.model';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { CardModel, ColumnModel } from '../../models/kanban.model';
 import { Column } from "../column/column";
 import { CommonModule } from '@angular/common';
+import { FormCard } from "../form-card/form-card";
+import { KanbanService } from './kanban.service';
+import { FormColumn } from '../form-column/form-column';
 
 
 @Component({
   selector: 'app-kanban',
-  imports: [Column, CommonModule],
+  standalone: true,
+  imports: [Column, CommonModule, FormCard, FormColumn],
   templateUrl: './kanban.html',
   styleUrl: './kanban.css'
 })
-export class Kanban {
+export class Kanban implements OnInit {
 
-  Data: ColumnModel[] = [
-    {id: 1, title:'To do', cards:[{ id: 1, title: 'Começo', description: 'start', columnId: 1 },{ id: 1, title: 'Começo', description: 'start', columnId: 1 }]},
-    {id: 2, title:'Doing', cards:[{ id: 2, title: 'Processo', description: 'doing', columnId: 2 }]},
-    {id: 3, title:'Done', cards:[{ id: 3, title: 'Feito', description: 'Done', columnId: 3 }]},
-    {id: 4, title:'Filiph', cards:[{ id: 4, title: 'Feito', description: 'Done', columnId: 4 }]},
-  ]    
+  showFormCard = false;
+  selectColumnId!: string;
+  showFormColumn = false;
+  
+  columns: ColumnModel[] = []
+  cards: CardModel[] = []
+
+  constructor(private kanbanService: KanbanService, private cdr: ChangeDetectorRef){}
+
+  ngOnInit(): void {
+    this.loadKanbanData();
+  }
+
+  loadKanbanData(): void{
+    this.kanbanService.getColumns().subscribe({
+      next: (cols) => {
+        this.columns = cols;
+        this.cdr.detectChanges();
+        console.log('Columns Loaded: ', this.columns);
+      },
+      error: (e) =>{
+        console.error('Error to load the columns', e);
+      }
+    })
+  }
+
+
+  openFormCard(columnId: string): void{
+    this.selectColumnId = columnId;
+    this.showFormCard = true;
+  }
+
+   cardFormClosed(): void {
+    this.showFormCard = false;
+    this.selectColumnId = '';
+    this.loadKanbanData();
+   
+  }
+
+  openFormColumn(): void{
+    this.showFormColumn = true;
+  }
+
+  columnFormClosed(): void {
+    this.showFormColumn = false;
+    this.loadKanbanData();
+  }
 
 }
