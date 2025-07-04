@@ -6,11 +6,12 @@ import { FormCard } from "../form-card/form-card";
 import { KanbanService } from './kanban.service';
 import { FormColumn } from '../form-column/form-column';
 import { EditCard } from "../edit-card/edit-card";
+import { EditColumn } from "../edit-column/edit-column";
 
 @Component({
   selector: 'app-kanban',
   standalone: true,
-  imports: [Column, CommonModule, FormCard, FormColumn, EditCard],
+  imports: [Column, CommonModule, FormCard, FormColumn, EditCard, EditColumn],
   templateUrl: './kanban.html',
   styleUrl: './kanban.css'
 })
@@ -19,8 +20,12 @@ export class Kanban implements OnInit {
   selectColumnId!: string;
   showFormCard = false;
   showFormColumn = false;
+  
   showEditCard = false;
   selectCard: CardModel | null = null;
+
+  showEditColumn = false; 
+  selectColumn: ColumnModel | null = null; 
 
   columns: ColumnModel[] = [];
   cards: CardModel[] = [];
@@ -74,7 +79,6 @@ export class Kanban implements OnInit {
     this.selectCard = card;
     this.showEditCard = true;
   }
-
   cardUpdated(updatedCard: CardModel): void {
     if (!updatedCard.id) {
       console.error('invalid id');
@@ -97,7 +101,6 @@ export class Kanban implements OnInit {
         this.showEditCard = false;
         this.selectCard = null;
     }
-
   cardDeleted(cardId: string): void {
     this.kanbanService.deleteCard(cardId).subscribe({
       next: () => {
@@ -111,4 +114,46 @@ export class Kanban implements OnInit {
       }
     });
   }
+
+  //Edit Column
+ openEditColumn(column: ColumnModel): void { 
+    this.selectColumn = column;
+    this.showEditColumn = true;
+  }
+
+  onColumnUpdated(updatedColumn: ColumnModel): void {
+    if (!updatedColumn.id) {
+      console.error('invalid column');
+      return;
+    }
+    this.kanbanService.updateColumn(updatedColumn.id, updatedColumn).subscribe({
+      next: () => {
+        console.log('Column updated!');
+        this.showEditColumn = false;
+        this.selectColumn = null;
+        this.loadKanbanData();
+      },
+      error: (e) => {
+        console.error('Error update:', e);
+      }
+    });
+  }
+
+  onColumnDeleted(columnId: string): void { 
+    this.kanbanService.deleteColumn(columnId).subscribe({
+      next: () => {
+        console.log('Column deleted');
+        this.showEditColumn = false;
+        this.selectColumn = null;
+        this.loadKanbanData();
+      },
+      error: (e) => {
+        console.error('Error to delete: ', e);
+      }
+    });
+  }
+   onEditColumnClosed(): void {
+        this.showEditColumn = false;
+        this.selectColumn = null;
+    }
 }

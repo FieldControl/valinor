@@ -3,7 +3,7 @@
     <div class="column-head">
         <p class="column-title">{{ columnModel.title}}</p><br>
         <div class="buttons">
-            <button class="button"><i class="fas fa-pen"></i></button>
+            <button class="button" (click)="onColumnEdit()"><i class="fas fa-pen"></i></button>
             <button class="button" (click)="emitEvent()"><i class="fas fa-plus"></i></button>
         </div>
     </div>

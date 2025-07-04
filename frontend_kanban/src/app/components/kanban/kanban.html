@@ -9,7 +9,8 @@
       column of columns"
       [columnModel] = "column" class="column-item" 
       (createCardClicked)="openFormCard($event)"
-      (editCardClicked)="openEditCard($event)">
+      (editCardClicked)="openEditCard($event)"
+      (columnEditClicked)="openEditColumn($event)">
     </app-column>
    
     <div *ngIf="showFormCard" class="form-overlay">
@@ -33,6 +34,14 @@
     (cardUpdated)="cardUpdated($event)"
     (cardDeleted)="cardDeleted($event)"
     (formClosed)="editCardClosed()"></app-edit-card>
+  </div>
+
+    <div *ngIf="showEditColumn && selectColumn" class="form-overlay"> 
+      <app-edit-column 
+        [columnModel]="selectColumn!"
+        (columnUpdated)="onColumnUpdated($event)"
+        (columnDeleted)="onColumnDeleted($event)"
+        (formClosed)="onEditColumnClosed()"></app-edit-column>
   </div>
 
     </div>
