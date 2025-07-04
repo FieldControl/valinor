@@ -5,57 +5,62 @@ import { CommonModule } from '@angular/common';
 import { FormCard } from "../form-card/form-card";
 import { KanbanService } from './kanban.service';
 import { FormColumn } from '../form-column/form-column';
-
+import { EditCard } from "../edit-card/edit-card";
 
 @Component({
   selector: 'app-kanban',
   standalone: true,
-  imports: [Column, CommonModule, FormCard, FormColumn],
+  imports: [Column, CommonModule, FormCard, FormColumn, EditCard],
   templateUrl: './kanban.html',
   styleUrl: './kanban.css'
 })
+
 export class Kanban implements OnInit {
-
-  showFormCard = false;
   selectColumnId!: string;
+  showFormCard = false;
   showFormColumn = false;
-  
-  columns: ColumnModel[] = []
-  cards: CardModel[] = []
+  showEditCard = false;
+  selectCard: CardModel | null = null;
 
-  constructor(private kanbanService: KanbanService, private cdr: ChangeDetectorRef){}
+  columns: ColumnModel[] = [];
+  cards: CardModel[] = [];
+
+  constructor(
+    private kanbanService: KanbanService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.loadKanbanData();
   }
 
-  loadKanbanData(): void{
+  loadKanbanData(): void {
     this.kanbanService.getColumns().subscribe({
       next: (cols) => {
         this.columns = cols;
         this.cdr.detectChanges();
         console.log('Columns Loaded: ', this.columns);
       },
-      error: (e) =>{
+      error: (e) => {
         console.error('Error to load the columns', e);
       }
-    })
+    });
   }
 
-
-  openFormCard(columnId: string): void{
+  // Form Card
+  openFormCard(columnId: string): void {
     this.selectColumnId = columnId;
     this.showFormCard = true;
   }
 
-   cardFormClosed(): void {
+  cardFormClosed(): void {
     this.showFormCard = false;
     this.selectColumnId = '';
     this.loadKanbanData();
-   
   }
 
-  openFormColumn(): void{
+  // Form Column
+  openFormColumn(): void {
     this.showFormColumn = true;
   }
 
@@ -64,4 +69,46 @@ export class Kanban implements OnInit {
     this.loadKanbanData();
   }
 
+  // Edit Card
+  openEditCard(card: CardModel): void {
+    this.selectCard = card;
+    this.showEditCard = true;
+  }
+
+  cardUpdated(updatedCard: CardModel): void {
+    if (!updatedCard.id) {
+      console.error('invalid id');
+      return;
+    }
+
+    this.kanbanService.updateCard(updatedCard.id, updatedCard).subscribe({
+      next: () => {
+        console.log('Ok, success');
+        this.showEditCard = false;
+        this.selectCard = null;
+        this.loadKanbanData();
+      },
+      error: (e) => {
+        console.error('Error to update card:', e);
+      }
+    });
+  }
+     editCardClosed(): void {
+        this.showEditCard = false;
+        this.selectCard = null;
+    }
+
+  cardDeleted(cardId: string): void {
+    this.kanbanService.deleteCard(cardId).subscribe({
+      next: () => {
+        console.log('Card deleted');
+        this.showEditCard = false;
+        this.selectCard = null;
+        this.loadKanbanData();
+      },
+      error: (e) => {
+        console.error('Error to delete: ', e);
+      }
+    });
+  }
 }
