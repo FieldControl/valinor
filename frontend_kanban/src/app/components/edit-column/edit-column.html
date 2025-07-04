@@ -1,14 +1,14 @@
 <div class="form">   
     <p>Edit Column</p>    
-    <form>
+    <form (ngSubmit)="onSave()">
         <div class="input">
-            <input type="text">
+            <input type="text" id="columnTitle" [(ngModel)]="editedTitle" name="title" required>
+        </div>
+        
+        <div class="buttons">
+            <button class="button" type="button" (click)="onDelete()">DELETE</button>
+            <button class="button" type="submit">OK</button>
         </div>
     </form>
-    
-    <div class="buttons">
-        <button class="button">DELETE</button>
-        <button class="button">SAVE</button>
-    </div>
     
 </div>

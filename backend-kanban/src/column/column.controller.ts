@@ -1,7 +1,7 @@
 import { Body, Controller, Post, Get, Patch, Param, Delete } from '@nestjs/common';
 import { CreateColumnDTO } from './dto/create-column.dto';
 import { ColumnService } from './column.service';
-import { UpdateCardDTO } from 'src/card/dto/update-card.dto';
+import { UpdateColumnDTO } from './dto/update-column.dto';
 
 @Controller('column')
 export class ColumnController {
@@ -19,8 +19,8 @@ constructor(private readonly columnService: ColumnService){}
 
     @Patch(':id')
     update(@Param('id') id: string,
-    @Body() updateCardDTO: UpdateCardDTO){
-        return this.columnService.update(id, updateCardDTO);
+    @Body() UpdateColumnDTO: UpdateColumnDTO){
+        return this.columnService.update(id, UpdateColumnDTO);
     }
 
     @Delete(':id')
