@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardModel } from '../../models/kanban.model';
 
 @Component({
@@ -9,7 +9,9 @@ import { CardModel } from '../../models/kanban.model';
 })
 export class Card {
   @Input() cardModel!: CardModel;
+  @Output() cardClicked = new EventEmitter<CardModel>();
 
-constructor() {}
-
+  onClick(): void {
+    this.cardClicked.emit(this.cardModel);
+  }
 }

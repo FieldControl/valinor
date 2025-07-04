@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ColumnModel } from '../../models/kanban.model';
+import { CardModel, ColumnModel } from '../../models/kanban.model';
 import { Card } from "../card/card";
 import { CommonModule } from '@angular/common';
 
@@ -9,11 +9,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './column.html',
   styleUrl: './column.css'
 })
+
 export class Column{
 
   @Input() columnModel!: ColumnModel;
-  
   @Output() createCardClicked = new EventEmitter<string>();
+  @Output() editCardClicked = new EventEmitter<CardModel>();
   
   emitEvent(): void{
     if (this.columnModel && this.columnModel.id) {
@@ -21,5 +22,9 @@ export class Column{
           console.log ("Event ",this.columnModel.id);
         } 
       }
+
+  onCardClicked(card: CardModel): void {
+    this.editCardClicked.emit(card);
+  }
 }
   

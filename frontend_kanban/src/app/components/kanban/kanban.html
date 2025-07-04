@@ -4,7 +4,13 @@
     <button class="column-add" (click)="openFormColumn()"><b>+ Column</b></button>
     <div class="column">
       
-        <app-column *ngFor="let column of columns"[columnModel] = "column" class="column-item" (createCardClicked)="openFormCard($event)"></app-column>
+    <app-column 
+      *ngFor="let 
+      column of columns"
+      [columnModel] = "column" class="column-item" 
+      (createCardClicked)="openFormCard($event)"
+      (editCardClicked)="openEditCard($event)">
+    </app-column>
    
     <div *ngIf="showFormCard" class="form-overlay">
     <app-form-card
@@ -13,11 +19,20 @@
       (formCancelled)="cardFormClosed()"
     ></app-form-card>
   </div>
+  
     <div *ngIf="showFormColumn" class="form-overlay">
     <app-form-column
       (columnCreated)="columnFormClosed()"
       (formCancelled)="columnFormClosed()"
     ></app-form-column>
+  </div>
+
+  <div *ngIf="showEditCard && selectCard" class="form-overlay">
+    <app-edit-card 
+    [cardModel]="selectCard!"
+    (cardUpdated)="cardUpdated($event)"
+    (cardDeleted)="cardDeleted($event)"
+    (formClosed)="editCardClosed()"></app-edit-card>
   </div>
 
     </div>

@@ -25,6 +25,7 @@ export class ColumnService {
             const columnSnapshot = await this.columnsCollection.get();
             const columns: Column[] = [];
 
+                
             for(const doc of columnSnapshot.docs){
                 const columnId = doc.id;
                 const columnData = doc.data();
@@ -36,7 +37,7 @@ export class ColumnService {
                 })) as Card[];
 
                 console.log('Cards raw data:', cards);
-                
+              columns.push({ id: columnId, ...columnData, cards: cards } as Column);
             }
             return columns;
         }
