@@ -1,0 +1,47 @@
+:host {
+  /* :host se refere ao próprio componente <app-task> */
+  display: block;
+  /* Removemos o padding daqui para que o card ocupe todo o espaço */
+}
+
+.item {
+  position: relative;
+  /* Essencial para posicionar o botão de editar */
+  margin-bottom: 8px;
+  padding: 10px 15px;
+  /* Adiciona o espaçamento interno desejado */
+}
+
+.title {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 0.9em;
+  color: #6b778c;
+  /* Remove a margem padrão do parágrafo para um visual mais limpo */
+  margin: 0;
+  white-space: pre-wrap;
+  /* Mantém as quebras de linha do texto */
+  word-wrap: break-word;
+  /* Quebra palavras longas */
+}
+
+/* --- Estilos do Botão de Editar --- */
+
+.edit-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  /* O botão começa invisível e só aparece com o hover no card */
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Quando o mouse passar por cima do card (.item)... */
+.item:hover .edit-button {
+  /* ...o botão de editar se torna visível. */
+  opacity: 1;
+}

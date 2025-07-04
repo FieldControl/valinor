@@ -1,0 +1,25 @@
+### List task (Listar)
+GET http://localhost:3000/task
+
+### Get task (Retornar)
+GET http://localhost:3000/task/4
+
+### Create task (Criar)
+POST http://localhost:3000/task
+Content-Type: application/json
+
+{
+    "titulo": "Nova Tarefa Comprar pão",
+    "descricao": "Ir a padaria",
+    "status": 0
+}
+### Update task (Atualizar)
+PATCH http://localhost:3000/task/3
+Content-Type: application/json
+
+{
+    "descricao": "Comprar pão e leite"
+}
+
+### Delete task (Deletar)
+DELETE http://localhost:3000/task/3

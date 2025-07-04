@@ -1,0 +1,23 @@
+/* task-dialog.component.css */
+.full-width {
+  width: 100%;
+}
+
+/* Garante que a área de ações use flexbox */
+[mat-dialog-actions] {
+  display: flex;
+  justify-content: flex-end;
+  /* Alinha o grupo principal à direita */
+  width: 100%;
+}
+
+/* O espaçador que ocupa todo o espaço livre */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Posiciona o botão de deletar no início do container */
+.delete-button {
+  margin-right: auto;
+  /* Empurra o botão para a extrema esquerda */
+}

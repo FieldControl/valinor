@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Criar Nova Tarefa</h1>
+
+<div mat-dialog-content>
+  <p>Por favor, preencha os detalhes da tarefa abaixo.</p>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Título</mat-label>
+    <input matInput cdkFocusInitial [(ngModel)]="data.task.titulo" placeholder="Ex: Comprar pão">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput [(ngModel)]="data.task.descricao"
+      placeholder="Ex: Ir até a padaria da esquina e comprar pão francês."></textarea>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button
+    *ngIf="data.enableDelete"
+    mat-icon-button
+    color="warn"
+    aria-label="Delete"
+    [mat-dialog-close]="{ task: data.task, delete: true }"
+    class="delete-button">
+    <mat-icon>delete</mat-icon>
+  </button>
+
+  <span class="spacer"></span>
+
+  <button mat-button [mat-dialog-close]="undefined">Cancel</button>
+  <button mat-button [mat-dialog-close]="{ task: data.task }">OK</button>
+</div>
