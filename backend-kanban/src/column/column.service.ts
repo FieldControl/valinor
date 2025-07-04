@@ -4,6 +4,7 @@ import { Column } from 'src/interface/column.interface';
 import * as admin from 'firebase-admin';
 import { UpdateColumnDTO } from './dto/update-column.dto';
 import { instanceToPlain } from 'class-transformer';
+import { Card } from 'src/interface/card.interface';
 
 @Injectable()
 export class ColumnService {
@@ -23,10 +24,21 @@ export class ColumnService {
     async findAll(): Promise<Column[]>{
             const columnSnapshot = await this.columnsCollection.get();
             const columns: Column[] = [];
-            columnSnapshot.docs.forEach(doc => {
-                columns.push({ id: doc.id, ...doc.data()} as Column);
-            });
-            return columns
+
+            for(const doc of columnSnapshot.docs){
+                const columnId = doc.id;
+                const columnData = doc.data();
+
+                const cardsSnapshot = await this.columnsCollection.doc(columnId).collection('cards').get();
+                const cards: Card[] = cardsSnapshot.docs.map(cardDoc => ({
+                    id: cardDoc.id,
+                    ...cardDoc.data()
+                })) as Card[];
+
+                console.log('Cards raw data:', cards);
+                
+            }
+            return columns;
         }
 
      async update(id: string, updateColumnDTO: UpdateColumnDTO){

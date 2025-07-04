@@ -1,12 +1,12 @@
 export interface CardModel{
-    id: number;
+    id: string;
     title: string;
     description: string;
-    columnId: number;
+    columnId: string;
   }
 
-export interface ColumnModel{
-    id: number;
+export interface ColumnModel{ 
+    id: string;
     title: string;
     cards: CardModel[]
   }

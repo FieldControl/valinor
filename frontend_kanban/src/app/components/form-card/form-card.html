@@ -1,14 +1,14 @@
-<div class="form">   
-    <p>Create Card</p>    
-    <form>
+<div class="form">
+    <p>Create Card</p>
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+        
         <div class="input">
-            <input type="text">
-            <input type="text">
+            <input type="text" formControlName="title" placeholder="Title">
+            <input type="text" formControlName="description" placeholder="Description">
+        </div>
+        <div class="buttons">
+            <button class="button" type="button" (click)="onCancel()">CANCEL</button>
+            <button class="button" type="submit">SAVE</button>
         </div>
     </form>
-    
-    <div class="buttons">
-        <button class="button">CANCEL</button>
-        <button class="button">SAVE</button>
-    </div>
 </div>
