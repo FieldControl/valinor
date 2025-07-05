@@ -1,6 +1,0 @@
-{
-  "build": {
-    "buildCommand": "cd backend-kanban && npm install && npm run build",
-    "startCommand": "cd backend-kanban && npm run start:prod"
-  }
-}
