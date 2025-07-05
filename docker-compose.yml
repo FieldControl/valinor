@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: colunas_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: colunas_db
+    volumes:
+      - mongodb_data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - colunas-network
+
+  backend:
+    build:
+      context: ./backend
+    container_name: colunas_backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://admin:admin123@mongodb:27017/colunas_db?authSource=admin
+      - PORT=3000
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - colunas-network
+    command: npm run start:dev
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: colunas_frontend
+    restart: unless-stopped
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - colunas-network
+    command: ng serve --host 0.0.0.0 --port 4200
+
+volumes:
+  mongodb_data:
+
+networks:
+  colunas-network:
+    driver: bridge

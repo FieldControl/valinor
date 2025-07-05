@@ -1,0 +1,53 @@
+<h2>Kanban Board</h2>
+<div>
+  <input [(ngModel)]="novoTituloColuna" placeholder="Nova coluna" aria-label="Nova coluna" />
+  <button (click)="criarColuna()">Adicionar Coluna</button>
+</div>
+<div style="margin-top:20px;">
+  <select [(ngModel)]="colunaSelecionadaId" aria-label="Selecione uma coluna">
+    <option [value]="''">Selecione uma coluna</option>
+    <option *ngFor="let col of colunas" [value]="col.id">{{ col.titulo }}</option>
+  </select>
+  <input [(ngModel)]="novoTituloCard" placeholder="Novo card" aria-label="Novo card" />
+  <input [(ngModel)]="novaDescricaoCard" placeholder="Descrição do card" aria-label="Descrição do card" />
+  <button (click)="criarCard()">Adicionar Card</button>
+</div>
+<div style="display: flex; gap: 20px; margin-top: 20px;">
+  <div *ngFor="let coluna of colunas" style="border:1px solid #ccc; padding:10px; width:250px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <div *ngIf="!isEditingColuna(coluna.id)" style="width: 100%; display: flex; justify-content: space-between;">
+        <h3>{{ coluna.titulo }}</h3>
+        <div>
+          <button (click)="iniciarEdicaoColuna(coluna)" aria-label="Editar coluna">✏️</button>
+          <button (click)="deletarColuna(coluna.id)" aria-label="Deletar coluna">🗑️</button>
+        </div>
+      </div>
+      <div *ngIf="isEditingColuna(coluna.id)" style="width: 100%;">
+        <input [(ngModel)]="editedTituloColuna" placeholder="Título da coluna" style="width: 100%;" />
+        <div>
+          <button (click)="salvarEdicaoColuna()">Salvar</button>
+          <button (click)="cancelarEdicaoColuna()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+    <ul style="list-style: none; padding: 0;">
+      <li *ngFor="let card of coluna.cards" style="margin-bottom: 10px;">
+        <div *ngIf="!isEditingCard(card.id)" style="border: 1px solid #ddd; padding: 10px;">
+          <b>{{ card.titulo }}</b> - {{ card.descricao }}
+          <div style="margin-top: 10px;">
+            <button (click)="iniciarEdicaoCard(card)" aria-label="Editar card">✏️</button>
+            <button (click)="deletarCard(card.id)" aria-label="Deletar card">🗑️</button>
+          </div>
+        </div>
+        <div *ngIf="isEditingCard(card.id)" style="border: 1px solid #007bff; padding: 10px; background: #f8f9fa;">
+          <input [(ngModel)]="editedTitulo" placeholder="Título do card" style="width: 100%;" />
+          <textarea [(ngModel)]="editedDescricao" placeholder="Descrição do card" style="width: 100%; min-height: 60px;"></textarea>
+          <div>
+            <button (click)="salvarEdicaoCard()">Salvar</button>
+            <button (click)="cancelarEdicaoCard()">Cancelar</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
