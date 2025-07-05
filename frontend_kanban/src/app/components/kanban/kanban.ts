@@ -52,7 +52,7 @@ export class Kanban implements OnInit {
     });
   }
 
-  // Form Card
+  
   openFormCard(columnId: string): void {
     this.selectColumnId = columnId;
     this.showFormCard = true;
@@ -64,7 +64,7 @@ export class Kanban implements OnInit {
     this.loadKanbanData();
   }
 
-  // Form Column
+  
   openFormColumn(): void {
     this.showFormColumn = true;
   }
@@ -74,7 +74,7 @@ export class Kanban implements OnInit {
     this.loadKanbanData();
   }
 
-  // Edit Card
+  
   openEditCard(card: CardModel): void {
     this.selectCard = card;
     this.showEditCard = true;
@@ -115,7 +115,7 @@ export class Kanban implements OnInit {
     });
   }
 
-  //Edit Column
+  
  openEditColumn(column: ColumnModel): void { 
     this.selectColumn = column;
     this.showEditColumn = true;
