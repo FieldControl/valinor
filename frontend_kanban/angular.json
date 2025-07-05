@@ -17,8 +17,10 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
+
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                
               }
             ],
             "styles": [
