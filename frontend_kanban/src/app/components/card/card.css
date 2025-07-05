@@ -36,21 +36,9 @@
 .card-edit, .card-check{
     border: none;
     border-radius: 2px;
-    cursor: pointer;
-}
-
-.card-edit {
-    background-color: #d1d5db;
-}
-
-.card-edit:hover {
-    background-color: #9ca3af;
 }
 
 .card-check {
-    background-color: #10b981;
-}
-
-.card-check:hover {
-    background-color: #059669;
+    background-color: white;
+    color: darkblue;
 }

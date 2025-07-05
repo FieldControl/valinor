@@ -2,11 +2,12 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms'; 
 import { KanbanService } from '../kanban/kanban.service';
 import { CardModel } from '../../models/kanban.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form-card',
   standalone: true, 
-  imports: [ReactiveFormsModule], 
+  imports: [ReactiveFormsModule, CommonModule], 
   templateUrl: './form-card.html',
   styleUrl: './form-card.css'
 })

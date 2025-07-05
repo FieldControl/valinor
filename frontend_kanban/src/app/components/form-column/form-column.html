@@ -1,9 +1,9 @@
 <div class="form">   
-    <p>Create Column</p>    
+    <p class="form-title">Create Column</p>    
     <form [formGroup]="columnForm" (ngSubmit)="onSubmit()">
 
-        <div class="input">
-            <input type="text" formControlName="title" placeholder="Title">
+        <div class="form-input">
+            <input type="text" class="input" formControlName="title" placeholder="Title">
         </div>
         
         <div class="buttons">

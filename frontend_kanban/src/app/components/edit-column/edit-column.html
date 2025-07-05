@@ -1,12 +1,13 @@
 <div class="form">   
-    <p>Edit Column</p>    
+    <p class="form-title">Edit Column</p>    
     <form (ngSubmit)="onSave()">
-        <div class="input">
-            <input type="text" id="columnTitle" [(ngModel)]="editedTitle" name="title" required>
+        <div class="form-input">
+            <label for="columnTitle" class="column-title">Title:</label>
+            <input type="text" class="input" id="columnTitle" [(ngModel)]="editedTitle" name="title" required>
         </div>
         
         <div class="buttons">
-            <button class="button" type="button" (click)="onDelete()">DELETE</button>
+            <button class="button-delete" type="button" (click)="onDelete()">DELETE</button>
             <button class="button" type="submit">OK</button>
         </div>
     </form>
