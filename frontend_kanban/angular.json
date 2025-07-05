@@ -19,7 +19,7 @@
               {
 
                 "glob": "**/*",
-                "input": "public",
+                "input": "public"
                 
               }
             ],
