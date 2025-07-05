@@ -2,7 +2,7 @@
 
 ### **Framework, linguagem e ferramentas**
 
-- Frontend em **Angular 17** (Typescript)
+- Frontend em **Angular 20** (Typescript)
 - Backend em **NestJS 11** (Typescript)
 - Banco de dados **MongoDB**
 - Docker e Docker Compose para ambiente containerizado
