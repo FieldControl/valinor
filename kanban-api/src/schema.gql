@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Board {
+  columns: [Column!]
+  id: ID!
+  name: String!
+}
+
+type Card {
+  column: Column!
+  description: String
+  id: ID!
+  order: Float
+  title: String!
+}
+
+type Column {
+  board: Board!
+  cards: [Card!]
+  id: ID!
+  order: Float
+  title: String!
+}
+
+type Mutation {
+  createBoard(name: String!): Board!
+  createCard(columnId: Int!, description: String!, order: Int, title: String!): Card!
+  createColumn(boardId: Int!, title: String!): Column!
+  deleteBoard(id: Int!): Boolean!
+  deleteCard(id: Int!): Boolean!
+  deleteColumn(id: Int!): Boolean!
+  moveCard(columnId: Int!, id: Int!): Card!
+  reorderCard(id: Int!, newIndex: Int!): Card!
+  updateBoard(id: Int!, name: String!): Board!
+  updateCard(columnId: Int!, description: String!, id: Int!, title: String!): Card!
+  updateColumn(id: Int!, title: String!): Column!
+}
+
+type Query {
+  board(id: Int!): Board!
+  boards: [Board!]!
+  card(id: Int!): Card!
+  cards: [Card!]!
+  column(id: Int!): Column!
+  columns: [Column!]!
+}
