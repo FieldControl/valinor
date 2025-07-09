@@ -1,0 +1,36 @@
+{
+  "name": "valinor-kanban",
+  "version": "1.0.0",
+  "description": "Trello-like Kanban board application",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd packages/frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd packages/backend && npm run start:dev",
+    "dev:frontend": "cd packages/frontend && npm start",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd packages/backend && npm run build",
+    "build:frontend": "cd packages/frontend && npm run build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd packages/backend && npm test",
+    "test:frontend": "cd packages/frontend && npm test",
+    "clean": "node -e \"process.platform === 'win32' ? require('child_process').exec('clean.bat') : require('child_process').exec('sh clean.sh')\"",
+    "clean:node_modules": "rm -rf node_modules packages/*/node_modules",
+    "fresh-install": "npm run clean:node_modules && npm run install:all"
+  },
+  "keywords": [
+    "kanban",
+    "trello",
+    "angular",
+    "nestjs",
+    "graphql",
+    "supabase",
+    "typescript",
+    "drag-and-drop"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 

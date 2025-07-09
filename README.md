@@ -120,102 +120,387 @@ O desafio de programação
 
 Se você é apaixonado por desenvolvimento de software e busca desafios para impulsionar sua carreira, este teste é para você! Realize o desafio abaixo e faça um fork deste repositório para começar a codificar. [Let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)! 🚀
 
-# Teste de Programação: Kanban
+# 🎯 Valinor Kanban - Trello-like Application
 
-Este é um teste de programação que consiste em implementar um Kanban, utilizando Angular para o client side e NestJs para o back-end. 
+A full-stack Kanban board application built with **Angular** (frontend), **NestJS** (backend), **Supabase** (database), and **GraphQL** for a modern, real-time collaborative experience.
 
-O objetivo é avaliar a capacidade do candidato em estruturar um projeto seguindo as boas práticas de ambos os frameworks e implementar um fluxo básico de colunas e cards dentro do Kanban.
+## 🏗️ Architecture Overview
 
-## Critérios de Avaliação
+- **Frontend**: Angular 17 with standalone components, Angular Material, and reactive signals
+- **Backend**: NestJS with GraphQL API and WebSocket for real-time updates
+- **Database**: Supabase with Row Level Security (RLS)
+- **Real-time**: Socket.io for live collaboration
+- **Testing**: Unit and integration tests for both frontend and backend
 
-Os critérios de avaliação para este teste são os seguintes:
+## 📚 Key Features
 
-1. **Código Limpo e Organização**: Avalia a clareza, legibilidade e organização do código fonte.
+✅ **Core Functionality**
+- Create, edit, and delete boards
+- Create, edit, and delete columns within boards
+- Create, edit, and delete cards within columns
+- Drag & drop cards between columns
+- Drag & drop to reorder columns
+- Real-time collaborative editing
 
-2. **Testes de Software**: Serão avaliados os testes unitários e integrados para garantir a robustez do sistema.
+✅ **Advanced Features**
+- GraphQL API with type-safe operations
+- WebSocket connections for live updates
+- Responsive Material Design UI
+- Position management with automatic reordering
+- Color-coded cards with due dates
+- Comprehensive error handling
 
-3. **Semântica**: A utilização de nomes significativos para variáveis, funções, classes, etc., será observada.
+✅ **Technical Excellence**
+- Clean architecture with SOLID principles
+- Type safety throughout the stack
+- Comprehensive test coverage
+- Docker containerization ready
+- Environment-based configuration
 
-4. **Documentação do Projeto (README)**: A qualidade e completude da documentação do projeto, que inclui informações sobre como executar, testar e utilizar o sistema.
+## 🚀 Quick Start
 
-5. **Segurança**: A adoção de práticas de segurança apropriadas, como proteção contra ataques comuns, será considerada.
+### Prerequisites
 
-## Instruções
+- Node.js 18+
+- npm 9+
+- Supabase account
 
-1. Implemente um Kanban básico que permita a criação de colunas e cards.
-2. Utilize Angular para o desenvolvimento do cliente e NestJs para o desenvolvimento do servidor.
-3. Siga as boas práticas de desenvolvimento de software recomendadas pelos frameworks.
-4. Implemente testes unitários e integrados para garantir a qualidade e robustez do sistema.
-5. Documente o projeto de forma clara e completa neste arquivo README.
+### 1. Clone and Install
 
-## Entrega
+```bash
+git clone <repository-url>
+cd valinor
+npm run install:all
+```
 
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório ;)
+### 2. Database Setup
 
-## Estrutura do Projeto
+1. Create a new Supabase project at [supabase.com](https://supabase.com)
+2. Copy your project URL and keys
+3. Run the SQL schema in your Supabase SQL editor:
 
-A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJs, com os arquivos de configuração e código-fonte organizados de maneira lógica e intuitiva.
+```sql
+-- Execute the content from supabase-schema.sql
+```
 
-## Observações
+### 3. Environment Configuration
 
-- Certifique-se de que o código está devidamente comentado e documentado para facilitar a compreensão e manutenção futura.
-- Evite a utilização de bibliotecas ou frameworks que não sejam necessários para a implementação do Kanban básico.
-- Qualquer dúvida ou problema encontrado durante a execução do projeto, entre em contato com os avaliadores.
+**Backend Environment** (`packages/backend/.env`):
+```env
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+PORT=3000
+NODE_ENV=development
+CORS_ORIGIN=http://localhost:4200
+```
 
-## Referências
+**Frontend Environment** (`packages/frontend/src/environments/environment.ts`):
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/graphql',
+  wsUrl: 'http://localhost:3000',
+  supabaseUrl: 'your_supabase_project_url',
+  supabaseAnonKey: 'your_supabase_anon_key'
+};
+```
 
-### Angular
+### 4. Run the Application
 
-- Documentação Oficial do Angular: [Angular Docs](https://angular.io/docs)
-- Repositório do Angular no GitHub: [Angular GitHub](https://github.com/angular/angular)
+```bash
+# Install dependencies
+npm run install:all
 
-### NestJs
+# Start both backend and frontend
+npm run dev
 
-- Documentação Oficial do NestJs: [NestJs Docs](https://docs.nestjs.com/)
-- Repositório do NestJs no GitHub: [NestJs GitHub](https://github.com/nestjs/nest)
+# Or run them separately
+npm run dev:backend  # http://localhost:3000
+npm run dev:frontend # http://localhost:4200
+```
 
-Estes recursos fornecem uma base sólida para aprender e se aprofundar nos frameworks Angular e NestJs.
+### 5. Access the Application
 
-## Para Iniciantes
+- **Frontend**: http://localhost:4200
+- **GraphQL Playground**: http://localhost:3000/graphql
+- **Backend API**: http://localhost:3000
 
-Se você é um iniciante nesta jornada de desenvolvimento, queremos encorajá-lo a participar deste teste e fazer o seu melhor. Na Field, valorizamos a força de vontade, a iniciativa e o desejo de aprender.
+## 📁 Project Structure
 
-Não se preocupe se você não conseguir entregar um projeto perfeito ou completo. O objetivo é que você ganhe experiência, aprenda com o processo e se desafie a ir além do que já conhece.
+```
+valinor/
+├── packages/
+│   ├── backend/                 # NestJS Backend
+│   │   ├── src/
+│   │   │   ├── kanban/         # Kanban domain module
+│   │   │   │   ├── dto/        # GraphQL DTOs
+│   │   │   │   ├── services/   # Business logic
+│   │   │   │   ├── resolvers/  # GraphQL resolvers
+│   │   │   │   └── types/      # TypeScript interfaces
+│   │   │   ├── supabase/       # Database integration
+│   │   │   ├── realtime/       # WebSocket gateway
+│   │   │   └── main.ts         # Application entry
+│   │   └── package.json
+│   └── frontend/               # Angular Frontend
+│       ├── src/
+│       │   ├── app/
+│       │   │   ├── components/ # Angular components
+│       │   │   ├── services/   # Angular services
+│       │   │   └── models/     # TypeScript models
+│       │   └── main.ts         # Application entry
+│       └── package.json
+├── supabase-schema.sql         # Database schema
+└── package.json                # Root package.json
+```
 
-Aqui estão algumas dicas para ajudá-lo durante o teste:
+## 🔧 Development Guidelines
 
-1. **Comece com o Básico**: Concentre-se em entender os conceitos fundamentais do Angular e do NestJs. Explore tutoriais, documentações e exemplos de código para se familiarizar com as tecnologias.
+### Backend Development
 
-2. **Divida o Projeto em Etapas**: Em vez de tentar implementar tudo de uma vez, divida o projeto em etapas menores e gerenciáveis. Concentre-se em uma funcionalidade de cada vez e avance gradualmente.
+The backend follows clean architecture principles:
 
-3. **Não Tenha Medo de Errar**: O processo de aprendizado envolve tentativa e erro. Não se preocupe com os erros ou obstáculos que encontrar ao longo do caminho. Eles fazem parte do processo e são oportunidades de aprendizado.
+- **Services**: Contain business logic and database operations
+- **Resolvers**: Handle GraphQL queries and mutations
+- **DTOs**: Define GraphQL schema and validation
+- **Types**: TypeScript interfaces for type safety
 
-4. **Celebre suas Conquistas**: Cada pequeno progresso é uma conquista. Celebre suas realizações, por menores que sejam, e reconheça o esforço e a dedicação que você está dedicando ao projeto.
+### Frontend Development
 
-Lembre-se, o importante é tentar e aprender durante o processo. Valorizamos sua iniciativa e estamos aqui para apoiá-lo em sua jornada de desenvolvimento. Boa sorte e divirta-se codificando! 🌟
+The frontend uses modern Angular patterns:
 
-## Diferenciais
+- **Standalone Components**: No need for NgModules
+- **Reactive Signals**: For state management
+- **Angular Material**: For consistent UI components
+- **Apollo Client**: For GraphQL operations
 
-Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais pode agregar valor ao projeto:
+### Code Quality Standards
 
-### Aplicação Publicada e Rodando
+- **TypeScript**: Strict mode enabled
+- **ESLint**: For code linting
+- **Prettier**: For code formatting
+- **Jest**: For unit testing
+- **Clean Code**: Following SOLID principles
 
-- Configurar e publicar a aplicação em um ambiente de hospedagem como Heroku, Netlify, AWS, Azure, etc., para demonstrar a capacidade de implantar e disponibilizar o sistema para uso real.
+## 🧪 Testing
 
-### Testes Integrados e E2E
+```bash
+# Run all tests
+npm run test
 
-- Implementar testes integrados e end-to-end (E2E) utilizando ferramentas como Jasmine, Protractor, Jest, etc., para garantir a qualidade e estabilidade do sistema em diferentes níveis de teste.
+# Run backend tests
+npm run test:backend
 
-### API em GraphQL ao Invés de REST
+# Run frontend tests
+npm run test:frontend
 
-- Utilizar GraphQL como interface de programação de aplicativos (API) em vez de REST para oferecer uma forma mais flexível e eficiente de consultar e manipular dados entre o cliente e o servidor.
+# Test coverage
+npm run test:cov
+```
 
-### Realtime com Socket.io
+## 📊 GraphQL API
 
-- Implementar funcionalidades em tempo real utilizando Socket.io para fornecer uma experiência interativa e dinâmica aos usuários, permitindo atualizações instantâneas e sincronizadas entre os diferentes clientes conectados à aplicação.
+### Queries
 
-A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a aplicação de tecnologias modernas e práticas de desenvolvimento de software, elevando a qualidade e a experiência do usuário final.
+```graphql
+# Get all boards
+query GetBoards {
+  boards {
+    id
+    title
+    description
+    columns {
+      id
+      title
+      position
+      cards {
+        id
+        title
+        description
+        position
+        color
+      }
+    }
+  }
+}
 
+# Get specific board
+query GetBoard($id: ID!) {
+  board(id: $id) {
+    id
+    title
+    description
+    columns {
+      id
+      title
+      position
+      cards {
+        id
+        title
+        description
+        position
+        color
+      }
+    }
+  }
+}
+```
+
+### Mutations
+
+```graphql
+# Create board
+mutation CreateBoard($input: CreateBoardInputDto!) {
+  createBoard(input: $input) {
+    id
+    title
+    description
+  }
+}
+
+# Create column
+mutation CreateColumn($input: CreateColumnInputDto!) {
+  createColumn(input: $input) {
+    id
+    title
+    position
+  }
+}
+
+# Create card
+mutation CreateCard($input: CreateCardInputDto!) {
+  createCard(input: $input) {
+    id
+    title
+    description
+    position
+    color
+  }
+}
+
+# Move card
+mutation MoveCard($input: MoveCardInputDto!) {
+  moveCard(input: $input) {
+    id
+    column_id
+    position
+  }
+}
+```
+
+## 🔄 Real-time Features
+
+The application uses WebSocket connections for real-time collaboration:
+
+- **Board Updates**: Live updates when boards are modified
+- **Column Changes**: Real-time column additions, updates, and movements
+- **Card Movements**: Live drag-and-drop synchronization
+- **Multi-user Support**: Multiple users can collaborate simultaneously
+
+## 🏷️ Database Schema
+
+### Tables
+
+1. **boards**: Board information
+2. **columns**: Columns within boards
+3. **cards**: Cards within columns
+
+### Key Features
+
+- **UUID Primary Keys**: For better performance and security
+- **Position Management**: Automatic reordering of items
+- **Cascading Deletes**: Clean up related data automatically
+- **RLS Policies**: Row Level Security for access control
+- **Automatic Timestamps**: Created and updated timestamps
+
+## 🔐 Security Features
+
+- **Row Level Security (RLS)**: Database-level access control
+- **Input Validation**: Server-side validation with class-validator
+- **CORS Configuration**: Secure cross-origin requests
+- **Environment Variables**: Secure configuration management
+
+## 🚀 Deployment
+
+### Development
+
+```bash
+npm run dev
+```
+
+### Production Build
+
+```bash
+npm run build
+```
+
+### Docker Deployment
+
+```dockerfile
+# Example Dockerfile structure would be here
+# Optimized for production deployment
+```
+
+## 🤝 Contributing
+
+1. **Fork** the repository
+2. **Create** a feature branch
+3. **Commit** your changes
+4. **Push** to the branch
+5. **Open** a Pull Request
+
+### Development Standards
+
+- Follow the established coding standards
+- Write comprehensive tests
+- Update documentation
+- Ensure type safety
+- Follow clean code principles
+
+## 📈 Performance Optimizations
+
+- **Lazy Loading**: Components and modules
+- **OnPush Change Detection**: Optimized Angular change detection
+- **Database Indexing**: Optimized database queries
+- **GraphQL Caching**: Apollo Client caching
+- **Bundle Optimization**: Webpack optimizations
+
+## 🛠️ Technologies Used
+
+### Frontend
+- **Angular 17**: Modern web framework
+- **Angular Material**: UI component library
+- **Apollo Client**: GraphQL client
+- **Socket.io Client**: Real-time communication
+- **RxJS**: Reactive programming
+- **TypeScript**: Type-safe JavaScript
+
+### Backend
+- **NestJS**: Node.js framework
+- **GraphQL**: API query language
+- **Apollo Server**: GraphQL server
+- **Socket.io**: WebSocket communication
+- **Supabase**: Backend-as-a-service
+- **class-validator**: Input validation
+
+### Development Tools
+- **ESLint**: Code linting
+- **Prettier**: Code formatting
+- **Jest**: Testing framework
+- **Webpack**: Module bundler
+- **Git**: Version control
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📞 Support
+
+For support, please open an issue in the GitHub repository or contact the development team.
+
+---
+
+**Built with ❤️ for the Field Control team challenge**
 
 Dúvidas?
 ----------
@@ -228,3 +513,200 @@ Gostariamos de entender como você pensa e as decisões que você tomou durante 
 - Quais princípios da engenharia de software que você usou?
 - Desafios e problemas que você enfrentou e como você resolveu
 - O que você entende que pode ser melhorado e como fazer isso
+
+# Valinor - Trello-like Kanban Board Application
+
+A modern, real-time Kanban board application built with Angular, NestJS, GraphQL, and Supabase.
+
+![Kanban Board](assets/fielders.png)
+
+## 🚀 Features
+
+- ✅ **Drag & Drop**: Intuitive drag-and-drop for cards and columns
+- ✅ **Real-time Updates**: WebSocket support for collaborative editing
+- ✅ **CRUD Operations**: Full create, read, update, delete for boards, columns, and cards
+- ✅ **GraphQL API**: Type-safe API with GraphQL
+- ✅ **Modern UI**: Material Design with smooth animations
+- ✅ **Responsive**: Works on desktop and mobile devices
+- ✅ **Keyboard Shortcuts**: Alt+B to navigate back to boards
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Angular 17, Angular Material, Angular CDK
+- **Backend**: NestJS, GraphQL, Socket.io
+- **Database**: Supabase (PostgreSQL)
+- **Language**: TypeScript
+- **Styling**: SCSS, Material Design
+
+## 📋 Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- Supabase account (for database)
+- Git
+
+## 🏃‍♂️ Quick Start
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/valinor.git
+cd valinor
+```
+
+### 2. Install dependencies
+```bash
+# Install root dependencies
+npm install
+
+# Install frontend dependencies
+cd packages/frontend
+npm install
+
+# Install backend dependencies
+cd ../backend
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env` file in `packages/backend/` with your Supabase credentials:
+
+```env
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+```
+
+### 4. Set up the database
+
+Apply the database schema to your Supabase project:
+
+```sql
+-- Run the contents of supabase-schema.sql in your Supabase SQL editor
+```
+
+### 5. Start the development servers
+
+In separate terminals:
+
+```bash
+# Terminal 1 - Start backend (from packages/backend)
+npm run start:dev
+
+# Terminal 2 - Start frontend (from packages/frontend)  
+npm start
+```
+
+### 6. Access the application
+
+- Frontend: http://localhost:4200
+- Backend GraphQL Playground: http://localhost:3000/graphql
+
+## 📁 Project Structure
+
+```
+valinor/
+├── packages/
+│   ├── frontend/          # Angular application
+│   │   ├── src/
+│   │   │   ├── app/       # Application components and services
+│   │   │   ├── assets/    # Static assets
+│   │   │   └── environments/
+│   │   └── angular.json   # Angular configuration
+│   │
+│   └── backend/           # NestJS application
+│       ├── src/
+│       │   ├── kanban/    # Kanban module (boards, columns, cards)
+│       │   ├── realtime/  # WebSocket gateway
+│       │   └── supabase/  # Supabase service
+│       └── nest-cli.json  # NestJS configuration
+│
+├── supabase-schema.sql    # Database schema
+├── README.md              # This file
+├── SETUP.md               # Detailed setup instructions
+└── package.json           # Root package.json for monorepo
+
+```
+
+## 🔧 Development
+
+### Available Scripts
+
+**Frontend (packages/frontend):**
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm test` - Run unit tests
+
+**Backend (packages/backend):**
+- `npm run start:dev` - Start development server with watch mode
+- `npm run build` - Build for production
+- `npm test` - Run unit tests
+
+### Key Features Implementation
+
+#### Drag & Drop
+- Implemented using Angular CDK Drag & Drop
+- Supports both card and column reordering
+- Visual feedback during drag operations
+
+#### Real-time Updates
+- WebSocket gateway using Socket.io
+- Board-specific rooms for targeted updates
+
+#### GraphQL API
+- Type-safe queries and mutations
+- Auto-generated schema from TypeScript decorators
+
+## 🧪 Testing
+
+```bash
+# Run frontend tests
+cd packages/frontend
+npm test
+
+# Run backend tests
+cd packages/backend
+npm test
+```
+
+## 📦 Building for Production
+
+```bash
+# Build frontend
+cd packages/frontend
+npm run build
+
+# Build backend
+cd packages/backend
+npm run build
+```
+
+## 🚢 Deployment
+
+The built applications can be deployed to various platforms:
+
+- **Frontend**: Vercel, Netlify, AWS S3 + CloudFront
+- **Backend**: Heroku, AWS ECS, Google Cloud Run
+- **Database**: Supabase (managed)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Field Control for the project requirements
+- Angular and NestJS communities for excellent documentation
+- Supabase for the fantastic BaaS platform
+
+---
+
+Made with ❤️ using Angular, NestJS, and Supabase

@@ -1,0 +1,297 @@
+# Dependencies
+node_modules/
+*/node_modules/
+packages/*/node_modules/
+
+# Production builds
+dist/
+*/dist/
+packages/*/dist/
+build/
+*/build/
+packages/*/build/
+out/
+*/out/
+
+# Environment files (contain sensitive data)
+.env
+.env.*
+.env.local
+.env.development
+.env.test
+.env.production
+*.env
+!.env.example
+!env.example
+packages/*/.env
+packages/*/*.env
+!packages/*/env.example
+!packages/*/.env.example
+
+# Angular specific
+.angular/
+packages/frontend/.angular/
+packages/frontend/.angular/cache/
+packages/frontend/dist/
+packages/frontend/tmp/
+packages/frontend/out-tsc/
+packages/frontend/bazel-out/
+
+# NestJS specific
+packages/backend/dist/
+packages/backend/node_modules/
+
+# GraphQL generated files
+packages/backend/src/schema.gql
+packages/backend/src/**/*.gql.ts
+*.generated.ts
+generated/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# IDE - IntelliJ/WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
+
+# IDE - Cursor
+.cursor/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+packages/*/logs/
+packages/*/*.log
+
+# Testing
+coverage/
+*/coverage/
+packages/*/coverage/
+.nyc_output/
+*/nyc_output/
+packages/*/.nyc_output/
+junit.xml
+test-results/
+playwright-report/
+playwright/.cache/
+e2e/videos/
+e2e/screenshots/
+
+# Package manager files
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+!packages/*/package-lock.json
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.npm/
+
+# TypeScript
+*.tsbuildinfo
+.tsc_cache/
+tsconfig.tsbuildinfo
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.tmp/
+.temp/
+
+# Parcel cache
+.cache/
+.parcel-cache/
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# Nuxt.js
+.nuxt/
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Docusaurus
+.docusaurus/
+
+# Serverless
+.serverless/
+
+# Firebase
+.firebase/
+.firebaserc
+
+# Local Netlify folder
+.netlify/
+
+# Supabase
+**/supabase/.branches
+**/supabase/.temp
+.supabase/
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Backup files
+*.backup
+*.bak
+*.old
+backup/
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Documentation build outputs
+docs/_build/
+docs/.vuepress/dist/
+_site/
+.docz/
+
+# Miscellaneous
+.sass-cache/
+.connect.lock
+.lock-wscript
+*.pid
+*.seed
+*.pid.lock
+.grunt/
+bower_components/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Rush
+common/temp/
+common/autoinstallers/*/.npmrc
+**/.rush/temp/
+
+# Storybook
+storybook-static/
+.storybook/out/
+
+# Turborepo
+.turbo/
+
+# Ignore root level lock files if using workspaces
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
+
+# Keep workspace package.json files
+!package.json
+!packages/*/package.json
+
+# Keep configuration files
+!.prettierrc
+!.eslintrc*
+!tsconfig*.json
+!nest-cli.json
+!angular.json
+!webpack.config.js
+!vite.config.ts
+
+# Keep documentation
+!README.md
+!SETUP.md
+!docs/
+!*.md
+
+# Keep source code
+!src/
+!packages/*/src/
+
+# Keep public assets
+!public/
+!packages/*/public/
+!assets/
+!packages/*/assets/
+
+# Keep test files
+!__tests__/
+!test/
+!tests/
+!e2e/
+!*.spec.ts
+!*.spec.js
+!*.test.ts
+!*.test.js
+
+# Keep GitHub files
+!.github/
+!PULL_REQUEST_TEMPLATE.md
+
+# Keep important config files
+!.npmrc
+!.nvmrc
+!lerna.json
+!nx.json
+!workspace.json
+
+# Keep schema files (but not generated GraphQL schema)
+!*.graphql
+!schema.graphql
+!packages/backend/schema.graphql
+# Exception: NestJS auto-generated schema.gql is excluded above
