@@ -484,6 +484,15 @@ import { GraphQLService } from '../../services/graphql.service';
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      gap: 8px;
+    }
+
+    .kanban-card mat-card-title {
+      flex-grow: 1;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      white-space: normal;
     }
 
     .card-actions {
@@ -491,6 +500,7 @@ import { GraphQLService } from '../../services/graphql.service';
       gap: 4px;
       opacity: 0;
       transition: opacity 0.2s ease;
+      flex-shrink: 0;
     }
 
     .kanban-card:hover .card-actions {
