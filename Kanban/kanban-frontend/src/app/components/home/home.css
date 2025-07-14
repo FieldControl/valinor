@@ -1,0 +1,525 @@
+/* 1-Style root / Paltes de cores no arquivo style.css 
+   Caminho = src\style.css
+*/
+
+/* 2-Style do Body no arquivo style.css
+  caminho= src\style.css
+*/
+
+/* ==========================================================================
+   3. Layout Principal do Kanban
+   ========================================================================== */
+   
+/* Usamos :host para aplicar estilos ao elemento raiz do nosso componente. */
+:host {
+  display: block;
+  padding: var(--spacing-lg);
+}
+
+/* Layout Principal do Kanban */
+.kanban {
+  display: flex;
+  gap: var(--spacing-lg);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-md);
+}
+
+.kanban-column {
+  flex: 0 0 320px; /* Largura fixa para cada coluna */
+  background-color: var(--color-primary-light);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow: hidden;
+  min-width: 250px;
+  min-height: 585px;
+  max-height: 585px;
+}
+
+.kanban-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding: 0 8px;
+}
+
+.kanban-title h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   4. Estilos dos Cards
+   ========================================================================== */
+.kanban-cards {
+  flex-grow: 1;
+  min-height: 100px;
+  overflow-y: auto;
+overflow-x: hidden;
+}
+
+.kanban-card {
+  background-color: var(--color-surface);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  cursor: grab;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.kanban-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.head-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 9999px; /* Efeito de pílula */
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+}
+
+.badge.low { background-color: var(--color-badge-low); }
+.badge.medium { background-color: var(--color-badge-medium); }
+.badge.high { background-color: var(--color-badge-high); }
+
+.card-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-md);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.card-icons { display: flex; gap: var(--spacing-md); }
+.card-icons i { margin-right: 5px; }
+.user img { width: 28px; height: 28px; border-radius: 50%; }
+
+/* ==========================================================================
+   5. Estilos dos Botões e Ações
+   ========================================================================== */  
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md); 
+}
+
+
+  .add-card, .add-column-btn, .delete-column-btn, .trash-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color 0.2s, background-color 0.2s;
+  border-radius: var(--border-radius-md);
+}
+
+.add-card:hover, .add-column-btn:hover {
+  background-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.add-card {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+}
+
+.add-column-btn {
+  flex-shrink: 0; /* Impede que o botão encolha */
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  font-weight: 500;
+}
+
+.delete-column-btn, .trash-btn i {
+  padding: 8px;
+}
+
+.delete-column-btn:hover, .trash-btn i:hover {
+  color: var(--color-badge-high);
+}
+
+/* ==========================================================================
+   6. Estilos dos Modais
+   ========================================================================== */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0; /* Equivalente a top/bottom/left/right = 0 */
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.modal-actions button {
+  padding: 10px 20px; 
+  font-size: 12px; 
+  font-weight: 600; 
+  border: none;
+  border-radius: var(--border-radius-md);
+  color: var(--color-surface);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; 
+  box-shadow: var(--shadow-sm);   
+}
+
+.modal-content {
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 90%;
+  max-width: 420px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.8rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.add-button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color 0.2s, background-color 0.2s;
+  border-radius: var(--border-radius-md);
+}
+
+.add-button:hover{
+   background-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.delete-column-button {
+  background-color: var(--color-red-btn);
+}
+
+.delete-column-button:hover {
+  background-color: #a5000a; 
+}
+
+
+.cancel-delet-button {
+  background-color: var(--color-green-btn);
+}
+
+.cancel-delet-button:hover {
+  background-color: #008716; 
+}
+
+.modal-content h2 { margin-top: 0; color: var(--color-secondary); }
+.form-group { margin-bottom: var(--spacing-md); }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  box-sizing: border-box; /* Garante que padding não afete a largura total */
+}
+
+.modal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: var(--spacing-lg); }
+
+/* ==========================================================================
+   7. Estilos do Drag and Drop (Angular CDK)
+   ========================================================================== */
+.cdk-drag-placeholder {
+  background-color: rgba(0, 122, 255, 0.1);
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--border-radius-md);
+  opacity: 1;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.kanban-cards.cdk-drop-list-dragging .kanban-card:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   8. Estilos da Barra de Rolagem (Scrollbar)
+   ========================================================================== */
+
+.kanban::-webkit-scrollbar {
+  height: 12px; 
+}
+
+.kanban::-webkit-scrollbar-track {
+  background-color: var(--color-primary-light); 
+  border-radius: 10px;
+}
+
+.kanban::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary); 
+  border-radius: 10px;
+  border: 3px solid var(--color-primary-light); 
+}
+
+.kanban::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3; 
+}
+
+/* ==========================================================================
+   9. Estilos da Barra de Rolagem Vertical (Dentro das Colunas)
+   ========================================================================== */
+
+.kanban-cards::-webkit-scrollbar {
+  width: 12px; 
+}
+
+
+.kanban-cards::-webkit-scrollbar-track {
+  background-color: transparent; 
+  border-radius: 10px;
+}
+
+
+.kanban-cards::-webkit-scrollbar-thumb {
+  background-color: var(--color-border); 
+  border-radius: 10px;
+  border: 3px solid var(--color-primary-light); 
+}
+
+
+.kanban-cards::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-secondary); 
+}
+
+
+/* ==========================================================================
+   10. Estilos do Componente de Notificação (Toast)
+   ========================================================================== */
+.notification {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  padding: 16px 24px;
+  border-radius: var(--border-radius-md);
+  color: white;
+  font-weight: 500;
+  box-shadow: var(--shadow-md);
+  z-index: 2000; /* Garante que fique acima de tudo */
+
+  /* Animações de entrada e saída */
+  animation: fadeInAndOut 3s ease-in-out;
+}
+
+/* Estilo para notificações de erro */
+.notification--error {
+  background-color: var(--color-badge-high); /* Vermelho */
+}
+
+/* Estilo para notificações de sucesso (para uso futuro) */
+.notification--success {
+  background-color: var(--color-badge-low); /* Verde */
+}
+
+/* Animação Keyframes */
+@keyframes fadeInAndOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+}
+
+/* ==========================================================================
+   11. Estilos do Indicador de Carregamento (Spinner)
+   ========================================================================== */
+.loading-overlay {
+  position: fixed; /* Cobre a tela inteira */
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000; /* Garante que fique acima de tudo */
+  backdrop-filter: blur(4px); /* Efeito de vidro fosco no fundo */
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--color-primary-light); /* Borda clara */
+  border-top-color: var(--color-primary); /* Borda superior com a cor principal */
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite; /* Animação de rotação */
+}
+
+/* Animação que faz o spinner girar */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   12. Estilos do Cabeçalho da Página e Menu da Conta
+   ========================================================================== */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px  8px;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+}
+
+.account-button {
+  background: none;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.account-button:hover {
+  border-color: var(--color-primary);
+}
+
+.account-button img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.account-button i {
+  font-size: 24px;
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   13. Estilos Específicos do Modal de Conta
+   ========================================================================== */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.profile-image-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--spacing-md);
+  border: 3px solid var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.profile-email {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.modal-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--spacing-lg) 0;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-badge-high);
+  color: var(--color-badge-high);
+  background-color: transparent;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: var(--color-badge-high);
+  color: white;
+}
+
+/* ==========================================================================
+   14. Estilos Específicos para os Botões do Modal de Exclusão
+   ========================================================================== */
+
+/* Estiliza o botão "Excluir" dentro do modal de ações */
+.modal-actions .add-button {
+  background-color: var(--color-badge-high); /* Usa a variável de vermelho que já temos */
+  color: white;
+}
+
+.modal-actions .add-button:hover {
+  background-color: #b91c1c; /* Um vermelho mais escuro no hover */
+}
+
+/* Estiliza o botão "Manter" (Cancelar) */
+.modal-actions .add-button-cancel {
+  background-color: var(--color-badge-low); 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.modal-actions .add-button-cancel:hover {
+  background-color: #0f7535; 
+}

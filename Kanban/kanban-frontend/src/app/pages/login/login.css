@@ -1,0 +1,140 @@
+/* ==========================================================================
+   1. Container Principal da Página de Autenticação
+   ========================================================================== */
+/* Ocupa toda a tela e usa flexbox para centralizar o card de login. */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-background); /* Usa a cor de fundo global do tema. */
+  padding: var(--spacing-lg);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. Card de Autenticação
+   ========================================================================== */
+/* O "card" branco que contém os formulários. */
+.auth-card {
+  background-color: var(--color-surface);
+  padding: 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.auth-card p {
+  margin-bottom: 32px;
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   3. Estilos do Formulário (Inputs e Labels)
+   ========================================================================== */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito de foco para os inputs, usando a cor primária para feedback visual. */
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* ==========================================================================
+   4. Estilos de Botões e Links
+   ========================================================================== */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+/* Estilo para o botão quando o formulário é inválido. */
+button[type="submit"]:disabled {
+  background-color: #a0c7e4;
+  cursor: not-allowed;
+}
+
+/* Texto e link para alternar entre login e registo. */
+.switch-form-text {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.switch-form-text a {
+  color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.switch-form-text a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   5. Área de Mensagens de Feedback (Erro/Sucesso)
+   ========================================================================== */
+.message-area {
+  min-height: 48px; /* Reserva espaço para a mensagem não "empurrar" o layout. */
+  margin-top: 20px;
+}
+
+.error-message, .success-message {
+  padding: 12px;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+}
+
+.error-message {
+  background-color: #fff5f5;
+  color: #c53030;
+}
+
+.success-message {
+  background-color: #f0fff4;
+  color: #2f855a;
+}

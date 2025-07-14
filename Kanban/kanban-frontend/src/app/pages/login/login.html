@@ -1,0 +1,55 @@
+<div class="auth-container">
+  <div class="auth-card">
+
+    <div *ngIf="isLoginView; else registerView">
+      
+      <h2>Login</h2>
+      <p>Acesse ao seu quadro Kanban</p>
+      
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input id="login-email" type="email" formControlName="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Senha</label>
+          <input id="login-password" type="password" formControlName="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
+      </form>
+
+      <p class="switch-form-text">
+        Não tem uma conta? <a (click)="toggleView()">Registe-se</a>
+      </p>
+    </div>
+
+    <ng-template #registerView>
+      <h2>Registro</h2>
+      <p>Crie a sua conta para começar</p>
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <input id="register-email" type="email" formControlName="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Senha</label>
+          <input id="register-password" type="password" formControlName="password" placeholder="Mínimo de 6 caracteres" required>
+        </div>
+        <button type="submit" [disabled]="registerForm.invalid">Criar Conta</button>
+      </form>
+      <p class="switch-form-text">
+        Já tem uma conta? <a (click)="toggleView()">Faça login</a>
+      </p>
+    </ng-template>
+
+    <div class="message-area">
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <div class="success-message" *ngIf="successMessage">
+        {{ successMessage }}
+      </div>
+    </div>
+
+  </div>
+</div>

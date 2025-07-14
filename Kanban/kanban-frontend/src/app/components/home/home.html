@@ -1,0 +1,125 @@
+<header class="main-header">
+  <h1>Meu Kanban</h1>
+  <div class="account-menu">
+    <button (click)="openAccountModal($event)" class="account-button">
+      <img *ngIf="currentUser?.profileImageUrl" [src]="currentUser?.profileImageUrl" alt="Foto de Perfil">
+      <i *ngIf="!currentUser?.profileImageUrl" class="fa-solid fa-user-circle"></i>
+    </button>
+  </div>
+</header>
+
+<div class="loading-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
+
+<main class="kanban" cdkDropListGroup>
+  <div class="kanban-column" *ngFor="let column of columns; let colIndex = index">
+    <div class="kanban-title">
+      <h2>{{ column.name }}</h2>
+      <button class="delete-column-btn" (click)="openDeleteColumnModal(colIndex)">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+
+    <div class="kanban-cards" cdkDropList [attr.data-column-id]="column.id" [cdkDropListData]="column.cards"
+      (cdkDropListDropped)="drop($event)">
+      <div class="kanban-card" *ngFor="let card of column.cards" cdkDrag>
+        <div class="head-card">
+          <div class="badge" [ngClass]="card.badge">
+            <span>{{ card.badgeText }}</span>
+          </div>
+          <div class="trash-btn">
+            <i class="fa-solid fa-trash" (click)="deleteCard(column.id, card.id)"></i>
+          </div>
+        </div>
+        <p class="card-title">{{ card.title }}</p>
+        <div class="card-infos">
+          <div class="card-icons">
+            <p><i class="fa-regular fa-comment"></i> 0</p>
+            <p><i class="fa-solid fa-paperclip"></i> 0</p>
+          </div>
+          <div class="user">
+            <img [src]="card.userProfileImageUrl" alt="profile">
+          </div>
+        </div>
+      </div>
+      <button class="add-card" (click)="openAddCardModal(column.id)">
+        <i class="fa-solid fa-plus"></i> Novo card
+      </button>
+    </div>
+  </div>
+
+  <button class="add-column-btn" (click)="openAddColumnModal()">
+    <i class="fa-solid fa-plus"></i> Nova Coluna
+  </button>
+</main>
+
+<div class="modal" *ngIf="isAccountModalVisible" (click)="closeAccountModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-button" (click)="closeAccountModal()">&times;</span>
+    <h2>Sua Conta</h2>
+    <div class="profile-details">
+      <img [src]="currentUser?.profileImageUrl" alt="Foto de Perfil" class="profile-image-large">
+      <p class="profile-email">{{ currentUser?.email }}</p>
+    </div>
+    <form [formGroup]="updateProfileForm" (ngSubmit)="onUpdateProfile()">
+      <div class="form-group">
+        <label for="profile-image-url">URL da Foto de Perfil:</label>
+        <input type="text" id="profile-image-url" formControlName="profileImageUrl" placeholder="https://exemplo.com/sua-foto.png">
+      </div>
+      <button type="submit" class="add-button">Salvar Alterações</button>
+    </form>
+    <hr class="modal-divider">
+    <button (click)="logout()" class="logout-button">Sair (Logout)</button>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isModalVisible">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <h2>Adicionar Novo Card</h2>
+    <form [formGroup]="addCardForm" (ngSubmit)="onAddCard()">
+      <div class="form-group">
+        <label for="card-title">Título:</label>
+        <input type="text" id="card-title" formControlName="title" required>
+      </div>
+      <div class="form-group">
+        <label for="card-badge">Prioridade:</label>
+        <select id="card-badge" formControlName="badge">
+          <option value="low">Mínima</option>
+          <option value="medium">Média</option>
+          <option value="high">Máxima</option>
+        </select>
+      </div>
+      <button type="submit" class="add-button"><i class="material-icons">send</i></button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isAddColumnModalVisible">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeAddColumnModal()">&times;</span>
+    <h2>Adicionar Nova Coluna</h2>
+    <form [formGroup]="addColumnForm" (ngSubmit)="onAddColumn()">
+      <div class="form-group">
+        <label for="column-title">Título da Coluna:</label>
+        <input type="text" id="column-title" formControlName="title" required>
+      </div>
+      <button type="submit" class="add-button">Adicionar</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isDeleteColumnModalVisible">
+  <div class="modal-content">
+    <h2>Você tem certeza que deseja excluir essa coluna?</h2>
+    <div class="modal-actions">
+      <button (click)="confirmDeleteColumn()" class="add-button">Excluir</button>
+      <button (click)="closeDeleteColumnModal()" class="add-button-cancel">Manter</button>
+    </div>
+  </div>
+</div>
+
+<div class="notification" *ngIf="notification.isVisible" [ngClass]="'notification--' + notification.type">
+  <span>{{ notification.message }}</span>
+</div>

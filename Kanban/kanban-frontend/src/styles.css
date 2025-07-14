@@ -1,0 +1,34 @@
+/* Importa as fontes. */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Define as variáveis de cor para serem usadas em toda a aplicação. */
+:root {
+  --color-primary: #007bff;
+  --color-primary-light: #abd6f6;
+  --color-secondary: #374151;
+  --color-background: #f0f2f5;
+  --color-surface: #ffffff;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-border: #9097a1;
+  --color-badge-high: #dc2626;
+  --color-badge-medium: #f97316;
+  --color-badge-low: #16a34a;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* estilos base ao corpo da página. */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+}

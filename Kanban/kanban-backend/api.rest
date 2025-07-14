@@ -1,0 +1,9 @@
+### Registar um novo utilizador
+
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "usuario_2@gmail.com",
+  "password": "senha_2"
+}
