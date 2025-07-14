@@ -1,230 +1,133 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# 📌 Projeto Kanban Full Stack
 
-A empresa
-----------
+## 📝 Descrição do Projeto
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+Este é um projeto completo de quadro Kanban, desenvolvido com **Angular** no frontend e **NestJS** no backend. A aplicação permite que múltiplos usuários se registrem e criem seus próprios quadros Kanban, com colunas e cards totalmente isolados e protegidos.
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
-
-Nossa missão é melhorar a prestação de serviços no Brasil.
-
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
-
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
-
-Origem
-----------
-
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
-
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
-
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
-
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
-
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
-
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
-
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
-
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
-
-Oportunidade
-----------
-
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
-
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack tecnológica é predominantemente JavaScript, abrangendo Node.js, Single Page Applications (SPA) e Hybrid Mobile Apps.
-
-Acreditamos firmemente que excelentes desenvolvedores são capazes de selecionar a ferramenta mais adequada para cada desafio. Por essa razão, para resolver problemas específicos, recorremos às melhores alternativas disponíveis, o que nos leva a incluir uma pitada de C#, Java e PHP em nossas soluções.
-
-Nossos servidores residem na AWS, onde utilizamos a nuvem como nossa plataforma principal. Temos aplicativos funcionando com Elastic BeanStalk, armazenamento em S3 e arquiteturas serverless com AWS Lambda.
-
-Antes mesmo de avaliar o conhecimento técnico, valorizamos o perfil pessoal dos candidatos. Para nós, a determinação, o interesse e a curiosidade são qualidades essenciais. Se você é alguém proativo, interessado e que busca constantemente aprender, é isso que realmente importa para nós! 😊
+O sistema possui um fluxo completo de autenticação com **JWT**, persistência de dados em banco relacional e funcionalidades de gestão de perfil, demonstrando uma arquitetura robusta e escalável.
 
 ---
 
-## Requisitos Principais
+## 💪 Desafios Enfrentados
 
-🌟 **Sem Ego**: Acreditamos que ninguém é melhor que ninguém e que todos podem aprender uns com os outros. Promovemos um ambiente onde a humildade, o respeito e a abertura para aprender e ensinar são valorizados.
+O maior desafio foi aprender as tecnologias utilizadas. Iniciei com apenas um conhecimento básico em JavaScript e, nos dois primeiros dias do projeto, mergulhei no estudo de **TypeScript**, **Angular**, **NestJS**, **Node.js** e várias bibliotecas.
 
-📈 **Evolução Contínua**: Encorajamos o crescimento pessoal e profissional de todos os membros da equipe. Estamos comprometidos em fornecer oportunidades de aprendizado e desenvolvimento, permitindo que cada indivíduo evolua constantemente em sua jornada.
+Comecei criando um micro projeto de Kanban apenas com HTML, CSS e JS, baseado em tutoriais do YouTube. Depois, tentei migrar para o Angular e percebi a necessidade de entender melhor o ecossistema. Após dois dias de estudo, comecei a escrever a aplicação real.
 
-🚀 **Proatividade**: Buscamos indivíduos proativos, capazes de antecipar problemas e buscar soluções de forma autônoma.
+Foi um desafio intenso, mas extremamente recompensador. Descobri um grande interesse por Angular, NestJS e, principalmente, TypeScript.
 
-🔑 **Sentimento de Dono**: Valorizamos profissionais que assumem responsabilidade pelo seu trabalho e estão comprometidos com o sucesso do projeto como se fossem os donos.
+---
 
-🤝 **Boa Comunicação e Trabalho em Equipe**: Habilidades de comunicação eficaz e colaboração são essenciais para trabalhar de forma eficiente em equipe.
+## ✨ Funcionalidades Implementadas
 
-💻 **Proficiência em JavaScript e TypeScript**: Experiência sólida em JavaScript e TypeScript, demonstrando habilidade em desenvolver soluções robustas e escaláveis.
+### 🔐 Autenticação de Usuários
+- Cadastro com senhas criptografadas (**bcrypt**).
+- Login com email e senha.
+- Geração de tokens **JWT**.
+- Rotas protegidas no frontend e backend.
 
-🎨 **Experiência com CSS e HTML Semântico**: Conhecimento prático em CSS e HTML Semântico para criar interfaces atraentes e acessíveis.
+### 👥 Multi-Tenancy (Isolamento de Dados)
+- Cada usuário possui seu próprio ambiente.
+- Colunas e cards são visíveis e modificáveis apenas pelo dono.
+- Backend garante isolamento seguro entre os dados.
 
-🔧 **Experiência Sólida com Angular e Ionic**: Capacidade comprovada no desenvolvimento com Angular e Ionic, demonstrando habilidade em construir aplicações web e mobile de alta qualidade.
+### 📋 Gestão do Quadro Kanban
+- Criação, listagem e exclusão de colunas.
+- Criação, exclusão e atualização de cards (com título e prioridade).
+- **Drag & Drop** com persistência no banco de dados.
 
-🖌️ **Familiaridade com Princípios de UX**: Compreensão dos princípios de User Experience (UX) para criar interfaces intuitivas e amigáveis aos usuários.
+### 🧑‍💼 Gestão de Perfil
+- Menu de conta com exibição e atualização de dados.
+- Upload de foto de perfil.
+- Logout com invalidação segura da sessão.
 
-🌐 **Familiaridade com APIs REST, GraphQL e WebSockets**: Conhecimento em APIs REST, GraphQL e WebSockets para comunicação eficiente entre cliente e servidor.
+### 🧠 Experiência do Usuário (UX)
+- Interface limpa e responsiva.
+- Spinners durante carregamento de dados.
+- Toasts para mensagens de erro e sucesso.
+- Scrollbars customizadas.
 
-🧪 **Prática em Testar Software**: Experiência prática em testes de software, incluindo testes unitários, integrados e de aceitação, garantindo a qualidade e a confiabilidade do sistema.
+---
 
-Estes requisitos refletem nossa busca por profissionais qualificados e comprometidos, capazes de contribuir de forma significativa para o sucesso de nossos projetos.
+## 🚧 Melhorias Futuras
 
-O desafio de programação
-----------
+A última melhoria tentada foi o deploy da aplicação em ambiente público. Utilizei **Netlify** e **Vercel** para o frontend, e **Render** para o backend. O backend foi implementado com sucesso, mas o frontend apresentou um erro que impediu a publicação.
 
-Se você é apaixonado por desenvolvimento de software e busca desafios para impulsionar sua carreira, este teste é para você! Realize o desafio abaixo e faça um fork deste repositório para começar a codificar. [Let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)! 🚀
+Pretendo resolver esse problema e disponibilizar o projeto online no futuro.
 
-# Teste de Programação: Kanban
+---
 
-Este é um teste de programação que consiste em implementar um Kanban, utilizando Angular para o client side e NestJs para o back-end. 
+## 🛠️ Tecnologias Utilizadas
 
-O objetivo é avaliar a capacidade do candidato em estruturar um projeto seguindo as boas práticas de ambos os frameworks e implementar um fluxo básico de colunas e cards dentro do Kanban.
+### Frontend
+- [Angular](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Angular CDK - Drag & Drop](https://material.angular.io/cdk/drag-drop/overview)
+- [RxJS](https://rxjs.dev/)
 
-## Critérios de Avaliação
+### Backend
+- [NestJS](https://nestjs.com/)
+- [TypeORM](https://typeorm.io/)
+- [PostgreSQL](https://www.postgresql.org/) (produção)
+- [SQLite](https://www.sqlite.org/index.html) (desenvolvimento)
+- [Passport.js](http://www.passportjs.org/) (`passport-jwt` e `bcrypt`)
 
-Os critérios de avaliação para este teste são os seguintes:
+### Testes (Backend)
+- [Jest](https://jestjs.io/)
 
-1. **Código Limpo e Organização**: Avalia a clareza, legibilidade e organização do código fonte.
+---
 
-2. **Testes de Software**: Serão avaliados os testes unitários e integrados para garantir a robustez do sistema.
+## 🚀 Como Executar o Projeto
 
-3. **Semântica**: A utilização de nomes significativos para variáveis, funções, classes, etc., será observada.
+### 🔧 Pré-requisitos
 
-4. **Documentação do Projeto (README)**: A qualidade e completude da documentação do projeto, que inclui informações sobre como executar, testar e utilizar o sistema.
+Certifique-se de ter instalado:
 
-5. **Segurança**: A adoção de práticas de segurança apropriadas, como proteção contra ataques comuns, será considerada.
+- [Node.js (v18+)](https://nodejs.org/en/)
+- [Angular CLI](https://angular.io/cli):  
+  `npm install -g @angular/cli`
+- [NestJS CLI](https://docs.nestjs.com/):  
+  `npm install -g @nestjs/cli`
 
-## Instruções
+### 1. Clonar o Repositório
 
-1. Implemente um Kanban básico que permita a criação de colunas e cards.
-2. Utilize Angular para o desenvolvimento do cliente e NestJs para o desenvolvimento do servidor.
-3. Siga as boas práticas de desenvolvimento de software recomendadas pelos frameworks.
-4. Implemente testes unitários e integrados para garantir a qualidade e robustez do sistema.
-5. Documente o projeto de forma clara e completa neste arquivo README.
+```bash
+git clone https://github.com/GRiguetto/Kanban.git
+cd Kanban
 
-## Entrega
+```
+### 2. Rodar o Backend
+```bash
+cd kanban-backend
+npm install
+npm run start:dev
+```
+O backend estará rodando em http://localhost:3000
 
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório ;)
+### 3. Rodar o Frontend
+Em outro terminal:
 
-## Estrutura do Projeto
+```bash
 
-A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJs, com os arquivos de configuração e código-fonte organizados de maneira lógica e intuitiva.
+cd kanban-frontend
+npm install
+ng serve
+```
+O frontend estará disponível em http://localhost:4200
 
-## Observações
+---
+### 🧪 Executando Testes
+Para rodar os testes do backend:
 
-- Certifique-se de que o código está devidamente comentado e documentado para facilitar a compreensão e manutenção futura.
-- Evite a utilização de bibliotecas ou frameworks que não sejam necessários para a implementação do Kanban básico.
-- Qualquer dúvida ou problema encontrado durante a execução do projeto, entre em contato com os avaliadores.
+```bash
 
-## Referências
+cd kanban-backend
+npm run test
+```
+Isso executará os testes unitários e de integração, mostrando a cobertura no terminal.
 
-### Angular
+---
+### 👨‍💻 Sobre Mim
+Meu nome é Gabriel, tenho 18 anos e moro em São José do Rio Preto. Concluí o ensino médio em 2024, junto com um curso técnico em Informática pelo Senac, onde descobri minha paixão pelo desenvolvimento de software.
 
-- Documentação Oficial do Angular: [Angular Docs](https://angular.io/docs)
-- Repositório do Angular no GitHub: [Angular GitHub](https://github.com/angular/angular)
-
-### NestJs
-
-- Documentação Oficial do NestJs: [NestJs Docs](https://docs.nestjs.com/)
-- Repositório do NestJs no GitHub: [NestJs GitHub](https://github.com/nestjs/nest)
-
-Estes recursos fornecem uma base sólida para aprender e se aprofundar nos frameworks Angular e NestJs.
-
-## Para Iniciantes
-
-Se você é um iniciante nesta jornada de desenvolvimento, queremos encorajá-lo a participar deste teste e fazer o seu melhor. Na Field, valorizamos a força de vontade, a iniciativa e o desejo de aprender.
-
-Não se preocupe se você não conseguir entregar um projeto perfeito ou completo. O objetivo é que você ganhe experiência, aprenda com o processo e se desafie a ir além do que já conhece.
-
-Aqui estão algumas dicas para ajudá-lo durante o teste:
-
-1. **Comece com o Básico**: Concentre-se em entender os conceitos fundamentais do Angular e do NestJs. Explore tutoriais, documentações e exemplos de código para se familiarizar com as tecnologias.
-
-2. **Divida o Projeto em Etapas**: Em vez de tentar implementar tudo de uma vez, divida o projeto em etapas menores e gerenciáveis. Concentre-se em uma funcionalidade de cada vez e avance gradualmente.
-
-3. **Não Tenha Medo de Errar**: O processo de aprendizado envolve tentativa e erro. Não se preocupe com os erros ou obstáculos que encontrar ao longo do caminho. Eles fazem parte do processo e são oportunidades de aprendizado.
-
-4. **Celebre suas Conquistas**: Cada pequeno progresso é uma conquista. Celebre suas realizações, por menores que sejam, e reconheça o esforço e a dedicação que você está dedicando ao projeto.
-
-Lembre-se, o importante é tentar e aprender durante o processo. Valorizamos sua iniciativa e estamos aqui para apoiá-lo em sua jornada de desenvolvimento. Boa sorte e divirta-se codificando! 🌟
-
-## Diferenciais
-
-Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais pode agregar valor ao projeto:
-
-### Aplicação Publicada e Rodando
-
-- Configurar e publicar a aplicação em um ambiente de hospedagem como Heroku, Netlify, AWS, Azure, etc., para demonstrar a capacidade de implantar e disponibilizar o sistema para uso real.
-
-### Testes Integrados e E2E
-
-- Implementar testes integrados e end-to-end (E2E) utilizando ferramentas como Jasmine, Protractor, Jest, etc., para garantir a qualidade e estabilidade do sistema em diferentes níveis de teste.
-
-### API em GraphQL ao Invés de REST
-
-- Utilizar GraphQL como interface de programação de aplicativos (API) em vez de REST para oferecer uma forma mais flexível e eficiente de consultar e manipular dados entre o cliente e o servidor.
-
-### Realtime com Socket.io
-
-- Implementar funcionalidades em tempo real utilizando Socket.io para fornecer uma experiência interativa e dinâmica aos usuários, permitindo atualizações instantâneas e sincronizadas entre os diferentes clientes conectados à aplicação.
-
-A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a aplicação de tecnologias modernas e práticas de desenvolvimento de software, elevando a qualidade e a experiência do usuário final.
-
-
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+Atualmente estou no 2º semestre da Fatec Rio Preto. Já desenvolvi projetos acadêmicos como um sistema ERP em C#/.NET e sites em HTML/CSS/JS. Porém, este projeto de Kanban foi o mais desafiador e gratificante até agora, principalmente por me levar a estudar tecnologias novas como Angular, NestJS e TypeScript — que pretendo continuar utilizando na minha carreira.
