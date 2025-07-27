@@ -1,0 +1,26 @@
+<div class="top-bar">
+  <button mat-raised-button color="primary" (click)="openAddTaskDialog()">Add Task</button>
+</div>
+
+<div class="kanban">
+  <div class="column" *ngFor="let step of steps; let i = index">
+    <h2>{{ step }}</h2>
+    <mat-card *ngFor="let task of tasksByStep(i)">
+      <mat-card-title>{{ task.name }}</mat-card-title>
+      <mat-card-content>{{ task.desc }}</mat-card-content>
+      <button mat-button (click)="editTask(task)">Edit</button>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="editingTask" class="edit-dialog">
+  <h2>Edit Task</h2>
+  <input [(ngModel)]="editingTask.name" placeholder="Name" />
+  <input [(ngModel)]="editingTask.desc" placeholder="Description" />
+  <select [(ngModel)]="editingTask.step">
+    <option *ngFor="let step of steps; index as i" [value]="i">{{ step }}</option>
+  </select>
+  <button mat-raised-button color="accent" (click)="saveTask()">Save</button>
+  <button mat-button (click)="cancelEdit()">Cancel</button>
+  <button mat-button color="warn" (click)="deleteTask()">Delete</button>
+</div>

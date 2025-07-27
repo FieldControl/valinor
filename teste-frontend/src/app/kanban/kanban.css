@@ -1,0 +1,93 @@
+.kanban {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow-x: auto;
+  height: calc(100vh - 200px);
+  justify-content: center;
+}
+
+.column {
+  background: #f4f5f7;
+  border-radius: 8px;
+  padding: 12px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.column h2 {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  color: #172b4d;
+}
+
+mat-card {
+  margin-bottom: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 1px 0 rgba(9,30,66,.25);
+  transition: box-shadow 0.2s ease;
+}
+
+mat-card:hover {
+  box-shadow: 0 4px 8px rgba(9,30,66,.25);
+}
+
+.add-task {
+  padding: 16px;
+  background: #fff;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.add-task input,
+.add-task select {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.edit-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  max-width: 90vw;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.edit-dialog input,
+.edit-dialog select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+}
+
+.edit-dialog button {
+  margin-right: 8px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 16px;
+}
