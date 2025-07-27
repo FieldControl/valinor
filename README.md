@@ -12,7 +12,7 @@ cd teste-frontend
 
 Rode o comando de inicialização após instalar as dependências: 
 ```
-ng serve
+npm run start
 ```
 Pronto, o cliente estará aberto no endereço http://localhost:4200
 
