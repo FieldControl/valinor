@@ -19,6 +19,7 @@ export class ColumnService {
       ...column,
       cards: cards.filter(card => card.column_id === column.id)
     }))
+    console.log(columnsWithCards, cards)
 
 
     return columnsWithCards;

@@ -4,7 +4,7 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('cards', (table) => {
     table.increments('id').primary();
     table.string('title').notNullable();
-    table.integer('column_id').notNullable().unique();
+    table.integer('column_id').notNullable();
     table.timestamps(true, true);
   });
 }
