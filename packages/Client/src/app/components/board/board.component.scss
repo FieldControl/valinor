@@ -1,0 +1,9 @@
+.columns-wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  flex: 1;
+  padding: 10px;
+  gap: 15px;
+  height: calc(100vh - 50px);
+}

@@ -1,0 +1,18 @@
+<app-top-bar (novaColuna)="adicionarColuna()"></app-top-bar>
+
+<div class="columns-wrapper">
+  <app-column
+    *ngFor="let coluna of colunas; let i = index"
+    [titulo]="coluna.titulo"
+    [cards]="coluna.cards"
+    (remover)="removerColuna(i)"
+    (moverEsquerda)="moverColuna(i, 'esquerda')"
+    (moverDireita)="moverColuna(i, 'direita')"
+    (renomear)="renomearColuna(i)"
+    (criarCard)="criarCard(i)"
+    (removerCard)="removerCard(i, $event)"
+    (moverCardEsquerda)="moveCardLeft(i, $event)"
+    (moverCardDireita)="moveCardRight(i, $event)"
+    (renomearCard)="renomearCard(i, $event)">
+  </app-column>
+</div>

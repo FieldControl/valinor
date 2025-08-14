@@ -1,0 +1,27 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1976d2;
+  color: white;
+  padding: 10px 20px;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.top-bar button {
+  background: white;
+  color: #1976d2;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.top-bar button:hover {
+  background: #e3f2fd;
+}
