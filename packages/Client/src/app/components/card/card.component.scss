@@ -16,3 +16,19 @@
   border: none;
   cursor: pointer;
 }
+
+input {
+  height: 28px;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.new-column {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.action-button {
+  height: 28px;
+}

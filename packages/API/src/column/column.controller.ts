@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { ColumnService } from './column.service';
 
 @Controller('column')
@@ -25,4 +25,8 @@ export class ColumnController {
     return this.columnService.updateColumn(id, body);
   }
 
+  @Put(':id')
+  move(@Param('id') id: number, @Body() body: { order: number }) {
+    return this.columnService.moveColumn(id, body);
+  }
 }

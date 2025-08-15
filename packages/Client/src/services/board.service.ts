@@ -39,7 +39,7 @@ export class BoardService {
     return this.http.delete<Column>(`${this.apiUrl}/column/${id}`);
   }
 
-  updateColumn(id: number, name: string, order: number): Observable<Column> {
+  updateColumn(id: number, name?: string, order?: number): Observable<Column> {
     return this.http.patch<Column>(`${this.apiUrl}/column/${id}`, {name, order});
   }
 
@@ -54,4 +54,9 @@ export class BoardService {
   updateCard(id: number, title: string, columnId: number): Observable<Card> {
     return this.http.patch<Card>(`${this.apiUrl}/card/${id}`, {title, columnId});
   }
+
+  moveColumn(id: number, order: number): Observable<Column> {
+    return this.http.put<Column>(`${this.apiUrl}/column/${id}`, { order });
+  }  
+
 }

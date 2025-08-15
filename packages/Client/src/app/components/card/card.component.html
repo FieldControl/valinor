@@ -1,9 +1,16 @@
 <div class="card">
-  {{ card.title }}
+  <div *ngIf="!isRenaming">
+    {{ card.title }}
+  </div>
+  <div class="new-column" *ngIf="isRenaming">
+    <input  [(ngModel)]="newCardName" (keydown.enter)="renameCard()">
+    <button class="action-button"  (click)="toggleInput()">🗑</button>
+    <button class="action-button" (click)="renameCard()" >✔️</button>
+  </div>
   <div class="card-actions">
     <button (click)="remove.emit()">🗑</button>
     <button (click)="moveCardLeft.emit()">⬅</button>
     <button (click)="moveCardRight.emit()">➡</button>
-    <button (click)="rename.emit()">✏️</button>
+    <button (click)="toggleInput()">✏️</button>
   </div>
 </div>

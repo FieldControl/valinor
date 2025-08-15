@@ -50,4 +50,14 @@ export class ColumnService {
     return this.columnRepository.updateColumn(id, data)
   }
 
+  async moveColumn(id: number, data: { order: number }) {
+    const columnExists = await this.columnRepository.getById(id)
+    if (!columnExists) throw new Error('Column does not exists.') // ok
+    const orderInUse = await this.columnRepository.getByOrder(data.order);
+    if (!orderInUse) throw new Error("Invalid order.")
+    await Promise.all([
+      this.columnRepository.updateColumn(id, { order: orderInUse.order }),
+      this.columnRepository.updateColumn(orderInUse.id, { order: columnExists.order })
+    ])
+  }
 }

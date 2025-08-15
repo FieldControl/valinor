@@ -8,22 +8,8 @@ export class ColumnRepository {
   ) { }
 
   async getColumns() {
-    return this.knex('columns').select('*');
+    return this.knex('columns').select('*').orderBy("order", "asc");
   }
-
-  async getColumnsWithCards() {
-    return this.knex('columns')
-      .leftJoin('cards', 'columns.id', 'cards.column_id')
-      .select(
-        'columns.id as column_id',
-        'columns.name as column_name',
-        'cards.id as card_id',
-        'cards.title as card_title',
-        'cards.created_at'
-      )
-      .orderBy('columns.order', 'asc');
-  }
-
 
   async getByOrder(order: number) {
     const result = await this.knex('columns').select('*').where('order', order)

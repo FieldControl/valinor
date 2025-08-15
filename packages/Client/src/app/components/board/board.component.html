@@ -1,4 +1,4 @@
-<app-top-bar (newColumn)="addColumn()"></app-top-bar>
+<app-top-bar (newColumn)="addColumn($event)"></app-top-bar>
 
 <div class="columns-wrapper">
   <app-column
@@ -6,13 +6,13 @@
     [title]="column.name"
     [cards]="column.cards"
     (remove)="removeColumn(i)"
-    (moveCardLeft)="moveColumn(i, 'Left')"
-    (moveCardRight)="moveColumn(i, 'Right')"
-    (rename)="renameColumn(i)"
-    (criarCard)="createCard(i)"
+    (moveLeft)="moveColumn(i, 'Left')"
+    (moveRight)="moveColumn(i, 'Right')"
+    (rename)="renameColumn(i, $event)"
+    (createCard)="createCard(i)"
     (removeCard)="removeCard(i, $event)"
-    (moverCardEsquerda)="moveCardLeft(i)"
-    (moverCardDireita)="moveCardRight(i)"
+    (moveCardLeft)="moveCardLeft(i, $event)"
+    (moveCardRight)="moveCardRight(i, $event)"
     (renameCard)="renameCard(i, $event)">
   </app-column>
 </div>

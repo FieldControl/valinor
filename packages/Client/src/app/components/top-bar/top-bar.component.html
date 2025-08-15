@@ -1,4 +1,9 @@
 <div class="top-bar">
-  <h1>Kanban from forguay</h1>
-  <button (click)="addColumn()">+ New Column</button>
+  <h1>Kanban Board</h1>
+  <button *ngIf="!isAdding" (click)="toggleInput()">+ New Column</button>
+  <div class="new-column" *ngIf="isAdding">
+    <input  [(ngModel)]="newColumnName" (keydown.enter)="addColumn()">
+    <button class="action-button"  (click)="toggleInput()">🗑</button>
+    <button class="action-button" (click)="addColumn()" >✔️</button>
+  </div>
 </div>

@@ -1,24 +1,29 @@
 <div class="column">
   <div class="column-header">
-    <h3>{{ title }}</h3>
-    <div class="column-actions">
-      <button (click)="remove.emit()">🗑</button>
-      <button (click)="moveLeft.emit()">⬅</button>
-      <button (click)="moveRight.emit()">➡</button>
-      <button (click)="rename.emit()">✏️</button>
+    <div *ngIf="!isRenaming">
+      <h3>
+        {{ title }}
+      </h3>
+      <div class="column-actions">
+        <button (click)="remove.emit()">🗑</button>
+        <button (click)="moveLeft.emit()">⬅</button>
+        <button (click)="moveRight.emit()">➡</button>
+        <button (click)="toggleInput()">✏️</button>
+      </div>
+    </div>
+    <div class="new-column" *ngIf="isRenaming">
+      <input [(ngModel)]="newColumnName" (keydown.enter)="renameColumn()">
+      <button class="action-button" (click)="toggleInput()">🗑</button>
+      <button class="action-button" (click)="renameColumn()">✔️</button>
     </div>
   </div>
 
   <button class="add-card-btn" (click)="createCard.emit()">+ Card</button>
 
   <div class="cards-wrapper">
-    <app-card
-      *ngFor="let card of cards; let ci = index"
-      [card]="card"
-      (remove)="removeCard.emit(ci)"
-      (moveCardLeft)="moveCardLeft.emit(ci)"
-      (moveCardRight)="moveCardRight.emit(ci)"
-      (rename)="renameCard.emit(ci)">
+    <app-card *ngFor="let card of cards; let ci = index" [card]="card" (remove)="removeCard.emit(ci)"
+      (moveCardLeft)="moveCardLeft.emit(ci)" (moveCardRight)="moveCardRight.emit(ci)"
+      (rename)="emitRenameCard(ci, $event)">
     </app-card>
   </div>
 </div>
