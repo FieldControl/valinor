@@ -1,24 +1,24 @@
 <div class="column">
   <div class="column-header">
-    <h3>{{ titulo }}</h3>
+    <h3>{{ title }}</h3>
     <div class="column-actions">
-      <button (click)="remover.emit()">🗑</button>
-      <button (click)="moverEsquerda.emit()">⬅</button>
-      <button (click)="moverDireita.emit()">➡</button>
-      <button (click)="renomear.emit()">✏️</button>
+      <button (click)="remove.emit()">🗑</button>
+      <button (click)="moveLeft.emit()">⬅</button>
+      <button (click)="moveRight.emit()">➡</button>
+      <button (click)="rename.emit()">✏️</button>
     </div>
   </div>
 
-  <button class="add-card-btn" (click)="criarCard.emit()">+ Card</button>
+  <button class="add-card-btn" (click)="createCard.emit()">+ Card</button>
 
   <div class="cards-wrapper">
     <app-card
       *ngFor="let card of cards; let ci = index"
-      [texto]="card"
-      (remover)="removerCard.emit(ci)"
-      (moverEsquerda)="moverCardEsquerda.emit(ci)"
-      (moverDireita)="moverCardDireita.emit(ci)"
-      (renomear)="renomearCard.emit(ci)">
+      [card]="card"
+      (remove)="removeCard.emit(ci)"
+      (moveCardLeft)="moveCardLeft.emit(ci)"
+      (moveCardRight)="moveCardRight.emit(ci)"
+      (rename)="renameCard.emit(ci)">
     </app-card>
   </div>
 </div>

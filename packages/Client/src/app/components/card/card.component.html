@@ -1,9 +1,9 @@
 <div class="card">
-  {{ texto }}
+  {{ card.title }}
   <div class="card-actions">
-    <button (click)="remover.emit()">🗑</button>
-    <button (click)="moverEsquerda.emit()">⬅</button>
-    <button (click)="moverDireita.emit()">➡</button>
-    <button (click)="renomear.emit()">✏️</button>
+    <button (click)="remove.emit()">🗑</button>
+    <button (click)="moveCardLeft.emit()">⬅</button>
+    <button (click)="moveCardRight.emit()">➡</button>
+    <button (click)="rename.emit()">✏️</button>
   </div>
 </div>

@@ -6,10 +6,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent {
-  @Output() novaColuna = new EventEmitter<void>();
+  @Output() newColumn = new EventEmitter<void>();
 
-  adicionarColuna() {
-    console.log("Botão 'Criar Coluna' clicado");
-    this.novaColuna.emit();
+  addColumn() {
+    console.log("'Create Column' button clicked");
+    this.newColumn.emit();
   }
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Card } from '../../../services/board.service';
 
 @Component({
   selector: 'app-card',
@@ -6,9 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() texto!: string;
-  @Output() remover = new EventEmitter<void>();
-  @Output() moverEsquerda = new EventEmitter<void>();
-  @Output() moverDireita = new EventEmitter<void>();
-  @Output() renomear = new EventEmitter<void>();
+
+  @Input() card!: Card;
+  @Output() remove = new EventEmitter<void>();
+  @Output() moveCardLeft = new EventEmitter<void>();
+  @Output() moveCardRight = new EventEmitter<void>();
+  @Output() rename = new EventEmitter<void>();
 }

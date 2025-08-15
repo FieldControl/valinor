@@ -21,7 +21,7 @@ export class ColumnRepository {
         'cards.title as card_title',
         'cards.created_at'
       )
-      .orderBy('columns.id', 'asc');
+      .orderBy('columns.order', 'asc');
   }
 
 

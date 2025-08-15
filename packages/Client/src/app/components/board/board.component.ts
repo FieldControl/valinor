@@ -1,78 +1,79 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TopBarComponent } from "../top-bar/top-bar.component";
 import { ColumnComponent } from "../column/column.component";
 import { CommonModule } from '@angular/common';
-
-interface Coluna {
-  titulo: string;
-  cards: string[];
-}
+import { BoardService, Column } from '../../../services/board.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
   standalone: true,
-  imports: [TopBarComponent, ColumnComponent, CommonModule]
+  imports: [TopBarComponent, ColumnComponent, CommonModule, HttpClientModule],
+  providers: [BoardService, HttpClient]
+
 })
-export class BoardComponent {
-  colunas: Coluna[] = [
-    { titulo: 'A Fazer', cards: ['Tarefa 1', 'Tarefa 2', 'Tarefa 3'] },
-    { titulo: 'Em Progresso', cards: ['Tarefa 4', 'Tarefa 5'] },
-    { titulo: 'Concluído', cards: ['Tarefa 6'] }
-  ];
+export class BoardComponent implements OnInit {
+  columns: Column[] = [];
 
   i: number = 0
 
-  adicionarColuna() {
-    this.colunas.push({
-      titulo: `Nova Coluna ${this.colunas.length + 1}`,
-      cards: []
+  constructor(private boardService: BoardService) { }
+
+  ngOnInit() {
+    this.loadColumns();
+  }
+
+  loadColumns() {
+    this.boardService.getColumns().subscribe(data => {
+      this.columns = data;
     });
   }
 
-   removerColuna(index: number) {
-    console.log(`Remover coluna: ${this.colunas[index].titulo}`);
+  addColumn() { //receber input
+    console.log('addColumn')
   }
 
-  moverColuna(index: number, direcao: 'esquerda' | 'direita') {
-    console.log(`Mover coluna ${this.colunas[index].titulo} para ${direcao}`);
+  removeColumn(index: number) {
+    this.boardService.deleteColumn(this.columns[index].id).subscribe(data => {
+      this.loadColumns();
+    })
+    console.log(`remove column: ${this.columns[index].name}`);
   }
 
-  renomearColuna(index: number) {
-    console.log(`Renomear coluna: ${this.colunas[index].titulo}`);
+  moveColumn(index: number, direcao: 'Left' | 'Right') { // 
+    this.boardService.updateColumn(this.columns[index].id, this.columns[index].name, this.columns[index].order).subscribe(data => {
+      this.loadColumns();
+    })
+    console.log(`move column ${this.columns[index].name} for ${direcao}`);
   }
 
-  criarCard(index: number) {
-    console.log(`Criar card na coluna: ${this.colunas[index].titulo}`);
+  renameColumn(index: number) {//receber input
+    console.log(`rename column: ${this.columns[index].name}`);
   }
 
-  removerCard(colIndex: number, cardIndex: number) {
-    console.log(`Remover card '${this.colunas[colIndex].cards[cardIndex]}' da coluna ${this.colunas[colIndex].titulo}`);
+  createCard(index: number) {//receber input
+    console.log(`Criar card na column: ${this.columns[index].name}`);
   }
 
-  moveCardLeft(colIndex: number, cardIndex: number) {
-    if (colIndex > 0) {
-      const card = this.colunas[colIndex].cards.splice(cardIndex, 1)[0];
-      this.colunas[colIndex - 1].cards.push(card);
-      console.log(`Card '${card}'moved of column ${colIndex} for column ${colIndex - 1}`);
-      }else{
-        console.log(`Card '${this.colunas[colIndex].cards[cardIndex]}' já está na primeira coluna`);
-    }
-    }
-
-  moveCardRight(colIndex: number, cardIndex: number) {
-    if (colIndex < this.colunas.length - 1) {
-      const card = this.colunas[colIndex].cards.splice(cardIndex, 1)[0];
-      this.colunas[colIndex + 1].cards.push(card);
-      console.log(`Card '${card}'moved of column ${colIndex} for column ${colIndex + 1}`);
-      }else{
-        console.log(`Card '${this.colunas[colIndex].cards[cardIndex]}' já está na última coluna`);
-    }
+  removeCard(colIndex: number, cardIndex: number) {
+    this.boardService.deleteCard(this.columns[colIndex].cards[cardIndex].id).subscribe(data => {
+      this.loadColumns();
+    })
+    console.log(`remove card '${this.columns[colIndex].cards[cardIndex]}' of the column ${this.columns[colIndex].name}`);
   }
 
-  renomearCard(colIndex: number, cardIndex: number) {
-    console.log(`Renomear card '${this.colunas[colIndex].cards[cardIndex]}'`);
+  moveCardLeft(cardIndex: number) {
+
+  }
+
+  moveCardRight(cardIndex: number) {
+
+  }
+
+  renameCard(colIndex: number, cardIndex: number) {//receber input
+    console.log(`rename card '${this.columns[colIndex].cards[cardIndex]}'`);
   }
 }
 
