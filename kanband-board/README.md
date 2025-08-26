@@ -50,7 +50,7 @@ Este projeto consiste em uma aplicação web com um sistema de Kanban, desenvolv
 - Criar autenticação e controle de usuários, para permitir múltiplas sessões e segurança.
 - Implementar **deploy em nuvem** (como Vercel/Render para front e back) para testar em produção.
 - Criar drag-and-drop nas tarefas do Kanban.
-
+[Assistir o vídeo](https://drive.google.com/file/d/1qVGO1YAsfqpQT9LXOx6d8LzWgL0ZOQmT/view?usp=sharing)
 ## 🙋‍♀️ Sobre mim
 
 Sou uma desenvolvedora full-stack, apaixonada por tecnologia e por tudo o que ela representa em termos de evolução e possibilidades. Estou em constante aprendizado e cada projeto é uma oportunidade real de crescimento pessoal e profissional. Tenho buscado desenvolver habilidades práticas com Angular, NestJS, banco de dados relacionais e APIs REST, sempre com muita dedicação e curiosidade.
