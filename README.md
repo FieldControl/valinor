@@ -6,8 +6,8 @@
 
 Para rodar o projeto, siga os passos abaixo:
 1. Clonando o repositório
-git clone <URL-DO-REPOSITÓRIO>
-cd <Pasta-do-repositório>
+`git clone https://github.com/FieldControl/valinor/pull/461`
+`cd valinor`
 
 2. Instalar as dependências
 No diretório backend e frontend, instale as dependências:
@@ -89,7 +89,7 @@ O código segue boas práticas de legibilidade, com nomes semânticos para funç
 
 ## Desafios e problemas que você enfrentou e como você resolveu ##
 
-**Problema: Um dos maiores desafios do projeto foi a utilização do NestJS e Angualr, pois nunca tinha trabalhado com essas frameworks antes. Como ele é baseado em TypeScript e utiliza conceitos como injeção de dependência e arquitetura modular, tive que me adaptar a uma nova forma de estruturar a aplicação.
+**Problema: Um dos maiores desafios do projeto foi a utilização do NestJS e Angular, pois nunca tinha trabalhado com essas frameworks antes. Como ele é baseado em TypeScript e utiliza conceitos como injeção de dependência e arquitetura modular, tive que me adaptar a uma nova forma de estruturar a aplicação.
 Solução: Para superar esse desafio, fiz uma imersão nos conceitos básicos do NestJS e Angular e explorei sua documentação oficial.
 
 **Desafio: Comunicação entre Colunas e Cards
