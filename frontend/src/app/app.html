@@ -1,0 +1,36 @@
+<main>
+  <div class="welcome">
+    <h1 class="title">KANBAN</h1>
+    <p class="subtitle">Desafio Processo Seletivo Field Control</p>
+  </div>
+
+  <div class="colunas">
+    <section class="coluna" *ngFor="let col of columns()">
+      <section class="cardstatus">
+        <p>{{ col.name }}</p>
+      </section>
+      <section 
+                class="cardcontnt"
+               cdkDropList
+               [id]="col.id"
+               [cdkDropListData]="col.cards"
+               [cdkDropListConnectedTo]="dropListIds()"
+               (cdkDropListDropped)="onDrop($event, col)">
+          <div
+              class="card"
+             *ngFor="let card of col.cards; trackBy: trackByCardId"
+             cdkDrag
+             [cdkDragData]="card">
+          {{ card.title }}
+        </div>
+      </section>
+
+      <section class="newcard">
+        <input #titleInput type="text" placeholder="✏️" />
+        <button (click)="addCard(col.id, titleInput.value); titleInput.value=''">+</button>
+      </section>
+    </section>
+  </div>
+</main>
+
+<router-outlet />
