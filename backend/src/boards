@@ -1,0 +1,14 @@
+import { IsNotEmpty, IsString } from 'class-validator';
+
+export class CreateBoardDto {
+  @IsString()
+  @IsNotEmpty()
+  title: string;
+}
+import { IsOptional, IsString } from 'class-validator';
+
+export class UpdateBoardDto {
+  @IsString()
+  @IsOptional()
+  title?: string;
+}

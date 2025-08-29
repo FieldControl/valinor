@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  column      Column   @relation(fields: [columnId], references: [id])
+  columnId    String
+  order       Int
+}
+
+model Column {
+  id      String  @id @default(cuid())
+  title   String
+  board   Board   @relation(fields: [boardId], references: [id])
+  boardId String
+  tasks   Task[]
+  order   Int
+}
+
+model Board {
+  id      String   @id @default(cuid())
+  title   String
+  columns Column[]
+}
+
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { PrismaClient } from '@prisma/client';
+
+@Injectable()
+export class PrismaService extends PrismaClient implements OnModuleInit {
+  async onModuleInit() {
+    await this.$connect();
+  }
+}
