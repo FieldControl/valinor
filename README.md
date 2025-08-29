@@ -1,6 +1,6 @@
-# Nest Kanban App
+# Nest Kanban
 
-This is a simple Kanban application built with NestJS. The application provides a basic structure for managing tasks in a Kanban board format.
+É um kanban simples mas não consegui rodar pois não possuo conhecimento em angular, no react talvez conseguiria
 
 ## Project Structure
 
@@ -14,28 +14,6 @@ This is a simple Kanban application built with NestJS. The application provides 
 - `nest-cli.json`: Configuration file for the Nest CLI.
 - `tsconfig.json`: TypeScript configuration file.
 
-## Installation
+## Rodar o projeto
 
-To install the dependencies, run:
-
-```
-npm install
-```
-
-## Running the Application
-
-To start the application, use the following command:
-
-```
-npm run start
-```
-
-The application will be running on `http://localhost:3000`.
-
-## API Endpoints
-
-- `GET /`: Returns a greeting message.
-
-## License
-
-This project is licensed under the MIT License.
+Não consegui fazer rodar pois não consegui configurar ou usar o angular, foquei demais em aprender typescript pois nunca havia usado a linguaguem.
