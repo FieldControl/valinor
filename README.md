@@ -45,11 +45,6 @@ Melhorias visuais utilizando bibliotecas de UI ou estilização mais avançada p
 
 Edição de tarefas e colunas, possibilitando renomear títulos e descrições diretamente na interface.
 
-**Vídeo de apresentação**
-
-Grave um vídeo do seu projeto rodando e envie o link:
-<!-- Dica: você pode usar o https://jam.dev/ para facilitar sua gravação ;) -->
-
 **Sobre você**
 
 Meu nome é Lucas Martins Trazzi, nasci em São José do Rio Preto – SP, onde moro atualmente.
