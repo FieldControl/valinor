@@ -1,0 +1,36 @@
+<div class="toolbar">
+	<h2>{{ quadro?.nome || 'Carregando...' }}</h2>
+	<button (click)="adicionarColuna()">Adicionar coluna</button>
+</div>
+
+<div class="board" *ngIf="quadro">
+	<div class="column" *ngFor="let coluna of quadro.colunas">
+		<!-- Cabeçalho da coluna com título e botão de excluir -->
+		<div class="column-header">
+			<h3>{{ coluna.titulo }}</h3>
+			<button class="delete-btn" (click)="excluirColuna(coluna)" title="Excluir coluna">
+				✕
+			</button>
+		</div>
+		
+		<button (click)="adicionarTarefa(coluna)">+ Tarefa</button>
+
+		<!-- Lista de tarefas com Drag & Drop -->
+		<div
+			cdkDropList
+			[cdkDropListData]="coluna.tarefas"
+			class="task-list"
+			(cdkDropListDropped)="soltar($event, coluna)"
+		>
+			<div class="task" *ngFor="let tarefa of coluna.tarefas" cdkDrag>
+				<!-- Conteúdo da tarefa com botão de excluir -->
+				<div class="task-content">
+					<span class="task-title">{{ tarefa.titulo }}</span>
+					<button class="task-delete-btn" (click)="excluirTarefa(tarefa, coluna)" title="Excluir tarefa">
+						🗑️
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
