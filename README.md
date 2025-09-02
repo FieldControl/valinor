@@ -1,59 +1,70 @@
-# KanbanWeb
+# Envio de solução
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento, detalhe um pouco mais sobre:
 
-## Development server
+**Framework, linguagem e ferramentas**
 
-To start a local development server, run:
+Frontend (Angular)
 
-```bash
-ng serve
-```
+Angular CLI: para estruturação do projeto, geração de componentes e gerenciamento de build.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+RxJS: para trabalhar com Observables e lidar com chamadas assíncronas da API.
 
-## Code scaffolding
+TypeScript: linguagem principal no Angular, trazendo tipagem estática e melhor manutenção do código.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Backend (NestJS)
 
-```bash
-ng generate component component-name
-```
+NestJS: framework baseado em Node.js, modular, que segue princípios de arquitetura limpa.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+TypeScript: garantindo consistência entre front e back.
 
-```bash
-ng generate --help
-```
+Controller + Service Pattern: para separar regras de negócio da camada de exposição (API).
 
-## Building
+**Técnologias X e Y**
 
-To build the project run:
+TypeScript em vez de JavaScript puro:
 
-```bash
-ng build
-```
+Evita erros em tempo de execução por causa da tipagem estática, facilita a manutenção e o trabalho em equipe, já que os tipos servem como “documentação viva”, além de que nunca havia de fato mexico com javascript
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Princípios de software**
 
-## Running unit tests
+Escalabilidade: Tanto Angular quanto NestJS seguem arquitetura em camadas, o que permite adicionar novas features sem quebrar o que já existe.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Feedback rápido: Uso de Observables (RxJS) para atualizar a interface do Kanban em tempo real quando o backend responde.
 
-```bash
-ng test
-```
+**Desafios e problemas**
 
-## Running end-to-end tests
+Um dos maiores desafios que enfrentei foi a implementação do drag & drop (arrastar e soltar) das tarefas entre colunas, no início, consegui fazer com que as tarefas fossem criadas e excluídas normalmente, mas ao tentar mover de uma coluna para outra tive muitas dificuldades para configurar corretamente o Angular CDK, ainda não sei exatamente como finalizar essa parte sozinho, mas durante o processo entendi melhor como o Angular lida com listas conectadas, eventos de arrastar e a atualização do estado do front-end.
+Mesmo sem ter concluído totalmente, esse problema foi importante para mim, porque mostrou pontos em que preciso evoluir no estudo de frameworks e manipulação de dados no frontend.
 
-For end-to-end (e2e) testing, run:
+**Melhorias e próximas implementações**
 
-```bash
-ng e2e
-```
+Finalizar a implementação do drag & drop de forma completa, permitindo que as tarefas sejam movidas entre colunas e que a nova posição seja salva no backend.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Melhorias visuais utilizando bibliotecas de UI ou estilização mais avançada para deixar a experiência mais agradável.
 
-## Additional Resources
+Edição de tarefas e colunas, possibilitando renomear títulos e descrições diretamente na interface.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Vídeo de apresentação**
+
+Grave um vídeo do seu projeto rodando e envie o link:
+<!-- Dica: você pode usar o https://jam.dev/ para facilitar sua gravação ;) -->
+
+**Sobre você**
+
+Meu nome é Lucas Martins Trazzi, nasci em São José do Rio Preto – SP, onde moro atualmente.
+Sempre tive interesse por tecnologia e comecei estudando cursos básicos de informática e inglês, depois iniciei no mundo da programação com Python e com um curso de Programação de Computadores.
+
+Atualmente estou no 8º semestre de Ciência da Computação na UNIP, e já tive experiência prática como estagiário de TI em empresas como Fumeta Distribuidora de Tabaco e Maza Tarraf, onde pude desenvolver habilidades tanto em suporte quanto em infraestrutura.
+
+Hoje meu objetivo é consolidar minha carreira na área de desenvolvimento de software, buscando aplicar o que aprendi e continuar evoluindo como programador.
+
+**Outros detalhes**
+
+Durante o desenvolvimento do desafio, a parte mais difícil foi a implementação do drag & drop. Consegui avançar bastante na estrutura do sistema, mas ainda não finalizei essa funcionalidade.
+Mesmo assim, essa dificuldade foi importante, pois me mostrou áreas em que posso melhorar meus estudos, especialmente em frameworks como Angular.
+
+
+---
+
+lucasmartinstrazzi@gmail.com | (17) 98842-6272 
