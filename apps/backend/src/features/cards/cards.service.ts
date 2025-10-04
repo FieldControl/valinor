@@ -1,9 +1,14 @@
+// NestJS
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+// TypeORM
 import { Repository } from 'typeorm';
+// Entities
 import { Card } from './entities/card.entity';
+// DTOs
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
+// Services
 import { ColumnsService } from '../columns/columns.service';
 
 @Injectable()

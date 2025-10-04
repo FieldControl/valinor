@@ -1,7 +1,11 @@
+// NestJS
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+// TypeORM
 import { Repository } from 'typeorm';
+// Entities
 import { Column } from './entities/column.entity';
+// DTOs
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
 

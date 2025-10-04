@@ -1,4 +1,6 @@
+// Angular Core
 import { Component } from '@angular/core';
+// Angular Router
 import { RouterModule } from '@angular/router';
 
 @Component({

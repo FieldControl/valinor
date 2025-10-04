@@ -1,8 +1,13 @@
+// NestJS
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CardsService } from './cards.service';
+// Controllers
 import { CardsController } from './cards.controller';
+// Services
+import { CardsService } from './cards.service';
+// Entities
 import { Card } from './entities/card.entity';
+// Modules
 import { ColumnsModule } from '../columns/columns.module';
 
 @Module({

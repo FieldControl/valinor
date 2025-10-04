@@ -1,9 +1,14 @@
+// NestJS
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+// Database
 import { databaseConfig } from '../database/database.config';
-import { ColumnsModule } from '../columns/columns.module';
-import { CardsModule } from '../cards/cards.module';
+// Controllers
+import { AppController } from './app.controller';
+// Modules
+import { ColumnsModule } from '../features/columns/columns.module';
+import { CardsModule } from '../features/cards/cards.module';
 
 @Module({
   imports: [
@@ -14,7 +19,7 @@ import { CardsModule } from '../cards/cards.module';
     ColumnsModule,
     CardsModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

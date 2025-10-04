@@ -1,3 +1,4 @@
+// NestJS
 import {
   Controller,
   Get,
@@ -10,7 +11,9 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
+// Services
 import { ColumnsService } from './columns.service';
+// DTOs
 import { CreateColumnDto } from './dto/create-column.dto';
 import { UpdateColumnDto } from './dto/update-column.dto';
 

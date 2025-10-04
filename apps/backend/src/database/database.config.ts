@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Column } from '../columns/entities/column.entity';
-import { Card } from '../cards/entities/card.entity';
+import { Column } from '../features/columns/entities/column.entity';
+import { Card } from '../features/cards/entities/card.entity';
 
 export const databaseConfig: TypeOrmModuleOptions = {
   type: 'sqlite',

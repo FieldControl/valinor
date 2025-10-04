@@ -1,3 +1,4 @@
+// NestJS
 import {
   Controller,
   Get,
@@ -11,7 +12,9 @@ import {
   HttpStatus,
   Query,
 } from '@nestjs/common';
+// Services
 import { CardsService } from './cards.service';
+// DTOs
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
 
