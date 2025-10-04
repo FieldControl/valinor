@@ -1,82 +1,208 @@
-# Test
+# Kanban Board - Monorepo com Angular e NestJS
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Este projeto implementa um Kanban básico utilizando Angular para o frontend e NestJS para o backend, organizados em um monorepo com NX.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## 🚀 Tecnologias Utilizadas
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+### Backend (NestJS)
 
-## Finish your remote caching setup
+- **NestJS** - Framework Node.js
+- **TypeORM** - ORM para TypeScript
+- **SQLite** - Banco de dados
+- **class-validator** - Validação de dados
+- **class-transformer** - Transformação de dados
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/gxujCzvbhB)
+### Frontend (Angular)
 
+- **Angular 20** - Framework frontend
+- **Angular CDK** - Componentes e utilitários
+- **Tailwind CSS** - Framework CSS
+- **RxJS** - Programação reativa
 
-## Run tasks
+### DevOps
 
-To run the dev server for your app, use:
+- **NX** - Monorepo e build tools
+- **Jest** - Testes unitários
+- **Cypress** - Testes E2E
 
-```sh
-npx nx serve frontend
+## 📁 Estrutura do Projeto
+
+```
+apps/
+├── backend/                 # API NestJS
+│   ├── src/
+│   │   ├── columns/         # Módulo de colunas
+│   │   │   ├── dto/         # DTOs de validação
+│   │   │   ├── entities/    # Entidades TypeORM
+│   │   │   ├── columns.controller.ts
+│   │   │   ├── columns.service.ts
+│   │   │   └── columns.module.ts
+│   │   ├── cards/          # Módulo de cards
+│   │   │   ├── dto/
+│   │   │   ├── entities/
+│   │   │   ├── cards.controller.ts
+│   │   │   ├── cards.service.ts
+│   │   │   └── cards.module.ts
+│   │   ├── database/       # Configuração do banco
+│   │   └── app/           # Módulo principal
+├── frontend/              # Aplicação Angular
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/ # Componentes do Kanban
+│   │   │   ├── services/   # Serviços Angular
+│   │   │   └── models/     # Interfaces TypeScript
+│   │   └── styles.css
+└── frontend-e2e/          # Testes E2E
 ```
 
-To create a production bundle:
+## 🛠 Scripts Disponíveis
 
-```sh
-npx nx build frontend
+```bash
+# Desenvolvimento
+npm run dev                 # Roda backend e frontend simultaneamente
+npm run dev:backend         # Apenas backend
+npm run dev:frontend        # Apenas frontend
+
+# Build
+npm run build               # Build de ambos
+npm run build:backend       # Build do backend
+npm run build:frontend      # Build do frontend
+
+# Testes
+npm run test                # Testes de ambos
+npm run test:backend         # Testes do backend
+npm run test:frontend        # Testes do frontend
+npm run e2e                  # Testes E2E
+
+
+# Linting
+npm run lint                 # Lint de ambos os projetos
 ```
 
-To see all available targets to run for a project, run:
+## 🚀 Como Executar
 
-```sh
-npx nx show project frontend
+### Desenvolvimento Local
+
+1. **Instalar dependências:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Executar em modo desenvolvimento:**
+
+   ```bash
+   npm run dev
+   ```
+
+3. **Acessar as aplicações:**
+   - Frontend: http://localhost:4200
+   - Backend API: http://localhost:3000/api
+
+## 📊 API Endpoints
+
+### Colunas
+
+- `GET /api/columns` - Listar todas as colunas
+- `POST /api/columns` - Criar nova coluna
+- `GET /api/columns/:id` - Buscar coluna por ID
+- `PATCH /api/columns/:id` - Atualizar coluna
+- `DELETE /api/columns/:id` - Deletar coluna
+- `PATCH /api/columns/positions/update` - Atualizar posições
+
+### Cards
+
+- `GET /api/cards` - Listar todos os cards
+- `GET /api/cards?columnId=:id` - Listar cards de uma coluna
+- `POST /api/cards` - Criar novo card
+- `GET /api/cards/:id` - Buscar card por ID
+- `PATCH /api/cards/:id` - Atualizar card
+- `DELETE /api/cards/:id` - Deletar card
+- `PATCH /api/cards/:id/move` - Mover card entre colunas
+- `PATCH /api/cards/positions/update` - Atualizar posições
+
+## 🗄 Modelos de Dados
+
+### Column
+
+```typescript
+{
+  id: number;
+  title: string;
+  description?: string;
+  position: number;
+  color: string;
+  cards: Card[];
+  createdAt: Date;
+  updatedAt: Date;
+}
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### Card
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
+```typescript
+{
+  id: number;
+  title: string;
+  description?: string;
+  position: number;
+  color: string;
+  priority: 'low' | 'medium' | 'high';
+  columnId: number;
+  column: Column;
+  createdAt: Date;
+  updatedAt: Date;
+}
 ```
 
-To generate a new library, use:
+## 🧪 Testes
 
-```sh
-npx nx g @nx/angular:lib mylib
+### Backend
+
+- **Testes unitários:** Jest
+- **Testes de integração:** Jest + Supertest
+- **Cobertura:** Configurada para 80%
+
+### Frontend
+
+- **Testes unitários:** Jest + Angular Testing Utilities
+- **Testes E2E:** Cypress
+- **Cobertura:** Configurada para 80%
+
+## 🔧 Configuração
+
+### Variáveis de Ambiente
+
+Crie um arquivo `.env` baseado no `env.example`:
+
+```env
+DATABASE_URL=sqlite:./data/kanban.db
+PORT=3000
+NODE_ENV=development
+CORS_ORIGIN=http://localhost:4200
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+### Banco de Dados
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+O projeto usa SQLite por padrão, mas pode ser facilmente configurado para PostgreSQL ou MySQL alterando a configuração em `apps/backend/src/database/database.config.ts`.
 
+## 📝 Próximos Passos
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [ ] Implementar autenticação e autorização
+- [ ] Adicionar filtros e busca
+- [ ] Implementar notificações em tempo real
+- [ ] Adicionar upload de arquivos
+- [ ] Implementar histórico de atividades
+- [ ] Adicionar métricas e analytics
 
-## Install Nx Console
+## 🤝 Contribuição
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 📄 Licença
 
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.

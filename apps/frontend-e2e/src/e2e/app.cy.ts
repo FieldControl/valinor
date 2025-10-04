@@ -1,13 +1,8 @@
-import { getGreeting } from '../support/app.po';
-
-describe('frontend-e2e', () => {
+describe('Kanban Board E2E', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains(/Welcome/);
+  it('should display kanban board', () => {
+    cy.get('app-root').should('exist');
+    cy.get('router-outlet').should('exist');
   });
 });

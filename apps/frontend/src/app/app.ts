@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [RouterModule],
   selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  template: `
+    <div class="min-h-screen bg-gray-100">
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styles: [],
 })
 export class App {
-  protected title = 'frontend';
+  protected title = 'Kanban Board';
 }
