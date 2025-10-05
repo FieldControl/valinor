@@ -180,7 +180,7 @@ import { Subject, takeUntil } from 'rxjs';
         [message]="deleteModalMessage"
         [loading]="deleting"
         (confirm)="onDeleteConfirm()"
-        (cancel)="onDeleteCancel()"
+        (cancelEvent)="onDeleteCancel()"
       ></app-delete-confirmation-modal>
     </div>
   `,
@@ -364,9 +364,13 @@ export class KanbanBoardComponent implements OnInit, OnDestroy {
     return this.columns.map((column) => 'column-' + column.id);
   }
 
-  onColumnDragStarted(event: any): void {}
+  onColumnDragStarted(): void {
+    // Drag started - no action needed
+  }
 
-  onColumnDragEnded(event: any): void {}
+  onColumnDragEnded(): void {
+    // Drag ended - no action needed
+  }
 
   onColumnDrop(event: CdkDragDrop<Column[]>): void {
     if (event.previousIndex !== event.currentIndex) {
@@ -401,7 +405,7 @@ export class KanbanBoardComponent implements OnInit, OnDestroy {
           event.previousIndex,
           event.currentIndex
         );
-        this.moveCardWithinColumn(event, targetColumnId);
+        this.moveCardWithinColumn(event);
       }
     } else {
       transferArrayItem(
@@ -414,10 +418,7 @@ export class KanbanBoardComponent implements OnInit, OnDestroy {
     }
   }
 
-  private moveCardWithinColumn(
-    event: CdkDragDrop<Card[]>,
-    columnId: number
-  ): void {
+  private moveCardWithinColumn(event: CdkDragDrop<Card[]>): void {
     const cards = event.container.data;
     const cardUpdates = cards.map((card, index) => ({
       id: card.id,
@@ -428,7 +429,9 @@ export class KanbanBoardComponent implements OnInit, OnDestroy {
       .updateCardPositions(cardUpdates)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: () => {},
+        next: () => {
+          // Success - no action needed
+        },
         error: (error) => {
           this.error = 'Erro ao atualizar posições: ' + error.message;
           this.loadColumns();
@@ -449,7 +452,9 @@ export class KanbanBoardComponent implements OnInit, OnDestroy {
       })
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: () => {},
+        next: () => {
+          // Success - no action needed
+        },
         error: (error) => {
           this.error = 'Erro ao mover card: ' + error.message;
           this.loadColumns();

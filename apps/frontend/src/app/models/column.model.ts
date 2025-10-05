@@ -4,7 +4,7 @@ export interface Column {
   description?: string;
   position: number;
   color: string;
-  cards: any[];
+  cards: Card[];
   createdAt: Date;
   updatedAt: Date;
 }

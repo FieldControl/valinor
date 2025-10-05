@@ -11,10 +11,16 @@ import { CommonModule } from '@angular/common';
       *ngIf="isOpen"
       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       (click)="onBackdropClick($event)"
+      (keyup.escape)="onCancel()"
+      (keydown.escape)="onCancel()"
+      tabindex="0"
     >
       <div
         class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4"
         (click)="$event.stopPropagation()"
+        (keyup.escape)="onCancel()"
+        (keydown.escape)="onCancel()"
+        tabindex="0"
       >
         <div class="p-6">
           <div class="flex items-center mb-4">
@@ -75,19 +81,19 @@ export class DeleteConfirmationModalComponent {
   @Input() message = 'Tem certeza que deseja deletar este item?';
   @Input() loading = false;
   @Output() confirm = new EventEmitter<void>();
-  @Output() cancel = new EventEmitter<void>();
+  @Output() cancelEvent = new EventEmitter<void>();
 
   onConfirm(): void {
     this.confirm.emit();
   }
 
   onCancel(): void {
-    this.cancel.emit();
+    this.cancelEvent.emit();
   }
 
   onBackdropClick(event: Event): void {
     if (event.target === event.currentTarget) {
-      this.cancel.emit();
+      this.cancelEvent.emit();
     }
   }
 }

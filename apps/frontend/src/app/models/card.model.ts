@@ -6,7 +6,7 @@ export interface Card {
   color: string;
   priority: 'low' | 'medium' | 'high';
   columnId: number;
-  column?: any;
+  column?: Column;
   createdAt: Date;
   updatedAt: Date;
 }
