@@ -132,6 +132,6 @@ export class KanbanService {
    * Get the API health status
    */
   getHealth(): Observable<{ status: string; message: string }> {
-    return this.http.get(`${this.apiUrl}`);
+    return this.http.get<{ status: string; message: string }>(`${this.apiUrl}`);
   }
 }

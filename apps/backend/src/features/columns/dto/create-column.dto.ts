@@ -4,11 +4,11 @@ import {
   IsOptional,
   IsInt,
   Min,
-  Max,
   IsHexColor,
 } from 'class-validator';
+import { CreateColumnDto as SharedCreateColumnDto } from '@test/shared-types';
 
-export class CreateColumnDto {
+export class CreateColumnDto implements SharedCreateColumnDto {
   @IsString()
   @IsNotEmpty()
   title: string;

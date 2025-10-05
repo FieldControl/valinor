@@ -8,8 +8,12 @@ import {
   IsEnum,
   IsNumber,
 } from 'class-validator';
+import {
+  CreateCardDto as SharedCreateCardDto,
+  Priority,
+} from '@test/shared-types';
 
-export class CreateCardDto {
+export class CreateCardDto implements SharedCreateCardDto {
   @IsString()
   @IsNotEmpty()
   title: string;
@@ -29,7 +33,7 @@ export class CreateCardDto {
 
   @IsEnum(['low', 'medium', 'high'])
   @IsOptional()
-  priority?: 'low' | 'medium' | 'high';
+  priority?: Priority;
 
   @IsNumber()
   @IsNotEmpty()

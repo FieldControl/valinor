@@ -1,29 +1,11 @@
-export interface Column {
-  id: number;
-  title: string;
-  description?: string;
-  position: number;
-  color: string;
-  cards: Card[];
-  createdAt: Date;
-  updatedAt: Date;
-}
+import {
+  Column as SharedColumn,
+  CreateColumnDto as CreateColumnRequest,
+  UpdateColumnDto as UpdateColumnRequest,
+  UpdateColumnPositionsDto as UpdateColumnPositionsRequest,
+} from '@test/shared-types';
 
-export interface CreateColumnRequest {
-  title: string;
-  description?: string;
-  position?: number;
-  color?: string;
-}
-
-export interface UpdateColumnRequest {
-  title?: string;
-  description?: string;
-  position?: number;
-  color?: string;
-}
-
-export interface ColumnPositionUpdate {
-  id: number;
-  position: number;
-}
+export type Column = SharedColumn;
+export type CreateColumnRequest = CreateColumnRequest;
+export type UpdateColumnRequest = UpdateColumnRequest;
+export type UpdateColumnPositionsRequest = UpdateColumnPositionsRequest;
