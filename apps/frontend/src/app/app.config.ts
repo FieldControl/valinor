@@ -11,6 +11,8 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
+// Angular HTTP
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 // Routes
 import { appRoutes } from './app.routes';
 
@@ -20,5 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
+    provideHttpClient(withInterceptorsFromDi()),
   ],
 };
