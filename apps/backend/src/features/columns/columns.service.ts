@@ -22,10 +22,17 @@ export class ColumnsService {
   }
 
   async findAll(): Promise<Column[]> {
-    return await this.columnsRepository.find({
+    const columns = await this.columnsRepository.find({
       relations: ['cards'],
       order: { position: 'ASC', createdAt: 'ASC' },
     });
+
+    // Ordenar cards dentro de cada coluna por posição
+    columns.forEach((column) => {
+      column.cards.sort((a, b) => a.position - b.position);
+    });
+
+    return columns;
   }
 
   async findOne(id: number): Promise<Column> {

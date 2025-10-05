@@ -8,14 +8,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <button
-      (click)="toggleForm()"
-      class="w-full h-12 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center hover:border-blue-400 hover:bg-blue-50 transition-colors"
-    >
-      <span class="text-gray-500">+ Adicionar Card</span>
-    </button>
-
-    <div *ngIf="showForm" class="bg-gray-50 rounded-lg p-3">
+    <div class="bg-gray-50 rounded-lg p-3">
       <form (ngSubmit)="onSubmit()" #cardForm="ngForm">
         <div class="mb-2">
           <input
@@ -77,28 +70,20 @@ export class AddCardFormComponent {
   }>();
   @Output() formCancel = new EventEmitter<void>();
 
-  showForm = false;
   cardData = {
     title: '',
     description: '',
     priority: 'medium' as 'low' | 'medium' | 'high',
   };
 
-  toggleForm(): void {
-    this.showForm = !this.showForm;
-    if (!this.showForm) {
+  onSubmit(): void {
+    if (this.cardData.title.trim()) {
+      this.cardSubmit.emit({ ...this.cardData });
       this.resetForm();
     }
   }
 
-  onSubmit(): void {
-    if (this.cardData.title.trim()) {
-      this.cardSubmit.emit({ ...this.cardData });
-    }
-  }
-
   onCancel(): void {
-    this.showForm = false;
     this.resetForm();
     this.formCancel.emit();
   }

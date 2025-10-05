@@ -4,7 +4,7 @@ export interface Column {
   description?: string;
   position: number;
   color: string;
-  cards: any[]; // Will be Card[] but avoiding circular import
+  cards: any[];
   createdAt: Date;
   updatedAt: Date;
 }

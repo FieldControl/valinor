@@ -6,7 +6,7 @@ export interface Card {
   color: string;
   priority: 'low' | 'medium' | 'high';
   columnId: number;
-  column?: any; // Will be Column but avoiding circular import
+  column?: any;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -39,5 +39,3 @@ export interface MoveCardRequest {
   columnId: number;
   position: number;
 }
-
-// Note: Column interface is imported where needed to avoid circular imports

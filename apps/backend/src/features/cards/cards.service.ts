@@ -76,13 +76,14 @@ export class CardsService {
     newPosition: number
   ): Promise<Card> {
     const card = await this.findOne(cardId);
-
     await this.columnsService.findOne(newColumnId);
 
-    card.columnId = newColumnId;
-    card.position = newPosition;
+    await this.cardsRepository.update(cardId, {
+      columnId: newColumnId,
+      position: newPosition,
+    });
 
-    return await this.cardsRepository.save(card);
+    return await this.findOne(cardId);
   }
 
   async updatePositions(

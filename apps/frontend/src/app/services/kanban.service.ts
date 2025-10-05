@@ -24,8 +24,6 @@ export class KanbanService {
 
   constructor(private http: HttpClient) {}
 
-  // ===== COLUMNS =====
-
   /**
    * Get all columns with their cards
    */
@@ -65,10 +63,11 @@ export class KanbanService {
    * Update column positions
    */
   updateColumnPositions(columns: ColumnPositionUpdate[]): Observable<Column[]> {
-    return this.http.patch<Column[]>(`${this.apiUrl}/columns/positions/update`, columns);
+    return this.http.patch<Column[]>(
+      `${this.apiUrl}/columns/positions/update`,
+      columns
+    );
   }
-
-  // ===== CARDS =====
 
   /**
    * Get all cards
@@ -113,17 +112,21 @@ export class KanbanService {
    * Move a card to a different column
    */
   moveCard(cardId: number, moveData: MoveCardRequest): Observable<Card> {
-    return this.http.patch<Card>(`${this.apiUrl}/cards/${cardId}/move`, moveData);
+    return this.http.patch<Card>(
+      `${this.apiUrl}/cards/${cardId}/move`,
+      moveData
+    );
   }
 
   /**
    * Update card positions
    */
   updateCardPositions(cards: CardPositionUpdate[]): Observable<Card[]> {
-    return this.http.patch<Card[]>(`${this.apiUrl}/cards/positions/update`, cards);
+    return this.http.patch<Card[]>(
+      `${this.apiUrl}/cards/positions/update`,
+      cards
+    );
   }
-
-  // ===== UTILITY METHODS =====
 
   /**
    * Get the API health status
