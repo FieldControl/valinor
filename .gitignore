@@ -44,3 +44,10 @@ Thumbs.db
 .github/instructions/nx.instructions.md
 
 .angular
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+apps/backend/kanban.db
+kanban.db

@@ -77,8 +77,6 @@ import { Subject, takeUntil } from 'rxjs';
           *ngFor="let column of columns; trackBy: trackByColumnId"
           cdkDrag
           [cdkDragData]="column"
-          (cdkDragStarted)="onColumnDragStarted($event)"
-          (cdkDragEnded)="onColumnDragEnded($event)"
           class="min-w-[300px] bg-white rounded-lg shadow-sm cursor-move"
         >
           <div class="p-4 border-b border-gray-200">
@@ -362,14 +360,6 @@ export class KanbanBoardComponent implements OnInit, OnDestroy {
 
   getConnectedDropLists(): string[] {
     return this.columns.map((column) => 'column-' + column.id);
-  }
-
-  onColumnDragStarted(): void {
-    // Drag started - no action needed
-  }
-
-  onColumnDragEnded(): void {
-    // Drag ended - no action needed
   }
 
   onColumnDrop(event: CdkDragDrop<Column[]>): void {

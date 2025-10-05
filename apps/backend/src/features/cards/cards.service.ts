@@ -75,7 +75,7 @@ export class CardsService {
     newColumnId: number,
     newPosition: number
   ): Promise<Card> {
-    const card = await this.findOne(cardId);
+    await this.findOne(cardId);
     await this.columnsService.findOne(newColumnId);
 
     await this.cardsRepository.update(cardId, {
@@ -90,7 +90,7 @@ export class CardsService {
     cards: { id: number; position: number; columnId?: number }[]
   ): Promise<Card[]> {
     const updatePromises = cards.map(({ id, position, columnId }) => {
-      const updateData: any = { position };
+      const updateData: { position: number; columnId?: number } = { position };
       if (columnId !== undefined) {
         updateData.columnId = columnId;
       }

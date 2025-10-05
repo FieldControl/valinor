@@ -1,13 +1,13 @@
 import {
   Card as SharedCard,
-  CreateCardDto as CreateCardRequest,
-  UpdateCardDto as UpdateCardRequest,
-  MoveCardDto as MoveCardRequest,
-  UpdateCardPositionsDto as UpdateCardPositionsRequest,
+  CreateCardDto as SharedCreateCardDto,
+  UpdateCardDto as SharedUpdateCardDto,
+  MoveCardDto as SharedMoveCardDto,
+  UpdateCardPositionsDto as SharedUpdateCardPositionsDto,
 } from '@test/shared-types';
 
 export type Card = SharedCard;
-export type CreateCardRequest = CreateCardRequest;
-export type UpdateCardRequest = UpdateCardRequest;
-export type MoveCardRequest = MoveCardRequest;
-export type UpdateCardPositionsRequest = UpdateCardPositionsRequest;
+export type CreateCardRequest = SharedCreateCardDto;
+export type UpdateCardRequest = SharedUpdateCardDto;
+export type MoveCardRequest = SharedMoveCardDto;
+export type UpdateCardPositionsRequest = SharedUpdateCardPositionsDto;

@@ -11,8 +11,8 @@ import {
   UpdateColumnRequest,
   CreateCardRequest,
   UpdateCardRequest,
-  ColumnPositionUpdate,
-  CardPositionUpdate,
+  UpdateColumnPositionsRequest,
+  UpdateCardPositionsRequest,
   MoveCardRequest,
 } from '../models';
 
@@ -62,7 +62,9 @@ export class KanbanService {
   /**
    * Update column positions
    */
-  updateColumnPositions(columns: ColumnPositionUpdate[]): Observable<Column[]> {
+  updateColumnPositions(
+    columns: UpdateColumnPositionsRequest[]
+  ): Observable<Column[]> {
     return this.http.patch<Column[]>(
       `${this.apiUrl}/columns/positions/update`,
       columns
@@ -121,7 +123,7 @@ export class KanbanService {
   /**
    * Update card positions
    */
-  updateCardPositions(cards: CardPositionUpdate[]): Observable<Card[]> {
+  updateCardPositions(cards: UpdateCardPositionsRequest[]): Observable<Card[]> {
     return this.http.patch<Card[]>(
       `${this.apiUrl}/cards/positions/update`,
       cards
