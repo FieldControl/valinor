@@ -61,6 +61,7 @@ import { FormsModule } from '@angular/forms';
                 [(ngModel)]="columnData.title"
                 name="title"
                 required
+                data-testid="column-title-input"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Nome da coluna"
               />
@@ -118,6 +119,7 @@ import { FormsModule } from '@angular/forms';
               <button
                 type="submit"
                 [disabled]="!columnForm.form.valid || loading"
+                data-testid="add-column-submit"
                 class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {{ loading ? 'Adicionando...' : 'Adicionar Coluna' }}

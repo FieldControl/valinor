@@ -37,6 +37,7 @@ import { Subject, takeUntil } from 'rxjs';
 
       <div
         *ngIf="error"
+        data-testid="error-message"
         class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4"
       >
         <strong>Erro:</strong> {{ error }}
@@ -45,6 +46,7 @@ import { Subject, takeUntil } from 'rxjs';
       <div *ngIf="!loading && !error" class="mb-6">
         <button
           (click)="openAddColumnDialog()"
+          data-testid="add-column-btn"
           class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
         >
           <svg
@@ -77,6 +79,7 @@ import { Subject, takeUntil } from 'rxjs';
           *ngFor="let column of columns; trackBy: trackByColumnId"
           cdkDrag
           [cdkDragData]="column"
+          data-testid="kanban-column"
           class="min-w-[300px] bg-white rounded-lg shadow-sm cursor-move"
         >
           <div class="p-4 border-b border-gray-200">
@@ -95,6 +98,7 @@ import { Subject, takeUntil } from 'rxjs';
               </div>
               <button
                 (click)="onColumnDelete(column.id)"
+                data-testid="column-delete-btn"
                 class="text-gray-400 hover:text-red-500 transition-colors"
                 title="Deletar coluna"
               >
@@ -118,6 +122,7 @@ import { Subject, takeUntil } from 'rxjs';
               *ngFor="let card of column.cards; trackBy: trackByCardId"
               cdkDrag
               [cdkDragData]="card"
+              data-testid="card-item"
               class="bg-white border border-gray-200 rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow cursor-move"
             >
               <div class="flex items-start justify-between">
@@ -140,6 +145,7 @@ import { Subject, takeUntil } from 'rxjs';
                 </div>
                 <button
                   (click)="onCardDelete(card.id)"
+                  data-testid="card-delete-btn"
                   class="text-gray-400 hover:text-red-500 transition-colors text-xs ml-2"
                   title="Deletar card"
                 >
@@ -150,6 +156,7 @@ import { Subject, takeUntil } from 'rxjs';
 
             <button
               (click)="toggleAddCardForm(column.id)"
+              data-testid="add-card-btn"
               class="w-full h-12 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center hover:border-blue-400 hover:bg-blue-50 transition-colors"
             >
               <span class="text-gray-500">+ Adicionar Card</span>

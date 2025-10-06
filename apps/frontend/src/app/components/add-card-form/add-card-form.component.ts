@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
             [(ngModel)]="cardData.title"
             name="title"
             required
+            data-testid="card-title-input"
             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             placeholder="Título do card"
           />
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
           <textarea
             [(ngModel)]="cardData.description"
             name="description"
+            data-testid="card-description-input"
             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             placeholder="Descrição"
             rows="2"
@@ -44,6 +46,7 @@ import { FormsModule } from '@angular/forms';
           <button
             type="submit"
             [disabled]="!cardForm.form.valid || loading"
+            data-testid="add-card-submit"
             class="flex-1 bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 disabled:opacity-50"
           >
             {{ loading ? 'Adicionando...' : 'Adicionar' }}
