@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "To Do",
+    "description": "Tasks to be done",
+    "position": 0,
+    "color": "#3B82F6",
+    "cards": [],
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "In Progress",
+    "description": "Tasks in progress",
+    "position": 1,
+    "color": "#F59E0B",
+    "cards": [],
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Done",
+    "description": "Completed tasks",
+    "position": 2,
+    "color": "#10B981",
+    "cards": [],
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  }
+]
