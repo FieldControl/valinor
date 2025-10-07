@@ -1,205 +1,162 @@
 # Kanban Board - Angular & NestJS Monorepo
 
-This project implements a Kanban board with drag-and-drop functionality, using Angular for the frontend and NestJS for the backend, organized in an NX monorepo.
+Este projeto implementa um quadro Kanban com funcionalidade de arrastar e soltar, usando Angular para o frontend e NestJS para o backend, organizado em um monorepo NX.
 
-## ✨ Features
+## ✨ Funcionalidades
 
-- ✅ **Complete CRUD** for columns and cards
-- ✅ **Drag & Drop** for columns and cards
-- ✅ **Position persistence** after refresh
-- ✅ **Responsive interface** with Tailwind CSS
-- ✅ **Complete test coverage** (Unit + E2E)
-- ✅ **Shared types** between frontend and backend
-- ✅ **Local development** ready
+- ✅ **CRUD completo** para colunas e cards
+- ✅ **Arrastar e Soltar** para colunas e cards
+- ✅ **Persistência de posições** após atualização
+- ✅ **Interface responsiva** com Tailwind CSS
+- ✅ **Cobertura completa de testes** (Unit + E2E)
+- ✅ **Tipos compartilhados** entre frontend e backend
+- ✅ **Pronto para desenvolvimento local**
 
-## 🚀 Technologies Used
+## 🚀 Tecnologias Utilizadas
 
 ### Backend (NestJS)
 
-- **NestJS** - Node.js framework
-- **TypeORM** - TypeScript ORM
-- **SQLite** - Database
-- **class-validator** - Data validation
-- **class-transformer** - Data transformation
+- **NestJS** - Framework Node.js
+- **TypeORM** - ORM TypeScript
+- **SQLite** - Banco de dados
+- **class-validator** - Validação de dados
+- **class-transformer** - Transformação de dados
 
 ### Frontend (Angular)
 
-- **Angular 20** - Frontend framework
-- **Angular CDK** - Components and utilities
-- **Tailwind CSS** - CSS framework
-- **RxJS** - Reactive programming
+- **Angular 20** - Framework frontend
+- **Angular CDK** - Componentes e utilitários
+- **Tailwind CSS** - Framework CSS
+- **RxJS** - Programação reativa
 
 ### DevOps
 
-- **NX** - Monorepo and build tools
-- **Jest** - Unit testing
-- **Cypress** - E2E testing
-- **TypeScript** - Static typing
-- **ESLint** - Linting and formatting
+- **NX** - Monorepo e ferramentas de build
+- **Jest** - Testes unitários
+- **Cypress** - Testes E2E
+- **TypeScript** - Tipagem estática
+- **ESLint** - Linting e formatação
 
-## 📁 Project Structure
+## 📁 Estrutura do Projeto
 
 ```
 apps/
-├── backend/                 # NestJS API
+├── backend/                 # API NestJS
 │   ├── src/
-│   │   ├── features/        # Feature modules
-│   │   │   ├── columns/     # Columns module
-│   │   │   │   ├── dto/     # Validation DTOs
-│   │   │   │   ├── entities/ # TypeORM entities
+│   │   ├── features/        # Módulos de funcionalidades
+│   │   │   ├── columns/     # Módulo de colunas
+│   │   │   │   ├── dto/     # DTOs de validação
+│   │   │   │   ├── entities/ # Entidades TypeORM
 │   │   │   │   ├── *.controller.ts
 │   │   │   │   ├── *.service.ts
 │   │   │   │   └── *.module.ts
-│   │   │   └── cards/       # Cards module
+│   │   │   └── cards/       # Módulo de cards
 │   │   │       ├── dto/
 │   │   │       ├── entities/
 │   │   │       ├── *.controller.ts
 │   │   │       ├── *.service.ts
 │   │   │       └── *.module.ts
-│   │   ├── database/        # Database configuration
-│   │   └── app/            # Main module
-├── frontend/               # Angular application
+│   │   ├── database/        # Configuração do banco de dados
+│   │   └── app/            # Módulo principal
+├── frontend/               # Aplicação Angular
 │   ├── src/
 │   │   ├── app/
-│   │   │   ├── components/  # Kanban components
+│   │   │   ├── components/  # Componentes Kanban
 │   │   │   │   ├── kanban-board/
 │   │   │   │   ├── kanban-column/
 │   │   │   │   ├── add-column-dialog/
 │   │   │   │   ├── add-card-form/
 │   │   │   │   └── delete-confirmation-modal/
-│   │   │   ├── services/    # Angular services
-│   │   │   └── models/      # TypeScript interfaces
+│   │   │   ├── services/    # Serviços Angular
+│   │   │   └── models/      # Interfaces TypeScript
 │   │   └── styles.css
-├── frontend-e2e/           # Frontend E2E tests
-├── backend-e2e/            # Backend E2E tests
+├── frontend-e2e/           # Testes E2E do frontend
+├── backend-e2e/            # Testes E2E do backend
 └── libs/
     └── shared/
-        └── types/          # Shared types
+        └── types/          # Tipos compartilhados
 ```
 
-## 🛠 Available Scripts
+## 🛠 Scripts Disponíveis
 
 ```bash
-# Development
-npm run dev                 # Run backend and frontend simultaneously
-npm run dev:backend         # Backend only
-npm run dev:frontend        # Frontend only
+# Desenvolvimento
+npm run dev                 # Executar backend e frontend simultaneamente
+npm run dev:backend         # Apenas backend
+npm run dev:frontend        # Apenas frontend
 
 # Build
-npm run build               # Build both
-npm run build:backend       # Backend build
-npm run build:frontend      # Frontend build
+npm run build               # Build de ambos
+npm run build:backend       # Build do backend
+npm run build:frontend      # Build do frontend
 
-# Testing
-npm run test                # Unit tests for both
-npm run test:backend         # Backend unit tests
-npm run test:frontend        # Frontend unit tests
-npm run e2e:frontend         # Frontend E2E tests
-npm run e2e:backend          # Backend E2E tests
+# Testes
+npm run test                # Testes unitários de ambos
+npm run test:backend         # Testes unitários do backend
+npm run test:frontend        # Testes unitários do frontend
+npm run e2e:frontend         # Testes E2E do frontend
+npm run e2e:backend          # Testes E2E do backend
 
 # Linting
-npm run lint                 # Lint both projects
+npm run lint                 # Lint de ambos os projetos
 ```
 
-## 🚀 How to Run
+## 🚀 Como Executar
 
-### Local Development
+### Desenvolvimento Local
 
-1. **Install dependencies:**
+1. **Instalar dependências:**
 
    ```bash
    npm install
    ```
 
-2. **Run in development mode:**
+2. **Executar em modo de desenvolvimento:**
 
    ```bash
    npm run dev
    ```
 
-3. **Access the applications:**
+3. **Acessar as aplicações:**
    - Frontend: http://localhost:4200
-   - Backend API: http://localhost:3000/api
+   - API Backend: http://localhost:3000/api
 
-## 📊 API Endpoints
+## 📊 Endpoints da API
 
-### Columns
+### Colunas
 
-- `GET /api/columns` - List all columns
-- `POST /api/columns` - Create new column
-- `GET /api/columns/:id` - Get column by ID
-- `PATCH /api/columns/:id` - Update column
-- `DELETE /api/columns/:id` - Delete column
-- `PATCH /api/columns/positions/update` - Update positions
+- `GET /api/columns` - Listar todas as colunas
+- `POST /api/columns` - Criar nova coluna
+- `GET /api/columns/:id` - Obter coluna por ID
+- `PATCH /api/columns/:id` - Atualizar coluna
+- `DELETE /api/columns/:id` - Deletar coluna
+- `PATCH /api/columns/positions/update` - Atualizar posições
 
 ### Cards
 
-- `GET /api/cards` - List all cards
-- `GET /api/cards?columnId=:id` - List cards from a column
-- `POST /api/cards` - Create new card
-- `GET /api/cards/:id` - Get card by ID
-- `PATCH /api/cards/:id` - Update card
-- `DELETE /api/cards/:id` - Delete card
-- `PATCH /api/cards/:id/move` - Move card between columns
-- `PATCH /api/cards/positions/update` - Update positions
+- `GET /api/cards` - Listar todos os cards
+- `GET /api/cards?columnId=:id` - Listar cards de uma coluna
+- `POST /api/cards` - Criar novo card
+- `GET /api/cards/:id` - Obter card por ID
+- `PATCH /api/cards/:id` - Atualizar card
+- `DELETE /api/cards/:id` - Deletar card
+- `PATCH /api/cards/:id/move` - Mover card entre colunas
+- `PATCH /api/cards/positions/update` - Atualizar posições
 
-## 🗄 Data Models
-
-### Column
-
-```typescript
-{
-  id: number;
-  title: string;
-  description?: string;
-  position: number;
-  color: string;
-  cards: Card[];
-  createdAt: Date;
-  updatedAt: Date;
-}
-```
-
-### Card
-
-```typescript
-{
-  id: number;
-  title: string;
-  description?: string;
-  position: number;
-  color: string;
-  priority: 'low' | 'medium' | 'high';
-  columnId: number;
-  column: Column;
-  createdAt: Date;
-  updatedAt: Date;
-}
-```
-
-## 🧪 Testing
+## 🧪 Testes
 
 ### Backend
 
-- **Unit tests:** Jest
-- **Integration tests:** Jest + Supertest
-- **Coverage:** Configured for 80%
+- **Testes unitários:** Jest
+- **Testes de integração:** Jest + Supertest
 
 ### Frontend
 
-- **Unit tests:** Jest + Angular Testing Utilities
-- **E2E tests:** Cypress
-- **Coverage:** Configured for 80%
+- **Testes unitários:** Jest + Angular Testing Utilities
+- **Testes E2E:** Cypress
 
-### Test Results
+## 🔧 Configuração
 
-- ✅ **Frontend Unit Tests:** 11/11 passing (KanbanService)
-- ✅ **Backend Unit Tests:** 32/32 passing (Services + Controllers)
-- ✅ **Frontend E2E Tests:** 6/6 passing (UI interactions)
-- ✅ **Backend E2E Tests:** 1/1 passing (API endpoints)
+### Banco de Dados
 
-## 🔧 Configuration
-
-### Database
-
-The project uses SQLite by default, configured in `apps/backend/src/database/database.config.ts`. The database file (`kanban.db`) is created automatically when you first run the application.
+O projeto usa SQLite por padrão, configurado em `apps/backend/src/database/database.config.ts`. O arquivo do banco de dados (`kanban.db`) é criado automaticamente quando você executa a aplicação pela primeira vez.
