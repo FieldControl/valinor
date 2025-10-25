@@ -1,0 +1,36 @@
+<div class="column">
+  <header class="column__header">
+    <span class="title">{{columnData.title}}</span>
+    <ui-dropdown [columnId]="columnData.id" (deleteColumn)="handleDeleteColumn()" />
+  </header>
+
+  <div class="column__cards" cdkDropList>
+    @for(card of columnData.cards; track card.id){
+    <card cdkDrag [cardData]="card" />
+    }
+
+    @if(showInput()){
+    <div #newTaskContainer class="column__add-card-container">
+      <ui-input [focusOnInit]="true" [control]="newCardTitle" variant="large" placeholder="Insira um título" />
+      <div class="column__add-card-form">
+        <ui-button (onClick)="addNewCardToColumn()">
+          <span>Add Card</span>
+        </ui-button>
+
+        <ui-button variant="outline" (onClick)="disableInput()">
+          <span>X</span>
+        </ui-button>
+      </div>
+    </div>
+    }
+  </div>
+
+  <footer class="column__footer">
+    @if(!showInput()){
+    <ui-button [style]="{width: '100%',  justifyContent: 'start'}" variant="ghost" (onClick)="enableInput()">
+      <icon-plus />
+      <span>Add new card</span>
+    </ui-button>
+    }
+  </footer>
+</div>

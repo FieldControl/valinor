@@ -1,0 +1,75 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [
+			"node_modules",
+			"dist",
+			".gitignore",
+			"tsconfig.json",
+			"tsconfig.build.json",
+			"package-lock.json",
+			"package.json",
+			"biome.json",
+			"README.md",
+			"LICENSE",
+			"nest-cli.json",
+			".lintstagedrc",
+			".prettierrc",
+			".eslint.config.mjs"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "space",
+		"indentWidth": 2,
+		"lineEnding": "lf"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"useImportType": "off",
+				
+				"useFilenamingConvention": "error"
+			},
+			"complexity": {
+				"useLiteralKeys": "off"
+			},
+			"correctness": {
+				"noUnusedImports": "warn",
+				"noUnusedVariables": "error",
+				"useExhaustiveDependencies": "warn"
+			}
+		}
+	},
+	"javascript": {
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
+		},
+		"formatter": {
+			"enabled": true,
+			"quoteStyle": "single",
+			"trailingCommas": "none"
+		}
+	},
+	"json": {
+		"parser": {
+			"allowComments": true,
+			"allowTrailingCommas": false
+		},
+		"formatter": {
+			"enabled": true,
+			"trailingCommas": "none"
+		}
+	}
+}

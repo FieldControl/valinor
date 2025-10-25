@@ -1,0 +1,54 @@
+<div>
+  <board-header />
+  <main class="board">
+    <div class="board__container">
+      <app-chatbot (actionTaken)="getBoardData()" />
+
+      <div class="board__columns" cdkDropListGroup cdkDropList cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="dropColumn($event)">
+
+        @for(column of columns(); track column.id){
+        <div class="example-box" cdkDrag>
+          <column [columnData]="column" cdkDropList [cdkDropListData]="column.cards"
+            (cdkDropListDropped)="dropCard($event)"   (deleteColumn)="deleteColumn($event)"/>
+        </div>
+
+        }
+      </div>
+
+      <div class="board__add-column-container">
+        @if(showInput()) {
+        <div #newListContainer class="board__add-column-form">
+          <ui-input [focusOnInit]="true" [control]="newColumnTitle" placeholder="Insert title" />
+          <ui-button (onClick)="addNewColumn()">
+            <span>Add list</span>
+          </ui-button>
+        </div>
+        }@else {
+        <ui-button [style]="{width: '100%', justifyContent: 'start'}" (onClick)="enableInput()" variant="muted">
+          <icon-plus />
+          <span>Add new list</span>
+        </ui-button>
+        }
+      </div>
+
+      <!-- <div class="board__add-column-container">
+        @if(showInput()) {
+        <div #newListContainer class="board__add-column-container__input">
+          <ui-input [focusOnInit]="true" [control]="newColumnTitle" placeholder="Insert title" />
+          <ui-button (onClick)="addNewList()">
+            <span>Add list</span>
+          </ui-button>
+        </div>
+        } @else {
+        <div class="board__add-column-container__btn-add-column">
+          <ui-button (onClick)="enableInput()" variant="outline">
+            <icon-plus />
+            <span>Add new list</span>
+          </ui-button>
+        </div>
+        }
+      </div> -->
+    </div>
+  </main>
+</div>

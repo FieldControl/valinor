@@ -1,0 +1,56 @@
+@use "variables" as *;
+
+:host {
+  .column {
+    display: flex;
+    flex-direction: column;
+    border-radius: $rounded-column;
+    background-color: $color-column-background;
+    padding-inline: $spacing-2;
+    max-height: 100%;
+    width: $size-column;
+    cursor: pointer;
+
+    & .column__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: $spacing-4;
+      padding-block: $spacing-2;
+
+      & .title {
+        font-size: $text-sm;
+        font-weight: $font-semibold;
+        overflow-wrap: break-word;
+      }
+    }
+  }
+
+  .column__cards {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-between-cards;
+    overflow-y: auto;
+    padding-right: $spacing-2;
+    padding-left: $spacing-1;
+    scrollbar-color: $color-card-background #1818183f;
+    scrollbar-width: thin;
+    
+  }
+
+  .column__add-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-between-cards;
+  }
+
+  .column__add-card-form {
+    display: flex;
+    width: calc(2 / 3 * 100%);
+    gap: $spacing-2;
+  }
+
+  .column__footer {
+    padding-block: $spacing-2;
+  }
+}

@@ -1,0 +1,28 @@
+@use "variables" as *;
+
+@mixin respond-to($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "O breakpoint `#{$size}` não existe no mapa de breakpoints.";
+  }
+}
+
+@mixin container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @each $breakpoint, $max-width in $breakpoints {
+    @media (width >= $max-width) {
+      max-width: $max-width;
+    }
+  }
+}
+
+@mixin border($prefix) {
+  border-#{$prefix}-width: 1px;
+  border-#{$prefix}-style: solid;
+}

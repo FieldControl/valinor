@@ -1,0 +1,54 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Card {
+  id        Int      @id @default(autoincrement())
+  columnId  Int
+  title     String
+  priority  CardPriority? @default(LOW)
+  position  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sessionId String   // <-- nova coluna
+  column    Column   @relation(fields: [columnId], references: [id], onDelete: Cascade)
+
+  @@index([columnId, position])
+  @@index([priority])
+  @@map("cards")
+}
+
+model Column {
+  id        Int      @id @default(autoincrement())
+  title     String
+  position  Int 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sessionId String    // <-- nova coluna
+  cards     Card[]
+
+  @@map("columns")
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sessionId String   // <-- nova coluna
+
+  @@map("messages")
+}
+
+
+enum CardPriority {
+  LOW
+  MEDIUM
+  HIGH
+}

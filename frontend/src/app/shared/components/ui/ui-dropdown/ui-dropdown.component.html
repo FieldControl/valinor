@@ -1,0 +1,11 @@
+<div class="menu-container" clickOutside (clickOutside)="clickedOutside()">
+  <ui-button size="icon" variant="ghost" (click)="toggleMenu()">
+    <icon-dots-three />
+  </ui-button>
+
+  @if(isMenuOpened){
+  <ul class="menu">
+    <li class="menu-item" (click)="handleDeleteColumn()">Delete</li>
+  </ul>
+  }
+</div>

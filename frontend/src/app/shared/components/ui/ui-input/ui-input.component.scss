@@ -1,0 +1,42 @@
+@use "variables" as *;
+
+:host {
+  textarea {
+    background-color: $color-card-background;
+    width: 100%;
+    border-radius: $rounded-md;
+    text-align: start;
+    font-size: $text-sm;
+    font-weight: $font-light;
+    border: $input-border;
+    resize: none;
+    padding: $spacing-2;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  textarea[variant="default"] {
+    padding: $spacing-2;
+    height: 100%;
+    min-height: 30px;
+    overflow: hidden;
+  }
+
+  textarea[variant="large"] {
+    padding: $spacing-2;
+    min-height: $spacing-16;
+  }
+
+  textarea[variant="chatbot"] {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+}

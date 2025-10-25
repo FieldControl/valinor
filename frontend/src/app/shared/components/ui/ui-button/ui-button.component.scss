@@ -1,0 +1,80 @@
+@use "variables" as *;
+
+:host {
+  button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-2;
+    white-space: nowrap;
+    border-radius: $rounded-md;
+    font-size: $text-sm;
+    font-weight: $font-medium;
+    transition-property: color, background-color, border-color;
+    transition-duration: $default-transition-duration;
+    border: none;
+    color: $color-primary-text;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    & svg {
+      pointer-events: none;
+      width: $spacing-4;
+      height: $spacing-4;
+      flex-shrink: 0;
+    }
+
+    &.full-width {
+      width: 100%;
+    }
+  }
+
+  button[variant="default"] {
+    background-color: $color-primary;
+
+    &:hover {
+      background-color: color-mix(in oklab, $color-primary 80%, transparent);
+    }
+  }
+
+  button[variant="outline"] {
+    border: 1px solid $color-border;
+    background-color: transparent;
+  }
+
+  button[variant="ghost"] {
+    background-color: transparent;
+
+    &:hover {
+      background-color: hsla(0, 0%, 0%, 0.05);
+    }
+  }
+
+  button[variant="muted"] {
+    background-color: $color-muted;
+
+    &:hover {
+      background-color: $color-muted-hover;
+    }
+  }
+
+  button[size="default"] {
+    height: $spacing-9;
+    padding-inline: $spacing-4;
+    padding-block: $spacing-2;
+  }
+
+  button[size="icon"] {
+    height: $spacing-7;
+    width: $spacing-7;
+  }
+
+}

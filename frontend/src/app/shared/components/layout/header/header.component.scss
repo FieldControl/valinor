@@ -1,0 +1,50 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+:host {
+  header {
+    @include border(bottom);
+
+    background-color: $color-header-background;
+    padding: $spacing-2;
+    display: grid;
+    place-items: center;
+    width: 100%;
+  }
+
+  .header__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: $text-sm;
+    @include container;
+  }
+
+  // .header__date {
+  //   display: none;
+
+  //   @include respond-to("md") {
+  //     display: block;
+  //   }
+  // }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+
+    & .switch-theme {
+      border-radius: $rounded-sm;
+      width: $spacing-9;
+      height: $spacing-5;
+      cursor: pointer;
+    }
+  }
+
+  .header__explain {
+    color: #c4c71e;
+    text-align: center;
+  }
+}

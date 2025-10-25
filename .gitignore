@@ -1,0 +1,65 @@
+# Node modules
+**/node_modules
+
+# Build / compiled output
+**/dist
+**/build
+**/out-tsc
+**/.angular/cache
+**/.temp
+**/.tmp
+
+# Logs
+logs
+**/*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tests / coverage
+**/coverage
+/.nyc_output
+
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS / system files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# dotenv environment variable files
+.env
+.env.*.local
+environment.*
+!environment.example.ts
+
+# Miscellaneous
+/connect.lock
+/libpeerconnection.log
+/testem.log
+/typings
+
+# Node.js diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

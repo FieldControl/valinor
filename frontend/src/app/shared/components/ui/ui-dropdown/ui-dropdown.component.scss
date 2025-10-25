@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+:host {
+  .menu-container {
+    position: relative;
+  }
+
+  .menu {
+    white-space: nowrap;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: $color-card-background;
+    padding: $spacing-1;
+    border-radius: $rounded-card;
+    border: 1px solid $color-border;
+  }
+
+  .menu-item {
+    cursor: pointer;
+    padding: $spacing-2 $spacing-1;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

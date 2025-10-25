@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+:host {
+  .board {
+    height: $size-board;
+    overflow-y: hidden;
+    padding-bottom: $spacing-4;
+    scrollbar-color: $color-text-muted $color-card-background;
+    background-color: $color-board-background;
+  }
+
+  .board__container {
+    display: flex;
+    height: 100%;
+    gap: $spacing-between-columns;
+    overflow-x: auto;
+    padding: $spacing-4;
+    position: relative;
+  }
+
+  .board__columns {
+    display: flex;
+    gap: $spacing-between-cards;
+  }
+
+  .board__add-column-container {
+    flex-shrink: 0 !important;
+    width: $size-column;
+  }
+
+  .board__add-column-form {
+    padding: $spacing-2;
+    background-color: $color-column-background;
+    border-radius: $rounded-column;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-between-cards;
+  }
+}

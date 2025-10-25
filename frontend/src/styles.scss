@@ -1,0 +1,80 @@
+@use "styles/variables" as *;
+
+:root {
+  --color-primary: #{$color-primary};
+  --color-white: #{$color-white};
+  --color-border: #{$color-border};
+  --color-text: #{$color-text};
+  --color-text-muted: #{$color-text-muted};
+  --color-column-background: #{$color-column-background};
+  --color-card-background: #{$color-card-background};
+  --color-background: #{$color-background};
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: $color-border;
+  color: $color-text;
+  list-style: none;
+}
+
+body {
+  font-family: "Inter", serif;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  opacity: 1;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.5)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.05)
+  );
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+// .drag-column-placeholder {
+//   height: 100%;
+//   min-width: $size-column;
+//   background: linear-gradient(
+//     to bottom right,
+//     $color-column-background,
+//     $color-background
+//   );
+//   opacity: 0.5;
+//   border-radius: $rounded-column;
+// }
+
+// .drag-card-placeholder {
+//   background-color: $color-card-background;
+//   opacity: 0.7;
+//   border-radius: $rounded-card;
+//   min-height: 50px;
+//   width: 100%;
+// }
+.cdk-drag-placeholder {
+  opacity: .2;
+  background: white;
+
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box {
+  height: fit-content;
+  border-radius: $rounded-column;
+}

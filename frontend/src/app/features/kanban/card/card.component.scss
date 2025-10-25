@@ -1,0 +1,42 @@
+@use "variables" as *;
+
+:host {
+  .card {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    border-radius: $rounded-card;
+    background-color: $color-card-background;
+    padding: $spacing-4;
+
+
+
+    & .card__priority {
+      flex-shrink: 0;
+      flex-grow: 0;
+      border-radius: 50%;
+      font-size: $text-sm;
+      width: $spacing-2;
+      height: $spacing-2;
+
+      &--low {
+        background-color: $color-priority-low;
+      }
+
+      &--medium {
+        background-color: $color-priority-medium;
+      }
+
+      &--high {
+        background-color: $color-priority-high;
+      }
+    }
+
+    & .card__title {
+      overflow: hidden;
+      font-size: $text-sm;
+      font-weight: $font-light;
+      overflow-wrap: break-word;
+    }
+  }
+}
