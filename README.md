@@ -10,6 +10,10 @@ Projeto de Kanban Board com backend em **NestJS** e frontend em **Angular**. Per
 
 ### Backend
 
+
+
+
+
 ```
 cd backend
 npm install
@@ -31,6 +35,18 @@ cd frontend
 npm install
 ng serve
 ```
+
+## 🎥 Demonstração do Kanban Board
+Clique para assistir ao vídeo:
+
+
+
+https://github.com/user-attachments/assets/d631b02c-6ae9-45c9-a5a5-c95277bb9af8
+
+
+
+**prompt utilizado na desmontração**:
+"Create a complete project management workflow, including all typical stages of planning, execution, monitoring, and delivery. For each stage, include demonstrative cards with realistic examples of tasks, assignees, deadlines, and status. At the end, generate detailed documentation of the workflow, explaining the logic, the stages, task prioritization, and how the cards relate to each other within the process."
 
 ## 📂 Estrutura do Projeto
 
@@ -105,8 +121,7 @@ Ele executará as ações automaticamente.
 
 ## 📫 Contato
 
-Para dúvidas ou feedback, entre em contato:
+Para dúvidas ou feedback, entre em contato via LinkedIn:
 [https://www.linkedin.com/in/rafagfran/](https://www.linkedin.com/in/rafagfran/)
-
 **email:** rafagfra@hotmail.com
-**whatsapp:** 17992849794
+**whatsapp:** 17 992849794
