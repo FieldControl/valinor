@@ -1,0 +1,42 @@
+<main>
+    <form class="form" #enviar="ngForm" (ngSubmit)="enviarFormulario(enviar)">
+        <div class="containerInput">
+            <label>Titulo</label>
+            <input type="text" placeholder="Digite a tarefa" ngModel name="name" required class="input">
+        </div>
+        <div class="containerInput">
+            <label>Descrição</label>
+            <textarea name="description" placeholder="Digte a desscrição da tarefa" ngModel class="input"></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar</button>
+    </form>
+
+    <section class="containerTask">
+        <div *ngFor="let task of tasksList" class="task">
+            <h2>{{ task.name }}</h2>
+            <p>{{ task.description }}</p>
+            <div class="container-btn">
+                <button (click)="excluirTarefa(task.id)" class="btn-exluir">Excluir</button>
+                <button (click)="editarTask(task)" class="btn-chamaEdit">Editar</button>
+            </div>
+
+            <form *ngIf="editarId === task.id" class="form" #editar="ngForm" (ngSubmit)="taskEdit(editar)">
+                <div class="containerInputEditar">
+                    <label class="labelEditar">Titulo</label>
+                    <input type="text" placeholder="Digite a tarefa" ngModel name="name" required class="inputEditar" [ngModel]="task.name">
+                </div>
+                <div class="containerInputEditar">
+                    <label class="labelEditar">Descrição</label>
+                    <textarea name="description" placeholder="Digite a descrição" ngModel class="inputEditar" [ngModel]="task.description"></textarea>
+                </div>
+                <div class="container-btn-edit">
+                    <button type="submit" class="btn-editar">Atualizar</button>
+                    <button type="button" class="btn-cancelar" (click)="cancelEdit()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+</main>
