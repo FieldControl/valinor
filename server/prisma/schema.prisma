@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model Board {
+  id      Int      @id @default(autoincrement())
+  title   String
+  isArchived Boolean @default(false)
+
+  columns Column[]
+}
+
+model Column {
+  id      Int     @id @default(autoincrement())
+  title   String
+  isArchived Boolean @default(false)
+
+  board   Board?  @relation(fields: [boardId], references: [id])
+  boardId Int?
+
+  cards   Card[]
+}
+
+model Card {
+  id       Int     @id @default(autoincrement())
+  title    String
+  desc     String? 
+  isArchived Boolean @default(false)
+
+  column   Column? @relation(fields: [columnId], references: [id])
+  columnId Int?
+}

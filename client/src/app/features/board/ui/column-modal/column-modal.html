@@ -1,0 +1,60 @@
+<div class="modal-backdrop" (click)="closeModal.emit()">
+  
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    
+    <div class="modal-header">
+      <h3 class="modal-title">
+        @if(mode === 'create') { Nova Coluna }
+        @if(mode === 'edit') { Editar Coluna }
+        @if(mode === 'remove') { Arquivar Coluna }
+      </h3>
+      <button class="btn-close" (click)="closeModal.emit()">&times;</button>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="modal-body">
+        
+        @if (mode === 'remove') {
+            <p class="text-slate-600">
+              Tem certeza que deseja arquivar a coluna <strong>{{ columnData?.title }}</strong>?
+              <br>
+              <span class="text-xs text-red-500">Isso também arquivará todos os cards dela.</span>
+            </p>
+          } 
+          
+          @else {
+            <label class="block text-sm font-medium text-slate-700 mb-1">Título da Coluna</label>
+            <input 
+              type="text" 
+              formControlName="title"
+              class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              [class.border-red-500]="form.get('title')?.invalid && form.get('title')?.touched"
+              autoFocus
+            />
+
+            @if (form.get('title')?.invalid && form.get('title')?.touched) {
+              <span class="text-xs text-red-500 mt-1">Mínimo de 3 caracteres.</span>
+            }
+          }
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" (click)="closeModal.emit()">
+          Cancelar
+        </button>
+        
+        <button type="submit" class="btn-confirm" 
+          [class.bg-red-600]="mode === 'remove'" 
+          [class.hover:bg-red-700]="mode === 'remove'"
+          [disabled]="(mode !== 'remove' && form.invalid) || isSubmitting">
+          
+          @if(isSubmitting) { Processando... } 
+          @else { 
+            @if(mode === 'remove') { Confirmar Arquivamento } @else { Salvar }
+          }
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

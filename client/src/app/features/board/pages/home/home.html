@@ -1,0 +1,53 @@
+<div class="page-wrapper">
+  <div class="content-container">
+
+    <div class="header-wrapper">
+      <h1 class="page-title">Meus Quadros</h1>
+      <button class="btn-primary" (click)="openCreateBoardModal()">
+        + Novo Quadro
+      </button>
+    </div>
+
+    @if (loading) {
+      <div class="loading-wrapper">
+        <span class="loading-text">Carregando...</span>
+      </div>
+    }
+
+    @if (error) {
+      <div class="error-alert" role="alert">
+        <p class="error-title">Erro de Conexão</p>
+        <p>{{ error.message }}</p>
+      </div>
+    }
+
+    @if (!loading && !error) {
+      <div class="boards-grid">
+
+        @for (b of boards; track b.id) {
+          <app-board-item
+            [board]="b"            
+            (click)="openBoard(b.id)"
+            (editBoardModalOpen)="openEditBoardModal($event)" 
+            (removeBoardModalOpen)="openRemoveBoardModal($event)"
+          >
+          </app-board-item>
+        } @empty {
+          <div class="col-span-full text-center text-gray-500 py-10">
+            Você ainda não possui nenhum quadro. Crie um acima!
+          </div>
+        }
+        
+        @if (isBoardModalOpen) {
+          <app-board-modal
+            [mode]="modalMode"
+            [boardData]="selectedBoard"
+            (closeBoardModal)="isBoardModalOpen = false">
+          </app-board-modal>
+        }
+
+      </div>
+    }
+
+  </div>
+</div>

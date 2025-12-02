@@ -1,0 +1,60 @@
+/* O cartão do board em si */
+.board-card {
+  @apply 
+  bg-gray-100 
+  p-6 
+  border 
+  border-gray-200 
+  rounded-lg
+  shadow-sm 
+  hover:shadow-lg 
+  hover:-translate-y-1 
+  transition-all 
+  cursor-pointer 
+  h-32 
+  flex 
+  flex-col 
+  justify-center
+  relative;
+}
+
+/* Container do Cabeçalho (Título + Ações) */
+.board-header {
+  @apply flex justify-between items-start w-full;
+}
+
+/* O título do board */
+.board-title {
+  @apply 
+  text-xl 
+  font-bold 
+  text-slate-700
+  truncate 
+  pr-2;
+}
+
+/* Container dos Botões (Escondido por padrão) */
+.board-actions {
+  @apply 
+  flex 
+  gap-1 
+  opacity-0 
+  group-hover:opacity-100 
+  transition-opacity 
+  bg-gray-100 
+  pl-2;
+}
+
+/* Botões de Ação */
+.btn-icon-edit {
+  @apply text-gray-400 hover:text-blue-600 p-1 rounded hover:bg-blue-50;
+}
+
+.btn-icon-remove {
+  @apply text-gray-400 hover:text-red-600 p-1 rounded hover:bg-red-50;
+}
+
+/* O texto pequeno embaixo (meta info) */
+.board-meta {
+  @apply text-xs text-gray-400 mt-2 flex items-center gap-1;
+}

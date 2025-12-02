@@ -1,0 +1,79 @@
+/* Container principal da coluna */
+.column-wrapper {
+  @apply
+  bg-gray-100 
+  min-w-[300px] 
+  w-[300px] 
+  rounded-lg 
+  shadow-sm 
+  border 
+  border-gray-200 
+  flex 
+  flex-col 
+  h-full 
+  max-h-full;
+}
+
+/* Cabeçalho (Título + Contador) */
+.column-header {
+  @apply 
+  p-3 
+  border-b 
+  border-gray-200 
+  bg-gray-50 
+  rounded-t-lg 
+  flex 
+  justify-between 
+  items-center;
+}
+
+.column-title {
+  @apply 
+  font-bold 
+  text-slate-700 
+  text-sm;
+}
+
+.card-counter {
+  @apply 
+  bg-gray-200 
+  text-gray-600 
+  text-[10px] 
+  px-2 
+  py-0.5 
+  rounded-full 
+  font-bold;
+}
+
+/* Área de rolagem onde ficam os cards */
+.cards-list {
+  @apply 
+  p-2 
+  overflow-y-auto 
+  flex-1; 
+
+  @layer custom-scrollbar;
+  
+}
+
+/* Rodapé com botão de adicionar */
+.column-footer {
+  @apply 
+  p-2 
+  border-t 
+  border-gray-200 
+  mt-auto;
+}
+
+.btn-add-card {
+  @apply
+  w-full 
+  py-1.5 
+  bg-blue-600 
+  hover:bg-blue-700 
+  text-white 
+  rounded 
+  text-xs 
+  font-medium 
+  transition-colors;
+}

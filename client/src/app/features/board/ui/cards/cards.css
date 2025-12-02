@@ -1,0 +1,71 @@
+/* O container do cartão da tarefa */
+.task-card {
+  @apply 
+  bg-white 
+  p-3 
+  rounded 
+  shadow-sm 
+  border 
+  border-gray-100 
+  hover:shadow-md 
+  cursor-pointer 
+  transition-all 
+  mb-2
+  relative;
+}
+
+/* Header que contém Título e Ações */
+.card-header {
+  @apply flex justify-between items-start gap-2;
+}
+
+/* Título da tarefa */
+.card-title {
+  @apply font-medium text-slate-800 text-sm mb-1;
+}
+
+/* Descrição (com limite de linhas) */
+.card-description {
+  @apply text-xs text-gray-500 line-clamp-2;
+}
+
+/* Área inferior onde fica o ID */
+.card-footer {
+  @apply mt-2 flex justify-end;
+}
+
+/* O ID visual (#123) */
+.card-id {
+  @apply text-[10px] text-gray-400 bg-gray-50 px-1 rounded;
+}
+
+.card-actions {
+  @apply 
+    flex 
+    gap-1 
+    opacity-0 
+    group-hover:opacity-100 
+    transition-opacity 
+    bg-white 
+    pl-2;
+}
+
+.btn-icon-edit {
+  @apply 
+  text-gray-400 
+  hover:text-blue-600 
+  p-0.5 
+  rounded 
+  hover:bg-blue-50 
+  transition-all;
+}
+
+.btn-icon-remove {
+  @apply 
+  text-gray-400 
+  hover:text-red-600 
+  p-0.5 
+  rounded 
+  hover:bg-red-50 
+  transition-all;
+}

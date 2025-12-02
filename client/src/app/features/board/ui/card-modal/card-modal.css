@@ -1,0 +1,101 @@
+/* O fundo escuro que cobre a tela inteira */
+.modal-backdrop {
+  @apply 
+  fixed 
+  inset-0 
+  bg-black/50 
+  z-50 
+  flex 
+  items-center 
+  justify-center 
+  backdrop-blur-sm 
+  p-4;
+}
+
+/* A caixa branca do modal */
+.modal-box {
+  @apply 
+  bg-white 
+  rounded-xl 
+  shadow-2xl 
+  w-full 
+  max-w-md 
+  overflow-hidden 
+  animate-[fade-in_0.2s_ease-out];
+}
+
+/* Cabeçalho do modal */
+.modal-header {
+  @apply 
+  bg-gray-50 
+  px-6 
+  py-4 
+  border-b 
+  border-gray-100 
+  flex 
+  justify-between 
+  items-center;
+}
+
+.modal-title {
+  @apply 
+  text-lg 
+  font-bold 
+  text-slate-800;
+}
+
+.btn-close {
+  @apply 
+  text-gray-400 
+  hover:text-gray-600 
+  transition-colors 
+  text-2xl 
+  leading-none;
+}
+
+/* Corpo do modal */
+.modal-body {
+  @apply p-6;
+}
+
+/* Footer com os botões de ação */
+.modal-footer {
+  @apply 
+  px-6 
+  py-4 
+  bg-gray-50 
+  flex 
+  justify-end 
+  gap-3 
+  border-t 
+  border-gray-100;
+}
+
+/* Botões */
+.btn-cancel {
+  @apply 
+  px-4 
+  py-2 
+  text-slate-600 
+  hover:bg-gray-200 
+  rounded-lg 
+  text-sm 
+  font-medium 
+  transition-colors;
+}
+
+.btn-confirm {
+  @apply 
+  px-4 
+  py-2 
+  bg-blue-600 
+  hover:bg-blue-700 
+  text-white 
+  rounded-lg 
+  text-sm 
+  font-medium 
+  shadow-sm 
+  transition-colors 
+  disabled:opacity-50 
+  disabled:cursor-not-allowed;
+}
