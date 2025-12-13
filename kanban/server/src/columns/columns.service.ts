@@ -1,6 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateColumnDto } from './dto/create-column.dto';
+import { UpdateColumnDto } from './dto/update-column.dto';
+
 
 @Injectable()
 export class ColumnsService {
@@ -9,7 +11,7 @@ export class ColumnsService {
   async create(boardId: string, dto: CreateColumnDto) {
     const board = await this.prisma.board.findUnique({ where: { id: boardId } });
     if (!board) {
-      throw new NotFoundException('Quadro não encontrado!')
+      throw new NotFoundException('Coluna não encontrado!')
     }
 
     let order = dto.order;
@@ -21,12 +23,38 @@ export class ColumnsService {
       order = (max._max.order ?? -1) + 1;
     }
 
-    const card = await this.prisma.column.create({
+    return await this.prisma.column.create({
       data: {
         title: dto.title,
         order,
         boardId
       }
+    });
+  }
+
+  async update(id: string, dto: UpdateColumnDto) {
+    const column = await this.prisma.column.findUnique({ where: { id } });
+    if (!column) {
+      throw new NotFoundException('Coluna não encontrada');
+    }
+
+    return this.prisma.column.update({
+      where: { id },
+      data: {
+        ...(dto.title !== undefined && { title: dto.title }),
+        ...(dto.order !== undefined && { order: dto.order }),
+      },
+    });
+  }
+
+  async remove(id: string) {
+    const column = await this.prisma.column.findUnique({ where: { id } });
+    if (!column) {
+      throw new NotFoundException('Coluna não encontrada');
+    }
+
+    return this.prisma.column.delete({
+      where: { id },
     });
   }
 
