@@ -1,0 +1,11 @@
+<mat-card style="padding: 8px; margin-bottom: 8px;">
+  <strong>{{ card.title }}</strong>
+
+  <p *ngIf="card.description" style="margin: 4px 0;">
+    {{ card.description }}
+  </p>
+
+  <small *ngIf="card.dueDate">
+    Prazo: {{ card.dueDate | date: 'short' }}
+  </small>
+</mat-card>

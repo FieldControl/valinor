@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/boards">
+    &larr; Voltar
+  </button>
+  <span style="margin-left: 8px;">{{ board?.name || 'Carregando...' }}</span>
+</mat-toolbar>
+
+<div style="padding: 16px;">
+  <div *ngIf="loading" style="display: flex; justify-content: center; margin-top: 24px;">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+
+  <mat-card *ngIf="error" style="margin-top: 8px; max-width: 480px;">
+    <span style="color: #b00020;">{{ error }}</span>
+  </mat-card>
+
+  <div *ngIf="board && !loading">
+    <mat-card style="max-width: 480px; margin-bottom: 16px;">
+      <h2>Colunas</h2>
+      <button mat-raised-button color="primary" (click)="openCreateColumnDialog()">
+        Nova coluna
+      </button>
+    </mat-card>
+
+    <div style="
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      ">
+      <app-kanban-column
+        *ngFor="let column of board.columns; trackBy: trackByColumnId"
+        [column]="column"
+        (cardCreated)="loadBoard()"
+      ></app-kanban-column>
+      
+    </div>
+  </div>
+</div>

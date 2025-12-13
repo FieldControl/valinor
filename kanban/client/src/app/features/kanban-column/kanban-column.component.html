@@ -1,0 +1,12 @@
+<mat-card style="min-width: 260px;">
+  <h3>{{ column.title }}</h3>
+
+  <app-kanban-card *ngFor="let card of column.cards" [card]="card"></app-kanban-card>
+
+  <p *ngIf="error" style="color: #b00020;">{{ error }}</p>
+
+  <button mat-raised-button color="accent" (click)="openCreateCardDialog()">
+    Novo card
+  </button>
+
+</mat-card>
