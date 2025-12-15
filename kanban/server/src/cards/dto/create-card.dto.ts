@@ -15,6 +15,10 @@ export class CreateCardDto {
   order?: number;
 
   @IsOptional()
+  @IsString()
+  columnId?: string;
+
+  @IsOptional()
   @IsISO8601()
   dueDate?: string;
 }

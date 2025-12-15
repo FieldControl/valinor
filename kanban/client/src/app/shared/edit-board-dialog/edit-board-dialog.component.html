@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Novo quadro</h2>
+<h2 mat-dialog-title>Renomear quadro</h2>
 
 <div mat-dialog-content>
   <mat-form-field appearance="outline" style="width: 100%;">
@@ -8,12 +8,13 @@
 </div>
 
 <div mat-dialog-actions align="end">
-  <button mat-button class="app-text-button" type="button" (click)="cancel()">Cancelar</button>
+  <button mat-button class="app-text-button" (click)="cancel()">Cancelar</button>
   <button
     mat-raised-button
     color="primary"
-    (click)="confirm()"
-    [disabled]="!name.trim()">
-    Criar
+    (click)="save()"
+    [disabled]="!name.trim()"
+  >
+    Salvar
   </button>
 </div>

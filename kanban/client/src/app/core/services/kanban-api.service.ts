@@ -28,22 +28,50 @@ export class KanbanApiService {
     return this.http.post<Board>(`${this.baseUrl}/boards`, payload);
   }
 
+  updateBoard(id: string, payload: { name?: string }) {
+    return this.http.put<Board>(`${this.baseUrl}/boards/${id}`, payload);
+  }
+
+  deleteBoard(id: string) {
+    return this.http.delete<void>(`${this.baseUrl}/boards/${id}`);
+  }
+
+
   // Columns
-  createColumn(boardId: string, payload: { title: string }): Observable<Column> {
+  createColumn(boardId: string, payload: { title: string; order?: number}): Observable<Column> {
     return this.http.post<Column>(
       `${this.baseUrl}/boards/${boardId}/columns`,
       payload,
     );
   }
 
+  updateColumn(id: string, payload: { title?: string; order?: number }) {
+    return this.http.patch<Column>(`${this.baseUrl}/columns/${id}`, payload);
+  }
+
+  deleteColumn(id: string) {
+    return this.http.delete<void>(`${this.baseUrl}/columns/${id}`);
+  }
+
   // Cards
   createCard(
     columnId: string,
-    payload: { title: string; description?: string; dueDate?: string },
+    payload: { title: string; description?: string; dueDate?: string, order?: number, columnId?: string},
   ): Observable<Card> {
     return this.http.post<Card>(
       `${this.baseUrl}/columns/${columnId}/cards`,
       payload,
     );
+  }
+
+  updateCard(
+    id: string,
+    payload: { title?: string; description?: string; dueDate?: string, order?: number, columnId?: string},
+  ) {
+    return this.http.patch<Card>(`${this.baseUrl}/cards/${id}`, payload);
+  }
+
+  deleteCard(id: string) {
+    return this.http.delete<void>(`${this.baseUrl}/cards/${id}`);
   }
 }

@@ -22,7 +22,7 @@ export class BoardsController {
     return this.boardService.create(dto);
   }
 
-  @Put()
+  @Put(':id')
   update(@Param('id') id: string, @Body() dto: UpdateBoardDto){
     return this.boardService.update(id, dto);
   }

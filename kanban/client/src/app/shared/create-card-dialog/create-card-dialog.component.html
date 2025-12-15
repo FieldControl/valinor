@@ -18,8 +18,8 @@
 </div>
 
 <div mat-dialog-actions align="end">
-  <button mat-button (click)="cancel()">Cancelar</button>
-  <button mat-raised-button color="accent" (click)="confirm()" [disabled]="!title.trim()">
+  <button mat-button class="app-text-button" type="button" (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="confirm()" [disabled]="!title.trim()">
     Criar
   </button>
 

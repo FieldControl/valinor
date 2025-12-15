@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { CreateBoardDialogComponent } from '../../shared/create-board-dialog/create-board-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-board-list',
@@ -22,7 +23,7 @@ import { CreateBoardDialogComponent } from '../../shared/create-board-dialog/cre
     CommonModule,
     RouterModule,
     FormsModule,
-    
+
     // Material
     MatToolbarModule,
     MatCardModule,
@@ -30,9 +31,11 @@ import { CreateBoardDialogComponent } from '../../shared/create-board-dialog/cre
     MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   templateUrl: './board-list.component.html',
+  styleUrl: './board-list.component.scss'
 })
 export class BoardListComponent implements OnInit {
   boards: Board[] = [];
@@ -86,7 +89,10 @@ export class BoardListComponent implements OnInit {
   }
 
   openCreateBoardDialog(): void {
-    const dialogRef = this.dialog.open(CreateBoardDialogComponent);
+    const dialogRef = this.dialog.open(CreateBoardDialogComponent, {
+      panelClass: 'app-dialog',
+      width: '400px'
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (!result) return;
@@ -100,4 +106,16 @@ export class BoardListComponent implements OnInit {
       });
     });
   }
+
+  deleteBoard(board: Board): void {
+    this.kanbanApi.deleteBoard(board.id).subscribe({
+      next: () => {
+        this.boards = this.boards.filter((b) => b.id !== board.id);
+      },
+      error: () => {
+        this.error = 'Erro ao excluir quadro.';
+      },
+    });
+  }
+  
 }

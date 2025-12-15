@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>Editar card</h2>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;">
+    <mat-label>Título</mat-label>
+    <input
+      matInput
+      [(ngModel)]="title"
+      [readonly]="isReadonly"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;">
+    <mat-label>Descrição</mat-label>
+    <textarea
+      matInput
+      rows="3"
+      [(ngModel)]="description"
+      [readonly]="isReadonly"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 8px;">
+    <mat-label>Prazo</mat-label>
+    <input
+      matInput
+      type="datetime-local"
+      [(ngModel)]="dueDate"
+      [readonly]="isReadonly"
+    />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button class="app-text-button" type="button" (click)="close()">
+    {{ isReadonly ? 'Fechar' : 'Cancelar' }}
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    *ngIf="isReadonly"
+    (click)="enableEdit()"
+  >
+    Editar
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    *ngIf="!isReadonly"
+    (click)="save()"
+    [disabled]="!title.trim()"
+  >
+    Salvar
+  </button>
+</div>
