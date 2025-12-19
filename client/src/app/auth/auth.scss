@@ -1,0 +1,30 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-radius: 1rem;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.form-control {
+  cursor: text;
+  
+  &:hover,
+  &:focus {
+    cursor: text;
+  }
+}

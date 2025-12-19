@@ -1,0 +1,128 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthUser {
+  id: Int!
+  name: String!
+  email: String!
+  createdAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type AuthResponse {
+  access_token: String!
+  user: AuthUser!
+}
+
+type User {
+  id: Int!
+  name: String!
+  email: String!
+  createdAt: DateTime!
+}
+
+type Card {
+  id: Int!
+  name: String!
+  description: String
+  columnId: Int!
+  assignedUserId: Int
+  assignedUserName: String
+  createdAt: DateTime!
+}
+
+type Column {
+  id: Int!
+  name: String!
+  boardId: Int!
+  position: Int!
+  cards: [Card!]
+}
+
+type Board {
+  id: Int!
+  name: String!
+  createdAt: DateTime!
+  columns: [Column!]
+}
+
+type BoardUser {
+  id: Int!
+  name: String!
+  email: String!
+}
+
+type Query {
+  me: User!
+  users: [User!]!
+  user(id: Int!): User!
+  myBoards: [Board!]!
+  getBoard(boardId: Int!): Board!
+  getBoardUsers(boardId: Int!): [BoardUser!]!
+  column(id: Int!): Column!
+  card(id: Int!): Card!
+}
+
+type Mutation {
+  login(loginInput: LoginInput!): AuthResponse!
+  createUser(createUserInput: CreateUserInput!): User!
+  createBoard(createBoardInput: CreateBoardInput!): Board!
+  addUserToBoard(addUserToBoardInput: AddUserToBoardInput!): BoardUser!
+  createColumn(createColumnInput: CreateColumnInput!): Column!
+  updateColumn(updateColumnInput: UpdateColumnInput!): Column!
+  removeColumn(id: Int!): Column!
+  createCard(createCardInput: CreateCardInput!): Card!
+  moveCard(id: Int!, targetColumnId: Int!): Card!
+  updateCard(updateCardInput: UpdateCardInput!): Card!
+  removeCard(id: Int!): Card!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input CreateBoardInput {
+  name: String!
+}
+
+input AddUserToBoardInput {
+  boardId: Int!
+  email: String!
+}
+
+input CreateColumnInput {
+  name: String!
+  boardId: Int!
+}
+
+input UpdateColumnInput {
+  name: String
+  boardId: Int
+  id: Int!
+}
+
+input CreateCardInput {
+  name: String!
+  description: String
+  columnId: Int!
+}
+
+input UpdateCardInput {
+  name: String
+  description: String
+  columnId: Int
+  id: Int!
+  assignedUserId: Int
+}

@@ -1,0 +1,31 @@
+<div class="auth-container">
+    <div class="card shadow" [formGroup]="loginForm">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">{{ isRegisterMode ? 'Criar Conta' : 'Entrar' }}</h5>
+            
+            <div class="mb-3" *ngIf="isRegisterMode">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="name" placeholder="Digite seu nome" formControlName="name">
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required formControlName="email">
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required formControlName="password">
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary" (click)="login()" *ngIf="!isRegisterMode">Entrar</button>
+                <button type="submit" class="btn btn-primary" (click)="register()" *ngIf="isRegisterMode">Criar Conta</button>
+                
+                <button type="button" class="btn btn-outline-primary" (click)="toggleMode()">
+                    {{ isRegisterMode ? 'Cancelar' : 'Registrar' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,295 @@
+<div class="board-container">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Kanban</h2>
+        <p class="board-text">Boards</p>
+      </div>
+
+      <div class="boards-list">
+        <div
+          class="board-card"
+          *ngFor="let board of boards"
+          (click)="selectBoard(board.id)"
+          [class.active]="board.id === selectedBoardId">
+          {{ board.name }}
+        </div>
+      </div>
+
+      <button class="create-board-btn" (click)="openCreateBoardModal()">+ Novo Board</button>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </aside>
+
+    <main class="main-content">
+      <ng-container *ngIf="selectedBoardId; else noBoard">
+        <div class="board-header">
+          <h2>{{ selectedBoardName }}</h2>
+          <div class="board-header-actions">
+            <button class="btn-add-user" (click)="openAddUserModal()">👥 Adicionar Usuário</button>
+            <button class="btn-add-column" (click)="openCreateColumnModal()">+ Nova Coluna</button>
+          </div>
+        </div>
+
+        <div class="columns-container">
+          <div 
+            class="column" 
+            *ngFor="let column of columns"
+            (dragover)="onDragOver($event)"
+            (drop)="onDrop($event, column.id)"
+          >
+            <div class="column-header">
+              <h3>{{ column.name }}</h3>
+              <div class="column-actions">
+                <button class="btn-edit-icon" (click)="openEditColumnModal(column)" title="Editar coluna">
+                  ✏️
+                </button>
+                <button class="btn-delete-icon" (click)="openDeleteColumnModal(column.id)" title="Excluir coluna">
+                  🗑️
+                </button>
+                <span class="card-count">{{ column.cards?.length || 0 }}</span>
+              </div>
+            </div>
+
+            <div 
+              class="cards-list"
+              (dragover)="onDragOver($event)"
+              (drop)="onDrop($event, column.id)"
+            >
+              <div 
+                class="card" 
+                *ngFor="let card of column.cards"
+                draggable="true"
+                (dragstart)="onDragStart($event, card.id, column.id)"
+                (dragend)="onDragEnd()"
+                [class.dragging]="draggedCardId === card.id"
+              >
+                <div class="card-header-row">
+                  <div class="card-title">{{ card.name }}</div>
+                  <div class="card-actions">
+                    <button class="btn-edit-card-icon" (click)="openEditCardModal(card)" title="Editar card">
+                      ✏️
+                    </button>
+                    <button class="btn-delete-card-icon" (click)="openDeleteCardModal(card.id)" title="Excluir card">
+                      🗑️
+                    </button>
+                  </div>
+                </div>
+                <div class="card-description" *ngIf="card.description">{{ card.description }}</div>
+              </div>
+            </div>
+
+            <button class="btn-add-card" (click)="openCreateCardModal(column.id)">+ Novo Card</button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noBoard>
+        <div class="empty-state">
+          <h3>Nenhum board selecionado</h3>
+          <p>Selecione um board da lista ou crie um novo</p>
+        </div>
+      </ng-template>
+    </main>
+  </div>
+
+<!-- modal de criar board -->
+<div class="modal-overlay" *ngIf="showCreateBoardModal" (click)="closeCreateBoardModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Criar Novo Board</h3>
+      <button class="close-btn" (click)="closeCreateBoardModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input
+        type="text"
+        [(ngModel)]="newBoardName"
+        placeholder="Nome do board"
+        class="modal-input"
+        (keyup.enter)="createBoard()"
+        autofocus
+      />
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeCreateBoardModal()">Cancelar</button>
+      <button class="btn-primary" (click)="createBoard()">Criar</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal de criar coluna -->
+<div class="modal-overlay" *ngIf="showCreateColumnModal" (click)="closeCreateColumnModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Criar Nova Coluna</h3>
+      <button class="close-btn" (click)="closeCreateColumnModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input
+        type="text"
+        [(ngModel)]="newColumnName"
+        placeholder="Nome da coluna"
+        class="modal-input"
+        (keyup.enter)="createColumn()"
+        autofocus
+      />
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeCreateColumnModal()">Cancelar</button>
+      <button class="btn-primary" (click)="createColumn()">Criar</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal de criar card -->
+<div class="modal-overlay" *ngIf="showCreateCardModal" (click)="closeCreateCardModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Criar Novo Card</h3>
+      <button class="close-btn" (click)="closeCreateCardModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input
+        type="text"
+        [(ngModel)]="newCardName"
+        placeholder="Nome do card"
+        class="modal-input"
+        style="margin-bottom: 12px;"
+      />
+      <textarea
+        [(ngModel)]="newCardDescription"
+        placeholder="Descrição (opcional)"
+        class="modal-textarea"
+        rows="4"
+      ></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeCreateCardModal()">Cancelar</button>
+      <button class="btn-primary" (click)="createCard()">Criar</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal de editar coluna -->
+<div class="modal-overlay" *ngIf="showEditColumnModal" (click)="closeEditColumnModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Editar Coluna</h3>
+      <button class="close-btn" (click)="closeEditColumnModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input
+        type="text"
+        [(ngModel)]="editColumnName"
+        placeholder="Nome da coluna"
+        class="modal-input"
+        (keyup.enter)="updateColumn()"
+        autofocus
+      />
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeEditColumnModal()">Cancelar</button>
+      <button class="btn-primary" (click)="updateColumn()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal de editar card -->
+<div class="modal-overlay" *ngIf="showEditCardModal" (click)="closeEditCardModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Editar Card</h3>
+      <button class="close-btn" (click)="closeEditCardModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input
+        type="text"
+        [(ngModel)]="editCardName"
+        placeholder="Nome do card"
+        class="modal-input"
+        style="margin-bottom: 12px;"
+      />
+      <textarea
+        [(ngModel)]="editCardDescription"
+        placeholder="Descrição (opcional)"
+        class="modal-textarea"
+        rows="4"
+        style="margin-bottom: 12px;"
+      ></textarea>
+      <select
+        [(ngModel)]="editCardAssignedUserId"
+        class="modal-input"
+      >
+        <option [value]="null">Sem atribuição</option>
+        <option *ngFor="let user of boardUsers" [value]="user.id">
+          {{ user.name }}
+        </option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeEditCardModal()">Cancelar</button>
+      <button class="btn-primary" (click)="updateCard()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal confirmar exclusão coluna -->
+<div class="modal-overlay" *ngIf="showDeleteColumnModal" (click)="closeDeleteColumnModal()">
+  <div class="modal modal-confirm" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Excluir Coluna</h3>
+      <button class="close-btn" (click)="closeDeleteColumnModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="confirm-text">Tem certeza que deseja excluir esta coluna?</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeDeleteColumnModal()">Cancelar</button>
+      <button class="btn-danger" (click)="confirmDeleteColumn()">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal confirmar exclusão card -->
+<div class="modal-overlay" *ngIf="showDeleteCardModal" (click)="closeDeleteCardModal()">
+  <div class="modal modal-confirm" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Excluir Card</h3>
+      <button class="close-btn" (click)="closeDeleteCardModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="confirm-text">Tem certeza que deseja excluir este card?</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeDeleteCardModal()">Cancelar</button>
+      <button class="btn-danger" (click)="confirmDeleteCard()">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal adicionar usuário ao board -->
+<div class="modal-overlay" *ngIf="showAddUserModal" (click)="closeAddUserModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Adicionar Usuário ao Board</h3>
+      <button class="close-btn" (click)="closeAddUserModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input
+        type="email"
+        [(ngModel)]="newUserEmail"
+        placeholder="Digite o email do usuário"
+        class="modal-input"
+        (keyup.enter)="addUserToBoard()"
+        autofocus
+      />
+      <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">
+        O usuário deve estar cadastrado no sistema para ser adicionado ao board.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeAddUserModal()">Cancelar</button>
+      <button class="btn-primary" (click)="addUserToBoard()">Adicionar</button>
+    </div>
+  </div>
+</div>
+</div>

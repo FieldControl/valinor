@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  sr_id        Int      @id @default(autoincrement())
+  vc_name      String
+  vc_email     String   @unique
+  vc_password  String   
+  dt_createdAt DateTime @default(now())
+  boards       UserBoard[]
+  createdCards Card[] @relation("CardCreator")
+  assignedCards Card[] @relation("CardAssignee")
+  @@map("tb_users")
+}
+
+model Board {
+  sr_id Int @id @default(autoincrement())
+  vc_name String
+  dt_createdAt DateTime @default(now())
+  users UserBoard[]
+  columns Column[]
+  @@map("tb_boards")
+}
+
+model UserBoard {
+  sr_id Int @id @default(autoincrement())
+  fk_userId Int
+  fk_boardId Int
+  vc_role String @default("member")
+  dt_joinedAt DateTime @default(now())
+
+  user User @relation(fields: [fk_userId], references: [sr_id])
+  board Board @relation(fields: [fk_boardId], references: [sr_id])
+  @@map("tb_users_boards")
+}
+
+model Column {
+  sr_id Int @id @default(autoincrement())
+  vc_name String
+  it_position Int
+  fk_boardId Int
+  cards Card[]
+
+  boardColumn Board @relation(fields: [fk_boardId], references: [sr_id])
+  @@map("tb_columns")
+}
+
+model Card {
+  sr_id Int @id @default(autoincrement())
+  vc_name String
+  vc_description String?
+  dt_createdAt DateTime @default(now())
+  fk_userId Int
+  fk_assignedUserId Int?
+  fk_columnId Int
+
+  userCard User @relation("CardCreator", fields: [fk_userId], references: [sr_id])
+  assignedUser User? @relation("CardAssignee", fields: [fk_assignedUserId], references: [sr_id])
+  columnCard Column @relation(fields: [fk_columnId], references: [sr_id])
+  @@map("tb_cards")
+}
