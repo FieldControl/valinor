@@ -257,7 +257,7 @@ GraphQL Playground: `http://localhost:3000/graphql`
 cd client
 npm start
 ```
-Aplicação rodando em: `http://localhost:4200`
+Aplicação rodando em: `http://localhost:4300`
 
 ### Produção
 
@@ -277,7 +277,7 @@ npm run build
 
 ### Acessando a Aplicação
 
-1. Abra `http://localhost:4200` no navegador
+1. Abra `http://localhost:4300` no navegador
 2. Faça o registro de um novo usuário
 3. Faça login com suas credenciais
 4. Crie seu primeiro board!
