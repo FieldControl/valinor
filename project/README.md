@@ -17,7 +17,6 @@ Este projeto é uma aplicação **Fullstack** que implementa um quadro Kanban in
 * **Comunicação entre Componentes:** Sincronização de estado entre componentes pais e filhos no Angular.
 * **Drag & Drop:** Implementação fluida de arrastar e soltar tarefas usando `Angular CDK`.
 * **API Robusta:** Backend em NestJS com tratamento de erros e validação de dados.
-* **Testes:** Testes unitários implementados no Service do Backend.
 
 ---
 
@@ -29,11 +28,10 @@ Este projeto é uma aplicação **Fullstack** que implementa um quadro Kanban in
 - **HTML5 & CSS3** (Flexbox, Grid e Variáveis CSS)
 - **TypeScript**
 
-### **Backend** (`/backend`)
+### **Backend** (`/backend`)WS
 - **NestJS** (Framework progressivo para Node.js)
 - **TypeORM** (ORM para abstração do banco de dados)
 - **PostgreSQL** (Banco de dados relacional)
-- **Jest** (Framework de Testes)
 
 ---
 
