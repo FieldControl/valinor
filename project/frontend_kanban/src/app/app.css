@@ -1,0 +1,111 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #0089bf;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main-header {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.192);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
+}
+
+.logo-area h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.form-coluna {
+  background: #ebecf0;
+  padding: 10px;
+  border-radius: 8px;
+  width: 280px; 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 999;
+}
+
+.form-coluna input {
+  padding: 8px;
+  border: 2px solid #0079bf;
+  border-radius: 4px;
+  outline: none;
+}
+
+.form-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-confirm {
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6b778c;
+}
+
+.btn-add-coluna {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-add-coluna:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.board-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px; 
+  padding: 20spx;
+  overflow-x: auto; 
+  overflow-y: hidden;
+}
+
+/* Scrollbar personalizada para ficar bonito :D */
+.board-container::-webkit-scrollbar {
+  height: 12px;
+}
+
+.board-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+}
+
+.board-container::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.spacer {
+  min-width: 1px;
+}

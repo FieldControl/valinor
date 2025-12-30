@@ -1,0 +1,121 @@
+.coluna-container {
+  background-color: #ebecf0;
+  width: 300px; 
+  min-width: 300px;
+  max-height: calc(100vh - 120px);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%; /* Para permitir scroll se tiver muitos cards */
+}
+
+.coluna-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.coluna-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #172b4d;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-delete-col {
+  background: transparent;
+  border: none;
+  color: #6b778c;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 5px;
+  border-radius: 4px;
+}
+
+.btn-delete-col:hover {
+  background-color: #dadbe2;
+  color: #bf2600;
+}
+
+.card-list {
+  min-height: 20px; /* Altura mínima para conseguir soltar card em coluna vazia */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1; /* Ocupa o espaço disponível */
+  overflow-y: auto; /* Scroll vertical se tiver muitos cards */
+  padding-bottom: 10px;
+}
+
+.btn-add-card {
+  background: transparent;
+  border: none;
+  color: #5e6c84;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-add-card:hover {
+  background-color: #dadbe2;
+  color: #172b4d;
+}
+
+.add-card-form {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-card-title, .input-card-desc {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25); /* Parece um card real */
+  resize: vertical; /* Para o textarea */
+}
+
+.input-card-title:focus, .input-card-desc:focus {
+  outline: 2px solid #0079bf;
+}
+
+.btn-confirm {
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6b778c;
+}
+
+/* Classes do Drag & Drop */
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.cdk-drag-placeholder { opacity: 0; }
