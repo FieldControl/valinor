@@ -9,12 +9,6 @@
 
 ---
 
-## 🖼️ Preview
-
-*(Adicione aqui uma imagem ou GIF do projeto funcionando)*
-
----
-
 ## 🚀 Sobre o Projeto
 
 Este projeto é uma aplicação **Fullstack** que implementa um quadro Kanban. O objetivo foi criar uma arquitetura limpa onde o Frontend consome uma API RESTful, com persistência de dados relacional.
@@ -62,8 +56,3 @@ Antes de começar, certifique-se de ter instalado:
 - [PostgreSQL](https://www.postgresql.org/)
 - [Git](https://git-scm.com/)
 
-### 1. Clonar o Repositório
-
-```bash
-git clone [https://github.com/SEU-USUARIO/NOME-DO-REPO.git](https://github.com/SEU-USUARIO/NOME-DO-REPO.git)
-cd NOME-DO-REPO
