@@ -1,58 +1,96 @@
-# 📋 Kanban Board Fullstack
+#  Kanban Board Fullstack
 
 ![Status](https://img.shields.io/badge/Status-Concluído-green?style=for-the-badge)
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![TypeORM](https://img.shields.io/badge/TypeORM-FE0C05?style=for-the-badge&logo=typeorm&logoColor=white)
 
-> Um sistema de gerenciamento de tarefas visual (estilo Trello) desenvolvido para demonstrar a integração completa entre um Frontend moderno e uma API robusta.
+> Um sistema de gerenciamento de tarefas visual (estilo Trello) desenvolvido com arquitetura moderna, separando Frontend e Backend em um monorepo.
+
+---
+##  Sobre o Projeto
+
+Este projeto é uma aplicação **Fullstack** que implementa um quadro Kanban interativo. O objetivo principal foi criar uma arquitetura limpa onde o Frontend (Angular) consome uma API RESTful (NestJS), com persistência de dados em banco relacional (PostgreSQL).
+
+**Principais desafios técnicos resolvidos:**
+* **Comunicação entre Componentes:** Sincronização de estado entre componentes pais e filhos no Angular.
+* **Drag & Drop:** Implementação fluida de arrastar e soltar tarefas usando `Angular CDK`.
+* **API Robusta:** Backend em NestJS com tratamento de erros e validação de dados.
+* **Testes:** Testes unitários implementados no Service do Backend.
 
 ---
 
-## 🚀 Sobre o Projeto
-
-Este projeto é uma aplicação **Fullstack** que implementa um quadro Kanban. O objetivo foi criar uma arquitetura limpa onde o Frontend consome uma API RESTful, com persistência de dados relacional.
-
-**Principais desafios resolvidos:**
-* Sincronização de estado entre componentes pais e filhos.
-* Implementação de **Drag & Drop** utilizando Angular CDK.
-* Formulários semânticos e interativos (substituindo o uso de `alerts/prompts`).
-* Configuração de ambiente Monorepo (Backend e Frontend no mesmo repositório).
-* Testes unitários no Backend.
-
----
-
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 ### **Frontend** (`/frontend`)
 - **Angular 17+** (Standalone Components)
-- **Angular CDK** (Para a funcionalidade de arrastar e soltar)
-- **HTML5 & CSS3** (Layout responsivo e estilização customizada)
+- **Angular CDK** (Drag & Drop)
+- **HTML5 & CSS3** (Flexbox, Grid e Variáveis CSS)
 - **TypeScript**
 
 ### **Backend** (`/backend`)
-- **NestJS** (Framework para Node.js)
-- **TypeORM** (ORM para banco de dados)
+- **NestJS** (Framework progressivo para Node.js)
+- **TypeORM** (ORM para abstração do banco de dados)
 - **PostgreSQL** (Banco de dados relacional)
-- **Jest** (Testes automatizados)
+- **Jest** (Framework de Testes)
 
 ---
 
-## ✨ Funcionalidades
+##  Funcionalidades
 
-- [x] **Gestão de Colunas**: Criar e excluir colunas dinamicamente.
-- [x] **Gestão de Tarefas (Cards)**: Adicionar cards com título e descrição.
-- [x] **Drag & Drop**: Arrastar cards entre colunas diferentes.
-- [x] **Interface Limpa**: Inputs inline para criação rápida de tarefas (sem popups intrusivos).
-- [x] **Persistência**: Dados salvos automaticamente no PostgreSQL.
+- [x] **Gestão de Colunas**: Criar e excluir listas de tarefas dinamicamente.
+- [x] **Gestão de Cards**: Adicionar tarefas com título e descrição.
+- [x] **Drag & Drop**: Arrastar cards entre colunas diferentes livremente.
+- [x] **Interface Limpa**: Formulários inline para criação rápida (UX focada em produtividade).
+- [x] **Persistência Real**: Todos os dados e movimentos são salvos no banco de dados.
 
 ---
 
-## 📦 Como Rodar o Projeto
+##  Instalação e Execução
 
-### Pré-requisitos
-Antes de começar, certifique-se de ter instalado:
-- [Node.js](https://nodejs.org/) (v18 ou superior)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Git](https://git-scm.com/)
+Siga os passos abaixo para rodar o projeto em sua máquina local.
 
+### 1. Pré-requisitos
+Certifique-se de ter instalado:
+- **Node.js** (v18 ou superior)
+- **Git**
+- **PostgreSQL** (Rodando na porta padrão 5432)
+
+### Backend (NestJS)
+
+2. Navegue até o diretório do backend:
+   ```bash
+   cd kanban-backend
+   ```
+
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run start:dev
+   ```
+
+   O backend estará disponível em `http://localhost:3000`.
+
+### Frontend (Angular)
+
+1. Navegue até o diretório do frontend:
+   ```bash
+   cd kanban-frontend
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
+
+   O frontend estará disponível em `http://localhost:4200`
