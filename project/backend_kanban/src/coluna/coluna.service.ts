@@ -3,6 +3,9 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Column } from "./entities/coluna.entity";
 
+/**
+ * Serviço para gerenciar colunas do kanban.
+ */
 @Injectable()
 export class ColumnService {
   constructor(
@@ -10,6 +13,7 @@ export class ColumnService {
     private columnRepo: Repository<Column>,
   ) {}
 
+  /** Retorna todas as colunas com seus cards (ordenadas) */
   findAll() {
     return this.columnRepo.find({
       relations: ["cards"],
@@ -22,11 +26,13 @@ export class ColumnService {
     });
   }
 
+  /** Cria uma nova coluna */
   create(titulo: string) {
     const newCol = this.columnRepo.create({ titulo });
     return this.columnRepo.save(newCol);
   }
 
+  /** Remove coluna pelo id */
   remove(id: number) {
     return this.columnRepo.delete(id);
   }

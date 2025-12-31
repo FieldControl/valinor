@@ -1,6 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column as Col, ManyToOne, JoinColumn } from "typeorm";
 import { Column } from "src/coluna/entities/coluna.entity";
 
+/**
+ * Entidade Card (Tabela de cartões).
+ * Observação: mantém `colunaID` e também a relação ManyToOne com `coluna`.
+ */
 @Entity()
 export class Card {
   @PrimaryGeneratedColumn()
@@ -12,6 +16,7 @@ export class Card {
   @Col()
   conteudo: string;
 
+  // ColunaFK direta (duplicada junto com a relação abaixo)
   @Col()
   colunaID: number;
 

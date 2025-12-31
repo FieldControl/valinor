@@ -4,6 +4,7 @@ import { CardController } from "./cards.controller";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Card } from "./entities/card.entity";
 
+/** Módulo que registra Card entity, controller e serviço */
 @Module({
   imports: [TypeOrmModule.forFeature([Card])],
   controllers: [CardController],

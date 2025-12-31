@@ -21,6 +21,11 @@ import { ColumnComponent } from "./components/column/column";
   styleUrl: './app.css',
 })
 
+/**
+ * Componente raiz da aplicação Kanban.
+ * Comentários simples: responsabilidades principais são carregar o board e orquestrar eventos entre colunas e cards.
+ * TODO: considerar separar lógica de estado em um serviço/Store e adicionar feedback de carregamento/erros na UI.
+ */
 export class App implements OnInit {
   columns: Column[] = [];
   isAddingColumn = false;
@@ -32,24 +37,28 @@ export class App implements OnInit {
     this.loadBoard();
   }
 
+  // Carrega todas as colunas com seus cards
   loadBoard() {
     this.api.getColumn().subscribe({
       next: (data) => {
         this.columns = data;
         console.log('Board carregado:', this.columns);
       },
-      error: (err) => console.log('erro ao carregar board:', err)
+      error: (err) => console.log('erro ao carregar board:', err) // TODO: mostrar erro na UI
     });
   }
 
+  // Mostra o formulário para adicionar coluna
   startAddColumn() {
     this.isAddingColumn = true
   }
+  // Cancela a criação de coluna e limpa campos
   cancelAddColumn() {
     this.isAddingColumn = false;
     this.newColumnTitle = '';
   }
 
+  // Confirma a criação de uma coluna (sem validação complexa)
   confirmAddColumn() {
     if (!this.newColumnTitle.trim()) return;
 
@@ -59,12 +68,14 @@ export class App implements OnInit {
     });
   }
 
+  // Atualiza lista local após remoção de coluna
   handleColumnDeleted(colunaID: number) {
     this.api.deleteColumn(colunaID).subscribe(() => {
       this.columns = this.columns.filter(c => c.id !== colunaID)
     });
   }
 
+  // Adiciona novo card na coluna localmente após criação
   handleCardAdded(event: {titulo: string, conteudo: string, colunaID: number}) {
 
     console.log(event)
@@ -77,6 +88,7 @@ export class App implements OnInit {
     });
   }
 
+  // Remove card localmente após confirmação do usuário
   handleCardDeleted(cardID: number, colunaID: number) {
     if (confirm('Tem certeza que deseja excluir esta tarefa?')) {
       this.api.deleteCard(cardID).subscribe(() => {
@@ -89,6 +101,7 @@ export class App implements OnInit {
     }
   }
 
+  // Move o card na UI e solicita atualização ao backend
   handleCardMove(wrapper: { event: CdkDragDrop<Card[]>, columnId: number }) {
     const { event, columnId } = wrapper; // <--- Ajuste aqui também
 
@@ -104,9 +117,9 @@ export class App implements OnInit {
         event.currentIndex,
       );
 
-      // Ajuste a chamada aqui também
+      // Envia update para o backend informando a nova coluna
       this.api.moveCard(card.id, columnId).subscribe({
-        error: (err) => console.error('Erro ao mover', err)
+        error: (err) => console.error('Erro ao mover', err) // TODO: desfazer UI em caso de erro
       });
     }
   }
