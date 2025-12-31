@@ -52,7 +52,7 @@ Analisando o projeto, eu não gostei muito do layout, eu estava sem criatividade
 
 Grave um vídeo do seu projeto rodando e envie o link:
 
-https://drive.google.com/file/d/1z3_GAwhFr50qRbB_57K2tWD7bgg9wH58/view?usp=sharing
+https://jam.dev/c/e4f8bef0-2bf6-4677-ad2e-53381026a3d4
 
 ## Sobre Mim
 
