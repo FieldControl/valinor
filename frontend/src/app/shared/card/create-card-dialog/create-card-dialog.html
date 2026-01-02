@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Criar Card</h2>
+
+<div mat-dialog-content>
+  <form [formGroup]="createCardForm">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Nome do Card</mat-label>
+      <input matInput placeholder="Ex: Fazer algo" autocomplete="off" formControlName="name" />
+      @if(createCardForm.get("name")?.hasError("required") && createCardForm.get("name")?.touched) {
+      <mat-error>O nome é obrigatório</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Descrição do Card</mat-label>
+      <textarea matInput autocomplete="off" formControlName="description"> </textarea>
+    </mat-form-field>
+  </form>
+</div>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button (click)="onConfirm()" [disabled]="!createCardForm.valid">Criar</button>
+</mat-dialog-actions>

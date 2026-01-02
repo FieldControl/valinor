@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Atualizar Card</h2>
+
+<div mat-dialog-content>
+  <form [formGroup]="cardForm">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Nome do Card</mat-label>
+      <input matInput placeholder="Ex: Fazer algo" formControlName="name" autocomplete="off" />
+      @if(cardForm.get("name")?.hasError("required") && cardForm.get("name")?.touched) {
+      <mat-error>O nome é obrigatório</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Descrição do Card</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="onSubmit()">Atualizar</button>
+</mat-dialog-actions>

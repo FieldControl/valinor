@@ -1,0 +1,29 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Column {
+  id        Int      @id @default(autoincrement())
+  name      String
+  position  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cards     Card[]
+}
+
+model Card {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  columnId    Int
+  position    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  column      Column   @relation(fields: [columnId], references: [id], onDelete: Cascade)
+}

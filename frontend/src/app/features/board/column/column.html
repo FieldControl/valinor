@@ -1,0 +1,56 @@
+@if(isLoading()) {
+<app-spinner />
+} @else {
+<div class="kanban-board">
+  <!-- Drag and drop das COLUNAS -->
+  <div
+    cdkDropList
+    [cdkDropListData]="columns()"
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="dropColumn($event)"
+    class="columns-wrapper"
+  >
+    @for (column of columns(); track column.id;) {
+    <div class="column-container" cdkDrag [cdkDragLockAxis]="'x'">
+      <!-- Handle para arrastar a coluna -->
+      <div class="column-header" cdkDragHandle>
+        <div>
+          <h2>{{ column.name }}</h2>
+        </div>
+        <div>
+          <button mat-icon-button (click)="openUpdateColumnDialog(column)" class="button__edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="openDeleteColumnDialog(column)" class="button__delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Drag and drop dos CARDS - grupo separado -->
+      <div
+        cdkDropList
+        [cdkDropListData]="column.cards"
+        [id]="'column-' + column.id"
+        [cdkDropListConnectedTo]="connectedLists()"
+        class="cards-list"
+        (cdkDropListDropped)="dropCard($event, column.id)"
+      >
+        @for (card of column.cards; track card.id) {
+        <div cdkDrag>
+          <app-card [card]="card" />
+        </div>
+        }
+      </div>
+
+      <div class="add-card">
+        <button matButton="filled" (click)="openCreateCardDialog(column.id)">
+          <mat-icon>add</mat-icon>
+          Adicionar Card
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+}

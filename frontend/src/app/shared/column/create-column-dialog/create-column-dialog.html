@@ -1,0 +1,27 @@
+<div mat-dialog-title>Criar Nova Coluna</div>
+
+<div mat-dialog-content>
+  <form [formGroup]="columnForm">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Nome da Coluna</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        placeholder="Ex: To Do, In Progress, Done"
+        autocomplete="off"
+      />
+      @if (columnForm.get('name')?.hasError('required') && columnForm.get('name')?.touched) {
+      <mat-error>O nome é obrigatório</mat-error>
+      } @if (columnForm.get('name')?.hasError('minlength')) {
+      <mat-error>O nome deve ter no mínimo 3 caracteres</mat-error>
+      }
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!columnForm.valid">
+    Criar
+  </button>
+</div>

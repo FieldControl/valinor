@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>Deletar Card ?</h2>
+<mat-dialog-content> Quer mesmo deletar o card {{ data.name }} ?</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onCancelDelete()">Não</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="onConfirmDelete()">Sim</button>
+</mat-dialog-actions>

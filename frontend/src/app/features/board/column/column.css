@@ -1,0 +1,89 @@
+.kanban-board {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.columns-wrapper {
+  display: flex;
+  gap: 16px;
+  min-height: 500px;
+}
+
+.column-container {
+  width: 350px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.column-header {
+  margin-bottom: 16px;
+  cursor: move;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #494949;
+}
+
+.cards-list {
+  height: 400px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.4;
+  background: #e0e0e0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+mat-icon {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button__delete {
+  color: var(--mat-sys-error);
+}
+.button__edit {
+  color: var(--mat-sys-primary);
+}
+
+.add-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.add-card button {
+  width: 60%;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
