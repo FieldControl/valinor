@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: kanban-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_USER: kanban
+      MYSQL_PASSWORD: kanban123
+      MYSQL_DATABASE: kanban_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - kanban-network
+
+volumes:
+  mysql_data:
+
+networks:
+  kanban-network:
+    driver: bridge
