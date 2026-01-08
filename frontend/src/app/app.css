@@ -1,0 +1,149 @@
+
+main {
+    background-color: #121212;
+    height: 100vw;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+
+.containerInput  {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.containerInput label {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.containerInput .input {
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.btn-enviar {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(53, 142, 231);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-enviar:hover {
+    cursor: pointer;
+    transform: scale(105%);
+    transition: .5s;
+}
+
+.containerTask {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vh;
+    padding: 10px;
+    gap: 30px;
+}
+
+.task {
+    background-color: white;
+    width: 300px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.task h2 {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.task p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    word-wrap: break-word;  /* Quebra palavras longas */
+    white-space: normal;    /
+}
+
+.task .btn-exluir {
+    background-color: rgb(248, 86, 86);
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.containerInputEditar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.inputEditar {
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    border: 2px solid rgb(64, 134, 226);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.labelEditar {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-editar {
+    padding: 5px;
+    border-radius: 8px;
+    background-color: rgb(53, 142, 231);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+}
+
+.container-btn-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-chamaEdit {
+    background-color: rgb(53, 142, 231);
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+}
+
+.btn-cancelar {
+    background-color: rgb(248, 86, 86);
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+}
