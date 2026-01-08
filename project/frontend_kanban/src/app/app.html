@@ -1,0 +1,51 @@
+<!-- Template principal do app: cabeçalho, criação de coluna e board com colunas -->
+<div class="app-container">
+
+  <header class="main-header">
+    <div class="logo-area">
+      <h1>
+        <span style="font-size: 24px;"></span> 
+        Kanban Board
+      </h1>
+    </div>
+    
+    <button *ngIf="!isAddingColumn" (click)="startAddColumn()" class="btn-add-coluna">
+      + Nova Coluna
+    </button>
+    <form *ngIf="isAddingColumn"
+    (ngSubmit)="confirmAddColumn()"
+    class="form-coluna">
+
+    <label for="newColunaInput" >Nome da nova coluna</label>
+
+    <input type="text"
+    id="newColunaInput"
+    name="colunaTitulo"
+    [(ngModel)]="newColumnTitle"
+    placeholder="Nome da coluna. . ."
+    required
+    autofocus>
+    
+    <div class="form-button">
+      <button type="submit" class="btn-confirm">Adicionar</button>
+      <button type="button" (click)="cancelAddColumn()" class="btn-cancel">X</button>
+    </div>
+  </form>
+  </header>
+
+  <div class="board-container" cdkDropListGroup>
+    
+    <app-column 
+      *ngFor="let column of columns"
+      [column]="column"
+      (cardMoved)="handleCardMove($event)"
+      (cardAdded)="handleCardAdded($event)"
+      (cardDeleted)="handleCardDeleted($event, column.id)"
+      (columnDeleted)="handleColumnDeleted($event)">
+    </app-column>
+
+    <div style="min-width: 20px;"></div>
+
+  </div>
+
+</div>

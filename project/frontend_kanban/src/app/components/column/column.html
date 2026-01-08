@@ -1,0 +1,40 @@
+<!-- Template da coluna: lista de cards e ações de CRUD simples -->
+<div class="coluna-container">
+    <div class="coluna-header">
+        <h2>{{column.titulo}}</h2>
+        <button class="btn-delete-col" (click)="onDeleteColumn()" title="Excluir Coluna"> &times;</button>
+    </div>
+
+    <div cdkDropList [cdkDropListData]="column.cards" (cdkDropListDropped)="drop($event)" class="card-list">
+
+        <div *ngFor="let card of column.cards" cdkDrag>
+            <app-card [titulo]="card.titulo" [conteudo]="card.conteudo" (delete)="onDeleteCard(card.id)">
+            </app-card>
+        </div>
+
+    </div>
+
+    <div class="footer-action">
+        <button *ngIf="!isAddingCard" type="button" class="btn-add-card" (click)="startAddCard()">+ Adicionar
+            cartão</button>
+
+        <form *ngIf="isAddingCard" (ngSubmit)="confirmAddCard()" class="add-card-form">
+
+            <label for="cardTituloInput">Titulo do Cartão</label>
+
+            <input type="text" id="cardTituloInput" name="cardTitulo" class="input-card-title"
+                [(ngModel)]="newCardTitle" placeholder="Titulo do Cartão. . ." required autofocus>
+
+            <label for="cardDescInput">Descrição(opcional)</label>
+            
+            <textarea name="cardContent" id="cardDescInput" class="input-card-desc" [(ngModel)]="newCardContent"
+                placeholder="Detalhes. . ." rows="2"></textarea>
+
+            <div class="form-button">
+                <button type="submit" class="btn-confirm">Adicionar</button>
+                <button type="button" (click)="cancelAddCard()" class="btn-cancel">X</button>
+            </div>
+        </form>
+    </div>
+
+</div>
