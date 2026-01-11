@@ -1,0 +1,50 @@
+/* Container principal da tela de detalhes */
+.detail-wrapper {
+  @apply min-h-screen bg-blue-50 p-6 font-sans flex flex-col h-screen;
+}
+
+/* Cabeçalho com botão Voltar e Título */
+.header {
+  @apply flex items-center gap-4 mb-6;
+}
+
+.back-link {
+  @apply 
+  text-slate-500 
+  hover:text-blue-600 
+  font-bold 
+  text-sm 
+  no-underline 
+  transition-colors;
+}
+
+.board-title {
+  @apply text-2xl font-bold text-slate-800;
+}
+
+/* Estado de Carregamento */
+.loading-state {
+  @apply text-blue-600 animate-pulse font-medium;
+}
+
+/* Container horizontal das colunas (Scroll) */
+.columns-container {
+  @apply flex gap-6 overflow-x-auto h-full pb-4 items-start;
+}
+
+/* Área do botão "Adicionar Coluna" */
+.add-column-wrapper {
+  @apply min-w-[300px];
+}
+
+.btn-add-column {
+  @apply 
+  w-full 
+  bg-blue-600 
+  hover:bg-blue-700 
+  text-white 
+  font-bold 
+  py-3 
+  rounded-lg 
+  cursor-pointer;
+}

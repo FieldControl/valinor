@@ -1,0 +1,61 @@
+<div class="detail-wrapper">
+
+  <div class="header">
+    <a routerLink="/" class="back-link">← Voltar</a>
+    
+    @if (board) {
+      <h1 class="board-title">{{ board.title }}</h1>
+    }
+  </div>
+
+  @if (loading) {
+    <div class="loading-state">Carregando...</div>
+  }
+
+  @if (board) {
+    <div class="columns-container" cdkDropListGroup>
+
+      @for (col of board.columns; track col.id) {
+        <app-columns 
+          [column]="col"
+          (editColumnModalOpen)="openEditColumnModal($event)"
+          (removeColumnModalOpen)="openRemoveColumnModal($event)" 
+
+          (createCardModalOpen)="openCreateCardModal(col.id)"
+          (editCardModalOpen)="openEditCardModal($event)"
+          (removeCardModalOpen)="openRemoveCardModal($event)"
+
+          (cardMoved)="onCardMoved($event)"
+        >
+        </app-columns>
+      }
+
+      <div class="add-column-wrapper">
+        <button class="btn-add-column" (click)="openCreateColumnModal()">
+          + Adicionar Coluna
+        </button>
+      </div>
+
+    </div>
+  }
+
+</div>
+
+@if (isColumnModalOpen && board) {
+  <app-column-creation-modal
+    [boardId]="board.id"
+    [mode]="modalMode"               
+    [columnData]="selectedColumn"    
+    (closeModal)="isColumnModalOpen = false">
+  </app-column-creation-modal>
+}
+
+@if (isCardModalOpen && board) {
+  <app-card-modal
+    [boardId]="board.id"
+    [columnId]="targetColumnId"
+    [mode]="cardModalMode"
+    [cardData]="selectedCard"
+    (closeModal)="isCardModalOpen = false">
+  </app-card-modal>
+}

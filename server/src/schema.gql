@@ -1,0 +1,128 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Card {
+  """Card Id"""
+  id: Int!
+
+  """Card description"""
+  desc: String
+
+  """Card title"""
+  title: String!
+
+  """Column Id"""
+  columnId: Int!
+
+  """Is archived?"""
+  isArchived: Boolean!
+}
+
+type Column {
+  """Column Id"""
+  id: Int!
+
+  """Column title"""
+  title: String!
+
+  """Board Id"""
+  boardId: Int!
+
+  """Is archived?"""
+  isArchived: Boolean!
+
+  """Column cards"""
+  cards: [Card]
+}
+
+type Board {
+  """Board Id"""
+  id: Int!
+
+  """Board Title"""
+  title: String!
+
+  """Is archived?"""
+  isArchived: Boolean!
+
+  """Board columns"""
+  columns: [Column]
+}
+
+type Query {
+  boards: [Board!]!
+  board(id: Int!): Board!
+  card(id: Int!): Card!
+  columns: [Column!]!
+  column(id: Int!): Column!
+}
+
+type Mutation {
+  createBoard(createBoardInput: CreateBoardInput!): Board!
+  updateBoard(updateBoardInput: UpdateBoardInput!): Board!
+  removeBoard(id: Int!): Board!
+  createCard(createCardInput: CreateCardInput!): Card!
+  updateCard(updateCardInput: UpdateCardInput!): Card!
+  removeCard(id: Int!): Card!
+  createColumn(createColumnInput: CreateColumnInput!): Column!
+  updateColumn(updateColumnInput: UpdateColumnInput!): Column!
+  removeColumn(id: Int!): Column!
+}
+
+input CreateBoardInput {
+  """Board title"""
+  title: String!
+}
+
+input UpdateBoardInput {
+  """Board title"""
+  title: String
+
+  """Board Id"""
+  id: Int!
+}
+
+input CreateCardInput {
+  """Card description"""
+  desc: String
+
+  """Card title"""
+  title: String!
+
+  """Column id"""
+  columnId: Int!
+}
+
+input UpdateCardInput {
+  """Card description"""
+  desc: String
+
+  """Card title"""
+  title: String
+
+  """Column id"""
+  columnId: Int
+
+  """Card Id"""
+  id: Int!
+}
+
+input CreateColumnInput {
+  """Board Id"""
+  boardId: Int!
+
+  """Column title"""
+  title: String!
+}
+
+input UpdateColumnInput {
+  """Board Id"""
+  boardId: Int
+
+  """Column title"""
+  title: String
+
+  """Column Id"""
+  id: Int!
+}
