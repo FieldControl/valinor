@@ -59,7 +59,6 @@ describe('CardsService', () => {
   it('deve criar card com ordem automática e dueDate', async () => {
     prismaColumnMock.findUnique.mockResolvedValue({ id: 'col-1' });
 
-    // sem cards ainda → _max.order = null
     prismaCardMock.aggregate.mockResolvedValue({
       _max: { order: null },
     });

@@ -1,10 +1,4 @@
- import {
-  IsInt,
-  IsOptional,
-  IsString,
-  Min,
-  IsISO8601,
-} from 'class-validator';
+ import {IsInt, IsOptional, IsString, Min, IsISO8601 } from 'class-validator';
 
 export class UpdateCardDto {
   @IsOptional()

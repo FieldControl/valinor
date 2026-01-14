@@ -16,7 +16,6 @@ describe('Kanban e2e', () => {
 
     app = moduleFixture.createNestApplication();
 
-    // Mesmo ValidationPipe do main (se você estiver usando lá)
     app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true,
@@ -30,7 +29,6 @@ describe('Kanban e2e', () => {
     httpServer = app.getHttpServer();
     prisma = app.get(PrismaService);
 
-    // limpa o banco para o teste (ordem: cards -> columns -> boards)
     await prisma.card.deleteMany();
     await prisma.column.deleteMany();
     await prisma.board.deleteMany();
@@ -66,7 +64,7 @@ describe('Kanban e2e', () => {
 
     const columnId = column.id;
 
-    // 3) cria um card nessa coluna
+    // 3) cria um card nessa coluna  
     const dueDate = '2025-12-15T18:00:00.000Z';
 
     const cardRes = await request(httpServer)
