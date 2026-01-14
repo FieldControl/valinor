@@ -1,0 +1,27 @@
+<mat-card class="column-card">
+  <div class="column-header">
+    <h3>{{ column.title }}</h3>
+
+    <div class="column-header-actions">
+      <button mat-icon-button (click)="editColumn()" aria-label="Editar coluna">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteColumn()" aria-label="Excluir coluna">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="cards-list" cdkDropList [id]="dropListId" [cdkDropListData]="column.cards"
+    [cdkDropListConnectedTo]="connectedDropLists" (cdkDropListDropped)="onCardDrop($event)">
+    <app-kanban-card *ngFor="let card of column.cards; trackBy: trackByCardId" cdkDrag [cdkDragData]="card"
+      [card]="card" (open)="openCardDialog(card)" (delete)="deleteCard(card)"></app-kanban-card>
+  </div>
+
+
+  <div class="column-footer">
+    <button class='button' mat-raised-button color="primary" (click)="openCreateCardDialog()">
+      <mat-icon>add</mat-icon> Adicionar
+    </button>
+  </div>
+</mat-card>

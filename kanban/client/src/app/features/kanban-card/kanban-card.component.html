@@ -1,0 +1,19 @@
+<mat-card class="card-root" (click)="onOpenCard()">
+  <p class="card-title">{{ card.title }}</p>
+
+  <p class="card-description" *ngIf="card.description">
+    {{ card.description }}
+  </p>
+
+  <div class="card-meta" *ngIf="card.dueDate">
+    <span>Prazo:</span>
+    <span>{{ card.dueDate | date: 'short' }}</span>
+  </div>
+
+  <div class="card-actions">
+    <button mat-icon-button type="button" (click)="onDeleteClick($event)" class="card-delete-button">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+  </div>
+</mat-card>

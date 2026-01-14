@@ -1,0 +1,29 @@
+<section class="board-detail" *ngIf="board">
+  <header class="board-detail-header">
+    <div class="boards-header-left">
+      <button mat-button class="app-text-button" type="button" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon> Voltar
+      </button>
+      <div>
+        <h2>{{ board.name || 'Caregando...' }}</h2>
+        <p>Arrume suas tarefas por coluna</p>
+      </div>
+    </div>
+    <div class="board-detail-actions">
+      <button mat-button class="app-text-button" color="primary" (click)="editBoard()">
+        Renomear
+      </button>
+    </div>
+  </header>
+  <div class="buttun-create-column">
+    <button mat-raised-button color="primary" (click)="openCreateColumnDialog()">
+      Nova coluna
+    </button>
+  </div>
+
+  <div class="columns-row columns-wrapper" cdkDropList cdkDropListOrientation="horizontal"
+    [cdkDropListData]="board?.columns ?? []" (cdkDropListDropped)="onColumnDrop($event)">
+    <app-kanban-column *ngFor="let column of board?.columns; trackBy: trackByColumnId" cdkDrag [column]="column"
+      [dropListId]="getCardDropListId(column.id)" [connectedDropLists]="cardDropListIds" (columnDeleted)="onColumnDeleted($event)"></app-kanban-column>
+  </div>
+</section>

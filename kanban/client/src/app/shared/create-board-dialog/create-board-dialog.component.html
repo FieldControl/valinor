@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Novo quadro</h2>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Nome do quadro</mat-label>
+    <input matInput [(ngModel)]="name" />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button class="app-text-button" type="button" (click)="cancel()">Cancelar</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="confirm()"
+    [disabled]="!name.trim()">
+    Criar
+  </button>
+</div>

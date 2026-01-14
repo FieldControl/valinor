@@ -1,0 +1,84 @@
+@use '@angular/material' as mat;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  background: #ffffff;
+}
+
+.app-main {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 40px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.mat-mdc-raised-button.mat-primary:not(:disabled) {
+  background-color: #05f;
+  color: #ffffff;
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  background-color: #145aa0;
+}
+
+.mdc-button.app-text-button:not(:disabled) {
+  text-transform: none;
+  font-size: 13px;
+  font-weight: 500;
+  min-width: auto;
+  padding: 0 8px;
+  color: #05f;
+}
+
+.app-dialog {
+  .mat-mdc-form-field {
+    width: 100%;
+    margin-top: 8px;
+    color: #000;
+
+    --mdc-outlined-text-field-outline-color: #d1d5db;
+    --mdc-outlined-text-field-hover-outline-color: #9ca3af;
+    --mdc-outlined-text-field-focus-outline-color: #1976d2;
+    --mdc-outlined-text-field-label-text-color: #6b7280;
+    --mdc-outlined-text-field-focus-label-text-color: #1976d2;
+    --mdc-outlined-text-field-container-fill-color: #ffffff;
+    --mdc-outlined-text-field-input-text-color: #111827;
+  }
+
+  .mat-mdc-dialog-container .mat-mdc-dialog-title+.mat-mdc-dialog-content {
+    padding-top: 8px;
+
+  }
+
+  .mat-mdc-dialog-surface {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 12px 20px 16px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.35);
+  }
+
+  h2[mat-dialog-title] {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #05f;
+  }
+
+  [mat-dialog-content] {
+    padding-top: 4px;
+    padding-bottom: 8px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+}

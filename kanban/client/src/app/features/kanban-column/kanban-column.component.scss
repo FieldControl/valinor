@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.column-card {
+  background: rgba(219, 215, 252, 0.425);
+  border-radius: 16px;
+  padding: 10px 10px 12px;
+  min-width: 260px;
+  max-width: 280px;
+  box-shadow: 1px 1px 18px -10px #010442;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .mat-icon {
+  color: #4b5563; 
+  }
+}
+
+
+.cards-list {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  max-height: 60vh;
+  overflow-y: auto;
+  min-height: 40px;
+}
+
+.column-footer {
+  margin-top: auto;
+}
