@@ -1,0 +1,151 @@
+<div class="tituloKanban">
+  <h1>Kanban - Field Control</h1>
+</div>
+
+
+<!-- CRIAR CARD  -->
+
+<form class="create-task"
+  (ngSubmit)="selectedColumnId && addCard(selectedColumnId)">
+  <p class="tituloCreate">Crie sua Tarefa</p>
+  <input
+    type="text"
+    placeholder="Título da tarefa"
+    [(ngModel)]="newCardTitle"
+    name="title"
+    maxlength="60"
+    required
+  />
+
+  <textarea
+    placeholder="Descrição"
+    [(ngModel)]="newCardDescription"
+    name="description"
+    maxlength="200"
+    rows="3"
+  ></textarea>
+
+  <select
+    [(ngModel)]="newCardPriority"
+    name="priority"
+    required
+  >
+    <option value="BAIXA">BAIXA</option>
+    <option value="MEDIA">MÉDIA</option>
+    <option value="ALTA">ALTA</option>
+  </select>
+
+  <select
+    [(ngModel)]="selectedColumnId"
+    name="columnId"
+    required
+  >
+    <option *ngFor="let column of columns" [ngValue]="column.id">
+      {{ column.title }}
+    </option>
+  </select>
+
+  <button type="submit">Criar Tarefa</button>
+</form>
+
+<hr />
+
+
+<!-- KANBAN -->
+<div class="kanban">
+
+  <div
+  class="column"
+  *ngFor="let column of columns"
+  cdkDropList
+  [id]="'column-' + column.id"
+  [cdkDropListData]="column.cards"
+  [cdkDropListConnectedTo]="connectedDropLists"
+  (cdkDropListDropped)="onDrop($event, column)"
+  >
+    <h2>{{ column.title }}</h2>
+
+    <button class="delete-column" (click)="deleteColumn(column)">
+      Excluir Coluna
+    </button>
+
+    <!-- CARDS -->
+    <div
+      class="task"
+      *ngFor="let card of column.cards"
+      cdkDrag
+    
+    >
+
+      <!-- VISUAL -->
+      <div *ngIf="editingCardId !== card.id">
+        <h3>{{ card.title }}</h3>
+        <p>Descrição: {{ card.description }}</p>
+
+        <span class="priority {{ card.priority }}">
+          Prioridade: {{ card.priority }}
+        </span>
+
+        <div class="task-actions">
+          <button  class="botaoEditar"  (click)="startEdit(card)">Editar</button>
+          <button class="botaoExcluir" (click)="deleteCard(card)">Excluir</button>
+        </div>
+      </div>
+
+      <!-- EDIÇÃO -->
+      <div *ngIf="editingCardId === card.id">
+        <p>Insira um novo título</p>
+        <input
+          [(ngModel)]="editTitle"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <p>Insira uma  nova Descrição</p>
+        <textarea
+          [(ngModel)]="editDescription"
+          [ngModelOptions]="{ standalone: true }"
+        ></textarea>
+        <br>
+        <p>Insira uma  nova prioridade </p>
+        <select
+          [(ngModel)]="editPriority"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <option value="BAIXA">BAIXA</option>
+          <option value="MEDIA">MÉDIA</option>
+          <option value="ALTA">ALTA</option>
+        </select>
+         <br> 
+        <button class="buttonSalvar" type="button" (click)="saveEdit(card)">Salvar</button>
+        <button class="buttonCancelar"type="button" (click)="cancelEdit()">Cancelar</button>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- ADICIONAR COLUNA -->
+
+  <div class="column add-column-card">
+    <button class="addColumn" (click)="toggleAddColumn()">
+      + Adicionar coluna
+    </button>
+
+    <div *ngIf="showAddColumn" class="create-column-form">
+      <input
+        type="text"
+        placeholder="Nome da coluna"
+        [(ngModel)]="newColumnTitle"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <button (click)="addColumn()">Criar</button>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>© 2026 — Todos os direitos reservados a Maria Julia Paes</p>
+</footer>
