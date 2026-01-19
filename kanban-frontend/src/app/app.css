@@ -1,0 +1,405 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #F5F0E9;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TÍTULO ===== */
+h1 {
+  text-align: center;
+  color: #112250;
+}
+
+/* ===== CRIAR TASK ===== */
+.create-task {
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.tituloCreate{
+  font-size: 18px;
+  color: #112250;
+  font-weight: bold;
+  
+}
+.create-task input,
+.create-task textarea,
+.create-task select {
+  width: 220px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #3C507D;
+  font-size: 14px;
+}
+
+.create-task textarea {
+  height: 40px;
+  resize: none;
+}
+
+.create-task button {
+  background: #112250;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===== KANBAN ===== */
+.kanban {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ===== COLUNA ===== */
+.column {
+  background: #ebecec;
+  border-radius: 14px;
+  padding: 15px;
+  width: 350px;
+}
+
+.column h2 {
+  text-align: center;
+  color: #112250;
+}
+
+/* ===== EXCLUIR COLUNA ===== */
+.delete-column {
+  width: 100%;
+  margin-bottom: 10px;
+  background: #3C507D;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+/* ===== TASK ===== */
+.task {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.statusTask {
+  font-weight: bold;
+  color: #112250;
+}
+
+/* ===== PRIORIDADE ===== */
+.priority {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.priority.ALTA {
+  background: #fdecea;
+  color: #df3939;
+}
+
+.priority.MEDIA {
+  background: #fff8e1;
+  color: #d27427;
+}
+
+.priority.BAIXA {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* ===== BOTÕES DA TASK ===== */
+.task-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+/* ===== BOTÕES DA TASK ===== */
+.task-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.editTarefa {
+  background: #3C507D;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.excluirTarefa {
+  background: #112250;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.buttonSalvar{
+  background-color: #112250;
+  color: #e5e7eb;
+  border-radius: 5px;
+  
+}
+
+/* ===== ÁREA DE EDIÇÃO DO CARD ===== */
+.card-edit-container {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+/* Campos */
+.card-edit-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.card-edit-field label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+/* Inputs */
+.card-edit-input,
+.card-edit-textarea,
+.card-edit-select {
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.card-edit-textarea {
+  resize: vertical;
+  min-height: 60px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Ações */
+.card-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Botões */
+.card-edit-save {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-edit-save:hover {
+  background-color: #43a047;
+}
+
+.card-edit-cancel {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-edit-cancel:hover {
+  background-color: #d32f2f;
+}
+
+.botaoEditar{
+  background-color:  #164dc3;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botaoExcluir{
+  background-color: #3C507D;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== ÁREA DE EDIÇÃO DO CARD ===== */
+.task div[ng-reflect-ng-if] {
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Textos */
+.task p {
+  margin: 8px 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Inputs e textarea */
+.task input,
+.task textarea,
+.task select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.task h3,
+.task p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.task textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.task input:focus,
+.task textarea:focus,
+.task select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/*  BOTÕES */
+.buttonSalvar {
+  background-color: #112250;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Edição  */
+
+.buttonCancelar {
+  background-color: #3C507D;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+
+
+
+/* ===== CARD ADICIONAR COLUNA ===== */
+.add-column-card {
+  background: white;
+  border: 2px dashed #3C507D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-column-card .addColumn {
+  background: #112250;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* FORM CRIAR COLUNA */
+.create-column-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.create-column-form input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #3C507D;
+}
+
+.create-column-form button {
+  background: #3C507D;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 40vh;
+  padding: 15px;
+  text-align: center;
+  background-color: #e5e7eb;
+
+  color: #112250;
+}
