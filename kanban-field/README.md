@@ -276,6 +276,12 @@ Durante o desenvolvimento deste projeto, aprendi:
 
 ---
 
+## 📹 Video demonstrativo do projeto / Hospedagem do projeto
+
+- [Video demonstrativo do projeto](https://jam.dev/c/34e4efcd-b8d3-46f1-b7a9-d5c3c79fb457)
+
+- [Link do site hospedado](https://valinor-gilt.vercel.app) (Utilizei Vercel para realizar a hospedagem, mas está gerando um bug na biblioteca toastify que estou utilizando no projeto. No video demonstrativo acima, você pode ver o projeto funcionando normalmente.)
+
 ## 🙏 Agradecimentos
 
 - **Field** - Pela oportunidade de aprendizado

@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { KanbanService } from '../../services/kanban.service';
 
 @Component({
   selector: 'app-card',
@@ -27,9 +28,13 @@ export class CardComponent {
   @Output() deleteCard = new EventEmitter<string>();
   @Output() editCard = new EventEmitter<{ id: string; text: string; title: string }>();
 
+  
+
   public isEditing = false;
   public editText = '';
   public editTitle = '';
+
+  public constructor(private kanbanService: KanbanService) {}
 
   public startEdit() {
     this.isEditing = true;
@@ -42,6 +47,22 @@ export class CardComponent {
       this.editTitle.trim() !== this.card.title || this.editText.trim() !== this.card.text;
 
     const valid = this.editTitle.trim() && this.editText.trim();
+
+    const titleLengthValid = this.editTitle.trim().length <= 15 && this.editTitle.trim().length > 0;
+    const textLengthValid = this.editText.trim().length <= 300 && this.editText.trim().length > 0;
+
+    if (!titleLengthValid) {
+      this.kanbanService.createWarningToast(
+        'O título deve ter no máximo 15 caracteres e no mínimo 1.',
+      );
+      return;
+    }
+    if (!textLengthValid) {
+      this.kanbanService.createWarningToast(
+        'O texto deve ter no máximo 300 caracteres e no mínimo 1.',
+      );
+      return;
+    }
 
     if (changes && valid) {
       this.editCard.emit({
