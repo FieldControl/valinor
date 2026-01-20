@@ -80,7 +80,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss", "node_modules/typescript-toastify/lib/style.css"]
+            "styles": ["src/styles.scss"]
           }
         }
       }
