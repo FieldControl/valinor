@@ -1,0 +1,33 @@
+<main class="main-container">
+  <mat-toolbar color="primary" class="main-header">
+    <div class="brand"><span class="title">K</span>anban Service</div>
+  </mat-toolbar>
+
+  <nav class="action-bar">
+    <div class="space"></div>
+    <button
+      mat-stroked-button
+      color="primary"
+      class="add-column-btn"
+      (click)="openAddColumnDialog()"
+    >
+      <mat-icon>add</mat-icon> Nova coluna
+    </button>
+  </nav>
+
+  <div class="board-scroll">
+    <div class="columns-wrapper" cdkDropListGroup>
+      <app-column
+        class="column-item"
+        *ngFor="let column of kanbanService.columns"
+        [column]="column"
+        (cardDropped)="moveCard($event)"
+        (cardDeleted)="deleteCard($event)"
+        (cardAdded)="addCard($event)"
+        (cardEdited)="updateCard($event)"
+        (columnDeleted)="deleteColumn($event)"
+      >
+      </app-column>
+    </div>
+  </div>
+</main>

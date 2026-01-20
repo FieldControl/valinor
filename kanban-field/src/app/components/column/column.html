@@ -1,0 +1,73 @@
+<div
+  class="column-wrapper"
+  [class.drag-over]="isDragOver"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onDrop($event)"
+>
+  <div class="column-header">
+    <h2 class="column-title">{{ column.title }}</h2>
+
+    <div class="header-actions">
+      <button mat-mini-fab class="btn-add" (click)="startAddingCard()" title="Adicionar Card">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-mini-fab class="btn-delete" title="Excluir Coluna" (click)="deleteColumn()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="column-content">
+    <div class="cards-list">
+      <app-card
+        *ngFor="let card of column.cards"
+        [card]="card"
+        (deleteCard)="deleteCard($event)"
+        (editCard)="editCard($event)"
+      >
+      </app-card>
+
+      <mat-card *ngIf="isAddingCard" class="new-card-form">
+        <div class="form-header">Novo card...</div>
+
+        <div class="form-field-group">
+          <label class="form-label">Título</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              [(ngModel)]="newCardTitle"
+              placeholder="Digite aqui..."
+              class="custom-title"
+              maxlength="15"
+            />
+            <span class="char-count">({{ newCardTitle.length }}/15)</span>
+          </div>
+        </div>
+
+        <div class="form-field-group">
+          <label class="form-label">Conteúdo</label>
+          <div class="input-wrapper">
+            <textarea
+              [(ngModel)]="newCardText"
+              placeholder="Digite aqui..."
+              rows="4"
+              class="custom-textarea"
+              maxlength="300"
+            ></textarea>
+            <span class="char-count">({{ newCardText.length }}/300)</span>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn-outlined" (click)="addCard()">
+            <mat-icon>add</mat-icon> Criar card
+          </button>
+          <button class="btn-outlined" (click)="cancelAddCard()">
+            <mat-icon>close</mat-icon> Cancelar
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

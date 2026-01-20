@@ -1,0 +1,199 @@
+$blue-accent: #3b71ca;
+$card-radius: 16px;
+
+.kanban-card {
+  margin-bottom: 12px;
+  border-radius: $card-radius !important;
+  border: none;
+  padding: 6px 12px 14px 12px !important;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  background: white;
+
+  &:hover {
+    cursor: grab;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 4px 10px 4px;
+  background-color: transparent;
+
+  .title {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    .card-title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      color: #000;
+      font-family: inherit;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: #b0b0b0;
+      font-weight: 300;
+    }
+  }
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+
+  button {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+    }
+  }
+
+  .btn-edit {
+    background-color: $blue-accent !important;
+    color: white !important;
+  }
+
+  .btn-delete {
+    background-color: #d50000 !important;
+    color: white !important;
+  }
+}
+
+.card-content {
+  padding: 14px;
+  background-color: #d8d8d8;
+  border-radius: 12px;
+  min-height: 60px;
+
+  .card-description {
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+    word-break: break-word;
+  }
+}
+
+.new-card-form {
+  padding: 13.1px !important;
+  background-color: #f8f9fa !important;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.form-header {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+.form-field-group {
+  margin-bottom: 16px;
+
+  .form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #000;
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+
+    .edit-title,
+    .edit-textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #8ab4f8;
+      border-radius: 12px;
+      background: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+      outline: none;
+      color: #333;
+
+      &::placeholder {
+        color: #bbb;
+      }
+
+      &:focus {
+        border-color: #3b71ca;
+        box-shadow: 0 0 0 2px rgba(59, 113, 202, 0.1);
+      }
+    }
+
+    .edit-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .char-count {
+      display: block;
+      text-align: right;
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 4px;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+
+  .btn-outlined {
+    background: transparent;
+    border: 1px solid #3b71ca;
+    border-radius: 6px;
+    color: #3b71ca;
+    padding: 6px 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      background-color: rgba(59, 113, 202, 0.1);
+    }
+  }
+}
