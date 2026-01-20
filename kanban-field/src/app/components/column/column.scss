@@ -1,0 +1,218 @@
+@use 'sass:color';
+
+$outer-bg: #e0e0e0;
+$inner-bg: #afadad;
+$header-text: #333;
+$radius: 12px;
+$blue-accent: #3b71ca;
+
+.column-wrapper {
+  background-color: $outer-bg;
+  border-radius: $radius;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+.column-header {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+
+  .column-title {
+    margin: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $header-text;
+    font-size: 1.2rem;
+  }
+}
+
+.header-actions {
+  display: flex;
+  gap: 6px;
+
+  .icon-btn {
+    border: none;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #666;
+    transition: background-color 0.2s;
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: #333;
+    }
+  }
+
+  .add-btn:hover {
+    color: $blue-accent;
+    background-color: rgba(59, 113, 202, 0.1);
+  }
+  .delete-btn:hover {
+    color: #d32f2f;
+    background-color: rgba(211, 47, 47, 0.1);
+  }
+}
+
+.column-content {
+  background-color: $inner-bg;
+  border-radius: $radius;
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.cards-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.new-card-form {
+  padding: 16px;
+  border-radius: 16px !important;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  color: #333;
+  margin-top: 4px;
+  border: 1px solid #ddd;
+}
+
+.form-header {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+.form-field-group {
+  margin-bottom: 16px;
+
+  .form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #000;
+  }
+
+  .input-wrapper {
+    position: relative;
+
+    .custom-title,
+    .custom-textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #8ab4f8;
+      border-radius: 12px;
+      background: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+      outline: none;
+      color: #333;
+
+      &::placeholder {
+        color: #bbb;
+      }
+
+      &:focus {
+        border-color: #3b71ca;
+        box-shadow: 0 0 0 2px rgba(59, 113, 202, 0.1);
+      }
+    }
+
+    .custom-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .char-count {
+      display: block;
+      text-align: right;
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 4px;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+
+  .btn-outlined {
+    background: transparent;
+    border: 1px solid #3b71ca;
+    border-radius: 6px;
+    color: #3b71ca;
+    padding: 6px 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      background-color: rgba(59, 113, 202, 0.1);
+    }
+  }
+}
+
+.drag-placeholder {
+  min-height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+}
+
+.column-wrapper.drag-over {
+  outline: 2px solid $blue-accent;
+  background-color: color.adjust($outer-bg, $lightness: 5%)
+}

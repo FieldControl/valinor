@@ -1,0 +1,30 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title class="dialog-title">Nova coluna...</h2>
+
+  <mat-dialog-content class="content-wrapper">
+    <div class="form-field">
+      <label class="input-label">Insira o Título da nova coluna</label>
+      <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="title"
+          cdkFocusInitial
+          placeholder="Digite aqui..."
+          class="custom-input"
+          maxlength="15"
+          (keyup.enter)="title ? onSave() : null"
+        />
+        <span class="char-count">({{ title.length }}/15)</span>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="actions-wrapper">
+    <button class="btn-custom btn-save" (click)="onSave()" [disabled]="!title">
+      <mat-icon>add</mat-icon> Adicionar coluna
+    </button>
+    <button class="btn-custom btn-cancel" (click)="onCancel()">
+      <mat-icon>close</mat-icon> Cancelar
+    </button>
+  </mat-dialog-actions>
+</div>

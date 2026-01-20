@@ -1,0 +1,126 @@
+$primary-color: #4a86e8;
+$light-blue: #8ab4f8;
+$background-color: #f5f6f8;
+$header-height: 80px;
+
+:host {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $background-color;
+}
+
+.main-header {
+  background-color: $primary-color;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  height: $header-height;
+
+  .brand {
+    font-size: 3rem;
+    font-weight: 700;
+
+    .title {
+      font-size: 3rem;
+      color: $light-blue;
+    }
+  }
+}
+.action-bar {
+  background-color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+
+    .space {
+      flex: 1;
+    }
+
+  .add-column-btn {
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+  }
+}
+
+.board-scroll {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 24px;
+
+  &::-webkit-scrollbar {
+    height: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 6px;
+  }
+}
+
+.columns-wrapper {
+  display: flex;
+  height: 100%;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.column-item {
+  min-width: 300px;
+  max-width: 300px;
+  height: 100%;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    height: 64px;
+    padding: 0 16px;
+
+    .brand {
+      font-size: 1.5rem;
+
+      .title {
+        font-size: 1.5rem;
+      }
+    }
+
+    .user-profile {
+      .username {
+        display: none;
+      }
+
+      .avatar-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+      }
+
+      .mat-icon {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .action-bar {
+    padding: 0 16px;
+  }
+}

@@ -1,0 +1,63 @@
+<mat-card
+  *ngIf="!isEditing"
+  class="kanban-card"
+  draggable="true"
+  (dragstart)="onDragStart($event)"
+  (dblclick)="startEdit()"
+>
+  <div class="card-header">
+    <div class="title">
+      <span class="card-title">{{ card.title }}</span>
+    </div>
+
+    <div class="card-actions">
+      <button mat-mini-fab class="btn-edit" (click)="startEdit()" title="Editar">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-mini-fab class="btn-delete" (click)="onDelete()" title="Excluir">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <p class="card-description">{{ card.text }}</p>
+  </div>
+</mat-card>
+
+<mat-card *ngIf="isEditing" class="kanban-card new-card-form">
+  <div class="form-header">Editar card...</div>
+
+  <div class="form-field-group">
+    <label class="form-label">Título</label>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="editTitle"
+        placeholder="Digite aqui..."
+        class="edit-title"
+        maxlength="15"
+      />
+      <span class="char-count">({{ editTitle.length }}/15)</span>
+    </div>
+  </div>
+
+  <div class="form-field-group">
+    <label class="form-label">Conteúdo</label>
+    <div class="input-wrapper">
+      <textarea
+        [(ngModel)]="editText"
+        placeholder="Digite aqui..."
+        rows="4"
+        class="edit-textarea"
+        maxlength="300"
+      ></textarea>
+      <span class="char-count">({{ editText.length }}/300)</span>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn-outlined" (click)="saveEdit()"><mat-icon>check</mat-icon> Salvar</button>
+    <button class="btn-outlined" (click)="cancelEdit()"><mat-icon>close</mat-icon> Cancelar</button>
+  </div>
+</mat-card>
