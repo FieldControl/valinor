@@ -1,0 +1,71 @@
+:root{
+  --bg:#0b0b10;
+  --surface:#141420;
+  --surface2:#1b1b2a;
+  --text:#eaeaf2;
+  --muted:#a7a7b6;
+  --accent:#8b5cf6;
+  --shadow:0 14px 30px rgba(0,0,0,.55);
+  --shadowSoft:0 10px 20px rgba(0,0,0,.35);
+}
+
+html, body { height:100%; }
+
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 30% -10%, rgba(139,92,246,.22), transparent 60%),
+    radial-gradient(900px 500px at 80% 0%, rgba(34,211,238,.10), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+/* 🔥 isso aqui é o que vai “matar o tapete cinza” */
+main, .container, .content, .app, .wrapper, .page, .layout, .board, .kanban, .kanban-wrapper{
+  background: transparent !important;
+}
+
+/* se tiver um wrapper gigante com fundo branco/cinza, isso força */
+#app, app-root{
+  display:block;
+  min-height:100vh;
+  background: transparent !important;
+}
+
+/* ====== KANBAN ====== */
+.kanban-column{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius:16px;
+  padding:12px;
+  box-shadow:var(--shadowSoft);
+  backdrop-filter: blur(6px);
+}
+
+.kanban-card{
+  background: linear-gradient(180deg, rgba(139,92,246,.12), rgba(255,255,255,.03));
+  border: 1px solid rgba(139,92,246,.24);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:10px;
+  box-shadow:0px 10px 24px rgba(0,0,0,0.45);
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.kanban-card:hover{
+  transform: translateY(-4px);
+  box-shadow:0px 18px 34px rgba(0,0,0,0.6);
+  border-color: rgba(139,92,246,.45);
+}
+
+/* Drag */
+.cdk-drag-preview{
+  box-shadow:0 18px 40px rgba(0,0,0,0.7);
+  border-radius:12px;
+  transform: rotate(1deg);
+}
+.cdk-drag-placeholder{
+  opacity:.22;
+  border-radius:12px;
+}

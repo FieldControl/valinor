@@ -1,0 +1,105 @@
+<div *ngIf="!isLoggedIn" class="login-bg">
+  <div class="login-card">
+    
+    <h1>{{ isRegistering ? '⚡ Nova Conta' : '🚀 Access Kanban' }}</h1>
+    
+    <div *ngIf="isRegistering">
+       <input class="login-input" type="text" [(ngModel)]="registerData.name" placeholder="Seu Nome">
+       <input class="login-input" type="email" [(ngModel)]="registerData.email" placeholder="Email">
+       <input class="login-input" type="password" [(ngModel)]="registerData.password" placeholder="Senha">
+    </div>
+
+    <div *ngIf="!isRegistering">
+       <input class="login-input" type="email" [(ngModel)]="loginData.email" placeholder="Email">
+       <input class="login-input" type="password" [(ngModel)]="loginData.password" placeholder="Senha">
+    </div>
+
+    <span *ngIf="erroLogin" class="error-msg">{{ erroLogin }}</span>
+
+    <button class="login-btn" (click)="isRegistering ? fazerCadastro() : fazerLogin()">
+      {{ isRegistering ? 'CADASTRAR' : 'ENTRAR' }}
+    </button>
+
+    <p class="toggle-text" (click)="toggleRegister()">
+      {{ isRegistering ? 'Já tem conta? Voltar para Login' : 'Não tem conta? Crie uma aqui' }}
+    </p>
+
+  </div>
+</div>
+
+<div *ngIf="isLoggedIn" class="container-geral">
+  <button class="btn-logout" (click)="logout()">🚪 Sair</button>
+
+  <div class="dashboard">
+    <div class="dash-card">
+      <div class="dash-icon">📊</div>
+      <div class="dash-info">
+        <span>Total</span><h3>{{ totalTasks }}</h3><small>Tarefas</small>
+      </div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-icon">🚀</div>
+      <div class="dash-info">
+        <span>Progresso</span><h3>{{ progress }}%</h3>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" [style.width.%]="progress"></div></div>
+      </div>
+    </div>
+    <div class="dash-card" [class.alert]="atrasadas > 0">
+      <div class="dash-icon">⚠️</div>
+      <div class="dash-info">
+        <span>Atenção</span><h3>{{ atrasadas }}</h3>
+        <small>{{ atrasadas > 0 ? 'Tarefas vencidas!' : 'Tudo em dia!' }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="barra-adicionar">
+    <input placeholder="Nova tarefa..." [(ngModel)]="novoTitulo" />
+    <input placeholder="Descrição..." [(ngModel)]="novaDescricao" />
+    <input type="date" [(ngModel)]="novoPrazo" />
+    <button (click)="adicionar()">+ ADICIONAR</button>
+  </div>
+
+  <div class="kanban-area">
+    <div class="coluna">
+      <h2>A Fazer <span class="count">{{ todo.length }}</span></h2>
+      <div id="lista-todo" cdkDropList [cdkDropListData]="todo" [cdkDropListConnectedTo]="['lista-doing', 'lista-done']" class="lista" (cdkDropListDropped)="drop($event)">
+        <div class="card" *ngFor="let item of todo" cdkDrag (click)="abrirDetalhes(item)">
+          <button class="btn-delete" (click)="remover(item.id); $event.stopPropagation()">🗑️</button>
+          <div class="card-content"><b>{{ item.title }}</b></div>
+          <div class="card-footer">
+             <small *ngIf="item.dueDate" [style.color]="item.dueDate < novoPrazo ? '#ff8080' : '#aaa'">📅 {{ item.dueDate | date:'dd/MM' }}</small><span>Ver +</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="coluna">
+      <h2>Em Progresso <span class="count">{{ doing.length }}</span></h2>
+      <div id="lista-doing" cdkDropList [cdkDropListData]="doing" [cdkDropListConnectedTo]="['lista-todo', 'lista-done']" class="lista" (cdkDropListDropped)="drop($event)">
+        <div class="card" *ngFor="let item of doing" cdkDrag (click)="abrirDetalhes(item)">
+          <button class="btn-delete" (click)="remover(item.id); $event.stopPropagation()">🗑️</button>
+          <div class="card-content"><b>{{ item.title }}</b></div>
+          <div class="card-footer"><small *ngIf="item.dueDate">📅 {{ item.dueDate | date:'dd/MM' }}</small><span>Ver +</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="coluna">
+      <h2>Feito <span class="count">{{ done.length }}</span></h2>
+      <div id="lista-done" cdkDropList [cdkDropListData]="done" [cdkDropListConnectedTo]="['lista-todo', 'lista-doing']" class="lista" (cdkDropListDropped)="drop($event)">
+        <div class="card" *ngFor="let item of done" cdkDrag (click)="abrirDetalhes(item)">
+          <button class="btn-delete" (click)="remover(item.id); $event.stopPropagation()">🗑️</button>
+          <div class="card-content"><b>{{ item.title }}</b></div>
+          <div class="card-footer"><small *ngIf="item.dueDate">📅 {{ item.dueDate | date:'dd/MM' }}</small><span>Ver +</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details" *ngIf="selecionado">
+    <div class="details-header"><div class="details-title">Detalhes</div><button class="details-close" (click)="fecharDetalhes()">X</button></div>
+    <div class="field"><span>Título</span><input [(ngModel)]="selecionado.title" readonly></div>
+    <div class="field"><span>Descrição</span><textarea [(ngModel)]="selecionado.description" rows="4" readonly></textarea></div>
+    <div class="field"><span>Data</span><input type="date" [(ngModel)]="selecionado.dueDate" readonly></div>
+    <div class="actions"><button (click)="fecharDetalhes()">Fechar</button></div>
+  </div>
+</div>

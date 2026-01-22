@@ -1,0 +1,512 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS (CYBERPUNK GOLD EDITION 🌟)
+   ========================================================================== */
+:root {
+  --text: #ffffff;
+  /* O Gradiente Dourado Poderoso */
+  --gold-grad: linear-gradient(90deg, #ff6b00, #ffaa00, #facc15); 
+  
+  --bg-dark: #050508;
+  --card-bg: #121214;
+  --border-glow: rgba(251, 191, 36, 0.3);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text);
+  /* Fundo sutil com toques de laranja */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.15), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(250, 204, 21, 0.1), transparent 40%);
+  min-height: 100vh;
+}
+
+.container-geral {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ==========================================================================
+   2. BOTÃO SAIR (ESTILO NEON)
+   ========================================================================== */
+.btn-logout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fbbf24;
+  border: 1px solid #fbbf24;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  transition: all 0.3s;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.1);
+}
+
+.btn-logout:hover {
+  background: #fbbf24;
+  color: #000;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+}
+
+/* ==========================================================================
+   3. DASHBOARD (BRILHANTE)
+   ========================================================================== */
+.dashboard {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 70px auto 20px;
+  padding: 0 24px;
+  flex-wrap: wrap;
+}
+
+.dash-card {
+  flex: 1;
+  min-width: 200px;
+  background: var(--card-bg);
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Borda sutil dourada no hover */
+.dash-card:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
+}
+
+.dash-card.alert {
+  border: 1px solid rgba(255, 80, 80, 0.5);
+  background: rgba(255, 0, 0, 0.05);
+}
+.dash-card.alert h3 { color: #ff5050; }
+
+.dash-icon {
+  font-size: 24px;
+  background: rgba(255,255,255,0.05);
+  width: 45px; height: 45px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+.dash-info { flex: 1; display: flex; flex-direction: column; }
+
+/* TÍTULOS DOURADOS DE VOLTA */
+.dash-info span { 
+  font-size: 10px; 
+  text-transform: uppercase; 
+  color: #fbbf24; /* DOURADO */
+  font-weight: 800; 
+  letter-spacing: 1px;
+  margin-bottom: 4px; 
+}
+
+.dash-info h3 { margin: 0; font-size: 26px; color: white; font-weight: 900; }
+.dash-info small { font-size: 10px; color: #888; text-align: right; margin-top: 4px; }
+
+/* BARRA DE PROGRESSO (AGORA SIM, BRILHANDO!) */
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gold-grad) !important; /* FORÇA O GRADIENTE */
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.8); /* GLOW LARANJA FORTE */
+  display: block !important;
+}
+
+/* ==========================================================================
+   4. BARRA DE AÇÃO (INPUTS E BOTÃO)
+   ========================================================================== */
+.barra-adicionar {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 30px 24px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.barra-adicionar input {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background: #1a1a1e;
+  color: white;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.barra-adicionar input:focus {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+/* BOTÃO ADICIONAR (EXPLOSÃO DE COR) */
+.barra-adicionar button {
+  padding: 0 24px;
+  font-weight: 900;
+  border-radius: 12px;
+  border: 0;
+  background: var(--gold-grad) !important;
+  color: #000 !important;
+  cursor: pointer;
+  transition: transform 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+}
+
+.barra-adicionar button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  box-shadow: 0 0 30px rgba(255, 107, 0, 0.7);
+}
+
+/* ==========================================================================
+   5. KANBAN BOARD
+   ========================================================================== */
+.kanban-area {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.coluna {
+  width: 320px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 20px;
+  background: #161618;
+  border: 1px solid #2a2a2a;
+}
+
+.coluna h2 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #e0e0e0;
+  margin: 0 0 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.count {
+  background: #333;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  color: #fbbf24;
+  border: 1px solid #fbbf24;
+}
+
+.lista {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CARD */
+.card {
+  background: #1e1e24;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: grab;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: #25252b;
+  border-color: #fbbf24;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.card-content b {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.card:hover .btn-delete { opacity: 1; }
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-footer small {
+  font-size: 11px;
+  background: #111;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #ccc;
+  border: 1px solid #333;
+}
+
+.card-footer span { font-size: 11px; color: #fbbf24; cursor: pointer; font-weight: bold; }
+.card-footer span:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   6. MODAL & LOGIN (VISUAL FORTE)
+   ========================================================================== */
+.details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 400px;
+  background: #09090b;
+  border: 1px solid #fbbf24;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 0 100px rgba(251, 191, 36, 0.3);
+}
+
+.details-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.details-title { font-size: 18px; font-weight: 900; color: #fbbf24; text-transform: uppercase; }
+.details-close { background: transparent; color: #fff; border: 0; font-size: 18px; cursor: pointer; }
+
+.field { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; }
+.field span { font-size: 10px; color: #fbbf24; font-weight: bold; text-transform: uppercase; }
+.field input, .field textarea { width: 100%; padding: 10px; background: #1a1a1e; border: 1px solid #333; color: white; border-radius: 8px; box-sizing: border-box; }
+
+.actions button { width: 100%; padding: 12px; background: #333; color: white; border: 0; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.actions button:hover { background: #444; }
+
+/* TELA DE LOGIN */
+.login-bg {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #1a1a1e 0%, #000000 100%);
+}
+
+.login-card {
+  background: #09090b;
+  border: 1px solid #fbbf24;
+  padding: 40px;
+  border-radius: 24px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(251, 191, 36, 0.2);
+}
+
+.login-card h1 {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text; /* Correção do warning */
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 900;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  background: #1a1a1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.login-input:focus { border-color: #fbbf24; outline: none; }
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--gold-grad);
+  border: 0;
+  border-radius: 8px;
+  font-weight: 900;
+  cursor: pointer;
+  color: black;
+  margin-top: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+}
+
+.login-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 30px rgba(255, 107, 0, 0.7);
+}
+
+.error-msg {
+  color: #ff5050;
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .kanban-area { flex-direction: column; align-items: center; }
+  .coluna { width: 100%; max-width: 400px; }
+  .details { width: 90%; }
+}
+/* ==========================================================================
+   7. CUSTOMIZAÇÕES ADICIONAIS (FORÇA TOTAL DE CORES)
+   ========================================================================== */
+/* 1. Botão ADICIONAR (Amarelo/Laranja Forte) */
+.barra-adicionar button {
+  background: linear-gradient(90deg, #ff6b00, #ffaa00, #facc15) !important;
+  background-color: #ffaa00 !important; /* Cor de segurança se o gradiente falhar */
+  color: #000000 !important; /* Texto Preto para ler bem */
+  border: 2px solid #ffaa00 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 20px rgba(255, 100, 0, 0.6) !important;
+  font-weight: 900 !important;
+}
+
+/* Efeito quando passa o mouse */
+.barra-adicionar button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255, 170, 0, 0.8) !important;
+  filter: brightness(1.2);
+}
+
+/* 2. Barra de Progresso (Preenchimento Dourado) */
+.progress-bar-fill {
+  background: linear-gradient(90deg, #ff6b00, #facc15) !important;
+  background-color: #ff6b00 !important;
+  opacity: 1 !important;
+  display: block !important;
+  height: 100% !important;
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.8) !important;
+}
+
+/* 3. Fundo da Barra (Cinza Escuro para contraste) */
+.progress-bar-bg {
+  background: #2a2a2a !important;
+  border: 1px solid #444 !important;
+  opacity: 1 !important;
+}
+
+/* 4. Login Inputs (Para garantir que dê para ler) */
+.login-input {
+  background: #1a1a1e !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+/* ======================================================
+   CORREÇÃO FINAL: LOGIN E BOTÕES 🌟
+   ====================================================== */
+
+/* 1. Botão de Login (TEM QUE SER LEGÍVEL!) */
+.login-btn {
+  background: #fbbf24 !important; /* Amarelo Ouro Sólido */
+  color: #000000 !important;      /* Texto Preto */
+  font-weight: 900 !important;
+  border: 2px solid #eab308 !important;
+  opacity: 1 !important;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Hover do Login */
+.login-btn:hover {
+  background: #f59e0b !important;
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.8) !important;
+}
+
+/* 2. Inputs do Login (Fundo escuro, Letra Clara) */
+.login-input {
+  background: #18181b !important; /* Cinza Quase Preto */
+  color: #ffffff !important;      /* Letra Branca */
+  border: 1px solid #3f3f46 !important;
+  font-size: 14px !important;
+}
+
+.login-input::placeholder {
+  color: #a1a1aa !important; /* Placeholder cinza claro */
+}
+
+/* 3. Botão Adicionar (O da tela principal) */
+.barra-adicionar button {
+  background: linear-gradient(90deg, #ff8800, #ffbb00) !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 0 20px rgba(255, 136, 0, 0.5) !important;
+}
+
+/* 4. Barra de Progresso (Garantia de não sumir) */
+.progress-bar-fill {
+  background: linear-gradient(90deg, #ff6b00, #facc15) !important;
+  display: block !important;
+  height: 100% !important;
+}
+/* Link de alternar Login/Cadastro */
+.toggle-text {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #fbbf24; /* Dourado */
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.toggle-text:hover {
+  opacity: 1;
+  text-decoration: none;
+}

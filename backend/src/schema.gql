@@ -1,0 +1,103 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Task {
+  id: ID!
+  title: String!
+  description: String
+  dueDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  order: Int!
+  column: KanbanColumn!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type KanbanColumn {
+  id: ID!
+  name: String!
+  order: Int!
+  board: Board!
+  tasks: [Task!]
+}
+
+type Board {
+  id: ID!
+  name: String!
+  columns: [KanbanColumn!]
+}
+
+type ColumnTaskCount {
+  columnName: String!
+  count: Int!
+}
+
+type User {
+  id: String!
+  name: String!
+  email: String!
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+type Query {
+  boards: [Board!]!
+  columnsByBoard(boardId: ID!): [KanbanColumn!]!
+  tasks: [Task!]!
+  tasksByColumn(columnId: ID!): [Task!]!
+  taskCountsByBoard(boardId: ID!): [ColumnTaskCount!]!
+  users: [User!]!
+  user(id: String!): User
+}
+
+type Mutation {
+  createBoard(input: CreateBoardInput!): Board!
+  createColumn(input: CreateColumnInput!): KanbanColumn!
+  createTask(input: CreateTaskInput!): Task!
+  moveTask(input: MoveTaskInput!): Task!
+  createUser(createUserInput: CreateUserInput!): User!
+  login(loginInput: LoginInput!): LoginResponse!
+}
+
+input CreateBoardInput {
+  name: String!
+}
+
+input CreateColumnInput {
+  boardId: ID!
+  name: String!
+  order: Int! = 0
+}
+
+input CreateTaskInput {
+  title: String!
+  description: String
+  dueDate: DateTime
+  order: Int!
+  columnId: String!
+}
+
+input MoveTaskInput {
+  taskId: ID!
+  toColumnId: ID!
+  newOrder: Int! = 0
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
