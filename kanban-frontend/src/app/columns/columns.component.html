@@ -1,0 +1,10 @@
+<h2>Kanban Columns</h2>
+
+<ul>
+  <li *ngFor="let column of columns">
+    {{ column.title }}
+  </li>
+</ul>
+
+<input [(ngModel)]="newTitle" placeholder="New column title" />
+<button (click)="addColumn()">Add Column</button>
